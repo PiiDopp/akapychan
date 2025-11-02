@@ -6,6 +6,11 @@ python3 -m venv <虛擬環境名稱>
 # 範例：
 python3 -m venv myenv
 ```
+```bash
+virtualenv <folder_name>
+# 範例：
+virtualenv myenv
+```
 ## 啟動虛擬環境
 ```bash
 

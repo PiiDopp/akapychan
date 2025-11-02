@@ -311,28 +311,6 @@ def interactive_session():
             print(result)
         elif mode == "4":
             explain_user_code()
-        elif mode == "5":
-            print("請貼上 Python 程式碼，結束輸入請輸入單獨一行 'END'。")
-            lines = []
-            while True:
-                try:
-                    line = input()
-                except EOFError:
-                    break
-                if line.strip() == "END":
-                    break
-                lines.append(line)
-
-            user_code = "\n".join(lines)
-            if not user_code.strip():
-                print("[提示] 沒有輸入程式碼，取消解釋。")
-                continue
-
-            explanation = explain_code_error(user_code)
-            print("\n=== 模型解釋 ===\n")
-            print(explanation)
-        elif mode == "6":
-            interactive_code_modification_loop()
 
         else:
             interactive_chat()
