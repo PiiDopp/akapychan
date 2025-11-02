@@ -11,8 +11,9 @@ from core.data_structures import ListNode, TreeNode, list_to_nodes, nodes_to_lis
 try:
     from explain_error import explain_code_error
 except ImportError:
-    # 如果模組不存在，定義一個備用函式
-    def explain_code_error(code, error_msg=""):
+    # (*** 錯誤修正 2a ***)
+    # 修正：備用函式 (fallback) 應該只接受一個參數 'code'
+    def explain_code_error(code):
         print(f"[警告] 'explain_error' 模組載入失敗，無法分析錯誤。")
         return "(錯誤分析模組載入失敗)"
 
@@ -133,15 +134,13 @@ def parse_leetcode_info(solution_str: str, input_str: str) -> tuple[str | None, 
     """
     
     # 1. 嘗試解析函式名稱
-    # e.g., def twoSum(self, nums, target):
-    # e.g., def twoSum(self, nums, target) -> List[int]:
     match = re.search(r"def (\w+)\(self, ([^\)]+)\)", solution_str)
     
     if not match:
         # 可能是 __init__ 題目 (e.g., KthLargest, MyLinkedList)
         if "def __init__(self" in solution_str:
             return None, [], ""
-        # 備用 regex (如果 LeetCode 格式改變)
+        # 備用 regex
         match = re.search(r"def (\w+)\(self, ([^\)]+)\) ->", solution_str)
         if not match:
              return None, [], "" # 真的找不到
@@ -160,30 +159,22 @@ def parse_leetcode_info(solution_str: str, input_str: str) -> tuple[str | None, 
         raw_arg_names = re.findall(r"(\w+)\s*=", input_str)
         
         if set(raw_arg_names) == set(arg_names):
-             # 匹配 (e.g., def(a,b) and input="a=1, b=2")
              return func_name, arg_names, input_definitions
         else:
-             # 不匹配
              if not raw_arg_names and not arg_names:
-                 # 兩者都為空 (e.g., def(a) and input="[1,2]") -> LeetCode 703 style
-                 return None, [], "" # 無法驗證
+                 return None, [], ""
             
-             # (*** 這裡是修復 ***)
-             # (此行 (原 194) 移入 'else' 區塊)
+             # (*** 錯誤修正 1 ***)
+             # (修正 IndentationError：將此區塊正確縮排到 'else' 內部)
              if not raw_arg_names: 
-                 # (e.g., def(a) but input="[1,2]")
-                 return None, [], "" # 還是無法驗證
+                 return None, [], "" 
              
-             # (原 196)
-             # 相信從 input 解析到的 names
              return func_name, raw_arg_names, input_definitions
 
     except Exception as e:
         print(f"[警告] LeetCode input 解析失敗: {e}")
         return None, [], ""
-    
-    # 安全回退
-    return None, [], ""
+    # (移除了先前在 try...except 外部的 return)
 
 # ---
 # === 主函式 ===
@@ -381,8 +372,9 @@ run_test_harness()
                 print("  結果: [錯誤] 程式執行失敗或輸出與期望不符 ❌")
                 print("\n[提示] 程式執行失敗，開始分析...\n")
                 try:
-                    # 分析 Harness 失敗的原因
-                    analysis_result = explain_code_error(harness_code, output_msg)
+                    # (*** 錯誤修正 2b ***)
+                    # 修正：只傳入 1 個參數
+                    analysis_result = explain_code_error(harness_code)
                     print("\n=== 模型分析 ===\n")
                     print(analysis_result)
                 except Exception as e:
@@ -433,7 +425,9 @@ run_test_harness()
             print("  結果: [錯誤] 程式執行失敗或輸出與期望不符 ❌")
             print("\n[提示] 程式執行失敗，開始分析...\n")
             try:
-                fallback_result = explain_code_error(user_code, output_msg)
+                # (*** 錯誤修正 2c ***)
+                # 修正：只傳入 1 個參數
+                fallback_result = explain_code_error(user_code)
                 print("\n=== 模型分析 ===\n")
                 print(fallback_result)
             except Exception as e:
