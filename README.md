@@ -2,9 +2,9 @@
 
 ## 建立虛擬環境
 ```bash
-python -m venv <虛擬環境名稱>
+python3 -m venv <虛擬環境名稱>
 # 範例：
-python -m venv myenv
+python3 -m venv myenv
 ```
 ## 啟動虛擬環境
 ```bash

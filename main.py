@@ -5,7 +5,6 @@ from core import ask_input, generate_response, \
                  validate_python_code, generate_tests, validate_main_function
 from core.model_interface import build_virtual_code_prompt, build_test_prompt, build_explain_prompt, build_code_prompt, call_ollama_cli, MODEL_NAME, interactive_chat, interactive_langchain_chat, interactive_code_modification_loop, build_stdin_code_prompt, build_fix_code_prompt
 from quiz.quiz_mode import quiz_mode
-from verify_user_code import verify_user_code
 from explain_user_code import explain_user_code
 from explain_error import explain_code_error
 
@@ -296,10 +295,9 @@ def interactive_session():
                 print("[提示] 沒有輸入程式碼，取消驗證。")
                 continue
 
-            from verify_and_explain import verify_and_explain_user_code
 
             print("\n=== 驗證中 ===\n")
-            result = verify_and_explain_user_code(user_code)
+            result = validate_main_function(user_code)
 
             if "錯誤" in result or "Traceback" in result or "失敗" in result:
                 print("\n[警告] 程式執行失敗，開始分析...\n")
