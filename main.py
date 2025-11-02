@@ -279,7 +279,7 @@ def interactive_session():
         elif mode == "2":
             quiz_mode()
         elif mode == "3":
-            print("請貼上 Python 程式碼，結束輸入請輸入單獨一行 'END'。")
+            print("請貼上您要驗證的 Python 程式碼，結束輸入請輸入單獨一行 'END'。")
             lines = []
             while True:
                 try:
@@ -295,20 +295,114 @@ def interactive_session():
                 print("[提示] 沒有輸入程式碼，取消驗證。")
                 continue
 
-
-            print("\n=== 驗證中 ===\n")
-            result = validate_main_function(user_code)
-
-            if "錯誤" in result or "Traceback" in result or "失敗" in result:
-                print("\n[警告] 程式執行失敗，開始分析...\n")
+            # --- 新增：詢問需求說明 ---
+            print("\n請輸入這段程式碼的「需求說明」，AI 將以此生成測資來驗證。")
+            print("多行輸入，結束請輸入單獨一行 'END'。(若留空，則僅執行一次程式)")
+            
+            need_lines = []
+            while True:
                 try:
-                    fallback_result = explain_code_error(user_code)
-                    result += f"\n\n[分析結果]\n{fallback_result}"
-                except Exception as e:
-                    result += f"\n\n[分析失敗] {e}"
+                    line = input()
+                except EOFError:
+                    break
+                if line.strip() == "END":
+                    break
+                need_lines.append(line)
+            
+            user_need = "\n".join(need_lines).strip()
+            
+            json_tests = []
+            if user_need:
+                # --- (A) 如果提供了需求，生成測資 ---
+                print("\n[提示] 正在根據您的需求說明生成測資...\n")
+                test_prompt = build_test_prompt(user_need)
+                test_resp = generate_response(test_prompt)
+                print("\n=== 模型回覆 (測資) ===\n")
+                print(test_resp, "\n")
+                
+                json_tests = extract_json_block(test_resp) or parse_tests_from_text(user_need)
+                
+                if json_tests:
+                    print(f"[提示] 已成功提取 {len(json_tests)} 筆測資。")
+                else:
+                    print("[警告] 未能從模型回覆中提取 JSON 測資。將僅執行一次程式。")
+            
+            if json_tests:
+                # --- (A.1) 使用 AI 生成的測資進行驗證 ---
+                print("\n[驗證中] 正在使用 AI 生成的測資逐一驗證您的程式碼...")
+                all_passed = True
+                failed_outputs = [] # 儲存失敗訊息
 
-            print("\n=== 結果 ===\n")
-            print(result)
+                for i, test in enumerate(json_tests):
+                    print(f"\n--- 測試案例 {i+1} ---")
+                    
+                    if not (isinstance(test, list) and len(test) == 2):
+                        print(f"  [警告] 測資格式不符 (應為 [input, output]): {repr(test)}")
+                        print(f"  結果: [跳過]")
+                        all_passed = False 
+                        continue 
+                    
+                    test_input_val = test[0] 
+                    test_output_val = test[1]
+                    
+                    print(f"  Input: {repr(test_input_val)}")
+                    print(f"  Expected Output: {repr(test_output_val)}")
+
+                    test_input_str = str(test_input_val) if test_input_val is not None else ""
+                    test_output_str = str(test_output_val) if test_output_val is not None else None
+
+                    # 使用 validate_main_function 進行比對
+                    success, output_msg = validate_main_function(
+                        code=user_code,
+                        stdin_input=test_input_str,
+                        expected_output=test_output_str
+                    )
+                    print(f"  詳細資訊/執行結果:\n{output_msg}")
+                    if success:
+                        print(f"  結果: [通過] ✅")
+                    else:
+                        print(f"  結果: [失敗] ❌")
+                        all_passed = False
+                        failed_outputs.append(f"案例 {i+1} (Input: {repr(test_input_str)}):\n{output_msg}")
+
+                print("\n" + "="*20)
+                if all_passed:
+                    print("總結: [成功] 您的程式碼已通過所有 AI 生成的測資。")
+                else:
+                    print("總結: [失敗] 您的程式碼未通過部分測資。")
+                    print("\n[警告] 程式驗證失敗，開始分析...\n")
+                    try:
+                        # (*** 修正 ***) 確保只傳入 'user_code'
+                        fallback_result = explain_code_error(user_code) 
+                        print("\n=== 程式碼分析 ===\n")
+                        print(fallback_result)
+                        print(f"\n(失敗詳情: {failed_outputs[0]})") # 顯示第一個錯誤
+                    except Exception as e:
+                        print(f"\n[分析失敗] {e}")
+
+            else:
+                # --- (B) 如果沒有需求或測資生成失敗，執行舊的 Mode 3 邏輯 (僅執行一次) ---
+                print("\n=== 驗證中 (僅執行一次，無輸入) ===\n")
+                
+                # (*** 修正 ***) 正確處理 validate_main_function 的回傳值 (tuple)
+                success, result_msg = validate_main_function(user_code, stdin_input=None, expected_output=None)
+
+                if success:
+                    print("\n=== 程式執行成功 ===\n")
+                    print("STDOUT 輸出:")
+                    print(result_msg)
+                else:
+                    print("\n=== 程式執行失敗 ===\n")
+                    print("STDERR 或錯誤訊息:")
+                    print(result_msg)
+                    print("\n[警告] 程式執行失敗，開始分析...\n")
+                    try:
+                        # (*** 修正 ***) 確保只傳入 'user_code'
+                        fallback_result = explain_code_error(user_code)
+                        print("\n=== 程式碼分析 ===\n")
+                        print(fallback_result)
+                    except Exception as e:
+                        print(f"\n[分析失敗] {e}")
         elif mode == "4":
             explain_user_code()
 
