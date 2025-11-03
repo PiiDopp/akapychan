@@ -26,3 +26,8 @@ deactivate
 ```bash
 python3 main.py
 ```
+
+
+```bash
+pip install - r requirements.txt
+```
