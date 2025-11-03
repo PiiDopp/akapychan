@@ -1,6 +1,7 @@
 import os
 import json
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple, Optional
+import pathlib
 
 def load_all_json_from_dir(root_dir: str = "obj/LEETCODE") -> List[Dict[str, Any]]:
     """
@@ -58,6 +59,86 @@ def format_data_for_rag(data: List[Dict[str, Any]]) -> str:
         formatted_chunks.append(chunk)
 
     return "\n\n".join(formatted_chunks)
+
+
+def load_all_problems_from_file(file_path: pathlib.Path) -> List[Tuple[str, str, List[Dict[str, str]], Optional[str]]]:
+    """
+    (從 testrun.py 移入)
+    從指定的 JSON 檔案彈性載入 *所有* 練習題的需求描述、範例和參考解法。
+    
+    返回一個元組的 *列表*：
+    List[ (title, description, examples, solution), ... ]
+    
+    如果檔案無法解析或未找到任何題目，則返回一個空列表。
+    """
+    all_problems = []
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        default_title = file_path.stem
+        problems_list = []
+
+        # 1. 嘗試 'coding_practice' 結構 (這現在是一個列表)
+        if "coding_practice" in data and isinstance(data["coding_practice"], list):
+            problems_list = data["coding_practice"]
+        
+        # 2. 備用：如果頂層就是一個有效的題目結構（雖然不常見）
+        elif "description" in data or "solution" in data:
+             # 將整個頂層 data 視為單一問題
+             problems_list = [data]
+
+        if not problems_list:
+            print(f"  [警告] 在 {file_path.name} 中找不到 'coding_practice' 列表或有效的頂層題目。")
+            return []
+
+        # --- 迭代檔案中的 *所有* 題目 ---
+        for index, problem in enumerate(problems_list):
+            if not isinstance(problem, dict):
+                print(f"  [警告] {file_path.name} 中索引 {index} 處的項目不是一個有效的物件（字典）。")
+                continue
+
+            title = problem.get("title", f"{default_title}_problem_{index+1}")
+            description = problem.get("description", problem.get("content"))
+            solution = problem.get("solution")
+            raw_examples = problem.get("examples")
+            examples = []
+
+            # 格式化 examples
+            if isinstance(raw_examples, list):
+                examples = raw_examples
+            elif isinstance(raw_examples, dict):
+                 examples = [raw_examples]
+
+            formatted_examples = []
+            if examples:
+                 for ex in examples:
+                     inp = ex.get("input")
+                     out = ex.get("output")
+                     if inp is not None and out is not None:
+                         formatted_examples.append({
+                             "input": str(inp),
+                             "output": str(out)
+                         })
+
+            # 確保 solution 是字串或 None
+            if solution and not isinstance(solution, str):
+                solution = None # 如果格式不對，設為 None
+
+            # 必須要有 description
+            if description and isinstance(description, str) and description.strip():
+                all_problems.append(
+                    (title, description.strip(), formatted_examples, solution)
+                )
+            else:
+                 print(f"  [警告] {file_path.name} 中索引 {index} 處的題目缺少 'description'。")
+
+        return all_problems
+
+    except Exception as e:
+        print(f"  [錯誤] 讀取或解析 {file_path.name} 時發生例外: {e}")
+        return [] # 返回空列表表示失敗
 
 if __name__ == '__main__':
     # 修正後的測試載入功能：直接使用預設路徑 'project/obj'，因為腳本從 project/ 目錄執行

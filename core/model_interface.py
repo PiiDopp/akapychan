@@ -375,7 +375,7 @@ def interactive_code_modification_loop():
 
     return current_code # 函數應回傳最終代碼
 
-def build_stdin_code_prompt(user_need: str, virtual_code: str, json_tests: Optional[List[Tuple[str, str]]]) -> str:
+def build_stdin_code_prompt(user_need: str, virtual_code: str, json_tests: Optional[List[Tuple[str, str]]],solution: Optional[str] = None) -> str:
     """
     (MODIFIED) 建立一個專門用於生成 stdin/stdout 程式碼的提示。
     採用 testrun.py 的提示邏輯。
@@ -403,11 +403,15 @@ def build_stdin_code_prompt(user_need: str, virtual_code: str, json_tests: Optio
         code_prompt_lines.append("\n再次強調：你的 `main` 程式碼不應該包含這些範例，它應該是通用的，能從 `stdin` 讀取任何合法的輸入。\n")
     else:
         code_prompt_lines.append("由於沒有提供範例，請確保程式碼結構完整，包含 `if __name__ == \"__main__\":` 區塊並能從 `stdin` 讀取數據。\n")
-
+        
+    if solution:
+        code_prompt_lines.append("您可以參考以下的參考解法：\n")
+        code_prompt_lines.append(f"```python\n{solution}\n```\n")
+        code_prompt_lines.append("請學習此解法（但不一定要完全照抄），並生成包含 main 區塊且能通過上述範例測試的完整程式碼。\n")
     code_prompt_lines.append("⚠️ **重要**：請僅輸出一個 Python 程式碼區塊 ```python ... ```，絕對不要輸出任何額外文字或解釋。")
     return "".join(code_prompt_lines)
 
-def build_fix_code_prompt(user_need: str, virtual_code: str, json_tests: Optional[List[Tuple[str, str]]], history: List[str], current_code: str, modification_request: str) -> str:
+def build_fix_code_prompt(user_need: str, virtual_code: str, json_tests: Optional[List[Tuple[str, str]]], history: List[str], current_code: str, modification_request: str,solution: Optional[str] = None) -> str:
     """
     (MODIFIED) 建立一個用於「互動式修改」的提示。
     這會包含歷史紀錄、當前程式碼和修改需求。
@@ -429,6 +433,10 @@ def build_fix_code_prompt(user_need: str, virtual_code: str, json_tests: Optiona
         "3. 將最終答案打印 (print) 到標準輸出 (stdout)。\n"
         "4. **不要** 在 `main` 區塊中硬編碼 (hard-code) 任何範例輸入或輸出。\n"
     ]
+
+    if solution:
+        code_prompt_lines.append("\n--- 參考解法 (僅供參考) ---\n")
+        code_prompt_lines.append(f"```python\n{solution}\n```\n")
 
     if json_tests: # 重新使用先前生成的測資
         code_prompt_lines.append("\n以下是幾個範例，展示了程式執行時**應該**如何處理輸入和輸出（你的程式碼將透過 `stdin` 接收這些輸入）：\n")
