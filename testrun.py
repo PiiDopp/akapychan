@@ -30,7 +30,8 @@ try:
     from core.model_interface import (
         build_virtual_code_prompt,
         build_test_prompt,     # <-- 新增 (main.py 邏輯)
-        build_stdin_code_prompt  # <-- 新增 (main.py 邏輯)
+        build_stdin_code_prompt,
+        call_ollama_cli  # <-- 新增 (main.py 邏輯)
     )
 
 except ImportError as e:
@@ -126,7 +127,7 @@ def generate_and_validate(user_need: str, examples: List[Dict[str, str]], soluti
     複製 main.py (模式1) 的三階段*生成*邏輯：
     1. Need -> 虛擬碼
     2. Need -> AI 測資 (JSON)
-    3. 虛擬碼 + AI 測資 -> 程式碼 (*** 忽略檔案中的 solution ***)
+    3. 虛擬碼 + AI 測資 -> 程式碼 
     4. 驗證 (使用 *檔案中的 examples* 來計分)
     """
     result = {
@@ -189,10 +190,10 @@ def generate_and_validate(user_need: str, examples: List[Dict[str, str]], soluti
             user_need, 
             virtual_code, 
             ai_generated_tests,
-            solution=solution)
+            solution=solution,
+            file_examples=examples)
 
-        # (修改) 使用 generate_response (同 main.py)
-        code_resp = generate_response(code_prompt_string) #
+        code_resp = call_ollama_cli(code_prompt_string) #
 
     except Exception as e:
         print(f"     [錯誤] 'generate_response' (程式碼階段) 失敗: {e}")

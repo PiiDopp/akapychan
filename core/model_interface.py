@@ -2,9 +2,10 @@ import subprocess
 import os
 import time
 from core.io_utils import ThinkingDots, ask_input
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Dict
 from core.code_extract import extract_code_block
 from core.validators import validate_main_function
+import re
 
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
@@ -375,7 +376,7 @@ def interactive_code_modification_loop():
 
     return current_code # 函數應回傳最終代碼
 
-def build_stdin_code_prompt(user_need: str, virtual_code: str, json_tests: Optional[List[Tuple[str, str]]],solution: Optional[str] = None) -> str:
+def build_stdin_code_prompt(user_need: str, virtual_code: str, ai_generated_tests: Optional[List[Tuple[str, str]]],solution: Optional[str] = None,file_examples: Optional[List[Dict[str, str]]] = None) -> str:
     """
     (MODIFIED) 建立一個專門用於生成 stdin/stdout 程式碼的提示。
     採用 testrun.py 的提示邏輯。
@@ -391,10 +392,28 @@ def build_stdin_code_prompt(user_need: str, virtual_code: str, json_tests: Optio
         "3. 將最終答案打印 (print) 到標準輸出 (stdout)。\n"
         "4. **不要** 在 `main` 區塊中硬編碼 (hard-code) 任何範例輸入或輸出。\n"
     ]
+    all_examples = []
+    
+    # 1. 加入 AI 生成的測資
+    if ai_generated_tests:
+        for test_case in ai_generated_tests:
+            if isinstance(test_case, (list, tuple)) and len(test_case) == 2:
+                # 確保是 (str, str)
+                all_examples.append((str(test_case[0]), str(test_case[1])))
 
-    if json_tests: # json_tests is List[List[str, str]]
+    # 2. 加入檔案提供的範例
+    if file_examples:
+        for ex in file_examples:
+            inp = ex.get("input")
+            out = ex.get("output")
+            if inp is not None and out is not None:
+                example_tuple = (str(inp), str(out))
+                # 避免重複加入
+                if example_tuple not in all_examples:
+                    all_examples.append(example_tuple)
+    if all_examples: # json_tests is List[List[str, str]]
         code_prompt_lines.append("\n以下是幾個範例，展示了程式執行時**應該**如何處理輸入和輸出（你的程式碼將透過 `stdin` 接收這些輸入）：\n")
-        for i, (inp, out) in enumerate(json_tests):
+        for i, (inp, out) in enumerate(all_examples):
             inp_repr = repr(str(inp)) # 確保是字串
             out_repr = repr(str(out)) # 確保是字串
             code_prompt_lines.append(f"--- 範例 {i+1} ---")
@@ -411,7 +430,7 @@ def build_stdin_code_prompt(user_need: str, virtual_code: str, json_tests: Optio
     code_prompt_lines.append("⚠️ **重要**：請僅輸出一個 Python 程式碼區塊 ```python ... ```，絕對不要輸出任何額外文字或解釋。")
     return "".join(code_prompt_lines)
 
-def build_fix_code_prompt(user_need: str, virtual_code: str, json_tests: Optional[List[Tuple[str, str]]], history: List[str], current_code: str, modification_request: str,solution: Optional[str] = None) -> str:
+def build_fix_code_prompt(user_need: str, virtual_code: str, ai_generated_tests: Optional[List[Tuple[str, str]]], history: List[str], current_code: str, modification_request: str,solution: Optional[str] = None,file_examples: Optional[List[Dict[str, str]]] = None) -> str:
     """
     (MODIFIED) 建立一個用於「互動式修改」的提示。
     這會包含歷史紀錄、當前程式碼和修改需求。
@@ -438,9 +457,25 @@ def build_fix_code_prompt(user_need: str, virtual_code: str, json_tests: Optiona
         code_prompt_lines.append("\n--- 參考解法 (僅供參考) ---\n")
         code_prompt_lines.append(f"```python\n{solution}\n```\n")
 
-    if json_tests: # 重新使用先前生成的測資
+    all_examples = []
+
+    if ai_generated_tests:
+        for test_case in ai_generated_tests:
+            if isinstance(test_case, (list, tuple)) and len(test_case) == 2:
+                all_examples.append((str(test_case[0]), str(test_case[1])))
+
+    # 2. 加入檔案提供的範例
+    if file_examples:
+        for ex in file_examples:
+            inp = ex.get("input")
+            out = ex.get("output")
+            if inp is not None and out is not None:
+                example_tuple = (str(inp), str(out))
+                if example_tuple not in all_examples:
+                    all_examples.append(example_tuple)
+    if all_examples: # 重新使用先前生成的測資
         code_prompt_lines.append("\n以下是幾個範例，展示了程式執行時**應該**如何處理輸入和輸出（你的程式碼將透過 `stdin` 接收這些輸入）：\n")
-        for i, (inp, out) in enumerate(json_tests):
+        for i, (inp, out) in enumerate(all_examples):
             inp_repr = repr(str(inp))
             out_repr = repr(str(out))
             code_prompt_lines.append(f"--- 範例 {i+1} ---")

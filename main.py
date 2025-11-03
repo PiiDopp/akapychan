@@ -85,7 +85,11 @@ def interactive_session():
             # ========== (新) 第二步：依照虛擬碼和測資產生程式碼 ==========
             print("\n[提示] 正在根據虛擬碼和測資生成 (stdin/stdout) 程式碼...") # 
             
-            code_prompt_string = build_stdin_code_prompt(user_need, virtual_code, json_tests)
+            code_prompt_string = build_stdin_code_prompt(
+                user_need, 
+                virtual_code, 
+                ai_generated_tests=json_tests 
+            )
             code_resp = generate_response(code_prompt_string) 
 
             print("\n=== 模型回覆 (程式碼，stdin/stdout 版本) ===\n") # 
@@ -248,10 +252,10 @@ def interactive_session():
                             fix_prompt_string = build_fix_code_prompt(
                                 user_need, 
                                 virtual_code, 
-                                json_tests,
-                                history, 
-                                current_code, 
-                                modification_request
+                                ai_generated_tests=json_tests,
+                                history=history, 
+                                current_code=current_code, 
+                                modification_request=modification_request
                             )
                             
                             fix_resp = generate_response(fix_prompt_string)
