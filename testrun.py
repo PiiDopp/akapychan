@@ -64,8 +64,8 @@ def load_all_problems_from_file(file_path: pathlib.Path) -> List[Tuple[str, str,
         
         # 2. 備用：如果頂層就是一個有效的題目結構（雖然不常見）
         elif "description" in data or "solution" in data:
-             # 將整個頂層 data 視為單一問題
-             problems_list = [data]
+            # 將整個頂層 data 視為單一問題
+            problems_list = [data]
 
         if not problems_list:
             print(f"  [警告] 在 {file_path.name} 中找不到 'coding_practice' 列表或有效的頂層題目。")
@@ -87,18 +87,18 @@ def load_all_problems_from_file(file_path: pathlib.Path) -> List[Tuple[str, str,
             if isinstance(raw_examples, list):
                 examples = raw_examples
             elif isinstance(raw_examples, dict):
-                 examples = [raw_examples]
+                examples = [raw_examples]
 
             formatted_examples = []
             if examples:
-                 for ex in examples:
-                     inp = ex.get("input")
-                     out = ex.get("output")
-                     if inp is not None and out is not None:
-                         formatted_examples.append({
-                             "input": str(inp),
-                             "output": str(out)
-                         })
+                for ex in examples:
+                    inp = ex.get("input")
+                    out = ex.get("output")
+                    if inp is not None and out is not None:
+                        formatted_examples.append({
+                            "input": str(inp),
+                            "output": str(out)
+                        })
 
             # 確保 solution 是字串或 None
             if solution and not isinstance(solution, str):
@@ -110,7 +110,7 @@ def load_all_problems_from_file(file_path: pathlib.Path) -> List[Tuple[str, str,
                     (title, description.strip(), formatted_examples, solution)
                 )
             else:
-                 print(f"  [警告] {file_path.name} 中索引 {index} 處的題目缺少 'description'。")
+                print(f"  [警告] {file_path.name} 中索引 {index} 處的題目缺少 'description'。")
 
         return all_problems
 
@@ -225,33 +225,33 @@ def generate_and_validate(user_need: str, examples: List[Dict[str, str]], soluti
     if not examples: 
         print("     [提示] JSON 檔案未提供範例，無法進行輸入輸出驗證。僅檢查程式碼是否可執行。")
         try:
-             validation_result = validate_main_function(code, stdin_input="", expected_output=None) #
-             success, output_str = validation_result
-             result["validation_results"].append({
-                 "example_index": 0,
-                 "input": "",
-                 "expected_output": None,
-                 "success": success,
-                 "output": output_str
-             })
-             if success:
-                 print("     [成功] 程式碼可執行 ✅")
-                 result["success"] = True # (testrun.py 依賴此欄位)
-             else:
-                 print(f"     [失敗] 執行錯誤 ❌")
-                 print(f"       > 實際輸出/錯誤: {repr(output_str)}")
-                 result["error"] = "Code failed basic execution check."
-                 all_examples_passed = False
+            validation_result = validate_main_function(code, stdin_input="", expected_output=None) #
+            success, output_str = validation_result
+            result["validation_results"].append({
+                "example_index": 0,
+                "input": "",
+                "expected_output": None,
+                "success": success,
+                "output": output_str
+            })
+            if success:
+                print("     [成功] 程式碼可執行 ✅")
+                result["success"] = True # (testrun.py 依賴此欄位)
+            else:
+                print(f"     [失敗] 執行錯誤 ❌")
+                print(f"       > 實際輸出/錯誤: {repr(output_str)}")
+                result["error"] = "Code failed basic execution check."
+                all_examples_passed = False
 
         except Exception as e:
             print(f"     [嚴重錯誤] 'validate_main_function' 執行時發生例外: {e}")
             result["error"] = f"Validator crashed during basic execution check: {e}"
             result["validation_results"].append({
-                 "example_index": 0,
-                 "input": "",
-                 "expected_output": None,
-                 "success": False,
-                 "output": traceback.format_exc()
+                "example_index": 0,
+                "input": "",
+                "expected_output": None,
+                "success": False,
+                "output": traceback.format_exc()
             })
             all_examples_passed = False
     else:
@@ -323,9 +323,9 @@ def generate_and_validate(user_need: str, examples: List[Dict[str, str]], soluti
         result["success"] = True # (testrun.py 依賴此欄位)
         print("     [總結] 所有 *檔案範例* 驗證通過 ✅")
     else:
-         result["success"] = False # (testrun.py 依賴此欄位)
-         if examples:
-             print("     [總結] 部分或全部 *檔案範例* 驗證失敗 ❌")
+        result["success"] = False # (testrun.py 依賴此欄位)
+        if examples:
+            print("     [總結] 部分或全部 *檔案範例* 驗證失敗 ❌")
 
     return result
 
@@ -380,8 +380,8 @@ if __name__ == "__main__":
                 files_skipped += 1
                 continue
             if file_path.name == "README.md":
-                 files_skipped += 1
-                 continue
+                files_skipped += 1
+                continue
             
             print(f"\n--- 正在處理檔案 ({files_processed + 1}/{total_files}): {relative_path} ---")
 
@@ -446,7 +446,7 @@ if __name__ == "__main__":
             gen_result = item.get("generation_result", {})
             
             if item.get("problem_index_in_file") == -1:
-                 failed_cases.append({
+                failed_cases.append({
                     "title": item.get("title", "N/A"),
                     "source_file": item.get("source_file", "N/A"),
                     "problem_index_in_file": -1,
@@ -454,8 +454,8 @@ if __name__ == "__main__":
                     "failed_validation_details": [],
                     "generated_code": None,
                     "virtual_code": None,
-                 })
-                 continue
+                })
+                continue
 
             if gen_result.get("success") is True:
                 success_count += 1
@@ -464,12 +464,12 @@ if __name__ == "__main__":
                 validation_results = gen_result.get("validation_results", [])
                 for vr in validation_results:
                     if vr.get("success") is False:
-                         failed_example_details.append({
-                              "example_index": vr.get("example_index", -1),
-                              "input": vr.get("input"),
-                              "expected_output": vr.get("expected_output"),
-                              "actual_output_or_error": vr.get("output")
-                         })
+                        failed_example_details.append({
+                            "example_index": vr.get("example_index", -1),
+                            "input": vr.get("input"),
+                            "expected_output": vr.get("expected_output"),
+                            "actual_output_or_error": vr.get("output")
+                        })
 
                 failed_cases.append({
                     "title": item.get("title", "N/A"),
