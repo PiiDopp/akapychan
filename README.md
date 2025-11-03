@@ -27,7 +27,7 @@ deactivate
 ```bash
 python3 main.py
 ```
-
+## 安裝套件
 
 ```bash
 pip install -r requirements.txt
