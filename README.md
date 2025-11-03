@@ -6,17 +6,18 @@ python3 -m venv <虛擬環境名稱>
 # 範例：
 python3 -m venv myenv
 ```
+
+## 啟動虛擬環境
+```bash
+source <虛擬環境名稱>/bin/activate
+# 範例：
+source myenv/bin/activate
+```
+
 ```bash
 virtualenv <folder_name>
 # 範例：
 virtualenv myenv
-```
-## 啟動虛擬環境
-```bash
-
-source <虛擬環境名稱>/bin/activate
-# 範例：
-source myenv/bin/activate
 ```
 ## 退出虛擬環境
 ```bash
@@ -29,5 +30,5 @@ python3 main.py
 
 
 ```bash
-pip install - r requirements.txt
+pip install -r requirements.txt
 ```
