@@ -12,7 +12,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 OLLAMA_API = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
-MODEL_NAME = "gpt-oss"
+MODEL_NAME = "llama3.2:1B"
 
 
 # ===================== Prompt Builders =====================

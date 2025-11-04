@@ -1,421 +1,453 @@
+import uvicorn
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
+from typing import List, Optional, Any
 
-
-from core import ask_input, generate_response, \
-                 extract_code_block, extract_json_block, parse_tests_from_text, normalize_tests, \
-                 validate_python_code, generate_tests, validate_main_function
-from core.model_interface import build_virtual_code_prompt, build_test_prompt, build_explain_prompt, build_code_prompt, call_ollama_cli, MODEL_NAME, interactive_chat, interactive_langchain_chat, interactive_code_modification_loop, build_stdin_code_prompt, build_fix_code_prompt
+# 匯入所有核心商業邏輯 (來自您原本的 main.py 和 core)
+# 確保這些檔案 (core, quiz, explain_error, explain_user_code) 
+# 與這個新的 main.py 位於同一個 Python 模組路徑下。
+from core import (
+    extract_code_block, 
+    extract_json_block, 
+    parse_tests_from_text, 
+    validate_main_function
+)
+from core.model_interface import (
+    build_virtual_code_prompt, 
+    build_test_prompt, 
+    build_explain_prompt, 
+    build_stdin_code_prompt, 
+    build_fix_code_prompt,
+    generate_response  # 假設 generate_response 是您呼叫模型的主要函式
+)
 from quiz.quiz_mode import quiz_mode
-from explain_user_code import explain_user_code
+from explain_user_code import explain_user_code, get_code_explanation
 from explain_error import explain_code_error
 
+# --- FastAPI 應用程式實例 ---
+app = FastAPI(
+    title="Akapychan Code Generator API",
+    description="將互動式 CLI 重構為 FastAPI 服務",
+    version="1.0.0"
+)
+
+# --- Pydantic 資料模型 (用於 API 請求和回應) ---
+
+class NeedRequest(BaseModel):
+    user_need: str = Field(..., description="使用者的需求說明")
+
+class VirtualCodeResponse(BaseModel):
+    virtual_code: str
+
+class TestGenResponse(BaseModel):
+    json_tests: Optional[List[List[Any]]]
+    raw_response: str
+
+class GenerateCodeRequest(BaseModel):
+    user_need: str
+    virtual_code: str
+    ai_generated_tests: Optional[List[List[Any]]] = None
+
+class GeneratedCodeResponse(BaseModel):
+    code: Optional[str]
+    explanation: Optional[str]
+    raw_response: str
+
+class ValidateCodeRequest(BaseModel):
+    code: str
+    json_tests: List[List[Any]] = Field(..., description="要執行的測資列表，格式為 [[input, output], ...]")
+
+class ValidationResultItem(BaseModel):
+    case: str
+    input: Optional[str]
+    expected_output: Optional[str]
+    actual_output: str
+    success: bool
+    details: str
+
+class ValidateCodeResponse(BaseModel):
+    all_passed: bool
+    results: List[ValidationResultItem]
+
+class FixCodeRequest(BaseModel):
+    user_need: str
+    virtual_code: str
+    current_code: str
+    modification_request: str
+    ai_generated_tests: Optional[List[List[Any]]] = None
+    history: Optional[List[str]] = None
+
+class FixCodeResponse(BaseModel):
+    new_code: Optional[str]
+    raw_response: str
+
+class ValidateUserCodeRequest(BaseModel):
+    user_code: str
+    user_need: Optional[str] = Field(None, description="用以生成測資的需求說明 (若留空，則僅執行一次)")
+
+class ValidateUserCodeResponse(BaseModel):
+    all_passed: bool
+    tests_generated: bool
+    json_tests: Optional[List[List[Any]]]
+    results: List[ValidationResultItem]
+    error_analysis: Optional[str] = None
+
+class ExplainCodeRequest(BaseModel):
+    code: str
+    user_need: str = Field(..., description="程式碼的原始需求")
+
+class ExplainCodeResponse(BaseModel):
+    explanation: str
+    raw_response: str
 
 
-def interactive_session():
-    print("=== Python Code Generator (Ollama + CodeLlama, Local Only) ===")
-    while True:
-        mode = ask_input("請選擇模式 (1: 生成程式碼, 2: 出題, 3: 使用者程式碼驗證, 4: 程式碼解釋, q 離開)", "1")
-        if mode.lower() in ("q", "quit", "exit"):
-            break
- # ========== 模式 1: 生成程式碼 ==========
-        elif mode == "1":
-            print("請輸入需求說明，多行輸入，結束請輸入單獨一行 'END'。")
-            lines = []
-            while True:
-                try:
-                    line = input()
-                except EOFError:
-                    break
-                if line.strip() == "END":
-                    break
-                lines.append(line)
+# --- API 端點 (Endpoints) ---
 
-            user_need = "\n".join(lines).strip()
-            if not user_need:
-                print("[提示] 沒有輸入需求，取消操作。")
+# ================================================
+# 模式 1: 生成程式碼 (拆分為多個 API)
+# ================================================
+
+@app.post("/mode1/generate_virtual_code", 
+          response_model=VirtualCodeResponse, 
+          tags=["Mode 1: Code Generation"])
+async def api_generate_virtual_code(request: NeedRequest):
+    """
+    (Mode 1, 步驟 1) 根據使用者需求生成虛擬碼。
+    """
+    vc_prompt = build_virtual_code_prompt(request.user_need)
+    vc_resp = generate_response(vc_prompt)
+    return {"virtual_code": vc_resp}
+
+@app.post("/mode1/generate_tests", 
+          response_model=TestGenResponse, 
+          tags=["Mode 1: Code Generation"])
+async def api_generate_tests(request: NeedRequest):
+    """
+    (Mode 1, 步驟 2) 根據使用者需求生成測資。
+    """
+    test_prompt = build_test_prompt(request.user_need)
+    test_resp = generate_response(test_prompt)
+    json_tests = extract_json_block(test_resp) or parse_tests_from_text(request.user_need)
+    return {"json_tests": json_tests, "raw_response": test_resp}
+
+@app.post("/mode1/generate_code", 
+          response_model=GeneratedCodeResponse, 
+          tags=["Mode 1: Code Generation"])
+async def api_generate_code(request: GenerateCodeRequest):
+    """
+    (Mode 1, 步驟 3) 根據需求、虛擬碼和測資生成程式碼及解釋。
+    """
+    code_prompt_string = build_stdin_code_prompt(
+        request.user_need, 
+        request.virtual_code, 
+        ai_generated_tests=request.ai_generated_tests
+    )
+    code_resp = generate_response(code_prompt_string) 
+
+    code_or_list = extract_code_block(code_resp)
+    if isinstance(code_or_list, list) and code_or_list:
+        code = code_or_list[0]
+    elif isinstance(code_or_list, str):
+        code = code_or_list
+    else:
+        code = None 
+
+    explanation = None
+    if code:
+        explain_prompt = build_explain_prompt(request.user_need, code)
+        explanation = generate_response(explain_prompt)
+        
+    return {
+        "code": code, 
+        "explanation": explanation,
+        "raw_response": code_resp
+    }
+
+@app.post("/mode1/validate_code", 
+          response_model=ValidateCodeResponse, 
+          tags=["Mode 1: Code Generation", "Validation"])
+async def api_validate_code(request: ValidateCodeRequest):
+    """
+    (Mode 1, 步驟 4) 驗證生成的程式碼 (或任何程式碼) 是否通過指定的測資。
+    """
+    all_passed = True
+    results: List[ValidationResultItem] = []
+    
+    if not request.json_tests:
+        success, output_msg = validate_main_function(request.code, stdin_input=None, expected_output=None)
+        results.append(ValidationResultItem(
+            case="default (no input)",
+            input=None,
+            expected_output=None,
+            actual_output=output_msg,
+            success=success,
+            details=output_msg
+        ))
+        all_passed = success
+    else:
+        for i, test in enumerate(request.json_tests):
+            if not (isinstance(test, list) and len(test) == 2):
+                results.append(ValidationResultItem(
+                    case=f"Test Case {i+1} (Skipped)",
+                    input=repr(test),
+                    expected_output=None,
+                    actual_output="",
+                    success=False,
+                    details=f"Invalid test format: {repr(test)}"
+                ))
+                all_passed = False
                 continue
 
-            # ========== 先生成虛擬碼 ==========
-            virtual_code = "" 
-            while True:
-                vc_prompt = build_virtual_code_prompt(user_need)
-                vc_resp = generate_response(vc_prompt)
-                print("\n=== 模型回覆 (虛擬碼) ===\n")
-                print(vc_resp, "\n")
+            test_input_val = test[0]
+            test_output_val = test[1]
+            test_input_str = str(test_input_val) if test_input_val is not None else None
+            test_output_str = str(test_output_val) if test_output_val is not None else None
 
-                confirm = input("是否符合需求？(y: 繼續, n: 重新生成, a: 新增補充說明) [y]：").strip().lower()
-                if confirm in ("", "y", "yes"):
-                    virtual_code = vc_resp
-                    break
-                elif confirm in ("n", "no"):
-                    print("[提示] 重新生成虛擬碼...\n")
-                    continue
-                elif confirm == "a":
-                    print("請輸入補充說明，多行輸入，結束請輸入單獨一行 'END'。")
-                    extra_lines = []
-                    while True:
-                        try:
-                            line = input()
-                        except EOFError:
-                            break
-                        if line.strip() == "END":
-                            break
-                        extra_lines.append(line)
-                    extra_info = "\n".join(extra_lines).strip()
-                    if extra_info:
-                        user_need += "\n(補充說明: " + extra_info + ")"
-                    print("[提示] 已加入補充說明，重新生成虛擬碼...\n")
-                    continue
-                else:
-                    print("[提示] 無效輸入，請輸入 y/n/a。")
-
-            # ========== (新) 第一步：先產生測資 ==========
-            print("\n[提示] 正在生成測資...\n")
-            test_prompt = build_test_prompt(user_need)
-            test_resp = generate_response(test_prompt)
-            print("\n=== 模型回覆 (測資) ===\n")
-            print(test_resp, "\n")
-
-            json_tests = extract_json_block(test_resp) or parse_tests_from_text(user_need)
-
-            if json_tests:
-                print(f"[提示] 已成功提取 {len(json_tests)} 筆測資。")
-            else:
-                print("[警告] 未能從模型回覆中提取 JSON 測資。")
-
-            # ========== (新) 第二步：依照虛擬碼和測資產生程式碼 ==========
-            print("\n[提示] 正在根據虛擬碼和測資生成 (stdin/stdout) 程式碼...") # 
-            
-            code_prompt_string = build_stdin_code_prompt(
-                user_need, 
-                virtual_code, 
-                ai_generated_tests=json_tests 
+            success, output_msg = validate_main_function(
+                code=request.code,
+                stdin_input=test_input_str,
+                expected_output=test_output_str
             )
-            code_resp = generate_response(code_prompt_string) 
-
-            print("\n=== 模型回覆 (程式碼，stdin/stdout 版本) ===\n") # 
-            print(code_resp, "\n")
-
-            code_or_list = extract_code_block(code_resp)
-            if isinstance(code_or_list, list) and code_or_list:
-                code = code_or_list[0] 
-            elif isinstance(code_or_list, str):
-                code = code_or_list
+            
+            # validate_main_function 回傳 (success, output_or_error)
+            # 我們需要解析 output_or_error 來取得 "Actual Output"
+            actual_output = output_msg
+            if not success:
+                # 嘗試從錯誤訊息中解析實際輸出
+                if "Actual Output:" in output_msg:
+                    try:
+                        actual_output = output_msg.split("Actual Output:")[1].split("\n")[0].strip()
+                    except Exception:
+                        pass # 保持 output_msg 為完整錯誤
             else:
-                code = None 
+                # 如果成功，output_msg 就是 STDOUT
+                actual_output = output_msg.strip()
 
-            # 第三步：產生解釋
-            if code:
-                explain_prompt = build_explain_prompt(user_need, code)
-                explain_resp = generate_response(explain_prompt)
-                print("\n=== 模型回覆 (解釋) ===\n")
-                print(explain_resp, "\n")
-                
-                verify = ask_input("要執行程式 (包含 main 中的測試) 嗎? (M:執行測試, N: 不驗證)", "M")
 
-                if verify.upper() == "M":
-                    print("\n[驗證中] 正在使用 AI 生成的測資逐一驗證...")
-                    if not json_tests:
-                        print("[警告] 找不到 AI 生成的 JSON 測資。僅執行一次 (無輸入)...")
-                        success, output_msg = validate_main_function(code, stdin_input=None, expected_output=None)
-                        print(f"執行結果 (無輸入): {'成功' if success else '失敗'}\n{output_msg}")
-                    else:
-                        all_passed = True
-                        for i, test in enumerate(json_tests):
-                            print(f"\n--- 測試案例 {i+1} ---")
-                            
-                            if not (isinstance(test, list) and len(test) == 2):
-                                print(f"  [警告] 測資格式不符 (應為 [input, output]): {repr(test)}")
-                                print(f"  結果: [跳過]")
-                                all_passed = False 
-                                continue 
-                            
-                            test_input_val = test[0] 
-                            test_output_val = test[1]
-                            
-                            print(f"  Input: {repr(test_input_val)}")
-                            print(f"  Expected Output: {repr(test_output_val)}")
+            results.append(ValidationResultItem(
+                case=f"Test Case {i+1}",
+                input=repr(test_input_val),
+                expected_output=repr(test_output_val),
+                actual_output=actual_output,
+                success=success,
+                details=output_msg
+            ))
+            if not success:
+                all_passed = False
 
-                            test_input_str = str(test_input_val) if test_input_val is not None else None
-                            test_output_str = str(test_output_val) if test_output_val is not None else None
+    return {"all_passed": all_passed, "results": results}
 
-                            success, output_msg = validate_main_function(
-                                code=code,
-                                stdin_input=test_input_str,
-                                expected_output=test_output_str
-                            )
-                            print(f"  詳細資訊/執行結果:\n{output_msg}")
-                            if success:
-                                print(f"  結果: [通過]")
-                            else:
-                                print(f"  結果: [失敗]")
-                                print(f"  詳細資訊:\n{output_msg}")
-                                all_passed = False
-                        
-                        print("\n" + "="*20)
-                        if all_passed:
-                            print("總結: [成功] 所有測資均已通過。")
-                        else:
-                            print("總結: [失敗] 部分測資未通過。")
-                else:
-                    validate_python_code(code, [], user_need)
 
-                # ========== 整合點：詢問是否進入修改模式 ==========
-                print("\n" + "="*20)
-                print("程式碼已生成。")
-                modify = ask_input("是否要進入互動式修改模式？(y/n)", "n")
-                
-                if modify.lower() in ("y", "yes"):
-                    print("\n=== 進入互動式修改模式 ===\n")
-                    
-                    current_code = code 
-                    history = [f"初始需求: {user_need}"]
+@app.post("/mode1/fix_code", 
+          response_model=FixCodeResponse, 
+          tags=["Mode 1: Code Generation"])
+async def api_fix_code(request: FixCodeRequest):
+    """
+    (Mode 1, 步驟 5) 根據新的修改需求，修正現有的程式碼。
+    """
+    fix_prompt_string = build_fix_code_prompt(
+        user_need=request.user_need, 
+        virtual_code=request.virtual_code, 
+        ai_generated_tests=request.ai_generated_tests,
+        history=request.history or [], 
+        current_code=request.current_code, 
+        modification_request=request.modification_request
+    )
+    
+    fix_resp = generate_response(fix_prompt_string)
+    
+    new_code_or_list = extract_code_block(fix_resp)
+    if isinstance(new_code_or_list, list) and new_code_or_list:
+        new_code = new_code_or_list[0]
+    elif isinstance(new_code_or_list, str):
+        new_code = new_code_or_list
+    else:
+        new_code = None
 
-                    while True:
-                        print("\n" + "="*40)
-                        print("請輸入您的下一步操作：")
-                        print("  - [修改/優化/重構]：輸入您的需求說明")
-                        print("  - [驗證]：輸入 'VERIFY' 或 'V'") 
-                        print("  - [解釋]：輸入 'EXPLAIN' 或 'E'")
-                        print("  - [完成]：輸入 'QUIT' (返回主選單)")
-                        print("="*40)
+    return {"new_code": new_code, "raw_response": fix_resp}
 
-                        user_input = input("您的操作 (或修改需求): ").strip()
+# ================================================
+# 模式 2: 出題
+# ================================================
 
-                        if user_input.upper() == "QUIT":
-                            print("\n開發模式結束。最終程式碼如下：")
-                            print(f"```python\n{current_code}\n```")
-                            print("[提示] 返回主選單。")
-                            break 
+@app.get("/mode2/quiz", 
+         tags=["Mode 2: Quiz"], 
+         summary="[未完全實現]")
+async def api_quiz_mode():
+    """
+    執行出題模式。
+    **警告**: 原本的 `quiz_mode()` 函式是互動式的 (使用 input/print)。
+    在 API 環境中呼叫它可能會導致伺服器執行緒阻塞或行為異常。
+    一個完整的 API 應重構 `quiz_mode.py` 以返回 JSON 資料。
+    """
+    try:
+        # 嘗試呼叫，但這非常不推薦
+        # result = quiz_mode() # 這可能會卡住
+        # return {"message": "Quiz mode executed.", "result": str(result)}
+        
+        # 返回一個 placeholder，表示此功能需要重構
+        raise NotImplementedError("quiz_mode() is interactive and not suitable for a stateless API without refactoring.")
+    except Exception as e:
+        raise HTTPException(
+            status_code=501, 
+            detail=f"Mode 2 (Quiz) is not implemented for API access: {e}"
+        )
 
-                        if user_input.upper() in ("VERIFY", "V"):
-                            print("\n[驗證中] 正在使用 AI 生成的測資逐一驗證 (當前程式碼)...")
-                            if not json_tests:
-                                print("[警告] 找不到 AI 生成的 JSON 測資。僅執行一次 (無輸入)...")
-                                success, output_msg = validate_main_function(current_code, stdin_input=None, expected_output=None)
-                                print(f"執行結果 (無輸入): {'成功' if success else '失敗'}\n{output_msg}")
-                                if not success:
-                                    print("\n[提示] 驗證失敗。您可能需要 '解釋' 錯誤或提供 '修改' 需求。")
-                                else:
-                                    print("\n[提示] 程式執行成功。")
-                            else:
-                                all_passed = True
-                                for i, test in enumerate(json_tests):
-                                    print(f"\n--- 測試案例 {i+1} (驗證當前程式碼) ---")
+# ================================================
+# 模式 3: 使用者程式碼驗證
+# ================================================
 
-                                    if not (isinstance(test, list) and len(test) == 2):
-                                        print(f"  [警告] 測資格式不符 (應為 [input, output]): {repr(test)}")
-                                        print(f"  結果: [跳過]")
-                                        all_passed = False 
-                                        continue 
-                                    
-                                    test_input_val = test[0]
-                                    test_output_val = test[1]
+@app.post("/mode3/validate_user_code", 
+          response_model=ValidateUserCodeResponse, 
+          tags=["Mode 3: Validate User Code"])
+async def api_validate_user_code(request: ValidateUserCodeRequest):
+    """
+    (Mode 3) 驗證使用者提供的程式碼。
+    如果提供了 user_need，將嘗試生成測資來進行驗證。
+    如果驗證失敗，將嘗試分析錯誤。
+    """
+    user_code = request.user_code
+    user_need = request.user_need
+    json_tests = []
+    all_passed = True
+    error_analysis = None
+    results: List[ValidationResultItem] = []
+    
+    # 步驟 1: 如果有需求，生成測資
+    if user_need:
+        test_prompt = build_test_prompt(user_need)
+        test_resp = generate_response(test_prompt)
+        json_tests = extract_json_block(test_resp) or parse_tests_from_text(user_need)
+        tests_generated = bool(json_tests)
+    else:
+        tests_generated = False
 
-                                    print(f"  Input: {repr(test_input_val)}")
-                                    print(f"  Expected Output: {repr(test_output_val)}")
-                                    
-                                    # 強制將 input 和 output 轉為 string
-                                    test_input_str = str(test_input_val) if test_input_val is not None else None
-                                    test_output_str = str(test_output_val) if test_output_val is not None else None
-                                    
-                                    success, output_msg = validate_main_function(
-                                        code=current_code, 
-                                        stdin_input=test_input_str,
-                                        expected_output=test_output_str
-                                    )
-                                    print(f"  詳細資訊/執行結果:\n{output_msg}")
-                                    if success:
-                                        print(f"  結果: [通過]")
-                                    else:
-                                        print(f"  結果: [失敗]")
-                                        print(f"  詳細資訊:\n{output_msg}")
-                                        all_passed = False
-                                
-                                print("\n" + "="*20)
-                                if all_passed:
-                                    print("總結: [成功] 所有測資均已通過。")
-                                else:
-                                    print("總結: [失敗] 部分測資未通過。")
-                                    print("\n[提示] 驗證失敗。您可能需要 '解釋' 錯誤或提供 '修改' 需求。")
-
-                        elif user_input.upper() in ("EXPLAIN", "E"):
-                            print("\n[解釋中] 產生程式碼解釋...")
-                            explain_prompt = build_explain_prompt(user_need, current_code)
-                            explain_resp = generate_response(explain_prompt)
-                            print("\n=== 程式碼解釋 ===\n")
-                            print(explain_resp)
-
-                        else: 
-                            modification_request = user_input
-                            print(f"\n[修正中] 正在根據您的要求 '{modification_request}' 修正程式碼...")
-
-                            fix_prompt_string = build_fix_code_prompt(
-                                user_need, 
-                                virtual_code, 
-                                ai_generated_tests=json_tests,
-                                history=history, 
-                                current_code=current_code, 
-                                modification_request=modification_request
-                            )
-                            
-                            fix_resp = generate_response(fix_prompt_string)
-
-                            new_code_or_list = extract_code_block(fix_resp)
-                            if isinstance(new_code_or_list, list) and new_code_or_list:
-                                new_code = new_code_or_list[0]
-                            elif isinstance(new_code_or_list, str):
-                                new_code = new_code_or_list
-                            else:
-                                new_code = None
-
-                            if new_code:
-                                current_code = new_code
-                                history.append(f"修改: {modification_request}")
-                                print("\n=== 程式碼 (新版本) ===\n")
-                                print(f"```python\n{current_code}\n```")
-                            else:
-                                print("[警告] 模型無法生成修正後的程式碼。請重試或輸入更明確的指令。")
-                else:
-                    print("[提示] 略過修改，返回主選單。")
-            else:
-                print("[提示] 沒有找到 Python 程式碼區塊。")
-
-        elif mode == "2":
-            quiz_mode()
-        elif mode == "3":
-            print("請貼上您要驗證的 Python 程式碼，結束輸入請輸入單獨一行 'END'。")
-            lines = []
-            while True:
-                try:
-                    line = input()
-                except EOFError:
-                    break
-                if line.strip() == "END":
-                    break
-                lines.append(line)
-
-            user_code = "\n".join(lines)
-            if not user_code.strip():
-                print("[提示] 沒有輸入程式碼，取消驗證。")
+    # 步驟 2: 執行驗證
+    if json_tests:
+        # (A) 使用 AI 生成的測資進行驗證
+        for i, test in enumerate(json_tests):
+            if not (isinstance(test, list) and len(test) == 2):
+                results.append(ValidationResultItem(
+                    case=f"Test Case {i+1} (Skipped)",
+                    input=repr(test),
+                    expected_output=None,
+                    actual_output="",
+                    success=False,
+                    details=f"Invalid test format: {repr(test)}"
+                ))
+                all_passed = False
                 continue
-
-            # --- 新增：詢問需求說明 ---
-            print("\n請輸入這段程式碼的「需求說明」，AI 將以此生成測資來驗證。")
-            print("多行輸入，結束請輸入單獨一行 'END'。(若留空，則僅執行一次程式)")
             
-            need_lines = []
-            while True:
-                try:
-                    line = input()
-                except EOFError:
-                    break
-                if line.strip() == "END":
-                    break
-                need_lines.append(line)
+            test_input_val = test[0]
+            test_output_val = test[1]
+            test_input_str = str(test_input_val) if test_input_val is not None else ""
+            test_output_str = str(test_output_val) if test_output_val is not None else None
+
+            success, output_msg = validate_main_function(
+                code=user_code,
+                stdin_input=test_input_str,
+                expected_output=test_output_str
+            )
             
-            user_need = "\n".join(need_lines).strip()
-            
-            json_tests = []
-            if user_need:
-                # --- (A) 如果提供了需求，生成測資 ---
-                print("\n[提示] 正在根據您的需求說明生成測資...\n")
-                test_prompt = build_test_prompt(user_need)
-                test_resp = generate_response(test_prompt)
-                print("\n=== 模型回覆 (測資) ===\n")
-                print(test_resp, "\n")
-                
-                json_tests = extract_json_block(test_resp) or parse_tests_from_text(user_need)
-                
-                if json_tests:
-                    print(f"[提示] 已成功提取 {len(json_tests)} 筆測資。")
-                else:
-                    print("[警告] 未能從模型回覆中提取 JSON 測資。將僅執行一次程式。")
-            
-            if json_tests:
-                # --- (A.1) 使用 AI 生成的測資進行驗證 ---
-                print("\n[驗證中] 正在使用 AI 生成的測資逐一驗證您的程式碼...")
-                all_passed = True
-                failed_outputs = [] # 儲存失敗訊息
-
-                for i, test in enumerate(json_tests):
-                    print(f"\n--- 測試案例 {i+1} ---")
-                    
-                    if not (isinstance(test, list) and len(test) == 2):
-                        print(f"  [警告] 測資格式不符 (應為 [input, output]): {repr(test)}")
-                        print(f"  結果: [跳過]")
-                        all_passed = False 
-                        continue 
-                    
-                    test_input_val = test[0] 
-                    test_output_val = test[1]
-                    
-                    print(f"  Input: {repr(test_input_val)}")
-                    print(f"  Expected Output: {repr(test_output_val)}")
-
-                    test_input_str = str(test_input_val) if test_input_val is not None else ""
-                    test_output_str = str(test_output_val) if test_output_val is not None else None
-
-                    # 使用 validate_main_function 進行比對
-                    success, output_msg = validate_main_function(
-                        code=user_code,
-                        stdin_input=test_input_str,
-                        expected_output=test_output_str
-                    )
-                    print(f"  詳細資訊/執行結果:\n{output_msg}")
-                    if success:
-                        print(f"  結果: [通過] ✅")
-                    else:
-                        print(f"  結果: [失敗] ❌")
-                        all_passed = False
-                        failed_outputs.append(f"案例 {i+1} (Input: {repr(test_input_str)}):\n{output_msg}")
-
-                print("\n" + "="*20)
-                if all_passed:
-                    print("總結: [成功] 您的程式碼已通過所有 AI 生成的測資。")
-                else:
-                    print("總結: [失敗] 您的程式碼未通過部分測資。")
-                    print("\n[警告] 程式驗證失敗，開始分析...\n")
+            actual_output = output_msg # 預設
+            if not success:
+                if "Actual Output:" in output_msg:
                     try:
-                        # (*** 修正 ***) 確保只傳入 'user_code'
-                        fallback_result = explain_code_error(user_code) 
-                        print("\n=== 程式碼分析 ===\n")
-                        print(fallback_result)
-                        print(f"\n(失敗詳情: {failed_outputs[0]})") # 顯示第一個錯誤
-                    except Exception as e:
-                        print(f"\n[分析失敗] {e}")
-
+                        actual_output = output_msg.split("Actual Output:")[1].split("\n")[0].strip()
+                    except Exception:
+                        pass
             else:
-                # --- (B) 如果沒有需求或測資生成失敗，執行舊的 Mode 3 邏輯 (僅執行一次) ---
-                print("\n=== 驗證中 (僅執行一次，無輸入) ===\n")
+                actual_output = output_msg.strip()
                 
-                # (*** 修正 ***) 正確處理 validate_main_function 的回傳值 (tuple)
-                success, result_msg = validate_main_function(user_code, stdin_input=None, expected_output=None)
+            results.append(ValidationResultItem(
+                case=f"Test Case {i+1}",
+                input=repr(test_input_val),
+                expected_output=repr(test_output_val),
+                actual_output=actual_output,
+                success=success,
+                details=output_msg
+            ))
+            if not success:
+                all_passed = False
+    else:
+        # (B) 僅執行一次 (無輸入)
+        success, output_msg = validate_main_function(user_code, stdin_input=None, expected_output=None)
+        results.append(ValidationResultItem(
+            case="default (no input)",
+            input=None,
+            expected_output=None,
+            actual_output=output_msg.strip() if success else output_msg,
+            success=success,
+            details=output_msg
+        ))
+        all_passed = success
 
-                if success:
-                    print("\n=== 程式執行成功 ===\n")
-                    print("STDOUT 輸出:")
-                    print(result_msg)
-                else:
-                    print("\n=== 程式執行失敗 ===\n")
-                    print("STDERR 或錯誤訊息:")
-                    print(result_msg)
-                    print("\n[警告] 程式執行失敗，開始分析...\n")
-                    try:
-                        # (*** 修正 ***) 確保只傳入 'user_code'
-                        fallback_result = explain_code_error(user_code)
-                        print("\n=== 程式碼分析 ===\n")
-                        print(fallback_result)
-                    except Exception as e:
-                        print(f"\n[分析失敗] {e}")
-        elif mode == "4":
-            explain_user_code()
+    # 步驟 3: 如果失敗，分析錯誤
+    if not all_passed:
+        try:
+            error_analysis = explain_code_error(user_code) 
+        except Exception as e:
+            error_analysis = f"[分析失敗] {e}"
 
-        else:
-            interactive_chat()
+    return {
+        "all_passed": all_passed,
+        "tests_generated": tests_generated,
+        "json_tests": json_tests,
+        "results": results,
+        "error_analysis": error_analysis
+    }
 
+# ================================================
+# 模式 4: 程式碼解釋
+# ================================================
+
+@app.post("/mode4/explain_code", 
+          response_model=ExplainCodeResponse, 
+          tags=["Mode 4: Explain Code"])
+@app.post("/mode4/explain_code", 
+          response_model=ExplainCodeResponse, 
+          tags=["Mode 4: Explain Code"])
+async def api_explain_code(request: ExplainCodeRequest):
+    """
+    (Mode 4) 產生程式碼的解釋。
+    這個端點會呼叫重構後的 `get_code_explanation` 函式。
+    """
+    try:
+        # --- (新) 呼叫重構後的 "純" 函式 ---
+        explanation = get_code_explanation(
+            user_code=request.code, 
+            user_need=request.user_need
+        )
+        
+        # -------------------------------------
+        
+        return {"explanation": explanation, "raw_response": explanation}
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to generate explanation: {e}")
+
+@app.get("/mode4/explain_user_code_interactive", 
+         tags=["Mode 4: Explain Code"], 
+         summary="[已棄用]")
+async def api_explain_user_code_interactive():
+    """
+    (原始 Mode 4 的 API 存取點 - 已棄用)
+    **警告**: 這個端點指向的是舊的互動式 CLI 函式。
+    請改用 POST /mode4/explain_code。
+    """
+    raise HTTPException(
+        status_code=410, # 410 Gone (已廢棄)
+        detail="This interactive endpoint is deprecated. Please use the POST endpoint at /mode4/explain_code."
+    )
+
+# --- 啟動伺服器 ---
 
 if __name__ == "__main__":
-    try:
-        interactive_session()
-    except KeyboardInterrupt:
-        print("\n使用者中斷，結束。")
+    """
+    使用 uvicorn 啟動伺服器。
+    在終端機中執行: python main.py
+    
+    或者，使用 uvicorn CLI (推薦用於開發):
+    uvicorn main:app --reload
+    """
+    uvicorn.run(app, host="0.0.0.0", port=8000)
