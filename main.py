@@ -16,9 +16,10 @@ from core.model_interface import (
     build_stdin_code_prompt, 
     build_fix_code_prompt,
     generate_response,  
-
+    interactive_chat,
     build_translate_prompt,
     build_suggestion_prompt,
+    build_chat_prompt
     # ----------------------------------------------
 )
 
@@ -432,7 +433,6 @@ async def api_explain_code(request: ExplainCodeRequest):
 async def api_translate(request: TranslateRequest):
     """
     (Mode 5) 翻譯指定的文字。
-    (修正: 參數名稱應符合您提供的最新函式定義)
     """
     try:
         prompt = build_translate_prompt(
@@ -459,7 +459,6 @@ async def api_translate(request: TranslateRequest):
 async def api_get_code_suggestions(request: SuggestRequest):
     """
     (Mode 6) 根據現有程式碼提供建議。
-    (此為補全功能, 依據 model_interface.py 修正)
     """
     try:
         # --- 修正: 參數應為 'user_code' (來自 model_interface.py) ---
@@ -487,21 +486,37 @@ async def api_get_code_suggestions(request: SuggestRequest):
 async def api_chat(request: ChatRequest):
     """
     (Default) 執行通用的聊天。
-    (此為補全功能, 假設 `build_chat_prompt` 存在)
+    (修正: 整合 interactive_chat 的邏輯，使其能判斷程式碼或一般問題)
     """
     try:
-        # 假設 build_chat_prompt 接受 (prompt, history)
-        prompt_string = build_chat_prompt(
-            prompt=request.prompt,
-            history=request.history
-        )
+        user_input = request.prompt
+        prompt_string = ""
+        
+        # --- 邏輯移植 ---
+        # 偵測是否貼了 Python 程式碼 (邏輯來自 interactive_chat)
+        if "def " in user_input or "print(" in user_input or "for " in user_input:
+            # 1. 如果是程式碼，呼叫「解釋」
+            print("\n[API Chat] 偵測到 Python 程式碼，進入解釋模式...\n")
+            # 呼叫解釋程式碼的 prompt
+            prompt_string = build_explain_prompt("使用者貼上的程式碼", user_input)
+        else:
+            # 2. 如果是純文字，呼叫「聊天」
+            print("\n[API Chat] 進入一般聊天模式...\n")
+            # 呼叫一般的聊天 prompt (這個函式應能處理 history)
+            prompt_string = build_chat_prompt(
+                prompt=request.prompt,
+                history=request.history
+            )
+        # ----------------
+
         resp = generate_response(prompt_string)
         return {"response": resp, "raw_response": resp}
-    except NameError:
-         raise HTTPException(status_code=501, detail="`build_chat_prompt` is not implemented in core.model_interface.")
+    
+    except NameError as e:
+         # 確保 main.py 頂部已 import build_explain_prompt 和 build_chat_prompt
+         raise HTTPException(status_code=501, detail=f"核心函式未實現 (請檢查 import): {e}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Chat failed: {e}")
-
 
 # --- 啟動伺服器 ---
 

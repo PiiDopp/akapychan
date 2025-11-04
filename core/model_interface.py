@@ -124,6 +124,44 @@ def build_suggestion_prompt(user_need: str, user_code: str) -> str:
         "請提供 2-4 個具體的改進提示："
     )
 
+def build_chat_prompt(prompt: str, history: Optional[List[Dict[str, str]]] = None) -> str:
+    """
+    建立一個用於一般聊天的提示 (API 版本)，包含助教身份和聊天歷史。
+    [此函式用於 main.py 的 /chat API 端點]
+    """
+    
+    # 1. 系統訊息 (Persona)
+    # (此邏輯來自舊的 interactive_chat 函式)
+    system_message = (
+        "用繁體中文回答。\n"
+        "你是一位友善且專業的程式學習助教。\n"
+        "請用白話、簡單易懂的方式回答使用者的程式相關問題。\n\n"
+    )
+    
+    prompt_parts = [system_message]
+    
+    # 2. 處理聊天歷史 (History)
+    # (此結構符合 main.py 中的 ChatRequest Pydantic 模型)
+    if history:
+        for message in history:
+            # 從 Pydantic 模型獲取 'role' 和 'content'
+            role = message.get("role", "user") 
+            content = message.get("content", "")
+            
+            if role == "user":
+                prompt_parts.append(f"使用者問題：\n{content}\n\n")
+            elif role == "assistant":
+                prompt_parts.append(f"模型回覆：\n{content}\n\n")
+            # (我們忽略歷史中的 'system' 訊息，因為我們在上面定義了新的)
+
+    # 3. 處理當前使用者的問題 (Current Prompt)
+    prompt_parts.append(f"使用者問題：\n{prompt}\n\n")
+    
+    # 4. 提示模型開始回答
+    prompt_parts.append("模型回覆：\n")
+    
+    return "".join(prompt_parts)
+
 def interactive_langchain_chat():
     """
     使用 LangChain 的 ConversationChain 實現多輪對話模式。
