@@ -336,20 +336,20 @@ if __name__ == "__main__":
     TOTAL_RUNS = 50
     print(f"--- 將開始執行 {TOTAL_RUNS} 次循環 (已套用 main.py 生成邏輯) ---")
 
-    result_dir = script_dir / "result_pro"
+    result_dir = script_dir / "results"
     result_dir.mkdir(parents=True, exist_ok=True)
     print(f"輸出目錄: {result_dir}")
 
     overall_start_time = time.time()
 
-    for run_index in range(41, TOTAL_RUNS + 1):
+    for run_index in range(1, TOTAL_RUNS + 1):
         print(f"\n=============================================")
         print(f"--- 開始第 {run_index} / {TOTAL_RUNS} 次循環 ---")
         print(f"=============================================")
 
         start_time = time.time()
 
-        DATA_DIR = script_dir / "test"  
+        DATA_DIR = script_dir / "data_original"  
         FULL_RESULTS_FILE = result_dir / f"results_run_{run_index}.json"
         ERROR_SUMMARY_FILE = result_dir / f"summary_run_{run_index}.json"
 
