@@ -15,10 +15,19 @@ from core.model_interface import (
     build_explain_prompt, 
     build_stdin_code_prompt, 
     build_fix_code_prompt,
-    generate_response  # 假設 generate_response 是您呼叫模型的主要函式
+    generate_response,  
+
+    build_translate_prompt,
+    build_suggestion_prompt,
+    # ----------------------------------------------
 )
-from explain_user_code import get_code_explanation
-from explain_error import explain_code_error
+
+
+
+# --- 修正: 根據原始 main.py 的結構, 這些模組應位於 core/ ---
+from core.explain_user_code import get_code_explanation 
+from core.explain_error import explain_code_error
+# ----------------------------------------------------
 
 # --- FastAPI 應用程式實例 ---
 app = FastAPI(
@@ -96,12 +105,39 @@ class ExplainCodeResponse(BaseModel):
     explanation: str
     raw_response: str
 
+# --- 補全功能: 模式 5 (翻譯) ---
+class TranslateRequest(BaseModel):
+    text_to_translate: str
+    target_language: str = Field("English", description="目標語言")
+    source_language: Optional[str] = Field(None, description="來源語言 (可選, 讓 AI 自行偵測)")
 
-# --- API 端點 (Endpoints) ---
+class TranslateResponse(BaseModel):
+    translated_text: str
+    raw_response: str
+# --------------------------------
 
-# ================================================
-# 模式 1: 生成程式碼 (拆分為多個 API)
-# ================================================
+# --- 補全功能: 模式 6 (程式碼建議) ---
+class SuggestRequest(BaseModel):
+    code: str
+    user_need: Optional[str] = Field(None, description="相關的需求說明 (可選)")
+
+class SuggestResponse(BaseModel):
+    suggestions: str # 建議通常是文字
+    raw_response: str
+# ----------------------------------
+
+# --- 補全功能: 預設 (聊天) ---
+class ChatRequest(BaseModel):
+    prompt: str
+    history: Optional[List[dict]] = Field(None, description="聊天歷史 (可選), e.g., [{'role': 'user', 'content': '...'}, ...]")
+
+class ChatResponse(BaseModel):
+    response: str
+    raw_response: str
+# -----------------------------
+
+
+
 
 @app.post("/mode1/generate_virtual_code", 
           response_model=VirtualCodeResponse, 
@@ -263,9 +299,7 @@ async def api_fix_code(request: FixCodeRequest):
     return {"new_code": new_code, "raw_response": fix_resp}
 
 
-# ================================================
-# 模式 3: 使用者程式碼驗證
-# ================================================
+
 
 @app.post("/mode3/validate_user_code", 
           response_model=ValidateUserCodeResponse, 
@@ -367,13 +401,7 @@ async def api_validate_user_code(request: ValidateUserCodeRequest):
         "error_analysis": error_analysis
     }
 
-# ================================================
-# 模式 4: 程式碼解釋
-# ================================================
 
-@app.post("/mode4/explain_code", 
-          response_model=ExplainCodeResponse, 
-          tags=["Mode 4: Explain Code"])
 @app.post("/mode4/explain_code", 
           response_model=ExplainCodeResponse, 
           tags=["Mode 4: Explain Code"])
@@ -396,19 +424,84 @@ async def api_explain_code(request: ExplainCodeRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to generate explanation: {e}")
 
-@app.get("/mode4/explain_user_code_interactive", 
-         tags=["Mode 4: Explain Code"], 
-         summary="[已棄用]")
-async def api_explain_user_code_interactive():
+
+
+@app.post("/mode5/translate", 
+            response_model=TranslateResponse, 
+            tags=["Mode 5: Translate"])
+async def api_translate(request: TranslateRequest):
     """
-    (原始 Mode 4 的 API 存取點 - 已棄用)
-    **警告**: 這個端點指向的是舊的互動式 CLI 函式。
-    請改用 POST /mode4/explain_code。
+    (Mode 5) 翻譯指定的文字。
+    (修正: 參數名稱應符合您提供的最新函式定義)
     """
-    raise HTTPException(
-        status_code=410, # 410 Gone (已廢棄)
-        detail="This interactive endpoint is deprecated. Please use the POST endpoint at /mode4/explain_code."
-    )
+    try:
+        prompt = build_translate_prompt(
+            text=request.text_to_translate,
+            target_language=request.target_language
+        )
+        # --------------------------------------------------------
+        
+        resp = generate_response(prompt)
+        return {"translated_text": resp, "raw_response": resp}
+    
+    except NameError:
+         raise HTTPException(status_code=501, detail="`build_translate_prompt` is not implemented in core.model_interface.")
+    except TypeError as e:
+         # 捕捉任何剩餘的參數錯誤
+         raise HTTPException(status_code=500, detail=f"Failed to call build_translate_prompt: {e}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Translation failed: {e}")
+
+
+@app.post("/mode6/suggest_code", 
+            response_model=SuggestResponse, 
+            tags=["Mode 6: Code Suggestions"])
+async def api_get_code_suggestions(request: SuggestRequest):
+    """
+    (Mode 6) 根據現有程式碼提供建議。
+    (此為補全功能, 依據 model_interface.py 修正)
+    """
+    try:
+        # --- 修正: 參數應為 'user_code' (來自 model_interface.py) ---
+        prompt = build_suggestion_prompt(
+            user_code=request.code, # 函數參數: model欄位
+            user_need=request.user_need
+        )
+        # -----------------------------------------
+        
+        resp = generate_response(prompt)
+        return {"suggestions": resp, "raw_response": resp}
+    except NameError:
+         raise HTTPException(status_code=501, detail="`build_suggestion_prompt` is not implemented in core.model_interface.")
+    except Exception as e:
+        if isinstance(e, TypeError):
+             raise HTTPException(status_code=500, detail=f"Failed to call build_suggestion_prompt: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get suggestions: {e}")
+# ================================================
+# 預設: 聊天 - 補全
+# ================================================
+
+@app.post("/chat", 
+            response_model=ChatResponse, 
+            tags=["Chat"])
+async def api_chat(request: ChatRequest):
+    """
+    (Default) 執行通用的聊天。
+    (此為補全功能, 假設 `build_chat_prompt` 存在)
+    """
+    try:
+        # 假設 build_chat_prompt 接受 (prompt, history)
+        prompt_string = build_chat_prompt(
+            prompt=request.prompt,
+            history=request.history
+        )
+        resp = generate_response(prompt_string)
+        return {"response": resp, "raw_response": resp}
+    except NameError:
+         raise HTTPException(status_code=501, detail="`build_chat_prompt` is not implemented in core.model_interface.")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Chat failed: {e}")
+
 
 # --- 啟動伺服器 ---
 
