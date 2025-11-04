@@ -1,195 +1,103 @@
 import tkinter as tk
-from tkinter import scrolledtext, font
+from tkinter import scrolledtext, font, ttk  # 導入 ttk
 import threading
 import queue
 import os
 import json
 import random
-import re  # 
+import re
 
-# 從你現有的專案中導入所有需要的函式
-# 確保 main.py, core, quiz 等都在 Python 的路徑中
+# --- 1. 核心功能導入 ---
 from core import ask_input, generate_response, \
                  extract_code_block, extract_json_block, parse_tests_from_text, normalize_tests, \
                  validate_python_code, generate_tests, validate_main_function
 from core.model_interface import build_virtual_code_prompt, build_test_prompt, build_explain_prompt, build_code_prompt, call_ollama_cli, MODEL_NAME, interactive_chat, interactive_langchain_chat, interactive_code_modification_loop, build_stdin_code_prompt, build_fix_code_prompt, interactive_translate, get_code_suggestions, build_suggestion_prompt, build_translate_prompt
-from quiz.quiz_mode import quiz_mode
-from core.explain_user_code import explain_user_code
 from core.explain_error import explain_code_error
 
-# --- 模式 2 (Quiz) 所需的額外導入 ---
+# --- 2. 模式相關導入 (取代本地的複製貼上) ---
+
 # 從 core.data_structures 導入 LeetCode 輔助工具
 try:
     from core.data_structures import ListNode, TreeNode, list_to_nodes, nodes_to_list, list_to_tree, tree_to_list, auto_convert_input, auto_convert_output
 except ImportError:
     print("[錯誤] 無法從 core.data_structures 導入 LeetCode 輔助類別。模式 2 可能會失敗。")
-    # 定義備用 (fallback) 類別，以防導入失敗
     class ListNode: pass
     class TreeNode: pass
     def auto_convert_output(result): return result
 
-# --- 模式 2 (Quiz) 所需的輔助函式 (從 quiz_mode.py 移植) ---
+# (*** 修正 ***) 
+# 從 quiz_mode 導入所有輔助函式，並處理可能的 ImportError
+try:
+    from quiz.quiz_mode import (
+        quiz_mode, 
+        _normalize_output, 
+        get_data_structures_preamble, 
+        parse_leetcode_info,
+        list_obj_units,
+        load_all_coding_practice
+    )
+except ImportError as e:
+    print(f"[警告] 無法從 quiz.quiz_mode 導入所有輔助函式: {e}")
+    print("[提示] 模式 2 (出題) 將會失敗。請確保 quiz.quiz_mode.py 包含這些函式。")
+    # 定義備用 (fallback) 函式，確保 main.py 至少能啟動
+    def quiz_mode(): pass
+    def _normalize_output(s): return str(s).strip()
+    def get_data_structures_preamble(): return ""
+    def parse_leetcode_info(s1, s2): return None, [], ""
+    def list_obj_units(obj_root="data"): return []
+    def load_all_coding_practice(obj_root="data", unit=None): return []
 
-def _normalize_output(s: str) -> str:
-    """
-    (來自 quiz_mode.py)
-    輔助函數：將 stdout 和 expected output 字串標準化以便進行比較。
-    """
-    if not isinstance(s, str):
-        if s is None:
-            return "null"
-        if isinstance(s, bool):
-            return str(s).lower()
-        s = str(s)
-    s = s.strip()
-    if len(s) >= 2:
-        if s.startswith("'") and s.endswith("'"):
-            s = s[1:-1]
-        elif s.startswith('"') and s.endswith('"'):
-            s = s[1:-1]
-    s = s.replace("'", '"')
-    s = s.replace(" ", "")
-    return s
-
-def get_data_structures_preamble() -> str:
-    """
-    (來自 quiz_mode.py)
-    返回 LeetCode 題目測試可能需要的輔助類別和函式字串。
-    """
-    return """
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-def list_to_nodes(lst):
-    dummy = ListNode()
-    curr = dummy
-    for val in lst:
-        curr.next = ListNode(val)
-        curr = curr.next
-    return dummy.next
-def nodes_to_list(node):
-    result = []
-    while node:
-        result.append(node.val)
-        node = node.next
-    return result
-def list_to_tree(lst):
-    if not lst:
-        return None
-    nodes = [TreeNode(val) if val is not None else None for val in lst]
-    kids = nodes[::-1]
-    root = kids.pop()
-    for node in nodes:
-        if node:
-            if kids: node.left = kids.pop()
-            if kids: node.right = kids.pop()
-    return root
-def tree_to_list(root):
-    if not root:
-        return []
-    result, queue = [], [root]
-    while queue:
-        node = queue.pop(0)
-        if node:
-            result.append(node.val)
-            queue.append(node.left)
-            queue.append(node.right)
-        else:
-            result.append(None)
-    while result and result[-1] is None:
-        result.pop()
-    return result
-def auto_convert_output(result):
-    if isinstance(result, ListNode):
-        return nodes_to_list(result)
-    if isinstance(result, TreeNode):
-        return tree_to_list(result)
-    return result
-"""
-
-def parse_leetcode_info(solution_str: str, input_str: str) -> tuple[str | None, list[str], str]:
-    """
-    (來自 quiz_mode.py)
-    解析 LeetCode 格式的 solution 和 input。
-    """
-    match = re.search(r"def (\w+)\(self, ([^\)]+)\)", solution_str)
-    if not match:
-        if "def __init__(self" in solution_str:
-            return None, [], ""
-        match = re.search(r"def (\w+)\(self, ([^\)]+)\) ->", solution_str)
-        if not match:
-             return None, [], ""
-    func_name = match.group(1)
-    args_str = match.group(2)
-    arg_names = [arg.split(':')[0].strip() for arg in args_str.split(',')]
-    try:
-        input_definitions = input_str
-        raw_arg_names = re.findall(r"(\w+)\s*=", input_str)
-        if set(raw_arg_names) == set(arg_names):
-             return func_name, arg_names, input_definitions
-        else:
-             if not raw_arg_names and not arg_names:
-                 return None, [], ""
-             if not raw_arg_names: 
-                 return None, [], "" 
-             return func_name, raw_arg_names, input_definitions
-    except Exception as e:
-        print(f"[警告] LeetCode input 解析失敗: {e}")
-        return None, [], ""
-
-def list_obj_units(obj_root="data"):
-    """(來自 quiz_mode.py)"""
-    try:
-        return sorted([d for d in os.listdir(obj_root) if os.path.isdir(os.path.join(obj_root, d))])
-    except FileNotFoundError:
-        print(f"[錯誤] 找不到 'data' 資料夾。")
-        return []
-
-def load_all_coding_practice(obj_root="data", unit=None):
-    """(來自 quiz_mode.py)"""
-    practice_list = []
-    search_path = os.path.join(obj_root, unit) if unit else obj_root
-    if not os.path.exists(search_path):
-        print(f"[警告] 路徑不存在: {search_path}")
-        return []
-    for root, dirs, files in os.walk(search_path):
-        for file in files:
-            if file.endswith(".json"):
-                path = os.path.join(root, file)
-                try:
-                    with open(path, "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                        if "coding_practice" in data:
-                            for item in data["coding_practice"]:
-                                item["source_file"] = path 
-                                practice_list.append(item)
-                except Exception as e:
-                    print(f"[讀取失敗] {path}: {e}")
-    return practice_list
-
-# --- (輔助函式結束) ---
+# --- (*** 優化 ***) 移除所有 "從 quiz_mode.py 移植" 的輔助函式 ---
+# (def _normalize_output, get_data_structures_preamble, 
+#  parse_leetcode_info, list_obj_units, load_all_coding_practice 均已刪除)
 
 
 class ChatApplication:
+    
+    # (*** 優化 ***) 統一定義顏色和字體
+    BG_COLOR = "#F4F4F4"
+    TEXT_COLOR = "#222222"
+    SYSTEM_COLOR = "#555555"
+    AI_COLOR = "#006400"
+    USER_COLOR = "#003399"
+    ERROR_COLOR = "#CC0000"
+    INPUT_BG = "#FFFFFF"
+    CODE_BG = "#EAEAEA"
+    BUTTON_BG = "#0078D4"
+    BUTTON_FG = "#FFFFFF"
+    BUTTON_ACTIVE_BG = "#005A9E"
+
+    BASE_FONT = ("Microsoft JhengHei UI", 11)
+    CODE_FONT = ("Courier New", 10)
+    BUTTON_FONT = ("Microsoft JhengHei UI", 10, "bold")
+    
+    
     def __init__(self, root):
         self.root = root
         self.root.title("Akapychan GUI (Python Code Generator)")
         self.root.geometry("1000x750")
+        self.root.configure(bg=self.BG_COLOR) 
 
         # --- 狀態變數 ---
-        self.current_task = None  # 用於儲存當前的 generator 任務
-        self.session_data = {}    # 用於儲存跨步驟的資料 (如 user_need, code)
-        self.ui_queue = queue.Queue() # 執行緒安全的消息隊列
+        self.current_task = None  
+        self.session_data = {}    
+        self.ui_queue = queue.Queue() 
+
+        # (*** 優化 ***) 設定 ttk 樣式
+        self.style = ttk.Style(root)
+        self.style.theme_use('clam') 
+
+        self.style.configure('TFrame', background=self.BG_COLOR)
+        self.style.configure('TButton', background=self.BUTTON_BG, foreground=self.BUTTON_FG,
+                             font=self.BUTTON_FONT, borderwidth=0, padding=(10, 5))
+        self.style.map('TButton',
+                       background=[('active', self.BUTTON_ACTIVE_BG)],
+                       foreground=[('active', self.BUTTON_FG)])
+        self.style.configure('Dark.TButton', background='#444444', foreground=self.BUTTON_FG)
+        self.style.map('Dark.TButton', background=[('active', '#666666')])
 
         # --- 1. 模式選擇框架 ---
-        self_font = font.Font(family="Helvetica", size=10)
-        self.mode_frame = tk.Frame(root, pady=5)
+        self.mode_frame = ttk.Frame(root, style='TFrame', padding=5)
         self.mode_frame.pack(fill=tk.X)
 
         modes = [
@@ -203,38 +111,55 @@ class ChatApplication:
         ]
         
         for text, mode in modes:
-            btn = tk.Button(self.mode_frame, text=text, font=self_font, 
-                            command=lambda m=mode: self.set_mode(m))
-            btn.pack(side=tk.LEFT, padx=5, expand=True, fill=tk.X)
+            # (*** 優化 ***) 使用 ttk.Button
+            btn = ttk.Button(self.mode_frame, text=text, 
+                             command=lambda m=mode: self.set_mode(m),
+                             style='TButton')
+            btn.pack(side=tk.LEFT, padx=5, pady=5, expand=True, fill=tk.X)
 
         # --- 2. 對話顯示區域 ---
         self.chat_area = scrolledtext.ScrolledText(root, state='disabled', wrap=tk.WORD, 
-                                                   height=25, font=("Helvetica", 11))
+                                                   height=25, 
+                                                   font=self.BASE_FONT,
+                                                   bg=self.INPUT_BG, 
+                                                   fg=self.TEXT_COLOR, 
+                                                   selectbackground=self.BUTTON_BG,
+                                                   selectforeground=self.BUTTON_FG,
+                                                   insertbackground=self.TEXT_COLOR, 
+                                                   bd=1, relief="solid") 
         self.chat_area.pack(padx=10, pady=5, fill=tk.BOTH, expand=True)
         
-        # 設定文字顏色標籤
-        self.chat_area.tag_config('user', foreground="#003399") # 
-        self.chat_area.tag_config('ai', foreground="#006400")
-        self.chat_area.tag_config('system', foreground="#555555", font=("Helvetica", 11, "italic"))
-        self.chat_area.tag_config('error', foreground="#CC0000", font=("Helvetica", 11, "bold"))
-        self.chat_area.tag_config('code', foreground="#333333", background="#f0f0f0", 
-                                  font=("Courier New", 10), 
+        # (*** 優化 ***) 使用定義好的顏色
+        self.chat_area.tag_config('user', foreground=self.USER_COLOR) 
+        self.chat_area.tag_config('ai', foreground=self.AI_COLOR)
+        self.chat_area.tag_config('system', foreground=self.SYSTEM_COLOR, 
+                                  font=(self.BASE_FONT[0], self.BASE_FONT[1], "italic"))
+        self.chat_area.tag_config('error', foreground=self.ERROR_COLOR, 
+                                  font=(self.BASE_FONT[0], self.BASE_FONT[1], "bold"))
+        self.chat_area.tag_config('code', foreground="#333333", background=self.CODE_BG, 
+                                  font=self.CODE_FONT, 
                                   borderwidth=1, relief="solid", 
                                   lmargin1=10, lmargin2=10, rmargin=10)
 
 
         # --- 3. 使用者輸入框架 ---
-        self.input_frame = tk.Frame(root, pady=10)
-        self.input_frame.pack(fill=tk.X, padx=10)
+        self.input_frame = ttk.Frame(root, style='TFrame', padding=(10, 5, 10, 10))
+        self.input_frame.pack(fill=tk.X)
         
-        # 使用 tk.Text 實現多行輸入
-        self.input_area = tk.Text(self.input_frame, height=5, font=("Helvetica", 11))
+        self.input_area = tk.Text(self.input_frame, height=4, 
+                                  font=self.BASE_FONT,
+                                  bg=self.INPUT_BG, 
+                                  fg=self.TEXT_COLOR, 
+                                  selectbackground=self.BUTTON_BG,
+                                  selectforeground=self.BUTTON_FG,
+                                  insertbackground=self.TEXT_COLOR, 
+                                  bd=1, relief="solid") 
         self.input_area.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-        self.send_button = tk.Button(self.input_frame, text="送出", 
-                                     font=self_font, width=10, 
-                                     command=self.process_input)
-        self.send_button.pack(side=tk.RIGHT, padx=5, fill=tk.BOTH)
+        self.send_button = ttk.Button(self.input_frame, text="送出", 
+                                      style='TButton',
+                                      command=self.process_input)
+        self.send_button.pack(side=tk.RIGHT, padx=5, fill=tk.Y, ipady=5)
 
         # 綁定 Enter 鍵 (Shift+Enter 換行)
         self.input_area.bind("<Return>", self.on_enter_key)
@@ -302,9 +227,6 @@ class ChatApplication:
         設定新模式，取消舊任務，並啟動新任務的 generator
         """
         if self.current_task:
-            # 這裡我們不能輕易 "停止" 一個執行緒，
-            # 但我們可以透過重置 self.current_task 來 "遺棄" 它。
-            # 該執行緒完成後會自行退出。
             self.add_to_chat("[系統] 已取消先前任務。", 'system')
             
         self.current_task = None
@@ -314,8 +236,8 @@ class ChatApplication:
             self.current_task = self.mode1_flow()
         elif mode == "3":
             self.current_task = self.mode3_flow()
-        # --- (*** 已補全 ***) ---
         elif mode == "2":
+            # self_font = font.Font(family="Helvetica", size=10) # 移除，改用 ttk
             self.current_task = self.mode2_flow_quiz()
         elif mode == "4":
             self.current_task = self.mode4_flow_explain()
@@ -325,7 +247,6 @@ class ChatApplication:
             self.current_task = self.mode6_flow_suggestions()
         elif mode == "chat":
             self.current_task = self.chat_flow()
-        # --- (*** 補全結束 ***) ---
         
         if self.current_task:
             # 啟動任務的第一步 (在執行緒中)
@@ -417,7 +338,6 @@ class ChatApplication:
                 continue
             else:
                 self.add_to_chat("[提示] 無效輸入，請輸入 y/n/a。", 'error')
-                # 迴圈會自動再次詢問
 
         # 步驟 2: 生成測資
         self.add_to_chat("\n[提示] 正在生成測資...\n", 'system')
@@ -457,7 +377,7 @@ class ChatApplication:
 
         if not code:
             self.add_to_chat("[錯誤] 未能從模型回覆中提取程式碼。", 'error')
-            return # 終止任務
+            return 
         
         self.session_data['current_code'] = code
         self.add_to_chat(f"\n=== 模型回覆 (程式碼) ===\n```python\n{code}\n```", 'ai')
@@ -474,17 +394,16 @@ class ChatApplication:
         
         # 步驟 5: 詢問是否驗證
         self.add_to_chat("要執行程式 (包含 main 中的測試) 嗎? (y: 執行測試, n: 不驗證)", 'system')
-        verify = (yield).strip().lower() # 暫停，等待 y/n
+        verify = (yield).strip().lower() 
 
         if verify in ("y", "yes"):
             self.add_to_chat("\n[驗證中] 正在使用 AI 生成的測資逐一驗證...", 'system')
             
             # (!!!) 耗時操作 (內部有多次執行)
-            # 呼叫重構的驗證邏輯
             self.run_validation_logic(
                 code, 
                 json_tests, 
-                on_failure_callback=None # 模式 1 中驗證失敗不觸發自動分析
+                on_failure_callback=None 
             )
         else:
              self.add_to_chat("[提示] 略過驗證。", 'system')
@@ -493,11 +412,11 @@ class ChatApplication:
         self.add_to_chat("\n" + "="*20 + "\n程式碼已生成。", 'system')
         self.add_to_chat("是否要進入互動式修改模式？(y/n)", 'system')
         
-        modify = (yield).strip().lower() # 暫停，等待 y/n
+        modify = (yield).strip().lower() 
         
         if modify not in ("y", "yes"):
             self.add_to_chat("[提示] 略過修改，返回主選單。", 'system')
-            return # 終止任務
+            return 
 
         # 步驟 7: 進入互動式修改模式
         self.add_to_chat(
@@ -516,7 +435,7 @@ class ChatApplication:
             if mod_input.upper() == "QUIT":
                 self.add_to_chat(f"\n開發模式結束。最終程式碼如下：\n```python\n{self.session_data['current_code']}\n```")
                 self.add_to_chat("[提示] 返回主選單。", 'system')
-                break # 退出修改迴圈，任務結束
+                break 
 
             elif mod_input.upper() in ("VERIFY", "V"):
                 self.add_to_chat("\n[驗證中] 正在使用 AI 生成的測資逐一驗證 (當前程式碼)...", 'system')
@@ -574,16 +493,15 @@ class ChatApplication:
                 
                 self.add_to_chat("\n請輸入下一步操作 (修改, VERIFY, EXPLAIN, QUIT):", 'system')
         
-        # 任務結束 (隱式 Return)
 
-
-    # --- (*** 新增 ***) 模式 2: 出題 ---
+    # --- 模式 2: 出題 ---
     def mode2_flow_quiz(self):
-        """模式 2: 出題 (重構自 quiz_mode.py)"""
+        """模式 2: 出題 (邏輯不變，使用導入的函式)"""
         
         self.add_to_chat("[系統] 進入模式 2: 出題。\n[載入中] 正在掃描題庫單元...", 'system')
         
         # (!!!) 耗時操作 (I/O)
+        # (*** 優化 ***) 使用導入的函式
         units = list_obj_units()
         
         if not units:
@@ -593,7 +511,7 @@ class ChatApplication:
         unit_list_str = "\n".join(f"{idx}. {name}" for idx, name in enumerate(units, 1))
         self.add_to_chat(f"請選擇單元：\n{unit_list_str}\n\n請在下方輸入單元編號:", 'system')
         
-        sel = (yield).strip() # 暫停，等待單元編號
+        sel = (yield).strip() 
 
         if not sel.isdigit() or not (1 <= int(sel) <= len(units)):
             self.add_to_chat("[錯誤] 請輸入有效的編號。", 'error')
@@ -603,6 +521,7 @@ class ChatApplication:
         self.add_to_chat(f"[載入中] 正在從 {unit} 載入題庫...", 'system')
 
         # (!!!) 耗時操作 (I/O)
+        # (*** 優化 ***) 使用導入的函式
         practices = load_all_coding_practice(unit=unit)
         
         if not practices:
@@ -610,7 +529,7 @@ class ChatApplication:
             return
 
         q = random.choice(practices)
-        self.session_data['quiz_question'] = q # 儲存題目以便後續分析
+        self.session_data['quiz_question'] = q 
         
         self.add_to_chat(
             f"\n=== 出題模式 ===\n"
@@ -642,31 +561,23 @@ class ChatApplication:
             'system'
         )
         
-        user_code = yield # 暫停，等待程式碼
+        user_code = yield 
         self.session_data['user_code'] = user_code
         
         if not user_code:
             self.add_to_chat("[提示] 沒有輸入程式碼，取消驗證。", 'error')
             return
 
-        # 檢查 solution 是否為 LeetCode 格式
         is_leetcode_format = "class Solution" in q.get("solution", "")
         
-        # --- (B) LeetCode 格式驗證 ---
         if is_leetcode_format:
             yield from self.run_quiz_validation_leetcode(q, user_code, example_to_run)
-        
-        # --- (C) stdin/stdout 格式驗證 ---
         elif example_to_run:
             yield from self.run_quiz_validation_stdin(q, user_code, example_to_run)
-        
-        # --- (A) 無範例 ---
         else:
             self.add_to_chat("\n[提示] 此題無範例，跳過驗證。", 'system')
         
-        # 顯示參考解答
         self.add_to_chat(f"\n=== 參考解答 ===\n```python\n{q.get('solution', '[無解答]')}\n```", 'system')
-        # 任務結束
 
     def run_quiz_validation_leetcode(self, q, user_code, example_to_run):
         """模式 2 的輔助 generator：執行 LeetCode 驗證"""
@@ -680,6 +591,7 @@ class ChatApplication:
         self.add_to_chat(f"Expected Output (比對回傳值): {repr(test_output_str)}", 'system')
         
         # 1. 解析函式資訊
+        # (*** 優化 ***) 使用導入的函式
         func_name, arg_names, input_definitions = parse_leetcode_info(reference_solution, test_input_str)
         
         if func_name is None:
@@ -692,6 +604,7 @@ class ChatApplication:
             return
         
         # 2. 構建測試腳本 (Harness)
+        # (*** 優化 ***) 使用導入的函式
         harness_code = f"""
 # --- 輔助類別 (ListNode, TreeNode, etc.) ---
 {get_data_structures_preamble()}
@@ -724,18 +637,19 @@ def run_test_harness():
 # 執行測試
 run_test_harness()
 """
-        # 3. 執行驗證 (使用 testrun.py 的比對邏輯)
+        # 3. 執行驗證
         # (!!!) 耗時操作
         exec_success, raw_output_str = validate_main_function(
             code=harness_code,
-            stdin_input=None, # Harness 不接收 stdin
-            expected_output=None # 我們手動比對
+            stdin_input=None, 
+            expected_output=None 
         )
         
         success = False
         output_msg = raw_output_str
 
         if exec_success:
+            # (*** 優化 ***) 使用導入的函式
             norm_expected = _normalize_output(test_output_str)
             norm_actual = _normalize_output(raw_output_str)
             
@@ -764,7 +678,7 @@ run_test_harness()
             
             self.add_to_chat(f"\n=== 模型分析 ===\n{analysis_result}", 'ai')
         
-        yield # 只是為了讓它成為 generator
+        yield 
 
     def run_quiz_validation_stdin(self, q, user_code, example_to_run):
         """模式 2 的輔助 generator：執行 stdin/stdout 驗證"""
@@ -780,13 +694,14 @@ run_test_harness()
         exec_success, raw_output_str = validate_main_function(
             code=user_code,
             stdin_input=test_input_str, 
-            expected_output=None # 手動比對
+            expected_output=None 
         )
         
         success = False
         output_msg = raw_output_str
 
         if exec_success:
+            # (*** 優化 ***) 使用導入的函式
             norm_expected = _normalize_output(test_output_str)
             norm_actual = _normalize_output(raw_output_str)
             
@@ -814,7 +729,7 @@ run_test_harness()
             
             self.add_to_chat(f"\n=== 模型分析 ===\n{fallback_result}", 'ai')
         
-        yield # 只是為了讓它成為 generator
+        yield 
         
     # --- 模式 3: 驗證程式碼 (完整流程) ---
     def mode3_flow(self):
@@ -822,14 +737,14 @@ run_test_harness()
         
         # 步驟 1: 獲取程式碼
         self.add_to_chat("[系統] 進入模式 3: 使用者程式碼驗證。\n請貼上您要驗證的 Python 程式碼，然後按 '送出'。", 'system')
-        user_code = yield  # 暫停，等待程式碼
+        user_code = yield  
         self.session_data = {'user_code': user_code}
         
         self.add_to_chat(f"收到的程式碼：\n```python\n{user_code}\n```", 'system')
 
         # 步驟 2: 獲取需求說明
         self.add_to_chat("\n請輸入這段程式碼的「需求說明」，AI 將以此生成測資來驗證。\n(若留空，則僅執行一次程式)", 'system')
-        user_need = (yield).strip() # 暫停，等待需求
+        user_need = (yield).strip() 
         
         json_tests = []
         if user_need:
@@ -842,7 +757,7 @@ run_test_harness()
             
             self.add_to_chat(f"\n=== 模型回覆 (測資) ===\n{test_resp}\n", 'ai')
             
-            json_tests = extract_json_block(test_resp) or parse_tests_from_text(test_resp) # 
+            json_tests = extract_json_block(test_resp) or parse_tests_from_text(test_resp) 
             
             if json_tests:
                 self.add_to_chat(f"[提示] 已成功提取 {len(json_tests)} 筆測資。", 'system')
@@ -854,7 +769,6 @@ run_test_harness()
             self.add_to_chat("\n[驗證中] 正在使用 AI 生成的測資逐一驗證您的程式碼...", 'system')
             
             # (!!!) 耗時操作
-            # 呼叫驗證邏輯，並傳入失敗時的回呼函式
             all_passed = self.run_validation_logic(
                 user_code, 
                 json_tests, 
@@ -864,7 +778,6 @@ run_test_harness()
             if all_passed:
                 self.add_to_chat("\n" + "="*20 + "\n總結: [成功] 您的程式碼已通過所有 AI 生成的測資。", 'system')
         else:
-            # (B) 如果沒有測資，執行旧的 Mode 3 邏輯 (僅執行一次)
             self.add_to_chat("\n=== 驗證中 (僅執行一次，無輸入) ===\n", 'system')
             
             # (!!!) 耗時操作
@@ -877,16 +790,14 @@ run_test_harness()
                 self.add_to_chat("\n[警告] 程式執行失敗，開始分析...\n", 'system')
                 
                 # (!!!) 耗時操作
-                self.mode3_analyze_error() # 呼叫分析
+                self.mode3_analyze_error() 
         
-        # 任務結束 (隱式 Return)
-
     def mode3_analyze_error(self):
         """模式 3 驗證失敗時的分析回呼函式 (在執行緒中執行)"""
         try:
             user_code = self.session_data.get('user_code')
             if not user_code:
-                return # 
+                return 
             
             # (!!!) 耗時操作
             fallback_result = explain_code_error(user_code) 
@@ -895,19 +806,19 @@ run_test_harness()
         except Exception as e:
             self.add_to_chat(f"\n[分析失敗] {e}", 'error')
 
-    # --- (*** 新增 ***) 模式 4: 程式碼解釋 ---
+    # --- 模式 4: 程式碼解釋 ---
     def mode4_flow_explain(self):
-        """模式 4: 程式碼解釋 (重構自 explain_user_code.py)"""
+        """模式 4: 程式碼解釋"""
         
         self.add_to_chat("[系統] 進入模式 4: 程式碼解釋。\n請貼上您要解釋的 Python 程式碼，然後按 '送出'。", 'system')
-        user_code = yield # 暫停，等待程式碼
+        user_code = yield 
         
         if not user_code.strip():
             self.add_to_chat("[提示] 沒有輸入程式碼。", 'error')
             return
 
         self.add_to_chat("\n請輸入需求 (用於解釋背景，可留空):", 'system')
-        user_need = (yield).strip() # 暫停，等待需求
+        user_need = (yield).strip() 
         
         self.add_to_chat("\n[系統] 正在生成程式碼解釋...", 'system')
 
@@ -916,20 +827,19 @@ run_test_harness()
         explain_resp = generate_response(explain_prompt)
 
         self.add_to_chat(f"\n=== 模型回覆 (解釋) ===\n{explain_resp}\n", 'ai')
-        # 任務結束
 
-    # --- (*** 新增 ***) 模式 5: 翻譯 ---
+    # --- 模式 5: 翻譯 ---
     def mode5_flow_translate(self):
-        """模式 5: 翻譯 (重構自 model_interface.py)"""
+        """模式 5: 翻譯"""
         
         self.add_to_chat("[系統] 進入模式 5: 翻譯。\n請輸入目標語言 (例如: 英文, 繁體中文, 日文) [預設: 英文]:", 'system')
-        target_lang = (yield).strip() # 暫停，等待語言
+        target_lang = (yield).strip() 
         
         if not target_lang:
             target_lang = "英文"
             
         self.add_to_chat(f"\n請輸入要翻譯成「{target_lang}」的文字，然後按 '送出'。", 'system')
-        text_to_translate = (yield).strip() # 暫停，等待文字
+        text_to_translate = (yield).strip() 
 
         if not text_to_translate:
             self.add_to_chat("[提示] 沒有輸入內容。", 'error')
@@ -942,22 +852,21 @@ run_test_harness()
         translated_text = generate_response(prompt)
         
         self.add_to_chat(f"\n=== 翻譯結果 ===\n{translated_text}", 'ai')
-        # 任務結束
 
-    # --- (*** 新增 ***) 模式 6: 程式碼建議 ---
+    # --- 模式 6: 程式碼建議 ---
     def mode6_flow_suggestions(self):
-        """模式 6: 獲取程式碼建議 (重構自 model_interface.py)"""
+        """模式 6: 獲取程式碼建議"""
         
         self.add_to_chat("[系統] 進入模式 6: 程式碼建議。\nAI 將根據您的需求和程式碼，提供 2-4 個改進提示。", 'system')
         
         self.add_to_chat("\n請輸入這段程式碼的「需求說明」，AI 將以此為基準提供建議。", 'system')
-        user_need = (yield).strip() # 暫停，等待需求
+        user_need = (yield).strip() 
 
         if not user_need:
             self.add_to_chat("[提示] 未提供需求說明，AI 將僅根據程式碼本身提供通用建議。", 'system')
 
         self.add_to_chat("\n請貼上您要獲取建議的 Python 程式碼，然後按 '送出'。", 'system')
-        user_code = yield # 暫停，等待程式碼
+        user_code = yield 
 
         if not user_code.strip():
             self.add_to_chat("[提示] 沒有輸入程式碼，取消操作。", 'error')
@@ -970,30 +879,27 @@ run_test_harness()
         suggestions = generate_response(prompt)
         
         self.add_to_chat(f"\n=== AI 程式碼建議 ===\n{suggestions}", 'ai')
-        # 任務結束
 
-    # --- (*** 新增 ***) 聊天模式 ---
+    # --- 聊天模式 ---
     def chat_flow(self):
-        """聊天模式 (重構自 model_interface.py)"""
+        """聊天模式"""
         
         self.add_to_chat("[系統] 進入聊天模式。\n請輸入您的問題。 (輸入 'QUIT' 結束此模式)", 'system')
         
         while True:
-            user_input = (yield).strip() # 暫停，等待輸入
+            user_input = (yield).strip() 
             
             if user_input.upper() == "QUIT":
                 self.add_to_chat("[系統] 結束聊天模式。", 'system')
-                break # 退出迴圈，任務結束
+                break 
 
             self.add_to_chat("[系統] 思考中...", 'system')
             
             prompt = ""
-            # 偵測是否貼了 Python 程式碼
             if "def " in user_input or "print(" in user_input or "for " in user_input or "import " in user_input:
                 self.add_to_chat("[提示] 偵測到 Python 程式碼，進入解釋模式...", 'system')
                 prompt = build_explain_prompt("使用者貼上的程式碼", user_input)
             else:
-                # 為基礎聊天模式加入助教身份
                 prompt = (
                     "用繁體中文回答。\n"
                     "你是一位友善且專業的程式學習助教。\n"
@@ -1007,14 +913,11 @@ run_test_harness()
             self.add_to_chat(f"{resp}", 'ai')
             self.add_to_chat("\n請繼續提問 (輸入 'QUIT' 結束此模式)", 'system')
             
-        # 任務結束 (隱式 Return)
-
-    # --- 驗證邏輯 (重構為輔助函式) ---
+    # --- 驗證邏輯 (輔助函式) ---
     def run_validation_logic(self, code, json_tests, on_failure_callback=None):
         """
         執行 main.py 中的驗證迴圈。
         (這整個函式在背景執行緒中執行)
-        返回 True (全部通過) 或 False (有失敗)
         """
         if not json_tests:
             self.add_to_chat("[警告] 找不到 AI 生成的 JSON 測資。僅執行一次 (無輸入)...", 'error')
@@ -1028,7 +931,7 @@ run_test_harness()
             return success
 
         all_passed = True
-        failed_outputs = [] # 儲存失敗訊息
+        failed_outputs = [] 
         
         for i, test in enumerate(json_tests):
             self.add_to_chat(f"\n--- 測試案例 {i+1} ---", 'system')
@@ -1068,27 +971,10 @@ run_test_harness()
             self.add_to_chat("總結: [失敗] 部分測資未通過。", 'error')
             if on_failure_callback:
                 self.add_to_chat("\n[警告] 程式驗證失敗，開始分析...\n", 'system')
-                # 顯示第一個錯誤
                 self.add_to_chat(f"(失敗詳情: {failed_outputs[0]})", 'error')
                 on_failure_callback()
         
         return all_passed
-
-    # --- 其他模式的存根 (Stub) ---
-    def stub_flow(self, mode_name, function_name):
-        """
-        一個通用的存根 generator，用於提示使用者哪些功能需要重構。
-        (*** 此函式現在不再被 set_mode 使用 ***)
-        """
-        self.add_to_chat(
-            f"[系統] 進入 {mode_name}。\n"
-            f"[警告] 此功能 (呼叫 `{function_name}()`) 尚未與 GUI 整合。\n"
-            f"`{function_name}` 是一個使用 `input()` 和 `print()` 的同步函式，"
-            f"它會凍結 GUI。必須將其重構為非阻塞函式 (例如，像 `mode1_flow` 一樣的 Generator) 才能在 GUI 中使用。",
-            'error'
-        )
-        # 任務立即結束
-        return
 
 
 if __name__ == "__main__":
