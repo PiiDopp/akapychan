@@ -44,22 +44,22 @@ def explain_code_error(user_code: str) -> str:
         explanation = generate_response(explain_prompt)
         print("錯誤解釋如下：\n")
         print(explanation)
-        print("\n是否根據這個錯誤嘗試提供修正版程式？(y/n): ", end="")
+        # print("\n是否根據這個錯誤嘗試提供修正版程式？(y/n): ", end="")
 
-        choice = input().strip().lower()
-        if choice in ["y", "yes", "是", "好"]:
-            fix_prompt = (
-                "根據以下的程式與錯誤訊息，請嘗試修正錯誤。\n"
-                "用繁體中文說明修正邏輯，並給出完整的正確程式碼（放在 ```python 區塊內）。\n"
-                "\n=== 使用者程式碼 ===\n"
-                "```python\n" + user_code + "\n```\n"
-                "\n=== 錯誤訊息 ===\n"
-                "```\n" + error_msg + "\n```\n"
-            )
-            fixed_code = generate_response(fix_prompt)
-            return "\n修正版程式：\n\n" + fixed_code
-        else:
-            return "\n已取消自動修正。若需要，可稍後再請我生成修正版。"
+        # choice = input().strip().lower()
+        # if choice in ["y", "yes", "是", "好"]:
+        #     fix_prompt = (
+        #         "根據以下的程式與錯誤訊息，請嘗試修正錯誤。\n"
+        #         "用繁體中文說明修正邏輯，並給出完整的正確程式碼（放在 ```python 區塊內）。\n"
+        #         "\n=== 使用者程式碼 ===\n"
+        #         "```python\n" + user_code + "\n```\n"
+        #         "\n=== 錯誤訊息 ===\n"
+        #         "```\n" + error_msg + "\n```\n"
+        #     )
+        #     fixed_code = generate_response(fix_prompt)
+        #     return "\n修正版程式：\n\n" + fixed_code
+        # else:
+        #     return "\n已取消自動修正。若需要，可稍後再請我生成修正版。"
 
     except Exception as e:
         return f"[錯誤] 無法解釋程式碼: {e}"
