@@ -21,11 +21,6 @@ source <虛擬環境名稱>/bin/activate
 source myenv/bin/activate
 ```
 
-```bash
-virtualenv <folder_name>
-# 範例：
-virtualenv myenv
-```
 
 ## 退出虛擬環境
 ```bash
@@ -40,4 +35,10 @@ python3 main.py
 ## 安裝套件
 ```bash
 pip install -r requirements.txt
+```
+
+## 執行後端
+```bash
+python -m uvicorn main:app --reload
+uvicorn main:app --reload
 ```
