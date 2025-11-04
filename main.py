@@ -33,7 +33,7 @@ from core.explain_error import explain_code_error
 # --- FastAPI 應用程式實例 ---
 app = FastAPI(
     title="Akapychan Code Generator API",
-    description="將互動式 CLI 重構為 FastAPI 服務",
+    description="FastAPI",
     version="1.0.0"
 )
 
