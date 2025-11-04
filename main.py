@@ -3,10 +3,10 @@
 from core import ask_input, generate_response, \
                  extract_code_block, extract_json_block, parse_tests_from_text, normalize_tests, \
                  validate_python_code, generate_tests, validate_main_function
-from core.model_interface import build_virtual_code_prompt, build_test_prompt, build_explain_prompt, build_code_prompt, call_ollama_cli, MODEL_NAME, interactive_chat, interactive_langchain_chat, interactive_code_modification_loop, build_stdin_code_prompt, build_fix_code_prompt, interactive_translate
+from core.model_interface import build_virtual_code_prompt, build_test_prompt, build_explain_prompt, build_code_prompt, call_ollama_cli, MODEL_NAME, interactive_chat, interactive_langchain_chat, interactive_code_modification_loop, build_stdin_code_prompt, build_fix_code_prompt, interactive_translate, get_code_suggestions
 from quiz.quiz_mode import quiz_mode
-from explain_user_code import explain_user_code
-from explain_error import explain_code_error
+from core.explain_user_code import explain_user_code
+from core.explain_error import explain_code_error
 
 
 
@@ -411,6 +411,8 @@ def interactive_session():
             explain_user_code()
         elif mode == "5":
             interactive_translate()
+        elif mode == "6":
+            get_code_suggestions()
         else:
             interactive_chat()
 

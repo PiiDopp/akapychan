@@ -106,6 +106,24 @@ def build_translate_prompt(text: str, target_language: str = "English") -> str:
         f"翻譯為「{target_language}」的結果："
     )
 
+def build_suggestion_prompt(user_need: str, user_code: str) -> str:
+    """
+    (新功能) 建立一個提示，要求 AI 根據程式碼和需求提供「提示」或「建議」。
+    """
+    return (
+        "用繁體中文回答。\n"
+        "你是一位資深的 Python 程式碼審查員 (Code Reviewer) 和助教。\n"
+        "任務：根據使用者的原始需求和他們目前撰寫的程式碼，提供具體的「提示」或「改進建議」。\n\n"
+        "**重要限制**：\n"
+        "1.  **不要** 重新撰寫完整的程式碼。\n"
+        "2.  請以**條列點**的方式，針對可以改進的地方（例如：潛在錯誤、效能不佳、程式碼風格、或是不符合需求的地方）提出 2-4 個關鍵建議。\n"
+        "3.  如果程式碼看起來大致正確，也可以給予肯定，並提出一個「可以更好」的建議。\n\n"
+        f"原始需求:\n{user_need}\n\n"
+        f"使用者目前的程式碼:\n"
+        f"```python\n{user_code}\n```\n\n"
+        "請提供 2-4 個具體的改進提示："
+    )
+
 def interactive_langchain_chat():
     """
     使用 LangChain 的 ConversationChain 實現多輪對話模式。
@@ -113,6 +131,8 @@ def interactive_langchain_chat():
     print("=== 模型互動聊天模式 (LangChain 多輪對話) ===")
     print(f"使用的模型: {MODEL_NAME}")
     print("對話會記住歷史紀錄。結束請輸入 'quit'。")
+
+
 
     try:
         llm = OllamaLLM(model=MODEL_NAME)
@@ -547,3 +567,58 @@ def interactive_translate():
         print("\n---------------------------------\n")
 
     print("離開翻譯模式。")
+
+def get_code_suggestions():
+    """
+    模式 6：獲取程式碼建議
+    """
+    print("\n=== 模式 6: 獲取程式碼建議 ===")
+    print("AI 將根據您的需求和程式碼，提供 2-4 個改進提示。")
+    
+    # --- 1. 詢問需求說明 ---
+    print("\n請輸入這段程式碼的「需求說明」，AI 將以此為基準提供建議。")
+    print("多行輸入，結束請輸入單獨一行 'END'。")
+    
+    need_lines = []
+    while True:
+        try:
+            line = input()
+        except EOFError:
+            break
+        if line.strip() == "END":
+            break
+        need_lines.append(line)
+    
+    user_need = "\n".join(need_lines).strip()
+    if not user_need:
+        print("[提示] 未提供需求說明，AI 將僅根據程式碼本身提供通用建議。")
+
+    # --- 2. 詢問程式碼 ---
+    print("\n請貼上您要獲取建議的 Python 程式碼，結束輸入請輸入單獨一行 'END'。")
+    lines = []
+    while True:
+        try:
+            line = input()
+        except EOFError:
+            break
+        if line.strip() == "END":
+            break
+        lines.append(line)
+
+    user_code = "\n".join(lines)
+    if not user_code.strip():
+        print("[提示] 沒有輸入程式碼，取消操作。")
+        return
+
+    # --- 3. 產生並呼叫提示 ---
+    print("\n[提示] 正在分析您的程式碼並生成建議...")
+    try:
+        prompt = build_suggestion_prompt(user_need, user_code)
+        suggestions = generate_response(prompt)
+        
+        print("\n=== AI 程式碼建議 ===\n")
+        print(suggestions)
+        print("\n" + "="*20)
+        
+    except Exception as e:
+        print(f"\n[錯誤] 獲取建議時發生例外: {e}")

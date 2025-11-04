@@ -9,7 +9,7 @@ from core.data_structures import ListNode, TreeNode, list_to_nodes, nodes_to_lis
 
 # 嘗試導入 main.py 中使用的錯誤解釋器
 try:
-    from explain_error import explain_code_error
+    from core.explain_error import explain_code_error
 except ImportError:
     # (*** 錯誤修正 2a ***)
     # 修正：備用函式 (fallback) 應該只接受一個參數 'code'
