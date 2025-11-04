@@ -3,9 +3,6 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from typing import List, Optional, Any
 
-# 匯入所有核心商業邏輯 (來自您原本的 main.py 和 core)
-# 確保這些檔案 (core, quiz, explain_error, explain_user_code) 
-# 與這個新的 main.py 位於同一個 Python 模組路徑下。
 from core import (
     extract_code_block, 
     extract_json_block, 
@@ -20,8 +17,7 @@ from core.model_interface import (
     build_fix_code_prompt,
     generate_response  # 假設 generate_response 是您呼叫模型的主要函式
 )
-from quiz.quiz_mode import quiz_mode
-from explain_user_code import explain_user_code, get_code_explanation
+from explain_user_code import get_code_explanation
 from explain_error import explain_code_error
 
 # --- FastAPI 應用程式實例 ---
@@ -266,32 +262,6 @@ async def api_fix_code(request: FixCodeRequest):
 
     return {"new_code": new_code, "raw_response": fix_resp}
 
-# ================================================
-# 模式 2: 出題
-# ================================================
-
-@app.get("/mode2/quiz", 
-         tags=["Mode 2: Quiz"], 
-         summary="[未完全實現]")
-async def api_quiz_mode():
-    """
-    執行出題模式。
-    **警告**: 原本的 `quiz_mode()` 函式是互動式的 (使用 input/print)。
-    在 API 環境中呼叫它可能會導致伺服器執行緒阻塞或行為異常。
-    一個完整的 API 應重構 `quiz_mode.py` 以返回 JSON 資料。
-    """
-    try:
-        # 嘗試呼叫，但這非常不推薦
-        # result = quiz_mode() # 這可能會卡住
-        # return {"message": "Quiz mode executed.", "result": str(result)}
-        
-        # 返回一個 placeholder，表示此功能需要重構
-        raise NotImplementedError("quiz_mode() is interactive and not suitable for a stateless API without refactoring.")
-    except Exception as e:
-        raise HTTPException(
-            status_code=501, 
-            detail=f"Mode 2 (Quiz) is not implemented for API access: {e}"
-        )
 
 # ================================================
 # 模式 3: 使用者程式碼驗證
