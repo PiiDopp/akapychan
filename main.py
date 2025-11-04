@@ -20,7 +20,6 @@ from core.model_interface import (
     build_translate_prompt,
     build_suggestion_prompt,
     build_chat_prompt
-    # ----------------------------------------------
 )
 
 
@@ -87,8 +86,9 @@ class FixCodeResponse(BaseModel):
     new_code: Optional[str]
     raw_response: str
 
+
 class ValidateUserCodeRequest(BaseModel):
-    user_code: str
+    code: str  # [修正] 將 'user_code' 改為 'code'
     user_need: Optional[str] = Field(None, description="用以生成測資的需求說明 (若留空，則僅執行一次)")
 
 class ValidateUserCodeResponse(BaseModel):
@@ -302,6 +302,8 @@ async def api_fix_code(request: FixCodeRequest):
 
 
 
+# 位於 main.py
+
 @app.post("/mode3/validate_user_code", 
           response_model=ValidateUserCodeResponse, 
           tags=["Mode 3: Validate User Code"])
@@ -311,7 +313,7 @@ async def api_validate_user_code(request: ValidateUserCodeRequest):
     如果提供了 user_need，將嘗試生成測資來進行驗證。
     如果驗證失敗，將嘗試分析錯誤。
     """
-    user_code = request.user_code
+    user_code = request.code  # [修正] 從 request.code 讀取
     user_need = request.user_need
     json_tests = []
     all_passed = True
