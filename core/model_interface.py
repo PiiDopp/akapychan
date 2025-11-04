@@ -12,7 +12,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 OLLAMA_API = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
-MODEL_NAME = "gpt-oss"
+MODEL_NAME = "llama3.2:1B"
 
 
 # ===================== Prompt Builders =====================
@@ -92,6 +92,18 @@ def build_explain_prompt(user_need: str, code: str) -> str:
         f"使用者需求:\n{user_need}\n\n"
         f"程式碼:\n```python\n{code}\n```\n\n"
         "請輸出程式碼的功能說明："
+    )
+
+def build_translate_prompt(text: str, target_language: str = "English") -> str:
+    """
+    建立一個用於翻譯的提示。
+    """
+    return (
+        f"你是一個專業的翻譯助理。\n"
+        f"任務：將以下文字翻譯成「{target_language}」。\n"
+        "⚠️ **重要**：請僅輸出翻譯後的文字，絕對不要輸出任何額外文字、解釋或引號。\n\n"
+        f"原文：\n{text}\n\n"
+        f"翻譯為「{target_language}」的結果："
     )
 
 def interactive_langchain_chat():
@@ -488,3 +500,50 @@ def build_fix_code_prompt(user_need: str, virtual_code: str, ai_generated_tests:
     code_prompt_lines.append("⚠️ **重要**：請僅輸出一個 Python 程式碼區塊 ```python ... ```，絕對不要輸出任何額外文字或解釋。")
     
     return "".join(code_prompt_lines)
+
+def interactive_translate():
+    """
+    進入互動式翻譯模式。
+    """
+    print("=== 互動式翻譯模式 ===")
+    print("結束請輸入 'quit'。")
+    
+    while True:
+        # 1. 詢問目標語言
+        target_lang = ask_input("請輸入目標語言 (例如: 英文, 繁體中文, 日文) [英文]: ", "英文")
+        if target_lang.lower() == 'quit':
+            break
+            
+        # 2. 詢問要翻譯的內容
+        print(f"請輸入要翻譯成「{target_lang}」的文字 (多行輸入, 單獨一行 'END' 結束):")
+        lines = []
+        while True:
+            try:
+                line = input()
+            except EOFError:
+                break
+            if line.strip().upper() == "END":
+                break
+            if line.strip().lower() == 'quit':
+                print("離開翻譯模式。")
+                return # 離開整個函式
+            lines.append(line)
+        
+        text_to_translate = "\n".join(lines).strip()
+        
+        if not text_to_translate:
+            print("[提示] 沒有輸入內容。")
+            continue
+
+        # 3. 呼叫核心翻譯函式
+        # (*** 修正 ***)
+        # 步驟 3.1: 建立提示
+        prompt = build_translate_prompt(text_to_translate, target_lang)
+        # 步驟 3.2: 呼叫模型 (使用 generate_response 來獲得 spinner 和實際回應)
+        translated_text = generate_response(prompt)
+        
+        print("\n=== 翻譯結果 ===\n")
+        print(translated_text) # 
+        print("\n---------------------------------\n")
+
+    print("離開翻譯模式。")

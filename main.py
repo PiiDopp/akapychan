@@ -3,7 +3,7 @@
 from core import ask_input, generate_response, \
                  extract_code_block, extract_json_block, parse_tests_from_text, normalize_tests, \
                  validate_python_code, generate_tests, validate_main_function
-from core.model_interface import build_virtual_code_prompt, build_test_prompt, build_explain_prompt, build_code_prompt, call_ollama_cli, MODEL_NAME, interactive_chat, interactive_langchain_chat, interactive_code_modification_loop, build_stdin_code_prompt, build_fix_code_prompt
+from core.model_interface import build_virtual_code_prompt, build_test_prompt, build_explain_prompt, build_code_prompt, call_ollama_cli, MODEL_NAME, interactive_chat, interactive_langchain_chat, interactive_code_modification_loop, build_stdin_code_prompt, build_fix_code_prompt, interactive_translate
 from quiz.quiz_mode import quiz_mode
 from explain_user_code import explain_user_code
 from explain_error import explain_code_error
@@ -13,7 +13,7 @@ from explain_error import explain_code_error
 def interactive_session():
     print("=== Python Code Generator (Ollama + CodeLlama, Local Only) ===")
     while True:
-        mode = ask_input("請選擇模式 (1: 生成程式碼, 2: 出題, 3: 使用者程式碼驗證, 4: 程式碼解釋, q 離開)", "1")
+        mode = ask_input("請選擇模式 (1: 生成程式碼, 2: 出題, 3: 使用者程式碼驗證, 4: 程式碼解釋, 5:翻譯, q 離開)", "1")
         if mode.lower() in ("q", "quit", "exit"):
             break
  # ========== 模式 1: 生成程式碼 ==========
@@ -409,7 +409,8 @@ def interactive_session():
                         print(f"\n[分析失敗] {e}")
         elif mode == "4":
             explain_user_code()
-
+        elif mode == "5":
+            interactive_translate()
         else:
             interactive_chat()
 
