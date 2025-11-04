@@ -10,6 +10,10 @@ python3 -m venv myenv
 virtualenv <folder_name>
 # 範例：
 virtualenv myenv
+<<<<<<< HEAD
+=======
+```
+>>>>>>> 183121a (fix: add a blank line for better readability in README.md)
 
 ## 啟動虛擬環境
 ```bash
