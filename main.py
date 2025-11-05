@@ -4,7 +4,7 @@ import json
 import random
 import time
 from io import StringIO
-from types import MappingProxyType
+from types import MappingProxyType # 導入 MappingProxyType
 
 # 匯入 main.py 和 quiz_mode.py 所需的核心功能
 # 我們保留所有後端邏輯，只替換 UI
@@ -43,6 +43,37 @@ except ImportError as e:
     st.info("請確保 'quiz' 資料夾與此 'streamlit_app.py' 檔案位於同一目錄。")
     st.stop()
 
+# --- (*** 修改 ***) 輔助函式：清理模型輸出 ---
+
+# (*** 使用更強健的 REGEX ***)
+# re.IGNORECASE: 忽略大小寫
+# [\s\S]*? : 匹配任何字符 (包括換行符)，非貪婪模式
+CLEAN_PATTERN = re.compile(r"Thinking[\s\S]*?done thinking[\.\s]*", re.IGNORECASE)
+
+def generate_cleaned_response(prompt_text):
+    """
+    呼叫核心的 generate_response 並移除 
+    'Thinking...' 區塊。
+    """
+    raw_response = generate_response(prompt_text)
+    
+    # 使用 re.sub 將匹配到的模式替換為空字串
+    cleaned_response = CLEAN_PATTERN.sub("", raw_response)
+    
+    return cleaned_response.strip() # 回傳清理後的字串
+
+def clean_raw_output(raw_text):
+    """
+    移除 'Thinking...' 區塊 (來自一個已經生成的字串)。
+    """
+    if not isinstance(raw_text, str):
+         return raw_text # 如果不是字串，直接返回
+    
+    cleaned_text = CLEAN_PATTERN.sub("", raw_text)
+    return cleaned_text.strip()
+# --- 結束輔助函式 ---
+
+
 # --- Streamlit UI 設定 ---
 
 st.set_page_config(
@@ -66,23 +97,28 @@ if "app_data" not in st.session_state:
 st.sidebar.title("🤖 Akapychan AI")
 st.sidebar.markdown("")
 
-mode_options = MappingProxyType({
-    "一般聊天": "chat",
-    "1: 生成程式碼": "gen_code",
-    "2: 出題 (測驗模式)": "quiz",
-    "3: 使用者程式碼驗證": "validate",
-    "4: 程式碼解釋": "explain",
-    "5: 翻譯": "translate",
-    "6: 程式碼建議": "suggest",
-})
+# --- 使用 Tuple 定義, 確保唯讀 ---
+MODE_OPTIONS_TUPLE = (
+    ("一般聊天", "chat"),
+    ("1: 生成程式碼", "gen_code"),
+    ("2: 出題 (測驗模式)", "quiz"),
+    ("3: 使用者程式碼驗證", "validate"),
+    ("4: 程式碼解釋", "explain"),
+    ("5: 翻譯", "translate"),
+    ("6: 程式碼建議", "suggest"),
+)
+mode_options = MappingProxyType({label: key for label, key in MODE_OPTIONS_TUPLE})
+mode_labels = [label for label, key in MODE_OPTIONS_TUPLE]
+# --- 結束 ---
+
 
 # 獲取當前模式的標籤
 current_mode_label = [label for label, key in mode_options.items() if key == st.session_state.current_mode][0]
 
 selected_mode_label = st.sidebar.selectbox(
     "請選擇模式：",
-    options=list(mode_options.keys()),
-    index=list(mode_options.keys()).index(current_mode_label), # 保持 selectbox 與狀態同步
+    options=mode_labels, # 使用生成的標籤列表
+    index=mode_labels.index(current_mode_label), # 保持 selectbox 與狀態同步
     key="mode_selector"
 )
 
@@ -155,9 +191,9 @@ if prompt := st.chat_input("請在這裡輸入..."):
             with st.chat_message("assistant"):
                 if step == "start":
                     app_data["user_need"] = prompt
-                    with st.spinner("正在生成虛擬碼..."):
+                    with st.spinner(""): # 隱藏 thinking 輸出
                         vc_prompt = build_virtual_code_prompt(prompt)
-                        vc_resp = generate_response(vc_prompt)
+                        vc_resp = generate_cleaned_response(vc_prompt) # Cleaned
                         app_data["virtual_code"] = vc_resp
                     
                     assistant_response_content = f"=== 模型回覆 (虛擬碼) ===\n{vc_resp}\n\n---\n是否符合需求？ (請輸入 'y' 繼續, 'n' 重新生成, 'a' 新增補充說明)"
@@ -168,9 +204,9 @@ if prompt := st.chat_input("請在這裡輸入..."):
                     confirm = prompt.lower().strip()
                     if confirm in ("", "y", "yes"):
                         response_parts = ["好的，正在生成測資..."]
-                        with st.spinner("正在生成測資..."):
+                        with st.spinner(""): # 隱藏 thinking 輸出
                             test_prompt = build_test_prompt(app_data["user_need"])
-                            test_resp = generate_response(test_prompt)
+                            test_resp = generate_cleaned_response(test_prompt) # Cleaned
                             json_tests = extract_json_block(test_resp) or parse_tests_from_text(app_data["user_need"])
                             app_data["json_tests"] = json_tests
                         
@@ -182,13 +218,13 @@ if prompt := st.chat_input("請在這裡輸入..."):
                         
                         response_parts.append("\n正在根據虛擬碼和測資生成程式碼...")
                         
-                        with st.spinner("正在生成 (stdin/stdout) 程式碼..."):
+                        with st.spinner(""): # 隱藏 thinking 輸出
                             code_prompt = build_stdin_code_prompt(
                                 app_data["user_need"], 
                                 app_data["virtual_code"], 
                                 ai_generated_tests=json_tests
                             )
-                            code_resp = generate_response(code_prompt)
+                            code_resp = generate_cleaned_response(code_prompt) # Cleaned
                         
                         code_or_list = extract_code_block(code_resp)
                         code = code_or_list[0] if isinstance(code_or_list, list) and code_or_list else (code_or_list if isinstance(code_or_list, str) else None)
@@ -198,9 +234,9 @@ if prompt := st.chat_input("請在這裡輸入..."):
                             response_parts.append("=== 模型回覆 (程式碼) ===")
                             response_parts.append(f"```python\n{code}\n```")
                             
-                            with st.spinner("正在生成程式碼解釋..."):
+                            with st.spinner(""): # 隱藏 thinking 輸出
                                 explain_prompt = build_explain_prompt(app_data["user_need"], code)
-                                explain_resp = generate_response(explain_prompt)
+                                explain_resp = generate_cleaned_response(explain_prompt) # Cleaned
                             response_parts.append(f"=== 模型回覆 (解釋) ===\n{explain_resp}")
                             response_parts.append("---\n是否要執行程式碼驗證？ (請輸入 'y' 驗證, 'n' 略過)")
                             st.session_state.mode_step = "run_test_confirm"
@@ -225,9 +261,9 @@ if prompt := st.chat_input("請在這裡輸入..."):
                     extra_info = prompt
                     app_data["user_need"] += f"\n(補充說明: {extra_info})"
                     st.markdown("[提示] 已加入補充說明，重新生成虛擬碼...")
-                    with st.spinner("正在重新生成虛擬碼..."):
+                    with st.spinner(""): # 隱藏 thinking 輸出
                         vc_prompt = build_virtual_code_prompt(app_data["user_need"])
-                        vc_resp = generate_response(vc_prompt)
+                        vc_resp = generate_cleaned_response(vc_prompt) # Cleaned
                         app_data["virtual_code"] = vc_resp
                     
                     assistant_response_content = f"=== 模型回覆 (虛擬碼) ===\n{vc_resp}\n\n---\n是否符合需求？ (請輸入 'y' 繼續, 'n' 重新生成, 'a' 新增補充說明)"
@@ -235,6 +271,7 @@ if prompt := st.chat_input("請在這裡輸入..."):
                     st.session_state.mode_step = "vc_confirm"
 
                 elif step == "run_test_confirm":
+                    # ... (驗證邏輯不需要呼叫 LLM, 保持不變) ...
                     code = app_data.get("current_code")
                     json_tests = app_data.get("json_tests")
                     response_parts = []
@@ -284,6 +321,7 @@ if prompt := st.chat_input("請在這裡輸入..."):
                     st.markdown(assistant_response_content)
                     st.session_state.mode_step = "modify_confirm"
 
+
                 elif step == "modify_confirm":
                     if prompt.lower().strip() in ("y", "yes"):
                         assistant_response_content = "=== 進入互動式修改模式 ===\n請輸入您的修改需求 (或輸入 'VERIFY' 驗證, 'EXPLAIN' 解釋, 'QUIT' 結束)"
@@ -303,6 +341,7 @@ if prompt := st.chat_input("請在這裡輸入..."):
                         st.session_state.mode_step = "start"
                     
                     elif mod_request.upper() in ("VERIFY", "V"):
+                        # ... (驗證邏輯不需要呼叫 LLM, 保持不變) ...
                         response_parts.append("[驗證中] 正在驗證當前程式碼...")
                         code = app_data.get("current_code")
                         json_tests = app_data.get("json_tests")
@@ -330,14 +369,14 @@ if prompt := st.chat_input("請在這裡輸入..."):
                         assistant_response_content = "\n\n".join(response_parts)
                         
                     elif mod_request.upper() in ("EXPLAIN", "E"):
-                        with st.spinner("正在解釋當前程式碼..."):
+                        with st.spinner(""): # 隱藏 thinking 輸出
                             explain_prompt = build_explain_prompt(app_data["user_need"], app_data["current_code"])
-                            explain_resp = generate_response(explain_prompt)
+                            explain_resp = generate_cleaned_response(explain_prompt) # Cleaned
                         assistant_response_content = f"=== 程式碼解釋 ===\n{explain_resp}\n\n---\n請繼續輸入修改需求 (或 'VERIFY', 'EXPLAIN', 'QUIT')"
 
                     else: # 實際的修改需求
                         app_data["history"].append(f"修改: {mod_request}")
-                        with st.spinner(f"正在根據 '{mod_request}' 修正程式碼..."):
+                        with st.spinner(""): # 隱藏 thinking 輸出
                             fix_prompt = build_fix_code_prompt(
                                 app_data["user_need"], 
                                 app_data["virtual_code"], 
@@ -346,7 +385,7 @@ if prompt := st.chat_input("請在這裡輸入..."):
                                 app_data["current_code"],
                                 mod_request
                             )
-                            fix_resp = generate_response(fix_prompt)
+                            fix_resp = generate_cleaned_response(fix_prompt) # Cleaned
                         
                         response_parts.append("=== 模型回覆 (新版程式碼) ===")
                         code_or_list = extract_code_block(fix_resp)
@@ -366,6 +405,7 @@ if prompt := st.chat_input("請在這裡輸入..."):
         elif mode == "quiz":
             with st.chat_message("assistant"):
                 if step == "quiz_unit_selected":
+                    # ... (載入邏輯不變) ...
                     units = app_data.get("quiz_units", [])
                     try:
                         sel_idx = int(prompt.strip()) - 1
@@ -374,7 +414,7 @@ if prompt := st.chat_input("請在這裡輸入..."):
                         else:
                             unit = units[sel_idx]
                             app_data["selected_unit"] = unit
-                            with st.spinner(f"正在從 {unit} 載入題庫..."):
+                            with st.spinner(""): # 隱藏 thinking 輸出
                                 practices = load_all_coding_practice(unit=unit)
                             if not practices:
                                 assistant_response_content = "⚠️ 此單元沒有練習題。"
@@ -401,6 +441,7 @@ if prompt := st.chat_input("請在這裡輸入..."):
                     st.markdown(assistant_response_content)
                 
                 elif step == "quiz_code_submitted":
+                    # ... (驗證邏輯不變) ...
                     user_code = prompt
                     q = app_data.get("quiz_q")
                     example_to_run = app_data.get("quiz_example")
@@ -467,9 +508,10 @@ if prompt := st.chat_input("請在這裡輸入..."):
                             response_parts.append("--- \n**結果: [成功] ✅**\n" + output_msg)
                         else:
                             response_parts.append("--- \n**結果: [錯誤] ❌**\n" + output_msg)
-                            with st.spinner("程式執行失敗，開始分析錯誤..."):
+                            with st.spinner(""): # 隱藏 thinking 輸出
                                 try:
-                                    analysis_result = explain_code_error(harness_code_to_analyze)
+                                    # (*** 修改：清理 explain_code_error ***)
+                                    analysis_result = clean_raw_output(explain_code_error(harness_code_to_analyze))
                                     response_parts.append("=== 錯誤分析 ===\n" + analysis_result)
                                 except Exception as e:
                                     response_parts.append(f"⚠️ [分析失敗] {e}")
@@ -518,9 +560,9 @@ if prompt := st.chat_input("請在這裡輸入..."):
                     else:
                         json_tests = []
                         if user_need:
-                            with st.spinner("正在根據您的需求說明生成測資..."):
+                            with st.spinner(""): # 隱藏 thinking 輸出
                                 test_prompt = build_test_prompt(user_need)
-                                test_resp = generate_response(test_prompt)
+                                test_resp = generate_cleaned_response(test_prompt) # Cleaned
                                 json_tests = extract_json_block(test_resp) or parse_tests_from_text(user_need)
                             response_parts.append(f"=== 模型回覆 (測資) ===\n{test_resp}")
                             if json_tests:
@@ -529,6 +571,7 @@ if prompt := st.chat_input("請在這裡輸入..."):
                                 response_parts.append("⚠️ [警告] 未能從模型回覆中提取 JSON 測資。")
                         
                         if json_tests:
+                            # ... (驗證邏輯不變) ...
                             response_parts.append("[驗證中] 正在使用 AI 生成的測資逐一驗證您的程式碼...")
                             all_passed = True
                             failed_outputs = []
@@ -559,9 +602,10 @@ if prompt := st.chat_input("請在這裡輸入..."):
                                 response_parts.append("✅ 總結: [成功] 您的程式碼已通過所有 AI 生成的測資。")
                             else:
                                 response_parts.append("❌ 總結: [失敗] 您的程式碼未通過部分測資。")
-                                with st.spinner("程式驗證失敗，開始分析..."):
+                                with st.spinner(""): # 隱藏 thinking 輸出
                                     try:
-                                        analysis_result = explain_code_error(user_code)
+                                        # (*** 修改：清理 explain_code_error ***)
+                                        analysis_result = clean_raw_output(explain_code_error(user_code))
                                         response_parts.append(f"=== 程式碼分析 ===\n{analysis_result}")
                                         if failed_outputs:
                                             response_parts.append(f"**(首個失敗詳情: {failed_outputs[0]})**")
@@ -575,9 +619,10 @@ if prompt := st.chat_input("請在這裡輸入..."):
                                 response_parts.append(f"=== 程式執行成功 ===\n**STDOUT 輸出:**\n```\n{result_msg}\n```")
                             else:
                                 response_parts.append(f"=== 程式執行失敗 ===\n**STDERR 或錯誤訊息:**\n```\n{result_msg}\n```")
-                                with st.spinner("程式執行失敗，開始分析..."):
+                                with st.spinner(""): # 隱藏 thinking 輸出
                                     try:
-                                        analysis_result = explain_code_error(user_code)
+                                        # (*** 修改：清理 explain_code_error ***)
+                                        analysis_result = clean_raw_output(explain_code_error(user_code))
                                         response_parts.append(f"=== 程式碼分析 ===\n{analysis_result}")
                                     except Exception as e:
                                         response_parts.append(f"⚠️ [分析失敗] {e}")
@@ -591,9 +636,9 @@ if prompt := st.chat_input("請在這裡輸入..."):
         elif mode == "explain":
             with st.chat_message("assistant"):
                 user_code = prompt
-                with st.spinner("正在分析程式碼並生成解釋..."):
+                with st.spinner(""): # 隱藏 thinking 輸出
                     explain_prompt_str = build_explain_prompt("請詳細解釋這段程式碼的功能、邏輯和潛在問題。", user_code)
-                    explain_resp = generate_response(explain_prompt_str)
+                    explain_resp = generate_cleaned_response(explain_prompt_str) # Cleaned
                 assistant_response_content = f"=== 程式碼解釋 ===\n{explain_resp}\n\n---\n解釋完畢。請貼上新的程式碼以開始下一次解釋。"
                 st.markdown(assistant_response_content)
                 st.session_state.mode_step = "start"
@@ -610,8 +655,8 @@ if prompt := st.chat_input("請在這裡輸入..."):
                 
                 Translation:
                 """
-                with st.spinner("翻譯中..."):
-                    translated_text = generate_response(prompt_string)
+                with st.spinner(""): # 隱藏 thinking 輸出
+                    translated_text = generate_cleaned_response(prompt_string) # Cleaned
                 assistant_response_content = f"=== 翻譯結果 ===\n{translated_text}\n\n---\n翻譯完畢。請輸入新的文字以開始下一次翻譯。"
                 st.markdown(assistant_response_content)
                 st.session_state.mode_step = "start"
@@ -631,8 +676,8 @@ if prompt := st.chat_input("請在這裡輸入..."):
 
                 Suggestions:
                 """
-                with st.spinner("正在分析程式碼並提供建議..."):
-                    suggestion_resp = generate_response(prompt_string)
+                with st.spinner(""): # 隱藏 thinking 輸出
+                    suggestion_resp = generate_cleaned_response(prompt_string) # Cleaned
                 assistant_response_content = f"=== 程式碼建議 ===\n{suggestion_resp}\n\n---\n建議完畢。請貼上新的程式碼以獲取建議。"
                 st.markdown(assistant_response_content)
                 st.session_state.mode_step = "start"
@@ -640,14 +685,8 @@ if prompt := st.chat_input("請在這裡輸入..."):
         # --- 預設: 一般聊天 ---
         else: # mode == "chat"
             with st.chat_message("assistant"):
-                with st.spinner("思考中..."):
-                    # 這裡可以擴展為傳遞聊天記錄
-                    # 簡易版：
-                    # history_context = "\n".join([f"{m['role']}: {m['content']}" for m in st.session_state.messages])
-                    # response = generate_response(f"{history_context}\nuser: {prompt}\nassistant:")
-                    
-                    # 單輪回應版：
-                    response = generate_response(prompt)
+                with st.spinner(""): # 隱藏 thinking 輸出
+                    response = generate_cleaned_response(prompt) # Cleaned
                     
                 assistant_response_content = response
                 st.markdown(assistant_response_content)
