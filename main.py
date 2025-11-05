@@ -45,7 +45,7 @@ except ImportError as e:
 # --- Streamlit UI 設定 ---
 
 st.set_page_config(
-    page_title="Akapychan AI",
+    page_title="Akapychan",
     page_icon="🤖",
     layout="wide"
 )
@@ -63,7 +63,7 @@ if "app_data" not in st.session_state:
 # --- 側邊欄：模式選擇 ---
 
 st.sidebar.title("🤖 Akapychan AI")
-st.sidebar.markdown("一個本地端 Python 程式碼助手")
+st.sidebar.markdown("")
 
 mode_options = {
     "一般聊天": "chat",
@@ -95,7 +95,7 @@ if st.session_state.current_mode != selected_mode_key:
     st.session_state.app_data = {} # 清空暫存數據
     
     # 根據新模式顯示歡迎訊息
-    welcome_message = ""
+    welcome_message = "HELLO"
     if selected_mode_key == "gen_code":
         welcome_message = "您好！請輸入您的程式碼需求說明，我將為您生成虛擬碼、測資、程式碼及解釋。"
     elif selected_mode_key == "quiz":

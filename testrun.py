@@ -123,7 +123,6 @@ def load_all_problems_from_file(file_path: pathlib.Path) -> List[Tuple[str, str,
 
 def generate_and_validate(user_need: str, examples: List[Dict[str, str]], solution: Optional[str]) -> Dict[str, Any]:
     """
-    (*** 關鍵修改：套用 main.py 邏輯 ***)
     複製 main.py (模式1) 的三階段*生成*邏輯：
     1. Need -> 虛擬碼
     2. Need -> AI 測資 (JSON)
@@ -135,18 +134,18 @@ def generate_and_validate(user_need: str, examples: List[Dict[str, str]], soluti
         "virtual_code": None,
         "generated_code": None,
         "validation_results": [],
-        "reference_solution_provided": bool(solution), # 僅記錄，不使用
-        "ai_generated_tests": [], # (新) 儲存 AI 生成的測資
+        "reference_solution_provided": bool(solution), 
+        "ai_generated_tests": [], 
         "error": None
     }
 
     # ---
-    # === 階段 1: 生成虛擬碼 (同 main.py) ===
+    # === 階段 1: 生成虛擬碼  ===
     # ---
     try:
         print("     [階段 1] 正在生成虛擬碼...")
         vc_prompt = build_virtual_code_prompt(user_need) #
-        # (修改) 使用 generate_response (同 main.py)
+        
         virtual_code = generate_response(vc_prompt) #
         result["virtual_code"] = virtual_code
 
@@ -161,7 +160,7 @@ def generate_and_validate(user_need: str, examples: List[Dict[str, str]], soluti
         return result
 
     # ---
-    # === (新) 階段 2: 生成 AI 測資 (同 main.py) ===
+    # === (新) 階段 2: 生成 AI 測資 ===
     # ---
     ai_generated_tests = []
     try:
@@ -201,7 +200,7 @@ def generate_and_validate(user_need: str, examples: List[Dict[str, str]], soluti
         return result
 
     # ---
-    # === 階段 4: 提取程式碼 (同 main.py / testrun.py) ===
+    # === 階段 4: 提取程式碼 ===
     # ---
     code = extract_code_block(code_resp) #
     if not code:
@@ -219,7 +218,7 @@ def generate_and_validate(user_need: str, examples: List[Dict[str, str]], soluti
     result["generated_code"] = code
 
     # ---
-    # === 階段 5: 驗證 (*** 邏輯保留 testrun.py ***) ===
+    # === 階段 5: 驗證 ===
     # ---
     all_examples_passed = True
     if not examples: 
