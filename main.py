@@ -24,12 +24,11 @@ from core.model_interface import (
 
 
 
-# --- 修正: 根據原始 main.py 的結構, 這些模組應位於 core/ ---
 from core.explain_user_code import get_code_explanation 
 from core.explain_error import explain_code_error
 # ----------------------------------------------------
 
-# --- FastAPI 應用程式實例 ---
+
 app = FastAPI(
     title="Akapychan Code Generator API",
     description="FastAPI",
@@ -88,7 +87,7 @@ class FixCodeResponse(BaseModel):
 
 
 class ValidateUserCodeRequest(BaseModel):
-    code: str  # [修正] 將 'user_code' 改為 'code'
+    code: str  
     user_need: Optional[str] = Field(None, description="用以生成測資的需求說明 (若留空，則僅執行一次)")
 
 class ValidateUserCodeResponse(BaseModel):
@@ -106,7 +105,7 @@ class ExplainCodeResponse(BaseModel):
     explanation: str
     raw_response: str
 
-# --- 補全功能: 模式 5 (翻譯) ---
+# --- 補全: 模式 5 (翻譯) ---
 class TranslateRequest(BaseModel):
     text_to_translate: str
     target_language: str = Field("English", description="目標語言")
@@ -117,7 +116,7 @@ class TranslateResponse(BaseModel):
     raw_response: str
 # --------------------------------
 
-# --- 補全功能: 模式 6 (程式碼建議) ---
+# --- 補全: 模式 6 (程式碼建議) ---
 class SuggestRequest(BaseModel):
     code: str
     user_need: Optional[str] = Field(None, description="相關的需求說明 (可選)")
@@ -127,7 +126,7 @@ class SuggestResponse(BaseModel):
     raw_response: str
 # ----------------------------------
 
-# --- 補全功能: 預設 (聊天) ---
+# --- 補全: 預設 (聊天) ---
 class ChatRequest(BaseModel):
     prompt: str
     history: Optional[List[dict]] = Field(None, description="聊天歷史 (可選), e.g., [{'role': 'user', 'content': '...'}, ...]")
@@ -242,18 +241,15 @@ async def api_validate_code(request: ValidateCodeRequest):
                 expected_output=test_output_str
             )
             
-            # validate_main_function 回傳 (success, output_or_error)
-            # 我們需要解析 output_or_error 來取得 "Actual Output"
+
             actual_output = output_msg
             if not success:
-                # 嘗試從錯誤訊息中解析實際輸出
                 if "Actual Output:" in output_msg:
                     try:
                         actual_output = output_msg.split("Actual Output:")[1].split("\n")[0].strip()
                     except Exception:
-                        pass # 保持 output_msg 為完整錯誤
+                        pass 
             else:
-                # 如果成功，output_msg 就是 STDOUT
                 actual_output = output_msg.strip()
 
 
@@ -414,13 +410,13 @@ async def api_explain_code(request: ExplainCodeRequest):
     這個端點會呼叫重構後的 `get_code_explanation` 函式。
     """
     try:
-        # --- (新) 呼叫重構後的 "純" 函式 ---
+
         explanation = get_code_explanation(
             user_code=request.code, 
             user_need=request.user_need
         )
         
-        # -------------------------------------
+
         
         return {"explanation": explanation, "raw_response": explanation}
     
@@ -441,7 +437,6 @@ async def api_translate(request: TranslateRequest):
             text=request.text_to_translate,
             target_language=request.target_language
         )
-        # --------------------------------------------------------
         
         resp = generate_response(prompt)
         return {"translated_text": resp, "raw_response": resp}
@@ -449,7 +444,7 @@ async def api_translate(request: TranslateRequest):
     except NameError:
          raise HTTPException(status_code=501, detail="`build_translate_prompt` is not implemented in core.model_interface.")
     except TypeError as e:
-         # 捕捉任何剩餘的參數錯誤
+
          raise HTTPException(status_code=500, detail=f"Failed to call build_translate_prompt: {e}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Translation failed: {e}")
@@ -463,12 +458,12 @@ async def api_get_code_suggestions(request: SuggestRequest):
     (Mode 6) 根據現有程式碼提供建議。
     """
     try:
-        # --- 修正: 參數應為 'user_code' (來自 model_interface.py) ---
+
         prompt = build_suggestion_prompt(
-            user_code=request.code, # 函數參數: model欄位
+            user_code=request.code, 
             user_need=request.user_need
         )
-        # -----------------------------------------
+
         
         resp = generate_response(prompt)
         return {"suggestions": resp, "raw_response": resp}
@@ -494,8 +489,7 @@ async def api_chat(request: ChatRequest):
         user_input = request.prompt
         prompt_string = ""
         
-        # --- 邏輯移植 ---
-        # 偵測是否貼了 Python 程式碼 (邏輯來自 interactive_chat)
+
         if "def " in user_input or "print(" in user_input or "for " in user_input:
             # 1. 如果是程式碼，呼叫「解釋」
             print("\n[API Chat] 偵測到 Python 程式碼，進入解釋模式...\n")
@@ -504,7 +498,7 @@ async def api_chat(request: ChatRequest):
         else:
             # 2. 如果是純文字，呼叫「聊天」
             print("\n[API Chat] 進入一般聊天模式...\n")
-            # 呼叫一般的聊天 prompt (這個函式應能處理 history)
+
             prompt_string = build_chat_prompt(
                 prompt=request.prompt,
                 history=request.history
@@ -515,7 +509,6 @@ async def api_chat(request: ChatRequest):
         return {"response": resp, "raw_response": resp}
     
     except NameError as e:
-         # 確保 main.py 頂部已 import build_explain_prompt 和 build_chat_prompt
          raise HTTPException(status_code=501, detail=f"核心函式未實現 (請檢查 import): {e}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Chat failed: {e}")
