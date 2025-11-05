@@ -13,7 +13,7 @@ from core.explain_error import explain_code_error
 def interactive_session():
     print("=== Python Code Generator (Ollama + CodeLlama, Local Only) ===")
     while True:
-        mode = ask_input("請選擇模式 (1: 生成程式碼, 2: 出題, 3: 使用者程式碼驗證, 4: 程式碼解釋, 5:翻譯, q 離開)", "1")
+        mode = ask_input("請選擇模式 (1: 生成程式碼, 2: 出題, 3: 使用者程式碼驗證, 4: 程式碼解釋, 5:翻譯, 6:提示, q 離開)", "1")
         if mode.lower() in ("q", "quit", "exit"):
             break
  # ========== 模式 1: 生成程式碼 ==========
