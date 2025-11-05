@@ -37,6 +37,10 @@ deactivate
 python3 main.py
 ```
 
+```bash
+streamlit run main.py
+```
+
 ## 安裝套件
 ```bash
 pip install -r requirements.txt
