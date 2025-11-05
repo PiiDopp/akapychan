@@ -4,12 +4,18 @@ from typing import Optional
 
 
 def  extract_code_block(model_output: str) -> Optional[str]:
-    m = re.search(r"```python\n(.*?)```", model_output, re.DOTALL)
+    # 修正: 使用更寬鬆的 regex 來尋找 ```python 標籤
+    # 允許 ``` 和 python 之間，以及 python 和 換行 之間有空白
+    # 也允許可選的換行符在結尾的 ``` 之前
+    m = re.search(r"```\s*python\s*\n(.*?)\n?```", model_output, re.DOTALL)
     return m.group(1).strip() if m else None
 
 
 def extract_json_block(model_output: str) -> list:
-    m = re.search(r"```json\n(.*?)```", model_output, re.DOTALL)
+    # 修正: 使用更寬鬆的 regex 來尋找 ```json 標籤
+    # 允許 ``` 和 json 之間，以及 json 和 換行 之間有空白
+    # 也允許可選的換行符在結尾的 ``` 之前
+    m = re.search(r"```\s*json\s*\n(.*?)\n?```", model_output, re.DOTALL)
     if not m:
         return []
     try:
