@@ -4,6 +4,7 @@ import json
 import random
 import time
 from io import StringIO
+from types import MappingProxyType
 
 # 匯入 main.py 和 quiz_mode.py 所需的核心功能
 # 我們保留所有後端邏輯，只替換 UI
@@ -65,7 +66,7 @@ if "app_data" not in st.session_state:
 st.sidebar.title("🤖 Akapychan AI")
 st.sidebar.markdown("")
 
-mode_options = {
+mode_options = MappingProxyType({
     "一般聊天": "chat",
     "1: 生成程式碼": "gen_code",
     "2: 出題 (測驗模式)": "quiz",
@@ -73,7 +74,7 @@ mode_options = {
     "4: 程式碼解釋": "explain",
     "5: 翻譯": "translate",
     "6: 程式碼建議": "suggest",
-}
+})
 
 # 獲取當前模式的標籤
 current_mode_label = [label for label, key in mode_options.items() if key == st.session_state.current_mode][0]
