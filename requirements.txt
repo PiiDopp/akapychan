@@ -2,3 +2,5 @@ langchain
 langchain-community
 langchain-core
 langchain-ollama
+unicorn
+fastapi
