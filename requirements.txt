@@ -4,3 +4,5 @@ langchain-core
 langchain-ollama
 unicorn
 fastapi
+matplotlib
+numpy
