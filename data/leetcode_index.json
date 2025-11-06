@@ -1,1250 +1,4178 @@
 [
   {
-    "file": "Leetcode/leetcode1.json",
-    "id": "leetcode1"
-  },
-  {
-    "file": "Leetcode/leetcode3.json",
-    "id": "leetcode3"
-  },
-  {
     "file": "Leetcode/leetcode4.json",
-    "id": "leetcode4"
+    "id": "leetcode4",
+    "title": "Median of Two Sorted Arrays",
+    "tag": 530,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode5.json",
-    "id": "leetcode5"
-  },
-  {
-    "file": "Leetcode/leetcode6.json",
-    "id": "leetcode6"
+    "id": "leetcode5",
+    "title": "Longest Palindromic Substring",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode7.json",
-    "id": "leetcode7"
+    "id": "leetcode7",
+    "title": "Reverse Integer",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode8.json",
-    "id": "leetcode8"
+    "id": "leetcode8",
+    "title": "String to Integer (atoi)",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode9.json",
-    "id": "leetcode9"
+    "id": "leetcode9",
+    "title": "Palindrome Number",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode10.json",
-    "id": "leetcode10"
+    "id": "leetcode10",
+    "title": "Regular Expression Matching",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode12.json",
-    "id": "leetcode12"
+    "id": "leetcode12",
+    "title": "Integer to Roman",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode13.json",
-    "id": "leetcode13"
+    "id": "leetcode13",
+    "title": "Roman to Integer",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode14.json",
-    "id": "leetcode14"
+    "id": "leetcode14",
+    "title": "Longest Common Prefix",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode15.json",
-    "id": "leetcode15"
+    "id": "leetcode15",
+    "title": "3Sum",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode16.json",
-    "id": "leetcode16"
+    "id": "leetcode16",
+    "title": "3Sum Closest",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode18.json",
-    "id": "leetcode18"
+    "id": "leetcode18",
+    "title": "4Sum",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode20.json",
-    "id": "leetcode20"
+    "id": "leetcode20",
+    "title": "Valid Parentheses",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode22.json",
-    "id": "leetcode22"
+    "id": "leetcode22",
+    "title": "Generate Parentheses",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode23.json",
-    "id": "leetcode23"
-  },
-  {
-    "file": "Leetcode/leetcode26.json",
-    "id": "leetcode26"
-  },
-  {
-    "file": "Leetcode/leetcode27.json",
-    "id": "leetcode27"
-  },
-  {
-    "file": "Leetcode/leetcode28.json",
-    "id": "leetcode28"
-  },
-  {
-    "file": "Leetcode/leetcode29.json",
-    "id": "leetcode29"
-  },
-  {
-    "file": "Leetcode/leetcode30.json",
-    "id": "leetcode30"
-  },
-  {
-    "file": "Leetcode/leetcode31.json",
-    "id": "leetcode31"
-  },
-  {
-    "file": "Leetcode/leetcode32.json",
-    "id": "leetcode32"
-  },
-  {
-    "file": "Leetcode/leetcode33.json",
-    "id": "leetcode33"
-  },
-  {
-    "file": "Leetcode/leetcode34.json",
-    "id": "leetcode34"
-  },
-  {
-    "file": "Leetcode/leetcode35.json",
-    "id": "leetcode35"
-  },
-  {
-    "file": "Leetcode/leetcode38.json",
-    "id": "leetcode38"
-  },
-  {
-    "file": "Leetcode/leetcode39.json",
-    "id": "leetcode39"
-  },
-  {
-    "file": "Leetcode/leetcode40.json",
-    "id": "leetcode40"
-  },
-  {
-    "file": "Leetcode/leetcode41.json",
-    "id": "leetcode41"
-  },
-  {
-    "file": "Leetcode/leetcode43.json",
-    "id": "leetcode43"
-  },
-  {
-    "file": "Leetcode/leetcode44.json",
-    "id": "leetcode44"
-  },
-  {
-    "file": "Leetcode/leetcode45.json",
-    "id": "leetcode45"
-  },
-  {
-    "file": "Leetcode/leetcode46.json",
-    "id": "leetcode46"
-  },
-  {
-    "file": "Leetcode/leetcode47.json",
-    "id": "leetcode47"
-  },
-  {
-    "file": "Leetcode/leetcode49.json",
-    "id": "leetcode49"
-  },
-  {
-    "file": "Leetcode/leetcode50.json",
-    "id": "leetcode50"
-  },
-  {
-    "file": "Leetcode/leetcode53.json",
-    "id": "leetcode53"
-  },
-  {
-    "file": "Leetcode/leetcode55.json",
-    "id": "leetcode55"
-  },
-  {
-    "file": "Leetcode/leetcode56.json",
-    "id": "leetcode56"
-  },
-  {
-    "file": "Leetcode/leetcode57.json",
-    "id": "leetcode57"
-  },
-  {
-    "file": "Leetcode/leetcode58.json",
-    "id": "leetcode58"
-  },
-  {
-    "file": "Leetcode/leetcode60.json",
-    "id": "leetcode60"
-  },
-  {
-    "file": "Leetcode/leetcode65.json",
-    "id": "leetcode65"
-  },
-  {
-    "file": "Leetcode/leetcode66.json",
-    "id": "leetcode66"
-  },
-  {
-    "file": "Leetcode/leetcode67.json",
-    "id": "leetcode67"
-  },
-  {
-    "file": "Leetcode/leetcode68.json",
-    "id": "leetcode68"
-  },
-  {
-    "file": "Leetcode/leetcode69.json",
-    "id": "leetcode69"
-  },
-  {
-    "file": "Leetcode/leetcode70.json",
-    "id": "leetcode70"
-  },
-  {
-    "file": "Leetcode/leetcode71.json",
-    "id": "leetcode71"
-  },
-  {
-    "file": "Leetcode/leetcode72.json",
-    "id": "leetcode72"
-  },
-  {
-    "file": "Leetcode/leetcode75.json",
-    "id": "leetcode75"
-  },
-  {
-    "file": "Leetcode/leetcode76.json",
-    "id": "leetcode76"
-  },
-  {
-    "file": "Leetcode/leetcode77.json",
-    "id": "leetcode77"
-  },
-  {
-    "file": "Leetcode/leetcode78.json",
-    "id": "leetcode78"
-  },
-  {
-    "file": "Leetcode/leetcode80.json",
-    "id": "leetcode80"
+    "id": "leetcode23",
+    "title": "Merge k Sorted Lists",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode81.json",
-    "id": "leetcode81"
-  },
-  {
-    "file": "Leetcode/leetcode87.json",
-    "id": "leetcode87"
-  },
-  {
-    "file": "Leetcode/leetcode88.json",
-    "id": "leetcode88"
-  },
-  {
-    "file": "Leetcode/leetcode89.json",
-    "id": "leetcode89"
-  },
-  {
-    "file": "Leetcode/leetcode90.json",
-    "id": "leetcode90"
-  },
-  {
-    "file": "Leetcode/leetcode91.json",
-    "id": "leetcode91"
-  },
-  {
-    "file": "Leetcode/leetcode93.json",
-    "id": "leetcode93"
-  },
-  {
-    "file": "Leetcode/leetcode115.json",
-    "id": "leetcode115"
+    "id": "leetcode81",
+    "title": "Search in Rotated Sorted Array II",
+    "tag": 530,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode120.json",
-    "id": "leetcode120"
-  },
-  {
-    "file": "Leetcode/leetcode121.json",
-    "id": "leetcode121"
-  },
-  {
-    "file": "Leetcode/leetcode122.json",
-    "id": "leetcode122"
-  },
-  {
-    "file": "Leetcode/leetcode123.json",
-    "id": "leetcode123"
-  },
-  {
-    "file": "Leetcode/leetcode125.json",
-    "id": "leetcode125"
-  },
-  {
-    "file": "Leetcode/leetcode126.json",
-    "id": "leetcode126"
-  },
-  {
-    "file": "Leetcode/leetcode127.json",
-    "id": "leetcode127"
-  },
-  {
-    "file": "Leetcode/leetcode128.json",
-    "id": "leetcode128"
-  },
-  {
-    "file": "Leetcode/leetcode131.json",
-    "id": "leetcode131"
+    "id": "leetcode120",
+    "title": "Triangle",
+    "tag": 530,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode132.json",
-    "id": "leetcode132"
-  },
-  {
-    "file": "Leetcode/leetcode134.json",
-    "id": "leetcode134"
+    "id": "leetcode132",
+    "title": "Palindrome Partitioning II",
+    "tag": 512,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode135.json",
-    "id": "leetcode135"
-  },
-  {
-    "file": "Leetcode/leetcode136.json",
-    "id": "leetcode136"
-  },
-  {
-    "file": "Leetcode/leetcode137.json",
-    "id": "leetcode137"
-  },
-  {
-    "file": "Leetcode/leetcode139.json",
-    "id": "leetcode139"
-  },
-  {
-    "file": "Leetcode/leetcode140.json",
-    "id": "leetcode140"
-  },
-  {
-    "file": "Leetcode/leetcode146.json",
-    "id": "leetcode146"
-  },
-  {
-    "file": "Leetcode/leetcode150.json",
-    "id": "leetcode150"
-  },
-  {
-    "file": "Leetcode/leetcode151.json",
-    "id": "leetcode151"
-  },
-  {
-    "file": "Leetcode/leetcode152.json",
-    "id": "leetcode152"
-  },
-  {
-    "file": "Leetcode/leetcode153.json",
-    "id": "leetcode153"
-  },
-  {
-    "file": "Leetcode/leetcode154.json",
-    "id": "leetcode154"
-  },
-  {
-    "file": "Leetcode/leetcode155.json",
-    "id": "leetcode155"
-  },
-  {
-    "file": "Leetcode/leetcode162.json",
-    "id": "leetcode162"
-  },
-  {
-    "file": "Leetcode/leetcode164.json",
-    "id": "leetcode164"
-  },
-  {
-    "file": "Leetcode/leetcode165.json",
-    "id": "leetcode165"
-  },
-  {
-    "file": "Leetcode/leetcode166.json",
-    "id": "leetcode166"
-  },
-  {
-    "file": "Leetcode/leetcode167.json",
-    "id": "leetcode167"
-  },
-  {
-    "file": "Leetcode/leetcode168.json",
-    "id": "leetcode168"
-  },
-  {
-    "file": "Leetcode/leetcode169.json",
-    "id": "leetcode169"
-  },
-  {
-    "file": "Leetcode/leetcode171.json",
-    "id": "leetcode171"
+    "id": "leetcode135",
+    "title": "Candy",
+    "tag": 512,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode172.json",
-    "id": "leetcode172"
-  },
-  {
-    "file": "Leetcode/leetcode179.json",
-    "id": "leetcode179"
-  },
-  {
-    "file": "Leetcode/leetcode187.json",
-    "id": "leetcode187"
-  },
-  {
-    "file": "Leetcode/leetcode188.json",
-    "id": "leetcode188"
-  },
-  {
-    "file": "Leetcode/leetcode189.json",
-    "id": "leetcode189"
-  },
-  {
-    "file": "Leetcode/leetcode191.json",
-    "id": "leetcode191"
-  },
-  {
-    "file": "Leetcode/leetcode200.json",
-    "id": "leetcode200"
-  },
-  {
-    "file": "Leetcode/leetcode201.json",
-    "id": "leetcode201"
-  },
-  {
-    "file": "Leetcode/leetcode202.json",
-    "id": "leetcode202"
-  },
-  {
-    "file": "Leetcode/leetcode204.json",
-    "id": "leetcode204"
-  },
-  {
-    "file": "Leetcode/leetcode205.json",
-    "id": "leetcode205"
+    "id": "leetcode172",
+    "title": "Factorial Trailing Zeroes",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode207.json",
-    "id": "leetcode207"
-  },
-  {
-    "file": "Leetcode/leetcode208.json",
-    "id": "leetcode208"
+    "id": "leetcode207",
+    "title": "Course Schedule",
+    "tag": 512,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode209.json",
-    "id": "leetcode209"
+    "id": "leetcode209",
+    "title": "Minimum Size Subarray Sum",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode210.json",
-    "id": "leetcode210"
-  },
-  {
-    "file": "Leetcode/leetcode211.json",
-    "id": "leetcode211"
-  },
-  {
-    "file": "Leetcode/leetcode213.json",
-    "id": "leetcode213"
-  },
-  {
-    "file": "Leetcode/leetcode214.json",
-    "id": "leetcode214"
-  },
-  {
-    "file": "Leetcode/leetcode215.json",
-    "id": "leetcode215"
-  },
-  {
-    "file": "Leetcode/leetcode216.json",
-    "id": "leetcode216"
-  },
-  {
-    "file": "Leetcode/leetcode217.json",
-    "id": "leetcode217"
-  },
-  {
-    "file": "Leetcode/leetcode219.json",
-    "id": "leetcode219"
-  },
-  {
-    "file": "Leetcode/leetcode220.json",
-    "id": "leetcode220"
-  },
-  {
-    "file": "Leetcode/leetcode224.json",
-    "id": "leetcode224"
-  },
-  {
-    "file": "Leetcode/leetcode225.json",
-    "id": "leetcode225"
-  },
-  {
-    "file": "Leetcode/leetcode227.json",
-    "id": "leetcode227"
-  },
-  {
-    "file": "Leetcode/leetcode228.json",
-    "id": "leetcode228"
-  },
-  {
-    "file": "Leetcode/leetcode229.json",
-    "id": "leetcode229"
-  },
-  {
-    "file": "Leetcode/leetcode231.json",
-    "id": "leetcode231"
-  },
-  {
-    "file": "Leetcode/leetcode232.json",
-    "id": "leetcode232"
-  },
-  {
-    "file": "Leetcode/leetcode233.json",
-    "id": "leetcode233"
-  },
-  {
-    "file": "Leetcode/leetcode238.json",
-    "id": "leetcode238"
-  },
-  {
-    "file": "Leetcode/leetcode239.json",
-    "id": "leetcode239"
-  },
-  {
-    "file": "Leetcode/leetcode241.json",
-    "id": "leetcode241"
-  },
-  {
-    "file": "Leetcode/leetcode242.json",
-    "id": "leetcode242"
-  },
-  {
-    "file": "Leetcode/leetcode258.json",
-    "id": "leetcode258"
-  },
-  {
-    "file": "Leetcode/leetcode260.json",
-    "id": "leetcode260"
-  },
-  {
-    "file": "Leetcode/leetcode263.json",
-    "id": "leetcode263"
-  },
-  {
-    "file": "Leetcode/leetcode264.json",
-    "id": "leetcode264"
-  },
-  {
-    "file": "Leetcode/leetcode268.json",
-    "id": "leetcode268"
-  },
-  {
-    "file": "Leetcode/leetcode273.json",
-    "id": "leetcode273"
-  },
-  {
-    "file": "Leetcode/leetcode274.json",
-    "id": "leetcode274"
+    "id": "leetcode210",
+    "title": "Course Schedule II",
+    "tag": 512,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode275.json",
-    "id": "leetcode275"
-  },
-  {
-    "file": "Leetcode/leetcode278.json",
-    "id": "leetcode278"
-  },
-  {
-    "file": "Leetcode/leetcode279.json",
-    "id": "leetcode279"
-  },
-  {
-    "file": "Leetcode/leetcode282.json",
-    "id": "leetcode282"
-  },
-  {
-    "file": "Leetcode/leetcode283.json",
-    "id": "leetcode283"
+    "id": "leetcode275",
+    "title": "H-Index II",
+    "tag": 530,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode287.json",
-    "id": "leetcode287"
-  },
-  {
-    "file": "Leetcode/leetcode290.json",
-    "id": "leetcode290"
+    "id": "leetcode287",
+    "title": "Find the Duplicate Number",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode292.json",
-    "id": "leetcode292"
-  },
-  {
-    "file": "Leetcode/leetcode295.json",
-    "id": "leetcode295"
-  },
-  {
-    "file": "Leetcode/leetcode299.json",
-    "id": "leetcode299"
-  },
-  {
-    "file": "Leetcode/leetcode300.json",
-    "id": "leetcode300"
-  },
-  {
-    "file": "Leetcode/leetcode301.json",
-    "id": "leetcode301"
-  },
-  {
-    "file": "Leetcode/leetcode303.json",
-    "id": "leetcode303"
-  },
-  {
-    "file": "Leetcode/leetcode306.json",
-    "id": "leetcode306"
+    "id": "leetcode292",
+    "title": "Nim Game",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode307.json",
-    "id": "leetcode307"
-  },
-  {
-    "file": "Leetcode/leetcode309.json",
-    "id": "leetcode309"
-  },
-  {
-    "file": "Leetcode/leetcode312.json",
-    "id": "leetcode312"
-  },
-  {
-    "file": "Leetcode/leetcode313.json",
-    "id": "leetcode313"
-  },
-  {
-    "file": "Leetcode/leetcode315.json",
-    "id": "leetcode315"
-  },
-  {
-    "file": "Leetcode/leetcode316.json",
-    "id": "leetcode316"
-  },
-  {
-    "file": "Leetcode/leetcode318.json",
-    "id": "leetcode318"
-  },
-  {
-    "file": "Leetcode/leetcode321.json",
-    "id": "leetcode321"
-  },
-  {
-    "file": "Leetcode/leetcode322.json",
-    "id": "leetcode322"
-  },
-  {
-    "file": "Leetcode/leetcode324.json",
-    "id": "leetcode324"
-  },
-  {
-    "file": "Leetcode/leetcode326.json",
-    "id": "leetcode326"
-  },
-  {
-    "file": "Leetcode/leetcode327.json",
-    "id": "leetcode327"
-  },
-  {
-    "file": "Leetcode/leetcode330.json",
-    "id": "leetcode330"
-  },
-  {
-    "file": "Leetcode/leetcode334.json",
-    "id": "leetcode334"
-  },
-  {
-    "file": "Leetcode/leetcode336.json",
-    "id": "leetcode336"
-  },
-  {
-    "file": "Leetcode/leetcode338.json",
-    "id": "leetcode338"
-  },
-  {
-    "file": "Leetcode/leetcode341.json",
-    "id": "leetcode341"
-  },
-  {
-    "file": "Leetcode/leetcode342.json",
-    "id": "leetcode342"
-  },
-  {
-    "file": "Leetcode/leetcode343.json",
-    "id": "leetcode343"
-  },
-  {
-    "file": "Leetcode/leetcode344.json",
-    "id": "leetcode344"
-  },
-  {
-    "file": "Leetcode/leetcode345.json",
-    "id": "leetcode345"
-  },
-  {
-    "file": "Leetcode/leetcode347.json",
-    "id": "leetcode347"
-  },
-  {
-    "file": "Leetcode/leetcode349.json",
-    "id": "leetcode349"
-  },
-  {
-    "file": "Leetcode/leetcode350.json",
-    "id": "leetcode350"
-  },
-  {
-    "file": "Leetcode/leetcode352.json",
-    "id": "leetcode352"
-  },
-  {
-    "file": "Leetcode/leetcode354.json",
-    "id": "leetcode354"
-  },
-  {
-    "file": "Leetcode/leetcode355.json",
-    "id": "leetcode355"
-  },
-  {
-    "file": "Leetcode/leetcode357.json",
-    "id": "leetcode357"
-  },
-  {
-    "file": "Leetcode/leetcode365.json",
-    "id": "leetcode365"
-  },
-  {
-    "file": "Leetcode/leetcode367.json",
-    "id": "leetcode367"
-  },
-  {
-    "file": "Leetcode/leetcode368.json",
-    "id": "leetcode368"
-  },
-  {
-    "file": "Leetcode/leetcode371.json",
-    "id": "leetcode371"
-  },
-  {
-    "file": "Leetcode/leetcode372.json",
-    "id": "leetcode372"
-  },
-  {
-    "file": "Leetcode/leetcode373.json",
-    "id": "leetcode373"
+    "id": "leetcode307",
+    "title": "Range Sum Query - Mutable",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode374.json",
-    "id": "leetcode374"
-  },
-  {
-    "file": "Leetcode/leetcode376.json",
-    "id": "leetcode376"
-  },
-  {
-    "file": "Leetcode/leetcode377.json",
-    "id": "leetcode377"
+    "id": "leetcode374",
+    "title": "Guess Number Higher or Lower",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode378.json",
-    "id": "leetcode378"
-  },
-  {
-    "file": "Leetcode/leetcode380.json",
-    "id": "leetcode380"
-  },
-  {
-    "file": "Leetcode/leetcode381.json",
-    "id": "leetcode381"
-  },
-  {
-    "file": "Leetcode/leetcode383.json",
-    "id": "leetcode383"
+    "id": "leetcode378",
+    "title": "K^th Smallest Element in a Sorted Matrix",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode384.json",
-    "id": "leetcode384"
-  },
-  {
-    "file": "Leetcode/leetcode385.json",
-    "id": "leetcode385"
+    "id": "leetcode384",
+    "title": "Shuffle an Array",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode386.json",
-    "id": "leetcode386"
-  },
-  {
-    "file": "Leetcode/leetcode387.json",
-    "id": "leetcode387"
-  },
-  {
-    "file": "Leetcode/leetcode389.json",
-    "id": "leetcode389"
+    "id": "leetcode386",
+    "title": "Lexicographical Numbers",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode390.json",
-    "id": "leetcode390"
-  },
-  {
-    "file": "Leetcode/leetcode392.json",
-    "id": "leetcode392"
+    "id": "leetcode390",
+    "title": "Elimination Game",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode393.json",
-    "id": "leetcode393"
-  },
-  {
-    "file": "Leetcode/leetcode394.json",
-    "id": "leetcode394"
-  },
-  {
-    "file": "Leetcode/leetcode395.json",
-    "id": "leetcode395"
-  },
-  {
-    "file": "Leetcode/leetcode396.json",
-    "id": "leetcode396"
-  },
-  {
-    "file": "Leetcode/leetcode397.json",
-    "id": "leetcode397"
-  },
-  {
-    "file": "Leetcode/leetcode398.json",
-    "id": "leetcode398"
-  },
-  {
-    "file": "Leetcode/leetcode399.json",
-    "id": "leetcode399"
-  },
-  {
-    "file": "Leetcode/leetcode400.json",
-    "id": "leetcode400"
-  },
-  {
-    "file": "Leetcode/leetcode402.json",
-    "id": "leetcode402"
+    "id": "leetcode393",
+    "title": "UTF-8 Validation",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode403.json",
-    "id": "leetcode403"
-  },
-  {
-    "file": "Leetcode/leetcode405.json",
-    "id": "leetcode405"
-  },
-  {
-    "file": "Leetcode/leetcode406.json",
-    "id": "leetcode406"
-  },
-  {
-    "file": "Leetcode/leetcode409.json",
-    "id": "leetcode409"
-  },
-  {
-    "file": "Leetcode/leetcode410.json",
-    "id": "leetcode410"
+    "id": "leetcode403",
+    "title": "Frog Jump",
+    "tag": 530,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode412.json",
-    "id": "leetcode412"
-  },
-  {
-    "file": "Leetcode/leetcode413.json",
-    "id": "leetcode413"
-  },
-  {
-    "file": "Leetcode/leetcode414.json",
-    "id": "leetcode414"
-  },
-  {
-    "file": "Leetcode/leetcode415.json",
-    "id": "leetcode415"
-  },
-  {
-    "file": "Leetcode/leetcode416.json",
-    "id": "leetcode416"
-  },
-  {
-    "file": "Leetcode/leetcode420.json",
-    "id": "leetcode420"
-  },
-  {
-    "file": "Leetcode/leetcode421.json",
-    "id": "leetcode421"
-  },
-  {
-    "file": "Leetcode/leetcode423.json",
-    "id": "leetcode423"
+    "id": "leetcode412",
+    "title": "Fizz Buzz",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode424.json",
-    "id": "leetcode424"
-  },
-  {
-    "file": "Leetcode/leetcode432.json",
-    "id": "leetcode432"
+    "id": "leetcode424",
+    "title": "Longest Repeating Character Replacement",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode433.json",
-    "id": "leetcode433"
-  },
-  {
-    "file": "Leetcode/leetcode434.json",
-    "id": "leetcode434"
+    "id": "leetcode433",
+    "title": "Minimum Genetic Mutation",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode435.json",
-    "id": "leetcode435"
+    "id": "leetcode435",
+    "title": "Non-overlapping Intervals",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode436.json",
-    "id": "leetcode436"
-  },
-  {
-    "file": "Leetcode/leetcode438.json",
-    "id": "leetcode438"
+    "id": "leetcode436",
+    "title": "Find Right Interval",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode440.json",
-    "id": "leetcode440"
-  },
-  {
-    "file": "Leetcode/leetcode442.json",
-    "id": "leetcode442"
-  },
-  {
-    "file": "Leetcode/leetcode443.json",
-    "id": "leetcode443"
+    "id": "leetcode440",
+    "title": "K-th Smallest in Lexicographical Order",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode446.json",
-    "id": "leetcode446"
-  },
-  {
-    "file": "Leetcode/leetcode447.json",
-    "id": "leetcode447"
-  },
-  {
-    "file": "Leetcode/leetcode448.json",
-    "id": "leetcode448"
-  },
-  {
-    "file": "Leetcode/leetcode449.json",
-    "id": "leetcode449"
-  },
-  {
-    "file": "Leetcode/leetcode451.json",
-    "id": "leetcode451"
+    "id": "leetcode446",
+    "title": "Arithmetic Slices II - Subsequence",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode452.json",
-    "id": "leetcode452"
+    "id": "leetcode452",
+    "title": "Minimum Number of Arrows to Burst Balloons",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode453.json",
-    "id": "leetcode453"
-  },
-  {
-    "file": "Leetcode/leetcode454.json",
-    "id": "leetcode454"
+    "id": "leetcode453",
+    "title": "Minimum Moves to Equal Array Elements",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode455.json",
-    "id": "leetcode455"
+    "id": "leetcode455",
+    "title": "Assign Cookies",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode456.json",
-    "id": "leetcode456"
+    "id": "leetcode456",
+    "title": "132 Pattern",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode458.json",
-    "id": "leetcode458"
-  },
-  {
-    "file": "Leetcode/leetcode459.json",
-    "id": "leetcode459"
-  },
-  {
-    "file": "Leetcode/leetcode460.json",
-    "id": "leetcode460"
-  },
-  {
-    "file": "Leetcode/leetcode461.json",
-    "id": "leetcode461"
-  },
-  {
-    "file": "Leetcode/leetcode462.json",
-    "id": "leetcode462"
-  },
-  {
-    "file": "Leetcode/leetcode464.json",
-    "id": "leetcode464"
-  },
-  {
-    "file": "Leetcode/leetcode466.json",
-    "id": "leetcode466"
-  },
-  {
-    "file": "Leetcode/leetcode467.json",
-    "id": "leetcode467"
-  },
-  {
-    "file": "Leetcode/leetcode468.json",
-    "id": "leetcode468"
-  },
-  {
-    "file": "Leetcode/leetcode470.json",
-    "id": "leetcode470"
-  },
-  {
-    "file": "Leetcode/leetcode472.json",
-    "id": "leetcode472"
-  },
-  {
-    "file": "Leetcode/leetcode474.json",
-    "id": "leetcode474"
+    "id": "leetcode458",
+    "title": "Poor Pigs",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode475.json",
-    "id": "leetcode475"
-  },
-  {
-    "file": "Leetcode/leetcode476.json",
-    "id": "leetcode476"
-  },
-  {
-    "file": "Leetcode/leetcode477.json",
-    "id": "leetcode477"
+    "id": "leetcode475",
+    "title": "Heaters",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode478.json",
-    "id": "leetcode478"
-  },
-  {
-    "file": "Leetcode/leetcode479.json",
-    "id": "leetcode479"
+    "id": "leetcode478",
+    "title": "Generate Random Point in a Circle",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode481.json",
-    "id": "leetcode481"
-  },
-  {
-    "file": "Leetcode/leetcode482.json",
-    "id": "leetcode482"
-  },
-  {
-    "file": "Leetcode/leetcode483.json",
-    "id": "leetcode483"
+    "id": "leetcode481",
+    "title": "Magical String",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode485.json",
-    "id": "leetcode485"
-  },
-  {
-    "file": "Leetcode/leetcode486.json",
-    "id": "leetcode486"
+    "id": "leetcode485",
+    "title": "Max Consecutive Ones",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode488.json",
-    "id": "leetcode488"
-  },
-  {
-    "file": "Leetcode/leetcode491.json",
-    "id": "leetcode491"
-  },
-  {
-    "file": "Leetcode/leetcode492.json",
-    "id": "leetcode492"
-  },
-  {
-    "file": "Leetcode/leetcode493.json",
-    "id": "leetcode493"
-  },
-  {
-    "file": "Leetcode/leetcode494.json",
-    "id": "leetcode494"
-  },
-  {
-    "file": "Leetcode/leetcode495.json",
-    "id": "leetcode495"
-  },
-  {
-    "file": "Leetcode/leetcode496.json",
-    "id": "leetcode496"
-  },
-  {
-    "file": "Leetcode/leetcode502.json",
-    "id": "leetcode502"
-  },
-  {
-    "file": "Leetcode/leetcode503.json",
-    "id": "leetcode503"
+    "id": "leetcode488",
+    "title": "Zuma Game",
+    "tag": 530,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode504.json",
-    "id": "leetcode504"
-  },
-  {
-    "file": "Leetcode/leetcode506.json",
-    "id": "leetcode506"
+    "id": "leetcode504",
+    "title": "Base 7",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode507.json",
-    "id": "leetcode507"
-  },
-  {
-    "file": "Leetcode/leetcode509.json",
-    "id": "leetcode509"
-  },
-  {
-    "file": "Leetcode/leetcode516.json",
-    "id": "leetcode516"
+    "id": "leetcode507",
+    "title": "Perfect Number",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode517.json",
-    "id": "leetcode517"
-  },
-  {
-    "file": "Leetcode/leetcode518.json",
-    "id": "leetcode518"
+    "id": "leetcode517",
+    "title": "Super Washing Machines",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode519.json",
-    "id": "leetcode519"
-  },
-  {
-    "file": "Leetcode/leetcode520.json",
-    "id": "leetcode520"
-  },
-  {
-    "file": "Leetcode/leetcode521.json",
-    "id": "leetcode521"
-  },
-  {
-    "file": "Leetcode/leetcode522.json",
-    "id": "leetcode522"
+    "id": "leetcode519",
+    "title": "Random Flip Matrix",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode523.json",
-    "id": "leetcode523"
-  },
-  {
-    "file": "Leetcode/leetcode524.json",
-    "id": "leetcode524"
+    "id": "leetcode523",
+    "title": "Continuous Subarray Sum",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode525.json",
-    "id": "leetcode525"
+    "id": "leetcode525",
+    "title": "Contiguous Array",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode526.json",
-    "id": "leetcode526"
-  },
-  {
-    "file": "Leetcode/leetcode528.json",
-    "id": "leetcode528"
-  },
-  {
-    "file": "Leetcode/leetcode532.json",
-    "id": "leetcode532"
-  },
-  {
-    "file": "Leetcode/leetcode535.json",
-    "id": "leetcode535"
-  },
-  {
-    "file": "Leetcode/leetcode537.json",
-    "id": "leetcode537"
-  },
-  {
-    "file": "Leetcode/leetcode539.json",
-    "id": "leetcode539"
+    "id": "leetcode526",
+    "title": "Beautiful Arrangement",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode540.json",
-    "id": "leetcode540"
+    "id": "leetcode540",
+    "title": "Single Element in a Sorted Array",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
-    "file": "Leetcode/leetcode541.json",
-    "id": "leetcode541"
+    "file": "Leetcode/leetcode546.json",
+    "id": "leetcode546",
+    "title": "Remove Boxes",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
     "file": "Leetcode/leetcode551.json",
-    "id": "leetcode551"
+    "id": "leetcode551",
+    "title": "Student Attendance Record I",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
     "file": "Leetcode/leetcode552.json",
-    "id": "leetcode552"
+    "id": "leetcode552",
+    "title": "Student Attendance Record II",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
-    "file": "Leetcode/leetcode621.json",
-    "id": "leetcode621"
+    "file": "Leetcode/leetcode556.json",
+    "id": "leetcode556",
+    "title": "Next Greater Element III",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
-    "file": "Leetcode/leetcode692.json",
-    "id": "leetcode692"
+    "file": "Leetcode/leetcode560.json",
+    "id": "leetcode560",
+    "title": "Subarray Sum Equals K",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
-    "file": "Leetcode/leetcode703.json",
-    "id": "leetcode703"
+    "file": "Leetcode/leetcode564.json",
+    "id": "leetcode564",
+    "title": "Find the Closest Palindrome",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
-    "file": "Leetcode/leetcode753.json",
-    "id": "leetcode753"
+    "file": "Leetcode/leetcode591.json",
+    "id": "leetcode591",
+    "title": "Tag Validator",
+    "tag": 530,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
-    "file": "Leetcode/leetcode767.json",
-    "id": "leetcode767"
+    "file": "Leetcode/leetcode643.json",
+    "id": "leetcode643",
+    "title": "Maximum Average Subarray I",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
-    "file": "Leetcode/leetcode829.json",
-    "id": "leetcode829"
+    "file": "Leetcode/leetcode646.json",
+    "id": "leetcode646",
+    "title": "Maximum Length of Pair Chain",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
-    "file": "Leetcode/leetcode846.json",
-    "id": "leetcode846"
+    "file": "Leetcode/leetcode647.json",
+    "id": "leetcode647",
+    "title": "Palindromic Substrings",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
-    "file": "Leetcode/leetcode981.json",
-    "id": "leetcode981"
+    "file": "Leetcode/leetcode649.json",
+    "id": "leetcode649",
+    "title": "Dota2 Senate",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
-    "file": "Leetcode/leetcode1009.json",
-    "id": "leetcode1009"
+    "file": "Leetcode/leetcode650.json",
+    "id": "leetcode650",
+    "title": "2 Keys Keyboard",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
-    "file": "Leetcode/leetcode1249.json",
-    "id": "leetcode1249"
+    "file": "Leetcode/leetcode657.json",
+    "id": "leetcode657",
+    "title": "Robot Return to Origin",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
   },
   {
-    "file": "Leetcode/leetcode1296.json",
-    "id": "leetcode1296"
+    "file": "Leetcode/leetcode658.json",
+    "id": "leetcode658",
+    "title": "Find K Closest Elements",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
-    "file": "Leetcode/leetcode1337.json",
-    "id": "leetcode1337"
+    "file": "Leetcode/leetcode664.json",
+    "id": "leetcode664",
+    "title": "Strange Printer",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "hard"
   },
   {
-    "file": "Leetcode/leetcode2220.json",
-    "id": "leetcode2220"
+    "file": "Leetcode/leetcode665.json",
+    "id": "leetcode665",
+    "title": "Non-decreasing Array",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode667.json",
+    "id": "leetcode667",
+    "title": "Beautiful Arrangement II",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode670.json",
+    "id": "leetcode670",
+    "title": "Maximum Swap",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode672.json",
+    "id": "leetcode672",
+    "title": "Bulb Switcher II",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode673.json",
+    "id": "leetcode673",
+    "title": "Number of Longest Increasing Subsequence",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode674.json",
+    "id": "leetcode674",
+    "title": "Longest Continuous Increasing Subsequence",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode676.json",
+    "id": "leetcode676",
+    "title": "Implement Magic Dictionary",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode677.json",
+    "id": "leetcode677",
+    "title": "Map Sum Pairs",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode678.json",
+    "id": "leetcode678",
+    "title": "Valid Parenthesis String",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode679.json",
+    "id": "leetcode679",
+    "title": "24 Game",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode680.json",
+    "id": "leetcode680",
+    "title": "Valid Palindrome II",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode693.json",
+    "id": "leetcode693",
+    "title": "Binary Number with Alternating Bits",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode696.json",
+    "id": "leetcode696",
+    "title": "Count Binary Substrings",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode698.json",
+    "id": "leetcode698",
+    "title": "Partition to K Equal Sum Subsets",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode704.json",
+    "id": "leetcode704",
+    "title": "Binary Search",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode724.json",
+    "id": "leetcode724",
+    "title": "Find Pivot Index",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode735.json",
+    "id": "leetcode735",
+    "title": "Asteroid Collision",
+    "tag": 530,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode844.json",
+    "id": "leetcode844",
+    "title": "Backspace String Compare",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode845.json",
+    "id": "leetcode845",
+    "title": "Longest Mountain in Array",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode848.json",
+    "id": "leetcode848",
+    "title": "Shifting Letters",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode852.json",
+    "id": "leetcode852",
+    "title": "Peak Index in a Mountain Array",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode853.json",
+    "id": "leetcode853",
+    "title": "Car Fleet",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode878.json",
+    "id": "leetcode878",
+    "title": "Nth Magical Number",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode879.json",
+    "id": "leetcode879",
+    "title": "Profitable Schemes",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode887.json",
+    "id": "leetcode887",
+    "title": "Super Egg Drop",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode915.json",
+    "id": "leetcode915",
+    "title": "Partition Array into Disjoint Intervals",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode917.json",
+    "id": "leetcode917",
+    "title": "Reverse Only Letters",
+    "tag": 511,
+    "unit": 5,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode921.json",
+    "id": "leetcode921",
+    "title": "Minimum Add to Make Parentheses Valid",
+    "tag": 530,
+    "unit": 5,
+    "difficulty": "medium"
   },
   {
     "file": "Leetcode/leetcode2410.json",
-    "id": "leetcode2410"
+    "id": "leetcode2410",
+    "title": "Maximum Matching of Players With Trainers",
+    "tag": 520,
+    "unit": 5,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode1.json",
+    "id": "leetcode1",
+    "title": "Two Sum",
+    "tag": 631,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode3.json",
+    "id": "leetcode3",
+    "title": "Longest Substring Without Repeating Characters",
+    "tag": 612,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode6.json",
+    "id": "leetcode6",
+    "title": "ZigZag Conversion",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "unknown"
+  },
+  {
+    "file": "Leetcode/leetcode26.json",
+    "id": "leetcode26",
+    "title": "Remove Duplicates from Sorted Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode27.json",
+    "id": "leetcode27",
+    "title": "Remove Element",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode28.json",
+    "id": "leetcode28",
+    "title": "Implement strStr()",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode29.json",
+    "id": "leetcode29",
+    "title": "Divide Two Integers",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode30.json",
+    "id": "leetcode30",
+    "title": "Substring with Concatenation of All Words",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode31.json",
+    "id": "leetcode31",
+    "title": "Next Permutation",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode32.json",
+    "id": "leetcode32",
+    "title": "Longest Valid Parentheses",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode33.json",
+    "id": "leetcode33",
+    "title": "Search in Rotated Sorted Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode34.json",
+    "id": "leetcode34",
+    "title": "Find First and Last Position of Element in Sorted Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode35.json",
+    "id": "leetcode35",
+    "title": "Search Insert Position",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode38.json",
+    "id": "leetcode38",
+    "title": "Count and Say",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode39.json",
+    "id": "leetcode39",
+    "title": "Combination Sum",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode40.json",
+    "id": "leetcode40",
+    "title": "Combination Sum II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode41.json",
+    "id": "leetcode41",
+    "title": "First Missing Positive",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode43.json",
+    "id": "leetcode43",
+    "title": "Multiply Strings",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode44.json",
+    "id": "leetcode44",
+    "title": "Wildcard Matching",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode45.json",
+    "id": "leetcode45",
+    "title": "Jump Game II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode46(medium)--.json",
+    "id": "leetcode46(medium)--",
+    "title": "Permutations",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode47.json",
+    "id": "leetcode47",
+    "title": "Permutations II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode49.json",
+    "id": "leetcode49",
+    "title": "Group Anagrams",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode53.json",
+    "id": "leetcode53",
+    "title": "Maximum Subarray",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode55.json",
+    "id": "leetcode55",
+    "title": "Jump Game",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode56.json",
+    "id": "leetcode56",
+    "title": "Merge Intervals",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode57.json",
+    "id": "leetcode57",
+    "title": "Insert Interval",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode60.json",
+    "id": "leetcode60",
+    "title": "Permutation Sequence",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode75.json",
+    "id": "leetcode75",
+    "title": "Sort Colors",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode80.json",
+    "id": "leetcode80",
+    "title": "Remove Duplicates from Sorted Array II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode88.json",
+    "id": "leetcode88",
+    "title": "Merge Sorted Array",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode90.json",
+    "id": "leetcode90",
+    "title": "Subsets II",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode93.json",
+    "id": "leetcode93",
+    "title": "Restore IP Addresses",
+    "tag": 631,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode121.json",
+    "id": "leetcode121",
+    "title": "Best Time to Buy and Sell Stock",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode122.json",
+    "id": "leetcode122",
+    "title": "Best Time to Buy and Sell Stock II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode123.json",
+    "id": "leetcode123",
+    "title": "Best Time to Buy and Sell Stock III",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode126.json",
+    "id": "leetcode126",
+    "title": "Word Ladder II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode127.json",
+    "id": "leetcode127",
+    "title": "Word Ladder",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode128.json",
+    "id": "leetcode128",
+    "title": "Longest Consecutive Sequence",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode131.json",
+    "id": "leetcode131",
+    "title": "Palindrome Partitioning",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode134.json",
+    "id": "leetcode134",
+    "title": "Gas Station",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode136.json",
+    "id": "leetcode136",
+    "title": "Single Number",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode137.json",
+    "id": "leetcode137",
+    "title": "Single Number II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode139.json",
+    "id": "leetcode139",
+    "title": "Word Break",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode146.json",
+    "id": "leetcode146",
+    "title": "LRU Cache",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode150.json",
+    "id": "leetcode150",
+    "title": "Evaluate Reverse Polish Notation",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode151.json",
+    "id": "leetcode151",
+    "title": "Reverse Words in a String",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode152.json",
+    "id": "leetcode152",
+    "title": "Maximum Product Subarray",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode153.json",
+    "id": "leetcode153",
+    "title": "Find Minimum in Rotated Sorted Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode154.json",
+    "id": "leetcode154",
+    "title": "Find Minimum in Rotated Sorted Array II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode155.json",
+    "id": "leetcode155",
+    "title": "Min Stack",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode162.json",
+    "id": "leetcode162",
+    "title": "Find Peak Element",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode164.json",
+    "id": "leetcode164",
+    "title": "Maximum Gap",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode165.json",
+    "id": "leetcode165",
+    "title": "Compare Version Numbers",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode166.json",
+    "id": "leetcode166",
+    "title": "Fraction to Recurring Decimal",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode167.json",
+    "id": "leetcode167",
+    "title": "Two Sum II - Input Array Is Sorted",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode168.json",
+    "id": "leetcode168",
+    "title": "Excel Sheet Column Title",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode169.json",
+    "id": "leetcode169",
+    "title": "Majority Element",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode171.json",
+    "id": "leetcode171",
+    "title": "Excel Sheet Column Number",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode179.json",
+    "id": "leetcode179",
+    "title": "Largest Number",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode187.json",
+    "id": "leetcode187",
+    "title": "Repeated DNA Sequences",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode188.json",
+    "id": "leetcode188",
+    "title": "Best Time to Buy and Sell Stock IV",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode189.json",
+    "id": "leetcode189",
+    "title": "Rotate Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode200.json",
+    "id": "leetcode200",
+    "title": "Number of Islands",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode202.json",
+    "id": "leetcode202",
+    "title": "Happy Number",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode208.json",
+    "id": "leetcode208",
+    "title": "Implement Trie (Prefix Tree)",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode211.json",
+    "id": "leetcode211",
+    "title": "Design Add and Search Words Data Structure",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode216.json",
+    "id": "leetcode216",
+    "title": "Combination Sum III",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode217.json",
+    "id": "leetcode217",
+    "title": "Contains Duplicate",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode219.json",
+    "id": "leetcode219",
+    "title": "Contains Duplicate II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode220.json",
+    "id": "leetcode220",
+    "title": "Contains Duplicate III",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode224.json",
+    "id": "leetcode224",
+    "title": "Basic Calculator",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode225.json",
+    "id": "leetcode225",
+    "title": "Implement Stack using Queues",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode227.json",
+    "id": "leetcode227",
+    "title": "Basic Calculator II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode228.json",
+    "id": "leetcode228",
+    "title": "Summary Ranges",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode229.json",
+    "id": "leetcode229",
+    "title": "Majority Element II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode231.json",
+    "id": "leetcode231",
+    "title": "Power of Two",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode232.json",
+    "id": "leetcode232",
+    "title": "Implement Queue using Stacks",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode233.json",
+    "id": "leetcode233",
+    "title": "Number of Digit One",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode238.json",
+    "id": "leetcode238",
+    "title": "Product of Array Except Self",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode239.json",
+    "id": "leetcode239",
+    "title": "Sliding Window Maximum",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode242.json",
+    "id": "leetcode242",
+    "title": "Valid Anagram",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode260.json",
+    "id": "leetcode260",
+    "title": "Single Number III",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode264.json",
+    "id": "leetcode264",
+    "title": "Ugly Number II",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode268.json",
+    "id": "leetcode268",
+    "title": "Missing Number",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode273.json",
+    "id": "leetcode273",
+    "title": "Integer to English Words",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode274.json",
+    "id": "leetcode274",
+    "title": "H-Index",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode283.json",
+    "id": "leetcode283",
+    "title": "Move Zeroes",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode290.json",
+    "id": "leetcode290",
+    "title": "Word Pattern",
+    "tag": 631,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode295.json",
+    "id": "leetcode295",
+    "title": "Find Median from Data Stream",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode299.json",
+    "id": "leetcode299",
+    "title": "Bulls and Cows",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode301(hard)--.json",
+    "id": "leetcode301(hard)--",
+    "title": "Remove Invalid Parentheses",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode303.json",
+    "id": "leetcode303",
+    "title": "Range Sum Query - Immutable",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode315.json",
+    "id": "leetcode315",
+    "title": "Count of Smaller Numbers After Self",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode347.json",
+    "id": "leetcode347",
+    "title": "Top K Frequent Elements",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode349.json",
+    "id": "leetcode349",
+    "title": "Intersection of Two Arrays",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode350.json",
+    "id": "leetcode350",
+    "title": "Intersection of Two Arrays II",
+    "tag": 631,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode352.json",
+    "id": "leetcode352",
+    "title": "Data Stream as Disjoint Intervals",
+    "tag": 631,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode354.json",
+    "id": "leetcode354",
+    "title": "Russian Doll Envelopes",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode355.json",
+    "id": "leetcode355",
+    "title": "Design Twitter",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode357.json",
+    "id": "leetcode357",
+    "title": "Count Numbers with Unique Digits",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode373.json",
+    "id": "leetcode373",
+    "title": "Find K Pairs with Smallest Sums",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode376.json",
+    "id": "leetcode376",
+    "title": "Wiggle Subsequence",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode377.json",
+    "id": "leetcode377",
+    "title": "Combination Sum IV",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode380.json",
+    "id": "leetcode380",
+    "title": "Insert Delete GetRandom O(1)",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode381.json",
+    "id": "leetcode381",
+    "title": "Insert Delete GetRandom O(1) - Duplicates allowed",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode383.json",
+    "id": "leetcode383",
+    "title": "Ransom Note",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode387.json",
+    "id": "leetcode387",
+    "title": "First Unique Character in a String",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode389.json",
+    "id": "leetcode389",
+    "title": "Find the Difference",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode392.json",
+    "id": "leetcode392",
+    "title": "Is Subsequence",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode394.json",
+    "id": "leetcode394",
+    "title": "Decode String",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode395.json",
+    "id": "leetcode395",
+    "title": "Longest Substring with At Least K Repeating Characters",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode396.json",
+    "id": "leetcode396",
+    "title": "Rotate Function",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode398.json",
+    "id": "leetcode398",
+    "title": "Random Pick Index",
+    "tag": 631,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode399.json",
+    "id": "leetcode399",
+    "title": "Evaluate Division",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode400.json",
+    "id": "leetcode400",
+    "title": "Nth Digit",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode402.json",
+    "id": "leetcode402",
+    "title": "Remove K Digits",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode406.json",
+    "id": "leetcode406",
+    "title": "Queue Reconstruction by Height",
+    "tag": 631,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode409.json",
+    "id": "leetcode409",
+    "title": "Longest Palindrome",
+    "tag": 622,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode413.json",
+    "id": "leetcode413",
+    "title": "Arithmetic Slices",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode414.json",
+    "id": "leetcode414",
+    "title": "Third Maximum Number",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode416.json",
+    "id": "leetcode416",
+    "title": "Partition Equal Subset Sum",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode434.json",
+    "id": "leetcode434",
+    "title": "Number of Segments in a String",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode438.json",
+    "id": "leetcode438",
+    "title": "Find All Anagrams in a String",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode442.json",
+    "id": "leetcode442",
+    "title": "Find All Duplicates in an Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode443.json",
+    "id": "leetcode443",
+    "title": "String Compression",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode447.json",
+    "id": "leetcode447",
+    "title": "Number of Boomerangs",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode448.json",
+    "id": "leetcode448",
+    "title": "Find All Numbers Disappeared in an Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode451.json",
+    "id": "leetcode451",
+    "title": "Sort Characters By Frequency",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode454.json",
+    "id": "leetcode454",
+    "title": "4Sum II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode459.json",
+    "id": "leetcode459",
+    "title": "Repeated Substring Pattern",
+    "tag": 612,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode460.json",
+    "id": "leetcode460",
+    "title": "LFU Cache",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode472.json",
+    "id": "leetcode472",
+    "title": "Concatenated Words",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode474.json",
+    "id": "leetcode474",
+    "title": "Ones and Zeroes",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode491.json",
+    "id": "leetcode491",
+    "title": "Non-decreasing Subsequences",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode493.json",
+    "id": "leetcode493",
+    "title": "Reverse Pairs",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode495.json",
+    "id": "leetcode495",
+    "title": "Teemo Attacking",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode496.json",
+    "id": "leetcode496",
+    "title": "Next Greater Element I",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode503.json",
+    "id": "leetcode503",
+    "title": "Next Greater Element II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode506.json",
+    "id": "leetcode506",
+    "title": "Relative Ranks",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode516.json",
+    "id": "leetcode516",
+    "title": "Longest Palindromic Subsequence",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode518.json",
+    "id": "leetcode518",
+    "title": "Coin Change II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode532.json",
+    "id": "leetcode532",
+    "title": "K-diff Pairs in an Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode561.json",
+    "id": "leetcode561",
+    "title": "Array Partition",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode565.json",
+    "id": "leetcode565",
+    "title": "Array Nesting",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode567.json",
+    "id": "leetcode567",
+    "title": "Permutation in String",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode575.json",
+    "id": "leetcode575",
+    "title": "Distribute Candies",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode581.json",
+    "id": "leetcode581",
+    "title": "Shortest Unsorted Continuous Subarray",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode593.json",
+    "id": "leetcode593",
+    "title": "Valid Square",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode594.json",
+    "id": "leetcode594",
+    "title": "Longest Harmonious Subsequence",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode599.json",
+    "id": "leetcode599",
+    "title": "Minimum Index Sum of Two Lists",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode605.json",
+    "id": "leetcode605",
+    "title": "Can Place Flowers",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode609.json",
+    "id": "leetcode609",
+    "title": "Find Duplicate File in System",
+    "tag": 631,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode611.json",
+    "id": "leetcode611",
+    "title": "Valid Triangle Number",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode621.json",
+    "id": "leetcode621",
+    "title": "Task Scheduler",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode622.json",
+    "id": "leetcode622",
+    "title": "Design Circular Queue",
+    "tag": 622,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode624.json",
+    "id": "leetcode624",
+    "title": "Maximum Distance in Arrays",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode628.json",
+    "id": "leetcode628",
+    "title": "Maximum Product of Three Numbers",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode629.json",
+    "id": "leetcode629",
+    "title": "K Inverse Pairs Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode632.json",
+    "id": "leetcode632",
+    "title": "Smallest Range Covering Elements from K Lists",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode645.json",
+    "id": "leetcode645",
+    "title": "Set Mismatch",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode648.json",
+    "id": "leetcode648",
+    "title": "Replace Words",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode682.json",
+    "id": "leetcode682",
+    "title": "Baseball Game",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode686.json",
+    "id": "leetcode686",
+    "title": "Repeated String Match",
+    "tag": 612,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode689.json",
+    "id": "leetcode689",
+    "title": "Maximum Sum of 3 Non-Overlapping Subarrays",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode692.json",
+    "id": "leetcode692",
+    "title": "Top K Frequent Words",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode697.json",
+    "id": "leetcode697",
+    "title": "Degree of an Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode705.json",
+    "id": "leetcode705",
+    "title": "Design HashSet",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode706.json",
+    "id": "leetcode706",
+    "title": "Design HashMap",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode707.json",
+    "id": "leetcode707",
+    "title": "Design Linked List",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode728.json",
+    "id": "leetcode728",
+    "title": "Self Dividing Numbers",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode738.json",
+    "id": "leetcode738",
+    "title": "Monotone Increasing Digits",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode739.json",
+    "id": "leetcode739",
+    "title": "Daily Temperatures",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode740.json",
+    "id": "leetcode740",
+    "title": "Delete and Earn",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode746.json",
+    "id": "leetcode746",
+    "title": "Min Cost Climbing Stairs",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode747.json",
+    "id": "leetcode747",
+    "title": "Largest Number At Least Twice of Others",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode748.json",
+    "id": "leetcode748",
+    "title": "Shortest Completing Word",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode752.json",
+    "id": "leetcode752",
+    "title": "Open the Lock",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode754.json",
+    "id": "leetcode754",
+    "title": "Reach a Number",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode757.json",
+    "id": "leetcode757",
+    "title": "Set Intersection Size At Least Two",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode761.json",
+    "id": "leetcode761",
+    "title": "Special Binary String",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode762.json",
+    "id": "leetcode762",
+    "title": "Prime Number of Set Bits in Binary Representation",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode763.json",
+    "id": "leetcode763",
+    "title": "Partition Labels",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode765.json",
+    "id": "leetcode765",
+    "title": "Couples Holding Hands",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode768.json",
+    "id": "leetcode768",
+    "title": "Max Chunks To Make Sorted II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode769.json",
+    "id": "leetcode769",
+    "title": "Max Chunks To Make Sorted",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode771.json",
+    "id": "leetcode771",
+    "title": "Jewels and Stones",
+    "tag": 612,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode775.json",
+    "id": "leetcode775",
+    "title": "Global and Local Inversions",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode777.json",
+    "id": "leetcode777",
+    "title": "Swap Adjacent in LR String",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode779.json",
+    "id": "leetcode779",
+    "title": "K-th Symbol in Grammar",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode780.json",
+    "id": "leetcode780",
+    "title": "Reaching Points",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode781.json",
+    "id": "leetcode781",
+    "title": "Rabbits in Forest",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode784.json",
+    "id": "leetcode784",
+    "title": "Letter Case Permutation",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode788.json",
+    "id": "leetcode788",
+    "title": "Rotated Digits",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode789.json",
+    "id": "leetcode789",
+    "title": "Escape The Ghosts",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode791.json",
+    "id": "leetcode791",
+    "title": "Custom Sort String",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode792.json",
+    "id": "leetcode792",
+    "title": "Number of Matching Subsequences",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode795.json",
+    "id": "leetcode795",
+    "title": "Number of Subarrays with Bounded Maximum",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode796.json",
+    "id": "leetcode796",
+    "title": "Rotate String",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode801.json",
+    "id": "leetcode801",
+    "title": "Minimum Swaps To Make Sequences Increasing",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode804.json",
+    "id": "leetcode804",
+    "title": "Unique Morse Code Words",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode805.json",
+    "id": "leetcode805",
+    "title": "Split Array With Same Average",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode809.json",
+    "id": "leetcode809",
+    "title": "Expressive Words",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode813.json",
+    "id": "leetcode813",
+    "title": "Largest Sum of Averages",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode815.json",
+    "id": "leetcode815",
+    "title": "Bus Routes",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode816.json",
+    "id": "leetcode816",
+    "title": "Ambiguous Coordinates",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode818.json",
+    "id": "leetcode818",
+    "title": "Race Car",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode819.json",
+    "id": "leetcode819",
+    "title": "Most Common Word",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode820.json",
+    "id": "leetcode820",
+    "title": "Short Encoding of Words",
+    "tag": 612,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode821.json",
+    "id": "leetcode821",
+    "title": "Shortest Distance to a Character",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode822.json",
+    "id": "leetcode822",
+    "title": "Card Flipping Game",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode846.json",
+    "id": "leetcode846",
+    "title": "leetcode846",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode856.json",
+    "id": "leetcode856",
+    "title": "Score of Parentheses",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode860.json",
+    "id": "leetcode860",
+    "title": "Lemonade Change",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode870.json",
+    "id": "leetcode870",
+    "title": "Advantage Shuffle",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode873.json",
+    "id": "leetcode873",
+    "title": "Length of Longest Fibonacci Subsequence",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode874.json",
+    "id": "leetcode874",
+    "title": "Walking Robot Simulation",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode881.json",
+    "id": "leetcode881",
+    "title": "Boats to Save People",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode886.json",
+    "id": "leetcode886",
+    "title": "Possible Bipartition",
+    "tag": 631,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode891.json",
+    "id": "leetcode891",
+    "title": "Sum of Subsequence Widths",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode896.json",
+    "id": "leetcode896",
+    "title": "Monotonic Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode905.json",
+    "id": "leetcode905",
+    "title": "Sort Array By Parity",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode918.json",
+    "id": "leetcode918",
+    "title": "Maximum Sum Circular Subarray",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode922.json",
+    "id": "leetcode922",
+    "title": "Sort Array By Parity II",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode923.json",
+    "id": "leetcode923",
+    "title": "3Sum With Multiplicity",
+    "tag": 613,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode981.json",
+    "id": "leetcode981",
+    "title": "Time Based Key-Value Store",
+    "tag": 632,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode1249.json",
+    "id": "leetcode1249",
+    "title": "Minimum Remove to Make Valid Parentheses",
+    "tag": 612,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode1296.json",
+    "id": "leetcode1296",
+    "title": "Divide Array in Sets of K Consecutive Numbers",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode1337.json",
+    "id": "leetcode1337",
+    "title": "The K Weakest Rows in a Matrix",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode1991.json",
+    "id": "leetcode1991",
+    "title": "Find the Middle Index in Array",
+    "tag": 611,
+    "unit": 6,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode50.json",
+    "id": "leetcode50",
+    "title": "Pow(x, n)",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode58.json",
+    "id": "leetcode58",
+    "title": "Length of Last Word",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode65.json",
+    "id": "leetcode65",
+    "title": "Valid Number",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode66.json",
+    "id": "leetcode66",
+    "title": "Plus One",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode67.json",
+    "id": "leetcode67",
+    "title": "Add Binary",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode68.json",
+    "id": "leetcode68",
+    "title": "Text Justification",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode69.json",
+    "id": "leetcode69",
+    "title": "Sqrt(x)",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode70.json",
+    "id": "leetcode70",
+    "title": "Climbing Stairs",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode71.json",
+    "id": "leetcode71",
+    "title": "Simplify Path",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode72.json",
+    "id": "leetcode72",
+    "title": "Edit Distance",
+    "tag": 713,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode76.json",
+    "id": "leetcode76",
+    "title": "Minimum Window Substring",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode77.json",
+    "id": "leetcode77",
+    "title": "Combinations",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode78.json",
+    "id": "leetcode78",
+    "title": "Subsets",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode87.json",
+    "id": "leetcode87",
+    "title": "Scramble String",
+    "tag": 713,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode89.json",
+    "id": "leetcode89",
+    "title": "Gray Code",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode91.json",
+    "id": "leetcode91",
+    "title": "Decode Ways",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode115.json",
+    "id": "leetcode115",
+    "title": "Distinct Subsequences",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode125.json",
+    "id": "leetcode125",
+    "title": "Valid Palindrome",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode140.json",
+    "id": "leetcode140",
+    "title": "Word Break II",
+    "tag": 713,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode191.json",
+    "id": "leetcode191",
+    "title": "Number of 1 Bits",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode201.json",
+    "id": "leetcode201",
+    "title": "Bitwise AND of Numbers Range",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode204.json",
+    "id": "leetcode204",
+    "title": "Count Primes",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode205.json",
+    "id": "leetcode205",
+    "title": "Isomorphic Strings",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode213.json",
+    "id": "leetcode213",
+    "title": "House Robber II",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode214.json",
+    "id": "leetcode214",
+    "title": "Shortest Palindrome",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode215.json",
+    "id": "leetcode215",
+    "title": "Kth Largest Element in an Array",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode241.json",
+    "id": "leetcode241",
+    "title": "Different Ways to Add Parentheses",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode258.json",
+    "id": "leetcode258",
+    "title": "Add Digits",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode263.json",
+    "id": "leetcode263",
+    "title": "Ugly Number",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode278.json",
+    "id": "leetcode278",
+    "title": "First Bad Version",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode279.json",
+    "id": "leetcode279",
+    "title": "Perfect Squares",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode282.json",
+    "id": "leetcode282",
+    "title": "Expression Add Operators",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode300.json",
+    "id": "leetcode300",
+    "title": "Longest Increasing Subsequence",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode306.json",
+    "id": "leetcode306",
+    "title": "Additive Number",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode309.json",
+    "id": "leetcode309",
+    "title": "Best Time to Buy and Sell Stock with Cooldown",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode312.json",
+    "id": "leetcode312",
+    "title": "Burst Balloons",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode313.json",
+    "id": "leetcode313",
+    "title": "Super Ugly Number",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode316.json",
+    "id": "leetcode316",
+    "title": "Remove Duplicate Letters",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode318.json",
+    "id": "leetcode318",
+    "title": "Maximum Product of Word Lengths",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode321.json",
+    "id": "leetcode321",
+    "title": "Create Maximum Number",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode322.json",
+    "id": "leetcode322",
+    "title": "Coin Change",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode324.json",
+    "id": "leetcode324",
+    "title": "Wiggle Sort II",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode326.json",
+    "id": "leetcode326",
+    "title": "Power of Three",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode327.json",
+    "id": "leetcode327",
+    "title": "Count of Range Sum",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode330.json",
+    "id": "leetcode330",
+    "title": "Patching Array",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode334.json",
+    "id": "leetcode334",
+    "title": "Increasing Triplet Subsequence",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode336.json",
+    "id": "leetcode336",
+    "title": "Palindrome Pairs",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode338.json",
+    "id": "leetcode338",
+    "title": "Counting Bits",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode341.json",
+    "id": "leetcode341",
+    "title": "Flatten Nested List Iterator",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode342.json",
+    "id": "leetcode342",
+    "title": "Power of Four",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode343.json",
+    "id": "leetcode343",
+    "title": "Integer Break",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode344.json",
+    "id": "leetcode344",
+    "title": "Reverse String",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode345.json",
+    "id": "leetcode345",
+    "title": "Reverse Vowels of a String",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode365.json",
+    "id": "leetcode365",
+    "title": "Water and Jug Problem",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode367.json",
+    "id": "leetcode367",
+    "title": "Valid Perfect Square",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode368.json",
+    "id": "leetcode368",
+    "title": "Largest Divisible Subset",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode371.json",
+    "id": "leetcode371",
+    "title": "Sum of Two Integers",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode372.json",
+    "id": "leetcode372",
+    "title": "Super Pow",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode385.json",
+    "id": "leetcode385",
+    "title": "Mini Parser",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode397.json",
+    "id": "leetcode397",
+    "title": "Integer Replacement",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode405.json",
+    "id": "leetcode405",
+    "title": "Convert a Number to Hexadecimal",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode410.json",
+    "id": "leetcode410",
+    "title": "Split Array Largest Sum",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode415.json",
+    "id": "leetcode415",
+    "title": "Add Strings",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode420.json",
+    "id": "leetcode420",
+    "title": "Strong Password Checker",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode421.json",
+    "id": "leetcode421",
+    "title": "Maximum XOR of Two Numbers in an Array",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode423.json",
+    "id": "leetcode423",
+    "title": "Reconstruct Original Digits from English",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode449.json",
+    "id": "leetcode449",
+    "title": "Serialize and Deserialize BST",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode461.json",
+    "id": "leetcode461",
+    "title": "Hamming Distance",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode462.json",
+    "id": "leetcode462",
+    "title": "Minimum Moves to Equal Array Elements II",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode464.json",
+    "id": "leetcode464",
+    "title": "Can I Win",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode466.json",
+    "id": "leetcode466",
+    "title": "Count The Repetitions",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode467.json",
+    "id": "leetcode467",
+    "title": "Unique Substrings in Wraparound String",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode468.json",
+    "id": "leetcode468",
+    "title": "Validate IP Address",
+    "tag": 712,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode470.json",
+    "id": "leetcode470",
+    "title": "Implement Rand10() Using Rand7()",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode476.json",
+    "id": "leetcode476",
+    "title": "Number Complement",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode477.json",
+    "id": "leetcode477",
+    "title": "Total Hamming Distance",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode479.json",
+    "id": "leetcode479",
+    "title": "Largest Palindrome Product",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode482.json",
+    "id": "leetcode482",
+    "title": "License Key Formatting",
+    "tag": 712,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode483.json",
+    "id": "leetcode483",
+    "title": "Smallest Good Base",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode486.json",
+    "id": "leetcode486",
+    "title": "Predict the Winner",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode492.json",
+    "id": "leetcode492",
+    "title": "Construct the Rectangle",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode494.json",
+    "id": "leetcode494",
+    "title": "Target Sum",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode502.json",
+    "id": "leetcode502",
+    "title": "IPO",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode509.json",
+    "id": "leetcode509",
+    "title": "Fibonacci Number",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode520.json",
+    "id": "leetcode520",
+    "title": "Detect Capital",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode521.json",
+    "id": "leetcode521",
+    "title": "Longest Uncommon Subsequence I",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode522.json",
+    "id": "leetcode522",
+    "title": "Longest Uncommon Subsequence II",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode524.json",
+    "id": "leetcode524",
+    "title": "Longest Word in Dictionary through Deleting",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode528.json",
+    "id": "leetcode528",
+    "title": "Random Pick with Weight",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode537.json",
+    "id": "leetcode537",
+    "title": "Complex Number Multiplication",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode539.json",
+    "id": "leetcode539",
+    "title": "Minimum Time Difference",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode541.json",
+    "id": "leetcode541",
+    "title": "Reverse String II",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode553.json",
+    "id": "leetcode553",
+    "title": "Optimal Division",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode557.json",
+    "id": "leetcode557",
+    "title": "Reverse Words in a String III",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode583.json",
+    "id": "leetcode583",
+    "title": "Delete Operation for Two Strings",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode592.json",
+    "id": "leetcode592",
+    "title": "Fraction Addition and Subtraction",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode600.json",
+    "id": "leetcode600",
+    "title": "Non-negative Integers without Consecutive Ones",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode630.json",
+    "id": "leetcode630",
+    "title": "Course Schedule III",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode633.json",
+    "id": "leetcode633",
+    "title": "Sum of Square Numbers",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode638.json",
+    "id": "leetcode638",
+    "title": "Shopping Offers",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode639.json",
+    "id": "leetcode639",
+    "title": "Decode Ways II",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode640.json",
+    "id": "leetcode640",
+    "title": "Solve the Equation",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode703.json",
+    "id": "leetcode703",
+    "title": "Kth Largest Element in a Stream",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode709.json",
+    "id": "leetcode709",
+    "title": "To Lower Case",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode712.json",
+    "id": "leetcode712",
+    "title": "Minimum ASCII Delete Sum for Two Strings",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode722.json",
+    "id": "leetcode722",
+    "title": "Remove Comments",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode736.json",
+    "id": "leetcode736",
+    "title": "Parse Lisp Expression",
+    "tag": 712,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode745.json",
+    "id": "leetcode745",
+    "title": "Prefix and Suffix Search",
+    "tag": 712,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode753.json",
+    "id": "leetcode753",
+    "title": "Cracking the Safe",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode767.json",
+    "id": "leetcode767",
+    "title": "Reorganize String",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode824.json",
+    "id": "leetcode824",
+    "title": "Goat Latin",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode829.json",
+    "id": "leetcode829",
+    "title": "Consecutive Numbers Sum",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode855.json",
+    "id": "leetcode855",
+    "title": "Exam Room",
+    "tag": 712,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode859.json",
+    "id": "leetcode859",
+    "title": "Buddy Strings",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode880.json",
+    "id": "leetcode880",
+    "title": "Decoded String at Index",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode884.json",
+    "id": "leetcode884",
+    "title": "Uncommon Words from Two Sentences",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode888.json",
+    "id": "leetcode888",
+    "title": "Fair Candy Swap",
+    "tag": 712,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode890.json",
+    "id": "leetcode890",
+    "title": "Find and Replace Pattern",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode893.json",
+    "id": "leetcode893",
+    "title": "Groups of Special-Equivalent Strings",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode899.json",
+    "id": "leetcode899",
+    "title": "Orderly Queue",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode900.json",
+    "id": "leetcode900",
+    "title": "RLE Iterator",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode901.json",
+    "id": "leetcode901",
+    "title": "Online Stock Span",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode902.json",
+    "id": "leetcode902",
+    "title": "Numbers At Most N Given Digit Set",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode903.json",
+    "id": "leetcode903",
+    "title": "Valid Permutations for DI Sequence",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode904.json",
+    "id": "leetcode904",
+    "title": "Fruit Into Baskets",
+    "tag": 723,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode906.json",
+    "id": "leetcode906",
+    "title": "Super Palindromes",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode907.json",
+    "id": "leetcode907",
+    "title": "Sum of Subarray Minimums",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode908.json",
+    "id": "leetcode908",
+    "title": "Smallest Range I",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode910.json",
+    "id": "leetcode910",
+    "title": "Smallest Range II",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode912.json",
+    "id": "leetcode912",
+    "title": "Sort an Array",
+    "tag": 711,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode916.json",
+    "id": "leetcode916",
+    "title": "Word Subsets",
+    "tag": 722,
+    "unit": 7,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode920.json",
+    "id": "leetcode920",
+    "title": "Number of Music Playlists",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode1009.json",
+    "id": "leetcode1009",
+    "title": "Complement of Base 10 Integer",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode2220.json",
+    "id": "leetcode2220",
+    "title": "Minimum Bit Flips to Convert Number",
+    "tag": 721,
+    "unit": 7,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode432.json",
+    "id": "leetcode432",
+    "title": "All O`one Data Structure",
+    "tag": 830,
+    "unit": 8,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode535.json",
+    "id": "leetcode535",
+    "title": "Encode and Decode TinyURL",
+    "tag": 830,
+    "unit": 8,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode831.json",
+    "id": "leetcode831",
+    "title": "Masking Personal Information",
+    "tag": 822,
+    "unit": 8,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode911.json",
+    "id": "leetcode911",
+    "title": "Online Election",
+    "tag": 811,
+    "unit": 8,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode726.json",
+    "id": "leetcode726",
+    "title": "Number of Atoms",
+    "tag": 910,
+    "unit": 9,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode744.json",
+    "id": "leetcode744",
+    "title": "Find Smallest Letter Greater Than Target",
+    "tag": 912,
+    "unit": 9,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode843.json",
+    "id": "leetcode843",
+    "title": "Guess the Word",
+    "tag": 910,
+    "unit": 9,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode691.json",
+    "id": "leetcode691",
+    "title": "Stickers to Spell Word",
+    "tag": 1022,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode710.json",
+    "id": "leetcode710",
+    "title": "Random Pick with Blacklist",
+    "tag": 1022,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode713.json",
+    "id": "leetcode713",
+    "title": "Subarray Product Less Than K",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode714.json",
+    "id": "leetcode714",
+    "title": "Best Time to Buy and Sell Stock with Transaction Fee",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode715.json",
+    "id": "leetcode715",
+    "title": "Range Module",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode717.json",
+    "id": "leetcode717",
+    "title": "1-bit and 2-bit Characters",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode718.json",
+    "id": "leetcode718",
+    "title": "Maximum Length of Repeated Subarray",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode719.json",
+    "id": "leetcode719",
+    "title": "Find K-th Smallest Pair Distance",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode720.json",
+    "id": "leetcode720",
+    "title": "Longest Word in Dictionary",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode730.json",
+    "id": "leetcode730",
+    "title": "Count Different Palindromic Subsequences",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode786.json",
+    "id": "leetcode786",
+    "title": "K-th Smallest Prime Fraction",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode793.json",
+    "id": "leetcode793",
+    "title": "Preimage Size of Factorial Zeroes Function",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode798.json",
+    "id": "leetcode798",
+    "title": "Smallest Rotation with Highest Score",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode803.json",
+    "id": "leetcode803",
+    "title": "Bricks Falling When Hit",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode806.json",
+    "id": "leetcode806",
+    "title": "Number of Lines To Write String",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode808.json",
+    "id": "leetcode808",
+    "title": "Soup Servings",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode810.json",
+    "id": "leetcode810",
+    "title": "Chalkboard XOR Game",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode811.json",
+    "id": "leetcode811",
+    "title": "Subdomain Visit Count",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode823.json",
+    "id": "leetcode823",
+    "title": "Binary Trees With Factors",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode825.json",
+    "id": "leetcode825",
+    "title": "Friends Of Appropriate Ages",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode826.json",
+    "id": "leetcode826",
+    "title": "Most Profit Assigning Work",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode827.json",
+    "id": "leetcode827",
+    "title": "Making A Large Island",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode828.json",
+    "id": "leetcode828",
+    "title": "Count Unique Characters of All Substrings of a Given String",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode830.json",
+    "id": "leetcode830",
+    "title": "Positions of Large Groups",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode832.json",
+    "id": "leetcode832",
+    "title": "Flipping an Image",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode836.json",
+    "id": "leetcode836",
+    "title": "Rectangle Overlap",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode837.json",
+    "id": "leetcode837",
+    "title": "New 21 Game",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode839.json",
+    "id": "leetcode839",
+    "title": "Similar String Groups",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode841.json",
+    "id": "leetcode841",
+    "title": "Keys and Rooms",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode842.json",
+    "id": "leetcode842",
+    "title": "Split Array into Fibonacci Sequence",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode851.json",
+    "id": "leetcode851",
+    "title": "Loud and Rich",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode854.json",
+    "id": "leetcode854",
+    "title": "K-Similar Strings",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode857.json",
+    "id": "leetcode857",
+    "title": "Minimum Cost to Hire K Workers",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode862.json",
+    "id": "leetcode862",
+    "title": "Shortest Subarray with Sum at Least K",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode866.json",
+    "id": "leetcode866",
+    "title": "Prime Palindrome",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode868.json",
+    "id": "leetcode868",
+    "title": "Binary Gap",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode869.json",
+    "id": "leetcode869",
+    "title": "Reordered Power of 2",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode871.json",
+    "id": "leetcode871",
+    "title": "Minimum Number of Refueling Stops",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode875.json",
+    "id": "leetcode875",
+    "title": "Koko Eating Bananas",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode877.json",
+    "id": "leetcode877",
+    "title": "Stone Game",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode898.json",
+    "id": "leetcode898",
+    "title": "Bitwise ORs of Subarrays",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode914.json",
+    "id": "leetcode914",
+    "title": "X of a Kind in a Deck of Cards",
+    "tag": 1030,
+    "unit": 10,
+    "difficulty": "easy"
+  },
+  {
+    "file": "Leetcode/leetcode641.json",
+    "id": "leetcode641",
+    "title": "Design Circular Deque",
+    "tag": 1110,
+    "unit": 11,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode729.json",
+    "id": "leetcode729",
+    "title": "My Calendar I",
+    "tag": 1120,
+    "unit": 11,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode731.json",
+    "id": "leetcode731",
+    "title": "My Calendar II",
+    "tag": 1120,
+    "unit": 11,
+    "difficulty": "medium"
+  },
+  {
+    "file": "Leetcode/leetcode732.json",
+    "id": "leetcode732",
+    "title": "My Calendar III",
+    "tag": 1120,
+    "unit": 11,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode895.json",
+    "id": "leetcode895",
+    "title": "Maximum Frequency Stack",
+    "tag": 1130,
+    "unit": 11,
+    "difficulty": "hard"
+  },
+  {
+    "file": "Leetcode/leetcode721.json",
+    "id": "leetcode721",
+    "title": "Accounts Merge",
+    "tag": 1220,
+    "unit": 12,
+    "difficulty": "medium"
   }
 ]

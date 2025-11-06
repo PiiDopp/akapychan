@@ -7,12 +7,12 @@
       "examples": [
         {
           "input": "s = \"tree\"",
-          "output": "\"eetr\"",
+          "output": "\"eert\"",
           "explanation": "'e' appears twice while 'r' and 't' both appear once. So 'e' must appear before both 'r' and 't'. Therefore \"eetr\" is also a valid answer."
         },
         {
           "input": "s = \"cccaaa\"",
-          "output": "\"cccaaa\"",
+          "output": "\"aaaccc\"",
           "explanation": "Both 'c' and 'a' appear three times, so both \"cccaaa\" and \"aaaccc\" are valid answers.\nNote that \"cacaca\" is incorrect, as the same characters must be together."
         },
         {

@@ -7,7 +7,7 @@
       "examples": [
         {
           "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
-          "output": "[[\"eat\",\"tea\",\"ate\"],[\"tan\",\"nat\"],[\"bat\"]]",
+          "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
           "explanation": "There is no string in strs that can be rearranged to form \"bat\".\nThe strings \"nat\" and \"tan\" are anagrams as they can be rearranged to form each other.\nThe strings \"ate\", \"eat\", and \"tea\" are anagrams as they can be rearranged to form each other."
         },
         {

@@ -7,8 +7,8 @@
       "# Python 是直譯式語言，可直接執行程式檔案\nprint(\"Hello, Python!\")\n\n# 可用 # 作為註解，解釋程式用途\n# 變數不需宣告型別\nx = 10\nname = \"阿明\"\nprint(name, \"的分數是\", x)\n\n# Python 以縮排 (indentation) 表示程式結構\nif x >= 60:\n    print(\"及格！\")\nelse:\n    print(\"需要加油！\")"
     ],
     "mis_exp": [
-      "# 錯誤示範 1：縮排不一致會造成語法錯誤\nif True:\nprint(\"這行沒有縮排\")  # ❌",
-      "# 錯誤示範 2：少了冒號 (:) 會出錯\nif x > 5\n    print(\"缺少冒號\")"
+      "# 錯誤：縮排不一致會造成語法錯誤\nif True:\nprint(\"這行沒有縮排\") ",
+      "# 錯誤：少了冒號 (:) 會出錯\nif x > 5\n    print(\"缺少冒號\")"
     ]
   },
   "practice": [

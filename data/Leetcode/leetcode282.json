@@ -7,12 +7,12 @@
       "examples": [
         {
           "input": "num = \"123\", target = 6",
-          "output": "[\"1+2+3\",\"1*2*3\"]",
+          "output": "[\"1*2*3\",\"1+2+3\"]",
           "explanation": "Both \"1*2*3\" and \"1+2+3\" evaluate to 6."
         },
         {
           "input": "num = \"232\", target = 8",
-          "output": "[\"2+3*2\",\"2*3+2\"]",
+          "output": "[\"2*3+2\",\"2+3*2\"]",
           "explanation": "Both \"2*3+2\" and \"2+3*2\" evaluate to 8."
         },
         {

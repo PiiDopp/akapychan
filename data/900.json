@@ -15,7 +15,7 @@
       "description": "請寫一個程式，開啟名為 data.txt 的檔案，讀取內容並輸出總共有幾行文字。若檔案不存在，請顯示『找不到檔案！』。請使用 with 語法搭配 try / except。",
       "examples": {
         "input": "（假設 data.txt 內容如下）\\nHello\\nPython\\nWorld",
-        "output": "檔案共有 1 行"
+        "output": "檔案共有 3 行"
       },
       "solution": "try:\n    with open('data.txt', 'r', encoding='utf-8') as f:\n        lines = f.readlines()\n        print('檔案共有', len(lines), '行')\nexcept FileNotFoundError:\n    print('找不到檔案！')"
     }
