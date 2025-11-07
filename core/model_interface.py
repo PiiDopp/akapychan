@@ -13,7 +13,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 OLLAMA_API = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
-MODEL_NAME = "gpt-oss"
+MODEL_NAME = "llama3.2:1B"
 
 
 # ===================== Prompt Builders =====================
@@ -402,17 +402,17 @@ def interactive_code_modification_loop():
             # 這部分邏輯需要依賴 validate_main_function 的實際行為或外部錯誤處理
             # 以下為示意性代碼，假設 validation_result 可能包含修正建議的標記
             if not success and "修正版程式" in validation_result: # 示意性判斷
-                 temp_code = extract_code_block(validation_result)
-                 if temp_code:
-                     print("\n[提示] 模型提供了修正建議。是否要將當前程式碼替換為修正版？(y/n): ", end="")
-                     choice = input().strip().lower()
-                     if choice in ["y", "yes", "是", "好"]:
-                         current_code = temp_code
-                         history.append("自動採納模型修正版。")
-                         print("\n[成功] 已採納修正版程式碼。")
-                         print(f"```python\n{current_code}\n```")
-                     else:
-                         print("\n[提示] 已忽略修正建議，您可手動提供修改需求。")
+                temp_code = extract_code_block(validation_result)
+                if temp_code:
+                    print("\n[提示] 模型提供了修正建議。是否要將當前程式碼替換為修正版？(y/n): ", end="")
+                    choice = input().strip().lower()
+                    if choice in ["y", "yes", "是", "好"]:
+                        current_code = temp_code
+                        history.append("自動採納模型修正版。")
+                        print("\n[成功] 已採納修正版程式碼。")
+                        print(f"```python\n{current_code}\n```")
+                    else:
+                        print("\n[提示] 已忽略修正建議，您可手動提供修改需求。")
 
         elif user_input.upper() in ("EXPLAIN", "E"): # 修改判斷
             print("\n[解釋中] 產生程式碼解釋...")
@@ -671,3 +671,28 @@ def get_code_suggestions():
         
     except Exception as e:
         print(f"\n[錯誤] 獲取建議時發生例外: {e}")
+
+# 假設您的類別名稱是 ModelInterface
+# 在 core/model_interface.py 中新增
+
+def build_mutation_killing_prompt(original_code: str, current_tests_str: str, mutant_info: str) -> str:
+    """
+    建立 MuTAP 提示詞：要求 AI 生成能殺死特定變異體的測資。
+    """
+    return f"""
+你是一位軟體測試專家。請幫助我強化測試用例。
+以下是原始程式碼，以及目前的測試輸入(JSON格式)。
+我們發現目前的測試無法檢測出一個潛在的錯誤版本（存活的變異體）。
+
+【原始程式碼 (Program Under Test)】
+{original_code}
+
+【目前已通過的測試輸入】
+{current_tests_str}
+
+【存活的變異體 (錯誤版本資訊)】
+{mutant_info}
+
+請分析變異體為何能存活，並提供一個**新的測試輸入與預期輸出**，它必須能區分原始代碼與變異體（即在原始代碼通過，但在變異體失敗）。
+請只回傳一個 JSON 格式的列表，包含這個新的測試案例，格式為： `[[input_string, expected_output_string]]`
+"""

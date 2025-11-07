@@ -4,3 +4,4 @@ langchain-core
 langchain-ollama
 unicorn
 fastapi
+mutpy
