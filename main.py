@@ -239,22 +239,9 @@ def interactive_session():
                                     print("\n[提示] 驗證失敗。您可能需要 '解釋' 錯誤或提供 '修改' 需求。")
 
                         elif user_input.upper() in ("EXPLAIN", "E"):
-                            explain_query = input("請輸入您想了解的具體部分 (直接按 Enter 則解釋全文): ").strip()
                             print("\n[解釋中] 產生程式碼解釋...")
-                            
-                            if explain_query:
-                                # 針對特定問題的 Prompt
-                                specific_prompt = (
-                                    f"這是目前的 Python 程式碼:\n```python\n{current_code}\n```\n"
-                                    f"使用者針對這段程式碼有以下具體問題或是想了解的部分:\n{explain_query}\n"
-                                    f"請以專業但易懂的方式，用繁體中文為使用者進行解釋。"
-                                )
-                                explain_resp = generate_response(specific_prompt)
-                            else:
-                                # 原有的全文解釋
-                                explain_prompt = build_explain_prompt(user_need, current_code)
-                                explain_resp = generate_response(explain_prompt)
-
+                            explain_prompt = build_explain_prompt(user_need, current_code)
+                            explain_resp = generate_response(explain_prompt)
                             print("\n=== 程式碼解釋 ===\n")
                             print(explain_resp)
 
