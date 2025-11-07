@@ -6,13 +6,14 @@ from typing import List, Optional, Tuple, Dict
 from core.code_extract import extract_code_block
 from core.validators import validate_main_function
 import re
+import json
 
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 OLLAMA_API = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
-MODEL_NAME = "llama3.2:1B"
+MODEL_NAME = "gpt-oss"
 
 
 # ===================== Prompt Builders =====================
@@ -124,6 +125,52 @@ def build_suggestion_prompt(user_need: str, user_code: str) -> str:
         f"使用者目前的程式碼:\n"
         f"```python\n{user_code}\n```\n\n"
         "請提供 2-4 個具體的改進提示："
+    )
+def build_specific_explain_prompt(current_code: str, user_query: str) -> str:
+    """
+    針對使用者對特定程式碼片段的疑問，建立解釋用的 Prompt。
+    """
+    return (
+        f"這是目前的 Python 程式碼:\n```python\n{current_code}\n```\n"
+        f"使用者針對這段程式碼有以下具體問題或是想了解的部分:\n{user_query}\n"
+        f"請以專業但易懂的方式，用繁體中文為使用者進行解釋。"
+    )
+
+def build_initial_population_prompt(user_need: str, n: int = 5) -> str:
+    """
+    [GA] 產生初始族群：一次生成多個不同的測資。
+    """
+    return (
+        "用繁體中文回答。\n"
+        "你是一個專業的測試工程師。\n"
+        f"任務：根據以下需求，產生 {n} 組「多樣化」且「邊界條件」不同的測試案例。\n"
+        "⚠️ **重要**：請僅輸出一個 JSON 陣列，格式如下，不要有任何額外文字：\n"
+        "```json\n[ [輸入1, 預期輸出1], [輸入2, 預期輸出2], ... ]\n```\n"
+        f"使用者需求:\n{user_need}\n\n"
+        "請產生初始測試族群："
+    )
+
+def build_crossover_prompt(user_need: str, parent1: list, parent2: list) -> str:
+    """
+    [GA] 交配 (Crossover)：結合兩個父代測資的特徵產生子代。
+    """
+    return (
+        "你是一個測試演化演算法的操作員。\n"
+        f"任務：參考以下兩個父代測資，結合它們的特徵（例如：輸入的結構、邊界情況、資料類型），產生一個新的、合法的子代測資，以測試此需求：{user_need}。\n"
+        f"父代 1: {json.dumps(parent1, ensure_ascii=False)}\n"
+        f"父代 2: {json.dumps(parent2, ensure_ascii=False)}\n"
+        "⚠️ 僅輸出一個新的 JSON 測資 `[新輸入, 新預期輸出]`，不要有其他文字。"
+    )
+
+def build_mutation_prompt(user_need: str, parent: list) -> str:
+    """
+    [GA] 突變 (Mutation)：對單一測資進行微小修改以探索新的邊界。
+    """
+    return (
+        "你是一個測試演化演算法的操作員。\n"
+        f"任務：對以下測資進行「突變」（微調），例如改變數值大小、字串長度、特殊字元或邊界條件，使其能測試到不同的程式路徑，同時仍符合需求：{user_need}。\n"
+        f"原始測資: {json.dumps(parent, ensure_ascii=False)}\n"
+        "⚠️ 僅輸出突變後的 JSON 測資 `[新輸入, 新預期輸出]`，不要有其他文字。"
     )
 
 def interactive_langchain_chat():

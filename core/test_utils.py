@@ -1,45 +1,163 @@
 import re
 import json
 import traceback
-from typing import List, Dict, Any, Optional
-from core.model_interface import call_ollama_cli, build_virtual_code_prompt
+import random
+import sys
+import io
+import trace
+from typing import List, Dict, Any, Optional, Tuple
+from core.model_interface import call_ollama_cli, build_virtual_code_prompt, build_initial_population_prompt, build_crossover_prompt, build_mutation_prompt
 from core.validators import validate_main_function, _normalize_output
-from core.code_extract import extract_code_block
+from core.code_extract import extract_code_block, extract_json_block
 from core.model_interface import generate_response
 
+# === 新增：適應度評估函式 ===
+def calculate_fitness(code: str, test_input: str, expected_output: str) -> float:
+    """
+    計算測資的適應度 (Fitness)。
+    這裡使用「程式碼行覆蓋數」作為簡單的代理指標。
+    覆蓋越多行，分數越高；若執行失敗，分數極低。
+    """
+    # 1. 準備執行環境
+    # 將使用者程式碼包裝成一個可被 trace 的函式
+    wrapped_code = f"""
+import sys
+def target_func():
+    # 模擬 stdin
+    sys.stdin = io.StringIO({repr(test_input)})
+    try:
+        # --- 使用者程式碼 ---
+{code}
+        # -------------------
+    except Exception:
+        pass # 捕捉執行期錯誤以免中斷 trace
+"""
+    
+    # 2. 使用 trace 模組執行並計算覆蓋行數
+    tracer = trace.Trace(count=1, trace=0)
+    try:
+        # 建立一個乾淨的 namespace 來執行
+        namespace = {"io": io, "sys": sys}
+        # 先編譯包裝後的代碼
+        exec(wrapped_code, namespace)
+        
+        # 開始追蹤執行
+        tracer.runfunc(namespace['target_func'])
+        
+        # 3. 計算適應度
+        # 簡單邏輯：執行的行數越多，代表觸及的邏輯越多 (這是一個簡化的假設)
+        # 論文建議使用更嚴謹的 Branch Coverage，但這需要複雜的插樁(instrumentation)
+        counts = tracer.results().counts
+        covered_lines = len(counts)
+        
+        # 基本分：能成功執行就有 1 分
+        fitness = 1.0 + (covered_lines * 0.1)
 
-def generate_tests(user_need: str, code: str, mode: str = "B") -> list[tuple]:
+        # 額外加分：如果實際輸出與預期輸出相符 (雖然我們是在生成測資，但這能確保測資品質)
+        # 這裡需要真正執行一次來獲取輸出，稍微耗時但較準確
+        # success, actual_output = validate_main_function(code, test_input, expected_output)
+        # if success:
+        #      fitness += 5.0 # 大幅獎勵正確的測資
+
+        return fitness
+
+    except Exception as e:
+        # print(f"[Fitness Debug] Error: {e}")
+        return 0.1 # 執行失敗，給予極低分
+
+# === 重寫：基於 GA 的測試生成 ===
+def generate_tests_ga(user_need: str, code: str, generations=3, pop_size=6) -> List[List[str]]:
     """
-    自動生成測資，回傳格式: [(func_name, [args], expected), ...]
-    mode: "B" = 自動生成, "C" = 混合模式
+    使用遺傳演算法 (GA) 生成高品質測資。
+    流程：初始化 -> 評估 -> 選擇 -> 交配/突變 -> 迴圈
     """
-    func_name = None
-    for line in code.splitlines():
-        if line.strip().startswith("def "):
-            func_name = line.split()[1].split("(")[0]
-            break
-    if not func_name:
-        print("[警告] 無法找到函式名稱。")
+    print(f"\n[GA] 啟動演化式測試生成 (Generations={generations}, Pop={pop_size})...")
+    
+    # 1. 初始化族群 (Initial Population)
+    init_prompt = build_initial_population_prompt(user_need, n=pop_size)
+    init_resp = generate_response(init_prompt)
+    population = extract_json_block(init_resp)
+    
+    if not population:
+        print("[GA] 初始化失敗，回退到基本模式。")
         return []
+        
+    # 確保族群格式正確 [[inp, out], ...]
+    population = [p for p in population if isinstance(p, list) and len(p) >= 2]
 
-    tests = []
-    if mode.upper() == "B":
-        sys_prompt = (
-            "請根據以下需求，生成 3~5 組測資，格式為 JSON 陣列：\n"
-            f"需求: {user_need}\n"
-            "格式範例: [[輸入, 輸出], ...]\n"
-        )
-        resp = generate_response(sys_prompt)
-        m = re.findall(r"\[[^\]]+\]", resp)
-        try:
-            parsed = json.loads("[" + ",".join(m) + "]")
-        except Exception:
-            parsed = []
-        for t in parsed:
-            if isinstance(t, list) and len(t) == 2:
-                tests.append((func_name, [t[0]], t[1]))
+    for gen in range(generations):
+        print(f"  [GA] Generation {gen+1}/{generations}...")
+        
+        # 2. 評估適應度 (Evaluation)
+        scored_pop = []
+        for individual in population:
+            inp, outp = str(individual[0]), str(individual[1])
+            fitness = calculate_fitness(code, inp, outp)
+            scored_pop.append((individual, fitness))
+        
+        # 依適應度排序 (高的在前)
+        scored_pop.sort(key=lambda x: x[1], reverse=True)
+        print(f"    > Best Fitness: {scored_pop[0][1]:.2f} (Input: {scored_pop[0][0][0]!r})")
 
-    return tests
+        # 3. 選擇 (Selection) - 保留前 50% 精英
+        elite_count = max(2, int(pop_size * 0.5))
+        elites = [x[0] for x in scored_pop[:elite_count]]
+        next_gen = elites[:]
+        
+        # 4. 繁殖 (Reproduction: Crossover & Mutation)
+        while len(next_gen) < pop_size:
+            if random.random() < 0.6 and len(elites) >= 2: # 60% 機率交配
+                parents = random.sample(elites, 2)
+                prompt = build_crossover_prompt(user_need, parents[0], parents[1])
+                # 呼叫模型進行「智慧交配」
+                resp = call_ollama_cli(prompt) 
+                child = extract_json_block(resp)
+                if child and isinstance(child, list): # 可能是單一測資 [inp, out]
+                     # 有時模型會回傳多個，需處理
+                     if len(child) > 0 and isinstance(child[0], list): 
+                         next_gen.extend(child[:1]) # 取第一個
+                     else:
+                         next_gen.append(child)
+            else: # 40% 機率突變
+                parent = random.choice(elites)
+                prompt = build_mutation_prompt(user_need, parent)
+                resp = call_ollama_cli(prompt)
+                mutant = extract_json_block(resp)
+                if mutant and isinstance(mutant, list):
+                     if len(mutant) > 0 and isinstance(mutant[0], list):
+                         next_gen.extend(mutant[:1])
+                     else:
+                         next_gen.append(mutant)
+        
+        # 更新族群
+        population = next_gen[:pop_size] # 確保不超過大小
+
+    # 演化結束，返回最終族群
+    print(f"[GA] 演化完成。")
+    return population
+
+# === 修改原有的 generate_tests 以支援新模式 ===
+def generate_tests(user_need: str, code: str = None, mode: str = "GA") -> List[Any]:
+    """
+    自動生成測資。
+    mode="GA": 使用遺傳演算法 (推薦，品質較高但較慢)。
+    mode="B" (Basic): 舊版單次生成。
+    """
+    if mode == "GA" and code:
+        # 如果有程式碼，就用 GA 針對該程式碼演化測資
+        return generate_tests_ga(user_need, code)
+    
+    # --- 舊版邏輯 (Basic) ---
+    # (保留您原本的 B 模式作為備用)
+    sys_prompt = (
+        "用繁體中文回答。\n"
+        "請根據以下需求，生成 3~5 組測資，格式為 JSON 陣列：\n"
+        f"需求: {user_need}\n"
+        "格式範例: [[輸入, 輸出], ...]\n"
+    )
+    resp = generate_response(sys_prompt)
+    json_tests = extract_json_block(resp)
+    return json_tests if json_tests else []
 
 
 def generate_and_validate(user_need: str, examples: List[Dict[str, str]], solution: Optional[str]) -> Dict[str, Any]:
