@@ -4,7 +4,7 @@ import traceback
 from typing import List, Dict, Any, Optional
 from core.model_interface import call_ollama_cli, build_virtual_code_prompt
 from core.validators import validate_main_function, _normalize_output
-from core.code_extract import extract_code_block
+from core.code_extract import extract_code_block, extract_json_block
 from core.model_interface import generate_response
 
 
@@ -25,9 +25,19 @@ def generate_tests(user_need: str, code: str, mode: str = "B") -> list[tuple]:
     tests = []
     if mode.upper() == "B":
         sys_prompt = (
-            "請根據以下需求，生成 3~5 組測資，格式為 JSON 陣列：\n"
-            f"需求: {user_need}\n"
-            "格式範例: [[輸入, 輸出], ...]\n"
+            "你是專業的軟體測試工程師。請根據以下需求，生成一組具備高覆蓋率的系統性測資。\n"
+            "測資必須包含以下三種類型：\n"
+            "1. **標準案例 (Standard Cases)**：符合一般預期的典型輸入。\n"
+            "2. **邊界案例 (Edge Cases)**：輸入的最小值、最大值、空值或臨界值（例如空列表、0、極大數）。\n"
+            "3. **極端或異常案例 (Corner/Error Cases)**：可能導致錯誤的非典型輸入（如果需求適用）。\n\n"
+            f"需求原始描述:\n{user_need}\n\n"
+            "請直接輸出一個 JSON 格式的二維陣列，不需額外解釋。格式如下：\n"
+            "[\n"
+            "  [標準輸入1, 預期輸出1],\n"
+            "  [邊界輸入1, 預期輸出1],\n"
+            "  [極端輸入1, 預期輸出1],\n"
+            "  ...\n"
+            "]"
         )
         resp = generate_response(sys_prompt)
         m = re.findall(r"\[[^\]]+\]", resp)
@@ -255,3 +265,43 @@ def generate_and_validate(user_need: str, examples: List[Dict[str, str]], soluti
              print("     [總結] 部分或全部範例驗證失敗 ❌")
 
     return result
+
+def generate_tests_with_oracle(user_need: str, reference_code: str, num_tests: int = 5) -> list:
+    """
+    [高準確率模式] 利用參考解法 (Oracle) 自動計算預期輸出。
+    1. 要求 LLM 僅生成具備高覆蓋率的「輸入 (stdin)」。
+    2. 執行 reference_code 以獲取絕對正確的「輸出 (stdout)」。
+    """
+    sys_prompt = (
+        "你是一位專業的測試工程師。請分析以下程式需求，生成一組具備高覆蓋率的「純輸入」資料。\n"
+        "請專注於設計各種邊界情況 (Edge Cases) 與極端輸入，以確保程式的穩健性。\n"
+        f"需求描述:\n{user_need}\n\n"
+        "請直接輸出一個 JSON 格式的字串陣列 (List of Strings)，每一項代表一次完整的標準輸入 (stdin) 內容。\n"
+        "不需要任何解釋或其他文字。\n"
+        "格式範例: [\"輸入1第一行\\n輸入1第二行\", \"輸入2僅一行\", \"1 2 3\\n4 5 6\"]\n"
+    )
+    
+    print("     [Oracle] 正在生成高覆蓋率輸入...")
+    resp = generate_response(sys_prompt)
+    inputs = extract_json_block(resp)
+
+    if not inputs or not isinstance(inputs, list):
+        print(f"     [Oracle 警告] 無法從模型回覆中提取輸入列表。")
+        return []
+
+    valid_tests = []
+    print(f"     [Oracle] 正在透過參考解法計算 {len(inputs)} 組標準答案...")
+
+    for i, inp in enumerate(inputs):
+        stdin_input = str(inp)
+        # 執行參考解法來獲取標準輸出
+        # 注意：這要求 reference_code 必須是完整的可執行腳本 (包含讀取 stdin 的部分)
+        success, oracle_output = validate_main_function(reference_code, stdin_input, expected_output=None)
+
+        if success:
+            # 成功獲得 Oracle 輸出，這組測資是可信的
+            valid_tests.append([stdin_input, oracle_output.strip()])
+        else:
+             print(f"     [Oracle 失敗] 參考解法無法處理第 {i+1} 組輸入，已略過。")
+
+    return valid_tests[:num_tests]
