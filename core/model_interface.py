@@ -13,7 +13,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 OLLAMA_API = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
-MODEL_NAME = "llama3.2:1B"
+MODEL_NAME = "gpt-oss"
 
 
 # ===================== Prompt Builders =====================
@@ -150,16 +150,30 @@ def build_initial_population_prompt(user_need: str, n: int = 5) -> str:
         "請產生初始測試族群："
     )
 
-def build_crossover_prompt(user_need: str, parent1: list, parent2: list) -> str:
+
+def build_ga_crossover_prompt(user_need: str, parent1: list, parent2: list) -> str:
     """
-    [GA] 交配 (Crossover)：結合兩個父代測資的特徵產生子代。
+    [GA] 交配 (Crossover) 提示詞：要求 AI 結合兩個父代測資的特徵。
     """
     return (
+        "用繁體中文回答。\n"
         "你是一個測試演化演算法的操作員。\n"
         f"任務：參考以下兩個父代測資，結合它們的特徵（例如：輸入的結構、邊界情況、資料類型），產生一個新的、合法的子代測資，以測試此需求：{user_need}。\n"
         f"父代 1: {json.dumps(parent1, ensure_ascii=False)}\n"
         f"父代 2: {json.dumps(parent2, ensure_ascii=False)}\n"
         "⚠️ 僅輸出一個新的 JSON 測資 `[新輸入, 新預期輸出]`，不要有其他文字。"
+    )
+
+def build_ga_mutation_prompt(user_need: str, parent: list) -> str:
+    """
+    [GA] 突變 (Mutation) 提示詞：要求 AI 對單一測資進行微調以探索鄰近邊界。
+    """
+    return (
+        "用繁體中文回答。\n"
+        "你是一個測試演化演算法的操作員。\n"
+        f"任務：對以下測資進行「突變」（微調），例如改變數值大小、字串長度、特殊字元或邊界條件，使其能測試到不同的程式路徑，同時仍符合需求：{user_need}。\n"
+        f"原始測資: {json.dumps(parent, ensure_ascii=False)}\n"
+        "⚠️ 僅輸出突變後的 JSON 測資 `[新輸入, 新預期輸出]`，不要有其他文字。"
     )
 
 def build_mutation_prompt(user_need: str, parent: list) -> str:
@@ -680,19 +694,38 @@ def build_mutation_killing_prompt(original_code: str, current_tests_str: str, mu
     建立 MuTAP 提示詞：要求 AI 生成能殺死特定變異體的測資。
     """
     return f"""
-你是一位軟體測試專家。請幫助我強化測試用例。
-以下是原始程式碼，以及目前的測試輸入(JSON格式)。
-我們發現目前的測試無法檢測出一個潛在的錯誤版本（存活的變異體）。
+        你是一位軟體測試專家。請幫助我強化測試用例。
+        以下是原始程式碼，以及目前的測試輸入(JSON格式)。
+        我們發現目前的測試無法檢測出一個潛在的錯誤版本（存活的變異體）。
 
-【原始程式碼 (Program Under Test)】
-{original_code}
+        【原始程式碼 (Program Under Test)】
+        {original_code}
 
-【目前已通過的測試輸入】
-{current_tests_str}
+        【目前已通過的測試輸入】
+        {current_tests_str}
 
-【存活的變異體 (錯誤版本資訊)】
-{mutant_info}
+        【存活的變異體 (錯誤版本資訊)】
+        {mutant_info}
 
-請分析變異體為何能存活，並提供一個**新的測試輸入與預期輸出**，它必須能區分原始代碼與變異體（即在原始代碼通過，但在變異體失敗）。
-請只回傳一個 JSON 格式的列表，包含這個新的測試案例，格式為： `[[input_string, expected_output_string]]`
-"""
+        請分析變異體為何能存活，並提供一個**新的測試輸入與預期輸出**，它必須能區分原始代碼與變異體（即在原始代碼通過，但在變異體失敗）。
+        請只回傳一個 JSON 格式的列表，包含這個新的測試案例，格式為： `[[input_string, expected_output_string]]`
+        """
+def build_cot_test_prompt(user_need: str) -> str:
+    """
+    [改進版] 測試案例生成 Prompt，引入思維鏈 (CoT) 以提高覆蓋率與準確性。
+    參考: arXiv:2504.20357 (強調系統化方法)
+    """
+    return (
+        "用繁體中文回答。\n"
+        "你是一位資深的軟體測試架構師。\n"
+        "任務：請為以下需求設計一套高覆蓋率的測試案例。請先進行分析，再輸出 JSON。\n\n"
+        f"需求描述:\n{user_need}\n\n"
+        "**分析步驟 (Thinking Process)**:\n"
+        "1. 識別核心功能與預期行為。\n"
+        "2. 列出 3 個關鍵的「邊界條件 (Edge Cases)」(例如: 空值、最大最小值、邊界索引)。\n"
+        "3. 列出 2 個可能的「異常輸入 (Invalid Inputs)」與預期錯誤處理（若適用）。\n\n"
+        "**最終輸出**:\n"
+        "請將上述分析轉化為一個 JSON 二維陣列，格式嚴格遵守 `[[輸入, 預期輸出], [輸入, 預期輸出], ...]`。\n"
+        "⚠️ JSON 區塊前後請勿包含任何其他文字。\n"
+        "```json\n"
+    )

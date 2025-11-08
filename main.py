@@ -8,6 +8,7 @@ from quiz.quiz_mode import quiz_mode
 from core.explain_user_code import explain_user_code
 from core.explain_error import explain_code_error
 from core.mutation_runner import MutationRunner
+from core.test_utils import json_to_unittest
 
 
 def interactive_session():
@@ -283,7 +284,8 @@ def interactive_session():
         elif mode == "2":
             quiz_mode()
         elif mode == "3":
-            print("請貼上您要驗證的 Python 程式碼，結束輸入請輸入單獨一行 'END'。")
+            print("\n請貼上您要驗證的 Python 完整程式碼 (需包含讀取 stdin 的部分)：")
+            print("結束輸入請輸入單獨一行 'END'。")
             lines = []
             while True:
                 try:
@@ -293,15 +295,13 @@ def interactive_session():
                 if line.strip() == "END":
                     break
                 lines.append(line)
-
             user_code = "\n".join(lines)
             if not user_code.strip():
-                print("[提示] 沒有輸入程式碼，取消驗證。")
+                print("[提示] 未輸入程式碼，返回主選單。")
                 continue
 
-            print("\n請輸入這段程式碼的「需求說明」，AI 將以此生成測資來驗證。")
-            print("多行輸入，結束請輸入單獨一行 'END'。(若留空，則僅執行一次程式)")
-            
+            print("\n請輸入這段程式碼的「需求說明」(AI 將據此生成測資)：")
+            print("多行輸入，結束請輸入單獨一行 'END'。")
             need_lines = []
             while True:
                 try:
@@ -311,122 +311,70 @@ def interactive_session():
                 if line.strip() == "END":
                     break
                 need_lines.append(line)
-            
             user_need = "\n".join(need_lines).strip()
+            if not user_need:
+                 print("[提示] 未輸入需求，僅執行一次程式碼 (無輸入)。")
+                 success, msg = validate_main_function(user_code, None, None)
+                 print("\n=== 執行結果 ===\n" + msg)
+                 continue
+
+            # --- 選擇測資生成策略 ---
+            print("\n請選擇測資生成策略：")
+            print("  [1] 標準模式 (Standard CoT) - 快速生成基礎測資")
+            print("  [2] 遺傳演算法 (GA) - 透過交配與突變產生多樣化測資 (較慢)")
+            print("  [3] 變異測試 (MuTAP) - 找出程式盲點並生成殺手測資 (最慢，需安裝 mutpy)")
+            strategy = ask_input("您的選擇 [1]: ", "1")
             
-            json_tests = []
-            if user_need:
-                print("\n[提示] 正在根據您的需求說明生成初始測資...\n")
-                test_prompt = build_test_prompt(user_need)
-                test_resp = generate_response(test_prompt)
-                # print("\n=== 模型回覆 (初始測資) ===\n", test_resp, "\n") # 可選：顯示初始測資
-                
-                json_tests = extract_json_block(test_resp) or parse_tests_from_text(user_need)
-                
-                if json_tests:
-                    print(f"[提示] 已成功提取 {len(json_tests)} 筆初始測資。")
-                else:
-                    print("[警告] 未能提取測資，將僅執行一次。")
-            
-            if json_tests:
-                # --- 階段 1: 標準驗證 ---
-                print("\n=== 階段 1: 標準測資驗證 ===")
-                all_passed = True
-                for i, test in enumerate(json_tests):
-                    # ... (原有的驗證迴圈，略為簡化以節省篇幅)
-                    # 請保留您原本完整的驗證邏輯，這裡僅示意
-                    inp = str(test[0]) if test[0] is not None else ""
-                    exp = str(test[1]) if test[1] is not None else ""
-                    success, output_msg = validate_main_function(user_code, inp, exp)
-                    if not success:
-                        print(f"  [測試 {i+1} 失敗] Input: {inp} | Got: {output_msg.strip()} | Expected: {exp}")
-                        all_passed = False
-                
-                if all_passed:
-                    print("\n[成功] 通過所有初始測資。")
+            mode_map = {"1": "B", "2": "GA", "3": "MUTAP"}
+            selected_mode = mode_map.get(strategy, "B")
+
+            # 呼叫核心函式生成測資
+            # generate_tests 回傳格式為 [(func_name, [input_args], expected_output), ...]
+            raw_tests = generate_tests(user_need, user_code, mode=selected_mode)
+
+            if not raw_tests:
+                print("[警告] 未能生成任何有效測資。")
+                continue
+
+            # --- 執行驗證迴圈 ---
+            print(f"\n=== 開始驗證 (共 {len(raw_tests)} 筆測資) ===")
+            all_passed = True
+            pass_count = 0
+
+            for i, test_tuple in enumerate(raw_tests):
+                # test_tuple 格式: (func_name, [input_arg], expected_output)
+                # 我們這裡假設 input_arg 的第一個元素就是完整的 stdin 輸入字串
+                try:
+                    inp_arg = test_tuple[1][0] if test_tuple[1] else ""
+                    expected = test_tuple[2]
                     
-                    # --- 階段 2: MuTAP 進階驗證 (新功能) ---
-                    do_mutap = ask_input("\n是否進行「進階變異驗證」以發現潛在盲點？(y/n)", "n")
-                    if do_mutap.lower() in ("y", "yes"):
-                        print("\n[MuTAP] 正在產生變異體並尋找測試盲點 (這可能需要一點時間)...")
-                        runner = MutationRunner(user_code, json_tests)
-                        survivors = runner.find_surviving_mutants()
-                        
-                        if not survivors:
-                             print("[MuTAP] 完美！您的程式碼與現有測資非常強健，沒有發現存活的變異體。")
-                        else:
-                            print(f"[MuTAP] 發現 {len(survivors)} 個存活的變異體 (潛在測試盲點)！")
-                            # print(f"變異體範例: \n{survivors[0]}\n") # 可選：顯示變異體細節
+                    print(f"\n--- 測試案例 {i+1} ---")
+                    print(f"輸入 (stdin): {repr(inp_arg)}")
+                    print(f"預期輸出: {repr(expected)}")
 
-                            print("[MuTAP] 正在請求 AI 生成針對這些盲點的「殺手測資」...")
-                            
-                            # 為了節省時間，我們只針對前幾個變異體生成測資
-                            new_tests_total = []
-                            for idx, mutant in enumerate(survivors[:3]): # 限制處理前 3 個變異體
-                                print(f"  > 正在分析變異體 #{idx+1}...")
-                                prompt = build_mutation_killing_prompt(user_code, str(json_tests), mutant)
-                                ai_resp = generate_response(prompt)
-                                new_killing_tests = extract_json_block(ai_resp)
-                                
-                                if new_killing_tests:
-                                    print(f"    -> 生成了 {len(new_killing_tests)} 個新測資。")
-                                    new_tests_total.extend(new_killing_tests)
-                            
-                            if new_tests_total:
-                                print(f"\n=== 階段 3: 使用強化測資重新驗證 ({len(new_tests_total)} 個新測試) ===")
-                                # 將新測資加入總表 (可選：去除重複)
-                                # json_tests.extend(new_tests_total) 
-                                
-                                # 執行新測資
-                                mutap_all_passed = True
-                                for i, test in enumerate(new_tests_total):
-                                    print(f"\n--- 殺手測試案例 {i+1} ---")
-                                    # ... (重複使用 validate_main_function 進行驗證)
-                                    inp = str(test[0])
-                                    exp = str(test[1])
-                                    print(f"  Input: {inp}\n  Expected: {exp}")
-                                    success, output_msg = validate_main_function(user_code, inp, exp)
-                                    if success:
-                                         print("  結果: [通過] (您的代碼正確處理了這個邊界情況)")
-                                    else:
-                                         print(f"  結果: [失敗] (發現潛在 Bug!)")
-                                         print(f"  詳情: {output_msg.strip()}")
-                                         mutap_all_passed = False
-                                
-                                if mutap_all_passed:
-                                    print("\n[總結] 您的程式碼非常穩健，通過了所有強化測試！")
-                                else:
-                                    print("\n[總結] 強化測試發現了潛在問題，請參考上述失敗案例進行修改。")
-                            else:
-                                print("[MuTAP] AI 未能生成有效的殺手測資。")
+                    success, output_msg = validate_main_function(user_code, str(inp_arg), str(expected))
+                    
+                    if success:
+                        print("結果: [通過] ✅")
+                        pass_count += 1
+                    else:
+                        print("結果: [失敗] ❌")
+                        print(f"實際輸出/錯誤訊息:\n{output_msg.strip()}")
+                        all_passed = False
+                except IndexError:
+                    print(f"[跳過] 測試案例 {i+1} 格式異常。")
+                    all_passed = False
 
-                else:
-                    print("\n[提示] 初始測資未全數通過，請先修正基本錯誤後再嘗試進階驗證。")
+            print("\n" + "="*30)
+            print(f"驗證完成！ 通過率: {pass_count}/{len(raw_tests)}")
+            if all_passed:
+                print("🎉 恭喜！您的程式碼通過了所有測試案例。")
+                if selected_mode in ("GA", "MUTAP"):
+                    print("(在高強度測試模式下全數通過，代表您的程式碼相當穩健！)")
+            else:
+                print("⚠️ 存在失敗的測試案例，請參考上方詳細資訊進行除錯。")
                     # ... (原有的錯誤解釋邏輯)
 
-            else:
-                # --- (B) 如果沒有需求或測資生成失敗，執行舊的 Mode 3 邏輯 (僅執行一次) ---
-                print("\n=== 驗證中 (僅執行一次，無輸入) ===\n")
-                
-                # (*** 修正 ***) 正確處理 validate_main_function 的回傳值 (tuple)
-                success, result_msg = validate_main_function(user_code, stdin_input=None, expected_output=None)
-
-                if success:
-                    print("\n=== 程式執行成功 ===\n")
-                    print("STDOUT 輸出:")
-                    print(result_msg)
-                else:
-                    print("\n=== 程式執行失敗 ===\n")
-                    print("STDERR 或錯誤訊息:")
-                    print(result_msg)
-                    print("\n[警告] 程式執行失敗，開始分析...\n")
-                    try:
-                        # (*** 修正 ***) 確保只傳入 'user_code'
-                        fallback_result = explain_code_error(user_code)
-                        print("\n=== 程式碼分析 ===\n")
-                        print(fallback_result)
-                    except Exception as e:
-                        print(f"\n[分析失敗] {e}")
         elif mode == "4":
             explain_user_code()
         elif mode == "5":
