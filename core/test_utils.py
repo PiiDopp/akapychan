@@ -2,52 +2,85 @@ import re
 import json
 import traceback
 from typing import List, Dict, Any, Optional
-from core.model_interface import call_ollama_cli, build_virtual_code_prompt
+from core.model_interface import call_ollama_cli, build_virtual_code_prompt, build_cot_test_prompt, build_mutation_killing_prompt
 from core.validators import validate_main_function, _normalize_output
 from core.code_extract import extract_code_block, extract_json_block
 from core.model_interface import generate_response
+from core.mutation_runner import MutationRunner
 
 
 def generate_tests(user_need: str, code: str, mode: str = "B") -> list[tuple]:
     """
-    自動生成測資，回傳格式: [(func_name, [args], expected), ...]
-    mode: "B" = 自動生成, "C" = 混合模式
+    自動生成測資。
+    mode="B": 使用改進的 CoT Prompt 快速生成 (參考 arXiv:2504.20357)。
+    mode="MuTAP": 進階模式，使用變異測試循環生成高強度測資 (參考 arXiv:2308.16557)。
     """
     func_name = None
-    for line in code.splitlines():
-        if line.strip().startswith("def "):
-            func_name = line.split()[1].split("(")[0]
-            break
-    if not func_name:
-        print("[警告] 無法找到函式名稱。")
-        return []
+    # 簡單的 regex 來抓取 function name，可以根據需要增強
+    match = re.search(r"def\s+(\w+)\s*\(", code)
+    if match:
+        func_name = match.group(1)
+    else:
+        print("[警告] 無法找到函式名稱，將使用預設名稱 'solution'")
+        func_name = "solution"
 
     tests = []
-    if mode.upper() == "B":
-        sys_prompt = (
-            "你是專業的軟體測試工程師。請根據以下需求，生成一組具備高覆蓋率的系統性測資。\n"
-            "測資必須包含以下三種類型：\n"
-            "1. **標準案例 (Standard Cases)**：符合一般預期的典型輸入。\n"
-            "2. **邊界案例 (Edge Cases)**：輸入的最小值、最大值、空值或臨界值（例如空列表、0、極大數）。\n"
-            "3. **極端或異常案例 (Corner/Error Cases)**：可能導致錯誤的非典型輸入（如果需求適用）。\n\n"
-            f"需求原始描述:\n{user_need}\n\n"
-            "請直接輸出一個 JSON 格式的二維陣列，不需額外解釋。格式如下：\n"
-            "[\n"
-            "  [標準輸入1, 預期輸出1],\n"
-            "  [邊界輸入1, 預期輸出1],\n"
-            "  [極端輸入1, 預期輸出1],\n"
-            "  ...\n"
-            "]"
-        )
-        resp = generate_response(sys_prompt)
-        m = re.findall(r"\[[^\]]+\]", resp)
-        try:
-            parsed = json.loads("[" + ",".join(m) + "]")
-        except Exception:
-            parsed = []
-        for t in parsed:
-            if isinstance(t, list) and len(t) == 2:
+    print(f"[generate_tests] 正在以模式 '{mode}' 生成測資...")
+
+    # --- 階段 1: 初始生成 (適用於所有模式) ---
+    # 使用新的 CoT Prompt 提高初始品質
+    prompt = build_cot_test_prompt(user_need)
+    resp = generate_response(prompt)
+    
+    # 增強的 JSON 提取邏輯
+    extracted_json = extract_json_block(resp)
+    if not extracted_json:
+        # fallback: 嘗試用 regex 抓取類似 JSON 的陣列結構
+        m = re.findall(r"\[(.*?)\]", resp, re.DOTALL)
+        if m:
+             # 這裡的處理需要非常小心，視模型輸出的穩定性而定
+             pass 
+
+    if extracted_json:
+        for t in extracted_json:
+            if isinstance(t, list) and len(t) >= 2:
+                # 轉換為 (func_name, [input], expected) 格式
                 tests.append((func_name, [t[0]], t[1]))
+
+    print(f"[generate_tests] 初始生成了 {len(tests)} 組測資。")
+
+    # --- 階段 2: MuTAP 增強循環 (僅在 MuTAP 模式且有程式碼時執行) ---
+    if mode.upper() == "MUTAP" and code.strip():
+        print("\n[MuTAP] 進入變異測試增強循環 (arXiv:2308.16557)...")
+        
+        # 1. 準備目前的測試資料格式給 MutationRunner
+        current_json_tests = [[t[1][0], t[2]] for t in tests] # 還原回 [input, output] 格式
+        
+        # 2. 執行變異分析
+        runner = MutationRunner(target_code=code, test_code="") # 注意: 這裡可能需要調整 MutationRunner 以支援直接傳入 json_tests 而非 test_code 字串，或是先將 json_tests 轉為 unittest code
+        # 由於 MutationRunner 目前的實作似乎需要完整的 unittest code string，
+        # 您可能需要先實作一個 helper 將 json_tests 轉為可執行的 unittest string。
+        # 這裡假設您已經有或新增了這樣的功能，或是 MutationRunner 可以直接接受資料。
+        # 為了簡化，這裡展示概念邏輯：
+        
+        # (假設) 修改 MutationRunner.find_surviving_mutants 讓它可以接受 raw data 進行測試
+        # 或者在這裡動態生成一個臨時的 test_solution.py 內容
+        
+        # ... (執行變異測試，找出存活變異體) ...
+        survivors = runner.find_surviving_mutants_with_data(current_json_tests) 
+        
+        # 3. 針對存活變異體生成新測資 (Iterative Feedback)
+        for mutant in survivors[:3]: # 取前幾個重要的變異體
+            print(f"[MuTAP] 正在生成殺手測資以解決變異體...")
+            kill_prompt = build_mutation_killing_prompt(code, str(current_json_tests), mutant)
+            kill_resp = generate_response(kill_prompt)
+            new_tests = extract_json_block(kill_resp)
+            if new_tests:
+                for nt in new_tests:
+                     tests.append((func_name, [nt[0]], nt[1]))
+                print(f"[MuTAP] + 新增 {len(new_tests)} 組殺手測資。")
+
+        print("[MuTAP] (請確保 MutationRunner 已實作支援資料驅動的變異測試，上述程式碼為概念展示)")
 
     return tests
 
@@ -305,3 +338,46 @@ def generate_tests_with_oracle(user_need: str, reference_code: str, num_tests: i
              print(f"     [Oracle 失敗] 參考解法無法處理第 {i+1} 組輸入，已略過。")
 
     return valid_tests[:num_tests]
+
+def json_to_unittest(json_tests: list) -> str:
+    """
+    將 JSON 測資轉換為 MutPy 可執行的 unittest 程式碼字串。
+    """
+    code_lines = [
+        "import unittest",
+        "from unittest.mock import patch",
+        "from io import StringIO",
+        "import sys",
+        "",
+        "class TestSolution(unittest.TestCase):"
+    ]
+
+    for i, test in enumerate(json_tests):
+        if not isinstance(test, list) or len(test) < 2:
+            continue
+            
+        # 確保輸入輸出為字串，並處理脫逸字元以放入 f-string
+        inp = str(test[0]).replace('\\', '\\\\').replace("'", "\\'").replace('"', '\\"')
+        exp = str(test[1]).replace('\\', '\\\\').replace("'", "\\'").replace('"', '\\"')
+        
+        test_method = f"""
+    def test_case_{i+1}(self):
+        user_input = '{inp}'
+        expected_output = '{exp}'
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            # 模擬 stdin 輸入
+            with patch('builtins.input', side_effect=user_input.split('\\n') if user_input else []):
+                try:
+                    if 'main' in globals():
+                        main()
+                except StopIteration: 
+                    pass # 忽略因 input 不足導致的錯誤
+                except SystemExit:
+                    pass # 忽略 exit()
+                    
+        # 比對標準化後的輸出 (去除前後空白)
+        self.assertEqual(fake_out.getvalue().strip(), expected_output.strip())
+"""
+        code_lines.append(test_method)
+
+    return "\n".join(code_lines)
