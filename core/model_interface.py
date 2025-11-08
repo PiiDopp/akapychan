@@ -187,6 +187,37 @@ def build_mutation_prompt(user_need: str, parent: list) -> str:
         "⚠️ 僅輸出突變後的 JSON 測資 `[新輸入, 新預期輸出]`，不要有其他文字。"
     )
 
+def build_high_confidence_test_prompt(user_need: str) -> str:
+    """
+    [準確度模式] 要求 AI 僅生成它最有信心的標準測試案例，避免模糊的邊界情況。
+    """
+    return (
+        "用繁體中文回答。\n"
+        "你是一位極度謹慎的測試工程師。\n"
+        "任務：請為以下需求設計 3~5 組「絕對正確」的標準測試案例 (Happy Path)。\n"
+        "**重要要求**：\n"
+        "1. **不追求**複雜或極端的邊界情況。\n"
+        "2. 只提供你 100% 確定輸入與輸出完全符合需求的例子。\n"
+        "3. 如果有任何不確定的地方，請不要包含該測試案例。\n\n"
+        f"需求描述:\n{user_need}\n\n"
+        "請直接輸出一個 JSON 格式的二維陣列 `[[輸入, 預期輸出], ...]`，不要有任何額外分析文字。"
+    )
+
+def build_test_verification_prompt(user_need: str, test_input: any, test_expected: any) -> str:
+    """
+    [準確度模式] 要求 AI 扮演審查員，驗證單一測資是否正確。
+    """
+    return (
+        "你是一位嚴格的程式需求審查員。\n"
+        f"需求原始描述:\n{user_need}\n\n"
+        "請審查以下這個測試案例是否「完全正確」符合上述需求：\n"
+        f"輸入 (Input): {test_input}\n"
+        f"預期輸出 (Expected Output): {test_expected}\n\n"
+        "請先進行一步步的推理分析，驗證這個輸入在需求下是否必然得到這個輸出。\n"
+        "最後，如果它絕對正確，請在最後一行輸出 'VERDICT: PASS'。\n"
+        "如果有任何疑慮或錯誤，請在最後一行輸出 'VERDICT: FAIL'。"
+    )
+
 def interactive_langchain_chat():
     """
     使用 LangChain 的 ConversationChain 實現多輪對話模式。

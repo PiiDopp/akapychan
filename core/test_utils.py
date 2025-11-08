@@ -1,24 +1,34 @@
 import re
 import json
-import sys
-import random
 import traceback
+import random
 from typing import List, Dict, Any, Optional
-from core.model_interface import call_ollama_cli, build_virtual_code_prompt, generate_response, build_cot_test_prompt, build_mutation_killing_prompt, build_ga_crossover_prompt, build_ga_mutation_prompt
+from io import StringIO
+import unittest.mock as mock
+
+from core.model_interface import (
+    call_ollama_cli, build_virtual_code_prompt, generate_response,
+    build_cot_test_prompt, build_mutation_killing_prompt,
+    build_ga_crossover_prompt, build_ga_mutation_prompt,
+    build_high_confidence_test_prompt, build_test_verification_prompt
+)
 from core.validators import validate_main_function, _normalize_output
 from core.code_extract import extract_code_block, extract_json_block
-# 確保 MutationRunner 已正確定義在 core.mutation_runner 並可被 import
 from core.mutation_runner import MutationRunner
 
 def json_to_unittest(json_tests: list) -> str:
     """
-    將 JSON 測資 ([[input, output], ...]) 轉換為 MutPy 可執行的 unittest 程式碼字串。
+    將 JSON 測資轉換為 MutPy 可執行的 unittest 程式碼字串。
+    [改進] 使用 patch('sys.stdin', StringIO(user_input)) 以同時支援 input() 和 sys.stdin.read()。
     """
     code_lines = [
         "import unittest",
         "from unittest.mock import patch",
         "from io import StringIO",
         "import sys",
+        "",
+        # 預先定義一個可能需要的 main，避免 import 錯誤
+        "from solution import main as target_main" if "from solution" not in "".join(json_tests) else "", 
         "",
         "class TestSolution(unittest.TestCase):"
     ]
@@ -27,7 +37,6 @@ def json_to_unittest(json_tests: list) -> str:
         if not isinstance(test, list) or len(test) < 2:
             continue
             
-        # 確保輸入輸出為字串，並處理脫逸字元以放入 f-string
         inp = str(test[0]).replace('\\', '\\\\').replace("'", "\\'").replace('"', '\\"')
         exp = str(test[1]).replace('\\', '\\\\').replace("'", "\\'").replace('"', '\\"')
         
@@ -36,18 +45,27 @@ def json_to_unittest(json_tests: list) -> str:
         user_input = '{inp}'
         expected_output = '{exp}'
         with patch('sys.stdout', new=StringIO()) as fake_out:
-            # 模擬 stdin 輸入
-            with patch('builtins.input', side_effect=user_input.split('\\n') if user_input else []):
+            # [修正] 同時 Mock sys.stdin，支援兩種讀取方式
+            with patch('sys.stdin', StringIO(user_input)):
                 try:
-                    if 'main' in globals():
+                    # 嘗試呼叫被測模組的 main()
+                    if 'target_main' in globals():
+                        target_main()
+                    elif 'main' in globals():
                         main()
+                    else:
+                        # 如果沒有 main，嘗試直接執行模組層級代碼 (較少見但可能)
+                        pass
                 except StopIteration: 
-                    pass # 忽略因 input 不足導致的錯誤
+                    pass 
                 except SystemExit:
-                    pass # 忽略 exit()
+                    pass
                     
-        # 比對標準化後的輸出 (去除前後空白)
-        self.assertEqual(fake_out.getvalue().strip(), expected_output.strip())
+        actual = fake_out.getvalue().strip()
+        expected = expected_output.strip()
+        # 簡單的斷言訊息
+        msg = f"Input: {{user_input!r}}\\nExpected: {{expected!r}}\\nGot: {{actual!r}}"
+        self.assertEqual(actual, expected, msg=msg)
 """
         code_lines.append(test_method)
 
@@ -55,28 +73,62 @@ def json_to_unittest(json_tests: list) -> str:
 
 def generate_tests(user_need: str, code: str, mode: str = "B") -> list[tuple]:
     """
-    自動生成測資，回傳格式: [(func_name, [args], expected), ...]
-    mode="B": 使用改進的 CoT Prompt 快速生成 (arXiv:2504.20357)。
-    mode="MuTAP": 進階模式，使用變異測試循環 (arXiv:2308.16557)。
-    mode="GA": 遺傳演算法模式，透過 LLM 進行測資的交配與突變 (arXiv:2504.20357)。
+    自動生成測資。
+    mode="B": 標準模式
+    mode="ACC": 高準確度模式 (雙重驗證)
+    mode="GA": 遺傳演算法模式
+    mode="MuTAP": 變異測試模式
     """
-    func_name = None
-    for line in code.splitlines():
-        if line.strip().startswith("def "):
-            func_name = line.split()[1].split("(")[0]
-            break
-    if not func_name:
-        func_name = "solution"
+    func_name = "solution" # 簡化，預設使用 solution
 
     tests = []
     print(f"[generate_tests] 正在以模式 '{mode}' 生成測資...")
 
-    # --- 階段 1: 初始生成 (種群初始化) ---
+    # =========================================
+    # 模式 A: 高準確度模式 (ACC) - 獨立路徑
+    # =========================================
+    if mode.upper() == "ACC":
+        print("[ACC] 啟動高信心生成與雙重驗證機制...")
+        prompt = build_high_confidence_test_prompt(user_need)
+        resp = generate_response(prompt)
+        candidates = extract_json_block(resp) or []
+        
+        if not candidates:
+             # 嘗試用 regex 抓取
+             m = re.findall(r"\[\s*\[.*?\]\s*\]", resp, re.DOTALL)
+             if m:
+                 try: candidates = json.loads(m[0])
+                 except: pass
+
+        print(f"[ACC] 初始生成了 {len(candidates)} 個候選測資，開始逐一驗證...")
+        verified_count = 0
+        for i, cand in enumerate(candidates):
+            if isinstance(cand, list) and len(cand) >= 2:
+                inp, exp = cand[0], cand[1]
+                # 簡化顯示
+                inp_show = str(inp)[:15] + "..." if len(str(inp)) > 15 else str(inp)
+                exp_show = str(exp)[:15] + "..." if len(str(exp)) > 15 else str(exp)
+                print(f"  > 驗證候選 {i+1}: Input='{inp_show}' | Expected='{exp_show}'")
+                
+                verify_prompt = build_test_verification_prompt(user_need, inp, exp)
+                verify_resp = generate_response(verify_prompt)
+                
+                if "VERDICT: PASS" in verify_resp:
+                    tests.append((func_name, [inp], exp))
+                    print("    -> [通過] 驗證成功，已加入測資集。✅")
+                    verified_count += 1
+                else:
+                     print("    -> [剔除] 驗證失敗，信心不足。❌")
+
+        print(f"[ACC] 最終保留了 {verified_count}/{len(candidates)} 個高準確度測資。")
+        return tests # ACC 模式在此結束，不執行後續
+
+    # =========================================
+    # 模式 B/GA/MuTAP: 共用初始生成路徑
+    # =========================================
     prompt = build_cot_test_prompt(user_need)
     resp = generate_response(prompt)
     extracted_json = extract_json_block(resp)
-    
-    # (簡單的 fallback 機制)
     if not extracted_json:
          m = re.findall(r"\[\s*\[.*?\]\s*\]", resp, re.DOTALL)
          if m:
@@ -90,94 +142,61 @@ def generate_tests(user_need: str, code: str, mode: str = "B") -> list[tuple]:
     
     print(f"[generate_tests] 初始種群大小: {len(tests)}")
 
-    # --- 階段 2a: GA 演化循環 (僅在 GA 模式執行) ---
+    # --- GA 演化 (僅 GA 模式) ---
     if mode.upper() == "GA" and len(tests) >= 2:
         print("\n[GA] 進入遺傳演算法演化循環...")
-        GENERATIONS = 2   # 演化代數
-        OFFSPRING_PER_GEN = 3 # 每代產生子代數
-
-        current_population = [[t[1][0], t[2]] for t in tests] # 取出 [input, output]
+        GENERATIONS = 1       # 為了速度先設為 1 代
+        OFFSPRING_PER_GEN = 2 # 每代產生 2 個子代
+        current_population = [[t[1][0], t[2]] for t in tests]
 
         for gen in range(GENERATIONS):
-            print(f"  > [GA] 第 {gen+1}/{GENERATIONS} 代演化中...")
-            new_offspring = []
-            
+            print(f"  > [GA] 第 {gen+1} 代演化中...")
             for _ in range(OFFSPRING_PER_GEN):
-                # --- 運算子 1: 交配 (Crossover) ---
-                if random.random() > 0.3: # 70% 機率交配
+                if random.random() > 0.3: # 交配
                     parents = random.sample(current_population, 2)
                     ga_prompt = build_ga_crossover_prompt(user_need, parents[0], parents[1])
-                    op_type = "交配"
-                # --- 運算子 2: 突變 (Mutation) ---
-                else: # 30% 機率突變
+                    op = "交配"
+                else: # 突變
                     parent = random.choice(current_population)
                     ga_prompt = build_ga_mutation_prompt(user_need, parent)
-                    op_type = "突變"
-
-                # 呼叫 LLM 執行演化操作
+                    op = "突變"
+                
                 ga_resp = generate_response(ga_prompt)
-                child_json = extract_json_block(ga_resp) # 預期回傳 [input, output]
+                child = extract_json_block(ga_resp)
+                if child and isinstance(child, list) and len(child) >= 2:
+                     # 簡單去重
+                     if not any(str(existing[0]) == str(child[0]) for existing in current_population):
+                         current_population.append([child[0], child[1]])
+                         print(f"    [GA] ({op}) 產生新測資: Input='{str(child[0])[:10]}...'")
 
-                if child_json and isinstance(child_json, list) and len(child_json) >= 2:
-                     # 簡單的去重檢查 (檢查 input 是否已存在)
-                     if not any(existing[0] == child_json[0] for existing in current_population):
-                         new_offspring.append(child_json)
-                         print(f"    [GA] ({op_type}) 產生新個體: Input={child_json[0]}")
-
-            # 將新子代加入種群
-            current_population.extend(new_offspring)
-        
-        # 將最終種群轉換回系統所需格式
         tests = [(func_name, [p[0]], p[1]) for p in current_population]
-        print(f"[GA] 演化完成，最終種群大小: {len(tests)}")
+        print(f"[GA] 演化完成，最終測資數: {len(tests)}")
 
-    # --- 階段 2: MuTAP 增強循環 (僅在 MuTAP 模式且有程式碼時執行) ---
-    if mode.upper() == "MUTAP" and code.strip() and tests:
-        print("\n[MuTAP] 進入變異測試增強循環 (arXiv:2308.16557)...")
-        
-        # 1. 準備數據：還原回 [[input, output]] 格式以便轉換
+    # --- MuTAP 增強 (僅 MuTAP 模式) ---
+    elif mode.upper() == "MUTAP" and code.strip() and tests:
+        print("\n[MuTAP] 進入變異測試增強循環...")
         current_json_tests = [[t[1][0], t[2]] for t in tests]
-        
-        # 2. 轉換為 unittest 代碼
         unittest_code = json_to_unittest(current_json_tests)
-        
-        # 3. 執行變異分析
-        # 注意：請確保您的環境已安裝 mutpy (pip install mutpy)
         runner = MutationRunner(target_code=code, test_code=unittest_code)
         survivors = runner.find_surviving_mutants()
 
-        if survivors is None:
-             print("[MuTAP] 變異測試執行失敗 (可能缺少 mutpy 套件或路徑錯誤)。")
-        elif not survivors:
-             print("[MuTAP] 完美！目前的測資已非常強健，沒有發現存活的變異體。")
-        else:
-             print(f"[MuTAP] 發現 {len(survivors)} 個存活的變異體 (潛在測試盲點)！")
-             
-             # 4. 針對存活變異體生成殺手測資 (Iterative Feedback)
-             # 為了效能，我們限制只處理前 3 個變異體
-             for i, mutant in enumerate(survivors[:3]):
-                 print(f"  > [MuTAP] 正在分析第 {i+1} 個變異體並生成殺手測資...")
-                 
-                 # 建構殺手提示詞，傳入當前測資與變異體資訊
+        if survivors:
+             print(f"[MuTAP] 發現 {len(survivors)} 個存活變異體，嘗試生成殺手測資...")
+             for i, mutant in enumerate(survivors[:2]): # 限制處理 2 個
                  kill_prompt = build_mutation_killing_prompt(code, json.dumps(current_json_tests, ensure_ascii=False), mutant)
                  kill_resp = generate_response(kill_prompt)
-                 new_tests_json = extract_json_block(kill_resp)
-
-                 if new_tests_json:
-                     print(f"    [MuTAP] 成功生成 {len(new_tests_json)} 組新測資！")
-                     for nt in new_tests_json:
+                 new_tests = extract_json_block(kill_resp)
+                 if new_tests:
+                     for nt in new_tests:
                          if isinstance(nt, list) and len(nt) >= 2:
-                             # 加入總測資列表
                              tests.append((func_name, [nt[0]], nt[1]))
-                             # 同步更新用於下一輪分析的暫存列表 (雖然此處只跑一輪)
-                             current_json_tests.append([nt[0], nt[1]])
-                 else:
-                     print("    [MuTAP] 模型未能為此變異體生成有效的殺手測資。")
-             
-             print(f"[MuTAP] 增強完成，最終測資數量: {len(tests)}")
+                             print(f"    [MuTAP] + 新增殺手測資: Input='{str(nt[0])[:10]}...'")
+        else:
+            print("[MuTAP] 未發現存活變異體或執行失敗。")
 
     return tests
 
+# ... (保留 generate_and_validate, generate_tests_with_oracle 不變) ...
 def generate_and_validate(user_need: str, examples: List[Dict[str, str]], solution: Optional[str]) -> Dict[str, Any]:
     """
     (從 testrun.py 移入)

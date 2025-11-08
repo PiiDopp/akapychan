@@ -320,13 +320,17 @@ def interactive_session():
 
             # --- 選擇測資生成策略 ---
             print("\n請選擇測資生成策略：")
-            print("  [1] 標準模式 (Standard CoT) - 快速生成基礎測資")
-            print("  [2] 遺傳演算法 (GA) - 透過交配與突變產生多樣化測資 (較慢)")
-            print("  [3] 變異測試 (MuTAP) - 找出程式盲點並生成殺手測資 (最慢，需安裝 mutpy)")
+            print("  [1] 標準模式 (Standard) - 平衡覆蓋率與速度")
+            print("  [2] 高準確度模式 (Accuracy) - 雙重驗證，寧缺勿濫 (推薦用於驗證)")
+            print("  [3] 遺傳演算法 (GA) - 透過演化探索多樣化邊界")
+            print("  [4] 變異測試 (MuTAP) - 找出程式盲點 (需安裝 mutpy)")
             strategy = ask_input("您的選擇 [1]: ", "1")
             
-            mode_map = {"1": "B", "2": "GA", "3": "MUTAP"}
+            mode_map = {"1": "B", "2": "ACC", "3": "GA", "4": "MUTAP"}
             selected_mode = mode_map.get(strategy, "B")
+
+            # 呼叫核心函式
+            raw_tests = generate_tests(user_need, user_code, mode=selected_mode)
 
             # 呼叫核心函式生成測資
             # generate_tests 回傳格式為 [(func_name, [input_args], expected_output), ...]
