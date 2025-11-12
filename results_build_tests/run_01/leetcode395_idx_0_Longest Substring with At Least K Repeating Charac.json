@@ -1,0 +1,110 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode395.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Substring with At Least K Repeating Characters",
+    "description": "Given a string s and an integer k, return the length of the longest substring of s such that the frequency of each character in this substring is greater than or equal to k.\n\nif no such substring exists, return 0.",
+    "examples": [
+      {
+        "input": "s = \"aaabb\", k = 3",
+        "output": "3",
+        "explanation": "The longest substring is \"aaa\", as 'a' is repeated 3 times."
+      },
+      {
+        "input": "s = \"ababbc\", k = 2",
+        "output": "5",
+        "explanation": "The longest substring is \"ababb\", as 'a' is repeated 2 times and 'b' is repeated 3 times."
+      }
+    ],
+    "solution": "from collections import Counter\n\nclass Solution:\n    def longestSubstring(self, s, k):\n        if len(s) < k:\n            return 0\n\n        count = Counter(s)\n        for char in count:\n            if count[char] < k:\n                return max(self.longestSubstring(sub, k) for sub in s.split(char))\n        return len(s)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['aaabb', 3]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['ababbc', 2]\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['abcd', 2]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aaaa', 1]\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['a', 1]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['a', 2]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['', 1]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aaabbbccc', 3]\n",
+        "output": "9\n"
+      },
+      {
+        "input": "['aaabbbccc', 4]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abacbabc', 2]\n",
+        "output": "8\n"
+      },
+      {
+        "input": "['abacbabc', 3]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aabbbcc', 3]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['aabbbcc', 2]\n",
+        "output": "7\n"
+      },
+      {
+        "input": "['aabbcc', 2]\n",
+        "output": "6\n"
+      },
+      {
+        "input": "['aabbcc', 3]\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('longestSubstring', ('aaabb', 3), 3)",
+      "('longestSubstring', ('ababbc', 2), 5)",
+      "('longestSubstring', ('abcd', 2), 0)",
+      "('longestSubstring', ('aaaa', 1), 4)",
+      "('longestSubstring', ('a', 1), 1)",
+      "('longestSubstring', ('a', 2), 0)",
+      "('longestSubstring', ('', 1), 0)",
+      "('longestSubstring', ('aaabbbccc', 3), 9)",
+      "('longestSubstring', ('aaabbbccc', 4), 0)",
+      "('longestSubstring', ('abacbabc', 2), 8)",
+      "('longestSubstring', ('abacbabc', 3), 0)",
+      "('longestSubstring', ('aabbbcc', 3), 3)",
+      "('longestSubstring', ('aabbbcc', 2), 7)",
+      "('longestSubstring', ('aabbcc', 2), 6)",
+      "('longestSubstring', ('aabbcc', 3), 0)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: longestSubstring('aaabb', 3)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: longestSubstring('ababbc', 2)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#3] ✅ 通過\n  標準輸入: longestSubstring('abcd', 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: longestSubstring('aaaa', 1)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#5] ✅ 通過\n  標準輸入: longestSubstring('a', 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: longestSubstring('a', 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: longestSubstring('', 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: longestSubstring('aaabbbccc', 3)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#9] ✅ 通過\n  標準輸入: longestSubstring('aaabbbccc', 4)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: longestSubstring('abacbabc', 2)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#11] ✅ 通過\n  標準輸入: longestSubstring('abacbabc', 3)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: longestSubstring('aabbbcc', 3)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#13] ✅ 通過\n  標準輸入: longestSubstring('aabbbcc', 2)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#14] ✅ 通過\n  標準輸入: longestSubstring('aabbcc', 2)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#15] ✅ 通過\n  標準輸入: longestSubstring('aabbcc', 3)\n  標準輸出: 0\n  你的輸出: 0\n\n=== 測試完成 (15/15) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 15,
+    "passed_count": 15,
+    "accuracy_rate": 1.0
+  }
+}

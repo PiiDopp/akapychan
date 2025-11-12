@@ -1,0 +1,90 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode436.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Find Right Interval",
+    "description": "You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.\n\nThe right interval for an interval i is an interval j such that startj >= endi and startj is minimized. Note that i may equal j.\n\nReturn an array of right interval indices for each interval i. If no right interval exists for interval i, then put -1 at index i.",
+    "examples": [
+      {
+        "input": "intervals = [[1,2]]",
+        "output": "[-1]",
+        "explanation": "There is only one interval in the collection, so it outputs -1."
+      },
+      {
+        "input": "intervals = [[3,4],[2,3],[1,2]]",
+        "output": "[-1,0,1]",
+        "explanation": "There is no right interval for [3,4].\nThe right interval for [2,3] is [3,4] since start0 = 3 is the smallest start that is >= end1 = 3.\nThe right interval for [1,2] is [2,3] since start1 = 2 is the smallest start that is >= end2 = 2."
+      },
+      {
+        "input": "intervals = [[1,4],[2,3],[3,4]]",
+        "output": "[-1,2,-1]",
+        "explanation": "There is no right interval for [1,4] and [3,4].\nThe right interval for [2,3] is [3,4] since start2 = 3 is the smallest start that is >= end1 = 3."
+      }
+    ],
+    "solution": "import bisect\n\nclass Solution:\n    def findRightInterval(self, intervals):\n        # 建立開始時間對應索引的列表\n        starts = sorted((interval[0], i) for i, interval in enumerate(intervals))\n        res = []\n        \n        for interval in intervals:\n            # 找到 >= interval[1] 的最小開始時間\n            idx = bisect.bisect_left(starts, (interval[1],))\n            if idx < len(starts):\n                res.append(starts[idx][1])\n            else:\n                res.append(-1)\n        \n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2\n3 4\n5 6\n",
+        "output": "[1, 2, -1]\n"
+      },
+      {
+        "input": "3 4\n2 3\n1 2\n",
+        "output": "[-1, 0, 1]\n"
+      },
+      {
+        "input": "-10 -5\n0 1\n5 10\n",
+        "output": "[1, 2, -1]\n"
+      },
+      {
+        "input": "1 4\n2 3\n3 5\n",
+        "output": "[-1, 2, -1]\n"
+      },
+      {
+        "input": "1 2\n",
+        "output": "[-1]\n"
+      },
+      {
+        "input": "1 3\n2 4\n3 5\n4 6\n",
+        "output": "[2, 3, -1, -1]\n"
+      },
+      {
+        "input": "1 10\n2 3\n4 5\n6 7\n8 9\n",
+        "output": "[-1, 2, 3, 4, -1]\n"
+      },
+      {
+        "input": "1000000 2000000\n1500000 2500000\n3000000 4000000\n",
+        "output": "[2, 2, -1]\n"
+      },
+      {
+        "input": "-5 0\n0 5\n5 10\n",
+        "output": "[1, 2, -1]\n"
+      },
+      {
+        "input": "1 5\n2 6\n3 7\n",
+        "output": "[-1, -1, -1]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findRightInterval', ('1 2\\n3 4\\n5 6\\n',), [1, 2, -1])",
+      "('findRightInterval', ('3 4\\n2 3\\n1 2\\n',), [-1, 0, 1])",
+      "('findRightInterval', ('-10 -5\\n0 1\\n5 10\\n',), [1, 2, -1])",
+      "('findRightInterval', ('1 4\\n2 3\\n3 5\\n',), [-1, 2, -1])",
+      "('findRightInterval', ('1 2\\n',), [-1])",
+      "('findRightInterval', ('1 3\\n2 4\\n3 5\\n4 6\\n',), [2, 3, -1, -1])",
+      "('findRightInterval', ('1 10\\n2 3\\n4 5\\n6 7\\n8 9\\n',), [-1, 2, 3, 4, -1])",
+      "('findRightInterval', ('1000000 2000000\\n1500000 2500000\\n3000000 4000000\\n',), [2, 2, -1])",
+      "('findRightInterval', ('-5 0\\n0 5\\n5 10\\n',), [1, 2, -1])",
+      "('findRightInterval', ('1 5\\n2 6\\n3 7\\n',), [-1, -1, -1])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: string index out of range\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ❌ 執行例外: string index out of range\n[測試#4] ❌ 執行例外: string index out of range\n[測試#5] ❌ 執行例外: string index out of range\n[測試#6] ❌ 執行例外: string index out of range\n[測試#7] ❌ 執行例外: string index out of range\n[測試#8] ❌ 執行例外: string index out of range\n[測試#9] ❌ 執行例外: string index out of range\n[測試#10] ❌ 執行例外: string index out of range\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

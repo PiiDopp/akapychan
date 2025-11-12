@@ -1,0 +1,35 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode342.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Power of Four",
+    "description": "Given an integer n, return true if it is a power of four. Otherwise, return false.\n\nAn integer n is a power of four, if there exists an integer x such that n == 4^x.",
+    "examples": [
+      {
+        "input": "n = 16",
+        "output": "true"
+      },
+      {
+        "input": "n = 5",
+        "output": "false"
+      },
+      {
+        "input": "n = 1",
+        "output": "true"
+      }
+    ],
+    "solution": "class Solution:\n    def isPowerOfFour(self, n):\n        return n > 0 and (n & (n - 1)) == 0 and (n - 1) % 3 == 0"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

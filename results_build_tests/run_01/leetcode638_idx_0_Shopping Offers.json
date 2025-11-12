@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode638.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Shopping Offers",
+    "description": "In LeetCode Store, there are n items to sell. Each item has a price. However, there are some special offers, and a special offer consists of one or more different kinds of items with a sale price.\n\nYou are given an integer array price where price[i] is the price of the ith item, and an integer array needs where needs[i] is the number of pieces of the ith item you want to buy.\n\nYou are also given an array special where special[i] is of size n + 1 where special[i][j] is the number of pieces of the jth item in the ith offer and special[i][n] (i.e., the last integer in the array) is the price of the ith offer.\n\nReturn the lowest price you have to pay for exactly certain items as given, where you could make optimal use of the special offers. You are not allowed to buy more items than you want, even if that would lower the overall price. You could use any of the special offers as many times as you want.",
+    "examples": [
+      {
+        "input": "price = [2,5], special = [[3,0,5],[1,2,10]], needs = [3,2]",
+        "output": "14",
+        "explanation": "There are two kinds of items, A and B. Their prices are $2 and $5 respectively.\nIn special offer 1, you can pay $5 for 3A and 0B\nIn special offer 2, you can pay $10 for 1A and 2B.\nYou need to buy 3A and 2B, so you may pay $10 for 1A and 2B (special offer #2), and $4 for 2A."
+      },
+      {
+        "input": "price = [2,3,4], special = [[1,1,0,4],[2,2,1,9]], needs = [1,2,1]",
+        "output": "11",
+        "explanation": "The price of A is $2, and $3 for B, $4 for C.\nYou may pay $4 for 1A and 1B, and $9 for 2A,2B and 1C.\nYou need to buy 1A,2B and 1C, so you may pay $4 for 1A and 1B (special offer #1), and $3 for 1B, $4 for 1C.\nYou cannot add more items, though only $9 for 2A,2B and 1C."
+      }
+    ],
+    "solution": "class Solution(object):\n    def shoppingOffers(self, price, special, needs):\n        n = len(price)\n        memo = {}\n\n        def dfs(curr_needs):\n            key = tuple(curr_needs)\n            if key in memo:\n                return memo[key]\n            res = sum(curr_needs[i] * price[i] for i in range(n))\n            for offer in special:\n                temp = []\n                for i in range(n):\n                    if offer[i] > curr_needs[i]:\n                        break\n                    temp.append(curr_needs[i] - offer[i])\n                else:\n                    res = min(res, offer[-1] + dfs(temp))\n            memo[key] = res\n            return res\n\n        return dfs(needs)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2 3 4\n\n1 1 1\n",
+        "output": "9\n"
+      },
+      {
+        "input": "2 3 4\n[1, 1, 0, 4]\n1 1 1\n",
+        "output": "8\n"
+      },
+      {
+        "input": "2 3 4\n[1, 1, 0, 4] [0, 0, 1, 3]\n2 2 2\n",
+        "output": "16\n"
+      },
+      {
+        "input": "2 3 4\n\n0 0 0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2 3 4\n[1, 1, 1, 5]\n1 1 1\n",
+        "output": "5\n"
+      },
+      {
+        "input": "2 3 4\n[1, 1, 1, 10]\n1 1 1\n",
+        "output": "9\n"
+      },
+      {
+        "input": "2 3 4\n[1, 1, 1, 0]\n1 1 1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2 3 4\n[0, 1, 0, 3]\n1 2 1\n",
+        "output": "12\n"
+      },
+      {
+        "input": "2 3 4\n[0, 1, 0, 3] [1, 0, 1, 5]\n1 2 1\n",
+        "output": "11\n"
+      },
+      {
+        "input": "2 3 4\n[1, 1, 1, 5] [0, 0, 1, 3]\n1 1 1\n",
+        "output": "5\n"
+      }
+    ],
+    "parsed_tests": [
+      "('shoppingOffers', ('2 3 4\\n\\n1 1 1\\n',), 9)",
+      "('shoppingOffers', ('2 3 4\\n[1, 1, 0, 4]\\n1 1 1\\n',), 8)",
+      "('shoppingOffers', ('2 3 4\\n[1, 1, 0, 4] [0, 0, 1, 3]\\n2 2 2\\n',), 16)",
+      "('shoppingOffers', ('2 3 4\\n\\n0 0 0\\n',), 0)",
+      "('shoppingOffers', ('2 3 4\\n[1, 1, 1, 5]\\n1 1 1\\n',), 5)",
+      "('shoppingOffers', ('2 3 4\\n[1, 1, 1, 10]\\n1 1 1\\n',), 9)",
+      "('shoppingOffers', ('2 3 4\\n[1, 1, 1, 0]\\n1 1 1\\n',), 0)",
+      "('shoppingOffers', ('2 3 4\\n[0, 1, 0, 3]\\n1 2 1\\n',), 12)",
+      "('shoppingOffers', ('2 3 4\\n[0, 1, 0, 3] [1, 0, 1, 5]\\n1 2 1\\n',), 11)",
+      "('shoppingOffers', ('2 3 4\\n[1, 1, 1, 5] [0, 0, 1, 3]\\n1 1 1\\n',), 5)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n[測試#2] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n[測試#3] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n[測試#4] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n[測試#5] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n[測試#6] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n[測試#7] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n[測試#8] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n[測試#9] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n[測試#10] ❌ 執行例外: Solution.shoppingOffers() missing 2 required positional arguments: 'special' and 'needs'\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

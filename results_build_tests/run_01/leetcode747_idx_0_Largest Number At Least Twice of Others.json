@@ -1,0 +1,33 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode747.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Largest Number At Least Twice of Others",
+    "description": "You are given an integer array nums where the largest integer is unique.\n\nDetermine whether the largest element in the array is at least twice as much as every other number in the array. If it is, return the index of the largest element, or return -1 otherwise.",
+    "examples": [
+      {
+        "input": "[3,6,1,0]",
+        "output": "1",
+        "explanation": "6 is the largest integer.\nFor every other number in the array x, 6 is at least twice as big as x.\nThe index of value 6 is 1, so we return 1."
+      },
+      {
+        "input": "[1,2,3,4]",
+        "output": "-1",
+        "explanation": "4 is less than twice the value of 3, so we return -1."
+      }
+    ],
+    "solution": "class Solution:\n    def dominantIndex(self, nums):\n        if not nums:\n            return -1\n        max_num = max(nums)\n        max_index = nums.index(max_num)\n        for i, num in enumerate(nums):\n            if i != max_index and max_num < 2 * num:\n                return -1\n        return max_index"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

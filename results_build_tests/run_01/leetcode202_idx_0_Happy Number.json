@@ -1,0 +1,179 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode202.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Happy Number",
+    "description": "Write an algorithm to determine if a number n is happy.\n\nA happy number is a number defined by the following process:\n\nStarting with any positive integer, replace the number by the sum of the squares of its digits.\nRepeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.\nThose numbers for which this process ends in 1 are happy.\nReturn true if n is a happy number, and false if not.",
+    "examples": [
+      {
+        "input": "n = 19",
+        "output": "true",
+        "explanation": "12 + 92 = 82\n82 + 22 = 68\n62 + 82 = 100\n12 + 02 + 02 = 1"
+      },
+      {
+        "input": "n = 2",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution(object):\n    def isHappy(self, n):\n        \"\"\"\n        :type n: int\n        :rtype: bool\n        \"\"\"\n        def get_next(number):\n            total_sum = 0\n            while number > 0:\n                digit = number % 10\n                total_sum += digit * digit\n                number //= 10\n            return total_sum\n        \n        seen = set()\n        while n != 1 and n not in seen:\n            seen.add(n)\n            n = get_next(n)\n        return n == 1"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "7\n",
+        "output": "True\n"
+      },
+      {
+        "input": "19\n",
+        "output": "True\n"
+      },
+      {
+        "input": "13\n",
+        "output": "True\n"
+      },
+      {
+        "input": "28\n",
+        "output": "True\n"
+      },
+      {
+        "input": "31\n",
+        "output": "True\n"
+      },
+      {
+        "input": "32\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1000000000\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1000000000000000000\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "20\n",
+        "output": "False\n"
+      },
+      {
+        "input": "24\n",
+        "output": "False\n"
+      },
+      {
+        "input": "25\n",
+        "output": "False\n"
+      },
+      {
+        "input": "26\n",
+        "output": "False\n"
+      },
+      {
+        "input": "27\n",
+        "output": "False\n"
+      },
+      {
+        "input": "29\n",
+        "output": "False\n"
+      },
+      {
+        "input": "30\n",
+        "output": "False\n"
+      },
+      {
+        "input": "33\n",
+        "output": "False\n"
+      },
+      {
+        "input": "34\n",
+        "output": "False\n"
+      },
+      {
+        "input": "35\n",
+        "output": "False\n"
+      },
+      {
+        "input": "36\n",
+        "output": "False\n"
+      },
+      {
+        "input": "37\n",
+        "output": "False\n"
+      },
+      {
+        "input": "38\n",
+        "output": "False\n"
+      },
+      {
+        "input": "39\n",
+        "output": "False\n"
+      },
+      {
+        "input": "999999\n",
+        "output": "False\n"
+      },
+      {
+        "input": "444444444444444444\n",
+        "output": "False\n"
+      },
+      {
+        "input": "0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-1\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isHappy', (1,), True)",
+      "('isHappy', (7,), True)",
+      "('isHappy', (19,), True)",
+      "('isHappy', (13,), True)",
+      "('isHappy', (28,), True)",
+      "('isHappy', (31,), True)",
+      "('isHappy', (32,), True)",
+      "('isHappy', (1000000000,), True)",
+      "('isHappy', (1000000000000000000,), True)",
+      "('isHappy', (2,), False)",
+      "('isHappy', (4,), False)",
+      "('isHappy', (20,), False)",
+      "('isHappy', (24,), False)",
+      "('isHappy', (25,), False)",
+      "('isHappy', (26,), False)",
+      "('isHappy', (27,), False)",
+      "('isHappy', (29,), False)",
+      "('isHappy', (30,), False)",
+      "('isHappy', (33,), False)",
+      "('isHappy', (34,), False)",
+      "('isHappy', (35,), False)",
+      "('isHappy', (36,), False)",
+      "('isHappy', (37,), False)",
+      "('isHappy', (38,), False)",
+      "('isHappy', (39,), False)",
+      "('isHappy', (999999,), False)",
+      "('isHappy', (444444444444444444,), False)",
+      "('isHappy', (0,), False)",
+      "('isHappy', (-1,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isHappy(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isHappy(7,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isHappy(19,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isHappy(13,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isHappy(28,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isHappy(31,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isHappy(32,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isHappy(1000000000,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isHappy(1000000000000000000,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isHappy(2,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isHappy(4,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: isHappy(20,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: isHappy(24,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: isHappy(25,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: isHappy(26,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: isHappy(27,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: isHappy(29,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: isHappy(30,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: isHappy(33,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ✅ 通過\n  標準輸入: isHappy(34,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#21] ✅ 通過\n  標準輸入: isHappy(35,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#22] ✅ 通過\n  標準輸入: isHappy(36,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#23] ✅ 通過\n  標準輸入: isHappy(37,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#24] ✅ 通過\n  標準輸入: isHappy(38,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#25] ✅ 通過\n  標準輸入: isHappy(39,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#26] ✅ 通過\n  標準輸入: isHappy(999999,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#27] ✅ 通過\n  標準輸入: isHappy(444444444444444444,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#28] ✅ 通過\n  標準輸入: isHappy(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#29] ✅ 通過\n  標準輸入: isHappy(-1,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (29/29) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 29,
+    "passed_count": 29,
+    "accuracy_rate": 1.0
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode900.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "RLE Iterator",
+    "description": "We can use run-length encoding (i.e., RLE) to encode a sequence of integers. In a run-length encoded array of even length encoding (0-indexed), for all even i, encoding[i] tells us the number of times that the non-negative integer value encoding[i + 1] is repeated in the sequence.\n\nGiven a run-length encoded array, design an iterator that iterates through it.\n\nImplement the RLEIterator class: \n\nRLEIterator(int[] encoded) Initializes the object with the encoded array encoded. \n\nint next(int n) Exhausts the next n elements and returns the last element exhausted in this way. If there is no element left to exhaust, return -1 instead.",
+    "examples": [
+      {
+        "input": "[\"RLEIterator\", \"next\", \"next\", \"next\", \"next\"], [[[3, 8, 0, 9, 2, 5]], [2], [1], [1], [2]]",
+        "output": "[null, 8, 8, 5, -1]",
+        "explanation": "RLEIterator rLEIterator = new RLEIterator([3, 8, 0, 9, 2, 5]); // This maps to the sequence [8,8,8,5,5].\nrLEIterator.next(2); // exhausts 2 terms of the sequence, returning 8. The remaining sequence is now [8, 5, 5].\nrLEIterator.next(1); // exhausts 1 term of the sequence, returning 8. The remaining sequence is now [5, 5].\nrLEIterator.next(1); // exhausts 1 term of the sequence, returning 5. The remaining sequence is now [5].\nrLEIterator.next(2); // exhausts 2 terms, returning -1."
+      }
+    ],
+    "solution": "class RLEIterator(object):\n    def __init__(self, A):\n        self.A = A\n        self.index = 0\n\n    def next(self, n):\n        while self.index < len(self.A) and n > self.A[self.index]:\n            n -= self.A[self.index]\n            self.index += 2\n        if self.index >= len(self.A):\n            return -1\n        self.A[self.index] -= n\n        return self.A[self.index + 1]"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "encoded": [
+          2,
+          3,
+          3,
+          4
+        ],
+        "calls": [
+          2,
+          3,
+          1
+        ],
+        "output": [
+          3,
+          4,
+          -1
+        ]
+      },
+      {
+        "encoded": [
+          5,
+          7
+        ],
+        "calls": [
+          3,
+          2,
+          1
+        ],
+        "output": [
+          7,
+          7,
+          -1
+        ]
+      },
+      {
+        "encoded": [
+          0,
+          5,
+          3,
+          4
+        ],
+        "calls": [
+          1,
+          2
+        ],
+        "output": [
+          4,
+          4
+        ]
+      },
+      {
+        "encoded": [],
+        "calls": [
+          1
+        ],
+        "output": [
+          -1
+        ]
+      },
+      {
+        "encoded": [
+          1,
+          9
+        ],
+        "calls": [
+          2
+        ],
+        "output": [
+          -1
+        ]
+      },
+      {
+        "encoded": [
+          3,
+          5
+        ],
+        "calls": [
+          0
+        ],
+        "output": [
+          5
+        ]
+      },
+      {
+        "encoded": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ],
+        "calls": [
+          1,
+          2,
+          3
+        ],
+        "output": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "encoded": [
+          5,
+          10
+        ],
+        "calls": [
+          3,
+          2
+        ],
+        "output": [
+          10,
+          10
+        ]
+      },
+      {
+        "encoded": [
+          1000000,
+          7
+        ],
+        "calls": [
+          500000,
+          500000,
+          1
+        ],
+        "output": [
+          7,
+          7,
+          -1
+        ]
+      },
+      {
+        "encoded": [
+          2,
+          3,
+          0,
+          5
+        ],
+        "calls": [
+          2,
+          1
+        ],
+        "output": [
+          3,
+          -1
+        ]
+      }
+    ],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

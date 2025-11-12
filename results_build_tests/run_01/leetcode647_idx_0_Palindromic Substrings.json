@@ -1,0 +1,105 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode647.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Palindromic Substrings",
+    "description": "Given a string s, return the number of palindromic substrings in it.\n\nA string is a palindrome when it reads the same backward as forward.\n\nA substring is a contiguous sequence of characters within the string.",
+    "examples": [
+      {
+        "input": "s = \"abc\"",
+        "output": "3",
+        "explanation": "Three palindromic strings: \"a\", \"b\", \"c\"."
+      },
+      {
+        "input": "s = \"aaa\"",
+        "output": "6",
+        "explanation": "Six palindromic strings: \"a\", \"a\", \"a\", \"aa\", \"aa\", \"aaa\"."
+      }
+    ],
+    "solution": "class Solution:\n    def countSubstrings(self, s):\n        n = len(s)\n        count = [0]  # 使用 list 避免 nonlocal\n\n        def expand(left, right):\n            while left >= 0 and right < n and s[left] == s[right]:\n                count[0] += 1\n                left -= 1\n                right += 1\n\n        for i in range(n):\n            expand(i, i)       # odd length\n            expand(i, i + 1)   # even length\n\n        return count[0]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "x\n",
+        "output": "1\n"
+      },
+      {
+        "input": "aa\n",
+        "output": "3\n"
+      },
+      {
+        "input": "ab\n",
+        "output": "2\n"
+      },
+      {
+        "input": "aaa\n",
+        "output": "6\n"
+      },
+      {
+        "input": "aba\n",
+        "output": "4\n"
+      },
+      {
+        "input": "aaaa\n",
+        "output": "10\n"
+      },
+      {
+        "input": "abca\n",
+        "output": "4\n"
+      },
+      {
+        "input": "abcba\n",
+        "output": "7\n"
+      },
+      {
+        "input": "ababa\n",
+        "output": "9\n"
+      },
+      {
+        "input": "abba\n",
+        "output": "6\n"
+      },
+      {
+        "input": "あいあ\n",
+        "output": "4\n"
+      },
+      {
+        "input": "a a\n",
+        "output": "4\n"
+      },
+      {
+        "input": "😊a😊\n",
+        "output": "4\n"
+      }
+    ],
+    "parsed_tests": [
+      "('countSubstrings', ((),), 0)",
+      "('countSubstrings', ('x\\n',), 1)",
+      "('countSubstrings', ('aa\\n',), 3)",
+      "('countSubstrings', ('ab\\n',), 2)",
+      "('countSubstrings', ('aaa\\n',), 6)",
+      "('countSubstrings', ('aba\\n',), 4)",
+      "('countSubstrings', ('aaaa\\n',), 10)",
+      "('countSubstrings', ('abca\\n',), 4)",
+      "('countSubstrings', ('abcba\\n',), 7)",
+      "('countSubstrings', ('ababa\\n',), 9)",
+      "('countSubstrings', ('abba\\n',), 6)",
+      "('countSubstrings', ('あいあ\\n',), 4)",
+      "('countSubstrings', ('a a\\n',), 4)",
+      "('countSubstrings', ('😊a😊\\n',), 4)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countSubstrings((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: countSubstrings('x\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#3] ❌ 失敗\n  標準輸入: countSubstrings('aa\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#4] ❌ 失敗\n  標準輸入: countSubstrings('ab\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#5] ❌ 失敗\n  標準輸入: countSubstrings('aaa\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#6] ❌ 失敗\n  標準輸入: countSubstrings('aba\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#7] ❌ 失敗\n  標準輸入: countSubstrings('aaaa\\n',)\n  標準輸出: 10\n  你的輸出: 11\n\n[測試#8] ❌ 失敗\n  標準輸入: countSubstrings('abca\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#9] ❌ 失敗\n  標準輸入: countSubstrings('abcba\\n',)\n  標準輸出: 7\n  你的輸出: 8\n\n[測試#10] ❌ 失敗\n  標準輸入: countSubstrings('ababa\\n',)\n  標準輸出: 9\n  你的輸出: 10\n\n[測試#11] ❌ 失敗\n  標準輸入: countSubstrings('abba\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#12] ❌ 失敗\n  標準輸入: countSubstrings('あいあ\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#13] ❌ 失敗\n  標準輸入: countSubstrings('a a\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#14] ❌ 失敗\n  標準輸入: countSubstrings('😊a😊\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n=== 測試完成 (1/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 14,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

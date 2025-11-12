@@ -1,0 +1,119 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode475.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Heaters",
+    "description": "Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.\n\nEvery house can be warmed, as long as the house is within the heater's warm radius range.\n\nGiven the positions of houses and heaters on a horizontal line, return the minimum radius standard of heaters so that those heaters could cover all houses.\n\nNotice that all the heaters follow your radius standard, and the warm radius will be the same.",
+    "examples": [
+      {
+        "input": "houses = [1,2,3], heaters = [2]",
+        "output": "1",
+        "explanation": "The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed."
+      },
+      {
+        "input": "houses = [1,2,3,4], heaters = [1,4]",
+        "output": "1",
+        "explanation": "The two heaters were placed at positions 1 and 4. We need to use a radius 1 standard, then all the houses can be warmed."
+      },
+      {
+        "input": "houses = [1,5], heaters = [2]",
+        "output": "3"
+      }
+    ],
+    "solution": "class Solution:\n    def findRadius(self, houses, heaters):\n        houses.sort()\n        heaters.sort()\n        res = 0\n        i = 0  # 指向最近的右邊加熱器\n\n        for house in houses:\n            # 找到離 house 最近的右邊加熱器\n            while i < len(heaters) - 1 and abs(heaters[i+1] - house) <= abs(heaters[i] - house):\n                i += 1\n            # 記錄最遠距離\n            res = max(res, abs(heaters[i] - house))\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 5\n2 4\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 2 3\n1 2 3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 2 3\n10\n",
+        "output": "9\n"
+      },
+      {
+        "input": "-5 -2 0\n-3\n",
+        "output": "6\n"
+      },
+      {
+        "input": "0 5 10\n0 10\n",
+        "output": "5\n"
+      },
+      {
+        "input": "0 5 10\n5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "0 5 10\n2 8\n",
+        "output": "3\n"
+      },
+      {
+        "input": "0 5 10\n2 7\n",
+        "output": "3\n"
+      },
+      {
+        "input": "10 0 5\n5 0\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1000000\n0\n",
+        "output": "1000000\n"
+      },
+      {
+        "input": "1 1 2\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-10 0 10\n-5 5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "-10 0 10\n5\n",
+        "output": "15\n"
+      },
+      {
+        "input": "-10 0 10\n-5\n",
+        "output": "15\n"
+      },
+      {
+        "input": "-10 0 10\n-10 10\n",
+        "output": "10\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findRadius', ('1 2 3\\n2\\n',), 1)",
+      "('findRadius', ('1 5\\n2 4\\n',), 1)",
+      "('findRadius', ('1 2 3\\n1 2 3\\n',), 0)",
+      "('findRadius', ('1 2 3\\n10\\n',), 9)",
+      "('findRadius', ('-5 -2 0\\n-3\\n',), 6)",
+      "('findRadius', ('0 5 10\\n0 10\\n',), 5)",
+      "('findRadius', ('0 5 10\\n5\\n',), 5)",
+      "('findRadius', ('0 5 10\\n2 8\\n',), 3)",
+      "('findRadius', ('0 5 10\\n2 7\\n',), 3)",
+      "('findRadius', ('10 0 5\\n5 0\\n',), 5)",
+      "('findRadius', (1000000, 0), 1000000)",
+      "('findRadius', ('1 1 2\\n1\\n',), 0)",
+      "('findRadius', ('-10 0 10\\n-5 5\\n',), 5)",
+      "('findRadius', ('-10 0 10\\n5\\n',), 15)",
+      "('findRadius', ('-10 0 10\\n-5\\n',), 15)",
+      "('findRadius', ('-10 0 10\\n-10 10\\n',), 10)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#2] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#3] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#4] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#5] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#6] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#7] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#8] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#9] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#10] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#11] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#12] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#13] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#14] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#15] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#16] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n=== 測試完成 (0/16) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 16,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

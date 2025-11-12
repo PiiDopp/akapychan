@@ -1,0 +1,153 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode600.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Non-negative Integers without Consecutive Ones",
+    "description": "Given a positive integer n, return the number of the integers in the range [0, n] whose binary representations do not contain consecutive ones.",
+    "examples": [
+      {
+        "input": "n = 5",
+        "output": "5",
+        "explanation": "Here are the non-negative integers <= 5 with their corresponding binary representations:\n0 : 0\n1 : 1\n2 : 10\n3 : 11\n4 : 100\n5 : 101\nAmong them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule."
+      },
+      {
+        "input": "n = 1",
+        "output": "2"
+      },
+      {
+        "input": "n = 2",
+        "output": "3"
+      }
+    ],
+    "solution": "class Solution:\n    def findIntegers(self, n):\n        # dp[i] 表示長度為 i 的二進制不含連續1的數量\n        dp = [0] * 32\n        dp[0] = 1\n        dp[1] = 2\n        for i in range(2, 32):\n            dp[i] = dp[i-1] + dp[i-2]\n        \n        ans = 0\n        prev_bit = 0\n        for i in reversed(range(31)):\n            if n & (1 << i):\n                ans += dp[i]\n                if prev_bit:\n                    return ans\n                prev_bit = 1\n            else:\n                prev_bit = 0\n        return ans + 1"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "2\n",
+        "output": "3\n"
+      },
+      {
+        "input": "3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "6\n",
+        "output": "5\n"
+      },
+      {
+        "input": "7\n",
+        "output": "5\n"
+      },
+      {
+        "input": "8\n",
+        "output": "6\n"
+      },
+      {
+        "input": "9\n",
+        "output": "7\n"
+      },
+      {
+        "input": "10\n",
+        "output": "8\n"
+      },
+      {
+        "input": "11\n",
+        "output": "8\n"
+      },
+      {
+        "input": "12\n",
+        "output": "8\n"
+      },
+      {
+        "input": "13\n",
+        "output": "8\n"
+      },
+      {
+        "input": "14\n",
+        "output": "8\n"
+      },
+      {
+        "input": "15\n",
+        "output": "8\n"
+      },
+      {
+        "input": "16\n",
+        "output": "9\n"
+      },
+      {
+        "input": "31\n",
+        "output": "13\n"
+      },
+      {
+        "input": "32\n",
+        "output": "14\n"
+      },
+      {
+        "input": "100\n",
+        "output": "34\n"
+      },
+      {
+        "input": "1023\n",
+        "output": "144\n"
+      },
+      {
+        "input": "1024\n",
+        "output": "145\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "3524578\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findIntegers', (0,), 1)",
+      "('findIntegers', (1,), 2)",
+      "('findIntegers', (2,), 3)",
+      "('findIntegers', (3,), 3)",
+      "('findIntegers', (4,), 4)",
+      "('findIntegers', (5,), 5)",
+      "('findIntegers', (6,), 5)",
+      "('findIntegers', (7,), 5)",
+      "('findIntegers', (8,), 6)",
+      "('findIntegers', (9,), 7)",
+      "('findIntegers', (10,), 8)",
+      "('findIntegers', (11,), 8)",
+      "('findIntegers', (12,), 8)",
+      "('findIntegers', (13,), 8)",
+      "('findIntegers', (14,), 8)",
+      "('findIntegers', (15,), 8)",
+      "('findIntegers', (16,), 9)",
+      "('findIntegers', (31,), 13)",
+      "('findIntegers', (32,), 14)",
+      "('findIntegers', (100,), 34)",
+      "('findIntegers', (1023,), 144)",
+      "('findIntegers', (1024,), 145)",
+      "('findIntegers', (2147483647,), 3524578)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findIntegers(0,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: findIntegers(1,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: findIntegers(2,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: findIntegers(3,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: findIntegers(4,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#6] ✅ 通過\n  標準輸入: findIntegers(5,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#7] ✅ 通過\n  標準輸入: findIntegers(6,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#8] ✅ 通過\n  標準輸入: findIntegers(7,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#9] ✅ 通過\n  標準輸入: findIntegers(8,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#10] ✅ 通過\n  標準輸入: findIntegers(9,)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#11] ✅ 通過\n  標準輸入: findIntegers(10,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#12] ✅ 通過\n  標準輸入: findIntegers(11,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#13] ✅ 通過\n  標準輸入: findIntegers(12,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#14] ✅ 通過\n  標準輸入: findIntegers(13,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#15] ✅ 通過\n  標準輸入: findIntegers(14,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#16] ✅ 通過\n  標準輸入: findIntegers(15,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#17] ✅ 通過\n  標準輸入: findIntegers(16,)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#18] ✅ 通過\n  標準輸入: findIntegers(31,)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#19] ✅ 通過\n  標準輸入: findIntegers(32,)\n  標準輸出: 14\n  你的輸出: 14\n\n[測試#20] ✅ 通過\n  標準輸入: findIntegers(100,)\n  標準輸出: 34\n  你的輸出: 34\n\n[測試#21] ✅ 通過\n  標準輸入: findIntegers(1023,)\n  標準輸出: 144\n  你的輸出: 144\n\n[測試#22] ✅ 通過\n  標準輸入: findIntegers(1024,)\n  標準輸出: 145\n  你的輸出: 145\n\n[測試#23] ✅ 通過\n  標準輸入: findIntegers(2147483647,)\n  標準輸出: 3524578\n  你的輸出: 3524578\n\n=== 測試完成 (23/23) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 23,
+    "passed_count": 23,
+    "accuracy_rate": 1.0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode49.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Group Anagrams",
+    "description": "Given an array of strings strs, group the anagrams together. You can return the answer in any order.",
+    "examples": [
+      {
+        "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+        "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
+        "explanation": "There is no string in strs that can be rearranged to form \"bat\".\nThe strings \"nat\" and \"tan\" are anagrams as they can be rearranged to form each other.\nThe strings \"ate\", \"eat\", and \"tea\" are anagrams as they can be rearranged to form each other."
+      },
+      {
+        "input": "strs = [\"\"]",
+        "output": "[[\"\"]]"
+      },
+      {
+        "input": "strs = [\"a\"]",
+        "output": "[[\"a\"]]"
+      }
+    ],
+    "solution": "class Solution(object):\n    def groupAnagrams(self, strs):\n        \"\"\"\n        :type strs: List[str]\n        :rtype: List[List[str]]\n        \"\"\"\n        from collections import defaultdict\n\n        anagrams = defaultdict(list)\n        for s in strs:\n            key = tuple(sorted(s))  # 將字串排序後作為 key\n            anagrams[key].append(s)\n\n        return list(anagrams.values())"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode306.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Additive Number",
+    "description": "An additive number is a string whose digits can form an additive sequence.\n\nA valid additive sequence should contain at least three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two.\n\nGiven a string containing only digits, return true if it is an additive number or false otherwise.\n\nNote: Numbers in the additive sequence cannot have leading zeros, so sequence 1, 2, 03 or 1, 02, 3 is invalid.",
+    "examples": [
+      {
+        "input": "\"112358\"",
+        "output": "true",
+        "explanation": "The digits can form an additive sequence: 1, 1, 2, 3, 5, 8.\n1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8"
+      },
+      {
+        "input": "\"199100199\"",
+        "output": "true",
+        "explanation": "The additive sequence is: 1, 99, 100, 199.\n1 + 99 = 100, 99 + 100 = 199"
+      }
+    ],
+    "solution": "class Solution:\n    def isAdditiveNumber(self, num):\n        n = len(num)\n        \n        # 嘗試所有可能的前兩個數字切分\n        for i in range(1, n):\n            for j in range(i+1, n):\n                num1, num2 = num[:i], num[i:j]\n                \n                # 避免前導零\n                if (len(num1) > 1 and num1[0] == '0') or (len(num2) > 1 and num2[0] == '0'):\n                    continue\n                \n                k = j\n                while k < n:\n                    sum_str = str(int(num1) + int(num2))\n                    if not num.startswith(sum_str, k):\n                        break\n                    k += len(sum_str)\n                    num1, num2 = num2, sum_str\n                if k == n:\n                    return True\n        return False"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "112358\n",
+        "output": "True\n"
+      },
+      {
+        "input": "123\n",
+        "output": "True\n"
+      },
+      {
+        "input": "199100199\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1023\n",
+        "output": "False\n"
+      },
+      {
+        "input": "000\n",
+        "output": "True\n"
+      },
+      {
+        "input": "010\n",
+        "output": "False\n"
+      },
+      {
+        "input": "101\n",
+        "output": "True\n"
+      },
+      {
+        "input": "123456579\n",
+        "output": "True\n"
+      },
+      {
+        "input": "123456580\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1234565790\n",
+        "output": "False\n"
+      },
+      {
+        "input": "12\n",
+        "output": "False\n"
+      },
+      {
+        "input": "12345678901234567890\n",
+        "output": "False\n"
+      },
+      {
+        "input": "110\n",
+        "output": "False\n"
+      },
+      {
+        "input": "121\n",
+        "output": "False\n"
+      },
+      {
+        "input": "121212\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isAdditiveNumber', (112358,), True)",
+      "('isAdditiveNumber', (123,), True)",
+      "('isAdditiveNumber', (199100199,), True)",
+      "('isAdditiveNumber', (1023,), False)",
+      "('isAdditiveNumber', (0,), True)",
+      "('isAdditiveNumber', ('010\\n',), False)",
+      "('isAdditiveNumber', (101,), True)",
+      "('isAdditiveNumber', (123456579,), True)",
+      "('isAdditiveNumber', (123456580,), False)",
+      "('isAdditiveNumber', (1234565790,), False)",
+      "('isAdditiveNumber', (12,), False)",
+      "('isAdditiveNumber', (12345678901234567890,), False)",
+      "('isAdditiveNumber', (110,), False)",
+      "('isAdditiveNumber', (121,), False)",
+      "('isAdditiveNumber', (121212,), False)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ✅ 通過\n  標準輸入: isAdditiveNumber('010\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: object of type 'int' has no len()\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 執行例外: object of type 'int' has no len()\n[測試#11] ❌ 執行例外: object of type 'int' has no len()\n[測試#12] ❌ 執行例外: object of type 'int' has no len()\n[測試#13] ❌ 執行例外: object of type 'int' has no len()\n[測試#14] ❌ 執行例外: object of type 'int' has no len()\n[測試#15] ❌ 執行例外: object of type 'int' has no len()\n=== 測試完成 (1/15) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

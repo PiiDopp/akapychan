@@ -1,0 +1,134 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode462.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Moves to Equal Array Elements II",
+    "description": "Given an integer array nums of size n, return the minimum number of moves required to make all array elements equal.\n\nIn one move, you can increment or decrement an element of the array by 1.\n\nTest cases are designed so that the answer will fit in a 32-bit integer.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "2",
+        "explanation": "Only two moves are needed (remember each move increments or decrements one element): \n[1,2,3]  =>  [2,2,3]  =>  [2,2,2]"
+      },
+      {
+        "input": "nums = [1,10,2,9]",
+        "output": "16"
+      }
+    ],
+    "solution": "class Solution:\n    def minMoves2(self, nums):\n        # 將所有數字移動到中位數可使總步數最小\n        nums.sort()\n        median = nums[len(nums)//2]\n        moves = 0\n        for num in nums:\n            moves += abs(num - median)\n        return moves"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "42\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n6\n",
+        "output": "1\n"
+      },
+      {
+        "input": "7\n7\n7\n7\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n1\n3\n",
+        "output": "4\n"
+      },
+      {
+        "input": "10\n-10\n0\n",
+        "output": "20\n"
+      },
+      {
+        "input": "-5\n-4\n-3\n-2\n-1\n",
+        "output": "6\n"
+      },
+      {
+        "input": "-1\n0\n1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "-1000000000\n0\n1000000000\n",
+        "output": "2000000000\n"
+      },
+      {
+        "input": "1\n1\n2\n2\n3\n3\n",
+        "output": "4\n"
+      },
+      {
+        "input": "3\n3\n3\n3\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000000\n-1000000000\n0\n",
+        "output": "2000000000\n"
+      },
+      {
+        "input": "1\n1\n2\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "0\n0\n0\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "-3\n-2\n-1\n0\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+        "output": "25\n"
+      },
+      {
+        "input": "-100\n-50\n0\n50\n100\n",
+        "output": "300\n"
+      },
+      {
+        "input": "100\n-100\n50\n-50\n0\n",
+        "output": "300\n"
+      },
+      {
+        "input": "0\n0\n0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-5\n-4\n-3\n0\n1\n",
+        "output": "10\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minMoves2', (42,), 0)",
+      "('minMoves2', ((5, 5),), 0)",
+      "('minMoves2', ((5, 6),), 1)",
+      "('minMoves2', ((7, 7, 7, 7),), 0)",
+      "('minMoves2', ((5, 1, 3),), 4)",
+      "('minMoves2', ((10, -10, 0),), 20)",
+      "('minMoves2', ((-5, -4, -3, -2, -1),), 6)",
+      "('minMoves2', ((-1, 0, 1),), 2)",
+      "('minMoves2', ((-1000000000, 0, 1000000000),), 2000000000)",
+      "('minMoves2', ((1, 1, 2, 2, 3, 3),), 4)",
+      "('minMoves2', ((3, 3, 3, 3, 3),), 0)",
+      "('minMoves2', ((1000000000, -1000000000, 0),), 2000000000)",
+      "('minMoves2', ((1, 1, 2, 2),), 2)",
+      "('minMoves2', ((0, 0, 0, 1),), 1)",
+      "('minMoves2', ((-3, -2, -1, 0),), 4)",
+      "('minMoves2', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),), 25)",
+      "('minMoves2', ((-100, -50, 0, 50, 100),), 300)",
+      "('minMoves2', ((100, -100, 50, -50, 0),), 300)",
+      "('minMoves2', ((0, 0, 0, 0, 0),), 0)",
+      "('minMoves2', ((-5, -4, -3, 0, 1),), 10)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#11] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#12] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#13] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#14] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#15] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#16] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#17] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#18] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#19] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#20] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n=== 測試完成 (0/20) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

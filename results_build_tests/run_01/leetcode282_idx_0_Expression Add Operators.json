@@ -1,0 +1,75 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode282.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Expression Add Operators",
+    "description": "Given a string num that contains only digits and an integer target, return all possibilities to insert the binary operators '+', '-', and/or '*' between the digits of num so that the resultant expression evaluates to the target value.\n\nNote that operands in the returned expressions should not contain leading zeros.\n\nNote that a number can contain multiple digits.",
+    "examples": [
+      {
+        "input": "num = \"123\", target = 6",
+        "output": "[\"1*2*3\",\"1+2+3\"]",
+        "explanation": "Both \"1*2*3\" and \"1+2+3\" evaluate to 6."
+      },
+      {
+        "input": "num = \"232\", target = 8",
+        "output": "[\"2*3+2\",\"2+3*2\"]",
+        "explanation": "Both \"2*3+2\" and \"2+3*2\" evaluate to 8."
+      },
+      {
+        "input": "num = \"3456237490\", target = 9191",
+        "output": "[]",
+        "explanation": "There are no expressions that can be created from \"3456237490\" to evaluate to 9191."
+      }
+    ],
+    "solution": "class Solution:\n    def addOperators(self, num, target):\n        res = []\n\n        def backtrack(index, path, value, last):\n            if index == len(num):\n                if value == target:\n                    res.append(path)\n                return\n\n            for i in range(index + 1, len(num) + 1):\n                temp = num[index:i]\n                if len(temp) > 1 and temp[0] == '0':\n                    continue\n                curr = int(temp)\n                if index == 0:\n                    backtrack(i, temp, curr, curr)\n                else:\n                    backtrack(i, path + '+' + temp, value + curr, curr)\n                    backtrack(i, path + '-' + temp, value - curr, -curr)\n                    backtrack(i, path + '*' + temp, value - last + last * curr, last * curr)\n\n        backtrack(0, '', 0, 0)\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['123', 6]\n",
+        "output": "['1+2+3', '1*2*3']\n"
+      },
+      {
+        "input": "['105', 5]\n",
+        "output": "['1*0+5', '10-5']\n"
+      },
+      {
+        "input": "['00', 0]\n",
+        "output": "['0+0', '0-0', '0*0']\n"
+      },
+      {
+        "input": "['3456237490', 9191]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['1', 1]\n",
+        "output": "['1']\n"
+      },
+      {
+        "input": "['123', -6]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['123', 0]\n",
+        "output": "['1+2-3']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('addOperators', ('123', 6), ['1+2+3', '1*2*3'])",
+      "('addOperators', ('105', 5), ['1*0+5', '10-5'])",
+      "('addOperators', ('00', 0), ['0+0', '0-0', '0*0'])",
+      "('addOperators', ('3456237490', 9191), [])",
+      "('addOperators', ('1', 1), ['1'])",
+      "('addOperators', ('123', -6), [])",
+      "('addOperators', ('123', 0), ['1+2-3'])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: addOperators('123', 6)\n  標準輸出: ['1+2+3', '1*2*3']\n  你的輸出: ['1+2+3', '1*2*3']\n\n[測試#2] ✅ 通過\n  標準輸入: addOperators('105', 5)\n  標準輸出: ['1*0+5', '10-5']\n  你的輸出: ['1*0+5', '10-5']\n\n[測試#3] ✅ 通過\n  標準輸入: addOperators('00', 0)\n  標準輸出: ['0+0', '0-0', '0*0']\n  你的輸出: ['0+0', '0-0', '0*0']\n\n[測試#4] ✅ 通過\n  標準輸入: addOperators('3456237490', 9191)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: addOperators('1', 1)\n  標準輸出: ['1']\n  你的輸出: ['1']\n\n[測試#6] ✅ 通過\n  標準輸入: addOperators('123', -6)\n  標準輸出: []\n  你的輸出: []\n\n[測試#7] ✅ 通過\n  標準輸入: addOperators('123', 0)\n  標準輸出: ['1+2-3']\n  你的輸出: ['1+2-3']\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0622s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode219.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Contains Duplicate II",
+    "description": "Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1], k = 3",
+        "output": "true"
+      },
+      {
+        "input": "nums = [1,0,1,1], k = 1",
+        "output": "true"
+      },
+      {
+        "input": "nums = [1,2,3,1,2,3], k = 2",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution:\n    def containsNearbyDuplicate(self, nums, k):\n        index_map = {}\n        for i, num in enumerate(nums):\n            if num in index_map and i - index_map[num] <= k:\n                return True\n            index_map[num] = i\n        return False"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode470.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Implement Rand10() Using Rand7()",
+    "description": "Given the API rand7() that generates a uniform random integer in the range [1, 7], write a function rand10() that generates a uniform random integer in the range [1, 10]. You can only call the API rand7(), and you shouldn't call any other API. Please do not use a language's built-in random API.\n\nEach test case will have one internal argument n, the number of times that your implemented function rand10() will be called while testing. Note that this is not an argument passed to rand10().",
+    "examples": [
+      {
+        "input": "n = 1",
+        "output": "[2]"
+      },
+      {
+        "input": "n = 2",
+        "output": "[2,8]"
+      },
+      {
+        "input": "n = 3",
+        "output": "[3,8,10]"
+      }
+    ],
+    "solution": "import random\n\n# 假設已經有一個 API rand7() 可用\ndef rand7():\n    return random.randint(1,7)\n\nclass Solution:\n    def rand10(self):\n        while True:\n            # 使用兩次 rand7 生成 1~49 的均勻分布\n            num = (rand7() - 1) * 7 + rand7()  # 1~49\n            if num <= 40:\n                return 1 + (num - 1) % 10"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "呼叫 rand10() 1 次\n",
+        "output": "1-10\n"
+      },
+      {
+        "input": "呼叫 rand10() 100 次\n",
+        "output": "所有 1~10 的數字至少出現一次\n"
+      },
+      {
+        "input": "呼叫 rand10() 1000 次\n",
+        "output": "每個數字出現次數大約在 80~120 次之間（近似均勻分佈）\n"
+      }
+    ],
+    "parsed_tests": [
+      "('rand10', ('呼叫 rand10() 1 次\\n',), '1-10\\n')",
+      "('rand10', ('呼叫 rand10() 100 次\\n',), '所有 1~10 的數字至少出現一次\\n')",
+      "('rand10', ('呼叫 rand10() 1000 次\\n',), '每個數字出現次數大約在 80~120 次之間（近似均勻分佈）\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.rand10() takes 1 positional argument but 2 were given\n[測試#2] ❌ 執行例外: Solution.rand10() takes 1 positional argument but 2 were given\n[測試#3] ❌ 執行例外: Solution.rand10() takes 1 positional argument but 2 were given\n=== 測試完成 (0/3) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 3,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode506.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Relative Ranks",
+    "description": "You are given an integer array score of size n, where score[i] is the score of the i_th athlete in a competition. All the scores are guaranteed to be unique.\n\nThe athletes are placed based on their scores, where the 1st place athlete has the highest score, the 2nd place athlete has the 2nd highest score, and so on. The placement of each athlete determines their rank:\n\nThe 1st place athlete's rank is \"Gold Medal\".\nThe 2nd place athlete's rank is \"Silver Medal\".\nThe 3rd place athlete's rank is \"Bronze Medal\".\nFor the 4th place to the n_th place athlete, their rank is their placement number (i.e., the x_th place athlete's rank is \"x\").\nReturn an array answer of size n where answer[i] is the rank of the i_th athlete.",
+    "examples": [
+      {
+        "input": "[5,4,3,2,1]",
+        "output": "[\"Gold Medal\",\"Silver Medal\",\"Bronze Medal\",\"4\",\"5\"]",
+        "explanation": "The placements are [1st, 2nd, 3rd, 4th, 5th]."
+      },
+      {
+        "input": "[10,3,8,9,4]",
+        "output": "[\"Gold Medal\",\"5\",\"Bronze Medal\",\"Silver Medal\",\"4\"]",
+        "explanation": "The placements are [1st, 5th, 3rd, 2nd, 4th]."
+      }
+    ],
+    "solution": "class Solution:\n    def findRelativeRanks(self, score):\n        if not score:\n            return []\n        sorted_scores = sorted(score, reverse=True)\n        rank_map = {}\n        for i, s in enumerate(sorted_scores):\n            if i == 0:\n                rank_map[s] = \"Gold Medal\"\n            elif i == 1:\n                rank_map[s] = \"Silver Medal\"\n            elif i == 2:\n                rank_map[s] = \"Bronze Medal\"\n            else:\n                rank_map[s] = str(i + 1)\n        return [rank_map[s] for s in score]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "10\n",
+        "output": "['Gold Medal']\n"
+      },
+      {
+        "input": "5\n3\n",
+        "output": "['Gold Medal', 'Silver Medal']\n"
+      },
+      {
+        "input": "1\n2\n3\n",
+        "output": "['Bronze Medal', 'Silver Medal', 'Gold Medal']\n"
+      },
+      {
+        "input": "5\n4\n3\n2\n1\n",
+        "output": "['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5']\n"
+      },
+      {
+        "input": "10\n3\n8\n6\n2\n9\n1\n5\n4\n7\n",
+        "output": "['Gold Medal', '8', 'Bronze Medal', '5', '9', 'Silver Medal', '10', '6', '7', '4']\n"
+      },
+      {
+        "input": "-1\n-3\n-2\n",
+        "output": "['Gold Medal', 'Bronze Medal', 'Silver Medal']\n"
+      },
+      {
+        "input": "1000000\n999999\n999998\n",
+        "output": "['Gold Medal', 'Silver Medal', 'Bronze Medal']\n"
+      },
+      {
+        "input": "7\n1\n5\n3\n9\n",
+        "output": "['Silver Medal', '5', 'Bronze Medal', '4', 'Gold Medal']\n"
+      },
+      {
+        "input": "100\n1\n50\n",
+        "output": "['Gold Medal', 'Bronze Medal', 'Silver Medal']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findRelativeRanks', ((),), [])",
+      "('findRelativeRanks', (10,), ['Gold Medal'])",
+      "('findRelativeRanks', ((5, 3),), ['Gold Medal', 'Silver Medal'])",
+      "('findRelativeRanks', ((1, 2, 3),), ['Bronze Medal', 'Silver Medal', 'Gold Medal'])",
+      "('findRelativeRanks', ((5, 4, 3, 2, 1),), ['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5'])",
+      "('findRelativeRanks', ((10, 3, 8, 6, 2, 9, 1, 5, 4, 7),), ['Gold Medal', '8', 'Bronze Medal', '5', '9', 'Silver Medal', '10', '6', '7', '4'])",
+      "('findRelativeRanks', ((-1, -3, -2),), ['Gold Medal', 'Bronze Medal', 'Silver Medal'])",
+      "('findRelativeRanks', ((1000000, 999999, 999998),), ['Gold Medal', 'Silver Medal', 'Bronze Medal'])",
+      "('findRelativeRanks', ((7, 1, 5, 3, 9),), ['Silver Medal', '5', 'Bronze Medal', '4', 'Gold Medal'])",
+      "('findRelativeRanks', ((100, 1, 50),), ['Gold Medal', 'Bronze Medal', 'Silver Medal'])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findRelativeRanks((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ✅ 通過\n  標準輸入: findRelativeRanks((5, 3),)\n  標準輸出: ['Gold Medal', 'Silver Medal']\n  你的輸出: ['Gold Medal', 'Silver Medal']\n\n[測試#4] ✅ 通過\n  標準輸入: findRelativeRanks((1, 2, 3),)\n  標準輸出: ['Bronze Medal', 'Silver Medal', 'Gold Medal']\n  你的輸出: ['Bronze Medal', 'Silver Medal', 'Gold Medal']\n\n[測試#5] ✅ 通過\n  標準輸入: findRelativeRanks((5, 4, 3, 2, 1),)\n  標準輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5']\n  你的輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5']\n\n[測試#6] ✅ 通過\n  標準輸入: findRelativeRanks((10, 3, 8, 6, 2, 9, 1, 5, 4, 7),)\n  標準輸出: ['Gold Medal', '8', 'Bronze Medal', '5', '9', 'Silver Medal', '10', '6', '7', '4']\n  你的輸出: ['Gold Medal', '8', 'Bronze Medal', '5', '9', 'Silver Medal', '10', '6', '7', '4']\n\n[測試#7] ✅ 通過\n  標準輸入: findRelativeRanks((-1, -3, -2),)\n  標準輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n  你的輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n\n[測試#8] ✅ 通過\n  標準輸入: findRelativeRanks((1000000, 999999, 999998),)\n  標準輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal']\n  你的輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal']\n\n[測試#9] ✅ 通過\n  標準輸入: findRelativeRanks((7, 1, 5, 3, 9),)\n  標準輸出: ['Silver Medal', '5', 'Bronze Medal', '4', 'Gold Medal']\n  你的輸出: ['Silver Medal', '5', 'Bronze Medal', '4', 'Gold Medal']\n\n[測試#10] ✅ 通過\n  標準輸入: findRelativeRanks((100, 1, 50),)\n  標準輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n  你的輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

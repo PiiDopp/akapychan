@@ -1,0 +1,83 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode179.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Largest Number",
+    "description": "Given a list of non-negative integers nums, arrange them such that they form the largest number and return it. \n\nSince the result may be very large, so you need to return a string instead of an integer.",
+    "examples": [
+      {
+        "input": "nums = [10,2]",
+        "output": "\"210\""
+      },
+      {
+        "input": "nums = [3,30,34,5,9]",
+        "output": "\"9534330\""
+      }
+    ],
+    "solution": "from functools import cmp_to_key\n\nclass Solution:\n    def largestNumber(self, nums):\n        nums_str = list(map(str, nums))\n        def compare(x, y):\n            if x + y > y + x:\n                return -1\n            elif x + y < y + x:\n                return 1\n            else:\n                return 0\n        nums_str.sort(key=cmp_to_key(compare))\n        result = ''.join(nums_str)\n        return '0' if result[0] == '0' else result"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "10\n2\n",
+        "output": "210\n"
+      },
+      {
+        "input": "3\n30\n34\n5\n9\n",
+        "output": "9534330\n"
+      },
+      {
+        "input": "0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "12\n121\n",
+        "output": "12121\n"
+      },
+      {
+        "input": "824\n938\n1399\n5607\n6973\n5703\n9609\n4398\n8247\n",
+        "output": "9609938824824769735607561934398\n"
+      },
+      {
+        "input": "0\n1\n",
+        "output": "10\n"
+      },
+      {
+        "input": "20\n1\n",
+        "output": "201\n"
+      },
+      {
+        "input": "999999998\n999999997\n999999999\n",
+        "output": "999999999999999998999999997\n"
+      },
+      {
+        "input": "12\n121\n12\n",
+        "output": "1212121\n"
+      }
+    ],
+    "parsed_tests": [
+      "('largestNumber', ((10, 2),), 210)",
+      "('largestNumber', ((3, 30, 34, 5, 9),), 9534330)",
+      "('largestNumber', ((0, 0),), 0)",
+      "('largestNumber', (1,), 1)",
+      "('largestNumber', ((12, 121),), 12121)",
+      "('largestNumber', ((824, 938, 1399, 5607, 6973, 5703, 9609, 4398, 8247),), 9609938824824769735607561934398)",
+      "('largestNumber', ((0, 1),), 10)",
+      "('largestNumber', ((20, 1),), 201)",
+      "('largestNumber', ((999999998, 999999997, 999999999),), 999999999999999998999999997)",
+      "('largestNumber', ((12, 121, 12),), 1212121)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: largestNumber((10, 2),)\n  標準輸出: 210\n  你的輸出: '210'\n\n[測試#2] ❌ 失敗\n  標準輸入: largestNumber((3, 30, 34, 5, 9),)\n  標準輸出: 9534330\n  你的輸出: '9534330'\n\n[測試#3] ❌ 失敗\n  標準輸入: largestNumber((0, 0),)\n  標準輸出: 0\n  你的輸出: '0'\n\n[測試#4] ❌ 執行例外: 'int' object is not iterable\n[測試#5] ❌ 失敗\n  標準輸入: largestNumber((12, 121),)\n  標準輸出: 12121\n  你的輸出: '12121'\n\n[測試#6] ❌ 失敗\n  標準輸入: largestNumber((824, 938, 1399, 5607, 6973, 5703, 9609, 4398, 8247),)\n  標準輸出: 9609938824824769735607561934398\n  你的輸出: '9609938824824769735703560743981399'\n\n[測試#7] ❌ 失敗\n  標準輸入: largestNumber((0, 1),)\n  標準輸出: 10\n  你的輸出: '10'\n\n[測試#8] ❌ 失敗\n  標準輸入: largestNumber((20, 1),)\n  標準輸出: 201\n  你的輸出: '201'\n\n[測試#9] ❌ 失敗\n  標準輸入: largestNumber((999999998, 999999997, 999999999),)\n  標準輸出: 999999999999999998999999997\n  你的輸出: '999999999999999998999999997'\n\n[測試#10] ❌ 失敗\n  標準輸入: largestNumber((12, 121, 12),)\n  標準輸出: 1212121\n  你的輸出: '1212121'\n\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

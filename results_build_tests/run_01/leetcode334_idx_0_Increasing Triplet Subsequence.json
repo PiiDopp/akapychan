@@ -1,0 +1,38 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode334.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Increasing Triplet Subsequence",
+    "description": "Given an integer array nums, return true if there exists a triple of indices (i, j, k) such that i < j < k and nums[i] < nums[j] < nums[k]. If no such indices exists, return false.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4,5]",
+        "output": "true",
+        "explanation": "Any triplet where i < j < k is valid."
+      },
+      {
+        "input": "nums = [5,4,3,2,1]",
+        "output": "false",
+        "explanation": "No triplet exists."
+      },
+      {
+        "input": "nums = [2,1,5,0,4,6]",
+        "output": "true",
+        "explanation": "One of the valid triplet is (3, 4, 5), because nums[3] == 0 < nums[4] == 4 < nums[5] == 6."
+      }
+    ],
+    "solution": "class Solution:\n    def increasingTriplet(self, nums):\n        first = second = float('inf')\n        for num in nums:\n            if num <= first:\n                first = num\n            elif num <= second:\n                second = num\n            else:\n                return True\n        return False"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

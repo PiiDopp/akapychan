@@ -1,0 +1,119 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode278.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "First Bad Version",
+    "description": "You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.\n\nSuppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.\n\nYou are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.",
+    "examples": [
+      {
+        "input": "n = 5, bad = 4",
+        "output": "4",
+        "explanation": "call isBadVersion(3) -> false\ncall isBadVersion(5) -> true\ncall isBadVersion(4) -> true\nThen 4 is the first bad version."
+      },
+      {
+        "input": "n = 1, bad = 1",
+        "output": "1"
+      }
+    ],
+    "solution": "# The isBadVersion API is already defined for you.\n# def isBadVersion(version):\n\nclass Solution:\n    def firstBadVersion(self, n):\n        left, right = 1, n\n        while left < right:\n            mid = left + (right - left) // 2\n            if isBadVersion(mid):\n                right = mid\n            else:\n                left = mid + 1\n        return left"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "{'n': 1, 'bad_version': 1}\n",
+        "output": "1\n"
+      },
+      {
+        "input": "{'n': 2, 'bad_version': 1}\n",
+        "output": "1\n"
+      },
+      {
+        "input": "{'n': 2, 'bad_version': 2}\n",
+        "output": "2\n"
+      },
+      {
+        "input": "{'n': 3, 'bad_version': 1}\n",
+        "output": "1\n"
+      },
+      {
+        "input": "{'n': 3, 'bad_version': 2}\n",
+        "output": "2\n"
+      },
+      {
+        "input": "{'n': 3, 'bad_version': 3}\n",
+        "output": "3\n"
+      },
+      {
+        "input": "{'n': 5, 'bad_version': 1}\n",
+        "output": "1\n"
+      },
+      {
+        "input": "{'n': 5, 'bad_version': 3}\n",
+        "output": "3\n"
+      },
+      {
+        "input": "{'n': 5, 'bad_version': 5}\n",
+        "output": "5\n"
+      },
+      {
+        "input": "{'n': 10, 'bad_version': 1}\n",
+        "output": "1\n"
+      },
+      {
+        "input": "{'n': 10, 'bad_version': 5}\n",
+        "output": "5\n"
+      },
+      {
+        "input": "{'n': 10, 'bad_version': 10}\n",
+        "output": "10\n"
+      },
+      {
+        "input": "{'n': 100, 'bad_version': 50}\n",
+        "output": "50\n"
+      },
+      {
+        "input": "{'n': 1000000, 'bad_version': 1}\n",
+        "output": "1\n"
+      },
+      {
+        "input": "{'n': 1000000, 'bad_version': 500000}\n",
+        "output": "500000\n"
+      },
+      {
+        "input": "{'n': 1000000, 'bad_version': 999999}\n",
+        "output": "999999\n"
+      },
+      {
+        "input": "{'n': 1000000, 'bad_version': 1000000}\n",
+        "output": "1000000\n"
+      }
+    ],
+    "parsed_tests": [
+      "('firstBadVersion', ({'n': 1, 'bad_version': 1},), 1)",
+      "('firstBadVersion', ({'n': 2, 'bad_version': 1},), 1)",
+      "('firstBadVersion', ({'n': 2, 'bad_version': 2},), 2)",
+      "('firstBadVersion', ({'n': 3, 'bad_version': 1},), 1)",
+      "('firstBadVersion', ({'n': 3, 'bad_version': 2},), 2)",
+      "('firstBadVersion', ({'n': 3, 'bad_version': 3},), 3)",
+      "('firstBadVersion', ({'n': 5, 'bad_version': 1},), 1)",
+      "('firstBadVersion', ({'n': 5, 'bad_version': 3},), 3)",
+      "('firstBadVersion', ({'n': 5, 'bad_version': 5},), 5)",
+      "('firstBadVersion', ({'n': 10, 'bad_version': 1},), 1)",
+      "('firstBadVersion', ({'n': 10, 'bad_version': 5},), 5)",
+      "('firstBadVersion', ({'n': 10, 'bad_version': 10},), 10)",
+      "('firstBadVersion', ({'n': 100, 'bad_version': 50},), 50)",
+      "('firstBadVersion', ({'n': 1000000, 'bad_version': 1},), 1)",
+      "('firstBadVersion', ({'n': 1000000, 'bad_version': 500000},), 500000)",
+      "('firstBadVersion', ({'n': 1000000, 'bad_version': 999999},), 999999)",
+      "('firstBadVersion', ({'n': 1000000, 'bad_version': 1000000},), 1000000)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#2] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#3] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#4] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#5] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#6] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#7] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#8] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#9] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#10] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#11] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#12] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#13] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#14] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#15] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#16] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#17] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n=== 測試完成 (0/17) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 17,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

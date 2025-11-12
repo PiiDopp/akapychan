@@ -1,0 +1,120 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode28.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Implement strStr()",
+    "description": "Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.",
+    "examples": [
+      {
+        "input": "haystack = \"sadbutsad\", needle = \"sad\"",
+        "output": "0",
+        "explanation": "\"sad\" occurs at index 0 and 6.\nThe first occurrence is at index 0, so we return 0."
+      },
+      {
+        "input": "haystack = \"leetcode\", needle = \"leeto\"",
+        "output": "-1",
+        "explanation": "\"leeto\" did not occur in \"leetcode\", so we return -1."
+      }
+    ],
+    "solution": "class Solution(object):\n    def strStr(self, haystack, needle):\n        \"\"\"\n        :type haystack: str\n        :type needle: str\n        :rtype: int\n        \"\"\"\n        if not needle:\n            return 0\n        \n        n, m = len(haystack), len(needle)\n        for i in range(n - m + 1):\n            if haystack[i:i+m] == needle:\n                return i\n        return -1"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['hello world', 'world']\n",
+        "output": "6\n"
+      },
+      {
+        "input": "['hello world', 'xyz']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['', 'abc']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abc', 'abcd']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abcde', 'ab']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abcde', 'de']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['abcde', 'cd']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['aaaaa', 'aa']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aaaaa', 'aaa']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['ababab', 'aba']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['a b c', 'b c']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['Abc', 'bc']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abc!@#', '!@']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['你好世界', '世界']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['😀😃😄😁', '😃😄']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['𠜎𠜱𠝹𠱓', '𠜱𠝹']\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('strStr', ('hello world', 'world'), 6)",
+      "('strStr', ('hello world', 'xyz'), -1)",
+      "('strStr', ('', ''), 0)",
+      "('strStr', ('', 'abc'), -1)",
+      "('strStr', ('abc', 'abcd'), -1)",
+      "('strStr', ('abcde', 'ab'), 0)",
+      "('strStr', ('abcde', 'de'), 3)",
+      "('strStr', ('abcde', 'cd'), 2)",
+      "('strStr', ('aaaaa', 'aa'), 0)",
+      "('strStr', ('aaaaa', 'aaa'), 0)",
+      "('strStr', ('ababab', 'aba'), 0)",
+      "('strStr', ('a b c', 'b c'), 2)",
+      "('strStr', ('Abc', 'bc'), -1)",
+      "('strStr', ('abc!@#', '!@'), 3)",
+      "('strStr', ('你好世界', '世界'), 2)",
+      "('strStr', ('😀😃😄😁', '😃😄'), 1)",
+      "('strStr', ('𠜎𠜱𠝹𠱓', '𠜱𠝹'), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: strStr('hello world', 'world')\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#2] ✅ 通過\n  標準輸入: strStr('hello world', 'xyz')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#3] ✅ 通過\n  標準輸入: strStr('', '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: strStr('', 'abc')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: strStr('abc', 'abcd')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#6] ✅ 通過\n  標準輸入: strStr('abcde', 'ab')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: strStr('abcde', 'de')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#8] ✅ 通過\n  標準輸入: strStr('abcde', 'cd')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: strStr('aaaaa', 'aa')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: strStr('aaaaa', 'aaa')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#11] ✅ 通過\n  標準輸入: strStr('ababab', 'aba')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: strStr('a b c', 'b c')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#13] ❌ 失敗\n  標準輸入: strStr('Abc', 'bc')\n  標準輸出: -1\n  你的輸出: 1\n\n[測試#14] ✅ 通過\n  標準輸入: strStr('abc!@#', '!@')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#15] ✅ 通過\n  標準輸入: strStr('你好世界', '世界')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#16] ✅ 通過\n  標準輸入: strStr('😀😃😄😁', '😃😄')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#17] ✅ 通過\n  標準輸入: strStr('𠜎𠜱𠝹𠱓', '𠜱𠝹')\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (16/17) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 17,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

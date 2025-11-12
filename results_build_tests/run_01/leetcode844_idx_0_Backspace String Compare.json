@@ -1,0 +1,38 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode844.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Backspace String Compare",
+    "description": "Given two strings s and t, return true if they are equal when both are typed into empty text editors. '#' means a backspace character.\n\nNote that after backspacing an empty text, the text will continue empty.",
+    "examples": [
+      {
+        "input": "s = \"ab#c\", t = \"ad#c\"",
+        "output": "true",
+        "explanation": "Both s and t become \"ac\"."
+      },
+      {
+        "input": "s = \"ab##\", t = \"c#d#\"",
+        "output": "true",
+        "explanation": "Both s and t become \"\"."
+      },
+      {
+        "input": "s = \"a#c\", t = \"b\"",
+        "output": "false",
+        "explanation": "s becomes \"c\" while t becomes \"b\"."
+      }
+    ],
+    "solution": "class Solution(object):\n    def backspaceCompare(self, s, t):\n        \"\"\"\n        :type s: str\n        :type t: str\n        :rtype: bool\n        \"\"\"\n        def build(string):\n            stack = []\n            for ch in string:\n                if ch == '#':\n                    if stack:\n                        stack.pop()\n                else:\n                    stack.append(ch)\n            return \"\".join(stack)\n        \n        return build(s) == build(t)"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

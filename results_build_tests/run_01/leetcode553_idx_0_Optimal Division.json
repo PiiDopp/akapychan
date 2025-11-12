@@ -1,0 +1,95 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode553.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Optimal Division",
+    "description": "You are given an integer array nums. The adjacent integers in nums will perform the float division.\n\nFor example, for nums = [2,3,4], we will evaluate the expression \"2/3/4\".\nHowever, you can add any number of parenthesis at any position to change the priority of operations. You want to add these parentheses such the value of the expression after the evaluation is maximum.\n\nReturn the corresponding expression that has the maximum value in string format.\n\nNote: your expression should not contain redundant parenthesis.",
+    "examples": [
+      {
+        "input": "[1000,100,10,2]",
+        "output": "\"1000/(100/10/2)\"",
+        "explanation": "1000/(100/10/2) = 1000/((100/10)/2) = 200 \nHowever, the bold parenthesis in \"1000/((100/10)/2)\" are redundant since they do not influence the operation priority. \nSo you should return \"1000/(100/10/2)\". \nOther cases: \n1000/(100/10)/2 = 50 \n1000/(100/(10/2)) = 50 \n1000/100/10/2 = 0.5 \n1000/100/(10/2) = 2"
+      },
+      {
+        "input": "[2,3,4]",
+        "output": "\"2/(3/4)\"",
+        "explanation": "(2/(3/4)) = 8/3 = 2.667 \nIt can be shown that after trying all possibilities, we cannot get an expression with evaluation greater than 2.667"
+      }
+    ],
+    "solution": "class Solution:\n    def optimalDivision(self, nums):\n        if len(nums) == 1:\n            return str(nums[0])\n        if len(nums) == 2:\n            return str(nums[0]) + \"/\" + str(nums[1])\n        return str(nums[0]) + \"/(\" + \"/\".join(map(str, nums[1:])) + \")\""
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "42\n",
+        "output": "42\n"
+      },
+      {
+        "input": "10\n5\n",
+        "output": "10/5\n"
+      },
+      {
+        "input": "2\n3\n4\n",
+        "output": "2/(3/4)\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "1/(2/3/4)\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n",
+        "output": "1/(2/3/4/5)\n"
+      },
+      {
+        "input": "100\n1\n1\n1\n",
+        "output": "100/(1/1/1)\n"
+      },
+      {
+        "input": "5\n5\n5\n5\n",
+        "output": "5/(5/5/5)\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "1/1\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "1/2\n"
+      },
+      {
+        "input": "999\n1\n2\n",
+        "output": "999/(1/2)\n"
+      },
+      {
+        "input": "3\n3\n3\n",
+        "output": "3/(3/3)\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n",
+        "output": "1/(2/3/4/5/6)\n"
+      }
+    ],
+    "parsed_tests": [
+      "('optimalDivision', (42,), 42)",
+      "('optimalDivision', ((10, 5),), '10/5\\n')",
+      "('optimalDivision', ((2, 3, 4),), '2/(3/4)\\n')",
+      "('optimalDivision', ((1, 2, 3, 4),), '1/(2/3/4)\\n')",
+      "('optimalDivision', ((1, 2, 3, 4, 5),), '1/(2/3/4/5)\\n')",
+      "('optimalDivision', ((100, 1, 1, 1),), '100/(1/1/1)\\n')",
+      "('optimalDivision', ((5, 5, 5, 5),), '5/(5/5/5)\\n')",
+      "('optimalDivision', ((1, 1),), '1/1\\n')",
+      "('optimalDivision', ((1, 2),), '1/2\\n')",
+      "('optimalDivision', ((999, 1, 2),), '999/(1/2)\\n')",
+      "('optimalDivision', ((3, 3, 3),), '3/(3/3)\\n')",
+      "('optimalDivision', ((1, 2, 3, 4, 5, 6),), '1/(2/3/4/5/6)\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 失敗\n  標準輸入: optimalDivision((10, 5),)\n  標準輸出: '10/5\\n'\n  你的輸出: '10/5'\n\n[測試#3] ❌ 失敗\n  標準輸入: optimalDivision((2, 3, 4),)\n  標準輸出: '2/(3/4)\\n'\n  你的輸出: '2/(3/4)'\n\n[測試#4] ❌ 失敗\n  標準輸入: optimalDivision((1, 2, 3, 4),)\n  標準輸出: '1/(2/3/4)\\n'\n  你的輸出: '1/(2/3/4)'\n\n[測試#5] ❌ 失敗\n  標準輸入: optimalDivision((1, 2, 3, 4, 5),)\n  標準輸出: '1/(2/3/4/5)\\n'\n  你的輸出: '1/(2/3/4/5)'\n\n[測試#6] ❌ 失敗\n  標準輸入: optimalDivision((100, 1, 1, 1),)\n  標準輸出: '100/(1/1/1)\\n'\n  你的輸出: '100/(1/1/1)'\n\n[測試#7] ❌ 失敗\n  標準輸入: optimalDivision((5, 5, 5, 5),)\n  標準輸出: '5/(5/5/5)\\n'\n  你的輸出: '5/(5/5/5)'\n\n[測試#8] ❌ 失敗\n  標準輸入: optimalDivision((1, 1),)\n  標準輸出: '1/1\\n'\n  你的輸出: '1/1'\n\n[測試#9] ❌ 失敗\n  標準輸入: optimalDivision((1, 2),)\n  標準輸出: '1/2\\n'\n  你的輸出: '1/2'\n\n[測試#10] ❌ 失敗\n  標準輸入: optimalDivision((999, 1, 2),)\n  標準輸出: '999/(1/2)\\n'\n  你的輸出: '999/(1/2)'\n\n[測試#11] ❌ 失敗\n  標準輸入: optimalDivision((3, 3, 3),)\n  標準輸出: '3/(3/3)\\n'\n  你的輸出: '3/(3/3)'\n\n[測試#12] ❌ 失敗\n  標準輸入: optimalDivision((1, 2, 3, 4, 5, 6),)\n  標準輸出: '1/(2/3/4/5/6)\\n'\n  你的輸出: '1/(2/3/4/5/6)'\n\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

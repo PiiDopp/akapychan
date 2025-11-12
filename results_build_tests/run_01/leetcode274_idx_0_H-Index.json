@@ -1,0 +1,32 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode274.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "H-Index",
+    "description": "Given an array of integers citations where citations[i] is the number of citations a researcher received for their ith paper, return the researcher's h-index. \n\nAccording to the definition of h-index on Wikipedia: The h-index is defined as the maximum value of h such that the given researcher has published at least h papers that have each been cited at least h times.",
+    "examples": [
+      {
+        "input": "citations = [3,0,6,1,5]",
+        "output": "3",
+        "explanation": "[3,0,6,1,5] means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively.\nSince the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, their h-index is 3."
+      },
+      {
+        "input": "citations = [1,3,1]",
+        "output": "1"
+      }
+    ],
+    "solution": "class Solution:\n    def hIndex(self, citations):\n        citations.sort(reverse=True)\n        h = 0\n        for i, c in enumerate(citations):\n            if c >= i + 1:\n                h = i + 1\n            else:\n                break\n        return h"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

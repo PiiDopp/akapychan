@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode712.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum ASCII Delete Sum for Two Strings",
+    "description": "Given two strings s1 and s2, return the lowest ASCII sum of deleted characters to make two strings equal.",
+    "examples": [
+      {
+        "input": "s1 = \"sea\", s2 = \"eat\"",
+        "output": "231",
+        "explanation": "\" Deleting \"s\" from \"sea\" adds the ASCII value of \"s\" (115) to the sum. \\nDeleting \"t\" from \"eat\" adds 116 to the sum. \\nAt the end, both strings are equal, and 115 + 116 = 231 is the minimum sum possible to achieve this.\""
+      },
+      {
+        "input": "s1 = \"delete\", s2 = \"leet\"",
+        "output": "403",
+        "explanation": "Deleting \"dee\" from \"delete\" to turn the string into \"let\", \nadds 100[d] + 101[e] + 101[e] to the sum. \nDeleting \"e\" from \"leet\" adds 101[e] to the sum. \nAt the end, both strings are equal to \"let\", and the answer is 100+101+101+101 = 403. \nIf instead we turned both strings into \"lee\" or \"eet\", we would get answers of 433 or 417, which are higher."
+      }
+    ],
+    "solution": "class Solution:\n    def minimumDeleteSum(self, s1, s2):\n        m, n = len(s1), len(s2)\n        dp = [[0]*(n+1) for _ in range(m+1)]\n        \n        for i in range(1, m+1):\n            dp[i][0] = dp[i-1][0] + ord(s1[i-1])\n        for j in range(1, n+1):\n            dp[0][j] = dp[0][j-1] + ord(s2[j-1])\n        \n        for i in range(1, m+1):\n            for j in range(1, n+1):\n                if s1[i-1] == s2[j-1]:\n                    dp[i][j] = dp[i-1][j-1]\n                else:\n                    dp[i][j] = min(dp[i-1][j]+ord(s1[i-1]), dp[i][j-1]+ord(s2[j-1]))\n        \n        return dp[m][n]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['sea', 'eat']\n",
+        "output": "231\n"
+      },
+      {
+        "input": "['delete', 'leet']\n",
+        "output": "403\n"
+      },
+      {
+        "input": "['abcd', 'abcd']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', 'def']\n",
+        "output": "597\n"
+      },
+      {
+        "input": "['', 'abc']\n",
+        "output": "294\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['a', 'b']\n",
+        "output": "195\n"
+      },
+      {
+        "input": "['ab', 'ba']\n",
+        "output": "194\n"
+      },
+      {
+        "input": "['abcde', 'ace']\n",
+        "output": "198\n"
+      },
+      {
+        "input": "['你好', '世界']\n",
+        "output": "93231\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minimumDeleteSum', ('sea', 'eat'), 231)",
+      "('minimumDeleteSum', ('delete', 'leet'), 403)",
+      "('minimumDeleteSum', ('abcd', 'abcd'), 0)",
+      "('minimumDeleteSum', ('abc', 'def'), 597)",
+      "('minimumDeleteSum', ('', 'abc'), 294)",
+      "('minimumDeleteSum', ('a', 'a'), 0)",
+      "('minimumDeleteSum', ('a', 'b'), 195)",
+      "('minimumDeleteSum', ('ab', 'ba'), 194)",
+      "('minimumDeleteSum', ('abcde', 'ace'), 198)",
+      "('minimumDeleteSum', ('你好', '世界'), 93231)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minimumDeleteSum('sea', 'eat')\n  標準輸出: 231\n  你的輸出: 231\n\n[測試#2] ✅ 通過\n  標準輸入: minimumDeleteSum('delete', 'leet')\n  標準輸出: 403\n  你的輸出: 403\n\n[測試#3] ✅ 通過\n  標準輸入: minimumDeleteSum('abcd', 'abcd')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: minimumDeleteSum('abc', 'def')\n  標準輸出: 597\n  你的輸出: 597\n\n[測試#5] ✅ 通過\n  標準輸入: minimumDeleteSum('', 'abc')\n  標準輸出: 294\n  你的輸出: 294\n\n[測試#6] ✅ 通過\n  標準輸入: minimumDeleteSum('a', 'a')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: minimumDeleteSum('a', 'b')\n  標準輸出: 195\n  你的輸出: 195\n\n[測試#8] ✅ 通過\n  標準輸入: minimumDeleteSum('ab', 'ba')\n  標準輸出: 194\n  你的輸出: 194\n\n[測試#9] ✅ 通過\n  標準輸入: minimumDeleteSum('abcde', 'ace')\n  標準輸出: 198\n  你的輸出: 198\n\n[測試#10] ❌ 失敗\n  標準輸入: minimumDeleteSum('你好', '世界')\n  標準輸出: 93231\n  你的輸出: 93247\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

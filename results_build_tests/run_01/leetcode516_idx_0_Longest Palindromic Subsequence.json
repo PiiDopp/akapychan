@@ -1,0 +1,100 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode516.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Palindromic Subsequence",
+    "description": "Given a string s, find the longest palindromic subsequence's length in s.\n\nA subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.",
+    "examples": [
+      {
+        "input": "\"bbbab\"",
+        "output": "4",
+        "explanation": "One possible longest palindromic subsequence is \"bbbb\"."
+      },
+      {
+        "input": "\"cbbd\"",
+        "output": "2",
+        "explanation": "One possible longest palindromic subsequence is \"bb\"."
+      }
+    ],
+    "solution": "class Solution:\n    def longestPalindromeSubseq(self, s):\n        n = len(s)\n        dp = [[0] * n for _ in range(n)]\n        \n        for i in range(n-1, -1, -1):\n            dp[i][i] = 1\n            for j in range(i+1, n):\n                if s[i] == s[j]:\n                    dp[i][j] = dp[i+1][j-1] + 2\n                else:\n                    dp[i][j] = max(dp[i+1][j], dp[i][j-1])\n        return dp[0][n-1]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "bbbab\n",
+        "output": "4\n"
+      },
+      {
+        "input": "cbbd\n",
+        "output": "2\n"
+      },
+      {
+        "input": "a\n",
+        "output": "1\n"
+      },
+      {
+        "input": "abca\n",
+        "output": "3\n"
+      },
+      {
+        "input": "abcd\n",
+        "output": "1\n"
+      },
+      {
+        "input": "aaaa\n",
+        "output": "4\n"
+      },
+      {
+        "input": "abacdfgdcaba\n",
+        "output": "7\n"
+      },
+      {
+        "input": "character\n",
+        "output": "5\n"
+      },
+      {
+        "input": "abccba\n",
+        "output": "6\n"
+      },
+      {
+        "input": "abacabadabacaba\n",
+        "output": "15\n"
+      },
+      {
+        "input": "a b a\n",
+        "output": "3\n"
+      },
+      {
+        "input": "a!a\n",
+        "output": "3\n"
+      },
+      {
+        "input": "abcabc\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('longestPalindromeSubseq', ('bbbab\\n',), 4)",
+      "('longestPalindromeSubseq', ('cbbd\\n',), 2)",
+      "('longestPalindromeSubseq', ('a\\n',), 1)",
+      "('longestPalindromeSubseq', ('abca\\n',), 3)",
+      "('longestPalindromeSubseq', ('abcd\\n',), 1)",
+      "('longestPalindromeSubseq', ('aaaa\\n',), 4)",
+      "('longestPalindromeSubseq', ('abacdfgdcaba\\n',), 7)",
+      "('longestPalindromeSubseq', ('character\\n',), 5)",
+      "('longestPalindromeSubseq', ('abccba\\n',), 6)",
+      "('longestPalindromeSubseq', ('abacabadabacaba\\n',), 15)",
+      "('longestPalindromeSubseq', ('a b a\\n',), 3)",
+      "('longestPalindromeSubseq', ('a!a\\n',), 3)",
+      "('longestPalindromeSubseq', ('abcabc\\n',), 3)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: longestPalindromeSubseq('bbbab\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#2] ✅ 通過\n  標準輸入: longestPalindromeSubseq('cbbd\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: longestPalindromeSubseq('a\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abca\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abcd\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: longestPalindromeSubseq('aaaa\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: longestPalindromeSubseq('abacdfgdcaba\\n',)\n  標準輸出: 7\n  你的輸出: 11\n\n[測試#8] ✅ 通過\n  標準輸入: longestPalindromeSubseq('character\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#9] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abccba\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#10] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abacabadabacaba\\n',)\n  標準輸出: 15\n  你的輸出: 15\n\n[測試#11] ❌ 失敗\n  標準輸入: longestPalindromeSubseq('a b a\\n',)\n  標準輸出: 3\n  你的輸出: 5\n\n[測試#12] ✅ 通過\n  標準輸入: longestPalindromeSubseq('a!a\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#13] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abcabc\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n=== 測試完成 (11/13) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 13,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

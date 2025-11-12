@@ -1,0 +1,135 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode818.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Race Car",
+    "description": "Your car starts at position 0 and speed +1 on an infinite number line. Your car can go into negative positions. Your car drives automatically according to a sequence of instructions 'A' (accelerate) and 'R' (reverse):\n\nWhen you get an instruction 'A', your car does the following:\nposition += speed\nspeed *= 2\nWhen you get an instruction 'R', your car does the following:\nIf your speed is positive then speed = -1\notherwise speed = 1\nYour position stays the same.\nFor example, after commands \"AAR\", your car goes to positions 0 --> 1 --> 3 --> 3, and your speed goes 1 --> 2 --> 4 --> -1.\n\nGiven a target position target, return the length of the shortest sequence of instructions to get there.",
+    "examples": [
+      {
+        "input": "target = 3",
+        "output": "2",
+        "explanation": "The shortest instruction sequence is \"AA\".\nYour position goes from 0 --> 1 --> 3."
+      },
+      {
+        "input": "target = 6",
+        "output": "5",
+        "explanation": "The shortest instruction sequence is \"AAARA\".\nYour position goes from 0 --> 1 --> 3 --> 7 --> 7 --> 6."
+      }
+    ],
+    "solution": "class Solution(object):\n    def racecar(self, target):\n        \"\"\"\n        :type target: int\n        :rtype: int\n        \"\"\"\n        from collections import deque\n        \n        visited = set()\n        queue = deque([(0, 1, 0)])  # (position, speed, moves)\n        \n        while queue:\n            pos, speed, moves = queue.popleft()\n            if pos == target:\n                return moves\n            # accelerate\n            next_pos, next_speed = pos + speed, speed * 2\n            if (next_pos, next_speed) not in visited and 0 <= next_pos <= 2 * target:\n                visited.add((next_pos, next_speed))\n                queue.append((next_pos, next_speed, moves + 1))\n            # reverse\n            rev_speed = -1 if speed > 0 else 1\n            if (pos, rev_speed) not in visited:\n                visited.add((pos, rev_speed))\n                queue.append((pos, rev_speed, moves + 1))"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n",
+        "output": "3\n"
+      },
+      {
+        "input": "3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "6\n",
+        "output": "5\n"
+      },
+      {
+        "input": "7\n",
+        "output": "3\n"
+      },
+      {
+        "input": "8\n",
+        "output": "5\n"
+      },
+      {
+        "input": "9\n",
+        "output": "5\n"
+      },
+      {
+        "input": "10\n",
+        "output": "6\n"
+      },
+      {
+        "input": "15\n",
+        "output": "4\n"
+      },
+      {
+        "input": "16\n",
+        "output": "6\n"
+      },
+      {
+        "input": "17\n",
+        "output": "7\n"
+      },
+      {
+        "input": "20\n",
+        "output": "7\n"
+      },
+      {
+        "input": "31\n",
+        "output": "5\n"
+      },
+      {
+        "input": "32\n",
+        "output": "7\n"
+      },
+      {
+        "input": "63\n",
+        "output": "6\n"
+      },
+      {
+        "input": "100\n",
+        "output": "10\n"
+      },
+      {
+        "input": "1000\n",
+        "output": "15\n"
+      }
+    ],
+    "parsed_tests": [
+      "('racecar', (0,), 0)",
+      "('racecar', (1,), 1)",
+      "('racecar', (2,), 3)",
+      "('racecar', (3,), 2)",
+      "('racecar', (4,), 4)",
+      "('racecar', (5,), 5)",
+      "('racecar', (6,), 5)",
+      "('racecar', (7,), 3)",
+      "('racecar', (8,), 5)",
+      "('racecar', (9,), 5)",
+      "('racecar', (10,), 6)",
+      "('racecar', (15,), 4)",
+      "('racecar', (16,), 6)",
+      "('racecar', (17,), 7)",
+      "('racecar', (20,), 7)",
+      "('racecar', (31,), 5)",
+      "('racecar', (32,), 7)",
+      "('racecar', (63,), 6)",
+      "('racecar', (100,), 10)",
+      "('racecar', (1000,), 15)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: racecar(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: racecar(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ❌ 失敗\n  標準輸入: racecar(2,)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: racecar(3,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ❌ 失敗\n  標準輸入: racecar(4,)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#6] ❌ 失敗\n  標準輸入: racecar(5,)\n  標準輸出: 5\n  你的輸出: 7\n\n[測試#7] ✅ 通過\n  標準輸入: racecar(6,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#8] ✅ 通過\n  標準輸入: racecar(7,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#9] ❌ 失敗\n  標準輸入: racecar(8,)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#10] ❌ 失敗\n  標準輸入: racecar(9,)\n  標準輸出: 5\n  你的輸出: 8\n\n[測試#11] ❌ 失敗\n  標準輸入: racecar(10,)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#12] ✅ 通過\n  標準輸入: racecar(15,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#13] ❌ 失敗\n  標準輸入: racecar(16,)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#14] ❌ 失敗\n  標準輸入: racecar(17,)\n  標準輸出: 7\n  你的輸出: 9\n\n[測試#15] ❌ 失敗\n  標準輸入: racecar(20,)\n  標準輸出: 7\n  你的輸出: 12\n\n[測試#16] ✅ 通過\n  標準輸入: racecar(31,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#17] ❌ 失敗\n  標準輸入: racecar(32,)\n  標準輸出: 7\n  你的輸出: 8\n\n[測試#18] ✅ 通過\n  標準輸入: racecar(63,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#19] ❌ 失敗\n  標準輸入: racecar(100,)\n  標準輸出: 10\n  你的輸出: 19\n\n[測試#20] ❌ 失敗\n  標準輸入: racecar(1000,)\n  標準輸出: 15\n  你的輸出: 23\n\n=== 測試完成 (8/20) ===\n[警告] 部分測資未通過 ❌（0.0088s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode827.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Making A Large Island",
+    "description": "You are given an n x n binary matrix grid. You are allowed to change at most one 0 to be 1.\n\nReturn the size of the largest island in grid after applying this operation.\n\nAn island is a 4-directionally connected group of 1s.",
+    "examples": [
+      {
+        "input": "grid = [[1,0],[0,1]]",
+        "output": "3",
+        "explanation": "Change one 0 to 1 and connect two 1s, then we get an island with area = 3."
+      },
+      {
+        "input": "grid = [[1,1],[1,0]]",
+        "output": "4",
+        "explanation": "Change the 0 to 1 and make the island bigger, only one island with area = 4."
+      },
+      {
+        "input": "grid = [[1,1],[1,1]]",
+        "output": "4",
+        "explanation": "Can't change any 0 to 1, only one island with area = 4."
+      }
+    ],
+    "solution": "class Solution(object):\n    def largestIsland(self, grid):\n        n = len(grid)\n        index = 2\n        area = {}\n        \n        def dfs(i, j, index):\n            stack = [(i, j)]\n            grid[i][j] = index\n            count = 1\n            while stack:\n                x, y = stack.pop()\n                for dx, dy in ((0,1),(1,0),(0,-1),(-1,0)):\n                    nx, ny = x+dx, y+dy\n                    if 0<=nx<n and 0<=ny<n and grid[nx][ny]==1:\n                        grid[nx][ny] = index\n                        count += 1\n                        stack.append((nx, ny))\n            return count\n        \n        for i in range(n):\n            for j in range(n):\n                if grid[i][j]==1:\n                    area[index] = dfs(i, j, index)\n                    index += 1\n        \n        res = max(area.values() or [0])\n        for i in range(n):\n            for j in range(n):\n                if grid[i][j]==0:\n                    seen = set()\n                    temp = 1\n                    for dx, dy in ((0,1),(1,0),(0,-1),(-1,0)):\n                        ni, nj = i+dx, j+dy\n                        if 0<=ni<n and 0<=nj<n and grid[ni][nj]>1 and grid[ni][nj] not in seen:\n                            temp += area[grid[ni][nj]]\n                            seen.add(grid[ni][nj])\n                    res = max(res, temp)\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 1 1\n1 1 1\n1 1 1\n",
+        "output": "9\n"
+      },
+      {
+        "input": "0 0 0\n0 0 0\n0 0 0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 0 1\n0 0 0\n1 0 1\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1 1 0\n1 0 1\n0 1 1\n",
+        "output": "7\n"
+      },
+      {
+        "input": "0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 1 1 1\n1 1 1 1\n1 1 1 1\n1 1 1 1\n",
+        "output": "16\n"
+      }
+    ],
+    "parsed_tests": [
+      "('largestIsland', ('1 1 1\\n1 1 1\\n1 1 1\\n',), 9)",
+      "('largestIsland', ('0 0 0\\n0 0 0\\n0 0 0\\n',), 1)",
+      "('largestIsland', ('1 0 1\\n0 0 0\\n1 0 1\\n',), 5)",
+      "('largestIsland', ('1 1 0\\n1 0 1\\n0 1 1\\n',), 7)",
+      "('largestIsland', (0,), 1)",
+      "('largestIsland', (1,), 1)",
+      "('largestIsland', ('1 1 1 1\\n1 1 1 1\\n1 1 1 1\\n1 1 1 1\\n',), 16)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: string index out of range\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ❌ 執行例外: string index out of range\n[測試#4] ❌ 執行例外: string index out of range\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: string index out of range\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

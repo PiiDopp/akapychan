@@ -1,0 +1,64 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode809.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Expressive Words",
+    "description": "Sometimes people repeat letters to represent extra feeling. For example: \n\n\"hello\" -> \"heeellooo\"\n\"hi\" -> \"hiiii\"\nIn these strings like \"heeellooo\", we have groups of adjacent letters that are all the same: \"h\", \"eee\", \"ll\", \"ooo\".\n\nYou are given a string s and an array of query strings words. A query word is stretchy if it can be made to be equal to s by any number of applications of the following extension operation: choose a group consisting of characters c, and add some number of characters c to the group so that the size of the group is three or more.\n\nFor example, starting with \"hello\", we could do an extension on the group \"o\" to get \"hellooo\", but we cannot get \"helloo\" since the group \"oo\" has a size less than three. Also, we could do another extension like \"ll\" -> \"lllll\" to get \"helllllooo\". If s = \"helllllooo\", then the query word \"hello\" would be stretchy because of these two extension operations: query = \"hello\" -> \"hellooo\" -> \"helllllooo\" = s.\nReturn the number of query strings that are stretchy.",
+    "examples": [
+      {
+        "input": "s = \"heeellooo\", words = [\"hello\", \"hi\", \"helo\"]",
+        "output": "1",
+        "explanation": "We can extend \"e\" and \"o\" in the word \"hello\" to get \"heeellooo\".\nWe can't extend \"helo\" to get \"heeellooo\" because the group \"ll\" is not size 3 or more."
+      },
+      {
+        "input": "s = \"zzzzzyyyyy\", words = [\"zzyy\",\"zy\",\"zyy\"]",
+        "output": "3"
+      }
+    ],
+    "solution": "class Solution:\n    def expressiveWords(self, s, words):\n        def valid(word):\n            i = j = 0\n            while i < len(s) and j < len(word):\n                if s[i] != word[j]:\n                    return False\n                si = i\n                while i < len(s) and s[i] == s[si]:\n                    i += 1\n                wj = j\n                while j < len(word) and word[j] == word[wj]:\n                    j += 1\n                if (i - si) < (j - wj) or ((i - si) < 3 and (i - si) != (j - wj)):\n                    return False\n            return i == len(s) and j == len(word)\n        return sum(valid(word) for word in words)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['heeellooo', ['hello', 'hi']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abcd', ['abcd', 'abc', 'ab']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['aaa', ['a', 'aa', 'aaa', 'aaaa']]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['aabbcc', ['abc', 'aabbcc', 'aaabbbccc']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['', ['', 'a']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['a', ['a', 'aa', '']]\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('expressiveWords', ('heeellooo', ['hello', 'hi']), 1)",
+      "('expressiveWords', ('abcd', ['abcd', 'abc', 'ab']), 1)",
+      "('expressiveWords', ('aaa', ['a', 'aa', 'aaa', 'aaaa']), 3)",
+      "('expressiveWords', ('aabbcc', ['abc', 'aabbcc', 'aaabbbccc']), 1)",
+      "('expressiveWords', ('', ['', 'a']), 1)",
+      "('expressiveWords', ('a', ['a', 'aa', '']), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: expressiveWords('heeellooo', ['hello', 'hi'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: expressiveWords('abcd', ['abcd', 'abc', 'ab'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: expressiveWords('aaa', ['a', 'aa', 'aaa', 'aaaa'])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: expressiveWords('aabbcc', ['abc', 'aabbcc', 'aaabbbccc'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: expressiveWords('', ['', 'a'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: expressiveWords('a', ['a', 'aa', ''])\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (6/6) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 6,
+    "passed_count": 6,
+    "accuracy_rate": 1.0
+  }
+}

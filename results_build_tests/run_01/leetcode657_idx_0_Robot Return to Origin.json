@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode657.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Robot Return to Origin",
+    "description": "There is a robot starting at the position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot ends up at (0, 0) after it completes its moves.\n\nYou are given a string moves that represents the move sequence of the robot where moves[i] represents its ith move. Valid moves are 'R' (right), 'L' (left), 'U' (up), and 'D' (down).\n\nReturn true if the robot returns to the origin after it finishes all of its moves, or false otherwise.\n\nNote: The way that the robot is \"facing\" is irrelevant. 'R' will always make the robot move to the right once, 'L' will always make it move left, etc. Also, assume that the magnitude of the robot's movement is the same for each move.",
+    "examples": [
+      {
+        "input": "moves = \"UD\"",
+        "output": "true",
+        "explanation": "The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin where it started. Therefore, we return true."
+      },
+      {
+        "input": "moves = \"LL\"",
+        "output": "false",
+        "explanation": "The robot moves left twice. It ends up two \"moves\" to the left of the origin. We return false because it is not at the origin at the end of its moves."
+      }
+    ],
+    "solution": "class Solution:\n    def judgeCircle(self, moves):\n        x = y = 0\n        for move in moves:\n            if move == 'U':\n                y += 1\n            elif move == 'D':\n                y -= 1\n            elif move == 'L':\n                x -= 1\n            elif move == 'R':\n                x += 1\n        return x == 0 and y == 0"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "UD\n",
+        "output": "True\n"
+      },
+      {
+        "input": "LLRR\n",
+        "output": "True\n"
+      },
+      {
+        "input": "L\n",
+        "output": "False\n"
+      },
+      {
+        "input": "\n",
+        "output": "True\n"
+      },
+      {
+        "input": "UUDDLRLR\n",
+        "output": "True\n"
+      },
+      {
+        "input": "UUUU\n",
+        "output": "False\n"
+      },
+      {
+        "input": "RURD\n",
+        "output": "False\n"
+      },
+      {
+        "input": "UAXD\n",
+        "output": "True\n"
+      },
+      {
+        "input": "RLRLRLRL\n",
+        "output": "True\n"
+      },
+      {
+        "input": "RRLLUU\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('judgeCircle', ('UD\\n',), True)",
+      "('judgeCircle', ('LLRR\\n',), True)",
+      "('judgeCircle', ('L\\n',), False)",
+      "('judgeCircle', ((),), True)",
+      "('judgeCircle', ('UUDDLRLR\\n',), True)",
+      "('judgeCircle', ('UUUU\\n',), False)",
+      "('judgeCircle', ('RURD\\n',), False)",
+      "('judgeCircle', ('UAXD\\n',), True)",
+      "('judgeCircle', ('RLRLRLRL\\n',), True)",
+      "('judgeCircle', ('RRLLUU\\n',), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: judgeCircle('UD\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: judgeCircle('LLRR\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: judgeCircle('L\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: judgeCircle((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: judgeCircle('UUDDLRLR\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: judgeCircle('UUUU\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: judgeCircle('RURD\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: judgeCircle('UAXD\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: judgeCircle('RLRLRLRL\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: judgeCircle('RRLLUU\\n',)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 10,
+    "passed_count": 10,
+    "accuracy_rate": 1.0
+  }
+}

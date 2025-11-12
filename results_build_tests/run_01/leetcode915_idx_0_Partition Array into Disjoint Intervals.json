@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode915.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Partition Array into Disjoint Intervals",
+    "description": "Given an integer array nums, partition it into two (contiguous) subarrays left and right so that:\nEvery element in left is less than or equal to every element in right.\nleft and right are non-empty.\nleft has the smallest possible size.\nReturn the length of left after such a partitioning.\nTest cases are generated such that partitioning exists.",
+    "examples": [
+      {
+        "input": "nums = [5,0,3,8,6]",
+        "output": "3",
+        "explanation": "left = [5,0,3], right = [8,6]"
+      },
+      {
+        "input": "nums = [1,1,1,0,6,12]",
+        "output": "4",
+        "explanation": "left = [1,1,1,0], right = [6,12]"
+      }
+    ],
+    "solution": "class Solution(object):\n    def partitionDisjoint(self, A):\n        n = len(A)\n        left_max = [0]*n\n        left_max[0] = A[0]\n        for i in range(1, n):\n            left_max[i] = max(left_max[i-1], A[i])\n        \n        right_min = [0]*n\n        right_min[-1] = A[-1]\n        for i in range(n-2, -1, -1):\n            right_min[i] = min(right_min[i+1], A[i])\n        \n        for i in range(n-1):\n            if left_max[i] <= right_min[i+1]:\n                return i+1\n        return n"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n1\n1\n1\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5\n4\n3\n2\n1\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1\n1\n1\n0\n6\n12\n7\n9\n10\n11\n",
+        "output": "4\n"
+      },
+      {
+        "input": "-5\n-4\n-3\n-2\n-1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n1\n3\n4\n5\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1\n2\n3\n3\n3\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1000000000\n1000000000\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n3\n5\n2\n4\n6\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n2\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('partitionDisjoint', ((1, 1, 1, 1, 1),), 1)",
+      "('partitionDisjoint', ((1, 2),), 1)",
+      "('partitionDisjoint', ((5, 4, 3, 2, 1),), 5)",
+      "('partitionDisjoint', ((1, 1, 1, 0, 6, 12, 7, 9, 10, 11),), 4)",
+      "('partitionDisjoint', ((-5, -4, -3, -2, -1),), 1)",
+      "('partitionDisjoint', ((2, 1, 3, 4, 5),), 2)",
+      "('partitionDisjoint', ((1, 2, 3, 3, 3),), 1)",
+      "('partitionDisjoint', ((1000000000, 1000000000),), 1)",
+      "('partitionDisjoint', ((1, 3, 5, 2, 4, 6),), 1)",
+      "('partitionDisjoint', ((2, 2),), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: partitionDisjoint((1, 1, 1, 1, 1),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: partitionDisjoint((1, 2),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: partitionDisjoint((5, 4, 3, 2, 1),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#4] ✅ 通過\n  標準輸入: partitionDisjoint((1, 1, 1, 0, 6, 12, 7, 9, 10, 11),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#5] ✅ 通過\n  標準輸入: partitionDisjoint((-5, -4, -3, -2, -1),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: partitionDisjoint((2, 1, 3, 4, 5),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: partitionDisjoint((1, 2, 3, 3, 3),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: partitionDisjoint((1000000000, 1000000000),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: partitionDisjoint((1, 3, 5, 2, 4, 6),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: partitionDisjoint((2, 2),)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 10,
+    "passed_count": 10,
+    "accuracy_rate": 1.0
+  }
+}

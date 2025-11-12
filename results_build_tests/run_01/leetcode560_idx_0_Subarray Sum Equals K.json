@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode560.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Subarray Sum Equals K",
+    "description": "Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.\n\nA subarray is a contiguous non-empty sequence of elements within an array.",
+    "examples": [
+      {
+        "input": "[1,1,1], k = 2",
+        "output": "2"
+      },
+      {
+        "input": "[1,2,3], k = 3",
+        "output": "2"
+      }
+    ],
+    "solution": "class Solution:\n    def subarraySum(self, nums, k):\n        count = 0\n        prefix_sum = 0\n        sum_map = {0: 1}\n\n        for num in nums:\n            prefix_sum += num\n            if prefix_sum - k in sum_map:\n                count += sum_map[prefix_sum - k]\n            sum_map[prefix_sum] = sum_map.get(prefix_sum, 0) + 1\n\n        return count"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

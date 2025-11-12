@@ -1,0 +1,38 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode488.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Zuma Game",
+    "description": "You are playing a variation of the game Zuma. \nIn this variation of Zuma, there is a single row of colored balls on a board, where each ball can be colored red 'R', yellow 'Y', blue 'B', green 'G', or white 'W'. You also have several colored balls in your hand. \nYour goal is to clear all of the balls from the board. On each turn: \nPick any ball from your hand and insert it in between two balls in the row or on either end of the row. \nIf there is a group of three or more consecutive balls of the same color, remove the group of balls from the board. \nIf this removal causes more groups of three or more of the same color to form, then continue removing each group until there are none left. If there are no more balls on the board, then you win the game. \nRepeat this process until you either win or do not have any more balls in your hand. \nGiven a string board, representing the row of balls on the board, and a string hand, representing the balls in your hand, return the minimum number of balls you have to insert to clear all the balls from the board. If you cannot clear all the balls from the board using the balls in your hand, return -1",
+    "examples": [
+      {
+        "input": "board = \"WRRBBW\", hand = \"RB\"",
+        "output": "-1",
+        "explanation": "It is impossible to clear all the balls. The best you can do is: \n- Insert 'R' so the board becomes WRRRBBW. WRRRBBW -> WBBW. \n- Insert 'B' so the board becomes WBBBW. WBBBW -> WW. \nThere are still balls remaining on the board, and you are out of balls to insert."
+      },
+      {
+        "input": "board = \"WWRRBBWW\", hand = \"WRBRW\"",
+        "output": "2",
+        "explanation": "To make the board empty: \n- Insert 'R' so the board becomes WWRRRBBWW. WWRRRBBWW -> WWBBWW. \n- Insert 'B' so the board becomes WWBBBWW. WWBBBWW -> WWWW -> empty. \n2 balls from your hand were needed to clear the board."
+      },
+      {
+        "input": "board = \"G\", hand = \"GGGGG\"",
+        "output": "2",
+        "explanation": "To make the board empty: \n- Insert 'G' so the board becomes GG. \n- Insert 'G' so the board becomes GGG. GGG -> empty. \n2 balls from your hand were needed to clear the board."
+      }
+    ],
+    "solution": "import collections \n\nclass Solution(object):\n    def findMinStep(self, board, hand):\n        \"\"\"\n        :type board: str\n        :type hand: str\n        :rtype: int\n        \"\"\"\n        \n        # Function to remove consecutive same balls from the board\n        def remove_same(s, i):\n            if i < 0:\n                return s\n            \n            left = right = i\n            while left > 0 and s[left-1] == s[i]:\n                left -= 1\n            while right+1 < len(s) and s[right+1] == s[i]:\n                right += 1\n            \n            length = right - left + 1\n            if length >= 3:\n                new_s = s[:left] + s[right+1:]\n                return remove_same(new_s, left-1)  # recursively clean the new string\n            else:\n                return s\n\n        # Sort hand to optimize insertion\n        hand = \"\".join(sorted(hand))\n\n        # BFS queue: (current board, current hand, current step)\n        q = collections.deque([(board, hand, 0)])\n        visited = set([(board, hand)])  # Visited states to prevent reprocessing\n\n        while q:\n            curr_board, curr_hand, step = q.popleft()\n\n            for i in range(len(curr_board) + 1):\n                for j in range(len(curr_hand)):\n                    # Skip consecutive balls in hand to prevent duplicate insertions\n                    if j > 0 and curr_hand[j] == curr_hand[j-1]:\n                        continue\n                    \n                    # Skip positions where we don't need to insert (if left side has same color)\n                    if i > 0 and curr_board[i-1] == curr_hand[j]:\n                        continue\n                    \n                    pick = False\n                    # Check if inserting the ball will help remove\n                    # 1. Same color with the right ball\n                    # 2. Left and right balls are the same, but current hand ball is different\n                    if i < len(curr_board) and curr_board[i] == curr_hand[j]:\n                        pick = True\n                    if 0 < i < len(curr_board) and curr_board[i-1] == curr_board[i] and curr_board[i] != curr_hand[j]:\n                        pick = True\n                    \n                    if pick:\n                        # Simulate the board after insertion and removal\n                        new_board = remove_same(curr_board[:i] + curr_hand[j] + curr_board[i:], i)\n                        new_hand = curr_hand[:j] + curr_hand[j+1:]  # Remove the used ball from hand\n                        \n                        # If the board is empty, return the number of steps\n                        if not new_board:\n                            return step + 1\n                        \n                        # If the new state is not visited, process it\n                        if (new_board, new_hand) not in visited:\n                            q.append((new_board, new_hand, step + 1))\n                            visited.add((new_board, new_hand))\n\n        # If no solution was found\n        return -1"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

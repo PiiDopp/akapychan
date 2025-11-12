@@ -1,0 +1,89 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode354.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Russian Doll Envelopes",
+    "description": "You are given a 2D array of integers envelopes where envelopes[i] = [w_i, h_i] represents the width and the height of an envelope.\n\nOne envelope can fit into another if and only if both the width and height of one envelope are greater than the other envelope's width and height.\n\nReturn the maximum number of envelopes you can Russian doll (i.e., put one inside the other).\n\nNote: You cannot rotate an envelope.",
+    "examples": [
+      {
+        "input": "envelopes = [[5,4],[6,4],[6,7],[2,3]]",
+        "output": "3",
+        "explanation": "The maximum number of envelopes you can Russian doll is 3 ([2,3] => [5,4] => [6,7])."
+      },
+      {
+        "input": "envelopes = [[1,1],[1,1],[1,1]]",
+        "output": "1"
+      }
+    ],
+    "solution": "class Solution:\n    def maxEnvelopes(self, envelopes):\n        if not envelopes:\n            return 0\n        # 先按寬度升序，如果寬度相同，按高度降序\n        envelopes.sort(key=lambda x: (x[0], -x[1]))\n        import bisect\n        dp = []\n        for _, h in envelopes:\n            idx = bisect.bisect_left(dp, h)\n            if idx == len(dp):\n                dp.append(h)\n            else:\n                dp[idx] = h\n        return len(dp)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "5 4\n6 4\n6 7\n2 3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2 3\n2 4\n2 5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3 2\n4 2\n5 2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5 5\n4 4\n3 3\n2 2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 1\n2 2\n3 3\n4 4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1 5\n4 6\n6 7\n2 3\n5 4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1 1\n1 1\n1 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "-1 -2\n-3 -4\n-2 -1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1000000 1000000\n1000001 1000001\n1000002 1000002\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maxEnvelopes', ('5 4\\n6 4\\n6 7\\n2 3\\n',), 3)",
+      "('maxEnvelopes', ((),), 0)",
+      "('maxEnvelopes', ('1 1\\n',), 1)",
+      "('maxEnvelopes', ('2 3\\n2 4\\n2 5\\n',), 1)",
+      "('maxEnvelopes', ('3 2\\n4 2\\n5 2\\n',), 1)",
+      "('maxEnvelopes', ('5 5\\n4 4\\n3 3\\n2 2\\n',), 1)",
+      "('maxEnvelopes', ('1 1\\n2 2\\n3 3\\n4 4\\n',), 4)",
+      "('maxEnvelopes', ('1 5\\n4 6\\n6 7\\n2 3\\n5 4\\n',), 3)",
+      "('maxEnvelopes', ('1 1\\n1 1\\n1 1\\n',), 1)",
+      "('maxEnvelopes', ('-1 -2\\n-3 -4\\n-2 -1\\n',), 2)",
+      "('maxEnvelopes', ('1000000 1000000\\n1000001 1000001\\n1000002 1000002\\n',), 3)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ✅ 通過\n  標準輸入: maxEnvelopes((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#11] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (1/11) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 11,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

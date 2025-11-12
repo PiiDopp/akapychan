@@ -1,0 +1,112 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode875.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Koko Eating Bananas",
+    "description": "Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.\n\nKoko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.\n\nKoko likes to eat slowly but still wants to finish eating all the bananas before the guards return.\n\nReturn the minimum integer k such that she can eat all the bananas within h hours.",
+    "examples": [
+      {
+        "input": "piles = [3,6,7,11], h = 8",
+        "output": "4"
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 5",
+        "output": "30"
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 6",
+        "output": "23"
+      }
+    ],
+    "solution": "class Solution(object):\n    def minEatingSpeed(self, piles, H):\n        import math\n        left, right = 1, max(piles)\n        while left < right:\n            mid = (left + right) // 2\n            hours = sum(math.ceil(pile / float(mid)) for pile in piles)\n            if hours <= H:\n                right = mid\n            else:\n                left = mid + 1\n        return left"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[3, 6, 7, 11]\n8\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[30, 11, 23, 4, 20]\n5\n",
+        "output": "30\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[1]\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1]\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1000000000]\n1\n",
+        "output": "1000000000\n"
+      },
+      {
+        "input": "[5, 10, 15]\n6\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[5, 10, 15]\n5\n",
+        "output": "8\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n6\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[1, 1, 1, 1, 1]\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[2, 3, 4, 5, 6]\n10\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[100, 200, 300]\n1000\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[10, 20, 30]\n3\n",
+        "output": "30\n"
+      },
+      {
+        "input": "[1, 2, 3]\n4\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[1, 2, 3]\n6\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minEatingSpeed', ([3, 6, 7, 11], 8), 4)",
+      "('minEatingSpeed', ([30, 11, 23, 4, 20], 5), 30)",
+      "('minEatingSpeed', ([1, 2, 3, 4, 5], 5), 5)",
+      "('minEatingSpeed', ([1], 1), 1)",
+      "('minEatingSpeed', ([1], 2), 1)",
+      "('minEatingSpeed', ([1000000000], 1), 1000000000)",
+      "('minEatingSpeed', ([5, 10, 15], 6), 5)",
+      "('minEatingSpeed', ([5, 10, 15], 5), 8)",
+      "('minEatingSpeed', ([1, 2, 3, 4, 5], 6), 4)",
+      "('minEatingSpeed', ([1, 1, 1, 1, 1], 5), 1)",
+      "('minEatingSpeed', ([2, 3, 4, 5, 6], 10), 3)",
+      "('minEatingSpeed', ([100, 200, 300], 1000), 1)",
+      "('minEatingSpeed', ([10, 20, 30], 3), 30)",
+      "('minEatingSpeed', ([1, 2, 3], 4), 2)",
+      "('minEatingSpeed', ([1, 2, 3], 6), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minEatingSpeed([3, 6, 7, 11], 8)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#2] ✅ 通過\n  標準輸入: minEatingSpeed([30, 11, 23, 4, 20], 5)\n  標準輸出: 30\n  你的輸出: 30\n\n[測試#3] ✅ 通過\n  標準輸入: minEatingSpeed([1, 2, 3, 4, 5], 5)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#4] ✅ 通過\n  標準輸入: minEatingSpeed([1], 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: minEatingSpeed([1], 2)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: minEatingSpeed([1000000000], 1)\n  標準輸出: 1000000000\n  你的輸出: 1000000000\n\n[測試#7] ✅ 通過\n  標準輸入: minEatingSpeed([5, 10, 15], 6)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#8] ✅ 通過\n  標準輸入: minEatingSpeed([5, 10, 15], 5)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#9] ✅ 通過\n  標準輸入: minEatingSpeed([1, 2, 3, 4, 5], 6)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: minEatingSpeed([1, 1, 1, 1, 1], 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: minEatingSpeed([2, 3, 4, 5, 6], 10)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#12] ✅ 通過\n  標準輸入: minEatingSpeed([100, 200, 300], 1000)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#13] ✅ 通過\n  標準輸入: minEatingSpeed([10, 20, 30], 3)\n  標準輸出: 30\n  你的輸出: 30\n\n[測試#14] ✅ 通過\n  標準輸入: minEatingSpeed([1, 2, 3], 4)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#15] ✅ 通過\n  標準輸入: minEatingSpeed([1, 2, 3], 6)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (15/15) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 15,
+    "passed_count": 15,
+    "accuracy_rate": 1.0
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode239.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Sliding Window Maximum",
+    "description": "You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.\n\nReturn the max sliding window.",
+    "examples": [
+      {
+        "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+        "output": "[3,3,5,5,6,7]",
+        "explanation": "Window position                Max\n---------------               -----\n[1  3  -1] -3  5  3  6  7       3\n 1 [3  -1  -3] 5  3  6  7       3\n 1  3 [-1  -3  5] 3  6  7       5\n 1  3  -1 [-3  5  3] 6  7       5\n 1  3  -1  -3 [5  3  6] 7       6\n 1  3  -1  -3  5 [3  6  7]      7"
+      },
+      {
+        "input": "nums = [1], k = 1",
+        "output": "[1]"
+      }
+    ],
+    "solution": "class Solution(object):\n    def maxSlidingWindow(self, nums, k):\n        \"\"\"\n        :type nums: List[int]\n        :type k: int\n        :rtype: List[int]\n        \"\"\"\n        from collections import deque\n        if not nums or k == 0:\n            return []\n        \n        deq = deque()\n        res = []\n        \n        for i in range(len(nums)):\n            # Remove indices outside the current window\n            while deq and deq[0] < i - k + 1:\n                deq.popleft()\n            # Remove smaller numbers from the back\n            while deq and nums[deq[-1]] < nums[i]:\n                deq.pop()\n            deq.append(i)\n            # Append current max to results\n            if i >= k - 1:\n                res.append(nums[deq[0]])\n        \n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 3, -1, -3, 5, 3, 6, 7]\n3\n",
+        "output": "[3, 3, 5, 5, 6, 7]\n"
+      },
+      {
+        "input": "[4, 2, 12, 3]\n1\n",
+        "output": "[4, 2, 12, 3]\n"
+      },
+      {
+        "input": "[4, 2, 12, 3]\n4\n",
+        "output": "[12]\n"
+      },
+      {
+        "input": "[4, 2, 12, 3]\n5\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[]\n3\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[1, 2, 3]\n0\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[-4, -2, -12, -3]\n2\n",
+        "output": "[-2, -2, -3]\n"
+      },
+      {
+        "input": "[1, 1, 1, 1]\n2\n",
+        "output": "[1, 1, 1]\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n3\n",
+        "output": "[3, 4, 5]\n"
+      },
+      {
+        "input": "[5, 4, 3, 2, 1]\n3\n",
+        "output": "[5, 4, 3]\n"
+      },
+      {
+        "input": "[9, 1, 2, 3, 4, 5, 6, 7, 8, 0]\n4\n",
+        "output": "[9, 4, 5, 6, 7, 8, 8]\n"
+      },
+      {
+        "input": "[7, 7, 7, 7, 7]\n3\n",
+        "output": "[7, 7, 7, 7]\n"
+      },
+      {
+        "input": "[42]\n1\n",
+        "output": "[42]\n"
+      },
+      {
+        "input": "[-5, -1, -3]\n1\n",
+        "output": "[-5, -1, -3]\n"
+      },
+      {
+        "input": "[0, 0, 0, 0]\n2\n",
+        "output": "[0, 0, 0]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maxSlidingWindow', ([1, 3, -1, -3, 5, 3, 6, 7], 3), [3, 3, 5, 5, 6, 7])",
+      "('maxSlidingWindow', ([4, 2, 12, 3], 1), [4, 2, 12, 3])",
+      "('maxSlidingWindow', ([4, 2, 12, 3], 4), [12])",
+      "('maxSlidingWindow', ([4, 2, 12, 3], 5), [])",
+      "('maxSlidingWindow', ([], 3), [])",
+      "('maxSlidingWindow', ([1, 2, 3], 0), [])",
+      "('maxSlidingWindow', ([-4, -2, -12, -3], 2), [-2, -2, -3])",
+      "('maxSlidingWindow', ([1, 1, 1, 1], 2), [1, 1, 1])",
+      "('maxSlidingWindow', ([1, 2, 3, 4, 5], 3), [3, 4, 5])",
+      "('maxSlidingWindow', ([5, 4, 3, 2, 1], 3), [5, 4, 3])",
+      "('maxSlidingWindow', ([9, 1, 2, 3, 4, 5, 6, 7, 8, 0], 4), [9, 4, 5, 6, 7, 8, 8])",
+      "('maxSlidingWindow', ([7, 7, 7, 7, 7], 3), [7, 7, 7, 7])",
+      "('maxSlidingWindow', ([42], 1), [42])",
+      "('maxSlidingWindow', ([-5, -1, -3], 1), [-5, -1, -3])",
+      "('maxSlidingWindow', ([0, 0, 0, 0], 2), [0, 0, 0])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3)\n  標準輸出: [3, 3, 5, 5, 6, 7]\n  你的輸出: [3, 3, 5, 5, 6, 7]\n\n[測試#2] ✅ 通過\n  標準輸入: maxSlidingWindow([4, 2, 12, 3], 1)\n  標準輸出: [4, 2, 12, 3]\n  你的輸出: [4, 2, 12, 3]\n\n[測試#3] ✅ 通過\n  標準輸入: maxSlidingWindow([4, 2, 12, 3], 4)\n  標準輸出: [12]\n  你的輸出: [12]\n\n[測試#4] ✅ 通過\n  標準輸入: maxSlidingWindow([4, 2, 12, 3], 5)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: maxSlidingWindow([], 3)\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: maxSlidingWindow([1, 2, 3], 0)\n  標準輸出: []\n  你的輸出: []\n\n[測試#7] ✅ 通過\n  標準輸入: maxSlidingWindow([-4, -2, -12, -3], 2)\n  標準輸出: [-2, -2, -3]\n  你的輸出: [-2, -2, -3]\n\n[測試#8] ✅ 通過\n  標準輸入: maxSlidingWindow([1, 1, 1, 1], 2)\n  標準輸出: [1, 1, 1]\n  你的輸出: [1, 1, 1]\n\n[測試#9] ✅ 通過\n  標準輸入: maxSlidingWindow([1, 2, 3, 4, 5], 3)\n  標準輸出: [3, 4, 5]\n  你的輸出: [3, 4, 5]\n\n[測試#10] ✅ 通過\n  標準輸入: maxSlidingWindow([5, 4, 3, 2, 1], 3)\n  標準輸出: [5, 4, 3]\n  你的輸出: [5, 4, 3]\n\n[測試#11] ✅ 通過\n  標準輸入: maxSlidingWindow([9, 1, 2, 3, 4, 5, 6, 7, 8, 0], 4)\n  標準輸出: [9, 4, 5, 6, 7, 8, 8]\n  你的輸出: [9, 4, 5, 6, 7, 8, 8]\n\n[測試#12] ❌ 失敗\n  標準輸入: maxSlidingWindow([7, 7, 7, 7, 7], 3)\n  標準輸出: [7, 7, 7, 7]\n  你的輸出: [7, 7, 7]\n\n[測試#13] ✅ 通過\n  標準輸入: maxSlidingWindow([42], 1)\n  標準輸出: [42]\n  你的輸出: [42]\n\n[測試#14] ✅ 通過\n  標準輸入: maxSlidingWindow([-5, -1, -3], 1)\n  標準輸出: [-5, -1, -3]\n  你的輸出: [-5, -1, -3]\n\n[測試#15] ✅ 通過\n  標準輸入: maxSlidingWindow([0, 0, 0, 0], 2)\n  標準輸出: [0, 0, 0]\n  你的輸出: [0, 0, 0]\n\n=== 測試完成 (14/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

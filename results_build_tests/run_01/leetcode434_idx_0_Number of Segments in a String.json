@@ -1,0 +1,84 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode434.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Number of Segments in a String",
+    "description": "Given a string s, return the number of segments in the string.\n\nA segment is defined to be a contiguous sequence of non-space characters.",
+    "examples": [
+      {
+        "input": "s = \"Hello, my name is John\"",
+        "output": "5",
+        "explanation": "The five segments are [\"Hello,\", \"my\", \"name\", \"is\", \"John\"]"
+      },
+      {
+        "input": "s = \"Hello\"",
+        "output": "1"
+      }
+    ],
+    "solution": "class Solution:\n    def countSegments(self, s):\n        # 使用 str.split() 將字串按照空白分割，並去除空字串\n        return len([segment for segment in s.split(' ') if segment])"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "Hello world\n",
+        "output": "2\n"
+      },
+      {
+        "input": "Hello   world\n",
+        "output": "2\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "Hello\n",
+        "output": "1\n"
+      },
+      {
+        "input": "Hello   world  test\n",
+        "output": "3\n"
+      },
+      {
+        "input": "Hello\tworld\n",
+        "output": "1\n"
+      },
+      {
+        "input": "Hello\nworld\n",
+        "output": "1\n"
+      },
+      {
+        "input": "Hello world! This is a test.\n",
+        "output": "6\n"
+      },
+      {
+        "input": "Hello world! 123\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('countSegments', ('Hello world\\n',), 2)",
+      "('countSegments', ('Hello   world\\n',), 2)",
+      "('countSegments', ((),), 0)",
+      "('countSegments', ((),), 0)",
+      "('countSegments', ('Hello\\n',), 1)",
+      "('countSegments', ('Hello   world  test\\n',), 3)",
+      "('countSegments', ('Hello\\tworld\\n',), 1)",
+      "('countSegments', ('Hello\\nworld\\n',), 1)",
+      "('countSegments', ('Hello world! This is a test.\\n',), 6)",
+      "('countSegments', ('Hello world! 123\\n',), 3)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countSegments('Hello world\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: countSegments('Hello   world\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#5] ✅ 通過\n  標準輸入: countSegments('Hello\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: countSegments('Hello   world  test\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: countSegments('Hello\\tworld\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: countSegments('Hello\\nworld\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: countSegments('Hello world! This is a test.\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#10] ✅ 通過\n  標準輸入: countSegments('Hello world! 123\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

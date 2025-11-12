@@ -1,0 +1,105 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode385.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Mini Parser",
+    "description": "Given a string s represents the serialization of a nested list, implement a parser to deserialize it and return the deserialized NestedInteger.\n\nEach element is either an integer or a list whose elements may also be integers or other lists.",
+    "examples": [
+      {
+        "input": "s = \"324\"",
+        "output": "324",
+        "explanation": "You should return a NestedInteger object which contains a single integer 324."
+      },
+      {
+        "input": "s = \"[123,[456,[789]]]\"",
+        "output": "[123,[456,[789]]]",
+        "explanation": "Return a NestedInteger object containing a nested list with 2 elements:\n1. An integer containing value 123.\n2. A nested list containing two elements:\n    i.  An integer containing value 456.\n    ii. A nested list with one element:\n         a. An integer containing value 789"
+      }
+    ],
+    "solution": "class Solution:\n    def deserialize(self, s):\n        if s[0] != '[':  # 單個整數\n            return NestedInteger(int(s))\n        \n        stack = []\n        num = ''\n        negative = False\n        \n        for c in s:\n            if c == '-':\n                negative = True\n            elif c.isdigit():\n                num += c\n            elif c == '[':\n                stack.append(NestedInteger())\n            elif c in ',]':\n                if num:\n                    value = int(num) if not negative else -int(num)\n                    stack[-1].add(NestedInteger(value))\n                    num = ''\n                    negative = False\n                if c == ']' and len(stack) > 1:\n                    ni = stack.pop()\n                    stack[-1].add(ni)\n        \n        return stack[0]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "42\n",
+        "output": "42\n"
+      },
+      {
+        "input": "1\n2\n3\n",
+        "output": "[1, 2, 3]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "123\n[456, [789]]\n",
+        "output": "[123, [456, [789]]]\n"
+      },
+      {
+        "input": "-1\n-2\n[-3, 4]\n",
+        "output": "[-1, -2, [-3, 4]]\n"
+      },
+      {
+        "input": "0\n[0]\n[]\n",
+        "output": "[0, [0], []]\n"
+      },
+      {
+        "input": "12345678901234567890\n",
+        "output": "[12345678901234567890]\n"
+      },
+      {
+        "input": "-12345678901234567890\n",
+        "output": "[-12345678901234567890]\n"
+      },
+      {
+        "input": "\n[]\n[[]]\n",
+        "output": "[[], [[]], [[[]]]]\n"
+      },
+      {
+        "input": "-1\n[-2, [-3, [-4]]]\n",
+        "output": "[-1, [-2, [-3, [-4]]]]\n"
+      },
+      {
+        "input": "1\n2 3\n4 [5, 6]\n",
+        "output": "[[1], [2, 3], [4, [5, 6]]]\n"
+      },
+      {
+        "input": "1\n[]\n2\n",
+        "output": "[1, [], 2]\n"
+      },
+      {
+        "input": "[[]]\n1\n",
+        "output": "[[[]], 1]\n"
+      },
+      {
+        "input": "[1, [[]]]\n2\n",
+        "output": "[[1, [[]]], 2]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('deserialize', (42,), 42)",
+      "('deserialize', ((1, 2, 3),), [1, 2, 3])",
+      "('deserialize', ((),), [])",
+      "('deserialize', ((123, [456, [789]]),), [123, [456, [789]]])",
+      "('deserialize', ((-1, -2, [-3, 4]),), [-1, -2, [-3, 4]])",
+      "('deserialize', ((0, [0], []),), [0, [0], []])",
+      "('deserialize', (12345678901234567890,), [12345678901234567890])",
+      "('deserialize', (-12345678901234567890,), [-12345678901234567890])",
+      "('deserialize', ('\\n[]\\n[[]]\\n',), [[], [[]], [[[]]]])",
+      "('deserialize', ((-1, [-2, [-3, [-4]]]),), [-1, [-2, [-3, [-4]]]])",
+      "('deserialize', ('1\\n2 3\\n4 [5, 6]\\n',), [[1], [2, 3], [4, [5, 6]]])",
+      "('deserialize', ((1, [], 2),), [1, [], 2])",
+      "('deserialize', (([[]], 1),), [[[]], 1])",
+      "('deserialize', (([1, [[]]], 2),), [[1, [[]]], 2])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'int' object is not subscriptable\n[測試#2] ❌ 執行例外: name 'NestedInteger' is not defined\n[測試#3] ❌ 執行例外: tuple index out of range\n[測試#4] ❌ 執行例外: name 'NestedInteger' is not defined\n[測試#5] ❌ 執行例外: name 'NestedInteger' is not defined\n[測試#6] ❌ 執行例外: name 'NestedInteger' is not defined\n[測試#7] ❌ 執行例外: 'int' object is not subscriptable\n[測試#8] ❌ 執行例外: 'int' object is not subscriptable\n[測試#9] ❌ 執行例外: name 'NestedInteger' is not defined\n[測試#10] ❌ 執行例外: name 'NestedInteger' is not defined\n[測試#11] ❌ 執行例外: name 'NestedInteger' is not defined\n[測試#12] ❌ 執行例外: name 'NestedInteger' is not defined\n[測試#13] ❌ 執行例外: name 'NestedInteger' is not defined\n[測試#14] ❌ 執行例外: name 'NestedInteger' is not defined\n=== 測試完成 (0/14) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 14,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

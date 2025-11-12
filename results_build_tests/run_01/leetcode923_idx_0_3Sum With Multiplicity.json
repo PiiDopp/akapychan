@@ -1,0 +1,80 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode923.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "3Sum With Multiplicity",
+    "description": "Given an integer array arr, and an integer target, return the number of tuples i, j, k such that i < j < k and arr[i] + arr[j] + arr[k] == target.\n\nAs the answer can be very large, return it modulo 10^9 + 7.",
+    "examples": [
+      {
+        "input": "arr = [1,1,2,2,3,3,4,4,5,5], target = 8",
+        "output": "20",
+        "explanation": "Enumerating by the values (arr[i], arr[j], arr[k]):\n(1, 2, 5) occurs 8 times;\n(1, 3, 4) occurs 8 times;\n(2, 2, 4) occurs 2 times;\n(2, 3, 3) occurs 2 times."
+      },
+      {
+        "input": "arr = [1,1,2,2,2,2], target = 5",
+        "output": "12",
+        "explanation": "arr[i] = 1, arr[j] = arr[k] = 2 occurs 12 times: We choose one 1 from [1,1] in 2 ways, and two 2s from [2,2,2,2] in 6 ways."
+      },
+      {
+        "input": "arr = [2,1,3], target = 6",
+        "output": "1",
+        "explanation": "(1, 2, 3) occurred one time in the array so we return 1."
+      }
+    ],
+    "solution": "from collections import Counter\n\nclass Solution(object):\n    def threeSumMulti(self, A, target):\n        MOD = 10**9 + 7\n        count = Counter(A)\n        keys = sorted(count)\n        ans = 0\n\n        for i, x in enumerate(keys):\n            for j, y in enumerate(keys[i:]):\n                y = keys[i + j]\n                z = target - x - y\n                if z < y:\n                    continue\n                if z not in count:\n                    continue\n                if x == y == z:\n                    ans += count[x] * (count[x]-1) * (count[x]-2) // 6\n                elif x == y != z:\n                    ans += count[x] * (count[x]-1) // 2 * count[z]\n                elif x < y == z:\n                    ans += count[x] * count[y] * (count[y]-1) // 2\n                elif x < y < z:\n                    ans += count[x] * count[y] * count[z]\n        return ans % MOD"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 1, 2, 2, 3, 3]\n6\n",
+        "output": "8\n"
+      },
+      {
+        "input": "[2, 2, 2, 2]\n6\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[1, 2, 3]\n10\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[-1, -2, -3, 4, 5]\n0\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]\n3\n",
+        "output": "8880\n"
+      },
+      {
+        "input": "[0, 0, 0, 0]\n0\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[1, 1, 1, 2, 2, 3]\n6\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[1, 2, 3]\n6\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('threeSumMulti', ([1, 1, 2, 2, 3, 3], 6), 8)",
+      "('threeSumMulti', ([2, 2, 2, 2], 6), 4)",
+      "('threeSumMulti', ([1, 2, 3], 10), 0)",
+      "('threeSumMulti', ([-1, -2, -3, 4, 5], 0), 2)",
+      "('threeSumMulti', ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 3), 8880)",
+      "('threeSumMulti', ([0, 0, 0, 0], 0), 4)",
+      "('threeSumMulti', ([1, 1, 1, 2, 2, 3], 6), 6)",
+      "('threeSumMulti', ([1, 2, 3], 6), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: threeSumMulti([1, 1, 2, 2, 3, 3], 6)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#2] ✅ 通過\n  標準輸入: threeSumMulti([2, 2, 2, 2], 6)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: threeSumMulti([1, 2, 3], 10)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: threeSumMulti([-1, -2, -3, 4, 5], 0)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ❌ 失敗\n  標準輸入: threeSumMulti([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 3)\n  標準輸出: 8880\n  你的輸出: 1140\n\n[測試#6] ✅ 通過\n  標準輸入: threeSumMulti([0, 0, 0, 0], 0)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: threeSumMulti([1, 1, 1, 2, 2, 3], 6)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#8] ✅ 通過\n  標準輸入: threeSumMulti([1, 2, 3], 6)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

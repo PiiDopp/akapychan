@@ -1,0 +1,95 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode696.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Count Binary Substrings",
+    "description": "Given a binary string s, return the number of non-empty substrings that have the same number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped consecutively.\n\nSubstrings that occur multiple times are counted the number of times they occur.",
+    "examples": [
+      {
+        "input": "s = \"00110011\"",
+        "output": "6",
+        "explanation": "There are 6 substrings that have equal number of consecutive 1's and 0's: \"0011\", \"01\", \"1100\", \"10\", \"0011\", and \"01\".\\nNotice that some of these substrings repeat and are counted the number of times they occur.\\nAlso, \"00110011\" is not a valid substring because all the 0's (and 1's) are not grouped together."
+      },
+      {
+        "input": "s = \"10101\"",
+        "output": "4",
+        "explanation": "There are 4 substrings: \"10\", \"01\", \"10\", \"01\" that have equal number of consecutive 1's and 0's."
+      }
+    ],
+    "solution": "class Solution:\n    def countBinarySubstrings(self, s):\n        groups = []\n        count = 1\n        \n        for i in range(1, len(s)):\n            if s[i] == s[i-1]:\n                count += 1\n            else:\n                groups.append(count)\n                count = 1\n        groups.append(count)\n        \n        result = 0\n        for i in range(1, len(groups)):\n            result += min(groups[i], groups[i-1])\n        return result"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "01\n",
+        "output": "1\n"
+      },
+      {
+        "input": "0011\n",
+        "output": "2\n"
+      },
+      {
+        "input": "000111\n",
+        "output": "3\n"
+      },
+      {
+        "input": "0001111\n",
+        "output": "3\n"
+      },
+      {
+        "input": "00110011\n",
+        "output": "6\n"
+      },
+      {
+        "input": "010101\n",
+        "output": "5\n"
+      },
+      {
+        "input": "000111000111\n",
+        "output": "9\n"
+      },
+      {
+        "input": "000111000\n",
+        "output": "6\n"
+      },
+      {
+        "input": "0011100\n",
+        "output": "4\n"
+      },
+      {
+        "input": "001011\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('countBinarySubstrings', ((),), 0)",
+      "('countBinarySubstrings', (0,), 0)",
+      "('countBinarySubstrings', ('01\\n',), 1)",
+      "('countBinarySubstrings', ('0011\\n',), 2)",
+      "('countBinarySubstrings', ('000111\\n',), 3)",
+      "('countBinarySubstrings', ('0001111\\n',), 3)",
+      "('countBinarySubstrings', ('00110011\\n',), 6)",
+      "('countBinarySubstrings', ('010101\\n',), 5)",
+      "('countBinarySubstrings', ('000111000111\\n',), 9)",
+      "('countBinarySubstrings', ('000111000\\n',), 6)",
+      "('countBinarySubstrings', ('0011100\\n',), 4)",
+      "('countBinarySubstrings', ('001011\\n',), 3)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countBinarySubstrings((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 失敗\n  標準輸入: countBinarySubstrings('01\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#4] ❌ 失敗\n  標準輸入: countBinarySubstrings('0011\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#5] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#6] ❌ 失敗\n  標準輸入: countBinarySubstrings('0001111\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: countBinarySubstrings('00110011\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#8] ❌ 失敗\n  標準輸入: countBinarySubstrings('010101\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#9] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111000111\\n',)\n  標準輸出: 9\n  你的輸出: 10\n\n[測試#10] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111000\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#11] ❌ 失敗\n  標準輸入: countBinarySubstrings('0011100\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#12] ❌ 失敗\n  標準輸入: countBinarySubstrings('001011\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n=== 測試完成 (1/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

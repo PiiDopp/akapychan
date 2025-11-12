@@ -1,0 +1,84 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode893.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Groups of Special-Equivalent Strings",
+    "description": "You are given an array of strings of the same length words.\nIn one move, you can swap any two even indexed characters or any two odd indexed characters of a string words[i].\nTwo strings words[i] and words[j] are special-equivalent if after any number of moves, words[i] == words[j].\nA group of special-equivalent strings from words is a non-empty subset of words such that:\n\nEvery pair of strings in the group are special equivalent, and\nThe group is the largest size possible (i.e., there is not a string words[i] not in the group such that words[i] is special-equivalent to every string in the group).\nReturn the number of groups of special-equivalent strings from words.",
+    "examples": [
+      {
+        "input": "words = [\"abcd\",\"cdab\",\"cbad\",\"xyzz\",\"zzxy\",\"zzyx\"]",
+        "output": "3",
+        "explanation": "One group is [\"abcd\", \"cdab\", \"cbad\"], since they are all pairwise special equivalent, and none of the other strings is all pairwise special equivalent to these. The other two groups are [\"xyzz\", \"zzxy\"] and [\"zzyx\"]. Note that in particular, \"zzxy\" is not special equivalent to \"zzyx\"."
+      },
+      {
+        "input": "words = [\"abc\",\"acb\",\"bac\",\"bca\",\"cab\",\"cba\"]",
+        "output": "3"
+      }
+    ],
+    "solution": "class Solution(object):\n    def numSpecialEquivGroups(self, A):\n        \"\"\"\n        :type A: List[str]\n        :rtype: int\n        \"\"\"\n        unique = set()\n        for word in A:\n            # 將偶數位和奇數位分開排序，作為字串特徵\n            key = (tuple(sorted(word[::2])), tuple(sorted(word[1::2])))\n            unique.add(key)\n        return len(unique)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abcd', 'adcb', 'bcda', 'cbda']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['a', 'a', 'a']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['a', 'b', 'c']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aabb', 'bbaa', 'abab']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abcd', 'adcb', 'aabb', 'bbaa', 'abab', 'xyz']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['abcde', 'acbde', 'abcde']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abc']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['ab', 'ba']\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numSpecialEquivGroups', (['abcd', 'adcb', 'bcda', 'cbda'],), 3)",
+      "('numSpecialEquivGroups', (['a', 'a', 'a'],), 1)",
+      "('numSpecialEquivGroups', (['a', 'b', 'c'],), 3)",
+      "('numSpecialEquivGroups', ((),), 0)",
+      "('numSpecialEquivGroups', (['aabb', 'bbaa', 'abab'],), 1)",
+      "('numSpecialEquivGroups', (['abcd', 'adcb', 'aabb', 'bbaa', 'abab', 'xyz'],), 3)",
+      "('numSpecialEquivGroups', (['abcde', 'acbde', 'abcde'],), 2)",
+      "('numSpecialEquivGroups', (['', ''],), 1)",
+      "('numSpecialEquivGroups', (['abc'],), 1)",
+      "('numSpecialEquivGroups', (['ab', 'ba'],), 2)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abcd', 'adcb', 'bcda', 'cbda'],)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['a', 'a', 'a'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['a', 'b', 'c'],)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: numSpecialEquivGroups((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ❌ 失敗\n  標準輸入: numSpecialEquivGroups(['aabb', 'bbaa', 'abab'],)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#6] ❌ 失敗\n  標準輸入: numSpecialEquivGroups(['abcd', 'adcb', 'aabb', 'bbaa', 'abab', 'xyz'],)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abcde', 'acbde', 'abcde'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['', ''],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abc'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['ab', 'ba'],)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

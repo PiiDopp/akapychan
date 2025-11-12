@@ -1,0 +1,135 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode899.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Orderly Queue",
+    "description": "You are given a string s and an integer k. You can choose one of the first k letters of s and append it at the end of the string.\n\nReturn the lexicographically smallest string you could have after applying the mentioned step any number of moves.",
+    "examples": [
+      {
+        "input": "s = \"cba\", k = 1",
+        "output": "\"acb\"",
+        "explanation": "In the first move, we move the 1st character 'c' to the end, obtaining the string \"bac\". In the second move, we move the 1st character 'b' to the end, obtaining the final result \"acb\"."
+      },
+      {
+        "input": "s = \"baaca\", k = 3",
+        "output": "\"aaabc\"",
+        "explanation": "In the first move, we move the 1st character 'b' to the end, obtaining the string \"aacab\". In the second move, we move the 3rd character 'c' to the end, obtaining the final result \"aaabc\"."
+      }
+    ],
+    "solution": "class Solution(object):\n    def orderlyQueue(self, S, K):\n        if K == 1:\n            return min(S[i:] + S[:i] for i in range(len(S)))\n        else:\n            return ''.join(sorted(S))"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['cba', 1]\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['ba', 1]\n",
+        "output": "ab\n"
+      },
+      {
+        "input": "['aaa', 1]\n",
+        "output": "aaa\n"
+      },
+      {
+        "input": "['bca', 1]\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['abcd', 1]\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "['dcba', 1]\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "['zxy', 1]\n",
+        "output": "xyz\n"
+      },
+      {
+        "input": "['bbba', 1]\n",
+        "output": "abbb\n"
+      },
+      {
+        "input": "['aA', 1]\n",
+        "output": "Aa\n"
+      },
+      {
+        "input": "['a b', 1]\n",
+        "output": " a b\n"
+      },
+      {
+        "input": "['cba', 2]\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['ba', 2]\n",
+        "output": "ab\n"
+      },
+      {
+        "input": "['aaa', 2]\n",
+        "output": "aaa\n"
+      },
+      {
+        "input": "['bca', 2]\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['abcd', 2]\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "['dcba', 2]\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "['zxy', 2]\n",
+        "output": "xyz\n"
+      },
+      {
+        "input": "['bbba', 2]\n",
+        "output": "abbb\n"
+      },
+      {
+        "input": "['aA', 2]\n",
+        "output": "Aa\n"
+      },
+      {
+        "input": "['a b', 2]\n",
+        "output": " ab\n"
+      }
+    ],
+    "parsed_tests": [
+      "('orderlyQueue', ('cba', 1), 'abc\\n')",
+      "('orderlyQueue', ('ba', 1), 'ab\\n')",
+      "('orderlyQueue', ('aaa', 1), 'aaa\\n')",
+      "('orderlyQueue', ('bca', 1), 'abc\\n')",
+      "('orderlyQueue', ('abcd', 1), 'abcd\\n')",
+      "('orderlyQueue', ('dcba', 1), 'abcd\\n')",
+      "('orderlyQueue', ('zxy', 1), 'xyz\\n')",
+      "('orderlyQueue', ('bbba', 1), 'abbb\\n')",
+      "('orderlyQueue', ('aA', 1), 'Aa\\n')",
+      "('orderlyQueue', ('a b', 1), ' a b\\n')",
+      "('orderlyQueue', ('cba', 2), 'abc\\n')",
+      "('orderlyQueue', ('ba', 2), 'ab\\n')",
+      "('orderlyQueue', ('aaa', 2), 'aaa\\n')",
+      "('orderlyQueue', ('bca', 2), 'abc\\n')",
+      "('orderlyQueue', ('abcd', 2), 'abcd\\n')",
+      "('orderlyQueue', ('dcba', 2), 'abcd\\n')",
+      "('orderlyQueue', ('zxy', 2), 'xyz\\n')",
+      "('orderlyQueue', ('bbba', 2), 'abbb\\n')",
+      "('orderlyQueue', ('aA', 2), 'Aa\\n')",
+      "('orderlyQueue', ('a b', 2), ' ab\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: orderlyQueue('cba', 1)\n  標準輸出: 'abc\\n'\n  你的輸出: 'acb'\n\n[測試#2] ❌ 失敗\n  標準輸入: orderlyQueue('ba', 1)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#3] ❌ 失敗\n  標準輸入: orderlyQueue('aaa', 1)\n  標準輸出: 'aaa\\n'\n  你的輸出: 'aaa'\n\n[測試#4] ❌ 失敗\n  標準輸入: orderlyQueue('bca', 1)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#5] ❌ 失敗\n  標準輸入: orderlyQueue('abcd', 1)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#6] ❌ 失敗\n  標準輸入: orderlyQueue('dcba', 1)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'adcb'\n\n[測試#7] ❌ 失敗\n  標準輸入: orderlyQueue('zxy', 1)\n  標準輸出: 'xyz\\n'\n  你的輸出: 'xyz'\n\n[測試#8] ❌ 失敗\n  標準輸入: orderlyQueue('bbba', 1)\n  標準輸出: 'abbb\\n'\n  你的輸出: 'abbb'\n\n[測試#9] ❌ 失敗\n  標準輸入: orderlyQueue('aA', 1)\n  標準輸出: 'Aa\\n'\n  你的輸出: 'Aa'\n\n[測試#10] ❌ 失敗\n  標準輸入: orderlyQueue('a b', 1)\n  標準輸出: ' a b\\n'\n  你的輸出: ' ba'\n\n[測試#11] ❌ 失敗\n  標準輸入: orderlyQueue('cba', 2)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#12] ❌ 失敗\n  標準輸入: orderlyQueue('ba', 2)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#13] ❌ 失敗\n  標準輸入: orderlyQueue('aaa', 2)\n  標準輸出: 'aaa\\n'\n  你的輸出: 'aaa'\n\n[測試#14] ❌ 失敗\n  標準輸入: orderlyQueue('bca', 2)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#15] ❌ 失敗\n  標準輸入: orderlyQueue('abcd', 2)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#16] ❌ 失敗\n  標準輸入: orderlyQueue('dcba', 2)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#17] ❌ 失敗\n  標準輸入: orderlyQueue('zxy', 2)\n  標準輸出: 'xyz\\n'\n  你的輸出: 'xyz'\n\n[測試#18] ❌ 失敗\n  標準輸入: orderlyQueue('bbba', 2)\n  標準輸出: 'abbb\\n'\n  你的輸出: 'abbb'\n\n[測試#19] ❌ 失敗\n  標準輸入: orderlyQueue('aA', 2)\n  標準輸出: 'Aa\\n'\n  你的輸出: 'Aa'\n\n[測試#20] ❌ 失敗\n  標準輸入: orderlyQueue('a b', 2)\n  標準輸出: ' ab\\n'\n  你的輸出: ' ab'\n\n=== 測試完成 (0/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode458.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Poor Pigs",
+    "description": "There are buckets buckets of liquid, where exactly one of the buckets is poisonous. To figure out which one is poisonous, you feed some number of (poor) pigs the liquid to see whether they will die or not. Unfortunately, you only have minutesToTest minutes to determine which bucket is poisonous.\n\nYou can feed the pigs according to these steps:\n\nChoose some live pigs to feed.\nFor each pig, choose which buckets to feed it. The pig will consume all the chosen buckets simultaneously and will take no time. Each pig can feed from any number of buckets, and each bucket can be fed from by any number of pigs.\nWait for minutesToDie minutes. You may not feed any other pigs during this time.\nAfter minutesToDie minutes have passed, any pigs that have been fed the poisonous bucket will die, and all others will survive.\nRepeat this process until you run out of time.\nGiven buckets, minutesToDie, and minutesToTest, return the minimum number of pigs needed to figure out which bucket is poisonous within the allotted time.",
+    "examples": [
+      {
+        "input": "buckets = 4, minutesToDie = 15, minutesToTest = 15",
+        "output": "2",
+        "explanation": "We can determine the poisonous bucket as follows: \nAt time 0, feed the first pig buckets 1 and 2, and feed the second pig buckets 2 and 3. \nAt time 15, there are 4 possible outcomes: \n- If only the first pig dies, then bucket 1 must be poisonous. \n- If only the second pig dies, then bucket 3 must be poisonous. \n- If both pigs die, then bucket 2 must be poisonous. \n- If neither pig dies, then bucket 4 must be poisonous."
+      },
+      {
+        "input": "buckets = 4, minutesToDie = 15, minutesToTest = 30",
+        "output": "2",
+        "explanation": "We can determine the poisonous bucket as follows: \nAt time 0, feed the first pig bucket 1, and feed the second pig bucket 2. \nAt time 15, there are 2 possible outcomes: \n- If either pig dies, then the poisonous bucket is the one it was fed. \n- If neither pig dies, then feed the first pig bucket 3, and feed the second pig bucket 4. \nAt time 30, one of the two pigs must die, and the poisonous bucket is the one it was fed."
+      }
+    ],
+    "solution": "import math\n\nclass Solution:\n    def poorPigs(self, buckets, minutesToDie, minutesToTest):\n        pigs = 0\n        states = minutesToTest // minutesToDie + 1\n        while (states ** pigs) < buckets:\n            pigs += 1\n        return pigs"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n60\n60\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n60\n60\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n60\n60\n",
+        "output": "2\n"
+      },
+      {
+        "input": "16\n30\n120\n",
+        "output": "2\n"
+      },
+      {
+        "input": "24\n30\n120\n",
+        "output": "2\n"
+      },
+      {
+        "input": "26\n30\n120\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1000\n15\n60\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1000000000\n1\n60\n",
+        "output": "6\n"
+      },
+      {
+        "input": "5\n60\n60\n",
+        "output": "3\n"
+      },
+      {
+        "input": "27\n30\n90\n",
+        "output": "3\n"
+      },
+      {
+        "input": "256\n40\n120\n",
+        "output": "4\n"
+      },
+      {
+        "input": "257\n40\n120\n",
+        "output": "5\n"
+      },
+      {
+        "input": "3\n1\n1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1\n1\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n1\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "4\n1\n1\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('poorPigs', (1, 60, 60), 0)",
+      "('poorPigs', (2, 60, 60), 1)",
+      "('poorPigs', (3, 60, 60), 2)",
+      "('poorPigs', (16, 30, 120), 2)",
+      "('poorPigs', (24, 30, 120), 2)",
+      "('poorPigs', (26, 30, 120), 3)",
+      "('poorPigs', (1000, 15, 60), 5)",
+      "('poorPigs', (1000000000, 1, 60), 6)",
+      "('poorPigs', (5, 60, 60), 3)",
+      "('poorPigs', (27, 30, 90), 3)",
+      "('poorPigs', (256, 40, 120), 4)",
+      "('poorPigs', (257, 40, 120), 5)",
+      "('poorPigs', (3, 1, 1), 2)",
+      "('poorPigs', (1, 1, 1), 0)",
+      "('poorPigs', (2, 1, 1), 1)",
+      "('poorPigs', (4, 1, 1), 2)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: poorPigs(1, 60, 60)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: poorPigs(2, 60, 60)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: poorPigs(3, 60, 60)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: poorPigs(16, 30, 120)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: poorPigs(24, 30, 120)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: poorPigs(26, 30, 120)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: poorPigs(1000, 15, 60)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#8] ✅ 通過\n  標準輸入: poorPigs(1000000000, 1, 60)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: poorPigs(5, 60, 60)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#10] ✅ 通過\n  標準輸入: poorPigs(27, 30, 90)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#11] ✅ 通過\n  標準輸入: poorPigs(256, 40, 120)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#12] ✅ 通過\n  標準輸入: poorPigs(257, 40, 120)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#13] ✅ 通過\n  標準輸入: poorPigs(3, 1, 1)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#14] ✅ 通過\n  標準輸入: poorPigs(1, 1, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: poorPigs(2, 1, 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#16] ✅ 通過\n  標準輸入: poorPigs(4, 1, 1)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (16/16) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 16,
+    "passed_count": 16,
+    "accuracy_rate": 1.0
+  }
+}

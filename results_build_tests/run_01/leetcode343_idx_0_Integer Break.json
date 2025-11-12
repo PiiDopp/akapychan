@@ -1,0 +1,200 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode343.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Integer Break",
+    "description": "Given an integer n, break it into the sum of k positive integers, where k >= 2, and maximize the product of those integers.\n\nReturn the maximum product you can get.",
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "1",
+        "explanation": "2 = 1 + 1, 1 × 1 = 1."
+      },
+      {
+        "input": "n = 10",
+        "output": "36",
+        "explanation": "10 = 3 + 3 + 4, 3 × 3 × 4 = 36."
+      }
+    ],
+    "solution": "class Solution:\n    def integerBreak(self, n):\n        if n == 2: return 1\n        if n == 3: return 2\n        res = 1\n        while n > 4:\n            res *= 3\n            n -= 3\n        return res * n"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5\n",
+        "output": "6\n"
+      },
+      {
+        "input": "6\n",
+        "output": "9\n"
+      },
+      {
+        "input": "7\n",
+        "output": "12\n"
+      },
+      {
+        "input": "8\n",
+        "output": "18\n"
+      },
+      {
+        "input": "9\n",
+        "output": "27\n"
+      },
+      {
+        "input": "10\n",
+        "output": "36\n"
+      },
+      {
+        "input": "11\n",
+        "output": "54\n"
+      },
+      {
+        "input": "12\n",
+        "output": "81\n"
+      },
+      {
+        "input": "13\n",
+        "output": "108\n"
+      },
+      {
+        "input": "14\n",
+        "output": "162\n"
+      },
+      {
+        "input": "15\n",
+        "output": "243\n"
+      },
+      {
+        "input": "16\n",
+        "output": "324\n"
+      },
+      {
+        "input": "17\n",
+        "output": "486\n"
+      },
+      {
+        "input": "18\n",
+        "output": "729\n"
+      },
+      {
+        "input": "19\n",
+        "output": "972\n"
+      },
+      {
+        "input": "20\n",
+        "output": "1458\n"
+      },
+      {
+        "input": "21\n",
+        "output": "2187\n"
+      },
+      {
+        "input": "22\n",
+        "output": "2916\n"
+      },
+      {
+        "input": "23\n",
+        "output": "4374\n"
+      },
+      {
+        "input": "24\n",
+        "output": "6561\n"
+      },
+      {
+        "input": "25\n",
+        "output": "8748\n"
+      },
+      {
+        "input": "26\n",
+        "output": "13122\n"
+      },
+      {
+        "input": "27\n",
+        "output": "19683\n"
+      },
+      {
+        "input": "28\n",
+        "output": "26244\n"
+      },
+      {
+        "input": "29\n",
+        "output": "39366\n"
+      },
+      {
+        "input": "30\n",
+        "output": "59049\n"
+      },
+      {
+        "input": "31\n",
+        "output": "78732\n"
+      },
+      {
+        "input": "32\n",
+        "output": "118098\n"
+      },
+      {
+        "input": "50\n",
+        "output": "86093442\n"
+      },
+      {
+        "input": "100\n",
+        "output": "7412080755407364\n"
+      }
+    ],
+    "parsed_tests": [
+      "('integerBreak', (2,), 1)",
+      "('integerBreak', (3,), 2)",
+      "('integerBreak', (4,), 4)",
+      "('integerBreak', (5,), 6)",
+      "('integerBreak', (6,), 9)",
+      "('integerBreak', (7,), 12)",
+      "('integerBreak', (8,), 18)",
+      "('integerBreak', (9,), 27)",
+      "('integerBreak', (10,), 36)",
+      "('integerBreak', (11,), 54)",
+      "('integerBreak', (12,), 81)",
+      "('integerBreak', (13,), 108)",
+      "('integerBreak', (14,), 162)",
+      "('integerBreak', (15,), 243)",
+      "('integerBreak', (16,), 324)",
+      "('integerBreak', (17,), 486)",
+      "('integerBreak', (18,), 729)",
+      "('integerBreak', (19,), 972)",
+      "('integerBreak', (20,), 1458)",
+      "('integerBreak', (21,), 2187)",
+      "('integerBreak', (22,), 2916)",
+      "('integerBreak', (23,), 4374)",
+      "('integerBreak', (24,), 6561)",
+      "('integerBreak', (25,), 8748)",
+      "('integerBreak', (26,), 13122)",
+      "('integerBreak', (27,), 19683)",
+      "('integerBreak', (28,), 26244)",
+      "('integerBreak', (29,), 39366)",
+      "('integerBreak', (30,), 59049)",
+      "('integerBreak', (31,), 78732)",
+      "('integerBreak', (32,), 118098)",
+      "('integerBreak', (50,), 86093442)",
+      "('integerBreak', (100,), 7412080755407364)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: integerBreak(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: integerBreak(3,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: integerBreak(4,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: integerBreak(5,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#5] ✅ 通過\n  標準輸入: integerBreak(6,)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#6] ✅ 通過\n  標準輸入: integerBreak(7,)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#7] ✅ 通過\n  標準輸入: integerBreak(8,)\n  標準輸出: 18\n  你的輸出: 18\n\n[測試#8] ✅ 通過\n  標準輸入: integerBreak(9,)\n  標準輸出: 27\n  你的輸出: 27\n\n[測試#9] ✅ 通過\n  標準輸入: integerBreak(10,)\n  標準輸出: 36\n  你的輸出: 36\n\n[測試#10] ✅ 通過\n  標準輸入: integerBreak(11,)\n  標準輸出: 54\n  你的輸出: 54\n\n[測試#11] ✅ 通過\n  標準輸入: integerBreak(12,)\n  標準輸出: 81\n  你的輸出: 81\n\n[測試#12] ✅ 通過\n  標準輸入: integerBreak(13,)\n  標準輸出: 108\n  你的輸出: 108\n\n[測試#13] ✅ 通過\n  標準輸入: integerBreak(14,)\n  標準輸出: 162\n  你的輸出: 162\n\n[測試#14] ✅ 通過\n  標準輸入: integerBreak(15,)\n  標準輸出: 243\n  你的輸出: 243\n\n[測試#15] ✅ 通過\n  標準輸入: integerBreak(16,)\n  標準輸出: 324\n  你的輸出: 324\n\n[測試#16] ✅ 通過\n  標準輸入: integerBreak(17,)\n  標準輸出: 486\n  你的輸出: 486\n\n[測試#17] ✅ 通過\n  標準輸入: integerBreak(18,)\n  標準輸出: 729\n  你的輸出: 729\n\n[測試#18] ✅ 通過\n  標準輸入: integerBreak(19,)\n  標準輸出: 972\n  你的輸出: 972\n\n[測試#19] ✅ 通過\n  標準輸入: integerBreak(20,)\n  標準輸出: 1458\n  你的輸出: 1458\n\n[測試#20] ✅ 通過\n  標準輸入: integerBreak(21,)\n  標準輸出: 2187\n  你的輸出: 2187\n\n[測試#21] ✅ 通過\n  標準輸入: integerBreak(22,)\n  標準輸出: 2916\n  你的輸出: 2916\n\n[測試#22] ✅ 通過\n  標準輸入: integerBreak(23,)\n  標準輸出: 4374\n  你的輸出: 4374\n\n[測試#23] ✅ 通過\n  標準輸入: integerBreak(24,)\n  標準輸出: 6561\n  你的輸出: 6561\n\n[測試#24] ✅ 通過\n  標準輸入: integerBreak(25,)\n  標準輸出: 8748\n  你的輸出: 8748\n\n[測試#25] ✅ 通過\n  標準輸入: integerBreak(26,)\n  標準輸出: 13122\n  你的輸出: 13122\n\n[測試#26] ✅ 通過\n  標準輸入: integerBreak(27,)\n  標準輸出: 19683\n  你的輸出: 19683\n\n[測試#27] ✅ 通過\n  標準輸入: integerBreak(28,)\n  標準輸出: 26244\n  你的輸出: 26244\n\n[測試#28] ✅ 通過\n  標準輸入: integerBreak(29,)\n  標準輸出: 39366\n  你的輸出: 39366\n\n[測試#29] ✅ 通過\n  標準輸入: integerBreak(30,)\n  標準輸出: 59049\n  你的輸出: 59049\n\n[測試#30] ✅ 通過\n  標準輸入: integerBreak(31,)\n  標準輸出: 78732\n  你的輸出: 78732\n\n[測試#31] ✅ 通過\n  標準輸入: integerBreak(32,)\n  標準輸出: 118098\n  你的輸出: 118098\n\n[測試#32] ✅ 通過\n  標準輸入: integerBreak(50,)\n  標準輸出: 86093442\n  你的輸出: 86093442\n\n[測試#33] ✅ 通過\n  標準輸入: integerBreak(100,)\n  標準輸出: 7412080755407364\n  你的輸出: 7412080755407364\n\n=== 測試完成 (33/33) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 33,
+    "passed_count": 33,
+    "accuracy_rate": 1.0
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode526.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Beautiful Arrangement",
+    "description": "Suppose you have n integers labeled 1 through n. A permutation of those n integers perm (1-indexed) is considered a beautiful arrangement if for every i (1 <= i <= n), either of the following is true:\n\nperm[i] is divisible by i.\ni is divisible by perm[i].\nGiven an integer n, return the number of the beautiful arrangements that you can construct.",
+    "examples": [
+      {
+        "input": "2",
+        "output": "2",
+        "explanation": "The first beautiful arrangement is [1,2]:\n    - perm[1] = 1 is divisible by i = 1\n    - perm[2] = 2 is divisible by i = 2\nThe second beautiful arrangement is [2,1]:\n    - perm[1] = 2 is divisible by i = 1\n    - i = 2 is divisible by perm[2] = 1"
+      },
+      {
+        "input": "1",
+        "output": "1"
+      }
+    ],
+    "solution": "class Solution:\n    def countArrangement(self, n):\n        def backtrack(pos, remaining):\n            if pos > n:\n                return 1\n            total = 0\n            for x in list(remaining):\n                if x % pos == 0 or pos % x == 0:\n                    remaining.remove(x)\n                    total += backtrack(pos + 1, remaining)\n                    remaining.add(x)\n            return total\n        \n        return backtrack(1, set(range(1, n + 1)))"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "4\n",
+        "output": "8\n"
+      },
+      {
+        "input": "5\n",
+        "output": "12\n"
+      },
+      {
+        "input": "6\n",
+        "output": "40\n"
+      },
+      {
+        "input": "7\n",
+        "output": "140\n"
+      },
+      {
+        "input": "8\n",
+        "output": "504\n"
+      },
+      {
+        "input": "9\n",
+        "output": "1680\n"
+      },
+      {
+        "input": "10\n",
+        "output": "5040\n"
+      }
+    ],
+    "parsed_tests": [
+      "('countArrangement', (1,), 1)",
+      "('countArrangement', (2,), 2)",
+      "('countArrangement', (3,), 3)",
+      "('countArrangement', (4,), 8)",
+      "('countArrangement', (5,), 12)",
+      "('countArrangement', (6,), 40)",
+      "('countArrangement', (7,), 140)",
+      "('countArrangement', (8,), 504)",
+      "('countArrangement', (9,), 1680)",
+      "('countArrangement', (10,), 5040)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countArrangement(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: countArrangement(2,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: countArrangement(3,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: countArrangement(4,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#5] ❌ 失敗\n  標準輸入: countArrangement(5,)\n  標準輸出: 12\n  你的輸出: 10\n\n[測試#6] ❌ 失敗\n  標準輸入: countArrangement(6,)\n  標準輸出: 40\n  你的輸出: 36\n\n[測試#7] ❌ 失敗\n  標準輸入: countArrangement(7,)\n  標準輸出: 140\n  你的輸出: 41\n\n[測試#8] ❌ 失敗\n  標準輸入: countArrangement(8,)\n  標準輸出: 504\n  你的輸出: 132\n\n[測試#9] ❌ 失敗\n  標準輸入: countArrangement(9,)\n  標準輸出: 1680\n  你的輸出: 250\n\n[測試#10] ❌ 失敗\n  標準輸入: countArrangement(10,)\n  標準輸出: 5040\n  你的輸出: 700\n\n=== 測試完成 (4/10) ===\n[警告] 部分測資未通過 ❌（0.0039s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

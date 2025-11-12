@@ -1,0 +1,135 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode762.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Prime Number of Set Bits in Binary Representation",
+    "description": "Given two integers left and right, return the count of numbers in the inclusive range [left, right] having a prime number of set bits in their binary representation.\n\nRecall that the number of set bits an integer has is the number of 1's present when written in binary.\n\nFor example, 21 written in binary is 10101, which has 3 set bits.",
+    "examples": [
+      {
+        "input": "left = 6, right = 10",
+        "output": "4",
+        "explanation": "6  -> 110 (2 set bits, 2 is prime)\n7  -> 111 (3 set bits, 3 is prime)\n8  -> 1000 (1 set bit, 1 is not prime)\n9  -> 1001 (2 set bits, 2 is prime)\n10 -> 1010 (2 set bits, 2 is prime)\n4 numbers have a prime number of set bits."
+      },
+      {
+        "input": "left = 10, right = 15",
+        "output": "5",
+        "explanation": "10 -> 1010 (2 set bits, 2 is prime)\n11 -> 1011 (3 set bits, 3 is prime)\n12 -> 1100 (2 set bits, 2 is prime)\n13 -> 1101 (3 set bits, 3 is prime)\n14 -> 1110 (3 set bits, 3 is prime)\n15 -> 1111 (4 set bits, 4 is not prime)\n5 numbers have a prime number of set bits."
+      }
+    ],
+    "solution": "class Solution:\n    def countPrimeSetBits(self, left, right):\n        primes = {2,3,5,7,11,13,17,19,23,29,31}\n        count = 0\n        for num in range(left, right + 1):\n            bits = bin(num).count('1')\n            if bits in primes:\n                count += 1\n        return count"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n10\n",
+        "output": "6\n"
+      },
+      {
+        "input": "1\n50\n",
+        "output": "34\n"
+      },
+      {
+        "input": "1\n100\n",
+        "output": "64\n"
+      },
+      {
+        "input": "0\n10\n",
+        "output": "6\n"
+      },
+      {
+        "input": "0\n100\n",
+        "output": "64\n"
+      },
+      {
+        "input": "10\n5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "3\n3\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n3\n",
+        "output": "1\n"
+      },
+      {
+        "input": "0\n5\n",
+        "output": "2\n"
+      },
+      {
+        "input": "0\n6\n",
+        "output": "3\n"
+      },
+      {
+        "input": "0\n7\n",
+        "output": "4\n"
+      },
+      {
+        "input": "0\n8\n",
+        "output": "4\n"
+      },
+      {
+        "input": "0\n9\n",
+        "output": "5\n"
+      },
+      {
+        "input": "0\n4\n",
+        "output": "1\n"
+      },
+      {
+        "input": "100\n100\n",
+        "output": "1\n"
+      },
+      {
+        "input": "101\n101\n",
+        "output": "0\n"
+      },
+      {
+        "input": "103\n103\n",
+        "output": "1\n"
+      },
+      {
+        "input": "104\n104\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('countPrimeSetBits', (1, 10), 6)",
+      "('countPrimeSetBits', (1, 50), 34)",
+      "('countPrimeSetBits', (1, 100), 64)",
+      "('countPrimeSetBits', (0, 10), 6)",
+      "('countPrimeSetBits', (0, 100), 64)",
+      "('countPrimeSetBits', (10, 5), 0)",
+      "('countPrimeSetBits', (3, 3), 1)",
+      "('countPrimeSetBits', (1, 1), 0)",
+      "('countPrimeSetBits', (0, 0), 0)",
+      "('countPrimeSetBits', (0, 3), 1)",
+      "('countPrimeSetBits', (0, 5), 2)",
+      "('countPrimeSetBits', (0, 6), 3)",
+      "('countPrimeSetBits', (0, 7), 4)",
+      "('countPrimeSetBits', (0, 8), 4)",
+      "('countPrimeSetBits', (0, 9), 5)",
+      "('countPrimeSetBits', (0, 4), 1)",
+      "('countPrimeSetBits', (100, 100), 1)",
+      "('countPrimeSetBits', (101, 101), 0)",
+      "('countPrimeSetBits', (103, 103), 1)",
+      "('countPrimeSetBits', (104, 104), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countPrimeSetBits(1, 10)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#2] ❌ 失敗\n  標準輸入: countPrimeSetBits(1, 50)\n  標準輸出: 34\n  你的輸出: 35\n\n[測試#3] ❌ 失敗\n  標準輸入: countPrimeSetBits(1, 100)\n  標準輸出: 64\n  你的輸出: 65\n\n[測試#4] ✅ 通過\n  標準輸入: countPrimeSetBits(0, 10)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#5] ❌ 失敗\n  標準輸入: countPrimeSetBits(0, 100)\n  標準輸出: 64\n  你的輸出: 65\n\n[測試#6] ✅ 通過\n  標準輸入: countPrimeSetBits(10, 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: countPrimeSetBits(3, 3)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: countPrimeSetBits(1, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: countPrimeSetBits(0, 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: countPrimeSetBits(0, 3)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: countPrimeSetBits(0, 5)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: countPrimeSetBits(0, 6)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#13] ✅ 通過\n  標準輸入: countPrimeSetBits(0, 7)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#14] ✅ 通過\n  標準輸入: countPrimeSetBits(0, 8)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#15] ✅ 通過\n  標準輸入: countPrimeSetBits(0, 9)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#16] ✅ 通過\n  標準輸入: countPrimeSetBits(0, 4)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#17] ✅ 通過\n  標準輸入: countPrimeSetBits(100, 100)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#18] ✅ 通過\n  標準輸入: countPrimeSetBits(101, 101)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#19] ✅ 通過\n  標準輸入: countPrimeSetBits(103, 103)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#20] ✅ 通過\n  標準輸入: countPrimeSetBits(104, 104)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (17/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

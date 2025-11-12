@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode169.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Majority Element",
+    "description": "Given an array nums of size n, return the majority element.\n\nThe majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.",
+    "examples": [
+      {
+        "input": "nums = [3,2,3]",
+        "output": "3"
+      },
+      {
+        "input": "nums = [2,2,1,1,1,2,2]",
+        "output": "2"
+      }
+    ],
+    "solution": "class Solution:\n    def majorityElement(self, nums):\n        count = 0\n        candidate = None\n        for num in nums:\n            if count == 0:\n                candidate = num\n            count += (1 if num == candidate else -1)\n        return candidate"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

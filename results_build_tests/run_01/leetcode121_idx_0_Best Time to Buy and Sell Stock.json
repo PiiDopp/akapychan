@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode121.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Best Time to Buy and Sell Stock",
+    "description": "You are given an array prices where prices[i] is the price of a given stock on the ith day.\n\nYou want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.\n\nReturn the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.",
+    "examples": [
+      {
+        "input": "prices = [7,1,5,3,6,4]",
+        "output": "5",
+        "explanation": "Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5. Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell."
+      },
+      {
+        "input": "prices = [7,6,4,3,1]",
+        "output": "0",
+        "explanation": "In this case, no transactions are done and the max profit = 0."
+      }
+    ],
+    "solution": "class Solution:\n    def maxProfit(self, prices):\n        if not prices:\n            return 0\n        min_price = prices[0]\n        max_profit = 0\n        for price in prices[1:]:\n            max_profit = max(max_profit, price - min_price)\n            min_price = min(min_price, price)\n        return max_profit"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "7\n1\n5\n3\n6\n4\n",
+        "output": "5\n"
+      },
+      {
+        "input": "7\n6\n4\n3\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "3\n3\n3\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+        "output": "9\n"
+      },
+      {
+        "input": "10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n5\n5\n10\n5\n10\n5\n10\n",
+        "output": "5\n"
+      },
+      {
+        "input": "0\n0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000\n1\n1000000\n1\n1000000\n",
+        "output": "999999\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maxProfit', ((7, 1, 5, 3, 6, 4),), 5)",
+      "('maxProfit', ((7, 6, 4, 3, 1),), 0)",
+      "('maxProfit', (1,), 0)",
+      "('maxProfit', ((),), 0)",
+      "('maxProfit', ((3, 3, 3, 3),), 0)",
+      "('maxProfit', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),), 9)",
+      "('maxProfit', ((10, 9, 8, 7, 6, 5, 4, 3, 2, 1),), 0)",
+      "('maxProfit', ((5, 5, 5, 10, 5, 10, 5, 10),), 5)",
+      "('maxProfit', ((0, 0, 0, 0),), 0)",
+      "('maxProfit', ((1000000, 1, 1000000, 1, 1000000),), 999999)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: maxProfit((7, 1, 5, 3, 6, 4),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#2] ✅ 通過\n  標準輸入: maxProfit((7, 6, 4, 3, 1),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ❌ 執行例外: 'int' object is not subscriptable\n[測試#4] ✅ 通過\n  標準輸入: maxProfit((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: maxProfit((3, 3, 3, 3),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: maxProfit((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#7] ✅ 通過\n  標準輸入: maxProfit((10, 9, 8, 7, 6, 5, 4, 3, 2, 1),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: maxProfit((5, 5, 5, 10, 5, 10, 5, 10),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#9] ✅ 通過\n  標準輸入: maxProfit((0, 0, 0, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: maxProfit((1000000, 1, 1000000, 1, 1000000),)\n  標準輸出: 999999\n  你的輸出: 999999\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

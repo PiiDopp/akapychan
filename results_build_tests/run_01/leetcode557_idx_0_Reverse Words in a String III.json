@@ -1,0 +1,88 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode557.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reverse Words in a String III",
+    "description": "Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.",
+    "examples": [
+      {
+        "input": "s = \"Let's take LeetCode contest\"",
+        "output": "\"s'teL ekat edoCteeL tsetnoc\""
+      },
+      {
+        "input": "s = \"Mr Ding\"",
+        "output": "\"rM gniD\""
+      }
+    ],
+    "solution": "class Solution:\n    def reverseWords(self, s):\n        return \" \".join(word[::-1] for word in s.split(\" \"))"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "Hello world\n",
+        "output": "olleH dlrow\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "test\n",
+        "output": "tset\n"
+      },
+      {
+        "input": "hello   world\n",
+        "output": "  olleh   dlrow  \n"
+      },
+      {
+        "input": "Hello, world!\n",
+        "output": ",olleH !dlrow\n"
+      },
+      {
+        "input": "你好 世界\n",
+        "output": "好你 界世\n"
+      },
+      {
+        "input": "ab  cd\n",
+        "output": "ba  dc\n"
+      },
+      {
+        "input": "123 456\n",
+        "output": "321 654\n"
+      },
+      {
+        "input": "Hello, world! 123\n",
+        "output": ",olleH !dlrow 321\n"
+      },
+      {
+        "input": "\n",
+        "output": "   \n"
+      },
+      {
+        "input": "!@#\n",
+        "output": "#@!\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reverseWords', ('Hello world\\n',), 'olleH dlrow\\n')",
+      "('reverseWords', ((),), '\\n')",
+      "('reverseWords', ('test\\n',), 'tset\\n')",
+      "('reverseWords', ('hello   world\\n',), '  olleh   dlrow  \\n')",
+      "('reverseWords', ('Hello, world!\\n',), ',olleH !dlrow\\n')",
+      "('reverseWords', ('你好 世界\\n',), '好你 界世\\n')",
+      "('reverseWords', ('ab  cd\\n',), 'ba  dc\\n')",
+      "('reverseWords', ('123 456\\n',), '321 654\\n')",
+      "('reverseWords', ('Hello, world! 123\\n',), ',olleH !dlrow 321\\n')",
+      "('reverseWords', ((),), '   \\n')",
+      "('reverseWords', ('!@#\\n',), '#@!\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reverseWords('Hello world\\n',)\n  標準輸出: 'olleH dlrow\\n'\n  你的輸出: 'olleH \\ndlrow'\n\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#3] ❌ 失敗\n  標準輸入: reverseWords('test\\n',)\n  標準輸出: 'tset\\n'\n  你的輸出: '\\ntset'\n\n[測試#4] ❌ 失敗\n  標準輸入: reverseWords('hello   world\\n',)\n  標準輸出: '  olleh   dlrow  \\n'\n  你的輸出: 'olleh   \\ndlrow'\n\n[測試#5] ❌ 失敗\n  標準輸入: reverseWords('Hello, world!\\n',)\n  標準輸出: ',olleH !dlrow\\n'\n  你的輸出: ',olleH \\n!dlrow'\n\n[測試#6] ❌ 失敗\n  標準輸入: reverseWords('你好 世界\\n',)\n  標準輸出: '好你 界世\\n'\n  你的輸出: '好你 \\n界世'\n\n[測試#7] ❌ 失敗\n  標準輸入: reverseWords('ab  cd\\n',)\n  標準輸出: 'ba  dc\\n'\n  你的輸出: 'ba  \\ndc'\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseWords('123 456\\n',)\n  標準輸出: '321 654\\n'\n  你的輸出: '321 \\n654'\n\n[測試#9] ❌ 失敗\n  標準輸入: reverseWords('Hello, world! 123\\n',)\n  標準輸出: ',olleH !dlrow 321\\n'\n  你的輸出: ',olleH !dlrow \\n321'\n\n[測試#10] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#11] ❌ 失敗\n  標準輸入: reverseWords('!@#\\n',)\n  標準輸出: '#@!\\n'\n  你的輸出: '\\n#@!'\n\n=== 測試完成 (0/11) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 11,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

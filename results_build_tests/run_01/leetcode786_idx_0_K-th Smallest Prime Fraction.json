@@ -1,0 +1,32 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode786.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "K-th Smallest Prime Fraction",
+    "description": "You are given a sorted integer array arr containing 1 and prime numbers, where all the integers of arr are unique. \nYou are also given an integer k.\n\nFor every i and j where 0 <= i < j < arr.length, we consider the fraction arr[i] / arr[j].\n\nReturn the k^th smallest fraction considered. Return your answer as an array of integers of size 2, where answer[0] == arr[i] and answer[1] == arr[j].",
+    "examples": [
+      {
+        "input": "arr = [1,2,3,5], k = 3",
+        "output": "[2,5]",
+        "explanation": "The fractions to be considered in sorted order are: 1/5, 1/3, 2/5, 1/2, 3/5, and 2/3. The third fraction is 2/5."
+      },
+      {
+        "input": "arr = [1,7], k = 1",
+        "output": "[1,7]"
+      }
+    ],
+    "solution": "class Solution(object):\n    def kthSmallestPrimeFraction(self, arr, k):\n        n = len(arr)\n        low, high = 0, 1.0\n\n        while low < high:\n            mid = (low + high) / 2\n            count, num, den = self.helper(arr, mid)\n\n            if k < count:\n                high = mid\n            elif k > count:\n                low = mid\n            else:\n                return [num, den]\n\n        return []\n\n    def helper(self, arr, target):\n        count, i, n = 0, 0, len(arr)\n        num, den = arr[0], arr[n - 1]\n\n        for j in range(1, n):\n            while i < j and arr[i] <= arr[j] * target:\n                i += 1\n            count += i\n            if i > 0 and arr[i - 1] * den > arr[j] * num:\n                num = arr[i - 1]\n                den = arr[j]\n\n        return [count, num, den]"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

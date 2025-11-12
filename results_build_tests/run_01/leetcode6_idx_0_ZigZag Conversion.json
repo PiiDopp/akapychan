@@ -1,0 +1,97 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode6.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "ZigZag Conversion",
+    "description": "Convert a string to a zigzag pattern and read line by line.",
+    "examples": {
+      "input": "s = 'PAYPALISHIRING', numRows = 3",
+      "output": "'PAHNAPLSIIGYIR'"
+    },
+    "solution": "class Solution:\n    def convert(self, s: str, numRows: int) -> str:\n        if numRows == 1 or numRows >= len(s):\n            return s\n        res = [''] * numRows\n        index, step = 0, 1\n        for c in s:\n            res[index] += c\n            if index == 0:\n                step = 1\n            elif index == numRows - 1:\n                step = -1\n            index += step\n        return ''.join(res)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['PAYPALISHIRING', 3]\n",
+        "output": "PAHNAPLSIIGYIR\n"
+      },
+      {
+        "input": "['PAYPALISHIRING', 4]\n",
+        "output": "PINALSIGYAHRPI\n"
+      },
+      {
+        "input": "['HELLO', 1]\n",
+        "output": "HELLO\n"
+      },
+      {
+        "input": "['ABC', 5]\n",
+        "output": "ABC\n"
+      },
+      {
+        "input": "['', 3]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['A', 2]\n",
+        "output": "A\n"
+      },
+      {
+        "input": "['ABCD', 2]\n",
+        "output": "ACBD\n"
+      },
+      {
+        "input": "['ABCDE', 2]\n",
+        "output": "ACEBD\n"
+      },
+      {
+        "input": "['abcd', 3]\n",
+        "output": "acbd\n"
+      },
+      {
+        "input": "['abc', 3]\n",
+        "output": "acb\n"
+      },
+      {
+        "input": "['你好世界', 3]\n",
+        "output": "你世好界\n"
+      },
+      {
+        "input": "['ABC DEF', 2]\n",
+        "output": "ACDFB E\n"
+      },
+      {
+        "input": "['Hello, World!', 4]\n",
+        "output": "H !e,Wdloolr\n"
+      },
+      {
+        "input": "['abcd', 4]\n",
+        "output": "abcd\n"
+      }
+    ],
+    "parsed_tests": [
+      "('convert', ('PAYPALISHIRING', 3), 'PAHNAPLSIIGYIR\\n')",
+      "('convert', ('PAYPALISHIRING', 4), 'PINALSIGYAHRPI\\n')",
+      "('convert', ('HELLO', 1), 'HELLO\\n')",
+      "('convert', ('ABC', 5), 'ABC\\n')",
+      "('convert', ('', 3), '\\n')",
+      "('convert', ('A', 2), 'A\\n')",
+      "('convert', ('ABCD', 2), 'ACBD\\n')",
+      "('convert', ('ABCDE', 2), 'ACEBD\\n')",
+      "('convert', ('abcd', 3), 'acbd\\n')",
+      "('convert', ('abc', 3), 'acb\\n')",
+      "('convert', ('你好世界', 3), '你世好界\\n')",
+      "('convert', ('ABC DEF', 2), 'ACDFB E\\n')",
+      "('convert', ('Hello, World!', 4), 'H !e,Wdloolr\\n')",
+      "('convert', ('abcd', 4), 'abcd\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: convert('PAYPALISHIRING', 3)\n  標準輸出: 'PAHNAPLSIIGYIR\\n'\n  你的輸出: 'PAHNAPLSIIGYIR'\n\n[測試#2] ❌ 失敗\n  標準輸入: convert('PAYPALISHIRING', 4)\n  標準輸出: 'PINALSIGYAHRPI\\n'\n  你的輸出: 'PINALSIGYAHRPI'\n\n[測試#3] ❌ 失敗\n  標準輸入: convert('HELLO', 1)\n  標準輸出: 'HELLO\\n'\n  你的輸出: 'HELLO'\n\n[測試#4] ❌ 失敗\n  標準輸入: convert('ABC', 5)\n  標準輸出: 'ABC\\n'\n  你的輸出: 'ABC'\n\n[測試#5] ❌ 失敗\n  標準輸入: convert('', 3)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: convert('A', 2)\n  標準輸出: 'A\\n'\n  你的輸出: 'A'\n\n[測試#7] ❌ 失敗\n  標準輸入: convert('ABCD', 2)\n  標準輸出: 'ACBD\\n'\n  你的輸出: 'ACBD'\n\n[測試#8] ❌ 失敗\n  標準輸入: convert('ABCDE', 2)\n  標準輸出: 'ACEBD\\n'\n  你的輸出: 'ACEBD'\n\n[測試#9] ❌ 失敗\n  標準輸入: convert('abcd', 3)\n  標準輸出: 'acbd\\n'\n  你的輸出: 'abdc'\n\n[測試#10] ❌ 失敗\n  標準輸入: convert('abc', 3)\n  標準輸出: 'acb\\n'\n  你的輸出: 'abc'\n\n[測試#11] ❌ 失敗\n  標準輸入: convert('你好世界', 3)\n  標準輸出: '你世好界\\n'\n  你的輸出: '你好界世'\n\n[測試#12] ❌ 失敗\n  標準輸入: convert('ABC DEF', 2)\n  標準輸出: 'ACDFB E\\n'\n  你的輸出: 'ACDFB E'\n\n[測試#13] ❌ 失敗\n  標準輸入: convert('Hello, World!', 4)\n  標準輸出: 'H !e,Wdloolr\\n'\n  你的輸出: 'H !e,Wdloollr'\n\n[測試#14] ❌ 失敗\n  標準輸入: convert('abcd', 4)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n=== 測試完成 (0/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 14,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode349.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Intersection of Two Arrays",
+    "description": "Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.",
+    "examples": [
+      {
+        "input": "nums1 = [1,2,2,1], nums2 = [2,2]",
+        "output": "[2]"
+      },
+      {
+        "input": "nums1 = [4,9,5], nums2 = [9,4,9,8,4]",
+        "output": "[9,4]",
+        "explanation": "[4,9] is also accepted."
+      }
+    ],
+    "solution": "class Solution:\n    def intersection(self, nums1, nums2):\n        return list(set(nums1) & set(nums2))"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 2 1\n2 2\n",
+        "output": "[2]\n"
+      },
+      {
+        "input": "4 9 5\n9 4 9 8 4\n",
+        "output": "[4, 9]\n"
+      },
+      {
+        "input": "1 2 3\n4 5 6\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "\n1 2 3\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "-1 -2 -3\n-3 -4 -5\n",
+        "output": "[-3]\n"
+      },
+      {
+        "input": "1 1 1 1\n1 1 1\n",
+        "output": "[1]\n"
+      },
+      {
+        "input": "1 2 3 4 5\n5 4 3 2 1\n",
+        "output": "[1, 2, 3, 4, 5]\n"
+      },
+      {
+        "input": "0\n0\n",
+        "output": "[0]\n"
+      },
+      {
+        "input": "1000000\n1000000 1000000\n",
+        "output": "[1000000]\n"
+      },
+      {
+        "input": "1 2 3\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('intersection', ('1 2 2 1\\n2 2\\n',), [2])",
+      "('intersection', ('4 9 5\\n9 4 9 8 4\\n',), [4, 9])",
+      "('intersection', ('1 2 3\\n4 5 6\\n',), [])",
+      "('intersection', ('\\n1 2 3\\n',), [])",
+      "('intersection', ('-1 -2 -3\\n-3 -4 -5\\n',), [-3])",
+      "('intersection', ('1 1 1 1\\n1 1 1\\n',), [1])",
+      "('intersection', ('1 2 3 4 5\\n5 4 3 2 1\\n',), [1, 2, 3, 4, 5])",
+      "('intersection', (0, 0), [0])",
+      "('intersection', ('1000000\\n1000000 1000000\\n',), [1000000])",
+      "('intersection', ('1 2 3\\n',), [])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.intersection() missing 1 required positional argument: 'nums2'\n[測試#2] ❌ 執行例外: Solution.intersection() missing 1 required positional argument: 'nums2'\n[測試#3] ❌ 執行例外: Solution.intersection() missing 1 required positional argument: 'nums2'\n[測試#4] ❌ 執行例外: Solution.intersection() missing 1 required positional argument: 'nums2'\n[測試#5] ❌ 執行例外: Solution.intersection() missing 1 required positional argument: 'nums2'\n[測試#6] ❌ 執行例外: Solution.intersection() missing 1 required positional argument: 'nums2'\n[測試#7] ❌ 執行例外: Solution.intersection() missing 1 required positional argument: 'nums2'\n[測試#8] ❌ 執行例外: 'int' object is not iterable\n[測試#9] ❌ 執行例外: Solution.intersection() missing 1 required positional argument: 'nums2'\n[測試#10] ❌ 執行例外: Solution.intersection() missing 1 required positional argument: 'nums2'\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

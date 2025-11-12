@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode869.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reordered Power of 2",
+    "description": "You are given an integer n. We reorder the digits in any order (including the original order) such that the leading digit is not zero.\n\nReturn true if and only if we can do this so that the resulting number is a power of two.",
+    "examples": [
+      {
+        "input": "n = 1",
+        "output": "true"
+      },
+      {
+        "input": "n = 10",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution(object):\n    def reorderedPowerOf2(self, N):\n        from collections import Counter\n        count_N = Counter(str(N))\n        for i in range(31):\n            if Counter(str(1 << i)) == count_N:\n                return True\n        return False"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

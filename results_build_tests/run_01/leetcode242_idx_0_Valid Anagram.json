@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode242.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Valid Anagram",
+    "description": "Given two strings s and t, return true if t is an anagram of s, and false otherwise.",
+    "examples": [
+      {
+        "input": "s = \"anagram\", t = \"nagaram\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"rat\", t = \"car\"",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution:\n    def isAnagram(self, s, t):\n        from collections import Counter\n        return Counter(s) == Counter(t)"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

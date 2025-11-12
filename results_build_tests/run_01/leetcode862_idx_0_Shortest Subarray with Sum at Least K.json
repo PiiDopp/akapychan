@@ -1,0 +1,117 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode862.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Shortest Subarray with Sum at Least K",
+    "description": "Given an integer array nums and an integer k, return the length of the shortest non-empty subarray of nums with a sum of at least k. If there is no such subarray, return -1.\n\nA subarray is a contiguous part of an array.",
+    "examples": [
+      {
+        "input": "nums = [1], k = 1",
+        "output": "1"
+      },
+      {
+        "input": "nums = [1,2], k = 4",
+        "output": "-1"
+      },
+      {
+        "input": "nums = [2,-1,2], k = 3",
+        "output": "3"
+      }
+    ],
+    "solution": "from collections import deque\n\nclass Solution(object):\n    def shortestSubarray(self, A, K):\n        n = len(A)\n        prefix = [0] * (n + 1)\n        for i in range(n):\n            prefix[i + 1] = prefix[i] + A[i]\n\n        res = n + 1\n        dq = deque()\n        for i in range(n + 1):\n            while dq and prefix[i] - prefix[dq[0]] >= K:\n                res = min(res, i - dq.popleft())\n            while dq and prefix[i] <= prefix[dq[-1]]:\n                dq.pop()\n            dq.append(i)\n\n        return res if res <= n else -1"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 2, 3, 4, 5]\n11\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n15\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[2, -1, 2]\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[-1, -2, -3]\n1\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[0, 0, 0]\n0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[5]\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[4]\n5\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[1, 2, 3]\n10\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[5, 1, 1, 1]\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1, 1, 1, 5]\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1, -1, 5]\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[5, -10, 6]\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n7\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[0, 1, 0, 2, 0]\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[10, -5, 10]\n15\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[]\n0\n",
+        "output": "-1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('shortestSubarray', ([1, 2, 3, 4, 5], 11), 3)",
+      "('shortestSubarray', ([1, 2, 3, 4, 5], 15), 5)",
+      "('shortestSubarray', ([2, -1, 2], 3), 3)",
+      "('shortestSubarray', ([-1, -2, -3], 1), -1)",
+      "('shortestSubarray', ([0, 0, 0], 0), 1)",
+      "('shortestSubarray', ([5], 5), 1)",
+      "('shortestSubarray', ([4], 5), -1)",
+      "('shortestSubarray', ([1, 2, 3], 10), -1)",
+      "('shortestSubarray', ([5, 1, 1, 1], 5), 1)",
+      "('shortestSubarray', ([1, 1, 1, 5], 5), 1)",
+      "('shortestSubarray', ([1, -1, 5], 5), 1)",
+      "('shortestSubarray', ([5, -10, 6], 1), 1)",
+      "('shortestSubarray', ([1, 2, 3, 4, 5], 7), 2)",
+      "('shortestSubarray', ([0, 1, 0, 2, 0], 3), 3)",
+      "('shortestSubarray', ([10, -5, 10], 15), 3)",
+      "('shortestSubarray', ([], 0), -1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: shortestSubarray([1, 2, 3, 4, 5], 11)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: shortestSubarray([1, 2, 3, 4, 5], 15)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#3] ✅ 通過\n  標準輸入: shortestSubarray([2, -1, 2], 3)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: shortestSubarray([-1, -2, -3], 1)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: shortestSubarray([0, 0, 0], 0)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: shortestSubarray([5], 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: shortestSubarray([4], 5)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#8] ✅ 通過\n  標準輸入: shortestSubarray([1, 2, 3], 10)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#9] ✅ 通過\n  標準輸入: shortestSubarray([5, 1, 1, 1], 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: shortestSubarray([1, 1, 1, 5], 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: shortestSubarray([1, -1, 5], 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#12] ✅ 通過\n  標準輸入: shortestSubarray([5, -10, 6], 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#13] ✅ 通過\n  標準輸入: shortestSubarray([1, 2, 3, 4, 5], 7)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#14] ✅ 通過\n  標準輸入: shortestSubarray([0, 1, 0, 2, 0], 3)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#15] ✅ 通過\n  標準輸入: shortestSubarray([10, -5, 10], 15)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#16] ✅ 通過\n  標準輸入: shortestSubarray([], 0)\n  標準輸出: -1\n  你的輸出: -1\n\n=== 測試完成 (16/16) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 16,
+    "passed_count": 16,
+    "accuracy_rate": 1.0
+  }
+}

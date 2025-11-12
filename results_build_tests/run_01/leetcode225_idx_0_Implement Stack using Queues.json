@@ -1,0 +1,28 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode225.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Implement Stack using Queues",
+    "description": "Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).\n\nImplement the MyStack class:\n\nvoid push(int x) Pushes element x to the top of the stack.\nint pop() Removes the element on the top of the stack and returns it.\nint top() Returns the element on the top of the stack.\nboolean empty() Returns true if the stack is empty, false otherwise.\nNotes:\n\nYou must use only standard operations of a queue, which means that only push to back, peek/pop from front, size and is empty operations are valid.\nDepending on your language, the queue may not be supported natively. You may simulate a queue using a list or deque (double-ended queue) as long as you use only a queue's standard operations.",
+    "examples": [
+      {
+        "input": "Input [\"MyStack\", \"push\", \"push\", \"top\", \"pop\", \"empty\"], [[], [1], [2], [], [], []]",
+        "output": "[null, null, null, 2, 2, false]",
+        "explanation": "MyStack myStack = new MyStack(); myStack.push(1); myStack.push(2); myStack.top(); returns 2; myStack.pop(); returns 2; myStack.empty(); returns False"
+      }
+    ],
+    "solution": "from collections import deque\n\nclass MyStack:\n\n    def __init__(self):\n        self.q = deque()\n\n    def push(self, x):\n        self.q.append(x)\n        for _ in range(len(self.q) - 1):\n            self.q.append(self.q.popleft())\n\n    def pop(self):\n        return self.q.popleft()\n\n    def top(self):\n        return self.q[0]\n\n    def empty(self):\n        return not self.q"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "非 LeetCode 格式程式碼",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode745.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Prefix and Suffix Search",
+    "description": "Design a special dictionary that searches the words in it by a prefix and a suffix.\n\nImplement the WordFilter class:\n\nWordFilter(string[] words) Initializes the object with the words in the dictionary.\nf(string pref, string suff) Returns the index of the word in the dictionary, which has the prefix pref and the suffix suff. If there is more than one valid index, return the largest of them. If there is no such word in the dictionary, return -1.",
+    "examples": [
+      {
+        "input": "[[\"apple\"]], [\"a\", \"e\"]",
+        "output": "0",
+        "explanation": "WordFilter wordFilter = new WordFilter([\"apple\"]);\nwordFilter.f(\"a\", \"e\"); // return 0, because the word at index 0 has prefix = \"a\" and suffix = \"e\"."
+      }
+    ],
+    "solution": "class WordFilter:\n\n    def __init__(self, words):\n        self.lookup = {}\n        for weight, word in enumerate(words):\n            L = len(word)\n            for i in range(L + 1):\n                for j in range(L + 1):\n                    self.lookup[(word[:i], word[j:])] = weight\n\n    def f(self, prefix, suffix):\n        return self.lookup.get((prefix, suffix), -1)"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "非 LeetCode 格式程式碼",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

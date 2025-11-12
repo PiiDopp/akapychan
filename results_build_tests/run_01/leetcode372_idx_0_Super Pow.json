@@ -1,0 +1,35 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode372.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Super Pow",
+    "description": "Your task is to calculate a^b mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array.",
+    "examples": [
+      {
+        "input": "a = 2, b = [3]",
+        "output": "8"
+      },
+      {
+        "input": "a = 2, b = [1,0]",
+        "output": "1024"
+      },
+      {
+        "input": "a = 1, b = [4,3,3,8,5,2]",
+        "output": "1"
+      }
+    ],
+    "solution": "class Solution:\n    def superPow(self, a, b):\n        MOD = 1337\n        result = 1\n        for digit in b:\n            result = pow(result, 10, MOD) * pow(a, digit, MOD) % MOD\n        return result"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

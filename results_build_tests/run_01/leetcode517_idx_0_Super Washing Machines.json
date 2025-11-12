@@ -1,0 +1,80 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode517.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Super Washing Machines",
+    "description": "You have n super washing machines on a line. Initially, each washing machine has some dresses or is empty.\n\nFor each move, you could choose any m (1 <= m <= n) washing machines, and pass one dress of each washing machine to one of its adjacent washing machines at the same time.\n\nGiven an integer array machines representing the number of dresses in each washing machine from left to right on the line, return the minimum number of moves to make all the washing machines have the same number of dresses. If it is not possible to do it, return -1.",
+    "examples": [
+      {
+        "input": "[1,0,5]",
+        "output": "3",
+        "explanation": "1st move:    1     0 <-- 5    =>    1     1     4\n2nd move:    1 <-- 1 <-- 4    =>    2     1     3\n3rd move:    2     1 <-- 3    =>    2     2     2"
+      },
+      {
+        "input": "[0,3,0]",
+        "output": "2",
+        "explanation": "1st move:    0 <-- 3     0    =>    1     2     0\n2nd move:    1     2 --> 0    =>    1     1     1"
+      },
+      {
+        "input": "[0,2,0]",
+        "output": "-1",
+        "explanation": "It's impossible to make all three washing machines have the same number of dresses."
+      }
+    ],
+    "solution": "class Solution:\n    def findMinMoves(self, machines):\n        total = sum(machines)\n        n = len(machines)\n        if total % n != 0:\n            return -1\n        avg = total // n\n        res = 0\n        cum_diff = 0\n        for load in machines:\n            diff = load - avg\n            cum_diff += diff\n            res = max(res, abs(cum_diff), diff)\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n0\n5\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1\n1\n1\n2\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "3\n3\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "9\n0\n9\n",
+        "output": "6\n"
+      },
+      {
+        "input": "0\n10\n0\n10\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findMinMoves', ((1, 0, 5),), 3)",
+      "('findMinMoves', ((1, 1, 1, 2),), -1)",
+      "('findMinMoves', ((3, 3, 3),), 0)",
+      "('findMinMoves', (5,), 0)",
+      "('findMinMoves', ((0, 0, 0),), 0)",
+      "('findMinMoves', ((9, 0, 9),), 6)",
+      "('findMinMoves', ((0, 10, 0, 10),), 5)",
+      "('findMinMoves', ((1, 1, 1, 1, 1, 1, 1, 1, 1, 1),), 0)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findMinMoves((1, 0, 5),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: findMinMoves((1, 1, 1, 2),)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#3] ✅ 通過\n  標準輸入: findMinMoves((3, 3, 3),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ❌ 執行例外: 'int' object is not iterable\n[測試#5] ✅ 通過\n  標準輸入: findMinMoves((0, 0, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ❌ 失敗\n  標準輸入: findMinMoves((9, 0, 9),)\n  標準輸出: 6\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: findMinMoves((0, 10, 0, 10),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#8] ✅ 通過\n  標準輸入: findMinMoves((1, 1, 1, 1, 1, 1, 1, 1, 1, 1),)\n  標準輸出: 0\n  你的輸出: 0\n\n=== 測試完成 (6/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

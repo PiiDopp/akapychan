@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode214.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Shortest Palindrome",
+    "description": "You are given a string s. You can convert s to a palindrome by adding characters in front of it.\n\nReturn the shortest palindrome you can find by performing this transformation.",
+    "examples": [
+      {
+        "input": "s = 'aacecaaa'",
+        "output": "'aaacecaaa'"
+      },
+      {
+        "input": "s = 'abcd'",
+        "output": "'dcbabcd'"
+      }
+    ],
+    "solution": "class Solution:\n    def shortestPalindrome(self, s):\n        if not s:\n            return \"\"\n        temp = s + '#' + s[::-1]\n        n = len(temp)\n        lps = [0] * n\n        for i in range(1, n):\n            length = lps[i-1]\n            while length > 0 and temp[i] != temp[length]:\n                length = lps[length-1]\n            if temp[i] == temp[length]:\n                length += 1\n            lps[i] = length\n        to_add = s[lps[-1]:][::-1]\n        return to_add + s"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

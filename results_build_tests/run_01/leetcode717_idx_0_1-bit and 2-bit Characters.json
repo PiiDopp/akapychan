@@ -1,0 +1,33 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode717.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "1-bit and 2-bit Characters",
+    "description": "We have two special characters:\\n- The first character can be represented by one bit 0.\\n- The second character can be represented by two bits (10 or 11).\\nGiven a binary array bits that ends with 0, return true if the last character must be a one-bit character.",
+    "examples": [
+      {
+        "input": "bits = [1,0,0]",
+        "output": "true",
+        "explanation": "The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character."
+      },
+      {
+        "input": "bits = [1,1,1,0]",
+        "output": "false",
+        "explanation": "The only way to decode it is two-bit character and two-bit character. So the last character is not one-bit character."
+      }
+    ],
+    "solution": "class Solution:\n    def isOneBitCharacter(self, bits):\n        i = 0\n        n = len(bits)\n        while i < n - 1:\n            if bits[i] == 1:\n                i += 2\n            else:\n                i += 1\n        return i == n - 1"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

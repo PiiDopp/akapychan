@@ -1,0 +1,109 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode633.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Sum of Square Numbers",
+    "description": "Given a non-negative integer c, decide whether there're two integers a and b such that a^2 + b^2 = c.",
+    "examples": [
+      {
+        "input": "c = 5",
+        "output": "true",
+        "explanation": "1 * 1 + 2 * 2 = 5"
+      },
+      {
+        "input": "c = 3",
+        "output": "false"
+      }
+    ],
+    "solution": "import math\n\nclass Solution:\n    def judgeSquareSum(self, c):\n        left, right = 0, int(math.sqrt(c))\n        while left <= right:\n            total = left * left + right * right\n            if total == c:\n                return True\n            elif total < c:\n                left += 1\n            else:\n                right -= 1\n        return False"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "7\n",
+        "output": "False\n"
+      },
+      {
+        "input": "10\n",
+        "output": "True\n"
+      },
+      {
+        "input": "25\n",
+        "output": "True\n"
+      },
+      {
+        "input": "50\n",
+        "output": "True\n"
+      },
+      {
+        "input": "65\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1000000000\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1000000000000\n",
+        "output": "True\n"
+      },
+      {
+        "input": "999999999999\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('judgeSquareSum', (0,), True)",
+      "('judgeSquareSum', (1,), True)",
+      "('judgeSquareSum', (2,), True)",
+      "('judgeSquareSum', (3,), False)",
+      "('judgeSquareSum', (4,), True)",
+      "('judgeSquareSum', (5,), True)",
+      "('judgeSquareSum', (7,), False)",
+      "('judgeSquareSum', (10,), True)",
+      "('judgeSquareSum', (25,), True)",
+      "('judgeSquareSum', (50,), True)",
+      "('judgeSquareSum', (65,), True)",
+      "('judgeSquareSum', (1000000000,), False)",
+      "('judgeSquareSum', (2147483647,), False)",
+      "('judgeSquareSum', (1000000000000,), True)",
+      "('judgeSquareSum', (999999999999,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: judgeSquareSum(0,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: judgeSquareSum(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: judgeSquareSum(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: judgeSquareSum(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: judgeSquareSum(4,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: judgeSquareSum(5,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: judgeSquareSum(7,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: judgeSquareSum(10,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: judgeSquareSum(25,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: judgeSquareSum(50,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: judgeSquareSum(65,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ❌ 失敗\n  標準輸入: judgeSquareSum(1000000000,)\n  標準輸出: False\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: judgeSquareSum(2147483647,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: judgeSquareSum(1000000000000,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: judgeSquareSum(999999999999,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (14/15) ===\n[警告] 部分測資未通過 ❌（0.0693s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

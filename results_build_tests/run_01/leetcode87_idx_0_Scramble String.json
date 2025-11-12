@@ -1,0 +1,138 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode87.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Scramble String",
+    "description": "We can scramble a string s to get a string t using the following algorithm:\n\nIf the length of the string is 1, stop.\nIf the length of the string is > 1, do the following:\nSplit the string into two non-empty substrings at a random index, i.e., if the string is s, divide it to x and y where s = x + y.\nRandomly decide to swap the two substrings or to keep them in the same order. i.e., after this step, s may become s = x + y or s = y + x.\nApply step 1 recursively on each of the two substrings x and y.\nGiven two strings s1 and s2 of the same length, return true if s2 is a scrambled string of s1, otherwise, return false.",
+    "examples": [
+      {
+        "input": "s1 = \"great\", s2 = \"rgeat\"",
+        "output": "true",
+        "explanation": "One possible scenario applied on s1 is:\n\"great\" --> \"gr/eat\" // divide at random index.\n\"gr/eat\" --> \"gr/eat\" // random decision is not to swap the two substrings and keep them in order.\n\"gr/eat\" --> \"g/r / e/at\" // apply the same algorithm recursively on both substrings. divide at random index each of them.\n\"g/r / e/at\" --> \"r/g / e/at\" // random decision was to swap the first substring and to keep the second substring in the same order.\n\"r/g / e/at\" --> \"r/g / e/ a/t\" // again apply the algorithm recursively, divide \"at\" to \"a/t\".\n\"r/g / e/ a/t\" --> \"r/g / e/ a/t\" // random decision is to keep both substrings in the same order.\nThe algorithm stops now, and the result string is \"rgeat\" which is s2.\nAs one possible scenario led s1 to be scrambled to s2, we return true."
+      },
+      {
+        "input": "s1 = \"abcde\", s2 = \"caebd\"",
+        "output": "false"
+      },
+      {
+        "input": "s1 = \"a\", s2 = \"a\"",
+        "output": "true"
+      }
+    ],
+    "solution": "class Solution(object):\n    def isScramble(self, s1, s2):\n        memo = {}\n        \n        def dfs(x, y):\n            if (x, y) in memo:\n                return memo[(x, y)]\n            if x == y:\n                memo[(x, y)] = True\n                return True\n            if sorted(x) != sorted(y):\n                memo[(x, y)] = False\n                return False\n            \n            n = len(x)\n            for i in range(1, n):\n                if dfs(x[:i], y[:i]) and dfs(x[i:], y[i:]):\n                    memo[(x, y)] = True\n                    return True\n                if dfs(x[:i], y[-i:]) and dfs(x[i:], y[:-i]):\n                    memo[(x, y)] = True\n                    return True\n            \n            memo[(x, y)] = False\n            return False\n        \n        return dfs(s1, s2)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abc', 'abc']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['great', 'rgeat']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcde', 'caebd']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', 'b']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['ab', 'ba']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', 'aa']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aabb', 'bbaa']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aabb', 'abab']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aabb', 'baba']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['ab cd', 'cd ab']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['你好', '好你']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcdefgh', 'hgfedcba']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcdefgh', 'hgfedcbb']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aabcc', 'ccbaa']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aabcc', 'ccbab']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abcd', 'dcba']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'acbd']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'baca']\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isScramble', ('abc', 'abc'), True)",
+      "('isScramble', ('great', 'rgeat'), True)",
+      "('isScramble', ('abcde', 'caebd'), False)",
+      "('isScramble', ('', ''), True)",
+      "('isScramble', ('a', 'a'), True)",
+      "('isScramble', ('a', 'b'), False)",
+      "('isScramble', ('ab', 'ba'), True)",
+      "('isScramble', ('ab', 'aa'), False)",
+      "('isScramble', ('aabb', 'bbaa'), True)",
+      "('isScramble', ('aabb', 'abab'), True)",
+      "('isScramble', ('aabb', 'baba'), False)",
+      "('isScramble', ('ab cd', 'cd ab'), True)",
+      "('isScramble', ('你好', '好你'), True)",
+      "('isScramble', ('abcdefgh', 'hgfedcba'), True)",
+      "('isScramble', ('abcdefgh', 'hgfedcbb'), False)",
+      "('isScramble', ('aabcc', 'ccbaa'), True)",
+      "('isScramble', ('aabcc', 'ccbab'), False)",
+      "('isScramble', ('abcd', 'dcba'), True)",
+      "('isScramble', ('abcd', 'acbd'), True)",
+      "('isScramble', ('abcd', 'baca'), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isScramble('abc', 'abc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isScramble('great', 'rgeat')\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isScramble('abcde', 'caebd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isScramble('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isScramble('a', 'a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isScramble('a', 'b')\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isScramble('ab', 'ba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isScramble('ab', 'aa')\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: isScramble('aabb', 'bbaa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isScramble('aabb', 'abab')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ❌ 失敗\n  標準輸入: isScramble('aabb', 'baba')\n  標準輸出: False\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isScramble('ab cd', 'cd ab')\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isScramble('你好', '好你')\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isScramble('abcdefgh', 'hgfedcba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: isScramble('abcdefgh', 'hgfedcbb')\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: isScramble('aabcc', 'ccbaa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: isScramble('aabcc', 'ccbab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: isScramble('abcd', 'dcba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: isScramble('abcd', 'acbd')\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: isScramble('abcd', 'baca')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (19/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

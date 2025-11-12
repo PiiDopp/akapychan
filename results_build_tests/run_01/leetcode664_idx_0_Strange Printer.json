@@ -1,0 +1,105 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode664.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Strange Printer",
+    "description": "There is a strange printer with the following two special properties:\n\nThe printer can only print a sequence of the same character each time.\nAt each turn, the printer can print new characters starting from and ending at any place and will cover the original existing characters.\nGiven a string s, return the minimum number of turns the printer needed to print it.",
+    "examples": [
+      {
+        "input": "s = \"aaabbb\"",
+        "output": "2",
+        "explanation": "Print \"aaa\" first and then print \"bbb\"."
+      },
+      {
+        "input": "s = \"aba\"",
+        "output": "2",
+        "explanation": "Print \"aaa\" first and then print \"b\" from the second place of the string, which will cover the existing character 'a'."
+      }
+    ],
+    "solution": "class Solution:\n    def strangePrinter(self, s):\n        n = len(s)\n        if n == 0:\n            return 0\n        dp = [[0] * n for _ in range(n)]\n        \n        for i in range(n-1, -1, -1):\n            dp[i][i] = 1\n            for j in range(i+1, n):\n                dp[i][j] = 1 + dp[i+1][j]\n                for k in range(i+1, j+1):\n                    if s[k] == s[i]:\n                        if k+1 <= j:\n                            dp[i][j] = min(dp[i][j], dp[i][k-1] + dp[k+1][j])\n                        else:\n                            dp[i][j] = min(dp[i][j], dp[i][k-1])\n        return dp[0][n-1]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "a\n",
+        "output": "1\n"
+      },
+      {
+        "input": "aa\n",
+        "output": "1\n"
+      },
+      {
+        "input": "ab\n",
+        "output": "2\n"
+      },
+      {
+        "input": "aba\n",
+        "output": "2\n"
+      },
+      {
+        "input": "abab\n",
+        "output": "3\n"
+      },
+      {
+        "input": "abc\n",
+        "output": "3\n"
+      },
+      {
+        "input": "abcabc\n",
+        "output": "4\n"
+      },
+      {
+        "input": "aabbaa\n",
+        "output": "3\n"
+      },
+      {
+        "input": "zzzzzzzzzz\n",
+        "output": "1\n"
+      },
+      {
+        "input": "ababab\n",
+        "output": "3\n"
+      },
+      {
+        "input": "abcdabcd\n",
+        "output": "5\n"
+      },
+      {
+        "input": "abac\n",
+        "output": "3\n"
+      },
+      {
+        "input": "abcba\n",
+        "output": "4\n"
+      }
+    ],
+    "parsed_tests": [
+      "('strangePrinter', ((),), 0)",
+      "('strangePrinter', ('a\\n',), 1)",
+      "('strangePrinter', ('aa\\n',), 1)",
+      "('strangePrinter', ('ab\\n',), 2)",
+      "('strangePrinter', ('aba\\n',), 2)",
+      "('strangePrinter', ('abab\\n',), 3)",
+      "('strangePrinter', ('abc\\n',), 3)",
+      "('strangePrinter', ('abcabc\\n',), 4)",
+      "('strangePrinter', ('aabbaa\\n',), 3)",
+      "('strangePrinter', ('zzzzzzzzzz\\n',), 1)",
+      "('strangePrinter', ('ababab\\n',), 3)",
+      "('strangePrinter', ('abcdabcd\\n',), 5)",
+      "('strangePrinter', ('abac\\n',), 3)",
+      "('strangePrinter', ('abcba\\n',), 4)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: strangePrinter((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: strangePrinter('a\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#3] ❌ 失敗\n  標準輸入: strangePrinter('aa\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#4] ❌ 失敗\n  標準輸入: strangePrinter('ab\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#5] ❌ 失敗\n  標準輸入: strangePrinter('aba\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#6] ❌ 失敗\n  標準輸入: strangePrinter('abab\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: strangePrinter('abc\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#8] ❌ 失敗\n  標準輸入: strangePrinter('abcabc\\n',)\n  標準輸出: 4\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: strangePrinter('aabbaa\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#10] ❌ 失敗\n  標準輸入: strangePrinter('zzzzzzzzzz\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#11] ❌ 失敗\n  標準輸入: strangePrinter('ababab\\n',)\n  標準輸出: 3\n  你的輸出: 5\n\n[測試#12] ❌ 失敗\n  標準輸入: strangePrinter('abcdabcd\\n',)\n  標準輸出: 5\n  你的輸出: 8\n\n[測試#13] ❌ 失敗\n  標準輸入: strangePrinter('abac\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#14] ✅ 通過\n  標準輸入: strangePrinter('abcba\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (3/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 14,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

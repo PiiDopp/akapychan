@@ -1,0 +1,78 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode609.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Find Duplicate File in System",
+    "description": "Given a list paths of directory info, including the directory path, and all the files with contents in this directory, return all the duplicate files in the file system in terms of their paths. You may return the answer in any order.\n\nA group of duplicate files consists of at least two files that have the same content.\n\nA single directory info string in the input list has the following format:\n\"root/d1/d2/.../dm f1.txt(f1_content) f2.txt(f2_content) ... fn.txt(fn_content)\"\nIt means there are n files (f1.txt, f2.txt ... fn.txt) with content (f1_content, f2_content ... fn_content) respectively in the directory \"root/d1/d2/.../dm\". Note that n >= 1 and m >= 0. If m = 0, it means the directory is just the root directory.\n\nThe output is a list of groups of duplicate file paths. For each group, it contains all the file paths of the files that have the same content. A file path is a string that has the following format:\n\"directory_path/file_name.txt\"",
+    "examples": [
+      {
+        "input": "paths = [\"root/a 1.txt(abcd) 2.txt(efgh)\",\"root/c 3.txt(abcd)\",\"root/c/d 4.txt(efgh)\",\"root 4.txt(efgh)\"]",
+        "output": "[[\"root/a/2.txt\",\"root/c/d/4.txt\",\"root/4.txt\"],[\"root/a/1.txt\",\"root/c/3.txt\"]]"
+      },
+      {
+        "input": "paths = [\"root/a 1.txt(abcd) 2.txt(efgh)\",\"root/c 3.txt(abcd)\",\"root/c/d 4.txt(efgh)\"]",
+        "output": "[[\"root/a/2.txt\",\"root/c/d/4.txt\"],[\"root/a/1.txt\",\"root/c/3.txt\"]]"
+      }
+    ],
+    "solution": "from collections import defaultdict\n\nclass Solution:\n    def findDuplicate(self, paths):\n        content_map = defaultdict(list)\n        \n        for path in paths:\n            parts = path.split()\n            root = parts[0]\n            for file_info in parts[1:]:\n                name, content = file_info.split('(')\n                content = content[:-1]  # 去掉末尾的 ')'\n                content_map[content].append(root + '/' + name)\n        \n        return [files for files in content_map.values() if len(files) > 1]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['root/a 1.txt(abcd) 2.txt(efgh)', 'root/b 3.txt(abcd) 4.txt(ijkl)']\n",
+        "output": "[['root/a/1.txt', 'root/b/3.txt']]\n"
+      },
+      {
+        "input": "['root/a 1.txt(abcd)', 'root/b 2.txt(efgh)']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['root/a 1.txt(abcd) 2.txt(efgh)', 'root/b 3.txt(abcd) 4.txt(efgh)', 'root/c 5.txt(ijkl)']\n",
+        "output": "[['root/a/1.txt', 'root/b/3.txt'], ['root/a/2.txt', 'root/b/4.txt']]\n"
+      },
+      {
+        "input": "['root/a 1.txt(abcd)', 'root/b 1.txt(abcd)', 'root/c 1.txt(efgh)']\n",
+        "output": "[['root/a/1.txt', 'root/b/1.txt']]\n"
+      },
+      {
+        "input": "['root/a 1.txt() 2.txt(abc)', 'root/b 3.txt() 4.txt(def)']\n",
+        "output": "[['root/a/1.txt', 'root/b/3.txt']]\n"
+      },
+      {
+        "input": "['root/a/b 1.txt(abcd)', 'root/a/c 2.txt(abcd)', 'root/d 3.txt(abcd)']\n",
+        "output": "[['root/a/b/1.txt', 'root/a/c/2.txt', 'root/d/3.txt']]\n"
+      },
+      {
+        "input": "['root/a 1.txt(xxxxxxxxxx)', 'root/b 2.txt(xxxxxxxxxx)']\n",
+        "output": "[['root/a/1.txt', 'root/b/2.txt']]\n"
+      },
+      {
+        "input": "['root/a 1.txt(abcd) 2.txt(abcd) 3.txt(abcd)', 'root/b 4.txt(abcd) 5.txt(efgh)']\n",
+        "output": "[['root/a/1.txt', 'root/a/2.txt', 'root/a/3.txt', 'root/b/4.txt']]\n"
+      },
+      {
+        "input": "['root/a 1.txt(abcd)']\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findDuplicate', (['root/a 1.txt(abcd) 2.txt(efgh)', 'root/b 3.txt(abcd) 4.txt(ijkl)'],), [['root/a/1.txt', 'root/b/3.txt']])",
+      "('findDuplicate', (['root/a 1.txt(abcd)', 'root/b 2.txt(efgh)'],), [])",
+      "('findDuplicate', (['root/a 1.txt(abcd) 2.txt(efgh)', 'root/b 3.txt(abcd) 4.txt(efgh)', 'root/c 5.txt(ijkl)'],), [['root/a/1.txt', 'root/b/3.txt'], ['root/a/2.txt', 'root/b/4.txt']])",
+      "('findDuplicate', (['root/a 1.txt(abcd)', 'root/b 1.txt(abcd)', 'root/c 1.txt(efgh)'],), [['root/a/1.txt', 'root/b/1.txt']])",
+      "('findDuplicate', (['root/a 1.txt() 2.txt(abc)', 'root/b 3.txt() 4.txt(def)'],), [['root/a/1.txt', 'root/b/3.txt']])",
+      "('findDuplicate', (['root/a/b 1.txt(abcd)', 'root/a/c 2.txt(abcd)', 'root/d 3.txt(abcd)'],), [['root/a/b/1.txt', 'root/a/c/2.txt', 'root/d/3.txt']])",
+      "('findDuplicate', (['root/a 1.txt(xxxxxxxxxx)', 'root/b 2.txt(xxxxxxxxxx)'],), [['root/a/1.txt', 'root/b/2.txt']])",
+      "('findDuplicate', (['root/a 1.txt(abcd) 2.txt(abcd) 3.txt(abcd)', 'root/b 4.txt(abcd) 5.txt(efgh)'],), [['root/a/1.txt', 'root/a/2.txt', 'root/a/3.txt', 'root/b/4.txt']])",
+      "('findDuplicate', (['root/a 1.txt(abcd)'],), [])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findDuplicate(['root/a 1.txt(abcd) 2.txt(efgh)', 'root/b 3.txt(abcd) 4.txt(ijkl)'],)\n  標準輸出: [['root/a/1.txt', 'root/b/3.txt']]\n  你的輸出: [['root/a/1.txt', 'root/b/3.txt']]\n\n[測試#2] ✅ 通過\n  標準輸入: findDuplicate(['root/a 1.txt(abcd)', 'root/b 2.txt(efgh)'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#3] ✅ 通過\n  標準輸入: findDuplicate(['root/a 1.txt(abcd) 2.txt(efgh)', 'root/b 3.txt(abcd) 4.txt(efgh)', 'root/c 5.txt(ijkl)'],)\n  標準輸出: [['root/a/1.txt', 'root/b/3.txt'], ['root/a/2.txt', 'root/b/4.txt']]\n  你的輸出: [['root/a/1.txt', 'root/b/3.txt'], ['root/a/2.txt', 'root/b/4.txt']]\n\n[測試#4] ✅ 通過\n  標準輸入: findDuplicate(['root/a 1.txt(abcd)', 'root/b 1.txt(abcd)', 'root/c 1.txt(efgh)'],)\n  標準輸出: [['root/a/1.txt', 'root/b/1.txt']]\n  你的輸出: [['root/a/1.txt', 'root/b/1.txt']]\n\n[測試#5] ✅ 通過\n  標準輸入: findDuplicate(['root/a 1.txt() 2.txt(abc)', 'root/b 3.txt() 4.txt(def)'],)\n  標準輸出: [['root/a/1.txt', 'root/b/3.txt']]\n  你的輸出: [['root/a/1.txt', 'root/b/3.txt']]\n\n[測試#6] ✅ 通過\n  標準輸入: findDuplicate(['root/a/b 1.txt(abcd)', 'root/a/c 2.txt(abcd)', 'root/d 3.txt(abcd)'],)\n  標準輸出: [['root/a/b/1.txt', 'root/a/c/2.txt', 'root/d/3.txt']]\n  你的輸出: [['root/a/b/1.txt', 'root/a/c/2.txt', 'root/d/3.txt']]\n\n[測試#7] ✅ 通過\n  標準輸入: findDuplicate(['root/a 1.txt(xxxxxxxxxx)', 'root/b 2.txt(xxxxxxxxxx)'],)\n  標準輸出: [['root/a/1.txt', 'root/b/2.txt']]\n  你的輸出: [['root/a/1.txt', 'root/b/2.txt']]\n\n[測試#8] ✅ 通過\n  標準輸入: findDuplicate(['root/a 1.txt(abcd) 2.txt(abcd) 3.txt(abcd)', 'root/b 4.txt(abcd) 5.txt(efgh)'],)\n  標準輸出: [['root/a/1.txt', 'root/a/2.txt', 'root/a/3.txt', 'root/b/4.txt']]\n  你的輸出: [['root/a/1.txt', 'root/a/2.txt', 'root/a/3.txt', 'root/b/4.txt']]\n\n[測試#9] ✅ 通過\n  標準輸入: findDuplicate(['root/a 1.txt(abcd)'],)\n  標準輸出: []\n  你的輸出: []\n\n=== 測試完成 (9/9) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 9,
+    "passed_count": 9,
+    "accuracy_rate": 1.0
+  }
+}

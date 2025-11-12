@@ -1,0 +1,90 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode842.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Split Array into Fibonacci Sequence",
+    "description": "You are given a string of digits num, such as \"123456579\". We can split it into a Fibonacci-like sequence [123, 456, 579].\n\nFormally, a Fibonacci-like sequence is a list f of non-negative integers such that:\n\n0 <= f[i] < 2^31, (that is, each integer fits in a 32-bit signed integer type),\nf.length >= 3, and\nf[i] + f[i + 1] == f[i + 2] for all 0 <= i < f.length - 2.\nNote that when splitting the string into pieces, each piece must not have extra leading zeroes, except if the piece is the number 0 itself.\n\nReturn any Fibonacci-like sequence split from num, or return [] if it cannot be done.",
+    "examples": [
+      {
+        "input": "num = \"1101111\"",
+        "output": "[11,0,11,11]",
+        "explanation": "The output [110, 1, 111] would also be accepted."
+      },
+      {
+        "input": "num = \"112358130\"",
+        "output": "[]",
+        "explanation": "The task is impossible."
+      },
+      {
+        "input": "num = \"0123\"",
+        "output": "[]",
+        "explanation": "Leading zeroes are not allowed, so \"01\", \"2\", \"3\" is not valid."
+      }
+    ],
+    "solution": "class Solution(object):\n    def splitIntoFibonacci(self, num):\n        res = []\n        \n        def backtrack(index):\n            if index == len(num) and len(res) >= 3:\n                return True\n            curr_num = 0\n            for i in range(index, len(num)):\n                if i > index and num[index] == '0':\n                    break\n                curr_num = curr_num * 10 + int(num[i])\n                if curr_num > 2**31 - 1:\n                    break\n                if len(res) >= 2 and curr_num != res[-1] + res[-2]:\n                    if curr_num > res[-1] + res[-2]:\n                        break\n                    else:\n                        continue\n                res.append(curr_num)\n                if backtrack(i + 1):\n                    return True\n                res.pop()\n            return False\n        \n        if backtrack(0):\n            return res\n        return []"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "123456579\n",
+        "output": "[123, 456, 579]\n"
+      },
+      {
+        "input": "011235\n",
+        "output": "[0, 1, 1, 2, 3, 5]\n"
+      },
+      {
+        "input": "21474836472147483647\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "123\n",
+        "output": "[1, 2, 3]\n"
+      },
+      {
+        "input": "123456\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "0000\n",
+        "output": "[0, 0, 0, 0]\n"
+      },
+      {
+        "input": "11235813\n",
+        "output": "[1, 1, 2, 3, 5, 8, 13]\n"
+      },
+      {
+        "input": "101\n",
+        "output": "[1, 0, 1]\n"
+      },
+      {
+        "input": "0\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "010203\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('splitIntoFibonacci', (123456579,), [123, 456, 579])",
+      "('splitIntoFibonacci', ('011235\\n',), [0, 1, 1, 2, 3, 5])",
+      "('splitIntoFibonacci', (21474836472147483647,), [])",
+      "('splitIntoFibonacci', (123,), [1, 2, 3])",
+      "('splitIntoFibonacci', (123456,), [])",
+      "('splitIntoFibonacci', (0,), [0, 0, 0, 0])",
+      "('splitIntoFibonacci', (11235813,), [1, 1, 2, 3, 5, 8, 13])",
+      "('splitIntoFibonacci', (101,), [1, 0, 1])",
+      "('splitIntoFibonacci', (0,), [])",
+      "('splitIntoFibonacci', ('010203\\n',), [])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: invalid literal for int() with base 10: '\\n'\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: object of type 'int' has no len()\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 執行例外: invalid literal for int() with base 10: '\\n'\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode12.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Integer to Roman",
+    "description": "Seven different symbols represent Roman numerals with the following values:\n\nSymbol\tValue\nI\t1\nV\t5\nX\t10\nL\t50\nC\t100\nD\t500\nM\t1000\n\nRoman numerals are formed by appending the conversions of decimal place values from highest to lowest. Converting a decimal place value into a Roman numeral has the following rules:\n\n1. If the value does not start with 4 or 9, select the symbol of the maximal value that can be subtracted from the input, append that symbol to the result, subtract its value, and convert the remainder to a Roman numeral.\n2. If the value starts with 4 or 9 use the subtractive form representing one symbol subtracted from the following symbol, for example, 4 is 1 (I) less than 5 (V): IV and 9 is 1 (I) less than 10 (X): IX. Only the following subtractive forms are used: 4 (IV), 9 (IX), 40 (XL), 90 (XC), 400 (CD) and 900 (CM).\n3. Only powers of 10 (I, X, C, M) can be appended consecutively at most 3 times to represent multiples of 10. You cannot append 5 (V), 50 (L), or 500 (D) multiple times. If you need to append a symbol 4 times use the subtractive form.\n\nGiven an integer, convert it to a Roman numeral.",
+    "examples": [
+      {
+        "input": "num = 3749",
+        "output": "\"MMMDCCXLIX\"",
+        "explanation": "3000 = MMM as 1000 (M) + 1000 (M) + 1000 (M)\n 700 = DCC as 500 (D) + 100 (C) + 100 (C)\n  40 = XL as 10 (X) less of 50 (L)\n   9 = IX as 1 (I) less of 10 (X)\nNote: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal places"
+      },
+      {
+        "input": "num = 58",
+        "output": "\"LVIII\"",
+        "explanation": "50 = L\n 8 = VIII"
+      },
+      {
+        "input": "num = 1994",
+        "output": "\"MCMXCIV\"",
+        "explanation": "1000 = M\n 900 = CM\n  90 = XC\n   4 = IV"
+      }
+    ],
+    "solution": "class Solution(object):\n    def intToRoman(self, num):\n        \"\"\"\n        :type num: int\n        :rtype: str\n        \"\"\"\n        val = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]\n        syms = [\"M\", \"CM\", \"D\", \"CD\", \"C\", \"XC\", \"L\", \"XL\", \"X\", \"IX\", \"V\", \"IV\", \"I\"]\n        roman = \"\"\n        for i in range(len(val)):\n            count = num // val[i]\n            roman += syms[i] * count\n            num -= val[i] * count\n        return roman"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "I\n"
+      },
+      {
+        "input": "4\n",
+        "output": "IV\n"
+      },
+      {
+        "input": "9\n",
+        "output": "IX\n"
+      },
+      {
+        "input": "58\n",
+        "output": "LVIII\n"
+      },
+      {
+        "input": "1994\n",
+        "output": "MCMXCIV\n"
+      },
+      {
+        "input": "3999\n",
+        "output": "MMMCMXCIX\n"
+      },
+      {
+        "input": "44\n",
+        "output": "XLIV\n"
+      },
+      {
+        "input": "99\n",
+        "output": "XCIX\n"
+      },
+      {
+        "input": "444\n",
+        "output": "CDXLIV\n"
+      },
+      {
+        "input": "944\n",
+        "output": "CMXLIV\n"
+      },
+      {
+        "input": "3888\n",
+        "output": "MMMDCCCLXXXVIII\n"
+      },
+      {
+        "input": "1666\n",
+        "output": "MDCLXVI\n"
+      },
+      {
+        "input": "2004\n",
+        "output": "MMIV\n"
+      },
+      {
+        "input": "2014\n",
+        "output": "MMXIV\n"
+      },
+      {
+        "input": "2021\n",
+        "output": "MMXXI\n"
+      },
+      {
+        "input": "3998\n",
+        "output": "MMMCMXCVIII\n"
+      },
+      {
+        "input": "3000\n",
+        "output": "MMM\n"
+      },
+      {
+        "input": "1000\n",
+        "output": "M\n"
+      },
+      {
+        "input": "500\n",
+        "output": "D\n"
+      },
+      {
+        "input": "100\n",
+        "output": "C\n"
+      },
+      {
+        "input": "50\n",
+        "output": "L\n"
+      },
+      {
+        "input": "10\n",
+        "output": "X\n"
+      },
+      {
+        "input": "5\n",
+        "output": "V\n"
+      },
+      {
+        "input": "3\n",
+        "output": "III\n"
+      },
+      {
+        "input": "30\n",
+        "output": "XXX\n"
+      },
+      {
+        "input": "300\n",
+        "output": "CCC\n"
+      }
+    ],
+    "parsed_tests": [
+      "('intToRoman', (1,), 'I\\n')",
+      "('intToRoman', (4,), 'IV\\n')",
+      "('intToRoman', (9,), 'IX\\n')",
+      "('intToRoman', (58,), 'LVIII\\n')",
+      "('intToRoman', (1994,), 'MCMXCIV\\n')",
+      "('intToRoman', (3999,), 'MMMCMXCIX\\n')",
+      "('intToRoman', (44,), 'XLIV\\n')",
+      "('intToRoman', (99,), 'XCIX\\n')",
+      "('intToRoman', (444,), 'CDXLIV\\n')",
+      "('intToRoman', (944,), 'CMXLIV\\n')",
+      "('intToRoman', (3888,), 'MMMDCCCLXXXVIII\\n')",
+      "('intToRoman', (1666,), 'MDCLXVI\\n')",
+      "('intToRoman', (2004,), 'MMIV\\n')",
+      "('intToRoman', (2014,), 'MMXIV\\n')",
+      "('intToRoman', (2021,), 'MMXXI\\n')",
+      "('intToRoman', (3998,), 'MMMCMXCVIII\\n')",
+      "('intToRoman', (3000,), 'MMM\\n')",
+      "('intToRoman', (1000,), 'M\\n')",
+      "('intToRoman', (500,), 'D\\n')",
+      "('intToRoman', (100,), 'C\\n')",
+      "('intToRoman', (50,), 'L\\n')",
+      "('intToRoman', (10,), 'X\\n')",
+      "('intToRoman', (5,), 'V\\n')",
+      "('intToRoman', (3,), 'III\\n')",
+      "('intToRoman', (30,), 'XXX\\n')",
+      "('intToRoman', (300,), 'CCC\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: intToRoman(1,)\n  標準輸出: 'I\\n'\n  你的輸出: 'I'\n\n[測試#2] ❌ 失敗\n  標準輸入: intToRoman(4,)\n  標準輸出: 'IV\\n'\n  你的輸出: 'IV'\n\n[測試#3] ❌ 失敗\n  標準輸入: intToRoman(9,)\n  標準輸出: 'IX\\n'\n  你的輸出: 'IX'\n\n[測試#4] ❌ 失敗\n  標準輸入: intToRoman(58,)\n  標準輸出: 'LVIII\\n'\n  你的輸出: 'LVIII'\n\n[測試#5] ❌ 失敗\n  標準輸入: intToRoman(1994,)\n  標準輸出: 'MCMXCIV\\n'\n  你的輸出: 'MCMXCIV'\n\n[測試#6] ❌ 失敗\n  標準輸入: intToRoman(3999,)\n  標準輸出: 'MMMCMXCIX\\n'\n  你的輸出: 'MMMCMXCIX'\n\n[測試#7] ❌ 失敗\n  標準輸入: intToRoman(44,)\n  標準輸出: 'XLIV\\n'\n  你的輸出: 'XLIV'\n\n[測試#8] ❌ 失敗\n  標準輸入: intToRoman(99,)\n  標準輸出: 'XCIX\\n'\n  你的輸出: 'XCIX'\n\n[測試#9] ❌ 失敗\n  標準輸入: intToRoman(444,)\n  標準輸出: 'CDXLIV\\n'\n  你的輸出: 'CDXLIV'\n\n[測試#10] ❌ 失敗\n  標準輸入: intToRoman(944,)\n  標準輸出: 'CMXLIV\\n'\n  你的輸出: 'CMXLIV'\n\n[測試#11] ❌ 失敗\n  標準輸入: intToRoman(3888,)\n  標準輸出: 'MMMDCCCLXXXVIII\\n'\n  你的輸出: 'MMMDCCCLXXXVIII'\n\n[測試#12] ❌ 失敗\n  標準輸入: intToRoman(1666,)\n  標準輸出: 'MDCLXVI\\n'\n  你的輸出: 'MDCLXVI'\n\n[測試#13] ❌ 失敗\n  標準輸入: intToRoman(2004,)\n  標準輸出: 'MMIV\\n'\n  你的輸出: 'MMIV'\n\n[測試#14] ❌ 失敗\n  標準輸入: intToRoman(2014,)\n  標準輸出: 'MMXIV\\n'\n  你的輸出: 'MMXIV'\n\n[測試#15] ❌ 失敗\n  標準輸入: intToRoman(2021,)\n  標準輸出: 'MMXXI\\n'\n  你的輸出: 'MMXXI'\n\n[測試#16] ❌ 失敗\n  標準輸入: intToRoman(3998,)\n  標準輸出: 'MMMCMXCVIII\\n'\n  你的輸出: 'MMMCMXCVIII'\n\n[測試#17] ❌ 失敗\n  標準輸入: intToRoman(3000,)\n  標準輸出: 'MMM\\n'\n  你的輸出: 'MMM'\n\n[測試#18] ❌ 失敗\n  標準輸入: intToRoman(1000,)\n  標準輸出: 'M\\n'\n  你的輸出: 'M'\n\n[測試#19] ❌ 失敗\n  標準輸入: intToRoman(500,)\n  標準輸出: 'D\\n'\n  你的輸出: 'D'\n\n[測試#20] ❌ 失敗\n  標準輸入: intToRoman(100,)\n  標準輸出: 'C\\n'\n  你的輸出: 'C'\n\n[測試#21] ❌ 失敗\n  標準輸入: intToRoman(50,)\n  標準輸出: 'L\\n'\n  你的輸出: 'L'\n\n[測試#22] ❌ 失敗\n  標準輸入: intToRoman(10,)\n  標準輸出: 'X\\n'\n  你的輸出: 'X'\n\n[測試#23] ❌ 失敗\n  標準輸入: intToRoman(5,)\n  標準輸出: 'V\\n'\n  你的輸出: 'V'\n\n[測試#24] ❌ 失敗\n  標準輸入: intToRoman(3,)\n  標準輸出: 'III\\n'\n  你的輸出: 'III'\n\n[測試#25] ❌ 失敗\n  標準輸入: intToRoman(30,)\n  標準輸出: 'XXX\\n'\n  你的輸出: 'XXX'\n\n[測試#26] ❌ 失敗\n  標準輸入: intToRoman(300,)\n  標準輸出: 'CCC\\n'\n  你的輸出: 'CCC'\n\n=== 測試完成 (0/26) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 26,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

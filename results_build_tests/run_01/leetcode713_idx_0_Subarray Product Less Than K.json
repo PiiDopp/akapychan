@@ -1,0 +1,159 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode713.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Subarray Product Less Than K",
+    "description": "Given an array of integers nums and an integer k, return the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than k.",
+    "examples": [
+      {
+        "input": "nums = [10,5,2,6], k = 100",
+        "output": "8",
+        "explanation": "The 8 subarrays that have product less than 100 are: \n[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6] \nNote that [10, 5, 2] is not included as the product of 100 is not strictly less than k."
+      },
+      {
+        "input": "nums = [1,2,3], k = 0",
+        "output": "0"
+      }
+    ],
+    "solution": "class Solution:\n    def numSubarrayProductLessThanK(self, nums, k):\n        if k <= 1:\n            return 0\n        prod = 1\n        result = left = 0\n        for right, val in enumerate(nums):\n            prod *= val\n            while prod >= k:\n                prod //= nums[left]\n                left += 1\n            result += right - left + 1\n        return result"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[10, 5, 2, 6]\n100\n",
+        "output": "8\n"
+      },
+      {
+        "input": "[1, 2, 3]\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1, 2, 3]\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[]\n10\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[5]\n10\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[10]\n10\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[15]\n10\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[0, 1, 2]\n5\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[10, 10, 10]\n5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1, 2, 3, 4]\n100\n",
+        "output": "10\n"
+      },
+      {
+        "input": "[2, 3, 4]\n1000\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[1, 1, 1]\n2\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[2, 2]\n2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[0, 0]\n1\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[1, 2, 3]\n100\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[1, 2, 3, 4]\n10\n",
+        "output": "7\n"
+      },
+      {
+        "input": "[5, 5]\n10\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[5, 1, 1]\n10\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[5, 5, 1]\n10\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[1, 1, 1, 1]\n10\n",
+        "output": "10\n"
+      },
+      {
+        "input": "[9, 9, 9]\n10\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[9, 1, 1]\n10\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[1, 9, 1]\n10\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[1, 9, 9]\n10\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[9, 9, 1]\n10\n",
+        "output": "5\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numSubarrayProductLessThanK', ([10, 5, 2, 6], 100), 8)",
+      "('numSubarrayProductLessThanK', ([1, 2, 3], 1), 0)",
+      "('numSubarrayProductLessThanK', ([1, 2, 3], 0), 0)",
+      "('numSubarrayProductLessThanK', ([], 10), 0)",
+      "('numSubarrayProductLessThanK', ([5], 10), 1)",
+      "('numSubarrayProductLessThanK', ([10], 10), 0)",
+      "('numSubarrayProductLessThanK', ([15], 10), 0)",
+      "('numSubarrayProductLessThanK', ([0, 1, 2], 5), 6)",
+      "('numSubarrayProductLessThanK', ([10, 10, 10], 5), 0)",
+      "('numSubarrayProductLessThanK', ([1, 2, 3, 4], 100), 10)",
+      "('numSubarrayProductLessThanK', ([2, 3, 4], 1000), 6)",
+      "('numSubarrayProductLessThanK', ([1, 1, 1], 2), 6)",
+      "('numSubarrayProductLessThanK', ([2, 2], 2), 0)",
+      "('numSubarrayProductLessThanK', ([0, 0], 1), 3)",
+      "('numSubarrayProductLessThanK', ([1, 2, 3], 100), 6)",
+      "('numSubarrayProductLessThanK', ([1, 2, 3, 4], 10), 7)",
+      "('numSubarrayProductLessThanK', ([5, 5], 10), 2)",
+      "('numSubarrayProductLessThanK', ([5, 1, 1], 10), 6)",
+      "('numSubarrayProductLessThanK', ([5, 5, 1], 10), 4)",
+      "('numSubarrayProductLessThanK', ([1, 1, 1, 1], 10), 10)",
+      "('numSubarrayProductLessThanK', ([9, 9, 9], 10), 3)",
+      "('numSubarrayProductLessThanK', ([9, 1, 1], 10), 6)",
+      "('numSubarrayProductLessThanK', ([1, 9, 1], 10), 6)",
+      "('numSubarrayProductLessThanK', ([1, 9, 9], 10), 5)",
+      "('numSubarrayProductLessThanK', ([9, 9, 1], 10), 5)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([10, 5, 2, 6], 100)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#2] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 2, 3], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 2, 3], 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([], 10)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([5], 10)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([10], 10)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([15], 10)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([0, 1, 2], 5)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([10, 10, 10], 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 2, 3, 4], 100)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#11] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([2, 3, 4], 1000)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#12] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 1, 1], 2)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#13] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([2, 2], 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#14] ❌ 失敗\n  標準輸入: numSubarrayProductLessThanK([0, 0], 1)\n  標準輸出: 3\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 2, 3], 100)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#16] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 2, 3, 4], 10)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#17] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([5, 5], 10)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#18] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([5, 1, 1], 10)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#19] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([5, 5, 1], 10)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#20] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 1, 1, 1], 10)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#21] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([9, 9, 9], 10)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#22] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([9, 1, 1], 10)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#23] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 9, 1], 10)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#24] ❌ 失敗\n  標準輸入: numSubarrayProductLessThanK([1, 9, 9], 10)\n  標準輸出: 5\n  你的輸出: 4\n\n[測試#25] ❌ 失敗\n  標準輸入: numSubarrayProductLessThanK([9, 9, 1], 10)\n  標準輸出: 5\n  你的輸出: 4\n\n=== 測試完成 (22/25) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 25,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode575.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Distribute Candies",
+    "description": "Alice has n candies, where the i^th candy is of type candyType[i]. Alice noticed that she started to gain weight, so she visited a doctor.\n\nThe doctor advised Alice to only eat n / 2 of the candies she has (n is always even). Alice likes her candies very much, and she wants to eat the maximum number of different types of candies while still following the doctor's advice.\n\nGiven the integer array candyType of length n, return the maximum number of different types of candies she can eat if she only eats n / 2 of them.",
+    "examples": [
+      {
+        "input": "candyType = [1,1,2,2,3,3]",
+        "output": "3",
+        "explanation": "Alice can only eat 6 / 2 = 3 candies. Since there are only 3 types, she can eat one of each type."
+      },
+      {
+        "input": "candyType = [1,1,2,3]",
+        "output": "2",
+        "explanation": "Alice can only eat 4 / 2 = 2 candies. Whether she eats types [1,2], [1,3], or [2,3], she still can only eat 2 different types."
+      },
+      {
+        "input": "candyType = [6,6,6,6]",
+        "output": "1",
+        "explanation": "Alice can only eat 4 / 2 = 2 candies. Even though she can eat 2 candies, she only has 1 type."
+      }
+    ],
+    "solution": "class Solution:\n    def distributeCandies(self, candyType):\n        return min(len(set(candyType)), len(candyType) // 2)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n1\n2\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1\n1\n1\n2\n2\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1\n1\n1\n1\n1\n1\n1\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n1\n2\n3\n4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n5\n5\n5\n5\n5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n9\n",
+        "output": "5\n"
+      }
+    ],
+    "parsed_tests": [
+      "('distributeCandies', ((),), 0)",
+      "('distributeCandies', ((1, 1),), 1)",
+      "('distributeCandies', ((1, 2),), 1)",
+      "('distributeCandies', ((1, 1, 2, 2),), 2)",
+      "('distributeCandies', ((1, 2, 3, 4),), 2)",
+      "('distributeCandies', ((1, 1, 1, 2, 2, 3),), 3)",
+      "('distributeCandies', ((1, 2, 3, 4, 5, 6),), 3)",
+      "('distributeCandies', ((1, 1, 1, 1, 1, 1, 1, 1),), 1)",
+      "('distributeCandies', ((1, 2, 3, 4, 5, 6, 7, 8),), 4)",
+      "('distributeCandies', ((1, 2, 3, 4, 1, 2, 3, 4),), 4)",
+      "('distributeCandies', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),), 5)",
+      "('distributeCandies', ((1, 1, 1, 1, 1, 1, 1, 1, 1, 1),), 1)",
+      "('distributeCandies', ((1, 2, 3, 4, 5, 5, 5, 5, 5, 5),), 5)",
+      "('distributeCandies', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 9),), 5)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: distributeCandies((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: distributeCandies((1, 1),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: distributeCandies((1, 2),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: distributeCandies((1, 1, 2, 2),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: distributeCandies((1, 2, 3, 4),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: distributeCandies((1, 1, 1, 2, 2, 3),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: distributeCandies((1, 2, 3, 4, 5, 6),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#8] ✅ 通過\n  標準輸入: distributeCandies((1, 1, 1, 1, 1, 1, 1, 1),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: distributeCandies((1, 2, 3, 4, 5, 6, 7, 8),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: distributeCandies((1, 2, 3, 4, 1, 2, 3, 4),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#11] ✅ 通過\n  標準輸入: distributeCandies((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#12] ✅ 通過\n  標準輸入: distributeCandies((1, 1, 1, 1, 1, 1, 1, 1, 1, 1),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#13] ✅ 通過\n  標準輸入: distributeCandies((1, 2, 3, 4, 5, 5, 5, 5, 5, 5),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#14] ✅ 通過\n  標準輸入: distributeCandies((1, 2, 3, 4, 5, 6, 7, 8, 9, 9),)\n  標準輸出: 5\n  你的輸出: 5\n\n=== 測試完成 (14/14) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 14,
+    "passed_count": 14,
+    "accuracy_rate": 1.0
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode307.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Range Sum Query - Mutable",
+    "description": "Given an integer array nums, handle multiple queries of the following types:\n\nUpdate the value of an element in nums.\nCalculate the sum of the elements of nums between indices left and right inclusive where left <= right.\nImplement the NumArray class:\n\n1. NumArray(int[] nums) Initializes the object with the integer array nums.\n2. void update(int index, int val) Updates the value of nums[index] to be val.\n3. int sumRange(int left, int right) Returns the sum of the elements of nums between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ... + nums[right]).",
+    "examples": [
+      {
+        "input": "[\"NumArray\", \"sumRange\", \"update\", \"sumRange\"], [[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]",
+        "output": "[null, 9, null, 8]",
+        "explanation": "NumArray numArray = new NumArray([1, 3, 5]);\nnumArray.sumRange(0, 2); // return 1 + 3 + 5 = 9\nnumArray.update(1, 2);   // nums = [1, 2, 5]\nnumArray.sumRange(0, 2); // return 1 + 2 + 5 = 8"
+      }
+    ],
+    "solution": "class NumArray:\n\n    def __init__(self, nums):\n        self.n = len(nums)\n        self.nums = nums[:]\n        # 使用 Binary Indexed Tree (Fenwick Tree)\n        self.tree = [0] * (self.n + 1)\n        for i in range(self.n):\n            self._update_tree(i + 1, nums[i])\n\n    def _update_tree(self, i, val):\n        while i <= self.n:\n            self.tree[i] += val\n            i += i & -i\n\n    def update(self, index, val):\n        diff = val - self.nums[index]\n        self.nums[index] = val\n        self._update_tree(index + 1, diff)\n\n    def sumRange(self, left, right):\n        return self._query(right + 1) - self._query(left)\n\n    def _query(self, i):\n        res = 0\n        while i > 0:\n            res += self.tree[i]\n            i -= i & -i\n        return res"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "非 LeetCode 格式程式碼",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

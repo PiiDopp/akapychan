@@ -1,0 +1,133 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode541.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reverse String II",
+    "description": "Given a string s and an integer k, reverse the first k characters for every 2k characters counting from the start of the string.\n\nIf there are fewer than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and leave the other as original.",
+    "examples": [
+      {
+        "input": "\"abcdefg\", 2",
+        "output": "\"bacdfeg\""
+      },
+      {
+        "input": "\"abcd\", 2",
+        "output": "\"bacd\""
+      }
+    ],
+    "solution": "class Solution:\n    def reverseStr(self, s, k):\n        s = list(s)\n        for i in range(0, len(s), 2 * k):\n            s[i:i + k] = reversed(s[i:i + k])\n        return \"\".join(s)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abcdefg', 2]\n",
+        "output": "bacdfeg\n"
+      },
+      {
+        "input": "['abcd', 2]\n",
+        "output": "bacd\n"
+      },
+      {
+        "input": "['abc', 2]\n",
+        "output": "bac\n"
+      },
+      {
+        "input": "['abc', 3]\n",
+        "output": "cba\n"
+      },
+      {
+        "input": "['abcd', 3]\n",
+        "output": "dcbd\n"
+      },
+      {
+        "input": "['abcd', 1]\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "['', 5]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a', 1]\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['a', 2]\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['abcdabcd', 2]\n",
+        "output": "bacdbacd\n"
+      },
+      {
+        "input": "['abcdabcd', 3]\n",
+        "output": "dcbdabdc\n"
+      },
+      {
+        "input": "['abcdabcd', 4]\n",
+        "output": "dcbaabcd\n"
+      },
+      {
+        "input": "['你好世界', 2]\n",
+        "output": "好你世界\n"
+      },
+      {
+        "input": "['race car', 3]\n",
+        "output": "car e cra\n"
+      },
+      {
+        "input": "['123456789', 3]\n",
+        "output": "321456987\n"
+      },
+      {
+        "input": "['123', 5]\n",
+        "output": "321\n"
+      },
+      {
+        "input": "['12345', 5]\n",
+        "output": "54321\n"
+      },
+      {
+        "input": "['12345', 2]\n",
+        "output": "21345\n"
+      },
+      {
+        "input": "['12345', 3]\n",
+        "output": "32145\n"
+      },
+      {
+        "input": "['12345', 4]\n",
+        "output": "43215\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reverseStr', ('abcdefg', 2), 'bacdfeg\\n')",
+      "('reverseStr', ('abcd', 2), 'bacd\\n')",
+      "('reverseStr', ('abc', 2), 'bac\\n')",
+      "('reverseStr', ('abc', 3), 'cba\\n')",
+      "('reverseStr', ('abcd', 3), 'dcbd\\n')",
+      "('reverseStr', ('abcd', 1), 'abcd\\n')",
+      "('reverseStr', ('', 5), '\\n')",
+      "('reverseStr', ('a', 1), 'a\\n')",
+      "('reverseStr', ('a', 2), 'a\\n')",
+      "('reverseStr', ('abcdabcd', 2), 'bacdbacd\\n')",
+      "('reverseStr', ('abcdabcd', 3), 'dcbdabdc\\n')",
+      "('reverseStr', ('abcdabcd', 4), 'dcbaabcd\\n')",
+      "('reverseStr', ('你好世界', 2), '好你世界\\n')",
+      "('reverseStr', ('race car', 3), 'car e cra\\n')",
+      "('reverseStr', ('123456789', 3), 321456987)",
+      "('reverseStr', ('123', 5), 321)",
+      "('reverseStr', ('12345', 5), 54321)",
+      "('reverseStr', ('12345', 2), 21345)",
+      "('reverseStr', ('12345', 3), 32145)",
+      "('reverseStr', ('12345', 4), 43215)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reverseStr('abcdefg', 2)\n  標準輸出: 'bacdfeg\\n'\n  你的輸出: 'bacdfeg'\n\n[測試#2] ❌ 失敗\n  標準輸入: reverseStr('abcd', 2)\n  標準輸出: 'bacd\\n'\n  你的輸出: 'bacd'\n\n[測試#3] ❌ 失敗\n  標準輸入: reverseStr('abc', 2)\n  標準輸出: 'bac\\n'\n  你的輸出: 'bac'\n\n[測試#4] ❌ 失敗\n  標準輸入: reverseStr('abc', 3)\n  標準輸出: 'cba\\n'\n  你的輸出: 'cba'\n\n[測試#5] ❌ 失敗\n  標準輸入: reverseStr('abcd', 3)\n  標準輸出: 'dcbd\\n'\n  你的輸出: 'cbad'\n\n[測試#6] ❌ 失敗\n  標準輸入: reverseStr('abcd', 1)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#7] ❌ 失敗\n  標準輸入: reverseStr('', 5)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseStr('a', 1)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#9] ❌ 失敗\n  標準輸入: reverseStr('a', 2)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#10] ❌ 失敗\n  標準輸入: reverseStr('abcdabcd', 2)\n  標準輸出: 'bacdbacd\\n'\n  你的輸出: 'bacdbacd'\n\n[測試#11] ❌ 失敗\n  標準輸入: reverseStr('abcdabcd', 3)\n  標準輸出: 'dcbdabdc\\n'\n  你的輸出: 'cbadabdc'\n\n[測試#12] ❌ 失敗\n  標準輸入: reverseStr('abcdabcd', 4)\n  標準輸出: 'dcbaabcd\\n'\n  你的輸出: 'dcbaabcd'\n\n[測試#13] ❌ 失敗\n  標準輸入: reverseStr('你好世界', 2)\n  標準輸出: '好你世界\\n'\n  你的輸出: '好你世界'\n\n[測試#14] ❌ 失敗\n  標準輸入: reverseStr('race car', 3)\n  標準輸出: 'car e cra\\n'\n  你的輸出: 'care cra'\n\n[測試#15] ❌ 失敗\n  標準輸入: reverseStr('123456789', 3)\n  標準輸出: 321456987\n  你的輸出: '321456987'\n\n[測試#16] ❌ 失敗\n  標準輸入: reverseStr('123', 5)\n  標準輸出: 321\n  你的輸出: '321'\n\n[測試#17] ❌ 失敗\n  標準輸入: reverseStr('12345', 5)\n  標準輸出: 54321\n  你的輸出: '54321'\n\n[測試#18] ❌ 失敗\n  標準輸入: reverseStr('12345', 2)\n  標準輸出: 21345\n  你的輸出: '21345'\n\n[測試#19] ❌ 失敗\n  標準輸入: reverseStr('12345', 3)\n  標準輸出: 32145\n  你的輸出: '32145'\n\n[測試#20] ❌ 失敗\n  標準輸入: reverseStr('12345', 4)\n  標準輸出: 43215\n  你的輸出: '43215'\n\n=== 測試完成 (0/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

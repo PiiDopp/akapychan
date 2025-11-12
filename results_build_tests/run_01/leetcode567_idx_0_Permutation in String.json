@@ -1,0 +1,32 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode567.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Permutation in String",
+    "description": "Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.\n\nIn other words, return true if one of s1's permutations is the substring of s2.",
+    "examples": [
+      {
+        "input": "s1 = \"ab\", s2 = \"eidbaooo\"",
+        "output": "true",
+        "explanation": "s2 contains one permutation of s1 (\"ba\")."
+      },
+      {
+        "input": "s1 = \"ab\", s2 = \"eidboaoo\"",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution:\n    def checkInclusion(self, s1, s2):\n        from collections import Counter\n\n        len1, len2 = len(s1), len(s2)\n        if len1 > len2:\n            return False\n\n        s1_count = Counter(s1)\n        window_count = Counter(s2[:len1])\n\n        if s1_count == window_count:\n            return True\n\n        for i in range(len1, len2):\n            start_char = s2[i - len1]\n            end_char = s2[i]\n            window_count[end_char] += 1\n            window_count[start_char] -= 1\n            if window_count[start_char] == 0:\n                del window_count[start_char]\n            if window_count == s1_count:\n                return True\n\n        return False"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

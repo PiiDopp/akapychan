@@ -1,0 +1,115 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode123.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Best Time to Buy and Sell Stock III",
+    "description": "You are given an array prices where prices[i] is the price of a given stock on the i^th day.\n\nFind the maximum profit you can achieve. You may complete at most two transactions.\n\nNote: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).",
+    "examples": [
+      {
+        "input": "prices = [3,3,5,0,0,3,1,4]",
+        "output": "6",
+        "explanation": "Buy on day 4 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3. Then buy on day 7 (price = 1) and sell on day 8 (price = 4), profit = 4-1 = 3."
+      },
+      {
+        "input": "prices = [1,2,3,4,5]",
+        "output": "4",
+        "explanation": "Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 4. Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are engaging multiple transactions at the same time. You must sell before buying again."
+      },
+      {
+        "input": "prices = [7,6,4,3,1]",
+        "output": "0",
+        "explanation": "In this case, no transaction is done, i.e. max profit = 0."
+      }
+    ],
+    "solution": "class Solution:\n    def maxProfit(self, prices):\n        if not prices:\n            return 0\n        buy1 = float('-inf')\n        sell1 = 0\n        buy2 = float('-inf')\n        sell2 = 0\n        for price in prices:\n            buy1 = max(buy1, -price)\n            sell1 = max(sell1, buy1 + price)\n            buy2 = max(buy2, sell1 - price)\n            sell2 = max(sell2, buy2 + price)\n        return sell2"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5\n4\n3\n2\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "3\n3\n5\n0\n0\n3\n1\n4\n",
+        "output": "6\n"
+      },
+      {
+        "input": "1\n1\n1\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n4\n2\n5\n7\n2\n4\n9\n0\n",
+        "output": "13\n"
+      },
+      {
+        "input": "1000000\n1\n1000000\n",
+        "output": "999999\n"
+      },
+      {
+        "input": "0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n5\n5\n5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n1\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n3\n2\n8\n4\n9\n",
+        "output": "12\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maxProfit', ((),), 0)",
+      "('maxProfit', (5,), 0)",
+      "('maxProfit', ((1, 5),), 4)",
+      "('maxProfit', ((5, 1),), 0)",
+      "('maxProfit', ((1, 2, 3, 4, 5),), 4)",
+      "('maxProfit', ((5, 4, 3, 2, 1),), 0)",
+      "('maxProfit', ((3, 3, 5, 0, 0, 3, 1, 4),), 6)",
+      "('maxProfit', ((1, 1, 1, 1),), 0)",
+      "('maxProfit', ((1, 2, 4, 2, 5, 7, 2, 4, 9, 0),), 13)",
+      "('maxProfit', ((1000000, 1, 1000000),), 999999)",
+      "('maxProfit', ((0, 0, 0),), 0)",
+      "('maxProfit', ((5, 5, 5, 5),), 0)",
+      "('maxProfit', ((1, 2),), 1)",
+      "('maxProfit', ((2, 1, 2),), 1)",
+      "('maxProfit', ((1, 3, 2, 8, 4, 9),), 12)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: maxProfit((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ✅ 通過\n  標準輸入: maxProfit((1, 5),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: maxProfit((5, 1),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: maxProfit((1, 2, 3, 4, 5),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#6] ✅ 通過\n  標準輸入: maxProfit((5, 4, 3, 2, 1),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: maxProfit((3, 3, 5, 0, 0, 3, 1, 4),)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#8] ✅ 通過\n  標準輸入: maxProfit((1, 1, 1, 1),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: maxProfit((1, 2, 4, 2, 5, 7, 2, 4, 9, 0),)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#10] ✅ 通過\n  標準輸入: maxProfit((1000000, 1, 1000000),)\n  標準輸出: 999999\n  你的輸出: 999999\n\n[測試#11] ✅ 通過\n  標準輸入: maxProfit((0, 0, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: maxProfit((5, 5, 5, 5),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#13] ✅ 通過\n  標準輸入: maxProfit((1, 2),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#14] ✅ 通過\n  標準輸入: maxProfit((2, 1, 2),)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#15] ✅ 通過\n  標準輸入: maxProfit((1, 3, 2, 8, 4, 9),)\n  標準輸出: 12\n  你的輸出: 12\n\n=== 測試完成 (14/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode628.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum Product of Three Numbers",
+    "description": "Given an integer array nums, find three numbers whose product is maximum and return the maximum product.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "6"
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "24"
+      },
+      {
+        "input": "nums = [-1,-2,-3]",
+        "output": "-6"
+      }
+    ],
+    "solution": "class Solution:\n    def maximumProduct(self, nums):\n        nums.sort()\n        return max(nums[-1]*nums[-2]*nums[-3], nums[0]*nums[1]*nums[-1])"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "24\n"
+      },
+      {
+        "input": "-1\n-2\n-3\n-4\n",
+        "output": "-6\n"
+      },
+      {
+        "input": "-10\n-3\n5\n2\n",
+        "output": "150\n"
+      },
+      {
+        "input": "0\n-1\n3\n100\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n3\n",
+        "output": "6\n"
+      },
+      {
+        "input": "-1000\n-1000\n1\n2\n3\n",
+        "output": "3000000\n"
+      },
+      {
+        "input": "5\n5\n5\n5\n",
+        "output": "125\n"
+      },
+      {
+        "input": "-5\n-5\n-5\n-5\n",
+        "output": "-125\n"
+      },
+      {
+        "input": "-1\n-2\n-3\n4\n5\n",
+        "output": "30\n"
+      },
+      {
+        "input": "-2\n-3\n1\n2\n",
+        "output": "12\n"
+      },
+      {
+        "input": "-1\n-1\n-1\n2\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maximumProduct', ((1, 2, 3, 4),), 24)",
+      "('maximumProduct', ((-1, -2, -3, -4),), -6)",
+      "('maximumProduct', ((-10, -3, 5, 2),), 150)",
+      "('maximumProduct', ((0, -1, 3, 100),), 0)",
+      "('maximumProduct', ((0, 0, 0, 0),), 0)",
+      "('maximumProduct', ((1, 2, 3),), 6)",
+      "('maximumProduct', ((-1000, -1000, 1, 2, 3),), 3000000)",
+      "('maximumProduct', ((5, 5, 5, 5),), 125)",
+      "('maximumProduct', ((-5, -5, -5, -5),), -125)",
+      "('maximumProduct', ((-1, -2, -3, 4, 5),), 30)",
+      "('maximumProduct', ((-2, -3, 1, 2),), 12)",
+      "('maximumProduct', ((-1, -1, -1, 2),), 2)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#11] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#12] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

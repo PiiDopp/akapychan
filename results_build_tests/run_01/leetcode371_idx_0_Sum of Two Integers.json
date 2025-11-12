@@ -1,0 +1,103 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode371.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Sum of Two Integers",
+    "description": "Given two integers a and b, return the sum of the two integers without using the operators + and -.",
+    "examples": [
+      {
+        "input": "a = 1, b = 2",
+        "output": "3"
+      },
+      {
+        "input": "a = 2, b = 3",
+        "output": "5"
+      }
+    ],
+    "solution": "class Solution:\n    def getSum(self, a, b):\n        MASK = 0xFFFFFFFF\n        MAX_INT = 0x7FFFFFFF\n\n        while b != 0:\n            carry = (a & b) & MASK\n            a = (a ^ b) & MASK\n            b = (carry << 1) & MASK\n\n        return a if a <= MAX_INT else ~(a ^ MASK)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2\n3\n",
+        "output": "5\n"
+      },
+      {
+        "input": "-4\n-6\n",
+        "output": "-10\n"
+      },
+      {
+        "input": "-5\n5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2147483647\n1\n",
+        "output": "-2147483648\n"
+      },
+      {
+        "input": "-2147483648\n-1\n",
+        "output": "2147483647\n"
+      },
+      {
+        "input": "1073741824\n1073741824\n",
+        "output": "-2147483648\n"
+      },
+      {
+        "input": "2147483647\n2147483647\n",
+        "output": "-2\n"
+      },
+      {
+        "input": "-2147483648\n2147483647\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "123456789\n987654321\n",
+        "output": "1111111110\n"
+      },
+      {
+        "input": "-123456789\n123456789\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1073741824\n1073741824\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-2147483648\n0\n",
+        "output": "-2147483648\n"
+      }
+    ],
+    "parsed_tests": [
+      "('getSum', (2, 3), 5)",
+      "('getSum', (-4, -6), -10)",
+      "('getSum', (-5, 5), 0)",
+      "('getSum', (0, 0), 0)",
+      "('getSum', (2147483647, 1), -2147483648)",
+      "('getSum', (-2147483648, -1), 2147483647)",
+      "('getSum', (1073741824, 1073741824), -2147483648)",
+      "('getSum', (2147483647, 2147483647), -2)",
+      "('getSum', (-2147483648, 2147483647), -1)",
+      "('getSum', (123456789, 987654321), 1111111110)",
+      "('getSum', (-123456789, 123456789), 0)",
+      "('getSum', (-1, 1), 0)",
+      "('getSum', (-1073741824, 1073741824), 0)",
+      "('getSum', (-2147483648, 0), -2147483648)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: getSum(2, 3)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#2] ✅ 通過\n  標準輸入: getSum(-4, -6)\n  標準輸出: -10\n  你的輸出: -10\n\n[測試#3] ✅ 通過\n  標準輸入: getSum(-5, 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: getSum(0, 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: getSum(2147483647, 1)\n  標準輸出: -2147483648\n  你的輸出: -2147483648\n\n[測試#6] ✅ 通過\n  標準輸入: getSum(-2147483648, -1)\n  標準輸出: 2147483647\n  你的輸出: 2147483647\n\n[測試#7] ✅ 通過\n  標準輸入: getSum(1073741824, 1073741824)\n  標準輸出: -2147483648\n  你的輸出: -2147483648\n\n[測試#8] ✅ 通過\n  標準輸入: getSum(2147483647, 2147483647)\n  標準輸出: -2\n  你的輸出: -2\n\n[測試#9] ✅ 通過\n  標準輸入: getSum(-2147483648, 2147483647)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#10] ✅ 通過\n  標準輸入: getSum(123456789, 987654321)\n  標準輸出: 1111111110\n  你的輸出: 1111111110\n\n[測試#11] ✅ 通過\n  標準輸入: getSum(-123456789, 123456789)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: getSum(-1, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#13] ✅ 通過\n  標準輸入: getSum(-1073741824, 1073741824)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#14] ✅ 通過\n  標準輸入: getSum(-2147483648, 0)\n  標準輸出: -2147483648\n  你的輸出: -2147483648\n\n=== 測試完成 (14/14) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 14,
+    "passed_count": 14,
+    "accuracy_rate": 1.0
+  }
+}

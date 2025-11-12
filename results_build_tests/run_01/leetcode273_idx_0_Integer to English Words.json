@@ -1,0 +1,212 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode273.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Integer to English Words",
+    "description": "Convert a non-negative integer num to its English words representation.",
+    "examples": [
+      {
+        "input": "num = 123",
+        "output": "\"One Hundred Twenty Three\""
+      },
+      {
+        "input": "num = 12345",
+        "output": "\"Twelve Thousand Three Hundred Forty Five\""
+      },
+      {
+        "input": "num = 1234567",
+        "output": "\"One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven\""
+      }
+    ],
+    "solution": "class Solution:\n    def numberToWords(self, num):\n        if num == 0:\n            return \"Zero\"\n\n        def one(num):\n            switcher = [\"\", \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\"]\n            return switcher[num]\n\n        def two_less_20(num):\n            switcher = [\"Ten\", \"Eleven\", \"Twelve\", \"Thirteen\", \"Fourteen\", \"Fifteen\",\n                        \"Sixteen\", \"Seventeen\", \"Eighteen\", \"Nineteen\"]\n            return switcher[num - 10]\n\n        def ten(num):\n            switcher = [\"\", \"\", \"Twenty\", \"Thirty\", \"Forty\", \"Fifty\", \"Sixty\", \"Seventy\", \"Eighty\", \"Ninety\"]\n            return switcher[num]\n\n        def two(num):\n            if num == 0:\n                return \"\"\n            elif num < 10:\n                return one(num)\n            elif num < 20:\n                return two_less_20(num)\n            else:\n                tens = num // 10\n                rest = num % 10\n                return ten(tens) + (\" \" + one(rest) if rest != 0 else \"\")\n\n        def three(num):\n            hundred = num // 100\n            rest = num % 100\n            if hundred != 0 and rest != 0:\n                return one(hundred) + \" Hundred \" + two(rest)\n            elif hundred == 0 and rest != 0:\n                return two(rest)\n            elif hundred != 0 and rest == 0:\n                return one(hundred) + \" Hundred\"\n            else:\n                return \"\"\n\n        billion = num // 1000000000\n        million = (num - billion * 1000000000) // 1000000\n        thousand = (num - billion * 1000000000 - million * 1000000) // 1000\n        rest = num % 1000\n\n        result = \"\"\n        if billion != 0:\n            result += three(billion) + \" Billion\"\n        if million != 0:\n            result += \" \" if result != \"\" else \"\"\n            result += three(million) + \" Million\"\n        if thousand != 0:\n            result += \" \" if result != \"\" else \"\"\n            result += three(thousand) + \" Thousand\"\n        if rest != 0:\n            result += \" \" if result != \"\" else \"\"\n            result += three(rest)\n        return result"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "Zero\n"
+      },
+      {
+        "input": "5\n",
+        "output": "Five\n"
+      },
+      {
+        "input": "13\n",
+        "output": "Thirteen\n"
+      },
+      {
+        "input": "20\n",
+        "output": "Twenty\n"
+      },
+      {
+        "input": "21\n",
+        "output": "Twenty One\n"
+      },
+      {
+        "input": "99\n",
+        "output": "Ninety Nine\n"
+      },
+      {
+        "input": "100\n",
+        "output": "One Hundred\n"
+      },
+      {
+        "input": "101\n",
+        "output": "One Hundred One\n"
+      },
+      {
+        "input": "110\n",
+        "output": "One Hundred Ten\n"
+      },
+      {
+        "input": "115\n",
+        "output": "One Hundred Fifteen\n"
+      },
+      {
+        "input": "999\n",
+        "output": "Nine Hundred Ninety Nine\n"
+      },
+      {
+        "input": "1000\n",
+        "output": "One Thousand\n"
+      },
+      {
+        "input": "1001\n",
+        "output": "One Thousand One\n"
+      },
+      {
+        "input": "1010\n",
+        "output": "One Thousand Ten\n"
+      },
+      {
+        "input": "1100\n",
+        "output": "One Thousand One Hundred\n"
+      },
+      {
+        "input": "1111\n",
+        "output": "One Thousand One Hundred Eleven\n"
+      },
+      {
+        "input": "2000\n",
+        "output": "Two Thousand\n"
+      },
+      {
+        "input": "2001\n",
+        "output": "Two Thousand One\n"
+      },
+      {
+        "input": "2010\n",
+        "output": "Two Thousand Ten\n"
+      },
+      {
+        "input": "2100\n",
+        "output": "Two Thousand One Hundred\n"
+      },
+      {
+        "input": "999999\n",
+        "output": "Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\n"
+      },
+      {
+        "input": "1000000\n",
+        "output": "One Million\n"
+      },
+      {
+        "input": "1000001\n",
+        "output": "One Million One\n"
+      },
+      {
+        "input": "1000010\n",
+        "output": "One Million Ten\n"
+      },
+      {
+        "input": "1000100\n",
+        "output": "One Million One Hundred\n"
+      },
+      {
+        "input": "1001000\n",
+        "output": "One Million One Thousand\n"
+      },
+      {
+        "input": "1010000\n",
+        "output": "One Million Ten Thousand\n"
+      },
+      {
+        "input": "1100000\n",
+        "output": "One Million One Hundred Thousand\n"
+      },
+      {
+        "input": "999999999\n",
+        "output": "Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\n"
+      },
+      {
+        "input": "1000000000\n",
+        "output": "One Billion\n"
+      },
+      {
+        "input": "1000000001\n",
+        "output": "One Billion One\n"
+      },
+      {
+        "input": "1234567890\n",
+        "output": "One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven\n"
+      },
+      {
+        "input": "999999999999\n",
+        "output": "Nine Hundred Ninety Nine Billion Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\n"
+      },
+      {
+        "input": "100000000000\n",
+        "output": "One Hundred Billion\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numberToWords', (0,), 'Zero\\n')",
+      "('numberToWords', (5,), 'Five\\n')",
+      "('numberToWords', (13,), 'Thirteen\\n')",
+      "('numberToWords', (20,), 'Twenty\\n')",
+      "('numberToWords', (21,), 'Twenty One\\n')",
+      "('numberToWords', (99,), 'Ninety Nine\\n')",
+      "('numberToWords', (100,), 'One Hundred\\n')",
+      "('numberToWords', (101,), 'One Hundred One\\n')",
+      "('numberToWords', (110,), 'One Hundred Ten\\n')",
+      "('numberToWords', (115,), 'One Hundred Fifteen\\n')",
+      "('numberToWords', (999,), 'Nine Hundred Ninety Nine\\n')",
+      "('numberToWords', (1000,), 'One Thousand\\n')",
+      "('numberToWords', (1001,), 'One Thousand One\\n')",
+      "('numberToWords', (1010,), 'One Thousand Ten\\n')",
+      "('numberToWords', (1100,), 'One Thousand One Hundred\\n')",
+      "('numberToWords', (1111,), 'One Thousand One Hundred Eleven\\n')",
+      "('numberToWords', (2000,), 'Two Thousand\\n')",
+      "('numberToWords', (2001,), 'Two Thousand One\\n')",
+      "('numberToWords', (2010,), 'Two Thousand Ten\\n')",
+      "('numberToWords', (2100,), 'Two Thousand One Hundred\\n')",
+      "('numberToWords', (999999,), 'Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\\n')",
+      "('numberToWords', (1000000,), 'One Million\\n')",
+      "('numberToWords', (1000001,), 'One Million One\\n')",
+      "('numberToWords', (1000010,), 'One Million Ten\\n')",
+      "('numberToWords', (1000100,), 'One Million One Hundred\\n')",
+      "('numberToWords', (1001000,), 'One Million One Thousand\\n')",
+      "('numberToWords', (1010000,), 'One Million Ten Thousand\\n')",
+      "('numberToWords', (1100000,), 'One Million One Hundred Thousand\\n')",
+      "('numberToWords', (999999999,), 'Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\\n')",
+      "('numberToWords', (1000000000,), 'One Billion\\n')",
+      "('numberToWords', (1000000001,), 'One Billion One\\n')",
+      "('numberToWords', (1234567890,), 'One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety\\n')",
+      "('numberToWords', (2147483647,), 'Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven\\n')",
+      "('numberToWords', (999999999999,), 'Nine Hundred Ninety Nine Billion Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\\n')",
+      "('numberToWords', (100000000000,), 'One Hundred Billion\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: numberToWords(0,)\n  標準輸出: 'Zero\\n'\n  你的輸出: 'Zero'\n\n[測試#2] ❌ 失敗\n  標準輸入: numberToWords(5,)\n  標準輸出: 'Five\\n'\n  你的輸出: 'Five'\n\n[測試#3] ❌ 失敗\n  標準輸入: numberToWords(13,)\n  標準輸出: 'Thirteen\\n'\n  你的輸出: 'Thirteen'\n\n[測試#4] ❌ 失敗\n  標準輸入: numberToWords(20,)\n  標準輸出: 'Twenty\\n'\n  你的輸出: 'Twenty'\n\n[測試#5] ❌ 失敗\n  標準輸入: numberToWords(21,)\n  標準輸出: 'Twenty One\\n'\n  你的輸出: 'Twenty One'\n\n[測試#6] ❌ 失敗\n  標準輸入: numberToWords(99,)\n  標準輸出: 'Ninety Nine\\n'\n  你的輸出: 'Ninety Nine'\n\n[測試#7] ❌ 失敗\n  標準輸入: numberToWords(100,)\n  標準輸出: 'One Hundred\\n'\n  你的輸出: 'One Hundred'\n\n[測試#8] ❌ 失敗\n  標準輸入: numberToWords(101,)\n  標準輸出: 'One Hundred One\\n'\n  你的輸出: 'One Hundred One'\n\n[測試#9] ❌ 失敗\n  標準輸入: numberToWords(110,)\n  標準輸出: 'One Hundred Ten\\n'\n  你的輸出: 'One Hundred Ten'\n\n[測試#10] ❌ 失敗\n  標準輸入: numberToWords(115,)\n  標準輸出: 'One Hundred Fifteen\\n'\n  你的輸出: 'One Hundred Fifteen'\n\n[測試#11] ❌ 失敗\n  標準輸入: numberToWords(999,)\n  標準輸出: 'Nine Hundred Ninety Nine\\n'\n  你的輸出: 'Nine Hundred Ninety Nine'\n\n[測試#12] ❌ 失敗\n  標準輸入: numberToWords(1000,)\n  標準輸出: 'One Thousand\\n'\n  你的輸出: 'One Thousand'\n\n[測試#13] ❌ 失敗\n  標準輸入: numberToWords(1001,)\n  標準輸出: 'One Thousand One\\n'\n  你的輸出: 'One Thousand One'\n\n[測試#14] ❌ 失敗\n  標準輸入: numberToWords(1010,)\n  標準輸出: 'One Thousand Ten\\n'\n  你的輸出: 'One Thousand Ten'\n\n[測試#15] ❌ 失敗\n  標準輸入: numberToWords(1100,)\n  標準輸出: 'One Thousand One Hundred\\n'\n  你的輸出: 'One Thousand One Hundred'\n\n[測試#16] ❌ 失敗\n  標準輸入: numberToWords(1111,)\n  標準輸出: 'One Thousand One Hundred Eleven\\n'\n  你的輸出: 'One Thousand One Hundred Eleven'\n\n[測試#17] ❌ 失敗\n  標準輸入: numberToWords(2000,)\n  標準輸出: 'Two Thousand\\n'\n  你的輸出: 'Two Thousand'\n\n[測試#18] ❌ 失敗\n  標準輸入: numberToWords(2001,)\n  標準輸出: 'Two Thousand One\\n'\n  你的輸出: 'Two Thousand One'\n\n[測試#19] ❌ 失敗\n  標準輸入: numberToWords(2010,)\n  標準輸出: 'Two Thousand Ten\\n'\n  你的輸出: 'Two Thousand Ten'\n\n[測試#20] ❌ 失敗\n  標準輸入: numberToWords(2100,)\n  標準輸出: 'Two Thousand One Hundred\\n'\n  你的輸出: 'Two Thousand One Hundred'\n\n[測試#21] ❌ 失敗\n  標準輸入: numberToWords(999999,)\n  標準輸出: 'Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\\n'\n  你的輸出: 'Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine'\n\n[測試#22] ❌ 失敗\n  標準輸入: numberToWords(1000000,)\n  標準輸出: 'One Million\\n'\n  你的輸出: 'One Million'\n\n[測試#23] ❌ 失敗\n  標準輸入: numberToWords(1000001,)\n  標準輸出: 'One Million One\\n'\n  你的輸出: 'One Million One'\n\n[測試#24] ❌ 失敗\n  標準輸入: numberToWords(1000010,)\n  標準輸出: 'One Million Ten\\n'\n  你的輸出: 'One Million Ten'\n\n[測試#25] ❌ 失敗\n  標準輸入: numberToWords(1000100,)\n  標準輸出: 'One Million One Hundred\\n'\n  你的輸出: 'One Million One Hundred'\n\n[測試#26] ❌ 失敗\n  標準輸入: numberToWords(1001000,)\n  標準輸出: 'One Million One Thousand\\n'\n  你的輸出: 'One Million One Thousand'\n\n[測試#27] ❌ 失敗\n  標準輸入: numberToWords(1010000,)\n  標準輸出: 'One Million Ten Thousand\\n'\n  你的輸出: 'One Million Ten Thousand'\n\n[測試#28] ❌ 失敗\n  標準輸入: numberToWords(1100000,)\n  標準輸出: 'One Million One Hundred Thousand\\n'\n  你的輸出: 'One Million One Hundred Thousand'\n\n[測試#29] ❌ 失敗\n  標準輸入: numberToWords(999999999,)\n  標準輸出: 'Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\\n'\n  你的輸出: 'Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine'\n\n[測試#30] ❌ 失敗\n  標準輸入: numberToWords(1000000000,)\n  標準輸出: 'One Billion\\n'\n  你的輸出: 'One Billion'\n\n[測試#31] ❌ 失敗\n  標準輸入: numberToWords(1000000001,)\n  標準輸出: 'One Billion One\\n'\n  你的輸出: 'One Billion One'\n\n[測試#32] ❌ 失敗\n  標準輸入: numberToWords(1234567890,)\n  標準輸出: 'One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety\\n'\n  你的輸出: 'One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety'\n\n[測試#33] ❌ 失敗\n  標準輸入: numberToWords(2147483647,)\n  標準輸出: 'Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven\\n'\n  你的輸出: 'Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven'\n\n[測試#34] ❌ 失敗\n  標準輸入: numberToWords(999999999999,)\n  標準輸出: 'Nine Hundred Ninety Nine Billion Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\\n'\n  你的輸出: 'Nine Hundred Ninety Nine Billion Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine'\n\n[測試#35] ❌ 失敗\n  標準輸入: numberToWords(100000000000,)\n  標準輸出: 'One Hundred Billion\\n'\n  你的輸出: 'One Hundred Billion'\n\n=== 測試完成 (0/35) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 35,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

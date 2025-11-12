@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode67.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Add Binary",
+    "description": "Given two binary strings a and b, return their sum as a binary string.",
+    "examples": [
+      {
+        "input": "a = \"11\", b = \"1\"",
+        "output": "\"100\""
+      },
+      {
+        "input": "a = \"1010\", b = \"1011\"",
+        "output": "\"10101\""
+      }
+    ],
+    "solution": "class Solution(object):\n    def addBinary(self, a, b):\n        \"\"\"\n        :type a: str\n        :type b: str\n        :rtype: str\n        \"\"\"\n        i, j = len(a) - 1, len(b) - 1\n        carry = 0\n        result = []\n\n        while i >= 0 or j >= 0 or carry:\n            total = carry\n            if i >= 0:\n                total += int(a[i])\n                i -= 1\n            if j >= 0:\n                total += int(b[j])\n                j -= 1\n            result.append(str(total % 2))\n            carry = total // 2\n\n        return ''.join(reversed(result))"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['1010', '1011']\n",
+        "output": "10101\n"
+      },
+      {
+        "input": "['1', '111']\n",
+        "output": "1000\n"
+      },
+      {
+        "input": "['0', '0']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['0001', '0010']\n",
+        "output": "0011\n"
+      },
+      {
+        "input": "['1111111111111111111111111111111111111111111111111111111111111111', '1']\n",
+        "output": "1000000000000000000000000000000000000000000000000000000000000000\n"
+      },
+      {
+        "input": "['', '1010']\n",
+        "output": "1010\n"
+      },
+      {
+        "input": "['1010', '']\n",
+        "output": "1010\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('addBinary', ('1010', '1011'), 10101)",
+      "('addBinary', ('1', '111'), 1000)",
+      "('addBinary', ('0', '0'), 0)",
+      "('addBinary', ('0001', '0010'), '0011\\n')",
+      "('addBinary', ('1111111111111111111111111111111111111111111111111111111111111111', '1'), 1000000000000000000000000000000000000000000000000000000000000000)",
+      "('addBinary', ('', '1010'), 1010)",
+      "('addBinary', ('1010', ''), 1010)",
+      "('addBinary', ('', ''), 0)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: addBinary('1010', '1011')\n  標準輸出: 10101\n  你的輸出: '10101'\n\n[測試#2] ❌ 失敗\n  標準輸入: addBinary('1', '111')\n  標準輸出: 1000\n  你的輸出: '1000'\n\n[測試#3] ❌ 失敗\n  標準輸入: addBinary('0', '0')\n  標準輸出: 0\n  你的輸出: '0'\n\n[測試#4] ❌ 失敗\n  標準輸入: addBinary('0001', '0010')\n  標準輸出: '0011\\n'\n  你的輸出: '0011'\n\n[測試#5] ❌ 失敗\n  標準輸入: addBinary('1111111111111111111111111111111111111111111111111111111111111111', '1')\n  標準輸出: 1000000000000000000000000000000000000000000000000000000000000000\n  你的輸出: '10000000000000000000000000000000000000000000000000000000000000000'\n\n[測試#6] ❌ 失敗\n  標準輸入: addBinary('', '1010')\n  標準輸出: 1010\n  你的輸出: '1010'\n\n[測試#7] ❌ 失敗\n  標準輸入: addBinary('1010', '')\n  標準輸出: 1010\n  你的輸出: '1010'\n\n[測試#8] ❌ 失敗\n  標準輸入: addBinary('', '')\n  標準輸出: 0\n  你的輸出: ''\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode316.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Remove Duplicate Letters",
+    "description": "Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.",
+    "examples": [
+      {
+        "input": "s = \"bcabc\"",
+        "output": "\"abc\""
+      },
+      {
+        "input": "s = \"cbacdcbc\"",
+        "output": "\"acdb\""
+      }
+    ],
+    "solution": "class Solution:\n    def removeDuplicateLetters(self, s):\n        stack = []\n        seen = set()\n        last_occurrence = {c:i for i,c in enumerate(s)}\n        \n        for i, c in enumerate(s):\n            if c not in seen:\n                while stack and c < stack[-1] and i < last_occurrence[stack[-1]]:\n                    seen.discard(stack.pop())\n                stack.append(c)\n                seen.add(c)\n        \n        return ''.join(stack)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "bcabc\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "cbacdcbc\n",
+        "output": "acdb\n"
+      },
+      {
+        "input": "a\n",
+        "output": "a\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "aaabbb\n",
+        "output": "ab\n"
+      },
+      {
+        "input": "abacb\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "abcd\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "cbacdcbc\n",
+        "output": "acdb\n"
+      },
+      {
+        "input": "AaBb\n",
+        "output": "AaBb\n"
+      },
+      {
+        "input": "a!a\n",
+        "output": "!a\n"
+      }
+    ],
+    "parsed_tests": [
+      "('removeDuplicateLetters', ('bcabc\\n',), 'abc\\n')",
+      "('removeDuplicateLetters', ('cbacdcbc\\n',), 'acdb\\n')",
+      "('removeDuplicateLetters', ('a\\n',), 'a\\n')",
+      "('removeDuplicateLetters', ((),), '\\n')",
+      "('removeDuplicateLetters', ('aaabbb\\n',), 'ab\\n')",
+      "('removeDuplicateLetters', ('abacb\\n',), 'abc\\n')",
+      "('removeDuplicateLetters', ('abcd\\n',), 'abcd\\n')",
+      "('removeDuplicateLetters', ('cbacdcbc\\n',), 'acdb\\n')",
+      "('removeDuplicateLetters', ('AaBb\\n',), 'AaBb\\n')",
+      "('removeDuplicateLetters', ('a!a\\n',), '!a\\n')"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: removeDuplicateLetters('bcabc\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#2] ✅ 通過\n  標準輸入: removeDuplicateLetters('cbacdcbc\\n',)\n  標準輸出: 'acdb\\n'\n  你的輸出: 'acdb\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: removeDuplicateLetters('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: 'a\\n'\n\n[測試#4] ❌ 失敗\n  標準輸入: removeDuplicateLetters((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ✅ 通過\n  標準輸入: removeDuplicateLetters('aaabbb\\n',)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: removeDuplicateLetters('abacb\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#7] ✅ 通過\n  標準輸入: removeDuplicateLetters('abcd\\n',)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd\\n'\n\n[測試#8] ✅ 通過\n  標準輸入: removeDuplicateLetters('cbacdcbc\\n',)\n  標準輸出: 'acdb\\n'\n  你的輸出: 'acdb\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: removeDuplicateLetters('AaBb\\n',)\n  標準輸出: 'AaBb\\n'\n  你的輸出: 'AaBb\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: removeDuplicateLetters('a!a\\n',)\n  標準輸出: '!a\\n'\n  你的輸出: '!a\\n'\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,19 +1,193 @@
-import subprocess
+# backend/core/model_interface.py
 import os
+import re
 import time
-from core.io_utils import ThinkingDots, ask_input
-from typing import List, Optional, Tuple, Dict
+import requests
+import subprocess
+from core.io_utils import ThinkingDots
+from typing import List, Optional, Tuple, Dict, Any
 from core.code_extract import extract_code_block
 from core.validators import validate_main_function
-import re
+import json
 
+from langchain_ollama import OllamaLLM
+from langchain_core.prompts import ChatPromptTemplate, PromptTemplate, FewShotPromptTemplate
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain_ollama import OllamaLLM
-from langchain_core.prompts import ChatPromptTemplate
-OLLAMA_API = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
-MODEL_NAME = "gpt-oss"
+from langchain_core.output_parsers import PydanticOutputParser, JsonOutputParser
+from pydantic import BaseModel, Field
 
+# ===== 基本設定 =====
+OLLAMA_HOST   = os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434")
+MODEL_NAME    = os.environ.get("MODEL_NAME",  "gpt-oss")         # 原本的完整模型（長文/正式）
+FAST_MODEL    = os.environ.get("FAST_MODEL",  MODEL_NAME)        # 快速模型
+KEEP_ALIVE    = os.environ.get("OLLAMA_KEEP_ALIVE", "5m")        # 預熱時間
+# 快速路徑的生成上限與逾時（秒）
+FAST_NUM_PREDICT = int(os.getenv("LLM_FAST_NUM_PREDICT", "160")) # 典型錯誤解釋 2~4 句
+FAST_TIMEOUT_SEC = int(os.getenv("LLM_FAST_TIMEOUT", "12"))      # 逾時就放棄
+
+# ===================== 1. 定義測資的預期結構 (Pydantic) =====================
+class TestCase(BaseModel):
+    input: Any = Field(description="輸入參數。若是多參數函式，請使用陣列 [arg1, arg2]。單一參數則直接給值。")
+    output: Any = Field(description="預期的正確輸出結果。")
+
+class TestSuite(BaseModel):
+    # Chain of Thought 核心：強制模型在生成 cases 前先輸出 reasoning
+    reasoning: str = Field(description="請先在此欄位描述你的測試策略：你考慮了哪些邊界情況(Edge Cases)？為什麼選擇這些範例？")
+    cases: List[TestCase] = Field(description="包含 5 到 10 筆具代表性的測試資料列表。")
+
+# ===================== 2. 定義 Few-Shot 範例 =====================
+few_shot_examples = [
+    {
+        "user_need": "寫一個函式 twoSum(nums, target)，回傳陣列中兩個數字相加等於 target 的索引。",
+        "output": """
+{{
+    "reasoning": "此題需要測試基本功能，並考慮邊界情況：1. 答案在陣列開頭或結尾。 2. 陣列中包含負數或零。 3. 確保不會重複使用同一個元素(例如 [3,3] target 6 應回傳 [0,1] 而非 [0,0])。",
+    "cases": [
+        {{"input": [[2, 7, 11, 15], 9], "output": [0, 1]}},
+        {{"input": [[3, 2, 4], 6], "output": [1, 2]}},
+        {{"input": [[3, 3], 6], "output": [0, 1]}},
+        {{"input": [[-1, -2, -3, -4, -5], -8], "output": [2, 4]}},
+        {{"input": [[0, 4, 3, 0], 0], "output": [0, 3]}}
+    ]
+}}
+"""
+    },
+    {
+        "user_need": "反轉一個字串。",
+        "output": """
+{{
+    "reasoning": "基本字串操作。測試策略應包含：1. 一般英文字串。 2. 空字串(Empty String)的邊界測試。 3. 只有一個字元的字串。 4. 包含空白、特殊符號或中文的字串，確保編碼處理正確。",
+    "cases": [
+        {{"input": "hello", "output": "olleh"}},
+        {{"input": "", "output": ""}},
+        {{"input": "a", "output": "a"}},
+        {{"input": "race car", "output": "rac ecar"}},
+        {{"input": "你好世界", "output": "界世好你"}}
+    ]
+}}
+"""
+    }
+]
+
+# ===================== LangChain Helper =====================
+def get_ollama_llm(
+    model: str = MODEL_NAME,
+    temperature: float = 0.2,
+    num_predict: Optional[int] = None,
+    timeout_sec: Optional[int] = None
+) -> OllamaLLM:
+    return OllamaLLM(
+        base_url=OLLAMA_HOST,
+        model=model,
+        temperature=temperature,
+        top_k=30,
+        top_p=0.9,
+        repeat_penalty=1.05,
+        num_predict=num_predict,
+        keep_alive=KEEP_ALIVE,
+        request_timeout=timeout_sec if timeout_sec and timeout_sec > 0 else None,
+    )
+
+# ===================== 高階介面 =====================
+def generate_response(prompt: str, model: str = MODEL_NAME, num_predict: Optional[int] = None, timeout: Optional[int] = None) -> str:
+    """通用文字生成 (保持不變以相容舊程式碼)"""
+    spinner = ThinkingDots("模型思考中")
+    spinner.start()
+    try:
+        llm = get_ollama_llm(model=model, num_predict=num_predict, timeout_sec=timeout)
+        resp = llm.invoke(prompt)
+        return resp.strip() if resp else "[警告] 模型回傳空值"
+    except Exception as e:
+        return f"[模型錯誤] {e}"
+    finally:
+        spinner.stop()
+
+# ===================== 核心：強健的 JSON 解析器 =====================
+def try_parse_json(text: str) -> Optional[Dict[str, Any]]:
+    """
+    嘗試多層次策略從混雜文字中提取並解析 JSON 物件。
+    """
+    if not text: return None
+    text = text.strip()
+
+    # 策略 1: 假設整段就是合法的 JSON
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # 策略 2: 嘗試提取 Markdown code block 中的內容
+    # 使用非貪婪匹配抓取第一個可能的 JSON 區塊
+    match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL | re.IGNORECASE)
+    if match:
+        try:
+            return json.loads(match.group(1))
+        except json.JSONDecodeError:
+            pass
+
+    # 策略 3: 暴力法 - 尋找最外層的 {}
+    # 這能處理模型在 JSON 前後加上大量廢話的情況
+    start_idx = text.find('{')
+    end_idx = text.rfind('}')
+    if start_idx != -1 and end_idx != -1 and end_idx > start_idx:
+        potential_json = text[start_idx : end_idx + 1]
+        try:
+            return json.loads(potential_json)
+        except json.JSONDecodeError:
+            pass
+
+    return None
+
+# ===================== 新版：結構化測資生成 (最終修復版) =====================
+def generate_structured_tests(user_need: str, model_name: str = MODEL_NAME) -> List[Dict[str, Any]]:
+    spinner = ThinkingDots("設計測試案例中 (CoT)")
+    spinner.start()
+    try:
+        # 定義 Prompt，明確要求 JSON 格式
+        example_prompt = PromptTemplate(
+            input_variables=["user_need", "output"],
+            template="需求: {user_need}\n回應: {output}"
+        )
+
+        prompt = FewShotPromptTemplate(
+            examples=few_shot_examples,
+            example_prompt=example_prompt,
+            prefix=(
+                "你是一位專業 QA。請根據需求設計具代表性且包含邊界情況的測試案例。\n"
+                "請先在 'reasoning' 欄位寫下你的測試策略思考過程，然後在 'cases' 欄位列出測試資料。\n"
+                "務必直接回傳合法的 JSON 物件格式，不要加任何 Markdown 標記或其他解釋文字。\n"
+            ),
+            suffix="需求: {user_need}\n回應:",
+            input_variables=["user_need"]
+        )
+
+        # 執行模型
+        llm = get_ollama_llm(model=model_name, temperature=0.1) # 低溫以提高格式穩定性
+        chain = prompt | llm
+        raw_output = chain.invoke({"user_need": user_need})
+        
+        # 使用強健解析器處理結果
+        parsed_data = try_parse_json(raw_output)
+
+        if parsed_data and isinstance(parsed_data, dict):
+            # 成功解析，顯示思考過程 (CoT)
+            if "reasoning" in parsed_data:
+                print(f"\n[測試策略思考]\n{parsed_data['reasoning']}\n")
+            
+            # 回傳測資列表，若無則回傳空列表
+            return parsed_data.get("cases", [])
+        else:
+            # 解析失敗，印出部分原始輸出以供除錯
+            print(f"\n[警告] 無法從模型輸出中解析出 JSON 測資。")
+            # print(f"[除錯原始輸出] {raw_output[:500]}...") # 需要時可取消註解
+            return []
+
+    except Exception as e:
+        print(f"\n[測資生成程序錯誤] {e}")
+        return []
+    finally:
+        spinner.stop()
 
 # ===================== Prompt Builders =====================
 
@@ -58,7 +232,6 @@ def build_code_prompt(user_need: str) -> str:
         "  2) 在 `main()` 函式內，**必須包含具體的測試案例程式碼**，展示如何呼叫你定義的函式，並用 `print()` 輸出結果。\n"
         "  3) 在檔案尾端包含 `if __name__ == \"__main__\":\\n    main()` 以便直接執行，\n"
         "  4) 包含必要的白話註解以說明主要步驟。\n\n"
-        "⚠️ **重要**：請僅輸出一個程式碼區塊，格式如下，絕對不要輸出任何額外文字或解釋。\n"
         "輸出格式範例（務必遵守）：\n"
         "```python\n"
         "# 你的程式碼（包含 def main(): 與 if __name__ == \"__main__\": main() ）\n"
@@ -69,17 +242,25 @@ def build_code_prompt(user_need: str) -> str:
 
 
 
-def build_test_prompt(user_need: str) -> str:
+def build_test_prompt(need: str) -> str:
     """
-    只產生測資
+    建立請求模型生成測試資料的 Prompt。
     """
     return (
-        "用繁體中文回答。\n"
-        "你是一個測資生成助理。\n"
-        "任務：根據使用者需求，產生 3~5 組測資。\n"
-        "⚠️ **重要**：請僅輸出一個 JSON 程式碼區塊，格式如下，絕對不要輸出任何額外文字或解釋。\n"
-        "```json\n[[輸入, 輸出], [輸入, 輸出], ...]\n```\n"
-        f"\n使用者需求:\n{user_need}\n\n請產生測資："
+        "你是一個專業的軟體測試工程師。請根據以下需求，生成 5 到 10 筆具代表性的測試資料。\n"
+        "請以 JSON 格式陣列回傳，每筆資料包含 `input` 和 `output` 欄位。\n\n"
+        "**重要格式說明：**\n"
+        "1. 如果目標函式需要 **多個參數**（例如 `twoSum(nums, target)`），請將 `input` 寫成一個 **JSON 陣列**，按順序包含所有參數。\n"
+        "   - 正確範例: `{\"input\": [[2, 7, 11, 15], 9], \"output\": [0, 1]}`\n"
+        "   - 錯誤範例: `{\"input\": \"[2, 7, 11, 15]\\n9\", ...}` (請勿使用換行來分隔參數)\n"
+        "2. 如果目標函式只需 **一個參數**，則 `input` 直接為該值即可。\n"
+        "   - 範例: `{\"input\": \"hello\", \"output\": \"olleh\"}`\n\n"
+        f"需求說明:\n---\n{need}\n---\n\n"
+        "請僅回傳 JSON 格式的測資陣列，例如：\n"
+        "[\n"
+        "  {\"input\": [[2, 7, 11, 15], 9], \"output\": [0, 1]},\n"
+        "  {\"input\": [[3, 2, 4], 6], \"output\": [1, 2]}\n"
+        "]"
     )
 
 
@@ -92,38 +273,8 @@ def build_explain_prompt(user_need: str, code: str) -> str:
         "你是一個程式解釋助理。\n"
         "任務：解釋下面的 Python 程式碼，請用白話淺顯的方式，避免使用專業術語。\n\n"
         f"使用者需求:\n{user_need}\n\n"
-        f"程式碼:\n```python\n{code}\n```\n\n"
+        f"程式碼:\n```python\n{code}```\n\n"
         "請輸出程式碼的功能說明："
-    )
-
-def build_translate_prompt(text: str, target_language: str = "English") -> str:
-    """
-    建立一個用於翻譯的提示。
-    """
-    return (
-        f"你是一個專業的翻譯助理。\n"
-        f"任務：將以下文字翻譯成「{target_language}」。\n"
-        "⚠️ **重要**：請僅輸出翻譯後的文字，絕對不要輸出任何額外文字、解釋或引號。\n\n"
-        f"原文：\n{text}\n\n"
-        f"翻譯為「{target_language}」的結果："
-    )
-
-def build_suggestion_prompt(user_need: str, user_code: str) -> str:
-    """
-    (新功能) 建立一個提示，要求 AI 根據程式碼和需求提供「提示」或「建議」。
-    """
-    return (
-        "用繁體中文回答。\n"
-        "你是一位資深的 Python 程式碼審查員 (Code Reviewer) 和助教。\n"
-        "任務：根據使用者的原始需求和他們目前撰寫的程式碼，提供具體的「提示」或「改進建議」。\n\n"
-        "**重要限制**：\n"
-        "1.  **不要** 重新撰寫完整的程式碼。\n"
-        "2.  請以**條列點**的方式，針對可以改進的地方（例如：潛在錯誤、效能不佳、程式碼風格、或是不符合需求的地方）提出 2-4 個關鍵建議。\n"
-        "3.  如果程式碼看起來大致正確，也可以給予肯定，並提出一個「可以更好」的建議。\n\n"
-        f"原始需求:\n{user_need}\n\n"
-        f"使用者目前的程式碼:\n"
-        f"```python\n{user_code}\n```\n\n"
-        "請提供 2-4 個具體的改進提示："
     )
 
 def interactive_langchain_chat():
@@ -133,8 +284,6 @@ def interactive_langchain_chat():
     print("=== 模型互動聊天模式 (LangChain 多輪對話) ===")
     print(f"使用的模型: {MODEL_NAME}")
     print("對話會記住歷史紀錄。結束請輸入 'quit'。")
-
-
 
     try:
         llm = OllamaLLM(model=MODEL_NAME)
@@ -242,36 +391,48 @@ def interactive_chat():
         except Exception as e:
             print(f"[錯誤] 模型回覆失敗：{e}")
 
+# ===================== API版本 (omm) =====================
 
+# 供 API 版單輪聊天使用的程式碼檢測
+_CODE_FENCE_RE = re.compile(r"```(?:python)?\s*(.*?)\s*```", re.DOTALL | re.IGNORECASE)
 
-# ===================== 模型呼叫 =====================
-
-def call_ollama_cli(prompt: str, model: str = MODEL_NAME) -> str:
+def interactive_chat_api(user_input: str) -> str:
     """
-    透過 Ollama CLI 呼叫模型
+    API 版互動聊天（單輪）：
+    - 若偵測到 Python 程式碼：用 build_explain_prompt 產生解釋
+    - 否則：以助教口吻一般聊天回覆
+    回傳：模型文字回覆
     """
-    try:
-        proc = subprocess.run(
-            ["ollama", "run", model, prompt],
-            capture_output=True, text=True, timeout=300
+    text = (user_input or "").strip()
+    if not text:
+        return "請先輸入一段訊息。"
+    
+    # 嘗試從 ``` 區塊取出程式碼；若沒有，就用原文字
+    m = _CODE_FENCE_RE.search(text)
+    code_candidate = m.group(1) if m else text
+
+    # 簡單的程式碼偵測（含常見 Python 關鍵字／結構）
+    looks_like_code = (
+        "def " in code_candidate or "print(" in code_candidate or "for " in code_candidate or
+        "while " in code_candidate or "class " in code_candidate or "import " in code_candidate or
+        "if __name__" in code_candidate or "return " in code_candidate or
+        (" = " in code_candidate and "(" in code_candidate and ")" in code_candidate)
+    )
+
+    if looks_like_code:
+        prompt = build_explain_prompt("使用者貼上的程式碼", code_candidate)
+    else:
+        prompt = (
+            "用繁體中文回答。\n"
+            "你是一位友善且專業的程式學習助教。\n"
+            "請用白話、簡單易懂的方式回答使用者的程式相關問題。\n\n"
+            f"使用者問題：\n{text}"
         )
-        return proc.stdout.strip() or proc.stderr.strip()
+
+    try:
+        return generate_response(prompt)  # ← 修正：呼叫本檔案的 generate_response
     except Exception as e:
-        return f"[CLI 呼叫失敗] {e}"
-
-
-def generate_response(prompt: str) -> str:
-    """
-    包裝：呼叫模型並顯示思考時間
-    """
-    spinner = ThinkingDots("模型思考中")
-    start_time = time.perf_counter()
-    spinner.start()
-    resp = call_ollama_cli(prompt)
-    spinner.stop()
-    duration = time.perf_counter() - start_time
-    print(f"[資訊] 模型思考時間: {duration:.3f} 秒")
-    return resp or "錯誤：無法連到 Ollama。"
+        return f"[錯誤] 模型回覆失敗：{e}"
 
 def interactive_code_modification_loop():
     print("=== 互動式程式碼開發與修正模式 (生成/修正/解釋) ===")
@@ -308,15 +469,7 @@ def interactive_code_modification_loop():
 
     code_prompt = build_code_prompt(user_need)
     code_resp = generate_response(code_prompt)
-
-    # 處理 extract_code_block 可能返回 list 的問題
-    code_or_list = extract_code_block(code_resp)
-    if isinstance(code_or_list, list) and code_or_list:
-        current_code = code_or_list[0]
-    elif isinstance(code_or_list, str):
-        current_code = code_or_list
-    else:
-        current_code = "" # 設為空字串
+    current_code = extract_code_block(code_resp)
 
     if not current_code:
         print("[錯誤] 模型無法生成程式碼，請重試。")
@@ -391,14 +544,7 @@ def interactive_code_modification_loop():
             )
 
             fix_resp = generate_response(fix_prompt)
-            # 處理 extract_code_block 可能返回 list 的問題
-            new_code_or_list = extract_code_block(fix_resp)
-            if isinstance(new_code_or_list, list) and new_code_or_list:
-                new_code = new_code_or_list[0]
-            elif isinstance(new_code_or_list, str):
-                new_code = new_code_or_list
-            else:
-                new_code = None
+            new_code = extract_code_block(fix_resp)
 
             if new_code:
                 current_code = new_code
@@ -410,7 +556,7 @@ def interactive_code_modification_loop():
 
     return current_code # 函數應回傳最終代碼
 
-def build_stdin_code_prompt(user_need: str, virtual_code: str, ai_generated_tests: Optional[List[Tuple[str, str]]],solution: Optional[str] = None,file_examples: Optional[List[Dict[str, str]]] = None) -> str:
+def build_stdin_code_prompt(user_need: str, virtual_code: str, json_tests: Optional[List[Tuple[str, str]]]) -> str:
     """
     (MODIFIED) 建立一個專門用於生成 stdin/stdout 程式碼的提示。
     採用 testrun.py 的提示邏輯。
@@ -426,28 +572,10 @@ def build_stdin_code_prompt(user_need: str, virtual_code: str, ai_generated_test
         "3. 將最終答案打印 (print) 到標準輸出 (stdout)。\n"
         "4. **不要** 在 `main` 區塊中硬編碼 (hard-code) 任何範例輸入或輸出。\n"
     ]
-    all_examples = []
-    
-    # 1. 加入 AI 生成的測資
-    if ai_generated_tests:
-        for test_case in ai_generated_tests:
-            if isinstance(test_case, (list, tuple)) and len(test_case) == 2:
-                # 確保是 (str, str)
-                all_examples.append((str(test_case[0]), str(test_case[1])))
 
-    # 2. 加入檔案提供的範例
-    if file_examples:
-        for ex in file_examples:
-            inp = ex.get("input")
-            out = ex.get("output")
-            if inp is not None and out is not None:
-                example_tuple = (str(inp), str(out))
-                # 避免重複加入
-                if example_tuple not in all_examples:
-                    all_examples.append(example_tuple)
-    if all_examples: # json_tests is List[List[str, str]]
+    if json_tests: # json_tests is List[List[str, str]]
         code_prompt_lines.append("\n以下是幾個範例，展示了程式執行時**應該**如何處理輸入和輸出（你的程式碼將透過 `stdin` 接收這些輸入）：\n")
-        for i, (inp, out) in enumerate(all_examples):
+        for i, (inp, out) in enumerate(json_tests):
             inp_repr = repr(str(inp)) # 確保是字串
             out_repr = repr(str(out)) # 確保是字串
             code_prompt_lines.append(f"--- 範例 {i+1} ---")
@@ -456,15 +584,11 @@ def build_stdin_code_prompt(user_need: str, virtual_code: str, ai_generated_test
         code_prompt_lines.append("\n再次強調：你的 `main` 程式碼不應該包含這些範例，它應該是通用的，能從 `stdin` 讀取任何合法的輸入。\n")
     else:
         code_prompt_lines.append("由於沒有提供範例，請確保程式碼結構完整，包含 `if __name__ == \"__main__\":` 區塊並能從 `stdin` 讀取數據。\n")
-        
-    if solution:
-        code_prompt_lines.append("您可以參考以下的參考解法：\n")
-        code_prompt_lines.append(f"```python\n{solution}\n```\n")
-        code_prompt_lines.append("請學習此解法（但不一定要完全照抄），並生成包含 main 區塊且能通過上述範例測試的完整程式碼。\n")
+
     code_prompt_lines.append("⚠️ **重要**：請僅輸出一個 Python 程式碼區塊 ```python ... ```，絕對不要輸出任何額外文字或解釋。")
     return "".join(code_prompt_lines)
 
-def build_fix_code_prompt(user_need: str, virtual_code: str, ai_generated_tests: Optional[List[Tuple[str, str]]], history: List[str], current_code: str, modification_request: str,solution: Optional[str] = None,file_examples: Optional[List[Dict[str, str]]] = None) -> str:
+def build_fix_code_prompt(user_need: str, virtual_code: str, json_tests: Optional[List[Tuple[str, str]]], history: List[str], current_code: str, modification_request: str) -> str:
     """
     (MODIFIED) 建立一個用於「互動式修改」的提示。
     這會包含歷史紀錄、當前程式碼和修改需求。
@@ -475,7 +599,7 @@ def build_fix_code_prompt(user_need: str, virtual_code: str, ai_generated_tests:
         f"虛擬碼：\n{virtual_code}\n",
         f"歷史紀錄：\n{' -> '.join(history)}\n",
         f"--- 當前程式碼 (有問題或待修改) ---\n"
-        f"```python\n{current_code}\n```\n"
+        f"```python\n{current_code}```\n"
         f"--- !! 新增修改需求 !! ---\n"
         f"{modification_request}\n\n",
         "--- 程式碼要求 (務必遵守) ---\n",
@@ -487,29 +611,9 @@ def build_fix_code_prompt(user_need: str, virtual_code: str, ai_generated_tests:
         "4. **不要** 在 `main` 區塊中硬編碼 (hard-code) 任何範例輸入或輸出。\n"
     ]
 
-    if solution:
-        code_prompt_lines.append("\n--- 參考解法 (僅供參考) ---\n")
-        code_prompt_lines.append(f"```python\n{solution}\n```\n")
-
-    all_examples = []
-
-    if ai_generated_tests:
-        for test_case in ai_generated_tests:
-            if isinstance(test_case, (list, tuple)) and len(test_case) == 2:
-                all_examples.append((str(test_case[0]), str(test_case[1])))
-
-    # 2. 加入檔案提供的範例
-    if file_examples:
-        for ex in file_examples:
-            inp = ex.get("input")
-            out = ex.get("output")
-            if inp is not None and out is not None:
-                example_tuple = (str(inp), str(out))
-                if example_tuple not in all_examples:
-                    all_examples.append(example_tuple)
-    if all_examples: # 重新使用先前生成的測資
+    if json_tests: # 重新使用先前生成的測資
         code_prompt_lines.append("\n以下是幾個範例，展示了程式執行時**應該**如何處理輸入和輸出（你的程式碼將透過 `stdin` 接收這些輸入）：\n")
-        for i, (inp, out) in enumerate(all_examples):
+        for i, (inp, out) in enumerate(json_tests):
             inp_repr = repr(str(inp))
             out_repr = repr(str(out))
             code_prompt_lines.append(f"--- 範例 {i+1} ---")
@@ -523,104 +627,111 @@ def build_fix_code_prompt(user_need: str, virtual_code: str, ai_generated_tests:
     
     return "".join(code_prompt_lines)
 
-def interactive_translate():
+def build_hint_prompt(problem_description: str, user_code: str, error_message: Optional[str] = None) -> str:
     """
-    進入互動式翻譯模式。
+    建立請求模型提供解題提示的 Prompt。
     """
-    print("=== 互動式翻譯模式 ===")
-    print("結束請輸入 'quit'。")
-    
-    while True:
-        # 1. 詢問目標語言
-        target_lang = ask_input("請輸入目標語言 (例如: 英文, 繁體中文, 日文) [英文]: ", "英文")
-        if target_lang.lower() == 'quit':
-            break
-            
-        # 2. 詢問要翻譯的內容
-        print(f"請輸入要翻譯成「{target_lang}」的文字 (多行輸入, 單獨一行 'END' 結束):")
-        lines = []
-        while True:
-            try:
-                line = input()
-            except EOFError:
-                break
-            if line.strip().upper() == "END":
-                break
-            if line.strip().lower() == 'quit':
-                print("離開翻譯模式。")
-                return # 離開整個函式
-            lines.append(line)
-        
-        text_to_translate = "\n".join(lines).strip()
-        
-        if not text_to_translate:
-            print("[提示] 沒有輸入內容。")
-            continue
+    prompt = (
+        "你是一位經驗豐富的程式導師。學生正在嘗試解決一個 LeetCode 類型的程式題目，但遇到了困難。\n"
+        "請根據題目描述和學生目前的程式碼，提供 **漸進式的提示 (Hint)**，引導他們自己找出解決方案。\n"
+        "**不要直接給出完整答案或程式碼**。\n\n"
+        "題目描述：\n"
+        f"---\n{problem_description}\n---\n\n"
+        "學生的程式碼：\n"
+        f"```python\n{user_code}\n```\n"
+    )
 
-        # 3. 呼叫核心翻譯函式
-        # (*** 修正 ***)
-        # 步驟 3.1: 建立提示
-        prompt = build_translate_prompt(text_to_translate, target_lang)
-        # 步驟 3.2: 呼叫模型 (使用 generate_response 來獲得 spinner 和實際回應)
-        translated_text = generate_response(prompt)
-        
-        print("\n=== 翻譯結果 ===\n")
-        print(translated_text) # 
-        print("\n---------------------------------\n")
+    if error_message:
+         prompt += f"\n學生遇到的錯誤訊息：\n```\n{error_message}\n```\n\n"
 
-    print("離開翻譯模式。")
+    prompt += (
+        "\n請提供 3 個層次的提示：\n"
+        "1. **思考方向**：點出題目關鍵或可能忽略的邊界條件。\n"
+        "2. **演算法建議**：建議適合的資料結構或演算法策略（如：Hash Map, Two Pointers, DP...），並簡述原因。\n"
+        "3. **程式碼除錯**（如果適用）：指出他們目前程式碼中潛在的邏輯錯誤或語法問題（如果有），但不直接幫他們改好。\n\n"
+        "請用繁體中文，以鼓勵和引導的語氣回答。"
+    )
+    return prompt
 
-def get_code_suggestions():
+# ===================== 正規化測資(omm) =====================
+def _ensure_str(x) -> str:
+    """確保值為字串（None 轉空字串）"""
+    if x is None:
+        return ""
+    return x if isinstance(x, str) else str(x)
+
+def _ensure_nl(s: str) -> str:
+    """確保字串結尾有換行符號"""
+    if not s:
+        return "\n"
+    return s if s.endswith("\n") else s + "\n"
+
+def _normalize_stdin_for_stdin_mode(s: str) -> str:
     """
-    模式 6：獲取程式碼建議
+    若輸入長得像 JSON 陣列字串，轉成適合 stdin 的格式：
+      "[2, 3]\n"       → "2\n3\n"
+      "[[1,2],[3,4]]"  → "1 2\n3 4\n"
+    其他情況則原樣（但保證以單一結尾換行收尾）。
     """
-    print("\n=== 模式 6: 獲取程式碼建議 ===")
-    print("AI 將根據您的需求和程式碼，提供 2-4 個改進提示。")
-    
-    # --- 1. 詢問需求說明 ---
-    print("\n請輸入這段程式碼的「需求說明」，AI 將以此為基準提供建議。")
-    print("多行輸入，結束請輸入單獨一行 'END'。")
-    
-    need_lines = []
-    while True:
+    if s is None:
+        return "\n"
+    txt = str(s).strip()
+    import json
+    if txt.startswith("[") and txt.endswith("]"):
         try:
-            line = input()
-        except EOFError:
-            break
-        if line.strip() == "END":
-            break
-        need_lines.append(line)
-    
-    user_need = "\n".join(need_lines).strip()
-    if not user_need:
-        print("[提示] 未提供需求說明，AI 將僅根據程式碼本身提供通用建議。")
+            arr = json.loads(txt)
+            def flatten_to_lines(x):
+                if isinstance(x, list):
+                    # [[1,2],[3,4]] → 多行
+                    if x and all(isinstance(e, (list, tuple)) for e in x):
+                        return "\n".join(" ".join(str(v) for v in row) for row in x)
+                    # [1,2,3] → 每個元素一行 ✅
+                    else:
+                        return "\n".join(str(v) for v in x)
+                return str(x)
+            out = flatten_to_lines(arr)
+            return out.rstrip("\n") + "\n"
+        except Exception:
+            pass
+    # 非 JSON 陣列 → 保證最後有換行
+    return txt if txt.endswith("\n") else (txt + "\n")
 
-    # --- 2. 詢問程式碼 ---
-    print("\n請貼上您要獲取建議的 Python 程式碼，結束輸入請輸入單獨一行 'END'。")
-    lines = []
-    while True:
-        try:
-            line = input()
-        except EOFError:
-            break
-        if line.strip() == "END":
-            break
-        lines.append(line)
+def normalize_tests(raw) -> list[dict]:
+    """
+    將模型回覆的多種格式轉成統一格式：
+    [{"input": "...\\n", "output": "...\\n"}, ...]
 
-    user_code = "\n".join(lines)
-    if not user_code.strip():
-        print("[提示] 沒有輸入程式碼，取消操作。")
-        return
+    支援：
+      - [{"input": "...", "output": "..."}]
+      - [{"input": "...", "expected": "..."}]
+      - [["2 3", "6"], ["10 5", "50"], ...]
+      - {"input": "...", "output": "..."} (單一物件)
+    """
+    if raw is None:
+        return []
 
-    # --- 3. 產生並呼叫提示 ---
-    print("\n[提示] 正在分析您的程式碼並生成建議...")
-    try:
-        prompt = build_suggestion_prompt(user_need, user_code)
-        suggestions = generate_response(prompt)
-        
-        print("\n=== AI 程式碼建議 ===\n")
-        print(suggestions)
-        print("\n" + "="*20)
-        
-    except Exception as e:
-        print(f"\n[錯誤] 獲取建議時發生例外: {e}")
+    # 若是單一 dict → 包裝成 list
+    if isinstance(raw, dict):
+        raw = [raw]
+
+    # 非 list → 無效
+    if not isinstance(raw, list):
+        return []
+
+    norm = []
+    for item in raw:
+        if isinstance(item, dict):
+            # input/output 或 input/expected
+            if "input" in item and ("output" in item or "expected" in item):
+                out_key = "output" if "output" in item else "expected"
+                inp = _ensure_nl(_ensure_str(item["input"]))
+                inp = _normalize_stdin_for_stdin_mode(inp)  
+                out = _ensure_nl(_ensure_str(item[out_key]))
+                norm.append({"input": inp, "output": out})
+        elif isinstance(item, (list, tuple)) and len(item) == 2:
+            inp = _ensure_nl(_ensure_str(item[0]))
+            inp = _normalize_stdin_for_stdin_mode(inp)     
+            out = _ensure_nl(_ensure_str(item[1]))
+            norm.append({"input": inp, "output": out})
+        # 其他型別略過
+    return norm

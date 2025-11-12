@@ -1,0 +1,104 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode396.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Rotate Function",
+    "description": "You are given an integer array nums of length n.\n\nAssume arrk to be an array obtained by rotating nums by k positions clock-wise. We define the rotation function F on nums as follow:\n\nF(k) = 0 * arrk[0] + 1 * arrk[1] + ... + (n - 1) * arrk[n - 1].\nReturn the maximum value of F(0), F(1), ..., F(n-1).\n\nThe test cases are generated so that the answer fits in a 32-bit integer.",
+    "examples": [
+      {
+        "input": "nums = [4,3,2,6]",
+        "output": "26",
+        "explanation": "F(0) = (0 * 4) + (1 * 3) + (2 * 2) + (3 * 6) = 0 + 3 + 4 + 18 = 25\nF(1) = (0 * 6) + (1 * 4) + (2 * 3) + (3 * 2) = 0 + 4 + 6 + 6 = 16\nF(2) = (0 * 2) + (1 * 6) + (2 * 4) + (3 * 3) = 0 + 6 + 8 + 9 = 23\nF(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26\nSo the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26."
+      },
+      {
+        "input": "nums = [100]",
+        "output": "0"
+      }
+    ],
+    "solution": "class Solution:\n    def maxRotateFunction(self, A):\n        n = len(A)\n        if n == 0:\n            return 0\n        total = sum(A)\n        F = sum(i * num for i, num in enumerate(A))\n        max_val = F\n        for i in range(n-1, 0, -1):\n            F = F + total - n * A[i]\n            max_val = max(max_val, F)\n        return max_val"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "20\n"
+      },
+      {
+        "input": "4\n3\n2\n1\n",
+        "output": "18\n"
+      },
+      {
+        "input": "1\n1\n1\n1\n",
+        "output": "6\n"
+      },
+      {
+        "input": "5\n-1\n3\n",
+        "output": "13\n"
+      },
+      {
+        "input": "1000000\n1000000\n1000000\n",
+        "output": "3000000\n"
+      },
+      {
+        "input": "-5\n-2\n-3\n",
+        "output": "-8\n"
+      },
+      {
+        "input": "7\n4\n6\n9\n3\n",
+        "output": "69\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "2\n1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n",
+        "output": "40\n"
+      },
+      {
+        "input": "5\n4\n3\n2\n1\n",
+        "output": "35\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maxRotateFunction', ((),), 0)",
+      "('maxRotateFunction', (5,), 0)",
+      "('maxRotateFunction', ((0, 0, 0),), 0)",
+      "('maxRotateFunction', ((1, 2, 3, 4),), 20)",
+      "('maxRotateFunction', ((4, 3, 2, 1),), 18)",
+      "('maxRotateFunction', ((1, 1, 1, 1),), 6)",
+      "('maxRotateFunction', ((5, -1, 3),), 13)",
+      "('maxRotateFunction', ((1000000, 1000000, 1000000),), 3000000)",
+      "('maxRotateFunction', ((-5, -2, -3),), -8)",
+      "('maxRotateFunction', ((7, 4, 6, 9, 3),), 69)",
+      "('maxRotateFunction', ((1, 2),), 2)",
+      "('maxRotateFunction', ((2, 1),), 2)",
+      "('maxRotateFunction', ((1, 2, 3, 4, 5),), 40)",
+      "('maxRotateFunction', ((5, 4, 3, 2, 1),), 35)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: maxRotateFunction((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ✅ 通過\n  標準輸入: maxRotateFunction((0, 0, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: maxRotateFunction((1, 2, 3, 4),)\n  標準輸出: 20\n  你的輸出: 20\n\n[測試#5] ✅ 通過\n  標準輸入: maxRotateFunction((4, 3, 2, 1),)\n  標準輸出: 18\n  你的輸出: 18\n\n[測試#6] ✅ 通過\n  標準輸入: maxRotateFunction((1, 1, 1, 1),)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#7] ✅ 通過\n  標準輸入: maxRotateFunction((5, -1, 3),)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#8] ✅ 通過\n  標準輸入: maxRotateFunction((1000000, 1000000, 1000000),)\n  標準輸出: 3000000\n  你的輸出: 3000000\n\n[測試#9] ✅ 通過\n  標準輸入: maxRotateFunction((-5, -2, -3),)\n  標準輸出: -8\n  你的輸出: -8\n\n[測試#10] ✅ 通過\n  標準輸入: maxRotateFunction((7, 4, 6, 9, 3),)\n  標準輸出: 69\n  你的輸出: 69\n\n[測試#11] ✅ 通過\n  標準輸入: maxRotateFunction((1, 2),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: maxRotateFunction((2, 1),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#13] ✅ 通過\n  標準輸入: maxRotateFunction((1, 2, 3, 4, 5),)\n  標準輸出: 40\n  你的輸出: 40\n\n[測試#14] ✅ 通過\n  標準輸入: maxRotateFunction((5, 4, 3, 2, 1),)\n  標準輸出: 35\n  你的輸出: 35\n\n=== 測試完成 (13/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 14,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

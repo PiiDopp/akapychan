@@ -1,0 +1,117 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode442.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Find All Duplicates in an Array",
+    "description": "Given an integer array nums of length n where all the integers of nums are in the range [1, n] and each integer appears at most twice, return an array of all the integers that appears twice.\n\nYou must write an algorithm that runs in O(n) time and uses only constant auxiliary space, excluding the space needed to store the output.",
+    "examples": [
+      {
+        "input": "nums = [4,3,2,7,8,2,3,1]",
+        "output": "[2,3]"
+      },
+      {
+        "input": "nums = [1,1,2]",
+        "output": "[1]"
+      },
+      {
+        "input": "nums = [1]",
+        "output": "[]"
+      }
+    ],
+    "solution": "class Solution:\n    def findDuplicates(self, nums):\n        res = []\n        for num in nums:\n            index = abs(num) - 1\n            if nums[index] < 0:\n                res.append(abs(num))\n            else:\n                nums[index] = -nums[index]\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "[1]\n"
+      },
+      {
+        "input": "2\n2\n",
+        "output": "[2]\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1\n1\n2\n",
+        "output": "[1]\n"
+      },
+      {
+        "input": "1\n2\n2\n",
+        "output": "[2]\n"
+      },
+      {
+        "input": "1\n1\n2\n2\n",
+        "output": "[1, 2]\n"
+      },
+      {
+        "input": "2\n2\n1\n1\n",
+        "output": "[2, 1]\n"
+      },
+      {
+        "input": "3\n1\n2\n3\n4\n",
+        "output": "[3]\n"
+      },
+      {
+        "input": "4\n3\n2\n1\n4\n",
+        "output": "[4]\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1\n1\n2\n3\n4\n",
+        "output": "[1]\n"
+      },
+      {
+        "input": "1\n2\n2\n3\n4\n",
+        "output": "[2]\n"
+      },
+      {
+        "input": "1\n2\n3\n3\n4\n",
+        "output": "[3]\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n4\n",
+        "output": "[4]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findDuplicates', ((),), [])",
+      "('findDuplicates', (1,), [])",
+      "('findDuplicates', ((1, 1),), [1])",
+      "('findDuplicates', ((2, 2),), [2])",
+      "('findDuplicates', ((1, 2),), [])",
+      "('findDuplicates', ((1, 1, 2),), [1])",
+      "('findDuplicates', ((1, 2, 2),), [2])",
+      "('findDuplicates', ((1, 1, 2, 2),), [1, 2])",
+      "('findDuplicates', ((2, 2, 1, 1),), [2, 1])",
+      "('findDuplicates', ((3, 1, 2, 3, 4),), [3])",
+      "('findDuplicates', ((4, 3, 2, 1, 4),), [4])",
+      "('findDuplicates', ((1, 2, 3, 4, 5),), [])",
+      "('findDuplicates', ((1, 1, 2, 3, 4),), [1])",
+      "('findDuplicates', ((1, 2, 2, 3, 4),), [2])",
+      "('findDuplicates', ((1, 2, 3, 3, 4),), [3])",
+      "('findDuplicates', ((1, 2, 3, 4, 4),), [4])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findDuplicates((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#4] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#5] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#6] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#7] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#8] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#9] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#10] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#11] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#12] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#13] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#14] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#15] ❌ 執行例外: 'tuple' object does not support item assignment\n[測試#16] ❌ 執行例外: 'tuple' object does not support item assignment\n=== 測試完成 (1/16) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 16,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

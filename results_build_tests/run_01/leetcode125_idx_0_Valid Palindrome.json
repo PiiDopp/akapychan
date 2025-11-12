@@ -1,0 +1,100 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode125.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Valid Palindrome",
+    "description": "A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.\n\nGiven a string s, return true if it is a palindrome, or false otherwise.",
+    "examples": [
+      {
+        "input": "s = \"A man, a plan, a canal: Panama\"",
+        "output": "true",
+        "explanation": "\"amanaplanacanalpanama\" is a palindrome."
+      },
+      {
+        "input": "s = \"race a car\"",
+        "output": "false",
+        "explanation": "\"raceacar\" is not a palindrome."
+      },
+      {
+        "input": "s = \" \"",
+        "output": "true",
+        "explanation": "s is an empty string \"\" after removing non-alphanumeric characters. Since an empty string reads the same forward and backward, it is a palindrome."
+      }
+    ],
+    "solution": "class Solution:\n    def isPalindrome(self, s):\n        filtered = [c.lower() for c in s if c.isalnum()]\n        return filtered == filtered[::-1]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "A man, a plan, a canal: Panama\n",
+        "output": "True\n"
+      },
+      {
+        "input": "race a car\n",
+        "output": "False\n"
+      },
+      {
+        "input": "\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0P\n",
+        "output": "False\n"
+      },
+      {
+        "input": "Madam\n",
+        "output": "True\n"
+      },
+      {
+        "input": "12321\n",
+        "output": "True\n"
+      },
+      {
+        "input": "12345\n",
+        "output": "False\n"
+      },
+      {
+        "input": "!!!\n",
+        "output": "True\n"
+      },
+      {
+        "input": "Able was I ere I saw Elba\n",
+        "output": "True\n"
+      },
+      {
+        "input": "Was it a car or a cat I saw?\n",
+        "output": "True\n"
+      },
+      {
+        "input": "No 'x' in Nixon\n",
+        "output": "True\n"
+      },
+      {
+        "input": "This is not a palindrome\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isPalindrome', ('A man, a plan, a canal: Panama\\n',), True)",
+      "('isPalindrome', ('race a car\\n',), False)",
+      "('isPalindrome', ((),), True)",
+      "('isPalindrome', ('0P\\n',), False)",
+      "('isPalindrome', ('Madam\\n',), True)",
+      "('isPalindrome', (12321,), True)",
+      "('isPalindrome', (12345,), False)",
+      "('isPalindrome', ('!!!\\n',), True)",
+      "('isPalindrome', ('Able was I ere I saw Elba\\n',), True)",
+      "('isPalindrome', ('Was it a car or a cat I saw?\\n',), True)",
+      "('isPalindrome', (\"No 'x' in Nixon\\n\",), True)",
+      "('isPalindrome', ('This is not a palindrome\\n',), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPalindrome('A man, a plan, a canal: Panama\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isPalindrome('race a car\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isPalindrome((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isPalindrome('0P\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isPalindrome('Madam\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ❌ 執行例外: 'int' object is not iterable\n[測試#8] ✅ 通過\n  標準輸入: isPalindrome('!!!\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isPalindrome('Able was I ere I saw Elba\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isPalindrome('Was it a car or a cat I saw?\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isPalindrome(\"No 'x' in Nixon\\n\",)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isPalindrome('This is not a palindrome\\n',)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (10/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

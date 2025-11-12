@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode921.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Add to Make Parentheses Valid",
+    "description": "A parentheses string is valid if and only if:\n\nIt is the empty string,\nIt can be written as AB (A concatenated with B), where A and B are valid strings, or\nIt can be written as (A), where A is a valid string.\nYou are given a parentheses string s. In one move, you can insert a parenthesis at any position of the string.\n\nReturn the minimum number of moves required to make s valid.",
+    "examples": [
+      {
+        "input": "s = \"())\"",
+        "output": "1"
+      },
+      {
+        "input": "s = \"(((\"",
+        "output": "3"
+      }
+    ],
+    "solution": "class Solution(object):\n    def minAddToMakeValid(self, S):\n        left = 0\n        res = 0\n        for c in S:\n            if c == '(':\n                left += 1\n            elif c == ')':\n                if left > 0:\n                    left -= 1\n                else:\n                    res += 1\n        return res + left"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

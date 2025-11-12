@@ -1,0 +1,115 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode438.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Find All Anagrams in a String",
+    "description": "Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.",
+    "examples": [
+      {
+        "input": "s = \"cbaebabacd\", p = \"abc\"",
+        "output": "[0,6]",
+        "explanation": "The substring with start index = 0 is \"cba\", which is an anagram of \"abc\".\nThe substring with start index = 6 is \"bac\", which is an anagram of \"abc\"."
+      },
+      {
+        "input": "s = \"abab\", p = \"ab\"",
+        "output": "[0,1,2]",
+        "explanation": "The substring with start index = 0 is \"ab\", which is an anagram of \"ab\".\nThe substring with start index = 1 is \"ba\", which is an anagram of \"ab\".\nThe substring with start index = 2 is \"ab\", which is an anagram of \"ab\"."
+      }
+    ],
+    "solution": "from collections import Counter\n\nclass Solution:\n    def findAnagrams(self, s, p):\n        ns, np = len(s), len(p)\n        if ns < np:\n            return []\n        \n        p_count = Counter(p)\n        s_count = Counter(s[:np])\n        res = []\n        \n        if s_count == p_count:\n            res.append(0)\n        \n        for i in range(1, ns - np + 1):\n            s_count[s[i - 1]] -= 1\n            if s_count[s[i - 1]] == 0:\n                del s_count[s[i - 1]]\n            s_count[s[i + np - 1]] += 1\n            if s_count == p_count:\n                res.append(i)\n        \n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['cbaebabacd', 'abc']\n",
+        "output": "[0, 6]\n"
+      },
+      {
+        "input": "['abc', 'd']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['ab', 'abc']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "[0]\n"
+      },
+      {
+        "input": "['', 'a']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['abc', '']\n",
+        "output": "[0, 1, 2, 3]\n"
+      },
+      {
+        "input": "['abab', 'ab']\n",
+        "output": "[0, 1, 2]\n"
+      },
+      {
+        "input": "['aaaaa', 'aa']\n",
+        "output": "[0, 1, 2, 3]\n"
+      },
+      {
+        "input": "['AaBb', 'aB']\n",
+        "output": "[1]\n"
+      },
+      {
+        "input": "['你好世界', '世界']\n",
+        "output": "[2]\n"
+      },
+      {
+        "input": "['!@#$', '$#']\n",
+        "output": "[2]\n"
+      },
+      {
+        "input": "['abcd', 'abcd']\n",
+        "output": "[0]\n"
+      },
+      {
+        "input": "['abcd', 'dcba']\n",
+        "output": "[0]\n"
+      },
+      {
+        "input": "['abcabc', 'abc']\n",
+        "output": "[0, 3]\n"
+      },
+      {
+        "input": "['a', '']\n",
+        "output": "[0, 1]\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "[0]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findAnagrams', ('cbaebabacd', 'abc'), [0, 6])",
+      "('findAnagrams', ('abc', 'd'), [])",
+      "('findAnagrams', ('ab', 'abc'), [])",
+      "('findAnagrams', ('', ''), [0])",
+      "('findAnagrams', ('', 'a'), [])",
+      "('findAnagrams', ('abc', ''), [0, 1, 2, 3])",
+      "('findAnagrams', ('abab', 'ab'), [0, 1, 2])",
+      "('findAnagrams', ('aaaaa', 'aa'), [0, 1, 2, 3])",
+      "('findAnagrams', ('AaBb', 'aB'), [1])",
+      "('findAnagrams', ('你好世界', '世界'), [2])",
+      "('findAnagrams', ('!@#$', '$#'), [2])",
+      "('findAnagrams', ('abcd', 'abcd'), [0])",
+      "('findAnagrams', ('abcd', 'dcba'), [0])",
+      "('findAnagrams', ('abcabc', 'abc'), [0, 3])",
+      "('findAnagrams', ('a', ''), [0, 1])",
+      "('findAnagrams', ('a', 'a'), [0])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findAnagrams('cbaebabacd', 'abc')\n  標準輸出: [0, 6]\n  你的輸出: [0, 6]\n\n[測試#2] ✅ 通過\n  標準輸入: findAnagrams('abc', 'd')\n  標準輸出: []\n  你的輸出: []\n\n[測試#3] ✅ 通過\n  標準輸入: findAnagrams('ab', 'abc')\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: findAnagrams('', '')\n  標準輸出: [0]\n  你的輸出: [0]\n\n[測試#5] ✅ 通過\n  標準輸入: findAnagrams('', 'a')\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: findAnagrams('abc', '')\n  標準輸出: [0, 1, 2, 3]\n  你的輸出: [0, 1, 2, 3]\n\n[測試#7] ✅ 通過\n  標準輸入: findAnagrams('abab', 'ab')\n  標準輸出: [0, 1, 2]\n  你的輸出: [0, 1, 2]\n\n[測試#8] ✅ 通過\n  標準輸入: findAnagrams('aaaaa', 'aa')\n  標準輸出: [0, 1, 2, 3]\n  你的輸出: [0, 1, 2, 3]\n\n[測試#9] ✅ 通過\n  標準輸入: findAnagrams('AaBb', 'aB')\n  標準輸出: [1]\n  你的輸出: [1]\n\n[測試#10] ✅ 通過\n  標準輸入: findAnagrams('你好世界', '世界')\n  標準輸出: [2]\n  你的輸出: [2]\n\n[測試#11] ✅ 通過\n  標準輸入: findAnagrams('!@#$', '$#')\n  標準輸出: [2]\n  你的輸出: [2]\n\n[測試#12] ✅ 通過\n  標準輸入: findAnagrams('abcd', 'abcd')\n  標準輸出: [0]\n  你的輸出: [0]\n\n[測試#13] ✅ 通過\n  標準輸入: findAnagrams('abcd', 'dcba')\n  標準輸出: [0]\n  你的輸出: [0]\n\n[測試#14] ❌ 失敗\n  標準輸入: findAnagrams('abcabc', 'abc')\n  標準輸出: [0, 3]\n  你的輸出: [0, 1, 2, 3]\n\n[測試#15] ✅ 通過\n  標準輸入: findAnagrams('a', '')\n  標準輸出: [0, 1]\n  你的輸出: [0, 1]\n\n[測試#16] ✅ 通過\n  標準輸入: findAnagrams('a', 'a')\n  標準輸出: [0]\n  你的輸出: [0]\n\n=== 測試完成 (15/16) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
+    "all_passed": false,
+    "total_tests": 16,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode71.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Simplify Path",
+    "description": "You are given an absolute path for a Unix-style file system, which always begins with a slash '/'. Your task is to transform this absolute path into its simplified canonical path.\n\nThe rules of a Unix-style file system are as follows:\n\nA single period '.' represents the current directory.\nA double period '..' represents the previous/parent directory.\nMultiple consecutive slashes such as '//' and '///' are treated as a single slash '/'.\nAny sequence of periods that does not match the rules above should be treated as a valid directory or file name. For example, '...' and '....' are valid directory or file names.\nThe simplified canonical path should follow these rules:\n\nThe path must start with a single slash '/'.\nDirectories within the path must be separated by exactly one slash '/'.\nThe path must not end with a slash '/', unless it is the root directory.\nThe path must not have any single or double periods ('.' and '..') used to denote current or parent directories.\nReturn the simplified canonical path.",
+    "examples": [
+      {
+        "input": "path = \"/home/\"",
+        "output": "\"/home\"",
+        "explanation": "The trailing slash should be removed."
+      },
+      {
+        "input": "path = \"/home//foo/\"",
+        "output": "\"/home/foo\"",
+        "explanation": "Multiple consecutive slashes are replaced by a single one."
+      },
+      {
+        "input": "path = \"/home/user/Documents/../Pictures\"",
+        "output": "\"/home/user/Pictures\"",
+        "explanation": "A double period \"..\" refers to the directory up a level (the parent directory)."
+      },
+      {
+        "input": "path = \"/../\"",
+        "output": "\"/\"",
+        "explanation": "Going one level up from the root directory is not possible."
+      },
+      {
+        "input": "path = \"/.../a/../b/c/../d/./\"",
+        "output": "\"/.../b/d\"",
+        "explanation": "\"...\" is a valid name for a directory in this problem."
+      }
+    ],
+    "solution": "class Solution(object):\n    def simplifyPath(self, path):\n        \"\"\"\n        :type path: str\n        :rtype: str\n        \"\"\"\n        stack = []\n        parts = path.split('/')\n        \n        for part in parts:\n            if part == '' or part == '.':\n                continue\n            elif part == '..':\n                if stack:\n                    stack.pop()\n            else:\n                stack.append(part)\n        \n        return '/' + '/'.join(stack)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "/home/\n",
+        "output": "/home\n"
+      },
+      {
+        "input": "/../\n",
+        "output": "/\n"
+      },
+      {
+        "input": "/home//foo/\n",
+        "output": "/home/foo\n"
+      },
+      {
+        "input": "/a/./b/../../c/\n",
+        "output": "/c\n"
+      },
+      {
+        "input": "/a/../../b/../c//.//\n",
+        "output": "/c\n"
+      },
+      {
+        "input": "/a/../b/../c/../\n",
+        "output": "/\n"
+      },
+      {
+        "input": "/a/b/c/../../..\n",
+        "output": "/\n"
+      },
+      {
+        "input": "/a/b/c/../../../..\n",
+        "output": "/\n"
+      },
+      {
+        "input": "/a/b/../../../../c\n",
+        "output": "/c\n"
+      },
+      {
+        "input": "/a/..../b\n",
+        "output": "/a/..../b\n"
+      },
+      {
+        "input": "/a/.../b\n",
+        "output": "/a/.../b\n"
+      },
+      {
+        "input": "/a/./././b\n",
+        "output": "/a/b\n"
+      },
+      {
+        "input": "/\n",
+        "output": "/\n"
+      },
+      {
+        "input": "/a/b/c///\n",
+        "output": "/a/b/c\n"
+      },
+      {
+        "input": "////a///b//c\n",
+        "output": "/a/b/c\n"
+      },
+      {
+        "input": "////\n",
+        "output": "/\n"
+      },
+      {
+        "input": "/./././\n",
+        "output": "/\n"
+      },
+      {
+        "input": "/../../../../\n",
+        "output": "/\n"
+      },
+      {
+        "input": "/a/../../b\n",
+        "output": "/b\n"
+      },
+      {
+        "input": "/a/..b/c\n",
+        "output": "/a/..b/c\n"
+      }
+    ],
+    "parsed_tests": [
+      "('simplifyPath', ('/home/\\n',), '/home\\n')",
+      "('simplifyPath', ('/../\\n',), '/\\n')",
+      "('simplifyPath', ('/home//foo/\\n',), '/home/foo\\n')",
+      "('simplifyPath', ('/a/./b/../../c/\\n',), '/c\\n')",
+      "('simplifyPath', ('/a/../../b/../c//.//\\n',), '/c\\n')",
+      "('simplifyPath', ('/a/../b/../c/../\\n',), '/\\n')",
+      "('simplifyPath', ('/a/b/c/../../..\\n',), '/\\n')",
+      "('simplifyPath', ('/a/b/c/../../../..\\n',), '/\\n')",
+      "('simplifyPath', ('/a/b/../../../../c\\n',), '/c\\n')",
+      "('simplifyPath', ('/a/..../b\\n',), '/a/..../b\\n')",
+      "('simplifyPath', ('/a/.../b\\n',), '/a/.../b\\n')",
+      "('simplifyPath', ('/a/./././b\\n',), '/a/b\\n')",
+      "('simplifyPath', ('/\\n',), '/\\n')",
+      "('simplifyPath', ('/a/b/c///\\n',), '/a/b/c\\n')",
+      "('simplifyPath', ('////a///b//c\\n',), '/a/b/c\\n')",
+      "('simplifyPath', ('////\\n',), '/\\n')",
+      "('simplifyPath', ('/./././\\n',), '/\\n')",
+      "('simplifyPath', ('/../../../../\\n',), '/\\n')",
+      "('simplifyPath', ('/a/../../b\\n',), '/b\\n')",
+      "('simplifyPath', ('/a/..b/c\\n',), '/a/..b/c\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: simplifyPath('/home/\\n',)\n  標準輸出: '/home\\n'\n  你的輸出: '/home/\\n'\n\n[測試#2] ✅ 通過\n  標準輸入: simplifyPath('/../\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#3] ❌ 失敗\n  標準輸入: simplifyPath('/home//foo/\\n',)\n  標準輸出: '/home/foo\\n'\n  你的輸出: '/home/foo/\\n'\n\n[測試#4] ❌ 失敗\n  標準輸入: simplifyPath('/a/./b/../../c/\\n',)\n  標準輸出: '/c\\n'\n  你的輸出: '/c/\\n'\n\n[測試#5] ❌ 失敗\n  標準輸入: simplifyPath('/a/../../b/../c//.//\\n',)\n  標準輸出: '/c\\n'\n  你的輸出: '/c/\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: simplifyPath('/a/../b/../c/../\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#7] ❌ 失敗\n  標準輸入: simplifyPath('/a/b/c/../../..\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/a/..\\n'\n\n[測試#8] ❌ 失敗\n  標準輸入: simplifyPath('/a/b/c/../../../..\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/..\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: simplifyPath('/a/b/../../../../c\\n',)\n  標準輸出: '/c\\n'\n  你的輸出: '/c\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: simplifyPath('/a/..../b\\n',)\n  標準輸出: '/a/..../b\\n'\n  你的輸出: '/a/..../b\\n'\n\n[測試#11] ✅ 通過\n  標準輸入: simplifyPath('/a/.../b\\n',)\n  標準輸出: '/a/.../b\\n'\n  你的輸出: '/a/.../b\\n'\n\n[測試#12] ✅ 通過\n  標準輸入: simplifyPath('/a/./././b\\n',)\n  標準輸出: '/a/b\\n'\n  你的輸出: '/a/b\\n'\n\n[測試#13] ✅ 通過\n  標準輸入: simplifyPath('/\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#14] ❌ 失敗\n  標準輸入: simplifyPath('/a/b/c///\\n',)\n  標準輸出: '/a/b/c\\n'\n  你的輸出: '/a/b/c/\\n'\n\n[測試#15] ✅ 通過\n  標準輸入: simplifyPath('////a///b//c\\n',)\n  標準輸出: '/a/b/c\\n'\n  你的輸出: '/a/b/c\\n'\n\n[測試#16] ✅ 通過\n  標準輸入: simplifyPath('////\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#17] ✅ 通過\n  標準輸入: simplifyPath('/./././\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#18] ✅ 通過\n  標準輸入: simplifyPath('/../../../../\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#19] ✅ 通過\n  標準輸入: simplifyPath('/a/../../b\\n',)\n  標準輸出: '/b\\n'\n  你的輸出: '/b\\n'\n\n[測試#20] ✅ 通過\n  標準輸入: simplifyPath('/a/..b/c\\n',)\n  標準輸出: '/a/..b/c\\n'\n  你的輸出: '/a/..b/c\\n'\n\n=== 測試完成 (13/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

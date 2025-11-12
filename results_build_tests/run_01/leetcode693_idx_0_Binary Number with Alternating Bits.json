@@ -1,0 +1,38 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode693.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Binary Number with Alternating Bits",
+    "description": "Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.",
+    "examples": [
+      {
+        "input": "n = 5",
+        "output": "true",
+        "explanation": "The binary representation of 5 is: 101"
+      },
+      {
+        "input": "n = 7",
+        "output": "false",
+        "explanation": "The binary representation of 7 is: 111."
+      },
+      {
+        "input": "n = 11",
+        "output": "false",
+        "explanation": "The binary representation of 11 is: 1011."
+      }
+    ],
+    "solution": "class Solution:\n    def hasAlternatingBits(self, n):\n        prev_bit = n & 1\n        n >>= 1\n        while n > 0:\n            curr_bit = n & 1\n            if curr_bit == prev_bit:\n                return False\n            prev_bit = curr_bit\n            n >>= 1\n        return True"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

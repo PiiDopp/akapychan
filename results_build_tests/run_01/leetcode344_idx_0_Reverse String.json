@@ -1,0 +1,83 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode344.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reverse String",
+    "description": "Write a function that reverses a string. The input string is given as an array of characters s.\n\nYou must do this by modifying the input array in-place with O(1) extra memory.",
+    "examples": [
+      {
+        "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]",
+        "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]"
+      },
+      {
+        "input": "s = [\"H\",\"a\",\"n\",\"n\",\"a\",\"h\"]",
+        "output": "[\"h\",\"a\",\"n\",\"n\",\"a\",\"H\"]"
+      }
+    ],
+    "solution": "class Solution:\n    def reverseString(self, s):\n        left, right = 0, len(s) - 1\n        while left < right:\n            s[left], s[right] = s[right], s[left]\n            left += 1\n            right -= 1"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['h', 'e', 'l', 'l', 'o']\n",
+        "output": "['o', 'l', 'l', 'e', 'h']\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['a']\n",
+        "output": "['a']\n"
+      },
+      {
+        "input": "['a', 'b', 'c', 'd']\n",
+        "output": "['d', 'c', 'b', 'a']\n"
+      },
+      {
+        "input": "['a', 'b', 'c']\n",
+        "output": "['c', 'b', 'a']\n"
+      },
+      {
+        "input": "[' ', 'a', 'b', ' ']\n",
+        "output": "[' ', 'b', 'a', ' ']\n"
+      },
+      {
+        "input": "['!', '@', '#', '$']\n",
+        "output": "['$', '#', '@', '!']\n"
+      },
+      {
+        "input": "['你', '好', '世', '界']\n",
+        "output": "['界', '世', '好', '你']\n"
+      },
+      {
+        "input": "['😀', '😃', '😄']\n",
+        "output": "['😄', '😃', '😀']\n"
+      },
+      {
+        "input": "['1', '2', '3', '4']\n",
+        "output": "['4', '3', '2', '1']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reverseString', (['o', 'l', 'l', 'e', 'h'],), ['o', 'l', 'l', 'e', 'h'])",
+      "('reverseString', ((),), [])",
+      "('reverseString', (['a'],), ['a'])",
+      "('reverseString', (['d', 'c', 'b', 'a'],), ['d', 'c', 'b', 'a'])",
+      "('reverseString', (['c', 'b', 'a'],), ['c', 'b', 'a'])",
+      "('reverseString', ([' ', 'b', 'a', ' '],), [' ', 'b', 'a', ' '])",
+      "('reverseString', (['$', '#', '@', '!'],), ['$', '#', '@', '!'])",
+      "('reverseString', (['界', '世', '好', '你'],), ['界', '世', '好', '你'])",
+      "('reverseString', (['😄', '😃', '😀'],), ['😄', '😃', '😀'])",
+      "('reverseString', (['4', '3', '2', '1'],), ['4', '3', '2', '1'])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reverseString(['o', 'l', 'l', 'e', 'h'],)\n  標準輸出: ['o', 'l', 'l', 'e', 'h']\n  你的輸出: None\n\n[測試#2] ❌ 失敗\n  標準輸入: reverseString((),)\n  標準輸出: []\n  你的輸出: None\n\n[測試#3] ❌ 失敗\n  標準輸入: reverseString(['a'],)\n  標準輸出: ['a']\n  你的輸出: None\n\n[測試#4] ❌ 失敗\n  標準輸入: reverseString(['d', 'c', 'b', 'a'],)\n  標準輸出: ['d', 'c', 'b', 'a']\n  你的輸出: None\n\n[測試#5] ❌ 失敗\n  標準輸入: reverseString(['c', 'b', 'a'],)\n  標準輸出: ['c', 'b', 'a']\n  你的輸出: None\n\n[測試#6] ❌ 失敗\n  標準輸入: reverseString([' ', 'b', 'a', ' '],)\n  標準輸出: [' ', 'b', 'a', ' ']\n  你的輸出: None\n\n[測試#7] ❌ 失敗\n  標準輸入: reverseString(['$', '#', '@', '!'],)\n  標準輸出: ['$', '#', '@', '!']\n  你的輸出: None\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseString(['界', '世', '好', '你'],)\n  標準輸出: ['界', '世', '好', '你']\n  你的輸出: None\n\n[測試#9] ❌ 失敗\n  標準輸入: reverseString(['😄', '😃', '😀'],)\n  標準輸出: ['😄', '😃', '😀']\n  你的輸出: None\n\n[測試#10] ❌ 失敗\n  標準輸入: reverseString(['4', '3', '2', '1'],)\n  標準輸出: ['4', '3', '2', '1']\n  你的輸出: None\n\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

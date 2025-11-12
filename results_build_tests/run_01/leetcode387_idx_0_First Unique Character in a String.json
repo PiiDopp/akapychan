@@ -1,0 +1,88 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode387.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "First Unique Character in a String",
+    "description": "Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.",
+    "examples": [
+      {
+        "input": "s = \"leetcode\"",
+        "output": "0",
+        "explanation": "The character 'l' at index 0 is the first character that does not occur at any other index."
+      },
+      {
+        "input": "s = \"loveleetcode\"",
+        "output": "2"
+      },
+      {
+        "input": "s = \"aabb\"",
+        "output": "-1"
+      }
+    ],
+    "solution": "import collections\n\nclass Solution:\n    def firstUniqChar(self, s):\n        count = collections.Counter(s)\n        for i, char in enumerate(s):\n            if count[char] == 1:\n                return i\n        return -1"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "leetcode\n",
+        "output": "0\n"
+      },
+      {
+        "input": "loveleetcode\n",
+        "output": "2\n"
+      },
+      {
+        "input": "aabb\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "a\n",
+        "output": "0\n"
+      },
+      {
+        "input": "aaabbbcccddde\n",
+        "output": "12\n"
+      },
+      {
+        "input": "AaBbCc\n",
+        "output": "0\n"
+      },
+      {
+        "input": "abcabc\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "abacabad\n",
+        "output": "3\n"
+      },
+      {
+        "input": "你好世界你好\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('firstUniqChar', ('leetcode\\n',), 0)",
+      "('firstUniqChar', ('loveleetcode\\n',), 2)",
+      "('firstUniqChar', ('aabb\\n',), -1)",
+      "('firstUniqChar', ((),), -1)",
+      "('firstUniqChar', ('a\\n',), 0)",
+      "('firstUniqChar', ('aaabbbcccddde\\n',), 12)",
+      "('firstUniqChar', ('AaBbCc\\n',), 0)",
+      "('firstUniqChar', ('abcabc\\n',), -1)",
+      "('firstUniqChar', ('abacabad\\n',), 3)",
+      "('firstUniqChar', ('你好世界你好\\n',), 2)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: firstUniqChar('leetcode\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: firstUniqChar('loveleetcode\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ❌ 失敗\n  標準輸入: firstUniqChar('aabb\\n',)\n  標準輸出: -1\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: firstUniqChar((),)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: firstUniqChar('a\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: firstUniqChar('aaabbbcccddde\\n',)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#7] ✅ 通過\n  標準輸入: firstUniqChar('AaBbCc\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ❌ 失敗\n  標準輸入: firstUniqChar('abcabc\\n',)\n  標準輸出: -1\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: firstUniqChar('abacabad\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#10] ✅ 通過\n  標準輸入: firstUniqChar('你好世界你好\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

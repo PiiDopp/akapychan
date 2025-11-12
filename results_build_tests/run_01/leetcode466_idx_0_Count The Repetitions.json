@@ -1,0 +1,98 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode466.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Count The Repetitions",
+    "description": "We define str = [s, n] as the string str which consists of the string s concatenated n times.\n\nFor example, str == [\"abc\", 3] == \"abcabcabc\".\nWe define that string s1 can be obtained from string s2 if we can remove some characters from s2 such that it becomes s1.\n\nFor example, s1 = \"abc\" can be obtained from s2 = \"abdbec\" based on our definition by removing the bolded underlined characters.\nYou are given two strings s1 and s2 and two integers n1 and n2. You have the two strings str1 = [s1, n1] and str2 = [s2, n2].\n\nReturn the maximum integer m such that str = [str2, m] can be obtained from str1.",
+    "examples": [
+      {
+        "input": "s1 = \"acb\", n1 = 4, s2 = \"ab\", n2 = 2",
+        "output": "2"
+      },
+      {
+        "input": "s1 = \"acb\", n1 = 1, s2 = \"acb\", n2 = 1",
+        "output": "1"
+      }
+    ],
+    "solution": "class Solution:\n    def getMaxRepetitions(self, s1, n1, s2, n2):\n        from collections import defaultdict\n        \n        if n1 == 0:\n            return 0\n        \n        s1_count = 0\n        s2_count = 0\n        index = 0\n        recall = dict()\n        \n        while s1_count < n1:\n            for ch in s1:\n                if ch == s2[index]:\n                    index += 1\n                    if index == len(s2):\n                        index = 0\n                        s2_count += 1\n            s1_count += 1\n            if index in recall:\n                s1_count_prev, s2_count_prev = recall[index]\n                pre_loop = (s1_count_prev, s2_count_prev)\n                in_loop = (s1_count - s1_count_prev, s2_count - s2_count_prev)\n                break\n            else:\n                recall[index] = (s1_count, s2_count)\n        else:\n            return s2_count // n2\n        \n        ans = pre_loop[1] + ((n1 - pre_loop[0]) // in_loop[0]) * in_loop[1]\n        rest = (n1 - pre_loop[0]) % in_loop[0]\n        s2_count_rest = 0\n        index_rest = index\n        for _ in range(rest):\n            for ch in s1:\n                if ch == s2[index_rest]:\n                    index_rest += 1\n                    if index_rest == len(s2):\n                        index_rest = 0\n                        s2_count_rest += 1\n        ans += s2_count_rest\n        return ans // n2"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['acb', 4, 'ab', 2]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['abc', 0, 'ab', 1]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['', 5, 'ab', 1]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aaaaa', 3, 'aa', 2]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['ab', 3, 'ba', 1]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['abc', 10, 'abcabc', 1]\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['abc', 10, 'abcabc', 2]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['abc', 10, 'abcabc', 3]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abc', 10, 'abcabc', 4]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abc', 10, 'abcabc', 5]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abc', 10, 'abcabc', 6]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', 10, 'abcabcabc', 1]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['a', 1000000, 'a', 1]\n",
+        "output": "1000000\n"
+      }
+    ],
+    "parsed_tests": [
+      "('getMaxRepetitions', ('acb', 4, 'ab', 2), 2)",
+      "('getMaxRepetitions', ('abc', 0, 'ab', 1), 0)",
+      "('getMaxRepetitions', ('', 5, 'ab', 1), 0)",
+      "('getMaxRepetitions', ('aaaaa', 3, 'aa', 2), 3)",
+      "('getMaxRepetitions', ('ab', 3, 'ba', 1), 2)",
+      "('getMaxRepetitions', ('abc', 10, 'abcabc', 1), 5)",
+      "('getMaxRepetitions', ('abc', 10, 'abcabc', 2), 2)",
+      "('getMaxRepetitions', ('abc', 10, 'abcabc', 3), 1)",
+      "('getMaxRepetitions', ('abc', 10, 'abcabc', 4), 1)",
+      "('getMaxRepetitions', ('abc', 10, 'abcabc', 5), 1)",
+      "('getMaxRepetitions', ('abc', 10, 'abcabc', 6), 0)",
+      "('getMaxRepetitions', ('abc', 10, 'abcabcabc', 1), 3)",
+      "('getMaxRepetitions', ('a', 1000000, 'a', 1), 1000000)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: getMaxRepetitions('acb', 4, 'ab', 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 0, 'ab', 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: getMaxRepetitions('', 5, 'ab', 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: getMaxRepetitions('aaaaa', 3, 'aa', 2)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: getMaxRepetitions('ab', 3, 'ba', 1)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 1)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#7] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 3)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 4)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 6)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabcabc', 1)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#13] ✅ 通過\n  標準輸入: getMaxRepetitions('a', 1000000, 'a', 1)\n  標準輸出: 1000000\n  你的輸出: 1000000\n\n=== 測試完成 (13/13) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 13,
+    "passed_count": 13,
+    "accuracy_rate": 1.0
+  }
+}

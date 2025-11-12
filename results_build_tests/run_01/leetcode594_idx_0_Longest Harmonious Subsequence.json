@@ -1,0 +1,38 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode594.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Harmonious Subsequence",
+    "description": "We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1.\n\nGiven an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.",
+    "examples": [
+      {
+        "input": "nums = [1,3,2,2,5,2,3,7]",
+        "output": "5",
+        "explanation": "The longest harmonious subsequence is [3,2,2,2,3]."
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "2",
+        "explanation": "The longest harmonious subsequences are [1,2], [2,3], and [3,4], all of which have a length of 2."
+      },
+      {
+        "input": "nums = [1,1,1,1]",
+        "output": "0",
+        "explanation": "No harmonic subsequence exists."
+      }
+    ],
+    "solution": "class Solution:\n    def findLHS(self, nums):\n        from collections import Counter\n        count = Counter(nums)\n        res = 0\n        for num in count:\n            if num + 1 in count:\n                res = max(res, count[num] + count[num + 1])\n        return res"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

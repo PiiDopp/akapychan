@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode792.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Number of Matching Subsequences",
+    "description": "\"Given a string s and an array of strings words, return the number of words[i] that is a subsequence of s.\\n\\nA subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.\n\nFor example, \"ace\" is a subsequence of \"abcde\".",
+    "examples": [
+      {
+        "input": "s = \"abcde\", words = [\"a\",\"bb\",\"acd\",\"ace\"]",
+        "output": "3",
+        "explanation": "There are three strings in words that are a subsequence of s: \"a\", \"acd\", \"ace\"."
+      },
+      {
+        "input": "s = \"dsahjpjauf\", words = [\"ahjpjau\",\"ja\",\"ahbwzgqnuk\",\"tnmlanowax\"]",
+        "output": "2"
+      }
+    ],
+    "solution": "from collections import defaultdict, deque\n\nclass Solution:\n    def numMatchingSubseq(self, s, words):\n        waiting = defaultdict(deque)\n        for w in words:\n            waiting[w[0]].append(iter(w[1:]))\n        count = 0\n        for c in s:\n            for it in list(waiting[c]):\n                waiting[c].popleft()\n                nxt = next(it, None)\n                if nxt:\n                    waiting[nxt].append(it)\n                else:\n                    count += 1\n        return count"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abcde', ['a', 'bb', 'acd', 'ace']]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['', ['', 'a']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abc', []]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', ['abcd']]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', ['', '', 'a']]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['abacb', ['ab', 'ba', 'ac', 'ca', 'cb', 'abc', 'acb', 'bac']]\n",
+        "output": "7\n"
+      },
+      {
+        "input": "['你好世界', ['你', '好世', '世界', '你好世', '世界你']]\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['aaaaa', ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']]\n",
+        "output": "4\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numMatchingSubseq', ('abcde', ['a', 'bb', 'acd', 'ace']), 3)",
+      "('numMatchingSubseq', ('', ['', 'a']), 1)",
+      "('numMatchingSubseq', ('abc', []), 0)",
+      "('numMatchingSubseq', ('abc', ['abcd']), 0)",
+      "('numMatchingSubseq', ('abc', ['', '', 'a']), 3)",
+      "('numMatchingSubseq', ('abacb', ['ab', 'ba', 'ac', 'ca', 'cb', 'abc', 'acb', 'bac']), 7)",
+      "('numMatchingSubseq', ('你好世界', ['你', '好世', '世界', '你好世', '世界你']), 4)",
+      "('numMatchingSubseq', ('aaaaa', ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']), 4)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numMatchingSubseq('abcde', ['a', 'bb', 'acd', 'ace'])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ✅ 通過\n  標準輸入: numMatchingSubseq('abc', [])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numMatchingSubseq('abc', ['abcd'])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ❌ 執行例外: string index out of range\n[測試#6] ✅ 通過\n  標準輸入: numMatchingSubseq('abacb', ['ab', 'ba', 'ac', 'ca', 'cb', 'abc', 'acb', 'bac'])\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#7] ✅ 通過\n  標準輸入: numMatchingSubseq('你好世界', ['你', '好世', '世界', '你好世', '世界你'])\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: numMatchingSubseq('aaaaa', ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa'])\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (6/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode231.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Power of Two",
+    "description": "Given an integer n, return true if it is a power of two. Otherwise, return false.\n\nAn integer n is a power of two, if there exists an integer x such that n == 2^x.",
+    "examples": [
+      {
+        "input": "n = 1",
+        "output": "true",
+        "explanation": "2^0 = 1"
+      },
+      {
+        "input": "n = 16",
+        "output": "true",
+        "explanation": "2^4 = 16"
+      },
+      {
+        "input": "n = 3",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution:\n    def isPowerOfTwo(self, n):\n        if n <= 0:\n            return False\n        return (n & (n - 1)) == 0"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n",
+        "output": "False\n"
+      },
+      {
+        "input": "8\n",
+        "output": "True\n"
+      },
+      {
+        "input": "16\n",
+        "output": "True\n"
+      },
+      {
+        "input": "32\n",
+        "output": "True\n"
+      },
+      {
+        "input": "64\n",
+        "output": "True\n"
+      },
+      {
+        "input": "128\n",
+        "output": "True\n"
+      },
+      {
+        "input": "256\n",
+        "output": "True\n"
+      },
+      {
+        "input": "512\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1024\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2048\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4096\n",
+        "output": "True\n"
+      },
+      {
+        "input": "8192\n",
+        "output": "True\n"
+      },
+      {
+        "input": "16384\n",
+        "output": "True\n"
+      },
+      {
+        "input": "32768\n",
+        "output": "True\n"
+      },
+      {
+        "input": "65536\n",
+        "output": "True\n"
+      },
+      {
+        "input": "131072\n",
+        "output": "True\n"
+      },
+      {
+        "input": "262144\n",
+        "output": "True\n"
+      },
+      {
+        "input": "524288\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1048576\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2097152\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4194304\n",
+        "output": "True\n"
+      },
+      {
+        "input": "8388608\n",
+        "output": "True\n"
+      },
+      {
+        "input": "16777216\n",
+        "output": "True\n"
+      },
+      {
+        "input": "33554432\n",
+        "output": "True\n"
+      },
+      {
+        "input": "67108864\n",
+        "output": "True\n"
+      },
+      {
+        "input": "134217728\n",
+        "output": "True\n"
+      },
+      {
+        "input": "268435456\n",
+        "output": "True\n"
+      },
+      {
+        "input": "536870912\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1073741824\n",
+        "output": "True\n"
+      },
+      {
+        "input": "123456789\n",
+        "output": "False\n"
+      },
+      {
+        "input": "9223372036854775808\n",
+        "output": "True\n"
+      },
+      {
+        "input": "9223372036854775807\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isPowerOfTwo', (0,), False)",
+      "('isPowerOfTwo', (-1,), False)",
+      "('isPowerOfTwo', (1,), True)",
+      "('isPowerOfTwo', (2,), True)",
+      "('isPowerOfTwo', (3,), False)",
+      "('isPowerOfTwo', (4,), True)",
+      "('isPowerOfTwo', (5,), False)",
+      "('isPowerOfTwo', (8,), True)",
+      "('isPowerOfTwo', (16,), True)",
+      "('isPowerOfTwo', (32,), True)",
+      "('isPowerOfTwo', (64,), True)",
+      "('isPowerOfTwo', (128,), True)",
+      "('isPowerOfTwo', (256,), True)",
+      "('isPowerOfTwo', (512,), True)",
+      "('isPowerOfTwo', (1024,), True)",
+      "('isPowerOfTwo', (2048,), True)",
+      "('isPowerOfTwo', (4096,), True)",
+      "('isPowerOfTwo', (8192,), True)",
+      "('isPowerOfTwo', (16384,), True)",
+      "('isPowerOfTwo', (32768,), True)",
+      "('isPowerOfTwo', (65536,), True)",
+      "('isPowerOfTwo', (131072,), True)",
+      "('isPowerOfTwo', (262144,), True)",
+      "('isPowerOfTwo', (524288,), True)",
+      "('isPowerOfTwo', (1048576,), True)",
+      "('isPowerOfTwo', (2097152,), True)",
+      "('isPowerOfTwo', (4194304,), True)",
+      "('isPowerOfTwo', (8388608,), True)",
+      "('isPowerOfTwo', (16777216,), True)",
+      "('isPowerOfTwo', (33554432,), True)",
+      "('isPowerOfTwo', (67108864,), True)",
+      "('isPowerOfTwo', (134217728,), True)",
+      "('isPowerOfTwo', (268435456,), True)",
+      "('isPowerOfTwo', (536870912,), True)",
+      "('isPowerOfTwo', (1073741824,), True)",
+      "('isPowerOfTwo', (123456789,), False)",
+      "('isPowerOfTwo', (9223372036854775808,), True)",
+      "('isPowerOfTwo', (9223372036854775807,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPowerOfTwo(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#2] ✅ 通過\n  標準輸入: isPowerOfTwo(-1,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isPowerOfTwo(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isPowerOfTwo(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isPowerOfTwo(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isPowerOfTwo(4,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isPowerOfTwo(5,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isPowerOfTwo(8,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isPowerOfTwo(16,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isPowerOfTwo(32,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isPowerOfTwo(64,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isPowerOfTwo(128,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isPowerOfTwo(256,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isPowerOfTwo(512,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: isPowerOfTwo(1024,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: isPowerOfTwo(2048,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: isPowerOfTwo(4096,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: isPowerOfTwo(8192,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: isPowerOfTwo(16384,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: isPowerOfTwo(32768,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: isPowerOfTwo(65536,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#22] ✅ 通過\n  標準輸入: isPowerOfTwo(131072,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#23] ✅ 通過\n  標準輸入: isPowerOfTwo(262144,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#24] ✅ 通過\n  標準輸入: isPowerOfTwo(524288,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#25] ✅ 通過\n  標準輸入: isPowerOfTwo(1048576,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#26] ✅ 通過\n  標準輸入: isPowerOfTwo(2097152,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#27] ✅ 通過\n  標準輸入: isPowerOfTwo(4194304,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#28] ✅ 通過\n  標準輸入: isPowerOfTwo(8388608,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#29] ✅ 通過\n  標準輸入: isPowerOfTwo(16777216,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#30] ✅ 通過\n  標準輸入: isPowerOfTwo(33554432,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#31] ✅ 通過\n  標準輸入: isPowerOfTwo(67108864,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#32] ✅ 通過\n  標準輸入: isPowerOfTwo(134217728,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#33] ✅ 通過\n  標準輸入: isPowerOfTwo(268435456,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#34] ✅ 通過\n  標準輸入: isPowerOfTwo(536870912,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#35] ✅ 通過\n  標準輸入: isPowerOfTwo(1073741824,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#36] ✅ 通過\n  標準輸入: isPowerOfTwo(123456789,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#37] ✅ 通過\n  標準輸入: isPowerOfTwo(9223372036854775808,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#38] ✅ 通過\n  標準輸入: isPowerOfTwo(9223372036854775807,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (38/38) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 38,
+    "passed_count": 38,
+    "accuracy_rate": 1.0
+  }
+}

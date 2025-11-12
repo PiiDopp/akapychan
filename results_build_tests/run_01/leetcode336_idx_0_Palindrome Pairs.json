@@ -1,0 +1,90 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode336.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Palindrome Pairs",
+    "description": "You are given a 0-indexed array of unique strings words.\n\nA palindrome pair is a pair of integers (i, j) such that:\n\n0 <= i, j < words.length,\ni != j, and\nwords[i] + words[j] (the concatenation of the two strings) is a palindrome.\nReturn an array of all the palindrome pairs of words.\n\nYou must write an algorithm with O(sum of words[i].length) runtime complexity.",
+    "examples": [
+      {
+        "input": "words = [\"abcd\",\"dcba\",\"lls\",\"s\",\"sssll\"]",
+        "output": "[[0,1],[1,0],[3,2],[2,4]]",
+        "explanation": "The palindromes are [\"abcddcba\",\"dcbaabcd\",\"slls\",\"llssssll\"]"
+      },
+      {
+        "input": "words = [\"bat\",\"tab\",\"cat\"]",
+        "output": "[[0,1],[1,0]]",
+        "explanation": "The palindromes are [\"battab\",\"tabbat\"]"
+      },
+      {
+        "input": "words = [\"a\",\"\"]",
+        "output": "[[0,1],[1,0]]",
+        "explanation": "The palindromes are [\"a\",\"a\"]"
+      }
+    ],
+    "solution": "class Solution:\n    def palindromePairs(self, words):\n        wordict = {word[::-1]: i for i, word in enumerate(words)}\n        res = []\n        for i, word in enumerate(words):\n            for j in range(len(word)+1):\n                prefix, suffix = word[:j], word[j:]\n                if prefix in wordict and wordict[prefix] != i and suffix == suffix[::-1]:\n                    res.append([i, wordict[prefix]])\n                if j != 0 and suffix in wordict and wordict[suffix] != i and prefix == prefix[::-1]:\n                    res.append([wordict[suffix], i])\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abcd', 'dcba', 'lls', 's', 'sssll']\n",
+        "output": "[[0, 1], [1, 0], [3, 2], [2, 4]]\n"
+      },
+      {
+        "input": "['a', '']\n",
+        "output": "[[0, 1], [1, 0]]\n"
+      },
+      {
+        "input": "['abc', 'def', 'ghi']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['aba', '']\n",
+        "output": "[[0, 1], [1, 0]]\n"
+      },
+      {
+        "input": "['ab', 'ba']\n",
+        "output": "[[0, 1], [1, 0]]\n"
+      },
+      {
+        "input": "['a', 'aa', 'aaa']\n",
+        "output": "[[0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1]]\n"
+      },
+      {
+        "input": "['', 'a', 'b', 'aa']\n",
+        "output": "[[1, 0], [0, 1], [2, 0], [0, 2], [3, 0], [0, 3], [1, 3], [3, 1]]\n"
+      },
+      {
+        "input": "['bat', 'tab', 'cat']\n",
+        "output": "[[0, 1], [1, 0]]\n"
+      },
+      {
+        "input": "['ab', 'cba']\n",
+        "output": "[[0, 1]]\n"
+      },
+      {
+        "input": "['a', 'aa', 'aaa', 'aaaa']\n",
+        "output": "[[0, 1], [0, 2], [0, 3], [1, 0], [1, 2], [1, 3], [2, 0], [2, 1], [2, 3], [3, 0], [3, 1], [3, 2]]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('palindromePairs', (['abcd', 'dcba', 'lls', 's', 'sssll'],), [[0, 1], [1, 0], [3, 2], [2, 4]])",
+      "('palindromePairs', (['a', ''],), [[0, 1], [1, 0]])",
+      "('palindromePairs', (['abc', 'def', 'ghi'],), [])",
+      "('palindromePairs', (['aba', ''],), [[0, 1], [1, 0]])",
+      "('palindromePairs', (['ab', 'ba'],), [[0, 1], [1, 0]])",
+      "('palindromePairs', (['a', 'aa', 'aaa'],), [[0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1]])",
+      "('palindromePairs', (['', 'a', 'b', 'aa'],), [[1, 0], [0, 1], [2, 0], [0, 2], [3, 0], [0, 3], [1, 3], [3, 1]])",
+      "('palindromePairs', (['bat', 'tab', 'cat'],), [[0, 1], [1, 0]])",
+      "('palindromePairs', (['ab', 'cba'],), [[0, 1]])",
+      "('palindromePairs', (['a', 'aa', 'aaa', 'aaaa'],), [[0, 1], [0, 2], [0, 3], [1, 0], [1, 2], [1, 3], [2, 0], [2, 1], [2, 3], [3, 0], [3, 1], [3, 2]])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: palindromePairs(['abcd', 'dcba', 'lls', 's', 'sssll'],)\n  標準輸出: [[0, 1], [1, 0], [3, 2], [2, 4]]\n  你的輸出: [[0, 1], [1, 0], [3, 2], [2, 4]]\n\n[測試#2] ✅ 通過\n  標準輸入: palindromePairs(['a', ''],)\n  標準輸出: [[0, 1], [1, 0]]\n  你的輸出: [[0, 1], [1, 0]]\n\n[測試#3] ✅ 通過\n  標準輸入: palindromePairs(['abc', 'def', 'ghi'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: palindromePairs(['aba', ''],)\n  標準輸出: [[0, 1], [1, 0]]\n  你的輸出: [[0, 1], [1, 0]]\n\n[測試#5] ✅ 通過\n  標準輸入: palindromePairs(['ab', 'ba'],)\n  標準輸出: [[0, 1], [1, 0]]\n  你的輸出: [[0, 1], [1, 0]]\n\n[測試#6] ❌ 失敗\n  標準輸入: palindromePairs(['a', 'aa', 'aaa'],)\n  標準輸出: [[0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1]]\n  你的輸出: [[1, 0], [0, 1], [2, 0], [1, 2], [2, 1], [0, 2]]\n\n[測試#7] ❌ 失敗\n  標準輸入: palindromePairs(['', 'a', 'b', 'aa'],)\n  標準輸出: [[1, 0], [0, 1], [2, 0], [0, 2], [3, 0], [0, 3], [1, 3], [3, 1]]\n  你的輸出: [[1, 0], [0, 1], [2, 0], [0, 2], [3, 0], [3, 1], [1, 3], [0, 3]]\n\n[測試#8] ✅ 通過\n  標準輸入: palindromePairs(['bat', 'tab', 'cat'],)\n  標準輸出: [[0, 1], [1, 0]]\n  你的輸出: [[0, 1], [1, 0]]\n\n[測試#9] ✅ 通過\n  標準輸入: palindromePairs(['ab', 'cba'],)\n  標準輸出: [[0, 1]]\n  你的輸出: [[0, 1]]\n\n[測試#10] ❌ 失敗\n  標準輸入: palindromePairs(['a', 'aa', 'aaa', 'aaaa'],)\n  標準輸出: [[0, 1], [0, 2], [0, 3], [1, 0], [1, 2], [1, 3], [2, 0], [2, 1], [2, 3], [3, 0], [3, 1], [3, 2]]\n  你的輸出: [[1, 0], [0, 1], [2, 0], [1, 2], [2, 1], [0, 2], [3, 0], [2, 3], [3, 1], [1, 3], [3, 2], [0, 3]]\n\n=== 測試完成 (7/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

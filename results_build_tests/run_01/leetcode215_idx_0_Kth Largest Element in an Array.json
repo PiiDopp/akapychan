@@ -1,0 +1,88 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode215.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Kth Largest Element in an Array",
+    "description": "Given an integer array nums and an integer k, return the k^th largest element in the array.\n\nNote that it is the k^th largest element in the sorted order, not the k^th distinct element.\nCan you solve it without sorting?",
+    "examples": [
+      {
+        "input": "nums = [3,2,1,5,6,4], k = 2",
+        "output": "5"
+      },
+      {
+        "input": "nums = [3,2,3,1,2,4,5,5,6], k = 4",
+        "output": "4"
+      }
+    ],
+    "solution": "import heapq\n\nclass Solution:\n    def findKthLargest(self, nums, k):\n        heap = nums[:k]\n        heapq.heapify(heap)\n        for num in nums[k:]:\n            if num > heap[0]:\n                heapq.heappop(heap)\n                heapq.heappush(heap, num)\n        return heap[0]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[3, 2, 1, 5, 6, 4]\n2\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[3, 2, 3, 1, 2, 4, 5, 5, 6]\n4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[-1]\n1\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[-1, -2, -3, -4]\n1\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[-1, -2, -3, -4]\n4\n",
+        "output": "-4\n"
+      },
+      {
+        "input": "[0, 0, 0, 0]\n2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[5, 5, 5, 5, 5]\n3\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[-5, -4, -3, -2, -1]\n3\n",
+        "output": "-3\n"
+      },
+      {
+        "input": "[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]\n7\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[100, 200, 300, 400, 500]\n3\n",
+        "output": "300\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findKthLargest', ([3, 2, 1, 5, 6, 4], 2), 5)",
+      "('findKthLargest', ([3, 2, 3, 1, 2, 4, 5, 5, 6], 4), 4)",
+      "('findKthLargest', ([-1], 1), -1)",
+      "('findKthLargest', ([-1, -2, -3, -4], 1), -1)",
+      "('findKthLargest', ([-1, -2, -3, -4], 4), -4)",
+      "('findKthLargest', ([0, 0, 0, 0], 2), 0)",
+      "('findKthLargest', ([1, 2, 3, 4, 5], 5), 1)",
+      "('findKthLargest', ([5, 5, 5, 5, 5], 3), 5)",
+      "('findKthLargest', ([-5, -4, -3, -2, -1], 3), -3)",
+      "('findKthLargest', ([10, 9, 8, 7, 6, 5, 4, 3, 2, 1], 7), 4)",
+      "('findKthLargest', ([100, 200, 300, 400, 500], 3), 300)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findKthLargest([3, 2, 1, 5, 6, 4], 2)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#2] ✅ 通過\n  標準輸入: findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: findKthLargest([-1], 1)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#4] ✅ 通過\n  標準輸入: findKthLargest([-1, -2, -3, -4], 1)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: findKthLargest([-1, -2, -3, -4], 4)\n  標準輸出: -4\n  你的輸出: -4\n\n[測試#6] ✅ 通過\n  標準輸入: findKthLargest([0, 0, 0, 0], 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: findKthLargest([1, 2, 3, 4, 5], 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: findKthLargest([5, 5, 5, 5, 5], 3)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#9] ✅ 通過\n  標準輸入: findKthLargest([-5, -4, -3, -2, -1], 3)\n  標準輸出: -3\n  你的輸出: -3\n\n[測試#10] ✅ 通過\n  標準輸入: findKthLargest([10, 9, 8, 7, 6, 5, 4, 3, 2, 1], 7)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#11] ✅ 通過\n  標準輸入: findKthLargest([100, 200, 300, 400, 500], 3)\n  標準輸出: 300\n  你的輸出: 300\n\n=== 測試完成 (11/11) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 11,
+    "passed_count": 11,
+    "accuracy_rate": 1.0
+  }
+}

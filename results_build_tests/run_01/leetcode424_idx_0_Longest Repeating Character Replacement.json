@@ -1,0 +1,130 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode424.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Repeating Character Replacement",
+    "description": "You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.\n\nReturn the length of the longest substring containing the same letter you can get after performing the above operations.",
+    "examples": [
+      {
+        "input": "s = \"ABAB\", k = 2",
+        "output": "4",
+        "explanation": "Replace the two 'A's with two 'B's or vice versa."
+      },
+      {
+        "input": "s = \"AABABBA\", k = 1",
+        "output": "4",
+        "explanation": "Replace the one 'A' in the middle with 'B' and form \"AABBBBA\". The substring \"BBBB\" has the longest repeating letters, which is 4.There may exists other ways to achieve this answer too."
+      }
+    ],
+    "solution": "class Solution:\n    def characterReplacement(self, s, k):\n        count = [0] * 26\n        max_count = 0\n        left = 0\n        res = 0\n        \n        for right in range(len(s)):\n            count[ord(s[right]) - ord('A')] += 1\n            max_count = max(max_count, count[ord(s[right]) - ord('A')])\n            \n            while (right - left + 1) - max_count > k:\n                count[ord(s[left]) - ord('A')] -= 1\n                left += 1\n            \n            res = max(res, right - left + 1)\n        \n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['ABAB', '2']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['ABAB', '1']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['AAAAA', '0']\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['AAAAA', '2']\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['ABCDEFG', '0']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['ABCDEFG', '3']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['ABABABAB', '2']\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['ABABABAB', '3']\n",
+        "output": "7\n"
+      },
+      {
+        "input": "['', '0']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['A', '0']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['A', '5']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['AABABBA', '1']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['AABABBA', '2']\n",
+        "output": "6\n"
+      },
+      {
+        "input": "['ABAAAB', '0']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['ABAAAB', '2']\n",
+        "output": "6\n"
+      },
+      {
+        "input": "['ABCD', '10']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['ABCA', '0']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['AB', '0']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['AB', '1']\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('characterReplacement', ('ABAB', '2'), 4)",
+      "('characterReplacement', ('ABAB', '1'), 3)",
+      "('characterReplacement', ('AAAAA', '0'), 5)",
+      "('characterReplacement', ('AAAAA', '2'), 5)",
+      "('characterReplacement', ('ABCDEFG', '0'), 1)",
+      "('characterReplacement', ('ABCDEFG', '3'), 4)",
+      "('characterReplacement', ('ABABABAB', '2'), 5)",
+      "('characterReplacement', ('ABABABAB', '3'), 7)",
+      "('characterReplacement', ('', '0'), 0)",
+      "('characterReplacement', ('A', '0'), 1)",
+      "('characterReplacement', ('A', '5'), 1)",
+      "('characterReplacement', ('AABABBA', '1'), 4)",
+      "('characterReplacement', ('AABABBA', '2'), 6)",
+      "('characterReplacement', ('ABAAAB', '0'), 3)",
+      "('characterReplacement', ('ABAAAB', '2'), 6)",
+      "('characterReplacement', ('ABCD', '10'), 4)",
+      "('characterReplacement', ('ABCA', '0'), 1)",
+      "('characterReplacement', ('AB', '0'), 1)",
+      "('characterReplacement', ('AB', '1'), 2)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#2] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#3] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#4] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#5] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#6] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#7] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#8] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#9] ✅ 通過\n  標準輸入: characterReplacement('', '0')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#11] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#12] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#13] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#14] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#15] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#16] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#17] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#18] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n[測試#19] ❌ 執行例外: '>' not supported between instances of 'int' and 'str'\n=== 測試完成 (1/19) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 19,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

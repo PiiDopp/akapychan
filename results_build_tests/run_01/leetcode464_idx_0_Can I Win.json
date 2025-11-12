@@ -1,0 +1,283 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode464.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Can I Win",
+    "description": "In the \"100 game\" two players take turns adding, to a running total, any integer from 1 to 10. The player who first causes the running total to reach or exceed 100 wins.\n\nWhat if we change the game so that players cannot re-use integers?\n\nFor example, two players might take turns drawing from a common pool of numbers from 1 to maxChoosableInteger without replacement until they reach a total >= desiredTotal.\n\nGiven two integers maxChoosableInteger and desiredTotal, return true if the first player to move can force a win, otherwise, return false. Assume both players play optimally.",
+    "examples": [
+      {
+        "input": "maxChoosableInteger = 10, desiredTotal = 11",
+        "output": "false",
+        "explanation": "No matter which integer the first player choose, the first player will lose. \nThe first player can choose an integer from 1 up to 10. \nIf the first player choose 1, the second player can only choose integers from 2 up to 10. \nThe second player will win by choosing 10 and get a total = 11, which is >= desiredTotal. \nSame with other integers chosen by the first player, the second player will always win."
+      },
+      {
+        "input": "maxChoosableInteger = 10, desiredTotal = 0",
+        "output": "true"
+      },
+      {
+        "input": "maxChoosableInteger = 10, desiredTotal = 1",
+        "output": "true"
+      }
+    ],
+    "solution": "class Solution:\n    def canIWin(self, maxChoosableInteger, desiredTotal):\n        if desiredTotal <= 0:\n            return True\n        if (maxChoosableInteger * (maxChoosableInteger + 1)) // 2 < desiredTotal:\n            return False\n        \n        memo = {}\n        \n        def can_win(used, total):\n            if used in memo:\n                return memo[used]\n            \n            for i in range(maxChoosableInteger):\n                if not (used & (1 << i)):\n                    if total <= i + 1 or not can_win(used | (1 << i), total - (i + 1)):\n                        memo[used] = True\n                        return True\n            \n            memo[used] = False\n            return False\n        \n        return can_win(0, desiredTotal)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "10\n100\n",
+        "output": "False\n"
+      },
+      {
+        "input": "10\n55\n",
+        "output": "False\n"
+      },
+      {
+        "input": "10\n54\n",
+        "output": "True\n"
+      },
+      {
+        "input": "10\n53\n",
+        "output": "True\n"
+      },
+      {
+        "input": "10\n52\n",
+        "output": "False\n"
+      },
+      {
+        "input": "20\n210\n",
+        "output": "False\n"
+      },
+      {
+        "input": "20\n209\n",
+        "output": "True\n"
+      },
+      {
+        "input": "20\n211\n",
+        "output": "False\n"
+      },
+      {
+        "input": "20\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "20\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "20\n-5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2\n3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2\n2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n6\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n5\n",
+        "output": "False\n"
+      },
+      {
+        "input": "3\n4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "3\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4\n10\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n9\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4\n8\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4\n7\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n6\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n5\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4\n2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n15\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n14\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n13\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n12\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n11\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n10\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n9\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n8\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n7\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n6\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n1\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('canIWin', (10, 100), False)",
+      "('canIWin', (10, 55), False)",
+      "('canIWin', (10, 54), True)",
+      "('canIWin', (10, 53), True)",
+      "('canIWin', (10, 52), False)",
+      "('canIWin', (20, 210), False)",
+      "('canIWin', (20, 209), True)",
+      "('canIWin', (20, 211), False)",
+      "('canIWin', (20, 1), True)",
+      "('canIWin', (20, 0), True)",
+      "('canIWin', (20, -5), True)",
+      "('canIWin', (0, 0), True)",
+      "('canIWin', (0, 1), False)",
+      "('canIWin', (1, 1), True)",
+      "('canIWin', (1, 2), False)",
+      "('canIWin', (2, 3), False)",
+      "('canIWin', (2, 2), True)",
+      "('canIWin', (2, 1), True)",
+      "('canIWin', (3, 6), True)",
+      "('canIWin', (3, 5), False)",
+      "('canIWin', (3, 4), False)",
+      "('canIWin', (3, 3), True)",
+      "('canIWin', (3, 2), True)",
+      "('canIWin', (3, 1), True)",
+      "('canIWin', (4, 10), False)",
+      "('canIWin', (4, 9), True)",
+      "('canIWin', (4, 8), True)",
+      "('canIWin', (4, 7), False)",
+      "('canIWin', (4, 6), False)",
+      "('canIWin', (4, 5), False)",
+      "('canIWin', (4, 4), True)",
+      "('canIWin', (4, 3), True)",
+      "('canIWin', (4, 2), True)",
+      "('canIWin', (4, 1), True)",
+      "('canIWin', (5, 15), True)",
+      "('canIWin', (5, 14), False)",
+      "('canIWin', (5, 13), False)",
+      "('canIWin', (5, 12), True)",
+      "('canIWin', (5, 11), True)",
+      "('canIWin', (5, 10), True)",
+      "('canIWin', (5, 9), False)",
+      "('canIWin', (5, 8), False)",
+      "('canIWin', (5, 7), False)",
+      "('canIWin', (5, 6), False)",
+      "('canIWin', (5, 5), True)",
+      "('canIWin', (5, 4), True)",
+      "('canIWin', (5, 3), True)",
+      "('canIWin', (5, 2), True)",
+      "('canIWin', (5, 1), True)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: canIWin(10, 100)\n  標準輸出: False\n  你的輸出: False\n\n[測試#2] ✅ 通過\n  標準輸入: canIWin(10, 55)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ❌ 失敗\n  標準輸入: canIWin(10, 54)\n  標準輸出: True\n  你的輸出: False\n\n[測試#4] ❌ 失敗\n  標準輸入: canIWin(10, 53)\n  標準輸出: True\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: canIWin(10, 52)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: canIWin(20, 210)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ❌ 失敗\n  標準輸入: canIWin(20, 209)\n  標準輸出: True\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: canIWin(20, 211)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: canIWin(20, 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: canIWin(20, 0)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: canIWin(20, -5)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: canIWin(0, 0)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: canIWin(0, 1)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: canIWin(1, 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: canIWin(1, 2)\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: canIWin(2, 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: canIWin(2, 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: canIWin(2, 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: canIWin(3, 6)\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ❌ 失敗\n  標準輸入: canIWin(3, 5)\n  標準輸出: False\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: canIWin(3, 4)\n  標準輸出: False\n  你的輸出: False\n\n[測試#22] ✅ 通過\n  標準輸入: canIWin(3, 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#23] ✅ 通過\n  標準輸入: canIWin(3, 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#24] ✅ 通過\n  標準輸入: canIWin(3, 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#25] ✅ 通過\n  標準輸入: canIWin(4, 10)\n  標準輸出: False\n  你的輸出: False\n\n[測試#26] ❌ 失敗\n  標準輸入: canIWin(4, 9)\n  標準輸出: True\n  你的輸出: False\n\n[測試#27] ✅ 通過\n  標準輸入: canIWin(4, 8)\n  標準輸出: True\n  你的輸出: True\n\n[測試#28] ❌ 失敗\n  標準輸入: canIWin(4, 7)\n  標準輸出: False\n  你的輸出: True\n\n[測試#29] ❌ 失敗\n  標準輸入: canIWin(4, 6)\n  標準輸出: False\n  你的輸出: True\n\n[測試#30] ✅ 通過\n  標準輸入: canIWin(4, 5)\n  標準輸出: False\n  你的輸出: False\n\n[測試#31] ✅ 通過\n  標準輸入: canIWin(4, 4)\n  標準輸出: True\n  你的輸出: True\n\n[測試#32] ✅ 通過\n  標準輸入: canIWin(4, 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#33] ✅ 通過\n  標準輸入: canIWin(4, 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#34] ✅ 通過\n  標準輸入: canIWin(4, 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#35] ✅ 通過\n  標準輸入: canIWin(5, 15)\n  標準輸出: True\n  你的輸出: True\n\n[測試#36] ❌ 失敗\n  標準輸入: canIWin(5, 14)\n  標準輸出: False\n  你的輸出: True\n\n[測試#37] ❌ 失敗\n  標準輸入: canIWin(5, 13)\n  標準輸出: False\n  你的輸出: True\n\n[測試#38] ✅ 通過\n  標準輸入: canIWin(5, 12)\n  標準輸出: True\n  你的輸出: True\n\n[測試#39] ❌ 失敗\n  標準輸入: canIWin(5, 11)\n  標準輸出: True\n  你的輸出: False\n\n[測試#40] ✅ 通過\n  標準輸入: canIWin(5, 10)\n  標準輸出: True\n  你的輸出: True\n\n[測試#41] ❌ 失敗\n  標準輸入: canIWin(5, 9)\n  標準輸出: False\n  你的輸出: True\n\n[測試#42] ❌ 失敗\n  標準輸入: canIWin(5, 8)\n  標準輸出: False\n  你的輸出: True\n\n[測試#43] ❌ 失敗\n  標準輸入: canIWin(5, 7)\n  標準輸出: False\n  你的輸出: True\n\n[測試#44] ✅ 通過\n  標準輸入: canIWin(5, 6)\n  標準輸出: False\n  你的輸出: False\n\n[測試#45] ✅ 通過\n  標準輸入: canIWin(5, 5)\n  標準輸出: True\n  你的輸出: True\n\n[測試#46] ✅ 通過\n  標準輸入: canIWin(5, 4)\n  標準輸出: True\n  你的輸出: True\n\n[測試#47] ✅ 通過\n  標準輸入: canIWin(5, 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#48] ✅ 通過\n  標準輸入: canIWin(5, 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#49] ✅ 通過\n  標準輸入: canIWin(5, 1)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (36/49) ===\n[警告] 部分測資未通過 ❌（0.0525s）\n",
+    "all_passed": false,
+    "total_tests": 49,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

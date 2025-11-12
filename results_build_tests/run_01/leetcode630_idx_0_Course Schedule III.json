@@ -1,0 +1,88 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode630.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Course Schedule III",
+    "description": "There are n different online courses numbered from 1 to n. You are given an array courses where courses[i] = [durationi, lastDayi] indicate that the ith course should be taken continuously for durationi days and must be finished before or on lastDayi.\nYou will start on the 1st day and you cannot take two or more courses simultaneously.\nReturn the maximum number of courses that you can take.",
+    "examples": [
+      {
+        "input": "courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]",
+        "output": "3",
+        "explanation": "Explanation: There are totally 4 courses, but you can take 3 courses at most:\nFirst, take the 1st course, it costs 100 days so you will finish it on the 100th day, and ready to take the next course on the 101st day.\nSecond, take the 3rd course, it costs 1000 days so you will finish it on the 1100th day, and ready to take the next course on the 1101st day.\nThird, take the 2nd course, it costs 200 days so you will finish it on the 1300th day.\nThe 4th course cannot be taken now, since you will finish it on the 3300th day, which exceeds the closed date."
+      },
+      {
+        "input": "courses = [[1,2]]",
+        "output": "1"
+      },
+      {
+        "input": "courses = [[3,2],[4,3]]",
+        "output": "0"
+      }
+    ],
+    "solution": "import heapq\n\nclass Solution:\n    def scheduleCourse(self, courses):\n        # 按結束時間排序\n        courses.sort(key=lambda x: x[1])\n        total_time = 0\n        max_heap = []\n        \n        for duration, last_day in courses:\n            if total_time + duration <= last_day:\n                heapq.heappush(max_heap, -duration)\n                total_time += duration\n            elif max_heap and -max_heap[0] > duration:\n                total_time += duration + heapq.heappop(max_heap)\n                heapq.heappush(max_heap, -duration)\n        \n        return len(max_heap)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3 2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 2\n2 2\n3 2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "0 0\n1 1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "100 200\n200 200\n50 50\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 10\n1 10\n1 10\n1 10\n1 10\n1 10\n1 10\n1 10\n1 10\n1 10\n",
+        "output": "10\n"
+      },
+      {
+        "input": "100 100\n200 200\n300 300\n",
+        "output": "1\n"
+      },
+      {
+        "input": "100 200\n200 200\n50 50\n50 50\n50 50\n50 50\n50 50\n50 50\n50 50\n50 50\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 2\n2 2\n3 2\n4 2\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('scheduleCourse', ((),), 0)",
+      "('scheduleCourse', ('1 2\\n',), 1)",
+      "('scheduleCourse', ('3 2\\n',), 0)",
+      "('scheduleCourse', ('1 2\\n2 2\\n3 2\\n',), 1)",
+      "('scheduleCourse', ('0 0\\n1 1\\n',), 2)",
+      "('scheduleCourse', ('100 200\\n200 200\\n50 50\\n',), 2)",
+      "('scheduleCourse', ('1 10\\n1 10\\n1 10\\n1 10\\n1 10\\n1 10\\n1 10\\n1 10\\n1 10\\n1 10\\n',), 10)",
+      "('scheduleCourse', ('100 100\\n200 200\\n300 300\\n',), 1)",
+      "('scheduleCourse', ('100 200\\n200 200\\n50 50\\n50 50\\n50 50\\n50 50\\n50 50\\n50 50\\n50 50\\n50 50\\n',), 2)",
+      "('scheduleCourse', ('1 2\\n2 2\\n3 2\\n4 2\\n',), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode35.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Search Insert Position",
+    "description": "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.\n\nYou must write an algorithm with O(log n) runtime complexity.",
+    "examples": [
+      {
+        "input": "nums = [1,3,5,6], target = 5",
+        "output": "2"
+      },
+      {
+        "input": "nums = [1,3,5,6], target = 2",
+        "output": "1"
+      },
+      {
+        "input": "nums = [1,3,5,6], target = 7",
+        "output": "4"
+      }
+    ],
+    "solution": "class Solution(object):\n    def searchInsert(self, nums, target):\n        \"\"\"\n        :type nums: List[int]\n        :type target: int\n        :rtype: int\n        \"\"\"\n        left, right = 0, len(nums)\n        while left < right:\n            mid = (left + right) // 2\n            if nums[mid] < target:\n                left = mid + 1\n            else:\n                right = mid\n        return left"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 3, 5, 6]\n5\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[1, 3, 5, 6]\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1, 3, 5, 6]\n7\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[1, 3, 5, 6]\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1, 3, 5, 6]\n6\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[1, 3, 5, 6]\n4\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[1, 3, 5, 6]\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1, 3, 5, 6]\n3\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[-10, -5, -2, 0, 3, 8]\n-5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[-10, -5, -2, 0, 3, 8]\n-6\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[-10, -5, -2, 0, 3, 8]\n4\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[-10, -5, -2, 0, 3, 8]\n-11\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[-10, -5, -2, 0, 3, 8]\n9\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[]\n5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[42]\n42\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[42]\n43\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[42]\n41\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('searchInsert', ([1, 3, 5, 6], 5), 2)",
+      "('searchInsert', ([1, 3, 5, 6], 2), 1)",
+      "('searchInsert', ([1, 3, 5, 6], 7), 4)",
+      "('searchInsert', ([1, 3, 5, 6], 0), 0)",
+      "('searchInsert', ([1, 3, 5, 6], 6), 3)",
+      "('searchInsert', ([1, 3, 5, 6], 4), 2)",
+      "('searchInsert', ([1, 3, 5, 6], 1), 0)",
+      "('searchInsert', ([1, 3, 5, 6], 3), 1)",
+      "('searchInsert', ([-10, -5, -2, 0, 3, 8], -5), 1)",
+      "('searchInsert', ([-10, -5, -2, 0, 3, 8], -6), 1)",
+      "('searchInsert', ([-10, -5, -2, 0, 3, 8], 4), 5)",
+      "('searchInsert', ([-10, -5, -2, 0, 3, 8], -11), 0)",
+      "('searchInsert', ([-10, -5, -2, 0, 3, 8], 9), 6)",
+      "('searchInsert', ([], 5), 0)",
+      "('searchInsert', ([42], 42), 0)",
+      "('searchInsert', ([42], 43), 1)",
+      "('searchInsert', ([42], 41), 0)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: searchInsert([1, 3, 5, 6], 5)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: searchInsert([1, 3, 5, 6], 2)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: searchInsert([1, 3, 5, 6], 7)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: searchInsert([1, 3, 5, 6], 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: searchInsert([1, 3, 5, 6], 6)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: searchInsert([1, 3, 5, 6], 4)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: searchInsert([1, 3, 5, 6], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: searchInsert([1, 3, 5, 6], 3)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: searchInsert([-10, -5, -2, 0, 3, 8], -5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: searchInsert([-10, -5, -2, 0, 3, 8], -6)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: searchInsert([-10, -5, -2, 0, 3, 8], 4)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#12] ✅ 通過\n  標準輸入: searchInsert([-10, -5, -2, 0, 3, 8], -11)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#13] ✅ 通過\n  標準輸入: searchInsert([-10, -5, -2, 0, 3, 8], 9)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#14] ✅ 通過\n  標準輸入: searchInsert([], 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: searchInsert([42], 42)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#16] ✅ 通過\n  標準輸入: searchInsert([42], 43)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#17] ✅ 通過\n  標準輸入: searchInsert([42], 41)\n  標準輸出: 0\n  你的輸出: 0\n\n=== 測試完成 (17/17) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 17,
+    "passed_count": 17,
+    "accuracy_rate": 1.0
+  }
+}

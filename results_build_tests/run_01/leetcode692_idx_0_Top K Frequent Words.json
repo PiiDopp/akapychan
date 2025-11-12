@@ -1,0 +1,100 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode692.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Top K Frequent Words",
+    "description": "Given an array of strings words and an integer k, return the k most frequent strings.\n\nReturn the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.",
+    "examples": [
+      {
+        "input": "words = [\"i\",\"love\",\"leetcode\",\"i\",\"love\",\"coding\"], k = 2",
+        "output": "[\"i\",\"love\"]",
+        "explanation": "\"i\" and \"love\" are the two most frequent words.\nNote that \"i\" comes before \"love\" due to a lower alphabetical order."
+      },
+      {
+        "input": "words = [\"the\",\"day\",\"is\",\"sunny\",\"the\",\"the\",\"the\",\"sunny\",\"is\",\"is\"], k = 4",
+        "output": "[\"the\",\"is\",\"sunny\",\"day\"]",
+        "explanation": "\"the\", \"is\", \"sunny\" and \"day\" are the four most frequent words, with the number of occurrence being 4, 3, 2 and 1 respectively."
+      }
+    ],
+    "solution": "from collections import Counter\n\nclass Solution:\n    def topKFrequent(self, words, k):\n        count = Counter(words)\n        sorted_words = sorted(count.items(), key=lambda x: (-x[1], x[0]))\n        return [word for word, freq in sorted_words[:k]]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['i', 'love', 'leetcode', 'i', 'love', 'coding'], 2]\n",
+        "output": "['i', 'love']\n"
+      },
+      {
+        "input": "[['a', 'b', 'c', 'b', 'c', 'a'], 3]\n",
+        "output": "['a', 'b', 'c']\n"
+      },
+      {
+        "input": "[['x', 'y', 'z'], 5]\n",
+        "output": "['x', 'y', 'z']\n"
+      },
+      {
+        "input": "[['a', 'b'], 0]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[]\n3\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['same', 'same', 'same'], 1]\n",
+        "output": "['same']\n"
+      },
+      {
+        "input": "[['apple', 'banana', 'apple', 'orange', 'banana', 'apple'], 2]\n",
+        "output": "['apple', 'banana']\n"
+      },
+      {
+        "input": "[['!', '@', '#', '!', '@', '!'], 2]\n",
+        "output": "['!', '@']\n"
+      },
+      {
+        "input": "[['Apple', 'apple', 'Apple', 'banana'], 2]\n",
+        "output": "['Apple', 'apple']\n"
+      },
+      {
+        "input": "[['你好', '世界', '你好', '世界', '世界'], 2]\n",
+        "output": "['世界', '你好']\n"
+      },
+      {
+        "input": "[['a', 'b', 'c', 'a', 'b'], 3]\n",
+        "output": "['a', 'b', 'c']\n"
+      },
+      {
+        "input": "[['b', 'a', 'c'], 1]\n",
+        "output": "['a']\n"
+      },
+      {
+        "input": "[]\n0\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('topKFrequent', (['i', 'love', 'leetcode', 'i', 'love', 'coding'], 2), ['i', 'love'])",
+      "('topKFrequent', (['a', 'b', 'c', 'b', 'c', 'a'], 3), ['a', 'b', 'c'])",
+      "('topKFrequent', (['x', 'y', 'z'], 5), ['x', 'y', 'z'])",
+      "('topKFrequent', (['a', 'b'], 0), [])",
+      "('topKFrequent', ([], 3), [])",
+      "('topKFrequent', (['same', 'same', 'same'], 1), ['same'])",
+      "('topKFrequent', (['apple', 'banana', 'apple', 'orange', 'banana', 'apple'], 2), ['apple', 'banana'])",
+      "('topKFrequent', (['!', '@', '#', '!', '@', '!'], 2), ['!', '@'])",
+      "('topKFrequent', (['Apple', 'apple', 'Apple', 'banana'], 2), ['Apple', 'apple'])",
+      "('topKFrequent', (['你好', '世界', '你好', '世界', '世界'], 2), ['世界', '你好'])",
+      "('topKFrequent', (['a', 'b', 'c', 'a', 'b'], 3), ['a', 'b', 'c'])",
+      "('topKFrequent', (['b', 'a', 'c'], 1), ['a'])",
+      "('topKFrequent', ([], 0), [])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: topKFrequent(['i', 'love', 'leetcode', 'i', 'love', 'coding'], 2)\n  標準輸出: ['i', 'love']\n  你的輸出: ['i', 'love']\n\n[測試#2] ✅ 通過\n  標準輸入: topKFrequent(['a', 'b', 'c', 'b', 'c', 'a'], 3)\n  標準輸出: ['a', 'b', 'c']\n  你的輸出: ['a', 'b', 'c']\n\n[測試#3] ✅ 通過\n  標準輸入: topKFrequent(['x', 'y', 'z'], 5)\n  標準輸出: ['x', 'y', 'z']\n  你的輸出: ['x', 'y', 'z']\n\n[測試#4] ✅ 通過\n  標準輸入: topKFrequent(['a', 'b'], 0)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: topKFrequent([], 3)\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: topKFrequent(['same', 'same', 'same'], 1)\n  標準輸出: ['same']\n  你的輸出: ['same']\n\n[測試#7] ✅ 通過\n  標準輸入: topKFrequent(['apple', 'banana', 'apple', 'orange', 'banana', 'apple'], 2)\n  標準輸出: ['apple', 'banana']\n  你的輸出: ['apple', 'banana']\n\n[測試#8] ✅ 通過\n  標準輸入: topKFrequent(['!', '@', '#', '!', '@', '!'], 2)\n  標準輸出: ['!', '@']\n  你的輸出: ['!', '@']\n\n[測試#9] ✅ 通過\n  標準輸入: topKFrequent(['Apple', 'apple', 'Apple', 'banana'], 2)\n  標準輸出: ['Apple', 'apple']\n  你的輸出: ['Apple', 'apple']\n\n[測試#10] ✅ 通過\n  標準輸入: topKFrequent(['你好', '世界', '你好', '世界', '世界'], 2)\n  標準輸出: ['世界', '你好']\n  你的輸出: ['世界', '你好']\n\n[測試#11] ✅ 通過\n  標準輸入: topKFrequent(['a', 'b', 'c', 'a', 'b'], 3)\n  標準輸出: ['a', 'b', 'c']\n  你的輸出: ['a', 'b', 'c']\n\n[測試#12] ✅ 通過\n  標準輸入: topKFrequent(['b', 'a', 'c'], 1)\n  標準輸出: ['a']\n  你的輸出: ['a']\n\n[測試#13] ✅ 通過\n  標準輸入: topKFrequent([], 0)\n  標準輸出: []\n  你的輸出: []\n\n=== 測試完成 (13/13) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 13,
+    "passed_count": 13,
+    "accuracy_rate": 1.0
+  }
+}

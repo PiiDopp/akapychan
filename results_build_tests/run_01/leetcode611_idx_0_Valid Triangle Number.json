@@ -1,0 +1,32 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode611.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Valid Triangle Number",
+    "description": "Given an integer array nums, return the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle.",
+    "examples": [
+      {
+        "input": "nums = [2,2,3,4]",
+        "output": "3",
+        "explanation": "Valid combinations are:\n2,3,4 (using the first 2)\n2,3,4 (using the second 2)\n2,2,3"
+      },
+      {
+        "input": "nums = [4,2,3,4]",
+        "output": "4"
+      }
+    ],
+    "solution": "class Solution:\n    def triangleNumber(self, nums):\n        nums.sort()\n        count = 0\n        n = len(nums)\n        for k in range(n-1, 1, -1):\n            i, j = 0, k-1\n            while i < j:\n                if nums[i] + nums[j] > nums[k]:\n                    count += j - i\n                    j -= 1\n                else:\n                    i += 1\n        return count"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

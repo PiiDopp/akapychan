@@ -1,0 +1,64 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode120.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Triangle",
+    "description": "Given a triangle array, return the minimum path sum from top to bottom.\n\nFor each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.",
+    "examples": [
+      {
+        "input": "triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]",
+        "output": "11",
+        "explanation": "The triangle looks like:\n   2\n  3 4\n 6 5 7\n4 1 8 3\nThe minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above)."
+      },
+      {
+        "input": "triangle = [[-10]]",
+        "output": "-10"
+      }
+    ],
+    "solution": "class Solution(object):\n    def minimumTotal(self, triangle):\n        n = len(triangle)\n        dp = triangle[-1][:]\n        for i in range(n-2, -1, -1):\n            for j in range(len(triangle[i])):\n                dp[j] = triangle[i][j] + min(dp[j], dp[j+1])\n        return dp[0]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "-10\n",
+        "output": "-10\n"
+      },
+      {
+        "input": "1\n2 3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "2\n3 4\n6 5 7\n4 1 8 3\n",
+        "output": "11\n"
+      },
+      {
+        "input": "-1\n-2 -3\n-4 -5 -6\n",
+        "output": "-10\n"
+      },
+      {
+        "input": "0\n0 0\n0 0 0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000\n1000 1000\n1000 1000 1000\n",
+        "output": "3000\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minimumTotal', (-10,), -10)",
+      "('minimumTotal', ('1\\n2 3\\n',), 3)",
+      "('minimumTotal', ('2\\n3 4\\n6 5 7\\n4 1 8 3\\n',), 11)",
+      "('minimumTotal', ('-1\\n-2 -3\\n-4 -5 -6\\n',), -10)",
+      "('minimumTotal', ('0\\n0 0\\n0 0 0\\n',), 0)",
+      "('minimumTotal', ('1000\\n1000 1000\\n1000 1000 1000\\n',), 3000)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ❌ 執行例外: string index out of range\n[測試#4] ❌ 執行例外: string index out of range\n[測試#5] ❌ 執行例外: string index out of range\n[測試#6] ❌ 執行例外: string index out of range\n=== 測試完成 (0/6) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 6,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

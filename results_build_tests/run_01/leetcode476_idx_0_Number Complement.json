@@ -1,0 +1,140 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode476.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Number Complement",
+    "description": "The complement of an integer is the integer you get when you flip all the 0's to 1's and all the 1's to 0's in its binary representation.\n\nFor example, The integer 5 is \"101\" in binary and its complement is \"010\" which is the integer 2.\nGiven an integer num, return its complement.",
+    "examples": [
+      {
+        "input": "num = 5",
+        "output": "2",
+        "explanation": "The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2."
+      },
+      {
+        "input": "num = 1",
+        "output": "0",
+        "explanation": "The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0."
+      }
+    ],
+    "solution": "class Solution:\n    def findComplement(self, num):\n        # 計算 num 的二進位長度\n        bit_length = num.bit_length()\n        # 全 1 掩碼\n        mask = (1 << bit_length) - 1\n        # 反相 num 並與掩碼做 AND\n        return num ^ mask"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "5\n",
+        "output": "2\n"
+      },
+      {
+        "input": "6\n",
+        "output": "1\n"
+      },
+      {
+        "input": "7\n",
+        "output": "0\n"
+      },
+      {
+        "input": "8\n",
+        "output": "7\n"
+      },
+      {
+        "input": "9\n",
+        "output": "6\n"
+      },
+      {
+        "input": "10\n",
+        "output": "5\n"
+      },
+      {
+        "input": "11\n",
+        "output": "4\n"
+      },
+      {
+        "input": "12\n",
+        "output": "3\n"
+      },
+      {
+        "input": "13\n",
+        "output": "2\n"
+      },
+      {
+        "input": "14\n",
+        "output": "1\n"
+      },
+      {
+        "input": "15\n",
+        "output": "0\n"
+      },
+      {
+        "input": "123456789\n",
+        "output": "10760938\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2147483648\n",
+        "output": "2147483647\n"
+      },
+      {
+        "input": "9223372036854775807\n",
+        "output": "0\n"
+      },
+      {
+        "input": "9223372036854775808\n",
+        "output": "9223372036854775807\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findComplement', (0,), 1)",
+      "('findComplement', (1,), 0)",
+      "('findComplement', (2,), 1)",
+      "('findComplement', (3,), 0)",
+      "('findComplement', (4,), 3)",
+      "('findComplement', (5,), 2)",
+      "('findComplement', (6,), 1)",
+      "('findComplement', (7,), 0)",
+      "('findComplement', (8,), 7)",
+      "('findComplement', (9,), 6)",
+      "('findComplement', (10,), 5)",
+      "('findComplement', (11,), 4)",
+      "('findComplement', (12,), 3)",
+      "('findComplement', (13,), 2)",
+      "('findComplement', (14,), 1)",
+      "('findComplement', (15,), 0)",
+      "('findComplement', (123456789,), 10760938)",
+      "('findComplement', (2147483647,), 0)",
+      "('findComplement', (2147483648,), 2147483647)",
+      "('findComplement', (9223372036854775807,), 0)",
+      "('findComplement', (9223372036854775808,), 9223372036854775807)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: findComplement(0,)\n  標準輸出: 1\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: findComplement(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: findComplement(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: findComplement(3,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: findComplement(4,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: findComplement(5,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: findComplement(6,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: findComplement(7,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: findComplement(8,)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#10] ✅ 通過\n  標準輸入: findComplement(9,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#11] ✅ 通過\n  標準輸入: findComplement(10,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#12] ✅ 通過\n  標準輸入: findComplement(11,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#13] ✅ 通過\n  標準輸入: findComplement(12,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#14] ✅ 通過\n  標準輸入: findComplement(13,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#15] ✅ 通過\n  標準輸入: findComplement(14,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#16] ✅ 通過\n  標準輸入: findComplement(15,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#17] ✅ 通過\n  標準輸入: findComplement(123456789,)\n  標準輸出: 10760938\n  你的輸出: 10760938\n\n[測試#18] ✅ 通過\n  標準輸入: findComplement(2147483647,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#19] ✅ 通過\n  標準輸入: findComplement(2147483648,)\n  標準輸出: 2147483647\n  你的輸出: 2147483647\n\n[測試#20] ✅ 通過\n  標準輸入: findComplement(9223372036854775807,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#21] ✅ 通過\n  標準輸入: findComplement(9223372036854775808,)\n  標準輸出: 9223372036854775807\n  你的輸出: 9223372036854775807\n\n=== 測試完成 (20/21) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 21,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

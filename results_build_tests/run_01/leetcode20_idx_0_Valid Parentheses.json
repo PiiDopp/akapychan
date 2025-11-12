@@ -1,0 +1,110 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode20.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Valid Parentheses",
+    "description": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.\n\nAn input string is valid if:\n\nOpen brackets must be closed by the same type of brackets.\nOpen brackets must be closed in the correct order.\nEvery close bracket has a corresponding open bracket of the same type.",
+    "examples": [
+      {
+        "input": "s = \"()\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"()[]{}\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"(]\"",
+        "output": "false"
+      },
+      {
+        "input": "s = \"([])\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"([)]\"",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution(object):\n    def isValid(self, s):\n        \"\"\"\n        :type s: str\n        :rtype: bool\n        \"\"\"\n        stack = []\n        mapping = {')': '(', '}': '{', ']': '['}\n        \n        for char in s:\n            if char in mapping:\n                top_element = stack.pop() if stack else '#'\n                if mapping[char] != top_element:\n                    return False\n            else:\n                stack.append(char)\n        return not stack"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "()\n",
+        "output": "True\n"
+      },
+      {
+        "input": "()[]{}\n",
+        "output": "True\n"
+      },
+      {
+        "input": "(]\n",
+        "output": "False\n"
+      },
+      {
+        "input": "([)]\n",
+        "output": "False\n"
+      },
+      {
+        "input": "{[]}\n",
+        "output": "True\n"
+      },
+      {
+        "input": "\n",
+        "output": "True\n"
+      },
+      {
+        "input": "(\n",
+        "output": "False\n"
+      },
+      {
+        "input": ")\n",
+        "output": "False\n"
+      },
+      {
+        "input": "([{}])\n",
+        "output": "True\n"
+      },
+      {
+        "input": "([{}])]\n",
+        "output": "False\n"
+      },
+      {
+        "input": "((()))\n",
+        "output": "True\n"
+      },
+      {
+        "input": "(((\n",
+        "output": "False\n"
+      },
+      {
+        "input": ")))\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isValid', ((),), True)",
+      "('isValid', ('()[]{}\\n',), True)",
+      "('isValid', ('(]\\n',), False)",
+      "('isValid', ('([)]\\n',), False)",
+      "('isValid', ('{[]}\\n',), True)",
+      "('isValid', ((),), True)",
+      "('isValid', ('(\\n',), False)",
+      "('isValid', (')\\n',), False)",
+      "('isValid', ([{}],), True)",
+      "('isValid', ('([{}])]\\n',), False)",
+      "('isValid', ((),), True)",
+      "('isValid', ('(((\\n',), False)",
+      "('isValid', (')))\\n',), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isValid((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ❌ 失敗\n  標準輸入: isValid('()[]{}\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isValid('(]\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isValid('([)]\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ❌ 失敗\n  標準輸入: isValid('{[]}\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isValid((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isValid('(\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isValid(')\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ❌ 執行例外: unhashable type: 'dict'\n[測試#10] ✅ 通過\n  標準輸入: isValid('([{}])]\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isValid((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isValid('(((\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: isValid(')))\\n',)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (10/13) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 13,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

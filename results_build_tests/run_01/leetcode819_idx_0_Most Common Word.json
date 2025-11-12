@@ -1,0 +1,64 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode819.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Most Common Word",
+    "description": "Given a string paragraph and a string array of the banned words banned, return the most frequent word that is not banned. It is guaranteed there is at least one word that is not banned, and that the answer is unique.\n\nThe words in paragraph are case-insensitive and the answer should be returned in lowercase.\n\nNote that words can not contain punctuation symbols.",
+    "examples": [
+      {
+        "input": "paragraph = \"Bob hit a ball, the hit BALL flew far after it was hit.\", banned = [\"hit\"]",
+        "output": "ball",
+        "explanation": "\"hit\" occurs 3 times, but it is a banned word.\n\"ball\" occurs twice (and no other word does), so it is the most frequent non-banned word in the paragraph.\nNote that words in the paragraph are not case sensitive,\nthat punctuation is ignored (even if adjacent to words, such as \"ball,\"), \nand that \"hit\" isn't the answer even though it occurs more because it is banned."
+      },
+      {
+        "input": "paragraph = \"a.\", banned = []",
+        "output": "a"
+      }
+    ],
+    "solution": "class Solution(object):\n    def mostCommonWord(self, paragraph, banned):\n        \"\"\"\n        :type paragraph: str\n        :type banned: List[str]\n        :rtype: str\n        \"\"\"\n        import re\n        from collections import Counter\n        \n        words = re.findall(r'\\w+', paragraph.lower())\n        banned_set = set(banned)\n        counts = Counter(w for w in words if w not in banned_set)\n        return counts.most_common(1)[0][0]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['Bob hit a ball, the hit was good. Bob hit again.', 'hit']\n",
+        "output": "bob\n"
+      },
+      {
+        "input": "['Hello, hello! HELLO? HeLLo.', '']\n",
+        "output": "hello\n"
+      },
+      {
+        "input": "['a, a, a, b, b, c', '']\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['one two three four two one', 'one', 'two', 'three']\n",
+        "output": "four\n"
+      },
+      {
+        "input": "[\"It's a test-case, test case.\", 'test']\n",
+        "output": "case\n"
+      },
+      {
+        "input": "['123 123 456 123', '456']\n",
+        "output": "123\n"
+      }
+    ],
+    "parsed_tests": [
+      "('mostCommonWord', ('Bob hit a ball, the hit was good. Bob hit again.', 'hit'), 'bob\\n')",
+      "('mostCommonWord', ('Hello, hello! HELLO? HeLLo.', ''), 'hello\\n')",
+      "('mostCommonWord', ('a, a, a, b, b, c', ''), 'a\\n')",
+      "('mostCommonWord', (\"['one two three four two one', 'one', 'two', 'three']\\n\",), 'four\\n')",
+      "('mostCommonWord', (\"It's a test-case, test case.\", 'test'), 'case\\n')",
+      "('mostCommonWord', ('123 123 456 123', '456'), 123)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: mostCommonWord('Bob hit a ball, the hit was good. Bob hit again.', 'hit')\n  標準輸出: 'bob\\n'\n  你的輸出: 'hit'\n\n[測試#2] ❌ 失敗\n  標準輸入: mostCommonWord('Hello, hello! HELLO? HeLLo.', '')\n  標準輸出: 'hello\\n'\n  你的輸出: 'hello'\n\n[測試#3] ❌ 失敗\n  標準輸入: mostCommonWord('a, a, a, b, b, c', '')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#4] ❌ 執行例外: Solution.mostCommonWord() missing 1 required positional argument: 'banned'\n[測試#5] ❌ 失敗\n  標準輸入: mostCommonWord(\"It's a test-case, test case.\", 'test')\n  標準輸出: 'case\\n'\n  你的輸出: 'test'\n\n[測試#6] ❌ 失敗\n  標準輸入: mostCommonWord('123 123 456 123', '456')\n  標準輸出: 123\n  你的輸出: '123'\n\n=== 測試完成 (0/6) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 6,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

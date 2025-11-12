@@ -1,0 +1,32 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode903.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Valid Permutations for DI Sequence",
+    "description": "You are given a string s of length n where s[i] is either:\n\n'D' means decreasing, or\n'I' means increasing.\nA permutation perm of n + 1 integers of all the integers in the range [0, n] is called a valid permutation if for all valid i:\n\nIf s[i] == 'D', then perm[i] > perm[i + 1], and\nIf s[i] == 'I', then perm[i] < perm[i + 1].\nReturn the number of valid permutations perm. Since the answer may be large, return it modulo 10^9 + 7.",
+    "examples": [
+      {
+        "input": "s = \"DID\"",
+        "output": "5",
+        "explanation": "The 5 valid permutations of (0, 1, 2, 3) are: (1,0,3,2), (2,0,3,1), (2,1,3,0), (3,0,2,1), (3,1,2,0)"
+      },
+      {
+        "input": "s = \"D\"",
+        "output": "1"
+      }
+    ],
+    "solution": "class Solution(object):\n    def numPermsDISequence(self, S):\n        MOD = 10 ** 9 + 7\n        n = len(S)\n        dp = [1] * (n+1)\n        for i, ch in enumerate(S):\n            ndp = [0] * (n+1)\n            if ch == 'D':\n                total = 0\n                for j in reversed(range(n-i)):\n                    total = (total + dp[j+1]) % MOD\n                    ndp[j] = total\n            else:\n                total = 0\n                for j in range(n-i):\n                    total = (total + dp[j]) % MOD\n                    ndp[j] = total\n            dp = ndp\n        return sum(dp[:n]) % MOD"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode736.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Parse Lisp Expression",
+    "description": "You are given a string expression representing a Lisp-like expression to return the integer value of.\n\nThe syntax for these expressions is given as follows.\n\nAn expression is either an integer, let expression, add expression, mult expression, or an assigned variable. Expressions always evaluate to a single integer.\n(An integer could be positive or negative.)\nA let expression takes the form \"(let v1 e1 v2 e2 ... vn en expr)\", where let is always the string \"let\", then there are one or more pairs of alternating variables and expressions, meaning that the first variable v1 is assigned the value of the expression e1, the second variable v2 is assigned the value of the expression e2, and so on sequentially; and then the value of this let expression is the value of the expression expr.\nAn add expression takes the form \"(add e1 e2)\" where add is always the string \"add\", there are always two expressions e1, e2 and the result is the addition of the evaluation of e1 and the evaluation of e2.\nA mult expression takes the form \"(mult e1 e2)\" where mult is always the string \"mult\", there are always two expressions e1, e2 and the result is the multiplication of the evaluation of e1 and the evaluation of e2.\nFor this question, we will use a smaller subset of variable names. A variable starts with a lowercase letter, then zero or more lowercase letters or digits. Additionally, for your convenience, the names \"add\", \"let\", and \"mult\" are protected and will never be used as variable names.\nFinally, there is the concept of scope. When an expression of a variable name is evaluated, within the context of that evaluation, the innermost scope (in terms of parentheses) is checked first for the value of that variable, and then outer scopes are checked sequentially. It is guaranteed that every expression is legal. Please see the examples for more details on the scope.",
+    "examples": [
+      {
+        "input": "expression = \"(let x 2 (mult x (let x 3 y 4 (add x y))))\"",
+        "output": "14",
+        "explanation": "In the expression (add x y), when checking for the value of the variable x, we check from the innermost scope to the outermost in the context of the variable we are trying to evaluate. Since x = 3 is found first, the value of x is 3."
+      },
+      {
+        "input": "expression = \"(let x 3 x 2 x)\"",
+        "output": "2",
+        "explanation": "Assignment in let statements is processed sequentially."
+      },
+      {
+        "input": "expression = \"(let x 1 y 2 x (add x y) (add x y))\"",
+        "output": "5",
+        "explanation": "The first (add x y) evaluates as 3, and is assigned to x. The second (add x y) evaluates as 3+2 = 5."
+      }
+    ],
+    "solution": "class Solution:\n    def evaluate(self, expression):\n        def eval_expr(expr, env):\n            if expr[0] != '(':\n                if expr[0].isalpha():\n                    return env[expr]\n                return int(expr)\n            expr = expr[1:-1]\n            tokens = []\n            balance = 0\n            start = 0\n            for i, c in enumerate(expr):\n                if c == '(':\n                    balance += 1\n                elif c == ')':\n                    balance -= 1\n                elif c == ' ' and balance == 0:\n                    tokens.append(expr[start:i])\n                    start = i + 1\n            tokens.append(expr[start:])\n            op = tokens[0]\n            if op == 'add':\n                return eval_expr(tokens[1], env.copy()) + eval_expr(tokens[2], env.copy())\n            elif op == 'mult':\n                return eval_expr(tokens[1], env.copy()) * eval_expr(tokens[2], env.copy())\n            elif op == 'let':\n                new_env = env.copy()\n                i = 1\n                while i < len(tokens) - 1:\n                    var = tokens[i]\n                    val = eval_expr(tokens[i + 1], new_env)\n                    new_env[var] = val\n                    i += 2\n                return eval_expr(tokens[-1], new_env)\n        return eval_expr(expression, {})"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "-5\n",
+        "output": "-5\n"
+      },
+      {
+        "input": "(add 1 2)\n",
+        "output": "3\n"
+      },
+      {
+        "input": "(add -1 -2)\n",
+        "output": "-3\n"
+      },
+      {
+        "input": "(mult 3 4)\n",
+        "output": "12\n"
+      },
+      {
+        "input": "(mult -2 5)\n",
+        "output": "-10\n"
+      },
+      {
+        "input": "(let x 2 y 3 (add x y))\n",
+        "output": "5\n"
+      },
+      {
+        "input": "(let x 2 (let x 3 (add x 1)))\n",
+        "output": "4\n"
+      },
+      {
+        "input": "(let x 2 y (add x 3) (mult y 2))\n",
+        "output": "10\n"
+      },
+      {
+        "input": "(let x 2 y 3 (let x 5 (add x y)))\n",
+        "output": "8\n"
+      },
+      {
+        "input": "(let a 5 (let b (add a 5) (mult b a)))\n",
+        "output": "50\n"
+      },
+      {
+        "input": "(let x 1 (add (let x 2 (add x 3)) x))\n",
+        "output": "6\n"
+      },
+      {
+        "input": "(let x 2 (add (let x 3 (add x 4)) (let x 5 (add x 6))))\n",
+        "output": "18\n"
+      },
+      {
+        "input": "(let x -2 y -3 (add x y))\n",
+        "output": "-5\n"
+      },
+      {
+        "input": "(let x 2 y (mult x (add x 3)) (add y 1))\n",
+        "output": "11\n"
+      },
+      {
+        "input": "(let x 2 (let y (add x 3) (mult y (let x 4 (add x 1)))))\n",
+        "output": "25\n"
+      },
+      {
+        "input": "(let x 1 (let y 2 (let z (add x y) (add z z))))\n",
+        "output": "6\n"
+      },
+      {
+        "input": "(let x 1 (let x 2 (let x 3 (add x x))))\n",
+        "output": "6\n"
+      },
+      {
+        "input": "(let a1 5 b2 (add a1 3) (mult b2 a1))\n",
+        "output": "40\n"
+      },
+      {
+        "input": "(add (mult 2 3) (add 4 5))\n",
+        "output": "15\n"
+      },
+      {
+        "input": "(add -1 -2)\n",
+        "output": "-3\n"
+      },
+      {
+        "input": "(mult (add 1 2) (add 3 4))\n",
+        "output": "21\n"
+      },
+      {
+        "input": "(let x 2 (add x (let x 3 x)))\n",
+        "output": "5\n"
+      },
+      {
+        "input": "(let x 1 (add (let x 2 (add x 3)) (let x 4 (add x 5))))\n",
+        "output": "14\n"
+      },
+      {
+        "input": "(mult 100000 100000)\n",
+        "output": "10000000000\n"
+      },
+      {
+        "input": "(add -100 200)\n",
+        "output": "100\n"
+      },
+      {
+        "input": "(let x 1 y 2 z 3 (add (add x y) z))\n",
+        "output": "6\n"
+      },
+      {
+        "input": "(let x 1 y 2 3)\n",
+        "output": "3\n"
+      },
+      {
+        "input": "(let x 1 (let x 2 (add x 1)))\n",
+        "output": "3\n"
+      },
+      {
+        "input": "(let x 1 (let x 2 (let x 3 (add x 1))))\n",
+        "output": "4\n"
+      }
+    ],
+    "parsed_tests": [
+      "('evaluate', (1,), 1)",
+      "('evaluate', (-5,), -5)",
+      "('evaluate', ('(add 1 2)\\n',), 3)",
+      "('evaluate', ('(add -1 -2)\\n',), -3)",
+      "('evaluate', ('(mult 3 4)\\n',), 12)",
+      "('evaluate', ('(mult -2 5)\\n',), -10)",
+      "('evaluate', ('(let x 2 y 3 (add x y))\\n',), 5)",
+      "('evaluate', ('(let x 2 (let x 3 (add x 1)))\\n',), 4)",
+      "('evaluate', ('(let x 2 y (add x 3) (mult y 2))\\n',), 10)",
+      "('evaluate', ('(let x 2 y 3 (let x 5 (add x y)))\\n',), 8)",
+      "('evaluate', ('(let a 5 (let b (add a 5) (mult b a)))\\n',), 50)",
+      "('evaluate', ('(let x 1 (add (let x 2 (add x 3)) x))\\n',), 6)",
+      "('evaluate', ('(let x 2 (add (let x 3 (add x 4)) (let x 5 (add x 6))))\\n',), 18)",
+      "('evaluate', ('(let x -2 y -3 (add x y))\\n',), -5)",
+      "('evaluate', ('(let x 2 y (mult x (add x 3)) (add y 1))\\n',), 11)",
+      "('evaluate', ('(let x 2 (let y (add x 3) (mult y (let x 4 (add x 1)))))\\n',), 25)",
+      "('evaluate', ('(let x 1 (let y 2 (let z (add x y) (add z z))))\\n',), 6)",
+      "('evaluate', ('(let x 1 (let x 2 (let x 3 (add x x))))\\n',), 6)",
+      "('evaluate', ('(let a1 5 b2 (add a1 3) (mult b2 a1))\\n',), 40)",
+      "('evaluate', ('(add (mult 2 3) (add 4 5))\\n',), 15)",
+      "('evaluate', ('(add -1 -2)\\n',), -3)",
+      "('evaluate', ('(mult (add 1 2) (add 3 4))\\n',), 21)",
+      "('evaluate', ('(let x 2 (add x (let x 3 x)))\\n',), 5)",
+      "('evaluate', ('(let x 1 (add (let x 2 (add x 3)) (let x 4 (add x 5))))\\n',), 14)",
+      "('evaluate', ('(mult 100000 100000)\\n',), 10000000000)",
+      "('evaluate', ('(add -100 200)\\n',), 100)",
+      "('evaluate', ('(let x 1 y 2 z 3 (add (add x y) z))\\n',), 6)",
+      "('evaluate', ('(let x 1 y 2 3)\\n',), 3)",
+      "('evaluate', ('(let x 1 (let x 2 (add x 1)))\\n',), 3)",
+      "('evaluate', ('(let x 1 (let x 2 (let x 3 (add x 1))))\\n',), 4)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'int' object is not subscriptable\n[測試#2] ❌ 執行例外: 'int' object is not subscriptable\n[測試#3] ❌ 執行例外: invalid literal for int() with base 10: '2)'\n[測試#4] ❌ 執行例外: invalid literal for int() with base 10: '-2)'\n[測試#5] ❌ 執行例外: invalid literal for int() with base 10: '4)'\n[測試#6] ❌ 執行例外: invalid literal for int() with base 10: '5)'\n[測試#7] ❌ 執行例外: 'y)'\n[測試#8] ❌ 執行例外: invalid literal for int() with base 10: '1)'\n[測試#9] ❌ 執行例外: invalid literal for int() with base 10: '2)'\n[測試#10] ❌ 執行例外: 'y)'\n[測試#11] ❌ 執行例外: 'a)'\n[測試#12] ❌ 執行例外: 'x)'\n[測試#13] ❌ 執行例外: invalid literal for int() with base 10: '6)'\n[測試#14] ❌ 執行例外: 'y)'\n[測試#15] ❌ 執行例外: invalid literal for int() with base 10: '1)'\n[測試#16] ❌ 執行例外: invalid literal for int() with base 10: '1)'\n[測試#17] ❌ 執行例外: 'z)'\n[測試#18] ❌ 執行例外: 'x)'\n[測試#19] ❌ 執行例外: 'a1)'\n[測試#20] ❌ 執行例外: invalid literal for int() with base 10: '5)'\n[測試#21] ❌ 執行例外: invalid literal for int() with base 10: '-2)'\n[測試#22] ❌ 執行例外: invalid literal for int() with base 10: '4)'\n[測試#23] ❌ 執行例外: 'x)'\n[測試#24] ❌ 執行例外: invalid literal for int() with base 10: '5)'\n[測試#25] ❌ 執行例外: invalid literal for int() with base 10: '100000)'\n[測試#26] ❌ 執行例外: invalid literal for int() with base 10: '200)'\n[測試#27] ❌ 執行例外: 'z)'\n[測試#28] ❌ 執行例外: invalid literal for int() with base 10: '3)'\n[測試#29] ❌ 執行例外: invalid literal for int() with base 10: '1)'\n[測試#30] ❌ 執行例外: invalid literal for int() with base 10: '1)'\n=== 測試完成 (0/30) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
+    "all_passed": false,
+    "total_tests": 30,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

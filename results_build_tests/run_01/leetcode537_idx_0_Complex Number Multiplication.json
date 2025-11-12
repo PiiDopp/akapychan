@@ -1,0 +1,95 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode537.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Complex Number Multiplication",
+    "description": "A complex number can be represented as a string on the form \"real+imaginaryi\" where:\n\nreal is the real part and is an integer in the range [-100, 100].\nimaginary is the imaginary part and is an integer in the range [-100, 100].\ni^2 == -1.\nGiven two complex numbers num1 and num2 as strings, return a string of the complex number that represents their multiplications.",
+    "examples": [
+      {
+        "input": "\"1+1i\", \"1+1i\"",
+        "output": "\"0+2i\"",
+        "explanation": "(1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i."
+      },
+      {
+        "input": "\"1+-1i\", \"1+-1i\"",
+        "output": "\"0+-2i\"",
+        "explanation": "(1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i, and you need convert it to the form of 0+-2i."
+      }
+    ],
+    "solution": "class Solution:\n    def complexNumberMultiply(self, a, b):\n        def parse(s):\n            real, imag = s.split('+')\n            return int(real), int(imag[:-1])\n        \n        a_real, a_imag = parse(a)\n        b_real, b_imag = parse(b)\n        \n        real_part = a_real * b_real - a_imag * b_imag\n        imag_part = a_real * b_imag + a_imag * b_real\n        \n        return str(real_part) + '+' + str(imag_part) + 'i'"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['1+1i', '1+1i']\n",
+        "output": "0+2i\n"
+      },
+      {
+        "input": "['5+0i', '3+0i']\n",
+        "output": "15+0i\n"
+      },
+      {
+        "input": "['0+3i', '0+4i']\n",
+        "output": "-12+0i\n"
+      },
+      {
+        "input": "['0+0i', '5+5i']\n",
+        "output": "0+0i\n"
+      },
+      {
+        "input": "['1+-1i', '1+1i']\n",
+        "output": "2+0i\n"
+      },
+      {
+        "input": "['-3+4i', '2+5i']\n",
+        "output": "-26+-7i\n"
+      },
+      {
+        "input": "['100+100i', '100+100i']\n",
+        "output": "0+20000i\n"
+      },
+      {
+        "input": "['-100+-100i', '-100+-100i']\n",
+        "output": "0+20000i\n"
+      },
+      {
+        "input": "['100+-100i', '-100+100i']\n",
+        "output": "0+20000i\n"
+      },
+      {
+        "input": "['-1+0i', '1+0i']\n",
+        "output": "-1+0i\n"
+      },
+      {
+        "input": "['0+1i', '0+-1i']\n",
+        "output": "1+0i\n"
+      },
+      {
+        "input": "['1+1i', '-1-1i']\n",
+        "output": "0+-2i\n"
+      }
+    ],
+    "parsed_tests": [
+      "('complexNumberMultiply', ('1+1i', '1+1i'), '0+2i\\n')",
+      "('complexNumberMultiply', ('5+0i', '3+0i'), '15+0i\\n')",
+      "('complexNumberMultiply', ('0+3i', '0+4i'), '-12+0i\\n')",
+      "('complexNumberMultiply', ('0+0i', '5+5i'), '0+0i\\n')",
+      "('complexNumberMultiply', ('1+-1i', '1+1i'), '2+0i\\n')",
+      "('complexNumberMultiply', ('-3+4i', '2+5i'), '-26+-7i\\n')",
+      "('complexNumberMultiply', ('100+100i', '100+100i'), '0+20000i\\n')",
+      "('complexNumberMultiply', ('-100+-100i', '-100+-100i'), '0+20000i\\n')",
+      "('complexNumberMultiply', ('100+-100i', '-100+100i'), '0+20000i\\n')",
+      "('complexNumberMultiply', ('-1+0i', '1+0i'), '-1+0i\\n')",
+      "('complexNumberMultiply', ('0+1i', '0+-1i'), '1+0i\\n')",
+      "('complexNumberMultiply', ('1+1i', '-1-1i'), '0+-2i\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: complexNumberMultiply('1+1i', '1+1i')\n  標準輸出: '0+2i\\n'\n  你的輸出: '0+2i'\n\n[測試#2] ❌ 失敗\n  標準輸入: complexNumberMultiply('5+0i', '3+0i')\n  標準輸出: '15+0i\\n'\n  你的輸出: '15+0i'\n\n[測試#3] ❌ 失敗\n  標準輸入: complexNumberMultiply('0+3i', '0+4i')\n  標準輸出: '-12+0i\\n'\n  你的輸出: '-12+0i'\n\n[測試#4] ❌ 失敗\n  標準輸入: complexNumberMultiply('0+0i', '5+5i')\n  標準輸出: '0+0i\\n'\n  你的輸出: '0+0i'\n\n[測試#5] ❌ 失敗\n  標準輸入: complexNumberMultiply('1+-1i', '1+1i')\n  標準輸出: '2+0i\\n'\n  你的輸出: '2+0i'\n\n[測試#6] ❌ 失敗\n  標準輸入: complexNumberMultiply('-3+4i', '2+5i')\n  標準輸出: '-26+-7i\\n'\n  你的輸出: '-26+-7i'\n\n[測試#7] ❌ 失敗\n  標準輸入: complexNumberMultiply('100+100i', '100+100i')\n  標準輸出: '0+20000i\\n'\n  你的輸出: '0+20000i'\n\n[測試#8] ❌ 失敗\n  標準輸入: complexNumberMultiply('-100+-100i', '-100+-100i')\n  標準輸出: '0+20000i\\n'\n  你的輸出: '0+20000i'\n\n[測試#9] ❌ 失敗\n  標準輸入: complexNumberMultiply('100+-100i', '-100+100i')\n  標準輸出: '0+20000i\\n'\n  你的輸出: '0+20000i'\n\n[測試#10] ❌ 失敗\n  標準輸入: complexNumberMultiply('-1+0i', '1+0i')\n  標準輸出: '-1+0i\\n'\n  你的輸出: '-1+0i'\n\n[測試#11] ❌ 失敗\n  標準輸入: complexNumberMultiply('0+1i', '0+-1i')\n  標準輸出: '1+0i\\n'\n  你的輸出: '1+0i'\n\n[測試#12] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

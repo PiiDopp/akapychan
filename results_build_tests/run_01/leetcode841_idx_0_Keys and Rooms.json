@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode841.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Keys and Rooms",
+    "description": "There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.\n\nWhen you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.\n\nGiven an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i, return true if you can visit all the rooms, or false otherwise.",
+    "examples": [
+      {
+        "input": "rooms = [[1],[2],[3],[]]",
+        "output": "true",
+        "explanation": "We visit room 0 and pick up key 1.\nWe then visit room 1 and pick up key 2.\nWe then visit room 2 and pick up key 3.\nWe then visit room 3.\nSince we were able to visit every room, we return true."
+      },
+      {
+        "input": "rooms = [[1,3],[3,0,1],[2],[0]]",
+        "output": "false",
+        "explanation": "We can not enter room number 2 since the only key that unlocks it is in that room."
+      }
+    ],
+    "solution": "class Solution:\n    def canVisitAllRooms(self, rooms):\n        visited = [False] * len(rooms)\n        stack = [0]\n        visited[0] = True\n        \n        while stack:\n            room = stack.pop()\n            for key in rooms[room]:\n                if not visited[key]:\n                    visited[key] = True\n                    stack.append(key)\n        \n        return all(visited)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n2\n3\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1 2\n3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1 2\n2 3\n3\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1 2\n2 3\n3 4\n4 0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('canVisitAllRooms', ((1, 2, 3, 0),), True)",
+      "('canVisitAllRooms', ((),), True)",
+      "('canVisitAllRooms', ('1 2\\n3\\n',), False)",
+      "('canVisitAllRooms', ((1, 0),), True)",
+      "('canVisitAllRooms', ('1 2\\n2 3\\n3\\n0\\n',), True)",
+      "('canVisitAllRooms', ((1, 2, 3, 4),), True)",
+      "('canVisitAllRooms', ((1, 2),), False)",
+      "('canVisitAllRooms', ((),), False)",
+      "('canVisitAllRooms', ('1 2\\n2 3\\n3 4\\n4 0\\n',), True)",
+      "('canVisitAllRooms', ((1, 2, 3, 4, 5, 6, 7, 8, 9),), True)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'int' object is not iterable\n[測試#2] ❌ 執行例外: list assignment index out of range\n[測試#3] ❌ 執行例外: list indices must be integers or slices, not str\n[測試#4] ❌ 執行例外: 'int' object is not iterable\n[測試#5] ❌ 執行例外: list indices must be integers or slices, not str\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ❌ 執行例外: 'int' object is not iterable\n[測試#8] ❌ 執行例外: list assignment index out of range\n[測試#9] ❌ 執行例外: list indices must be integers or slices, not str\n[測試#10] ❌ 執行例外: 'int' object is not iterable\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

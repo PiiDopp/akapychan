@@ -1,0 +1,90 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode3.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Substring Without Repeating Characters",
+    "description": "Given a string s, find the length of the longest substring without duplicate characters.",
+    "examples": [
+      {
+        "input": "s = \"abcabcbb\"",
+        "output": "3",
+        "explanation": "The answer is \"abc\", with the length of 3. Note that \"bca\" and \"cab\" are also correct answers."
+      },
+      {
+        "input": "s = \"bbbbb\"",
+        "output": "1",
+        "explanation": "The answer is \"b\", with the length of 1."
+      },
+      {
+        "input": "s = \"pwwkew\"",
+        "output": "3",
+        "explanation": "The answer is \"wke\", with the length of 3.\nNotice that the answer must be a substring, \"pwke\" is a subsequence and not a substring."
+      }
+    ],
+    "solution": "class Solution(object):\n    def lengthOfLongestSubstring(self, s):\n        \"\"\"\n        :type s: str\n        :rtype: int\n        \"\"\"\n        char_set = set()\n        left = 0\n        max_len = 0\n\n        for right in range(len(s)):\n            while s[right] in char_set:\n                char_set.remove(s[left])\n                left += 1\n            char_set.add(s[right])\n            max_len = max(max_len, right - left + 1)\n        return max_len"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "a\n",
+        "output": "1\n"
+      },
+      {
+        "input": "abcabcbb\n",
+        "output": "3\n"
+      },
+      {
+        "input": "bbbbb\n",
+        "output": "1\n"
+      },
+      {
+        "input": "pwwkew\n",
+        "output": "3\n"
+      },
+      {
+        "input": "dvdf\n",
+        "output": "3\n"
+      },
+      {
+        "input": "abba\n",
+        "output": "2\n"
+      },
+      {
+        "input": "abcde\n",
+        "output": "5\n"
+      },
+      {
+        "input": "aabbccddeeff\n",
+        "output": "2\n"
+      },
+      {
+        "input": "😀😃😄😁😆😅😂🤣☺️😊\n",
+        "output": "10\n"
+      }
+    ],
+    "parsed_tests": [
+      "('lengthOfLongestSubstring', ((),), 0)",
+      "('lengthOfLongestSubstring', ('a\\n',), 1)",
+      "('lengthOfLongestSubstring', ('abcabcbb\\n',), 3)",
+      "('lengthOfLongestSubstring', ('bbbbb\\n',), 1)",
+      "('lengthOfLongestSubstring', ('pwwkew\\n',), 3)",
+      "('lengthOfLongestSubstring', ('dvdf\\n',), 3)",
+      "('lengthOfLongestSubstring', ('abba\\n',), 2)",
+      "('lengthOfLongestSubstring', ('abcde\\n',), 5)",
+      "('lengthOfLongestSubstring', ('aabbccddeeff\\n',), 2)",
+      "('lengthOfLongestSubstring', ('😀😃😄😁😆😅😂🤣☺️😊\\n',), 10)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: lengthOfLongestSubstring((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('a\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: lengthOfLongestSubstring('abcabcbb\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('bbbbb\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#5] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('pwwkew\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#6] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('dvdf\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('abba\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#8] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('abcde\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: lengthOfLongestSubstring('aabbccddeeff\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('😀😃😄😁😆😅😂🤣☺️😊\\n',)\n  標準輸出: 10\n  你的輸出: 12\n\n=== 測試完成 (3/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

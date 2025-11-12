@@ -1,0 +1,119 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode828.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Count Unique Characters of All Substrings of a Given String",
+    "description": "Let's define a function countUniqueChars(s) that returns the number of unique characters in s.\n\nFor example, calling countUniqueChars(s) if s = \"LEETCODE\" then \"L\", \"T\", \"C\", \"O\", \"D\" are the unique characters since they appear only once in s, therefore countUniqueChars(s) = 5.\nGiven a string s, return the sum of countUniqueChars(t) where t is a substring of s. The test cases are generated such that the answer fits in a 32-bit integer.\n\nNotice that some substrings can be repeated so in this case you have to count the repeated ones too.",
+    "examples": [
+      {
+        "input": "s = \"ABC\"",
+        "output": "10",
+        "explanation": "All possible substrings are: \"A\",\"B\",\"C\",\"AB\",\"BC\" and \"ABC\". Every substring is composed with only unique letters. Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10"
+      },
+      {
+        "input": "s = \"ABA\"",
+        "output": "8",
+        "explanation": "The same as example 1, except countUniqueChars(\"ABA\") = 1."
+      },
+      {
+        "input": "s = \"LEETCODE\"",
+        "output": "92"
+      }
+    ],
+    "solution": "class Solution(object):\n    def uniqueLetterString(self, s):\n        last = {}\n        prev = {}\n        res = 0\n        for i, c in enumerate(s):\n            if c not in prev:\n                prev[c] = -1\n            if c not in last:\n                last[c] = -1\n            res += (i - prev[c]) * (prev[c] - last[c])\n            last[c], prev[c] = prev[c], i\n        n = len(s)\n        for c in prev:\n            res += (n - prev[c]) * (prev[c] - last[c])\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "a\n",
+        "output": "1\n"
+      },
+      {
+        "input": "aa\n",
+        "output": "2\n"
+      },
+      {
+        "input": "ab\n",
+        "output": "4\n"
+      },
+      {
+        "input": "aba\n",
+        "output": "8\n"
+      },
+      {
+        "input": "abc\n",
+        "output": "10\n"
+      },
+      {
+        "input": "abcd\n",
+        "output": "20\n"
+      },
+      {
+        "input": "aaaa\n",
+        "output": "4\n"
+      },
+      {
+        "input": "aabb\n",
+        "output": "8\n"
+      },
+      {
+        "input": "ababa\n",
+        "output": "16\n"
+      },
+      {
+        "input": "abcde\n",
+        "output": "35\n"
+      },
+      {
+        "input": "abcabc\n",
+        "output": "36\n"
+      },
+      {
+        "input": "LEETCODE\n",
+        "output": "92\n"
+      },
+      {
+        "input": "abab\n",
+        "output": "12\n"
+      },
+      {
+        "input": "abcdef\n",
+        "output": "56\n"
+      },
+      {
+        "input": "ababab\n",
+        "output": "20\n"
+      }
+    ],
+    "parsed_tests": [
+      "('uniqueLetterString', ((),), 0)",
+      "('uniqueLetterString', ('a\\n',), 1)",
+      "('uniqueLetterString', ('aa\\n',), 2)",
+      "('uniqueLetterString', ('ab\\n',), 4)",
+      "('uniqueLetterString', ('aba\\n',), 8)",
+      "('uniqueLetterString', ('abc\\n',), 10)",
+      "('uniqueLetterString', ('abcd\\n',), 20)",
+      "('uniqueLetterString', ('aaaa\\n',), 4)",
+      "('uniqueLetterString', ('aabb\\n',), 8)",
+      "('uniqueLetterString', ('ababa\\n',), 16)",
+      "('uniqueLetterString', ('abcde\\n',), 35)",
+      "('uniqueLetterString', ('abcabc\\n',), 36)",
+      "('uniqueLetterString', ('LEETCODE\\n',), 92)",
+      "('uniqueLetterString', ('abab\\n',), 12)",
+      "('uniqueLetterString', ('abcdef\\n',), 56)",
+      "('uniqueLetterString', ('ababab\\n',), 20)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: uniqueLetterString((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: uniqueLetterString('a\\n',)\n  標準輸出: 1\n  你的輸出: 4\n\n[測試#3] ❌ 失敗\n  標準輸入: uniqueLetterString('aa\\n',)\n  標準輸出: 2\n  你的輸出: 6\n\n[測試#4] ❌ 失敗\n  標準輸入: uniqueLetterString('ab\\n',)\n  標準輸出: 4\n  你的輸出: 10\n\n[測試#5] ❌ 失敗\n  標準輸入: uniqueLetterString('aba\\n',)\n  標準輸出: 8\n  你的輸出: 16\n\n[測試#6] ❌ 失敗\n  標準輸入: uniqueLetterString('abc\\n',)\n  標準輸出: 10\n  你的輸出: 20\n\n[測試#7] ❌ 失敗\n  標準輸入: uniqueLetterString('abcd\\n',)\n  標準輸出: 20\n  你的輸出: 35\n\n[測試#8] ❌ 失敗\n  標準輸入: uniqueLetterString('aaaa\\n',)\n  標準輸出: 4\n  你的輸出: 10\n\n[測試#9] ❌ 失敗\n  標準輸入: uniqueLetterString('aabb\\n',)\n  標準輸出: 8\n  你的輸出: 15\n\n[測試#10] ❌ 失敗\n  標準輸入: uniqueLetterString('ababa\\n',)\n  標準輸出: 16\n  你的輸出: 26\n\n[測試#11] ❌ 失敗\n  標準輸入: uniqueLetterString('abcde\\n',)\n  標準輸出: 35\n  你的輸出: 56\n\n[測試#12] ❌ 失敗\n  標準輸入: uniqueLetterString('abcabc\\n',)\n  標準輸出: 36\n  你的輸出: 52\n\n[測試#13] ❌ 失敗\n  標準輸入: uniqueLetterString('LEETCODE\\n',)\n  標準輸出: 92\n  你的輸出: 129\n\n[測試#14] ❌ 失敗\n  標準輸入: uniqueLetterString('abab\\n',)\n  標準輸出: 12\n  你的輸出: 21\n\n[測試#15] ❌ 失敗\n  標準輸入: uniqueLetterString('abcdef\\n',)\n  標準輸出: 56\n  你的輸出: 84\n\n[測試#16] ❌ 失敗\n  標準輸入: uniqueLetterString('ababab\\n',)\n  標準輸出: 20\n  你的輸出: 31\n\n=== 測試完成 (1/16) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 16,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

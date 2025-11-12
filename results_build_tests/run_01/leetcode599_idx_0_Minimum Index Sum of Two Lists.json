@@ -1,0 +1,95 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode599.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Index Sum of Two Lists",
+    "description": "Given two arrays of strings list1 and list2, find the common strings with the least index sum.\n\nA common string is a string that appeared in both list1 and list2.\n\nA common string with the least index sum is a common string such that if it appeared at list1[i] and list2[j] then i + j should be the minimum value among all the other common strings.\n\nReturn all the common strings with the least index sum. Return the answer in any order.",
+    "examples": [
+      {
+        "input": "list1 = [\"Shogun\",\"Tapioca Express\",\"Burger King\",\"KFC\"], list2 = [\"Piatti\",\"The Grill at Torrey Pines\",\"Hungry Hunter Steakhouse\",\"Shogun\"]",
+        "output": "[\"Shogun\"]",
+        "explanation": "The only common string is \"Shogun\"."
+      },
+      {
+        "input": "list1 = [\"Shogun\",\"Tapioca Express\",\"Burger King\",\"KFC\"], list2 = [\"KFC\",\"Shogun\",\"Burger King\"]",
+        "output": "[\"Shogun\"]",
+        "explanation": "The common string with the least index sum is \"Shogun\" with index sum = (0 + 1) = 1."
+      },
+      {
+        "input": "list1 = [\"happy\",\"sad\",\"good\"], list2 = [\"sad\",\"happy\",\"good\"]",
+        "output": "[\"sad\",\"happy\"]",
+        "explanation": "There are three common strings: \n\"happy\" with index sum = (0 + 1) = 1, \n\"sad\" with index sum = (1 + 0) = 1, \n\"good\" with index sum = (2 + 2) = 4. \nThe strings with the least index sum are \"sad\" and \"happy\"."
+      }
+    ],
+    "solution": "class Solution:\n    def findRestaurant(self, list1, list2):\n        index_map = {name: i for i, name in enumerate(list1)}\n        min_sum = float('inf')\n        res = []\n\n        for j, name in enumerate(list2):\n            if name in index_map:\n                total_index = j + index_map[name]\n                if total_index < min_sum:\n                    min_sum = total_index\n                    res = [name]\n                elif total_index == min_sum:\n                    res.append(name)\n\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['Shogun', 'Tapioca Express', 'Burger King', 'KFC'], ['KFC', 'Shogun', 'Burger King']]\n",
+        "output": "['Shogun']\n"
+      },
+      {
+        "input": "[['A', 'B', 'C'], ['B', 'A', 'C']]\n",
+        "output": "['B', 'A']\n"
+      },
+      {
+        "input": "[['A', 'B'], ['C', 'D']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['Shogun', 'Shogun', 'Burger King'], ['Shogun', 'Burger King']]\n",
+        "output": "['Shogun']\n"
+      },
+      {
+        "input": "[['Shogun', 'Burger King'], ['Shogun', 'Shogun']]\n",
+        "output": "['Shogun']\n"
+      },
+      {
+        "input": "[['🍕', '🍔', '🍟'], ['🍟', '🍕']]\n",
+        "output": "['🍕']\n"
+      },
+      {
+        "input": "[['A', 'B', 'C', 'D', 'E'], ['E', 'D', 'C']]\n",
+        "output": "['E', 'D', 'C']\n"
+      },
+      {
+        "input": "[[], ['A']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['A'], []]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['A', 'B', 'A'], ['A']]\n",
+        "output": "['A']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findRestaurant', (['Shogun', 'Tapioca Express', 'Burger King', 'KFC'], ['KFC', 'Shogun', 'Burger King']), ['Shogun'])",
+      "('findRestaurant', (['A', 'B', 'C'], ['B', 'A', 'C']), ['B', 'A'])",
+      "('findRestaurant', (['A', 'B'], ['C', 'D']), [])",
+      "('findRestaurant', ('\\n',), [])",
+      "('findRestaurant', (['Shogun', 'Shogun', 'Burger King'], ['Shogun', 'Burger King']), ['Shogun'])",
+      "('findRestaurant', (['Shogun', 'Burger King'], ['Shogun', 'Shogun']), ['Shogun'])",
+      "('findRestaurant', (['🍕', '🍔', '🍟'], ['🍟', '🍕']), ['🍕'])",
+      "('findRestaurant', (['A', 'B', 'C', 'D', 'E'], ['E', 'D', 'C']), ['E', 'D', 'C'])",
+      "('findRestaurant', ([], ['A']), [])",
+      "('findRestaurant', (['A'], []), [])",
+      "('findRestaurant', (['A', 'B', 'A'], ['A']), ['A'])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findRestaurant(['Shogun', 'Tapioca Express', 'Burger King', 'KFC'], ['KFC', 'Shogun', 'Burger King'])\n  標準輸出: ['Shogun']\n  你的輸出: ['Shogun']\n\n[測試#2] ✅ 通過\n  標準輸入: findRestaurant(['A', 'B', 'C'], ['B', 'A', 'C'])\n  標準輸出: ['B', 'A']\n  你的輸出: ['B', 'A']\n\n[測試#3] ✅ 通過\n  標準輸入: findRestaurant(['A', 'B'], ['C', 'D'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ❌ 執行例外: Solution.findRestaurant() missing 1 required positional argument: 'list2'\n[測試#5] ✅ 通過\n  標準輸入: findRestaurant(['Shogun', 'Shogun', 'Burger King'], ['Shogun', 'Burger King'])\n  標準輸出: ['Shogun']\n  你的輸出: ['Shogun']\n\n[測試#6] ✅ 通過\n  標準輸入: findRestaurant(['Shogun', 'Burger King'], ['Shogun', 'Shogun'])\n  標準輸出: ['Shogun']\n  你的輸出: ['Shogun']\n\n[測試#7] ✅ 通過\n  標準輸入: findRestaurant(['🍕', '🍔', '🍟'], ['🍟', '🍕'])\n  標準輸出: ['🍕']\n  你的輸出: ['🍕']\n\n[測試#8] ✅ 通過\n  標準輸入: findRestaurant(['A', 'B', 'C', 'D', 'E'], ['E', 'D', 'C'])\n  標準輸出: ['E', 'D', 'C']\n  你的輸出: ['E', 'D', 'C']\n\n[測試#9] ✅ 通過\n  標準輸入: findRestaurant([], ['A'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#10] ✅ 通過\n  標準輸入: findRestaurant(['A'], [])\n  標準輸出: []\n  你的輸出: []\n\n[測試#11] ✅ 通過\n  標準輸入: findRestaurant(['A', 'B', 'A'], ['A'])\n  標準輸出: ['A']\n  你的輸出: ['A']\n\n=== 測試完成 (10/11) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 11,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode706.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Design HashMap",
+    "description": "Design a HashMap without using any built-in hash table libraries.\n\nImplement the MyHashMap class:\n\nMyHashMap() initializes the object with an empty map.\nvoid put(int key, int value) inserts a (key, value) pair into the HashMap. If the key already exists in the map, update the corresponding value.\nint get(int key) returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key.\nvoid remove(key) removes the key and its corresponding value if the map contains the mapping for the key.",
+    "examples": [
+      {
+        "input": "[\"MyHashMap\", \"put\", \"put\", \"get\", \"get\", \"put\", \"get\", \"remove\", \"get\"]\n[[], [1, 1], [2, 2], [1], [3], [2, 1], [2], [2], [2]]",
+        "output": "[null, null, null, 1, -1, null, 1, null, -1]",
+        "explanation": "MyHashMap myHashMap = new MyHashMap(); \nmyHashMap.put(1, 1); // The map is now [[1,1]] \nmyHashMap.put(2, 2); // The map is now [[1,1], [2,2]] \nmyHashMap.get(1);    // return 1, The map is now [[1,1], [2,2]] \nmyHashMap.get(3);    // return -1 (i.e., not found), The map is now [[1,1], [2,2]] \nmyHashMap.put(2, 1); // The map is now [[1,1], [2,1]] (i.e., update the existing value) \nmyHashMap.get(2);    // return 1, The map is now [[1,1], [2,1]] \nmyHashMap.remove(2); // remove the mapping for 2, The map is now [[1,1]] \nmyHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]"
+      }
+    ],
+    "solution": "class MyHashMap:\n    def __init__(self):\n        self.size = 10000\n        self.buckets = [[] for _ in range(self.size)]\n\n    def _hash(self, key):\n        return key % self.size\n\n    def put(self, key, value):\n        h = self._hash(key)\n        for i, (k, v) in enumerate(self.buckets[h]):\n            if k == key:\n                self.buckets[h][i] = (key, value)\n                return\n        self.buckets[h].append((key, value))\n\n    def get(self, key):\n        h = self._hash(key)\n        for k, v in self.buckets[h]:\n            if k == key:\n                return v\n        return -1\n\n    def remove(self, key):\n        h = self._hash(key)\n        for i, (k, v) in enumerate(self.buckets[h]):\n            if k == key:\n                self.buckets[h].pop(i)\n                return"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "operations": [
+          {
+            "op": "put",
+            "key": 1,
+            "value": 1
+          },
+          {
+            "op": "get",
+            "key": 1
+          },
+          {
+            "op": "get",
+            "key": 2
+          }
+        ],
+        "expected": [
+          1,
+          -1
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "put",
+            "key": 2,
+            "value": 2
+          },
+          {
+            "op": "put",
+            "key": 2,
+            "value": 3
+          },
+          {
+            "op": "get",
+            "key": 2
+          }
+        ],
+        "expected": [
+          3
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "put",
+            "key": 3,
+            "value": 3
+          },
+          {
+            "op": "remove",
+            "key": 3
+          },
+          {
+            "op": "get",
+            "key": 3
+          }
+        ],
+        "expected": [
+          -1
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "put",
+            "key": 1,
+            "value": 10
+          },
+          {
+            "op": "put",
+            "key": 10001,
+            "value": 20
+          },
+          {
+            "op": "get",
+            "key": 1
+          },
+          {
+            "op": "get",
+            "key": 10001
+          },
+          {
+            "op": "remove",
+            "key": 1
+          },
+          {
+            "op": "get",
+            "key": 1
+          },
+          {
+            "op": "get",
+            "key": 10001
+          }
+        ],
+        "expected": [
+          10,
+          20,
+          -1,
+          20
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "put",
+            "key": 0,
+            "value": 0
+          },
+          {
+            "op": "put",
+            "key": -1,
+            "value": -1
+          },
+          {
+            "op": "get",
+            "key": 0
+          },
+          {
+            "op": "get",
+            "key": -1
+          },
+          {
+            "op": "remove",
+            "key": -1
+          },
+          {
+            "op": "get",
+            "key": -1
+          }
+        ],
+        "expected": [
+          0,
+          -1,
+          -1
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "put",
+            "key": 123456789,
+            "value": 987654321
+          },
+          {
+            "op": "get",
+            "key": 123456789
+          }
+        ],
+        "expected": [
+          987654321
+        ]
+      }
+    ],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode739.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Daily Temperatures",
+    "description": "Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.",
+    "examples": [
+      {
+        "input": "[73,74,75,71,69,72,76,73]",
+        "output": "[1,1,4,2,1,1,0,0]"
+      },
+      {
+        "input": "[30,40,50,60]",
+        "output": "[1,1,1,0]"
+      },
+      {
+        "input": "[30,60,90]",
+        "output": "[1,1,0]"
+      }
+    ],
+    "solution": "class Solution:\n    def dailyTemperatures(self, temperatures):\n        n = len(temperatures)\n        res = [0] * n\n        stack = []\n        for i in range(n):\n            while stack and temperatures[i] > temperatures[stack[-1]]:\n                idx = stack.pop()\n                res[idx] = i - idx\n            stack.append(i)\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "73\n74\n75\n71\n69\n72\n76\n73\n",
+        "output": "[1, 1, 4, 2, 1, 1, 0, 0]\n"
+      },
+      {
+        "input": "30\n40\n50\n60\n",
+        "output": "[1, 1, 1, 0]\n"
+      },
+      {
+        "input": "60\n50\n40\n30\n",
+        "output": "[0, 0, 0, 0]\n"
+      },
+      {
+        "input": "73\n",
+        "output": "[0]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "73\n73\n73\n73\n",
+        "output": "[0, 0, 0, 0]\n"
+      },
+      {
+        "input": "30\n30\n35\n35\n40\n",
+        "output": "[2, 1, 2, 1, 0]\n"
+      },
+      {
+        "input": "10\n20\n30\n20\n10\n40\n",
+        "output": "[1, 1, 3, 2, 1, 0]\n"
+      },
+      {
+        "input": "50\n50\n50\n60\n50\n70\n",
+        "output": "[3, 2, 1, 2, 1, 0]\n"
+      },
+      {
+        "input": "0\n-1\n-2\n-3\n-4\n",
+        "output": "[0, 0, 0, 0, 0]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('dailyTemperatures', ((73, 74, 75, 71, 69, 72, 76, 73),), [1, 1, 4, 2, 1, 1, 0, 0])",
+      "('dailyTemperatures', ((30, 40, 50, 60),), [1, 1, 1, 0])",
+      "('dailyTemperatures', ((60, 50, 40, 30),), [0, 0, 0, 0])",
+      "('dailyTemperatures', (73,), [0])",
+      "('dailyTemperatures', ((),), [])",
+      "('dailyTemperatures', ((73, 73, 73, 73),), [0, 0, 0, 0])",
+      "('dailyTemperatures', ((30, 30, 35, 35, 40),), [2, 1, 2, 1, 0])",
+      "('dailyTemperatures', ((10, 20, 30, 20, 10, 40),), [1, 1, 3, 2, 1, 0])",
+      "('dailyTemperatures', ((50, 50, 50, 60, 50, 70),), [3, 2, 1, 2, 1, 0])",
+      "('dailyTemperatures', ((0, -1, -2, -3, -4),), [0, 0, 0, 0, 0])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: dailyTemperatures((73, 74, 75, 71, 69, 72, 76, 73),)\n  標準輸出: [1, 1, 4, 2, 1, 1, 0, 0]\n  你的輸出: [1, 1, 4, 2, 1, 1, 0, 0]\n\n[測試#2] ✅ 通過\n  標準輸入: dailyTemperatures((30, 40, 50, 60),)\n  標準輸出: [1, 1, 1, 0]\n  你的輸出: [1, 1, 1, 0]\n\n[測試#3] ✅ 通過\n  標準輸入: dailyTemperatures((60, 50, 40, 30),)\n  標準輸出: [0, 0, 0, 0]\n  你的輸出: [0, 0, 0, 0]\n\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ✅ 通過\n  標準輸入: dailyTemperatures((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: dailyTemperatures((73, 73, 73, 73),)\n  標準輸出: [0, 0, 0, 0]\n  你的輸出: [0, 0, 0, 0]\n\n[測試#7] ✅ 通過\n  標準輸入: dailyTemperatures((30, 30, 35, 35, 40),)\n  標準輸出: [2, 1, 2, 1, 0]\n  你的輸出: [2, 1, 2, 1, 0]\n\n[測試#8] ✅ 通過\n  標準輸入: dailyTemperatures((10, 20, 30, 20, 10, 40),)\n  標準輸出: [1, 1, 3, 2, 1, 0]\n  你的輸出: [1, 1, 3, 2, 1, 0]\n\n[測試#9] ✅ 通過\n  標準輸入: dailyTemperatures((50, 50, 50, 60, 50, 70),)\n  標準輸出: [3, 2, 1, 2, 1, 0]\n  你的輸出: [3, 2, 1, 2, 1, 0]\n\n[測試#10] ✅ 通過\n  標準輸入: dailyTemperatures((0, -1, -2, -3, -4),)\n  標準輸出: [0, 0, 0, 0, 0]\n  你的輸出: [0, 0, 0, 0, 0]\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode640.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Solve the Equation",
+    "description": "Solve a given equation and return the value of 'x' in the form of a string \"x=#value\". The equation contains only '+', '-' operation, the variable 'x' and its coefficient. You should return \"No solution\" if there is no solution for the equation, or \"Infinite solutions\" if there are infinite solutions for the equation.\nIf there is exactly one solution for the equation, we ensure that the value of 'x' is an integer.",
+    "examples": [
+      {
+        "input": "equation = \"x+5-3+x=6+x-2\"",
+        "output": "x=2"
+      },
+      {
+        "input": "equation = \"x=x\"",
+        "output": "Infinite solutions"
+      },
+      {
+        "input": "equation = \"2x=x\"",
+        "output": "x=0"
+      }
+    ],
+    "solution": "class Solution(object):\n    def solveEquation(self, equation):\n        \"\"\"\n        :type equation: str\n        :rtype: str\n        \"\"\"\n        def parse_side(s):\n            x_coeff, const = 0, 0\n            i, n, sign = 0, len(s), 1\n            while i < n:\n                if s[i] == '+':\n                    sign = 1\n                    i += 1\n                elif s[i] == '-':\n                    sign = -1\n                    i += 1\n                else:\n                    j = i\n                    while j < n and s[j] not in '+-':\n                        j += 1\n                    token = s[i:j]\n                    if 'x' in token:\n                        coeff = token[:-1]\n                        if coeff == '' or coeff == '+':\n                            coeff = 1\n                        elif coeff == '-':\n                            coeff = -1\n                        else:\n                            coeff = int(coeff)\n                        x_coeff += sign * coeff\n                    else:\n                        const += sign * int(token)\n                    i = j\n            return x_coeff, const\n        \n        left, right = equation.split('=')\n        left_x, left_const = parse_side(left)\n        right_x, right_const = parse_side(right)\n        \n        x_total = left_x - right_x\n        const_total = right_const - left_const\n        \n        if x_total == 0:\n            if const_total == 0:\n                return \"Infinite solutions\"\n            else:\n                return \"No solution\"\n        else:\n            return \"x=\" + str(const_total // x_total)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "x+5=5\n",
+        "output": "x=0\n"
+      },
+      {
+        "input": "2x+3=7\n",
+        "output": "x=2\n"
+      },
+      {
+        "input": "x+2=2x+3\n",
+        "output": "x=-1\n"
+      },
+      {
+        "input": "x=x\n",
+        "output": "Infinite solutions\n"
+      },
+      {
+        "input": "x+2=3\n",
+        "output": "x=1\n"
+      },
+      {
+        "input": "2x+3=2x+3\n",
+        "output": "Infinite solutions\n"
+      },
+      {
+        "input": "2x+3=2x+4\n",
+        "output": "No solution\n"
+      },
+      {
+        "input": "x+5=5x-3\n",
+        "output": "x=2\n"
+      },
+      {
+        "input": "-x+3=2\n",
+        "output": "x=1\n"
+      },
+      {
+        "input": "-x-3=-2x+5\n",
+        "output": "x=8\n"
+      },
+      {
+        "input": "0x+5=5\n",
+        "output": "Infinite solutions\n"
+      },
+      {
+        "input": "0x+5=6\n",
+        "output": "No solution\n"
+      },
+      {
+        "input": "x=0\n",
+        "output": "x=0\n"
+      },
+      {
+        "input": "x+0=0\n",
+        "output": "x=0\n"
+      },
+      {
+        "input": "2x+3+4=5x-1+2\n",
+        "output": "x=2\n"
+      },
+      {
+        "input": "x-5=3\n",
+        "output": "x=8\n"
+      },
+      {
+        "input": "x+5=5x+5\n",
+        "output": "x=0\n"
+      },
+      {
+        "input": "x+5=5x+1\n",
+        "output": "x=1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('solveEquation', ('x+5=5\\n',), 'x=0\\n')",
+      "('solveEquation', ('2x+3=7\\n',), 'x=2\\n')",
+      "('solveEquation', ('x+2=2x+3\\n',), 'x=-1\\n')",
+      "('solveEquation', ('x=x\\n',), 'Infinite solutions\\n')",
+      "('solveEquation', ('x+2=3\\n',), 'x=1\\n')",
+      "('solveEquation', ('2x+3=2x+3\\n',), 'Infinite solutions\\n')",
+      "('solveEquation', ('2x+3=2x+4\\n',), 'No solution\\n')",
+      "('solveEquation', ('x+5=5x-3\\n',), 'x=2\\n')",
+      "('solveEquation', ('-x+3=2\\n',), 'x=1\\n')",
+      "('solveEquation', ('-x-3=-2x+5\\n',), 'x=8\\n')",
+      "('solveEquation', ('0x+5=5\\n',), 'Infinite solutions\\n')",
+      "('solveEquation', ('0x+5=6\\n',), 'No solution\\n')",
+      "('solveEquation', ('x=0\\n',), 'x=0\\n')",
+      "('solveEquation', ('x+0=0\\n',), 'x=0\\n')",
+      "('solveEquation', ('2x+3+4=5x-1+2\\n',), 'x=2\\n')",
+      "('solveEquation', ('x-5=3\\n',), 'x=8\\n')",
+      "('solveEquation', ('x+5=5x+5\\n',), 'x=0\\n')",
+      "('solveEquation', ('x+5=5x+1\\n',), 'x=1\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: solveEquation('x+5=5\\n',)\n  標準輸出: 'x=0\\n'\n  你的輸出: 'x=0'\n\n[測試#2] ❌ 失敗\n  標準輸入: solveEquation('2x+3=7\\n',)\n  標準輸出: 'x=2\\n'\n  你的輸出: 'x=2'\n\n[測試#3] ❌ 失敗\n  標準輸入: solveEquation('x+2=2x+3\\n',)\n  標準輸出: 'x=-1\\n'\n  你的輸出: 'x=-1'\n\n[測試#4] ❌ 執行例外: invalid literal for int() with base 10: 'x'\n[測試#5] ❌ 失敗\n  標準輸入: solveEquation('x+2=3\\n',)\n  標準輸出: 'x=1\\n'\n  你的輸出: 'x=1'\n\n[測試#6] ❌ 失敗\n  標準輸入: solveEquation('2x+3=2x+3\\n',)\n  標準輸出: 'Infinite solutions\\n'\n  你的輸出: 'Infinite solutions'\n\n[測試#7] ❌ 失敗\n  標準輸入: solveEquation('2x+3=2x+4\\n',)\n  標準輸出: 'No solution\\n'\n  你的輸出: 'No solution'\n\n[測試#8] ❌ 失敗\n  標準輸入: solveEquation('x+5=5x-3\\n',)\n  標準輸出: 'x=2\\n'\n  你的輸出: 'x=2'\n\n[測試#9] ❌ 失敗\n  標準輸入: solveEquation('-x+3=2\\n',)\n  標準輸出: 'x=1\\n'\n  你的輸出: 'x=1'\n\n[測試#10] ❌ 失敗\n  標準輸入: solveEquation('-x-3=-2x+5\\n',)\n  標準輸出: 'x=8\\n'\n  你的輸出: 'x=8'\n\n[測試#11] ❌ 失敗\n  標準輸入: solveEquation('0x+5=5\\n',)\n  標準輸出: 'Infinite solutions\\n'\n  你的輸出: 'Infinite solutions'\n\n[測試#12] ❌ 失敗\n  標準輸入: solveEquation('0x+5=6\\n',)\n  標準輸出: 'No solution\\n'\n  你的輸出: 'No solution'\n\n[測試#13] ❌ 失敗\n  標準輸入: solveEquation('x=0\\n',)\n  標準輸出: 'x=0\\n'\n  你的輸出: 'x=0'\n\n[測試#14] ❌ 失敗\n  標準輸入: solveEquation('x+0=0\\n',)\n  標準輸出: 'x=0\\n'\n  你的輸出: 'x=0'\n\n[測試#15] ❌ 失敗\n  標準輸入: solveEquation('2x+3+4=5x-1+2\\n',)\n  標準輸出: 'x=2\\n'\n  你的輸出: 'x=2'\n\n[測試#16] ❌ 失敗\n  標準輸入: solveEquation('x-5=3\\n',)\n  標準輸出: 'x=8\\n'\n  你的輸出: 'x=8'\n\n[測試#17] ❌ 失敗\n  標準輸入: solveEquation('x+5=5x+5\\n',)\n  標準輸出: 'x=0\\n'\n  你的輸出: 'x=0'\n\n[測試#18] ❌ 失敗\n  標準輸入: solveEquation('x+5=5x+1\\n',)\n  標準輸出: 'x=1\\n'\n  你的輸出: 'x=1'\n\n=== 測試完成 (0/18) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 18,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

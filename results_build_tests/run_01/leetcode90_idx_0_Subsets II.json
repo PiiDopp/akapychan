@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode90.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Subsets II",
+    "description": "Given an integer array nums that may contain duplicates, return all possible subsets (the power set).\n\nThe solution set must not contain duplicate subsets. Return the solution in any order.",
+    "examples": [
+      {
+        "input": "nums = [1,2,2]",
+        "output": "[[],[1],[1,2],[1,2,2],[2],[2,2]]"
+      },
+      {
+        "input": "nums = [0]",
+        "output": "[[],[0]]"
+      }
+    ],
+    "solution": "class Solution(object):\n    def subsetsWithDup(self, nums):\n        nums.sort()\n        res = [[]]\n        for num in nums:\n            new_subsets = []\n            for subset in res:\n                new_subsets.append(subset + [num])\n            res += new_subsets\n        unique_res = []\n        seen = set()\n        for subset in res:\n            t = tuple(subset)\n            if t not in seen:\n                seen.add(t)\n                unique_res.append(subset)\n        return unique_res"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

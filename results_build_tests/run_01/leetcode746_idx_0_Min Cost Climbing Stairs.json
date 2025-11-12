@@ -1,0 +1,120 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode746.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Min Cost Climbing Stairs",
+    "description": "You are given an integer array cost where cost[i] is the cost of ith step on a staircase. Once you pay the cost, you can either climb one or two steps.\n\nYou can either start from the step with index 0, or the step with index 1.\n\nReturn the minimum cost to reach the top of the floor.",
+    "examples": [
+      {
+        "input": "[10,15,20]",
+        "output": "15",
+        "explanation": "You will start at index 1.\n- Pay 15 and climb two steps to reach the top.\nThe total cost is 15."
+      },
+      {
+        "input": "[1,100,1,1,1,100,1,1,100,1]",
+        "output": "6",
+        "explanation": "You will start at index 0.\n- Pay 1 and climb two steps to reach index 2.\n- Pay 1 and climb two steps to reach index 4.\n- Pay 1 and climb two steps to reach index 6.\n- Pay 1 and climb one step to reach index 7.\n- Pay 1 and climb two steps to reach index 9.\n- Pay 1 and climb one step to reach the top.\nThe total cost is 6."
+      }
+    ],
+    "solution": "class Solution:\n    def minCostClimbingStairs(self, cost):\n        n = len(cost)\n        if n == 0:\n            return 0\n        elif n == 1:\n            return cost[0]\n        dp = [0] * n\n        dp[0], dp[1] = cost[0], cost[1]\n        for i in range(2, n):\n            dp[i] = cost[i] + min(dp[i-1], dp[i-2])\n        return min(dp[-1], dp[-2])"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "42\n",
+        "output": "42\n"
+      },
+      {
+        "input": "0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-5\n-10\n",
+        "output": "-10\n"
+      },
+      {
+        "input": "0\n1\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n0\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1\n2\n3\n0\n",
+        "output": "2\n"
+      },
+      {
+        "input": "10\n1\n1\n1\n10\n",
+        "output": "2\n"
+      },
+      {
+        "input": "5\n4\n3\n2\n1\n",
+        "output": "6\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+        "output": "25\n"
+      },
+      {
+        "input": "10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n",
+        "output": "25\n"
+      },
+      {
+        "input": "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n",
+        "output": "5\n"
+      },
+      {
+        "input": "5\n1\n5\n1\n5\n1\n5\n1\n5\n1\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1\n5\n1\n5\n1\n5\n1\n5\n1\n5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000\n0\n1000000\n0\n1000000\n0\n1000000\n0\n1000000\n0\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minCostClimbingStairs', ((),), 0)",
+      "('minCostClimbingStairs', (42,), 42)",
+      "('minCostClimbingStairs', ((0, 0),), 0)",
+      "('minCostClimbingStairs', ((-5, -10),), -10)",
+      "('minCostClimbingStairs', ((0, 1, 0),), 0)",
+      "('minCostClimbingStairs', ((1, 0, 1),), 0)",
+      "('minCostClimbingStairs', ((1, 2, 3, 4),), 4)",
+      "('minCostClimbingStairs', ((1, 2, 3, 0),), 2)",
+      "('minCostClimbingStairs', ((10, 1, 1, 1, 10),), 2)",
+      "('minCostClimbingStairs', ((5, 4, 3, 2, 1),), 6)",
+      "('minCostClimbingStairs', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),), 25)",
+      "('minCostClimbingStairs', ((10, 9, 8, 7, 6, 5, 4, 3, 2, 1),), 25)",
+      "('minCostClimbingStairs', ((1, 1, 1, 1, 1, 1, 1, 1, 1, 1),), 5)",
+      "('minCostClimbingStairs', ((5, 1, 5, 1, 5, 1, 5, 1, 5, 1),), 5)",
+      "('minCostClimbingStairs', ((1, 5, 1, 5, 1, 5, 1, 5, 1, 5),), 5)",
+      "('minCostClimbingStairs', ((0, 0, 0, 0, 0, 0, 0, 0, 0, 0),), 0)",
+      "('minCostClimbingStairs', ((1000000, 0, 1000000, 0, 1000000, 0, 1000000, 0, 1000000, 0),), 0)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minCostClimbingStairs((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ✅ 通過\n  標準輸入: minCostClimbingStairs((0, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: minCostClimbingStairs((-5, -10),)\n  標準輸出: -10\n  你的輸出: -10\n\n[測試#5] ✅ 通過\n  標準輸入: minCostClimbingStairs((0, 1, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: minCostClimbingStairs((1, 0, 1),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: minCostClimbingStairs((1, 2, 3, 4),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: minCostClimbingStairs((1, 2, 3, 0),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: minCostClimbingStairs((10, 1, 1, 1, 10),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ✅ 通過\n  標準輸入: minCostClimbingStairs((5, 4, 3, 2, 1),)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#11] ✅ 通過\n  標準輸入: minCostClimbingStairs((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),)\n  標準輸出: 25\n  你的輸出: 25\n\n[測試#12] ✅ 通過\n  標準輸入: minCostClimbingStairs((10, 9, 8, 7, 6, 5, 4, 3, 2, 1),)\n  標準輸出: 25\n  你的輸出: 25\n\n[測試#13] ✅ 通過\n  標準輸入: minCostClimbingStairs((1, 1, 1, 1, 1, 1, 1, 1, 1, 1),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#14] ✅ 通過\n  標準輸入: minCostClimbingStairs((5, 1, 5, 1, 5, 1, 5, 1, 5, 1),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#15] ✅ 通過\n  標準輸入: minCostClimbingStairs((1, 5, 1, 5, 1, 5, 1, 5, 1, 5),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#16] ✅ 通過\n  標準輸入: minCostClimbingStairs((0, 0, 0, 0, 0, 0, 0, 0, 0, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#17] ✅ 通過\n  標準輸入: minCostClimbingStairs((1000000, 0, 1000000, 0, 1000000, 0, 1000000, 0, 1000000, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n=== 測試完成 (16/17) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 17,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

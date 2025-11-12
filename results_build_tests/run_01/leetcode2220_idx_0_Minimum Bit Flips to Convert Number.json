@@ -1,0 +1,95 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode2220.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Bit Flips to Convert Number",
+    "description": "A bit flip of a number x is choosing a bit in the binary representation of x and flipping it from either 0 to 1 or 1 to 0.\n\nFor example, for x = 7, the binary representation is 111 and we may choose any bit (including any leading zeros not shown) and flip it. We can flip the first bit from the right to get 110, flip the second bit from the right to get 101, flip the fifth bit from the right (a leading zero) to get 10111, etc.\nGiven two integers start and goal, return the minimum number of bit flips to convert start to goal.",
+    "examples": [
+      {
+        "input": "start = 10, goal = 7",
+        "output": "3",
+        "explanation": "The binary representation of 10 and 7 are 1010 and 0111 respectively. We can convert 10 to 7 in 3 steps:\n- Flip the first bit from the right: 1010 -> 1011.\n- Flip the third bit from the right: 1011 -> 1111.\n- Flip the fourth bit from the right: 1111 -> 0111.\nIt can be shown we cannot convert 10 to 7 in less than 3 steps. Hence, we return 3."
+      },
+      {
+        "input": "start = 3, goal = 4",
+        "output": "3",
+        "explanation": "The binary representation of 3 and 4 are 011 and 100 respectively. We can convert 3 to 4 in 3 steps:\n- Flip the first bit from the right: 011 -> 010.\n- Flip the second bit from the right: 010 -> 000.\n- Flip the third bit from the right: 000 -> 100.\nIt can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 3."
+      }
+    ],
+    "solution": "class Solution:\n    def minBitFlips(self, start, goal):\n        # XOR 找到不同的位\n        xor = start ^ goal\n        flips = 0\n        while xor:\n            flips += xor & 1\n            xor >>= 1\n        return flips"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "5\n7\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5\n6\n",
+        "output": "2\n"
+      },
+      {
+        "input": "12345\n67890\n",
+        "output": "8\n"
+      },
+      {
+        "input": "0\n1073741824\n",
+        "output": "1\n"
+      },
+      {
+        "input": "0\n2147483647\n",
+        "output": "31\n"
+      },
+      {
+        "input": "2147483647\n0\n",
+        "output": "31\n"
+      },
+      {
+        "input": "2147483647\n2147483647\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1073741824\n1073741824\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1073741824\n1073741825\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minBitFlips', (0, 0), 0)",
+      "('minBitFlips', (0, 1), 1)",
+      "('minBitFlips', (1, 2), 2)",
+      "('minBitFlips', (5, 7), 1)",
+      "('minBitFlips', (5, 6), 2)",
+      "('minBitFlips', (12345, 67890), 8)",
+      "('minBitFlips', (0, 1073741824), 1)",
+      "('minBitFlips', (0, 2147483647), 31)",
+      "('minBitFlips', (2147483647, 0), 31)",
+      "('minBitFlips', (2147483647, 2147483647), 0)",
+      "('minBitFlips', (1073741824, 1073741824), 0)",
+      "('minBitFlips', (1073741824, 1073741825), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minBitFlips(0, 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: minBitFlips(0, 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: minBitFlips(1, 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: minBitFlips(5, 7)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: minBitFlips(5, 6)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: minBitFlips(12345, 67890)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#7] ✅ 通過\n  標準輸入: minBitFlips(0, 1073741824)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: minBitFlips(0, 2147483647)\n  標準輸出: 31\n  你的輸出: 31\n\n[測試#9] ✅ 通過\n  標準輸入: minBitFlips(2147483647, 0)\n  標準輸出: 31\n  你的輸出: 31\n\n[測試#10] ✅ 通過\n  標準輸入: minBitFlips(2147483647, 2147483647)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#11] ✅ 通過\n  標準輸入: minBitFlips(1073741824, 1073741824)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: minBitFlips(1073741824, 1073741825)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (12/12) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 12,
+    "passed_count": 12,
+    "accuracy_rate": 1.0
+  }
+}

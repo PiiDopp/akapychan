@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode164.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum Gap",
+    "description": "Given an integer array nums, return the maximum difference between two successive elements in its sorted form. If the array contains less than two elements, return 0.\n\nYou must write an algorithm that runs in linear time and uses linear extra space.",
+    "examples": [
+      {
+        "input": "nums = [3,6,9,1]",
+        "output": "3",
+        "explanation": "The sorted form of the array is [1,3,6,9], either (3,6) or (6,9) has the maximum difference 3."
+      },
+      {
+        "input": "nums = [10]",
+        "output": "0",
+        "explanation": "The array contains less than 2 elements, therefore return 0."
+      }
+    ],
+    "solution": "class Solution:\n    def maximumGap(self, nums):\n        if len(nums) < 2:\n            return 0\n        nums.sort()\n        max_gap = 0\n        for i in range(1, len(nums)):\n            max_gap = max(max_gap, nums[i] - nums[i-1])\n        return max_gap"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "10\n10\n10\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n1\n9\n3\n",
+        "output": "4\n"
+      },
+      {
+        "input": "-10\n-5\n0\n5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1000000\n1\n500000\n",
+        "output": "500000\n"
+      },
+      {
+        "input": "3\n3\n3\n4\n",
+        "output": "1\n"
+      },
+      {
+        "input": "7\n2\n5\n10\n1\n",
+        "output": "3\n"
+      },
+      {
+        "input": "0\n-1\n-3\n2\n1\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maximumGap', ((),), 0)",
+      "('maximumGap', (5,), 0)",
+      "('maximumGap', ((1, 3),), 2)",
+      "('maximumGap', ((10, 10, 10),), 0)",
+      "('maximumGap', ((5, 1, 9, 3),), 4)",
+      "('maximumGap', ((-10, -5, 0, 5),), 5)",
+      "('maximumGap', ((1000000, 1, 500000),), 500000)",
+      "('maximumGap', ((3, 3, 3, 4),), 1)",
+      "('maximumGap', ((7, 2, 5, 10, 1),), 3)",
+      "('maximumGap', ((0, -1, -3, 2, 1),), 2)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: maximumGap((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n=== 測試完成 (1/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

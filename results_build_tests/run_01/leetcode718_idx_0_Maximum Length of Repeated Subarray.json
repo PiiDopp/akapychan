@@ -1,0 +1,33 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode718.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum Length of Repeated Subarray",
+    "description": "Given two integer arrays nums1 and nums2, return the maximum length of a subarray that appears in both arrays.",
+    "examples": [
+      {
+        "input": "nums1 = [1,2,3,2,1], nums2 = [3,2,1,4,7]",
+        "output": "3",
+        "explanation": "The repeated subarray with maximum length is [3,2,1]."
+      },
+      {
+        "input": "nums1 = [0,0,0,0,0], nums2 = [0,0,0,0,0]",
+        "output": "5",
+        "explanation": "The repeated subarray with maximum length is [0,0,0,0,0]."
+      }
+    ],
+    "solution": "class Solution:\n    def findLength(self, nums1, nums2):\n        m, n = len(nums1), len(nums2)\n        dp = [[0]*(n+1) for _ in range(m+1)]\n        max_len = 0\n        for i in range(1, m+1):\n            for j in range(1, n+1):\n                if nums1[i-1] == nums2[j-1]:\n                    dp[i][j] = dp[i-1][j-1] + 1\n                    max_len = max(max_len, dp[i][j])\n        return max_len"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,29 +1,45 @@
 import re
 import json
 from typing import Optional
+from typing import Union, List, Dict
 
 
-def  extract_code_block(model_output: str) -> Optional[str]:
-    # 修正: 使用更寬鬆的 regex 來尋找 ```python 標籤
-    # 允許 ``` 和 python 之間，以及 python 和 換行 之間有空白
-    # 也允許可選的換行符在結尾的 ``` 之前
-    m = re.search(r"```\s*python\s*\n(.*?)\n?```", model_output, re.DOTALL)
+def extract_code_block(model_output: str) -> Optional[str]:
+    m = re.search(r"```python\n(.*?)```", model_output, re.DOTALL)
     return m.group(1).strip() if m else None
 
 
-def extract_json_block(model_output: str) -> list:
-    # 修正: 使用更寬鬆的 regex 來尋找 ```json 標籤
-    # 允許 ``` 和 json 之間，以及 json 和 換行 之間有空白
-    # 也允許可選的換行符在結尾的 ``` 之前
-    m = re.search(r"```\s*json\s*\n(.*?)\n?```", model_output, re.DOTALL)
+def extract_json_block(model_output: str) -> Union[List, Dict]:
+    # 增強版正則：
+    # 1. (?:json)? -> 允許 ``` 後面不一定要有 json
+    # 2. \s* -> 允許任意空白字元（包含換行）
+    # 3. re.IGNORECASE -> 忽略大小寫
+    m = re.search(r"```(?:json)?\s*(.*?)```", model_output, re.DOTALL | re.IGNORECASE)
     if not m:
         return []
     try:
-        # 修正：確保提取的內容被正確解析
         content = m.group(1).strip()
         return json.loads(content)
-    except Exception:
+    except json.JSONDecodeError:
+        # 如果標準解析失敗，嘗試尋找最外層的 [] 或 {}
+        try:
+            content = m.group(1).strip()
+            # 嘗試抓取列表
+            if '[' in content and ']' in content:
+                start = content.find('[')
+                end = content.rfind(']') + 1
+                return json.loads(content[start:end])
+            # 嘗試抓取物件
+            elif '{' in content and '}' in content:
+                start = content.find('{')
+                end = content.rfind('}') + 1
+                return json.loads(content[start:end])
+        except:
+            pass
         print("[警告] JSON 解析失敗，請檢查模型輸出格式。")
+        return []
+    except Exception as e:
+        print(f"[警告] JSON 提取發生未預期錯誤: {e}")
         return []
 
 
@@ -46,17 +62,11 @@ def parse_tests_from_text(user_need: str, func_name: str = "solution_func"):
 def normalize_tests(func_name: str, raw_tests: list) -> list[tuple]:
     tests = []
     for t in raw_tests:
-        # 期望格式: [[arg1, arg2, ...], expected]
         if not isinstance(t, list) or len(t) != 2:
             continue
-        
         inp, outp = t
-        
-        # 假設 inp 是所有參數的列表 (例如 [nums, target])
         if isinstance(inp, list):
-            # 格式化為 (函式名稱, [參數列表], 期望輸出)，args 即為 inp
             tests.append((func_name, inp, outp))
-        # 單一參數情況
         else:
             tests.append((func_name, [inp], outp))
     return tests

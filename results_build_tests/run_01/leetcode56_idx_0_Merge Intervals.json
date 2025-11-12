@@ -1,0 +1,110 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode56.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Merge Intervals",
+    "description": "Given an array of intervals where intervals[i] = [start_i, end_i], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.",
+    "examples": [
+      {
+        "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+        "output": "[[1,6],[8,10],[15,18]]",
+        "explanation": "Since intervals [1,3] and [2,6] overlap, merge them into [1,6]."
+      },
+      {
+        "input": "intervals = [[1,4],[4,5]]",
+        "output": "[[1,5]]",
+        "explanation": "Intervals [1,4] and [4,5] are considered overlapping."
+      },
+      {
+        "input": "intervals = [[4,7],[1,4]]",
+        "output": "[[1,7]]",
+        "explanation": "Intervals [1,4] and [4,7] are considered overlapping."
+      }
+    ],
+    "solution": "class Solution(object):\n    def merge(self, intervals):\n        \"\"\"\n        :type intervals: List[List[int]]\n        :rtype: List[List[int]]\n        \"\"\"\n        if not intervals:\n            return []\n        \n        intervals.sort(key=lambda x: x[0])\n        merged = [intervals[0]]\n        \n        for current in intervals[1:]:\n            prev = merged[-1]\n            if current[0] <= prev[1]:\n                prev[1] = max(prev[1], current[1])\n            else:\n                merged.append(current)\n        \n        return merged"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 3\n2 6\n8 10\n15 18\n",
+        "output": "[[1, 6], [8, 10], [15, 18]]\n"
+      },
+      {
+        "input": "1 2\n3 4\n5 6\n",
+        "output": "[[1, 2], [3, 4], [5, 6]]\n"
+      },
+      {
+        "input": "1 4\n2 5\n3 6\n",
+        "output": "[[1, 6]]\n"
+      },
+      {
+        "input": "1 2\n2 3\n3 4\n",
+        "output": "[[1, 4]]\n"
+      },
+      {
+        "input": "5 7\n1 3\n4 6\n",
+        "output": "[[1, 3], [4, 7]]\n"
+      },
+      {
+        "input": "1 1\n1 3\n3 3\n",
+        "output": "[[1, 3]]\n"
+      },
+      {
+        "input": "-5 -1\n-3 2\n3 5\n",
+        "output": "[[-5, 2], [3, 5]]\n"
+      },
+      {
+        "input": "1 4\n1 5\n1 2\n",
+        "output": "[[1, 5]]\n"
+      },
+      {
+        "input": "1 5\n2 5\n3 5\n",
+        "output": "[[1, 5]]\n"
+      },
+      {
+        "input": "1000000 2000000\n1500000 2500000\n",
+        "output": "[[1000000, 2500000]]\n"
+      },
+      {
+        "input": "1 10\n",
+        "output": "[[1, 10]]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "10 12\n1 3\n2 4\n5 6\n",
+        "output": "[[1, 4], [5, 6], [10, 12]]\n"
+      },
+      {
+        "input": "1 10\n2 3\n4 5\n6 7\n",
+        "output": "[[1, 10]]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('merge', ('1 3\\n2 6\\n8 10\\n15 18\\n',), [[1, 6], [8, 10], [15, 18]])",
+      "('merge', ('1 2\\n3 4\\n5 6\\n',), [[1, 2], [3, 4], [5, 6]])",
+      "('merge', ('1 4\\n2 5\\n3 6\\n',), [[1, 6]])",
+      "('merge', ('1 2\\n2 3\\n3 4\\n',), [[1, 4]])",
+      "('merge', ('5 7\\n1 3\\n4 6\\n',), [[1, 3], [4, 7]])",
+      "('merge', ('1 1\\n1 3\\n3 3\\n',), [[1, 3]])",
+      "('merge', ('-5 -1\\n-3 2\\n3 5\\n',), [[-5, 2], [3, 5]])",
+      "('merge', ('1 4\\n1 5\\n1 2\\n',), [[1, 5]])",
+      "('merge', ('1 5\\n2 5\\n3 5\\n',), [[1, 5]])",
+      "('merge', ('1000000 2000000\\n1500000 2500000\\n',), [[1000000, 2500000]])",
+      "('merge', ('1 10\\n',), [[1, 10]])",
+      "('merge', ((),), [])",
+      "('merge', ('10 12\\n1 3\\n2 4\\n5 6\\n',), [[1, 4], [5, 6], [10, 12]])",
+      "('merge', ('1 10\\n2 3\\n4 5\\n6 7\\n',), [[1, 10]])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#11] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#12] ✅ 通過\n  標準輸入: merge((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#13] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#14] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (1/14) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 14,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

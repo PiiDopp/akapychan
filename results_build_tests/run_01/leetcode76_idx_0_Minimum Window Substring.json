@@ -1,0 +1,100 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode76.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Window Substring",
+    "description": "Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string \"\".\n\nThe testcases will be generated such that the answer is unique.",
+    "examples": [
+      {
+        "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+        "output": "\"BANC\"",
+        "explanation": "The minimum window substring \"BANC\" includes 'A', 'B', and 'C' from string t."
+      },
+      {
+        "input": "s = \"a\", t = \"a\"",
+        "output": "\"a\"",
+        "explanation": "The entire string s is the minimum window."
+      },
+      {
+        "input": "s = \"a\", t = \"aa\"",
+        "output": "\"\"",
+        "explanation": "Both 'a's from t must be included in the window. Since the largest window of s only has one 'a', return empty string."
+      }
+    ],
+    "solution": "class Solution(object):\n    def minWindow(self, s, t):\n        from collections import Counter\n        if not s or not t:\n            return \"\"\n        dict_t = Counter(t)\n        required = len(dict_t)\n        l, r = 0, 0\n        formed = 0\n        window_counts = {}\n        ans = float(\"inf\"), None, None\n        while r < len(s):\n            character = s[r]\n            window_counts[character] = window_counts.get(character, 0) + 1\n            if character in dict_t and window_counts[character] == dict_t[character]:\n                formed += 1\n            while l <= r and formed == required:\n                character = s[l]\n                if r - l + 1 < ans[0]:\n                    ans = (r - l + 1, l, r)\n                window_counts[character] -= 1\n                if character in dict_t and window_counts[character] < dict_t[character]:\n                    formed -= 1\n                l += 1\n            r += 1\n        return \"\" if ans[0] == float(\"inf\") else s[ans[1]:ans[2]+1]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['ADOBECODEBANC', 'ABC']\n",
+        "output": "BANC\n"
+      },
+      {
+        "input": "['a', 'aa']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['aa', 'aa']\n",
+        "output": "aa\n"
+      },
+      {
+        "input": "['aab', 'aa']\n",
+        "output": "aa\n"
+      },
+      {
+        "input": "['abca', 'aa']\n",
+        "output": "abca\n"
+      },
+      {
+        "input": "['aA', 'aa']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a!b@c', '!@']\n",
+        "output": "!b@\n"
+      },
+      {
+        "input": "['abc', 'abcd']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['abc', '']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['', 'a']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['aabca', 'aab']\n",
+        "output": "aab\n"
+      },
+      {
+        "input": "['abcaab', 'aab']\n",
+        "output": "aab\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minWindow', ('ADOBECODEBANC', 'ABC'), 'BANC\\n')",
+      "('minWindow', ('a', 'aa'), '\\n')",
+      "('minWindow', ('aa', 'aa'), 'aa\\n')",
+      "('minWindow', ('aab', 'aa'), 'aa\\n')",
+      "('minWindow', ('abca', 'aa'), 'abca\\n')",
+      "('minWindow', ('aA', 'aa'), '\\n')",
+      "('minWindow', ('a!b@c', '!@'), '!b@\\n')",
+      "('minWindow', ('abc', 'abcd'), '\\n')",
+      "('minWindow', ('abc', ''), '\\n')",
+      "('minWindow', ('', 'a'), '\\n')",
+      "('minWindow', ('aabca', 'aab'), 'aab\\n')",
+      "('minWindow', ('abcaab', 'aab'), 'aab\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: minWindow('ADOBECODEBANC', 'ABC')\n  標準輸出: 'BANC\\n'\n  你的輸出: 'BANC'\n\n[測試#2] ❌ 失敗\n  標準輸入: minWindow('a', 'aa')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#3] ❌ 失敗\n  標準輸入: minWindow('aa', 'aa')\n  標準輸出: 'aa\\n'\n  你的輸出: 'aa'\n\n[測試#4] ❌ 失敗\n  標準輸入: minWindow('aab', 'aa')\n  標準輸出: 'aa\\n'\n  你的輸出: 'aa'\n\n[測試#5] ❌ 失敗\n  標準輸入: minWindow('abca', 'aa')\n  標準輸出: 'abca\\n'\n  你的輸出: 'abca'\n\n[測試#6] ❌ 失敗\n  標準輸入: minWindow('aA', 'aa')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#7] ❌ 失敗\n  標準輸入: minWindow('a!b@c', '!@')\n  標準輸出: '!b@\\n'\n  你的輸出: '!b@'\n\n[測試#8] ❌ 失敗\n  標準輸入: minWindow('abc', 'abcd')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#9] ❌ 失敗\n  標準輸入: minWindow('abc', '')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#10] ❌ 失敗\n  標準輸入: minWindow('', 'a')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#11] ❌ 失敗\n  標準輸入: minWindow('aabca', 'aab')\n  標準輸出: 'aab\\n'\n  你的輸出: 'aab'\n\n[測試#12] ❌ 失敗\n  標準輸入: minWindow('abcaab', 'aab')\n  標準輸出: 'aab\\n'\n  你的輸出: 'aab'\n\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

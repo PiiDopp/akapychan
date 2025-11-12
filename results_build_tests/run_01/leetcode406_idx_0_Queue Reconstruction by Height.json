@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode406.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Queue Reconstruction by Height",
+    "description": "You are given an array of people, people, which are the attributes of some people in a queue (not necessarily in order). Each people[i] = [h_i, k_i] represents the i^th person of height h_i with exactly k_i other people in front who have a height greater than or equal to hi.\n\nReconstruct and return the queue that is represented by the input array people. The returned queue should be formatted as an array queue, where queue[j] = [h_j, k_j] is the attributes of the jth person in the queue (queue[0] is the person at the front of the queue).",
+    "examples": [
+      {
+        "input": "people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]",
+        "output": "[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]",
+        "explanation": "Person 0 has height 5 with no other people taller or the same height in front.\nPerson 1 has height 7 with no other people taller or the same height in front.\nPerson 2 has height 5 with two persons taller or the same height in front, which is person 0 and \nPerson 3 has height 6 with one person taller or the same height in front, which is person 1.\nPerson 4 has height 4 with four people taller or the same height in front, which are people 0, 1, 2, and 3.\nPerson 5 has height 7 with one person taller or the same height in front, which is person 1.\nHence [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] is the reconstructed queue."
+      },
+      {
+        "input": "people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]",
+        "output": "[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]"
+      }
+    ],
+    "solution": "class Solution:\n    def reconstructQueue(self, people):\n        # Sort people by descending height; if heights are same, sort by ascending k\n        people.sort(key=lambda x: (-x[0], x[1]))\n        res = []\n        for p in people:\n            res.insert(p[1], p)\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "7 0\n4 4\n7 1\n5 0\n6 1\n5 2\n",
+        "output": "[[5, 0], [7, 0], [5, 2], [6, 1], [4, 4], [7, 1]]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "5 0\n",
+        "output": "[[5, 0]]\n"
+      },
+      {
+        "input": "5 0\n5 1\n5 2\n",
+        "output": "[[5, 0], [5, 1], [5, 2]]\n"
+      },
+      {
+        "input": "6 5\n5 0\n4 4\n3 3\n2 2\n1 1\n",
+        "output": "[[5, 0], [1, 1], [2, 2], [6, 5], [3, 3], [4, 4]]\n"
+      },
+      {
+        "input": "7 0\n7 0\n7 1\n",
+        "output": "[[7, 0], [7, 1], [7, 0]]\n"
+      },
+      {
+        "input": "5 0\n5 1\n5 2\n5 3\n",
+        "output": "[[5, 0], [5, 1], [5, 2], [5, 3]]\n"
+      },
+      {
+        "input": "4 1\n2 0\n3 1\n1 3\n",
+        "output": "[[2, 0], [3, 1], [1, 3], [4, 1]]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reconstructQueue', ('7 0\\n4 4\\n7 1\\n5 0\\n6 1\\n5 2\\n',), [[5, 0], [7, 0], [5, 2], [6, 1], [4, 4], [7, 1]])",
+      "('reconstructQueue', ((),), [])",
+      "('reconstructQueue', ('5 0\\n',), [[5, 0]])",
+      "('reconstructQueue', ('5 0\\n5 1\\n5 2\\n',), [[5, 0], [5, 1], [5, 2]])",
+      "('reconstructQueue', ('6 5\\n5 0\\n4 4\\n3 3\\n2 2\\n1 1\\n',), [[5, 0], [1, 1], [2, 2], [6, 5], [3, 3], [4, 4]])",
+      "('reconstructQueue', ('7 0\\n7 0\\n7 1\\n',), [[7, 0], [7, 1], [7, 0]])",
+      "('reconstructQueue', ('5 0\\n5 1\\n5 2\\n5 3\\n',), [[5, 0], [5, 1], [5, 2], [5, 3]])",
+      "('reconstructQueue', ('4 1\\n2 0\\n3 1\\n1 3\\n',), [[2, 0], [3, 1], [1, 3], [4, 1]])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

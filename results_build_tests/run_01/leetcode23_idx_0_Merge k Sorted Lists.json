@@ -1,0 +1,93 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode23.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Merge k Sorted Lists",
+    "description": "You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.\n\nMerge all the linked-lists into one sorted linked-list and return it.",
+    "examples": [
+      {
+        "input": "lists = [[1,4,5],[1,3,4],[2,6]]",
+        "output": "[1,1,2,3,4,4,5,6]",
+        "explanation": "The linked-lists are:\n[\n  1->4->5,\n  1->3->4,\n  2->6\n]\nmerging them into one sorted linked list:\n1->1->2->3->4->4->5->6"
+      },
+      {
+        "input": "lists = []",
+        "output": "[]"
+      },
+      {
+        "input": "lists = [[]]",
+        "output": "[]"
+      }
+    ],
+    "solution": "# Definition for singly-linked list.\nclass ListNode(object):\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\nclass Solution(object):\n    def mergeKLists(self, lists):\n        \"\"\"\n        :type lists: List[ListNode]\n        :rtype: ListNode\n        \"\"\"\n        if not lists:\n            return None\n        return self.mergeRange(lists, 0, len(lists) - 1)\n\n    def mergeRange(self, lists, left, right):\n        if left == right:\n            return lists[left]\n        mid = (left + right) // 2\n        l1 = self.mergeRange(lists, left, mid)\n        l2 = self.mergeRange(lists, mid + 1, right)\n        return self.mergeTwoLists(l1, l2)\n\n    def mergeTwoLists(self, l1, l2):\n        dummy = ListNode(0)\n        curr = dummy\n        while l1 and l2:\n            if l1.val < l2.val:\n                curr.next = l1\n                l1 = l1.next\n            else:\n                curr.next = l2\n                l2 = l2.next\n            curr = curr.next\n        curr.next = l1 or l2\n        return dummy.next"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 4 5\n1 3 4\n2 6\n",
+        "output": "[1, 1, 2, 3, 4, 4, 5, 6]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1 2 3\n",
+        "output": "[1, 2, 3]\n"
+      },
+      {
+        "input": "1 4 5\n1 3 4 7 8\n2 6\n",
+        "output": "[1, 1, 2, 3, 4, 4, 5, 6, 7, 8]\n"
+      },
+      {
+        "input": "1 1 1\n1 1\n1\n",
+        "output": "[1, 1, 1, 1, 1, 1, 1]\n"
+      },
+      {
+        "input": "-3 -1\n0 2\n1 3\n",
+        "output": "[-3, -1, 0, 1, 2, 3]\n"
+      },
+      {
+        "input": "1000000000\n999999999\n1000000001\n",
+        "output": "[999999999, 1000000000, 1000000001]\n"
+      },
+      {
+        "input": "\n1 2\n3 4\n",
+        "output": "[1, 2, 3, 4]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "5\n4\n3\n2\n1\n",
+        "output": "[1, 2, 3, 4, 5]\n"
+      },
+      {
+        "input": "2 2 2\n2 2\n2\n",
+        "output": "[2, 2, 2, 2, 2, 2, 2]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('mergeKLists', ('1 4 5\\n1 3 4\\n2 6\\n',), [1, 1, 2, 3, 4, 4, 5, 6])",
+      "('mergeKLists', ((),), [])",
+      "('mergeKLists', ('1 2 3\\n',), [1, 2, 3])",
+      "('mergeKLists', ('1 4 5\\n1 3 4 7 8\\n2 6\\n',), [1, 1, 2, 3, 4, 4, 5, 6, 7, 8])",
+      "('mergeKLists', ('1 1 1\\n1 1\\n1\\n',), [1, 1, 1, 1, 1, 1, 1])",
+      "('mergeKLists', ('-3 -1\\n0 2\\n1 3\\n',), [-3, -1, 0, 1, 2, 3])",
+      "('mergeKLists', ((1000000000, 999999999, 1000000001),), [999999999, 1000000000, 1000000001])",
+      "('mergeKLists', ('\\n1 2\\n3 4\\n',), [1, 2, 3, 4])",
+      "('mergeKLists', ((),), [])",
+      "('mergeKLists', ((5, 4, 3, 2, 1),), [1, 2, 3, 4, 5])",
+      "('mergeKLists', ('2 2 2\\n2 2\\n2\\n',), [2, 2, 2, 2, 2, 2, 2])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#2] ❌ 失敗\n  標準輸入: mergeKLists((),)\n  標準輸出: []\n  你的輸出: None\n\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#7] ❌ 執行例外: 'int' object has no attribute 'val'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#9] ❌ 失敗\n  標準輸入: mergeKLists((),)\n  標準輸出: []\n  你的輸出: None\n\n[測試#10] ❌ 執行例外: 'int' object has no attribute 'val'\n[測試#11] ❌ 執行例外: 'str' object has no attribute 'val'\n=== 測試完成 (0/11) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 11,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

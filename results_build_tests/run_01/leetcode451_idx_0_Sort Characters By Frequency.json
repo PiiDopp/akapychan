@@ -1,0 +1,90 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode451.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Sort Characters By Frequency",
+    "description": "Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.\n\nReturn the sorted string. If there are multiple answers, return any of them.",
+    "examples": [
+      {
+        "input": "s = \"tree\"",
+        "output": "\"eert\"",
+        "explanation": "'e' appears twice while 'r' and 't' both appear once. So 'e' must appear before both 'r' and 't'. Therefore \"eetr\" is also a valid answer."
+      },
+      {
+        "input": "s = \"cccaaa\"",
+        "output": "\"aaaccc\"",
+        "explanation": "Both 'c' and 'a' appear three times, so both \"cccaaa\" and \"aaaccc\" are valid answers.\nNote that \"cacaca\" is incorrect, as the same characters must be together."
+      },
+      {
+        "input": "s = \"Aabb\"",
+        "output": "\"bbAa\"",
+        "explanation": "\"bbaA\" is also a valid answer, but \"Aabb\" is incorrect. 'A' and 'a' are treated as two different characters."
+      }
+    ],
+    "solution": "from collections import Counter\n\nclass Solution:\n    def frequencySort(self, s):\n        count = Counter(s)\n        return ''.join([char * freq for char, freq in count.most_common()])"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "tree\n",
+        "output": "eetr\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "a\n",
+        "output": "a\n"
+      },
+      {
+        "input": "aaaa\n",
+        "output": "aaaa\n"
+      },
+      {
+        "input": "abcd\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "bbbaaa\n",
+        "output": "bbbaaa\n"
+      },
+      {
+        "input": "a!a@b#b\n",
+        "output": "aabb!@#\n"
+      },
+      {
+        "input": "你好你好世界\n",
+        "output": "你你好好世界\n"
+      },
+      {
+        "input": "abababababaaa\n",
+        "output": "aaaaaaaaabbbbb\n"
+      },
+      {
+        "input": "112233\n",
+        "output": "112233\n"
+      }
+    ],
+    "parsed_tests": [
+      "('frequencySort', ('tree\\n',), 'eetr\\n')",
+      "('frequencySort', ((),), '\\n')",
+      "('frequencySort', ('a\\n',), 'a\\n')",
+      "('frequencySort', ('aaaa\\n',), 'aaaa\\n')",
+      "('frequencySort', ('abcd\\n',), 'abcd\\n')",
+      "('frequencySort', ('bbbaaa\\n',), 'bbbaaa\\n')",
+      "('frequencySort', ('a!a@b#b\\n',), 'aabb!@#\\n')",
+      "('frequencySort', ('你好你好世界\\n',), '你你好好世界\\n')",
+      "('frequencySort', ('abababababaaa\\n',), 'aaaaaaaaabbbbb\\n')",
+      "('frequencySort', (112233,), 112233)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: frequencySort('tree\\n',)\n  標準輸出: 'eetr\\n'\n  你的輸出: 'eetr\\n'\n\n[測試#2] ❌ 失敗\n  標準輸入: frequencySort((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#3] ✅ 通過\n  標準輸入: frequencySort('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: 'a\\n'\n\n[測試#4] ✅ 通過\n  標準輸入: frequencySort('aaaa\\n',)\n  標準輸出: 'aaaa\\n'\n  你的輸出: 'aaaa\\n'\n\n[測試#5] ✅ 通過\n  標準輸入: frequencySort('abcd\\n',)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: frequencySort('bbbaaa\\n',)\n  標準輸出: 'bbbaaa\\n'\n  你的輸出: 'bbbaaa\\n'\n\n[測試#7] ✅ 通過\n  標準輸入: frequencySort('a!a@b#b\\n',)\n  標準輸出: 'aabb!@#\\n'\n  你的輸出: 'aabb!@#\\n'\n\n[測試#8] ✅ 通過\n  標準輸入: frequencySort('你好你好世界\\n',)\n  標準輸出: '你你好好世界\\n'\n  你的輸出: '你你好好世界\\n'\n\n[測試#9] ❌ 失敗\n  標準輸入: frequencySort('abababababaaa\\n',)\n  標準輸出: 'aaaaaaaaabbbbb\\n'\n  你的輸出: 'aaaaaaaabbbbb\\n'\n\n[測試#10] ❌ 執行例外: 'int' object is not iterable\n=== 測試完成 (7/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

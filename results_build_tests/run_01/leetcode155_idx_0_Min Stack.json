@@ -1,0 +1,180 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode155.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Min Stack",
+    "description": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.\n\nImplement the MinStack class:\n\nMinStack() initializes the stack object.\nvoid push(int val) pushes the element val onto the stack.\nvoid pop() removes the element on the top of the stack.\nint top() gets the top element of the stack.\nint getMin() retrieves the minimum element in the stack.\nYou must implement a solution with O(1) time complexity for each function.",
+    "examples": [
+      {
+        "input": "[\"MinStack\",\"push\",\"push\",\"push\",\"getMin\",\"pop\",\"top\",\"getMin\"],[[],[-2],[0],[-3],[],[],[],[]]",
+        "output": "[null,null,null,null,-3,null,0,-2]",
+        "explanation": "MinStack minStack = new MinStack();\nminStack.push(-2);\nminStack.push(0);\nminStack.push(-3);\nminStack.getMin(); // return -3\nminStack.pop();\nminStack.top();    // return 0\nminStack.getMin(); // return -2"
+      }
+    ],
+    "solution": "class MinStack:\n\n    def __init__(self):\n        self.stack = []\n        self.min_stack = []\n\n    def push(self, val):\n        self.stack.append(val)\n        if not self.min_stack or val <= self.min_stack[-1]:\n            self.min_stack.append(val)\n\n    def pop(self):\n        if self.stack:\n            val = self.stack.pop()\n            if val == self.min_stack[-1]:\n                self.min_stack.pop()\n\n    def top(self):\n        if self.stack:\n            return self.stack[-1]\n\n    def getMin(self):\n        if self.min_stack:\n            return self.min_stack[-1]"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "operations": [
+          {
+            "op": "push",
+            "arg": 5
+          },
+          {
+            "op": "push",
+            "arg": 3
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "top"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "top"
+          }
+        ],
+        "expected": [
+          3,
+          3,
+          5,
+          5
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "push",
+            "arg": 2
+          },
+          {
+            "op": "push",
+            "arg": 2
+          },
+          {
+            "op": "push",
+            "arg": 1
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          }
+        ],
+        "expected": [
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "top"
+          },
+          {
+            "op": "getMin"
+          }
+        ],
+        "expected": [
+          null,
+          null
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "push",
+            "arg": -10
+          },
+          {
+            "op": "push",
+            "arg": 0
+          },
+          {
+            "op": "push",
+            "arg": -20
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "top"
+          }
+        ],
+        "expected": [
+          -20,
+          -10,
+          0
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "push",
+            "arg": 1
+          },
+          {
+            "op": "push",
+            "arg": 2
+          },
+          {
+            "op": "push",
+            "arg": 3
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "top"
+          }
+        ],
+        "expected": [
+          null,
+          null
+        ]
+      }
+    ],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

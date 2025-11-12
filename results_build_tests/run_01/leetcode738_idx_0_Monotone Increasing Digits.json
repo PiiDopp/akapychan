@@ -1,0 +1,35 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode738.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Monotone Increasing Digits",
+    "description": "An integer has monotone increasing digits if and only if each pair of adjacent digits x and y satisfy x <= y.\n\nGiven an integer n, return the largest number that is less than or equal to n with monotone increasing digits.",
+    "examples": [
+      {
+        "input": "n = 10",
+        "output": "9"
+      },
+      {
+        "input": "n = 1234",
+        "output": "1234"
+      },
+      {
+        "input": "n = 332",
+        "output": "299"
+      }
+    ],
+    "solution": "class Solution:\n    def monotoneIncreasingDigits(self, n):\n        digits = list(str(n))\n        i = 1\n        while i < len(digits) and digits[i] >= digits[i - 1]:\n            i += 1\n        if i < len(digits):\n            while i > 0 and digits[i] < digits[i - 1]:\n                digits[i - 1] = str(int(digits[i - 1]) - 1)\n                i -= 1\n            for j in range(i + 1, len(digits)):\n                digits[j] = '9'\n        return int(''.join(digits))"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

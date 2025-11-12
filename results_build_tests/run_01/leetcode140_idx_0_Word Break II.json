@@ -1,0 +1,88 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode140.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Word Break II",
+    "description": "Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order.\n\nNote that the same word in the dictionary may be reused multiple times in the segmentation.",
+    "examples": [
+      {
+        "input": "s = 'catsanddog', wordDict = ['cat','cats','and','sand','dog']",
+        "output": "['cats and dog','cat sand dog']"
+      },
+      {
+        "input": "s = 'pineapplepenapple', wordDict = ['apple','pen','applepen','pine','pineapple']",
+        "output": "['pine apple pen apple','pineapple pen apple','pine applepen apple']",
+        "explanation": "You are allowed to reuse a dictionary word."
+      },
+      {
+        "input": "s = 'catsandog', wordDict = ['cats','dog','sand','and','cat']",
+        "output": "[]"
+      }
+    ],
+    "solution": "class Solution:\n    def wordBreak(self, s, wordDict):\n        word_set = set(wordDict)\n        memo = {}\n\n        def backtrack(start):\n            if start in memo:\n                return memo[start]\n\n            if start == len(s):\n                return [\"\"]\n\n            res = []\n            for end in range(start + 1, len(s) + 1):\n                word = s[start:end]\n                if word in word_set:\n                    for sub_sentence in backtrack(end):\n                        if sub_sentence:\n                            res.append(word + \" \" + sub_sentence)\n                        else:\n                            res.append(word)\n            memo[start] = res\n            return res\n\n        return backtrack(0)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['catsanddog', ['cat', 'cats', 'and', 'sand', 'dog']]\n",
+        "output": "['cats and dog', 'cat sand dog']\n"
+      },
+      {
+        "input": "['apple', ['apple']]\n",
+        "output": "['apple']\n"
+      },
+      {
+        "input": "['catsandog', ['cat', 'cats', 'and', 'sand', 'dog']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['pineapplepenapple', ['apple', 'pen', 'applepen', 'pine', 'pineapple']]\n",
+        "output": "['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple']\n"
+      },
+      {
+        "input": "['', ['a']]\n",
+        "output": "['']\n"
+      },
+      {
+        "input": "['aaaa', ['a', 'aa', 'aaa']]\n",
+        "output": "['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa', 'aaa a', 'a aaa']\n"
+      },
+      {
+        "input": "['abcd', ['a', 'ab', 'abc', 'abcd']]\n",
+        "output": "['abcd']\n"
+      },
+      {
+        "input": "['catcat', ['cat']]\n",
+        "output": "['cat cat']\n"
+      },
+      {
+        "input": "['Catsanddog', ['cat', 'cats', 'and', 'sand', 'dog']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['a', ['a']]\n",
+        "output": "['a']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('wordBreak', ('catsanddog', ['cat', 'cats', 'and', 'sand', 'dog']), ['cats and dog', 'cat sand dog'])",
+      "('wordBreak', ('apple', ['apple']), ['apple'])",
+      "('wordBreak', ('catsandog', ['cat', 'cats', 'and', 'sand', 'dog']), [])",
+      "('wordBreak', ('pineapplepenapple', ['apple', 'pen', 'applepen', 'pine', 'pineapple']), ['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple'])",
+      "('wordBreak', ('', ['a']), [''])",
+      "('wordBreak', ('aaaa', ['a', 'aa', 'aaa']), ['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa', 'aaa a', 'a aaa'])",
+      "('wordBreak', ('abcd', ['a', 'ab', 'abc', 'abcd']), ['abcd'])",
+      "('wordBreak', ('catcat', ['cat']), ['cat cat'])",
+      "('wordBreak', ('Catsanddog', ['cat', 'cats', 'and', 'sand', 'dog']), [])",
+      "('wordBreak', ('a', ['a']), ['a'])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: wordBreak('catsanddog', ['cat', 'cats', 'and', 'sand', 'dog'])\n  標準輸出: ['cats and dog', 'cat sand dog']\n  你的輸出: ['cat sand dog', 'cats and dog']\n\n[測試#2] ✅ 通過\n  標準輸入: wordBreak('apple', ['apple'])\n  標準輸出: ['apple']\n  你的輸出: ['apple']\n\n[測試#3] ✅ 通過\n  標準輸入: wordBreak('catsandog', ['cat', 'cats', 'and', 'sand', 'dog'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: wordBreak('pineapplepenapple', ['apple', 'pen', 'applepen', 'pine', 'pineapple'])\n  標準輸出: ['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple']\n  你的輸出: ['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple']\n\n[測試#5] ✅ 通過\n  標準輸入: wordBreak('', ['a'])\n  標準輸出: ['']\n  你的輸出: ['']\n\n[測試#6] ❌ 失敗\n  標準輸入: wordBreak('aaaa', ['a', 'aa', 'aaa'])\n  標準輸出: ['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa', 'aaa a', 'a aaa']\n  你的輸出: ['a a a a', 'a a aa', 'a aa a', 'a aaa', 'aa a a', 'aa aa', 'aaa a']\n\n[測試#7] ✅ 通過\n  標準輸入: wordBreak('abcd', ['a', 'ab', 'abc', 'abcd'])\n  標準輸出: ['abcd']\n  你的輸出: ['abcd']\n\n[測試#8] ✅ 通過\n  標準輸入: wordBreak('catcat', ['cat'])\n  標準輸出: ['cat cat']\n  你的輸出: ['cat cat']\n\n[測試#9] ✅ 通過\n  標準輸入: wordBreak('Catsanddog', ['cat', 'cats', 'and', 'sand', 'dog'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#10] ✅ 通過\n  標準輸入: wordBreak('a', ['a'])\n  標準輸出: ['a']\n  你的輸出: ['a']\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode482.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "License Key Formatting",
+    "description": "You are given a license key represented as a string s that consists of only alphanumeric characters and dashes. The string is separated into n + 1 groups by n dashes. You are also given an integer k.\n\nWe want to reformat the string s such that each group contains exactly k characters, except for the first group, which could be shorter than k but still must contain at least one character. Furthermore, there must be a dash inserted between two groups, and you should convert all lowercase letters to uppercase.\n\nReturn the reformatted license key.",
+    "examples": [
+      {
+        "input": "s = \"5F3Z-2e-9-w\", k = 4",
+        "output": " \"5F3Z-2E9W\"",
+        "explanation": "The string s has been split into two parts, each part has 4 characters.\nNote that the two extra dashes are not needed and can be removed."
+      },
+      {
+        "input": "s = \"2-5g-3-J\", k = 2",
+        "output": "\"2-5G-3J\"",
+        "explanation": "The string s has been split into three parts, each part has 2 characters except the first part as it could be shorter as mentioned above."
+      }
+    ],
+    "solution": "class Solution:\n    def licenseKeyFormatting(self, S, K):\n        # 移除所有 '-' 並轉為大寫\n        S = S.replace('-', '').upper()\n        n = len(S)\n        first_group_len = n % K or K  # 第一組長度\n        \n        res = [S[:first_group_len]]\n        for i in range(first_group_len, n, K):\n            res.append(S[i:i+K])\n        return '-'.join(res)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['2-4A0r7-4k', 4]\n",
+        "output": "24A0-R74K\n"
+      },
+      {
+        "input": "['2-4A0r7-4k', 3]\n",
+        "output": "24-A0R-74K\n"
+      },
+      {
+        "input": "['2-4A0r7-4k', 10]\n",
+        "output": "24A0R74K\n"
+      },
+      {
+        "input": "['2-4A0r7-4k', 1]\n",
+        "output": "2-4-4-A-0-R-7-4-K\n"
+      },
+      {
+        "input": "['---', 3]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a-bc-DEF-123', 2]\n",
+        "output": "A-BC-DE-F1-23\n"
+      },
+      {
+        "input": "['--a--b-c--', 2]\n",
+        "output": "A-BC\n"
+      },
+      {
+        "input": "['12345', 2]\n",
+        "output": "1-23-45\n"
+      },
+      {
+        "input": "['abc', 3]\n",
+        "output": "ABC\n"
+      },
+      {
+        "input": "['123-456', 1]\n",
+        "output": "1-2-3-4-5-6\n"
+      }
+    ],
+    "parsed_tests": [
+      "('licenseKeyFormatting', ('2-4A0r7-4k', 4), '24A0-R74K\\n')",
+      "('licenseKeyFormatting', ('2-4A0r7-4k', 3), '24-A0R-74K\\n')",
+      "('licenseKeyFormatting', ('2-4A0r7-4k', 10), '24A0R74K\\n')",
+      "('licenseKeyFormatting', ('2-4A0r7-4k', 1), '2-4-4-A-0-R-7-4-K\\n')",
+      "('licenseKeyFormatting', ('---', 3), '\\n')",
+      "('licenseKeyFormatting', ('a-bc-DEF-123', 2), 'A-BC-DE-F1-23\\n')",
+      "('licenseKeyFormatting', ('--a--b-c--', 2), 'A-BC\\n')",
+      "('licenseKeyFormatting', ('12345', 2), '1-23-45\\n')",
+      "('licenseKeyFormatting', ('abc', 3), 'ABC\\n')",
+      "('licenseKeyFormatting', ('123-456', 1), '1-2-3-4-5-6\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-4A0r7-4k', 4)\n  標準輸出: '24A0-R74K\\n'\n  你的輸出: '24A0-R74K'\n\n[測試#2] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-4A0r7-4k', 3)\n  標準輸出: '24-A0R-74K\\n'\n  你的輸出: '24-A0R-74K'\n\n[測試#3] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-4A0r7-4k', 10)\n  標準輸出: '24A0R74K\\n'\n  你的輸出: '24A0R74K'\n\n[測試#4] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-4A0r7-4k', 1)\n  標準輸出: '2-4-4-A-0-R-7-4-K\\n'\n  你的輸出: '2-4-A-0-R-7-4-K'\n\n[測試#5] ❌ 失敗\n  標準輸入: licenseKeyFormatting('---', 3)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: licenseKeyFormatting('a-bc-DEF-123', 2)\n  標準輸出: 'A-BC-DE-F1-23\\n'\n  你的輸出: 'A-BC-DE-F1-23'\n\n[測試#7] ❌ 失敗\n  標準輸入: licenseKeyFormatting('--a--b-c--', 2)\n  標準輸出: 'A-BC\\n'\n  你的輸出: 'A-BC'\n\n[測試#8] ❌ 失敗\n  標準輸入: licenseKeyFormatting('12345', 2)\n  標準輸出: '1-23-45\\n'\n  你的輸出: '1-23-45'\n\n[測試#9] ❌ 失敗\n  標準輸入: licenseKeyFormatting('abc', 3)\n  標準輸出: 'ABC\\n'\n  你的輸出: 'ABC'\n\n[測試#10] ❌ 失敗\n  標準輸入: licenseKeyFormatting('123-456', 1)\n  標準輸出: '1-2-3-4-5-6\\n'\n  你的輸出: '1-2-3-4-5-6'\n\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode1009.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Complement of Base 10 Integer",
+    "description": "The complement of an integer is the integer you get when you flip all the 0's to 1's and all the 1's to 0's in its binary representation.\n\nFor example, The integer 5 is \"101\" in binary and its complement is \"010\" which is the integer 2.\nGiven an integer n, return its complement.",
+    "examples": [
+      {
+        "input": "n = 5",
+        "output": "2",
+        "explanation": "5 is \"101\" in binary, with complement \"010\" in binary, which is 2 in base-10."
+      },
+      {
+        "input": "n = 7",
+        "output": "0",
+        "explanation": "7 is \"111\" in binary, with complement \"000\" in binary, which is 0 in base-10."
+      },
+      {
+        "input": "n = 10",
+        "output": "5",
+        "explanation": "10 is \"1010\" in binary, with complement \"0101\" in binary, which is 5 in base-10."
+      }
+    ],
+    "solution": "class Solution:\n    def bitwiseComplement(self, n):\n        if n == 0:\n            return 1\n        bit_length = n.bit_length()\n        mask = (1 << bit_length) - 1\n        return n ^ mask"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "5\n",
+        "output": "2\n"
+      },
+      {
+        "input": "6\n",
+        "output": "1\n"
+      },
+      {
+        "input": "7\n",
+        "output": "0\n"
+      },
+      {
+        "input": "8\n",
+        "output": "7\n"
+      },
+      {
+        "input": "9\n",
+        "output": "6\n"
+      },
+      {
+        "input": "10\n",
+        "output": "5\n"
+      },
+      {
+        "input": "15\n",
+        "output": "0\n"
+      },
+      {
+        "input": "16\n",
+        "output": "15\n"
+      },
+      {
+        "input": "31\n",
+        "output": "0\n"
+      },
+      {
+        "input": "32\n",
+        "output": "31\n"
+      },
+      {
+        "input": "123456\n",
+        "output": "7615\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2147483648\n",
+        "output": "2147483647\n"
+      }
+    ],
+    "parsed_tests": [
+      "('bitwiseComplement', (0,), 1)",
+      "('bitwiseComplement', (1,), 0)",
+      "('bitwiseComplement', (2,), 1)",
+      "('bitwiseComplement', (3,), 0)",
+      "('bitwiseComplement', (4,), 3)",
+      "('bitwiseComplement', (5,), 2)",
+      "('bitwiseComplement', (6,), 1)",
+      "('bitwiseComplement', (7,), 0)",
+      "('bitwiseComplement', (8,), 7)",
+      "('bitwiseComplement', (9,), 6)",
+      "('bitwiseComplement', (10,), 5)",
+      "('bitwiseComplement', (15,), 0)",
+      "('bitwiseComplement', (16,), 15)",
+      "('bitwiseComplement', (31,), 0)",
+      "('bitwiseComplement', (32,), 31)",
+      "('bitwiseComplement', (123456,), 7615)",
+      "('bitwiseComplement', (2147483647,), 0)",
+      "('bitwiseComplement', (2147483648,), 2147483647)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: bitwiseComplement(0,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: bitwiseComplement(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: bitwiseComplement(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: bitwiseComplement(3,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: bitwiseComplement(4,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: bitwiseComplement(5,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: bitwiseComplement(6,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: bitwiseComplement(7,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: bitwiseComplement(8,)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#10] ✅ 通過\n  標準輸入: bitwiseComplement(9,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#11] ✅ 通過\n  標準輸入: bitwiseComplement(10,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#12] ✅ 通過\n  標準輸入: bitwiseComplement(15,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#13] ✅ 通過\n  標準輸入: bitwiseComplement(16,)\n  標準輸出: 15\n  你的輸出: 15\n\n[測試#14] ✅ 通過\n  標準輸入: bitwiseComplement(31,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: bitwiseComplement(32,)\n  標準輸出: 31\n  你的輸出: 31\n\n[測試#16] ✅ 通過\n  標準輸入: bitwiseComplement(123456,)\n  標準輸出: 7615\n  你的輸出: 7615\n\n[測試#17] ✅ 通過\n  標準輸入: bitwiseComplement(2147483647,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#18] ✅ 通過\n  標準輸入: bitwiseComplement(2147483648,)\n  標準輸出: 2147483647\n  你的輸出: 2147483647\n\n=== 測試完成 (18/18) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 18,
+    "passed_count": 18,
+    "accuracy_rate": 1.0
+  }
+}

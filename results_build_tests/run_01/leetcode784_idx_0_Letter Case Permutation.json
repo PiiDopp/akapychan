@@ -1,0 +1,63 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode784.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Letter Case Permutation",
+    "description": "Given a string s, you can transform every letter individually to be lowercase or uppercase to create another string.\n\nReturn a list of all possible strings we could create. Return the output in any order.",
+    "examples": [
+      {
+        "input": "s = \"a1b2\"",
+        "output": "[\"a1b2\",\"a1B2\",\"A1b2\",\"A1B2\"]"
+      },
+      {
+        "input": "s = \"3z4\"",
+        "output": "[\"3z4\",\"3Z4\"]"
+      }
+    ],
+    "solution": "class Solution:\n    def letterCasePermutation(self, s):\n        res = ['']\n        for char in s:\n            if char.isalpha():\n                res = [r + c for r in res for c in [char.lower(), char.upper()]]\n            else:\n                res = [r + char for r in res]\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "a\n",
+        "output": "['a', 'A']\n"
+      },
+      {
+        "input": "ab\n",
+        "output": "['ab', 'aB', 'Ab', 'AB']\n"
+      },
+      {
+        "input": "a1b\n",
+        "output": "['a1b', 'a1B', 'A1b', 'A1B']\n"
+      },
+      {
+        "input": "aa\n",
+        "output": "['aa', 'aA', 'Aa', 'AA']\n"
+      },
+      {
+        "input": "abc\n",
+        "output": "['abc', 'abC', 'aBc', 'aBC', 'Abc', 'AbC', 'ABc', 'ABC']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('letterCasePermutation', ((),), [])",
+      "('letterCasePermutation', ('a\\n',), ['a', 'A'])",
+      "('letterCasePermutation', ('ab\\n',), ['ab', 'aB', 'Ab', 'AB'])",
+      "('letterCasePermutation', ('a1b\\n',), ['a1b', 'a1B', 'A1b', 'A1B'])",
+      "('letterCasePermutation', ('aa\\n',), ['aa', 'aA', 'Aa', 'AA'])",
+      "('letterCasePermutation', ('abc\\n',), ['abc', 'abC', 'aBc', 'aBC', 'Abc', 'AbC', 'ABc', 'ABC'])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: letterCasePermutation((),)\n  標準輸出: []\n  你的輸出: ['']\n\n[測試#2] ❌ 失敗\n  標準輸入: letterCasePermutation('a\\n',)\n  標準輸出: ['a', 'A']\n  你的輸出: ['a\\n', 'A\\n']\n\n[測試#3] ❌ 失敗\n  標準輸入: letterCasePermutation('ab\\n',)\n  標準輸出: ['ab', 'aB', 'Ab', 'AB']\n  你的輸出: ['ab\\n', 'aB\\n', 'Ab\\n', 'AB\\n']\n\n[測試#4] ❌ 失敗\n  標準輸入: letterCasePermutation('a1b\\n',)\n  標準輸出: ['a1b', 'a1B', 'A1b', 'A1B']\n  你的輸出: ['a1b\\n', 'a1B\\n', 'A1b\\n', 'A1B\\n']\n\n[測試#5] ❌ 失敗\n  標準輸入: letterCasePermutation('aa\\n',)\n  標準輸出: ['aa', 'aA', 'Aa', 'AA']\n  你的輸出: ['aa\\n', 'aA\\n', 'Aa\\n', 'AA\\n']\n\n[測試#6] ❌ 失敗\n  標準輸入: letterCasePermutation('abc\\n',)\n  標準輸出: ['abc', 'abC', 'aBc', 'aBC', 'Abc', 'AbC', 'ABc', 'ABC']\n  你的輸出: ['abc\\n', 'abC\\n', 'aBc\\n', 'aBC\\n', 'Abc\\n', 'AbC\\n', 'ABc\\n', 'ABC\\n']\n\n=== 測試完成 (0/6) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 6,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

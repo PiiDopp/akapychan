@@ -1,0 +1,90 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode646.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum Length of Pair Chain",
+    "description": "You are given an array of n pairs pairs where pairs[i] = [lefti, righti] and lefti < righti.\n\nA pair p2 = [c, d] follows a pair p1 = [a, b] if b < c. A chain of pairs can be formed in this fashion.\n\nReturn the length longest chain which can be formed.\n\nYou do not need to use up all the given intervals. You can select pairs in any order.",
+    "examples": [
+      {
+        "input": "pairs = [[1,2],[2,3],[3,4]]",
+        "output": "2",
+        "explanation": "The longest chain is [1,2] -> [3,4]."
+      },
+      {
+        "input": "pairs = [[1,2],[7,8],[4,5]]",
+        "output": "3",
+        "explanation": "The longest chain is [1,2] -> [4,5] -> [7,8]."
+      }
+    ],
+    "solution": "class Solution:\n    def findLongestChain(self, pairs):\n        pairs.sort(key=lambda x: x[1])\n        curr = float('-inf')\n        count = 0\n        for a, b in pairs:\n            if a > curr:\n                curr = b\n                count += 1\n        return count"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2\n3 4\n5 6\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1 3\n2 4\n3 5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5 6\n1 2\n3 4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "-10 -5\n-4 -1\n0 5\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1 2\n1 2\n3 4\n",
+        "output": "2\n"
+      },
+      {
+        "input": "0 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000 2000000\n2000001 3000000\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 2\n3 4\n5 6\n7 8\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1 3\n2 3\n4 5\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 2\n2 3\n3 4\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findLongestChain', ('1 2\\n3 4\\n5 6\\n',), 3)",
+      "('findLongestChain', ('1 3\\n2 4\\n3 5\\n',), 1)",
+      "('findLongestChain', ('5 6\\n1 2\\n3 4\\n',), 3)",
+      "('findLongestChain', ('-10 -5\\n-4 -1\\n0 5\\n',), 3)",
+      "('findLongestChain', ('1 2\\n1 2\\n3 4\\n',), 2)",
+      "('findLongestChain', ('0 1\\n',), 1)",
+      "('findLongestChain', ((),), 0)",
+      "('findLongestChain', ('1000000 2000000\\n2000001 3000000\\n',), 2)",
+      "('findLongestChain', ('1 2\\n3 4\\n5 6\\n7 8\\n',), 4)",
+      "('findLongestChain', ('1 3\\n2 3\\n4 5\\n',), 2)",
+      "('findLongestChain', ('1 2\\n2 3\\n3 4\\n',), 2)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#11] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (0/11) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 11,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode691.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Stickers to Spell Word",
+    "description": "We are given n different types of stickers. Each sticker has a lowercase English word on it.\nYou would like to spell out the given string target by cutting individual letters from your collection of stickers and rearranging them. You can use each sticker more than once if you want, and you have infinite quantities of each sticker.\nReturn the minimum number of stickers that you need to spell out target. If the task is impossible, return -1.\n\nNote: In all test cases, all words were chosen randomly from the 1000 most common US English words, and target was chosen as a concatenation of two random words.",
+    "examples": [
+      {
+        "input": "stickers = [\"with\",\"example\",\"science\"], target = \"thehat\"",
+        "output": "3",
+        "explanation": "We can use 2 \"with\" stickers, and 1 \"example\" sticker. \nAfter cutting and rearrange the letters of those stickers, we can form the target \"thehat\". \nAlso, this is the minimum number of stickers necessary to form the target string."
+      },
+      {
+        "input": "stickers = [\"notice\",\"possible\"], target = \"basicbasic\"",
+        "output": "-1",
+        "explanation": "We cannot form the target \"basicbasic\" from cutting letters from the given stickers."
+      }
+    ],
+    "solution": "class Solution(object):\n    def minStickers(self, stickers, target):\n        from collections import Counter\n\n        m = len(stickers)\n        sticker_count = [Counter(s) for s in stickers]\n        memo = {}\n\n        def dp(t):\n            if t == \"\":\n                return 0\n            if t in memo:\n                return memo[t]\n\n            t_count = Counter(t)\n            ans = float('inf')\n            for s in sticker_count:\n                if t[0] not in s:\n                    continue\n                new_t = ''.join([c * max(0, t_count[c] - s.get(c, 0)) for c in t_count])\n                tmp = dp(new_t)\n                if tmp != -1:\n                    ans = min(ans, 1 + tmp)\n            memo[t] = -1 if ans == float('inf') else ans\n            return memo[t]\n\n        return dp(target)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "{'stickers': ['abc'], 'target': 'ab'}\n",
+        "output": "1\n"
+      },
+      {
+        "input": "{'stickers': ['ab', 'bc'], 'target': 'abc'}\n",
+        "output": "2\n"
+      },
+      {
+        "input": "{'stickers': ['ab', 'bc'], 'target': 'abcd'}\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "{'stickers': ['ab', 'bc'], 'target': ''}\n",
+        "output": "0\n"
+      },
+      {
+        "input": "{'stickers': [], 'target': 'a'}\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "{'stickers': ['aa'], 'target': 'aaaaa'}\n",
+        "output": "3\n"
+      },
+      {
+        "input": "{'stickers': ['abcd'], 'target': 'abcd'}\n",
+        "output": "1\n"
+      },
+      {
+        "input": "{'stickers': ['ab'], 'target': 'abab'}\n",
+        "output": "2\n"
+      },
+      {
+        "input": "{'stickers': ['ab', 'cd'], 'target': 'ac'}\n",
+        "output": "2\n"
+      },
+      {
+        "input": "{'stickers': ['ab', 'bc'], 'target': 'aabbcc'}\n",
+        "output": "4\n"
+      },
+      {
+        "input": "{'stickers': ['ab'], 'target': 'aba'}\n",
+        "output": "2\n"
+      },
+      {
+        "input": "{'stickers': ['ab'], 'target': 'ababa'}\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minStickers', (\"{'stickers': ['abc'], 'target': 'ab'}\\n\",), 1)",
+      "('minStickers', (\"{'stickers': ['ab', 'bc'], 'target': 'abc'}\\n\",), 2)",
+      "('minStickers', (\"{'stickers': ['ab', 'bc'], 'target': 'abcd'}\\n\",), -1)",
+      "('minStickers', (\"{'stickers': ['ab', 'bc'], 'target': ''}\\n\",), 0)",
+      "('minStickers', (\"{'stickers': [], 'target': 'a'}\\n\",), -1)",
+      "('minStickers', (\"{'stickers': ['aa'], 'target': 'aaaaa'}\\n\",), 3)",
+      "('minStickers', (\"{'stickers': ['abcd'], 'target': 'abcd'}\\n\",), 1)",
+      "('minStickers', (\"{'stickers': ['ab'], 'target': 'abab'}\\n\",), 2)",
+      "('minStickers', (\"{'stickers': ['ab', 'cd'], 'target': 'ac'}\\n\",), 2)",
+      "('minStickers', (\"{'stickers': ['ab', 'bc'], 'target': 'aabbcc'}\\n\",), 4)",
+      "('minStickers', (\"{'stickers': ['ab'], 'target': 'aba'}\\n\",), 2)",
+      "('minStickers', (\"{'stickers': ['ab'], 'target': 'ababa'}\\n\",), 3)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#2] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#3] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#4] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#5] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#6] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#7] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#8] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#9] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#10] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#11] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#12] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

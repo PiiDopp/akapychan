@@ -1,0 +1,35 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode888.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Fair Candy Swap",
+    "description": "Alice and Bob have a different total number of candies. You are given two integer arrays aliceSizes and bobSizes where aliceSizes[i] is the number of candies of the ith box of candy that Alice has and bobSizes[j] is the number of candies of the jth box of candy that Bob has.\n\nSince they are friends, they would like to exchange one candy box each so that after the exchange, they both have the same total amount of candy. The total amount of candy a person has is the sum of the number of candies in each box they have.\n\nReturn an integer array answer where answer[0] is the number of candies in the box that Alice must exchange, and answer[1] is the number of candies in the box that Bob must exchange. If there are multiple answers, you may return any one of them. It is guaranteed that at least one answer exists.",
+    "examples": [
+      {
+        "input": "aliceSizes = [1,1], bobSizes = [2,2]",
+        "output": "[1,2]"
+      },
+      {
+        "input": "aliceSizes = [1,2], bobSizes = [2,3]",
+        "output": "[1,2]"
+      },
+      {
+        "input": "aliceSizes = [2], bobSizes = [1,3]",
+        "output": "[2,3]"
+      }
+    ],
+    "solution": "class Solution(object):\n    def fairCandySwap(self, A, B):\n        \"\"\"\n        :type A: List[int]\n        :type B: List[int]\n        :rtype: List[int]\n        \"\"\"\n        sumA, sumB = sum(A), sum(B)\n        setB = set(B)\n        delta = (sumA - sumB) // 2\n        for a in A:\n            if a - delta in setB:\n                return [a, a - delta]"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

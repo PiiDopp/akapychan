@@ -1,0 +1,38 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode326.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Power of Three",
+    "description": "Given an integer n, return true if it is a power of three. Otherwise, return false.\n\nAn integer n is a power of three, if there exists an integer x such that n == 3^x.",
+    "examples": [
+      {
+        "input": "n = 27",
+        "output": "true",
+        "explanation": "27 = 3^3"
+      },
+      {
+        "input": "n = 0",
+        "output": "false",
+        "explanation": "There is no x where 3^x = 0."
+      },
+      {
+        "input": "n = -1",
+        "output": "false",
+        "explanation": "There is no x where 3^x = -1."
+      }
+    ],
+    "solution": "class Solution:\n    def isPowerOfThree(self, n):\n        if n <= 0:\n            return False\n        while n % 3 == 0:\n            n //= 3\n        return n == 1"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

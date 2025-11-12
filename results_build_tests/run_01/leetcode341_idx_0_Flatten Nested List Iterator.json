@@ -1,0 +1,33 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode341.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Flatten Nested List Iterator",
+    "description": "You are given a nested list of integers nestedList. Each element is either an integer or a list whose elements may also be integers or other lists. Implement an iterator to flatten it.\n\nImplement the NestedIterator class:\n\nNestedIterator(List<NestedInteger> nestedList) Initializes the iterator with the nested list nestedList.\nint next() Returns the next integer in the nested list.\nboolean hasNext() Returns true if there are still some integers in the nested list and false otherwise.\nYour code will be tested with the following pseudocode:\n\ninitialize iterator with nestedList\nres = []\nwhile iterator.hasNext()\n    append iterator.next() to the end of res\nreturn res\nIf res matches the expected flattened list, then your code will be judged as correct.",
+    "examples": [
+      {
+        "input": "nestedList = [[1,1],2,[1,1]]",
+        "output": "[1,1,2,1,1]",
+        "explanation": "By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,1,2,1,1]."
+      },
+      {
+        "input": "nestedList = [1,[4,[6]]]",
+        "output": "[1,4,6]",
+        "explanation": "By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,4,6]."
+      }
+    ],
+    "solution": "class NestedIterator:\n    def __init__(self, nestedList):\n        self.stack = nestedList[::-1]\n\n    def next(self):\n        return self.stack.pop().getInteger()\n\n    def hasNext(self):\n        while self.stack:\n            top = self.stack[-1]\n            if top.isInteger():\n                return True\n            self.stack.pop()\n            self.stack.extend(top.getList()[::-1])\n        return False"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "非 LeetCode 格式程式碼",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

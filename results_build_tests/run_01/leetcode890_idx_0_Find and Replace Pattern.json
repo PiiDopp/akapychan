@@ -1,0 +1,84 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode890.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Find and Replace Pattern",
+    "description": "Given a list of strings words and a string pattern, return a list of words[i] that match pattern. You may return the answer in any order.\n\nA word matches the pattern if there exists a permutation of letters p so that after replacing every letter x in the pattern with p(x), we get the desired word.\n\nRecall that a permutation of letters is a bijection from letters to letters: every letter maps to another letter, and no two letters map to the same letter.",
+    "examples": [
+      {
+        "input": "words = [\"abc\",\"deq\",\"mee\",\"aqq\",\"dkd\",\"ccc\"], pattern = \"abb\"",
+        "output": "[\"mee\",\"aqq\"]",
+        "explanation": "\"mee\" matches the pattern because there is a permutation {a -> m, b -> e, ...}. \n\"ccc\" does not match the pattern because {a -> c, b -> c, ...} is not a permutation, since a and b map to the same letter."
+      },
+      {
+        "input": "words = [\"a\",\"b\",\"c\"], pattern = \"a\"",
+        "output": "[\"a\",\"b\",\"c\"]"
+      }
+    ],
+    "solution": "class Solution(object):\n    def findAndReplacePattern(self, words, pattern):\n        \"\"\"\n        :type words: List[str]\n        :type pattern: str\n        :rtype: List[str]\n        \"\"\"\n        res = []\n        for word in words:\n            if len(word) != len(pattern):\n                continue\n            w_to_p = {}\n            p_to_w = {}\n            match = True\n            for w_char, p_char in zip(word, pattern):\n                if w_char in w_to_p and w_to_p[w_char] != p_char:\n                    match = False\n                    break\n                if p_char in p_to_w and p_to_w[p_char] != w_char:\n                    match = False\n                    break\n                w_to_p[w_char] = p_char\n                p_to_w[p_char] = w_char\n            if match:\n                res.append(word)\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'abb']\n",
+        "output": "['mee', 'aqq']\n"
+      },
+      {
+        "input": "[['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'xyz']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['a', 'ab', 'abc'], 'a']\n",
+        "output": "['a']\n"
+      },
+      {
+        "input": "[['bb', 'cc', 'dd'], 'aa']\n",
+        "output": "['bb', 'cc', 'dd']\n"
+      },
+      {
+        "input": "[['aa', 'bb'], 'ab']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['def', 'ghi', 'xyz'], 'abc']\n",
+        "output": "['def', 'ghi', 'xyz']\n"
+      },
+      {
+        "input": "[[], 'a']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['a', 'b', 'c'], '']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['', 'a', 'b'], '']\n",
+        "output": "['']\n"
+      },
+      {
+        "input": "[['ab', 'cd'], 'abc']\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findAndReplacePattern', (['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'abb'), ['mee', 'aqq'])",
+      "('findAndReplacePattern', (['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'xyz'), [])",
+      "('findAndReplacePattern', (['a', 'ab', 'abc'], 'a'), ['a'])",
+      "('findAndReplacePattern', (['bb', 'cc', 'dd'], 'aa'), ['bb', 'cc', 'dd'])",
+      "('findAndReplacePattern', (['aa', 'bb'], 'ab'), [])",
+      "('findAndReplacePattern', (['def', 'ghi', 'xyz'], 'abc'), ['def', 'ghi', 'xyz'])",
+      "('findAndReplacePattern', ([], 'a'), [])",
+      "('findAndReplacePattern', (['a', 'b', 'c'], ''), [])",
+      "('findAndReplacePattern', (['', 'a', 'b'], ''), [''])",
+      "('findAndReplacePattern', (['ab', 'cd'], 'abc'), [])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findAndReplacePattern(['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'abb')\n  標準輸出: ['mee', 'aqq']\n  你的輸出: ['mee', 'aqq']\n\n[測試#2] ❌ 失敗\n  標準輸入: findAndReplacePattern(['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'xyz')\n  標準輸出: []\n  你的輸出: ['abc', 'deq']\n\n[測試#3] ✅ 通過\n  標準輸入: findAndReplacePattern(['a', 'ab', 'abc'], 'a')\n  標準輸出: ['a']\n  你的輸出: ['a']\n\n[測試#4] ✅ 通過\n  標準輸入: findAndReplacePattern(['bb', 'cc', 'dd'], 'aa')\n  標準輸出: ['bb', 'cc', 'dd']\n  你的輸出: ['bb', 'cc', 'dd']\n\n[測試#5] ✅ 通過\n  標準輸入: findAndReplacePattern(['aa', 'bb'], 'ab')\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: findAndReplacePattern(['def', 'ghi', 'xyz'], 'abc')\n  標準輸出: ['def', 'ghi', 'xyz']\n  你的輸出: ['def', 'ghi', 'xyz']\n\n[測試#7] ✅ 通過\n  標準輸入: findAndReplacePattern([], 'a')\n  標準輸出: []\n  你的輸出: []\n\n[測試#8] ✅ 通過\n  標準輸入: findAndReplacePattern(['a', 'b', 'c'], '')\n  標準輸出: []\n  你的輸出: []\n\n[測試#9] ✅ 通過\n  標準輸入: findAndReplacePattern(['', 'a', 'b'], '')\n  標準輸出: ['']\n  你的輸出: ['']\n\n[測試#10] ✅ 通過\n  標準輸入: findAndReplacePattern(['ab', 'cd'], 'abc')\n  標準輸出: []\n  你的輸出: []\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

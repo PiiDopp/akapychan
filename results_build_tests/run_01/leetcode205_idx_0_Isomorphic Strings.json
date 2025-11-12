@@ -1,0 +1,119 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode205.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Isomorphic Strings",
+    "description": "Given two strings s and t, determine if they are isomorphic.\n\nTwo strings s and t are isomorphic if the characters in s can be replaced to get t.\n\nAll occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.",
+    "examples": [
+      {
+        "input": "s = \"egg\", t = \"add\"",
+        "output": "true",
+        "explanation": "The strings s and t can be made identical by: Mapping 'e' to 'a'; Mapping 'g' to 'd'."
+      },
+      {
+        "input": "s = \"foo\", t = \"bar\"",
+        "output": "false",
+        "explanation": "The strings s and t can not be made identical as 'o' needs to be mapped to both 'a' and 'r'."
+      },
+      {
+        "input": "s = \"paper\", t = \"title\"",
+        "output": "true"
+      }
+    ],
+    "solution": "class Solution:\n    def isIsomorphic(self, s, t):\n        if len(s) != len(t):\n            return False\n        mapping_s_t = {}\n        mapping_t_s = {}\n        for c1, c2 in zip(s, t):\n            if c1 in mapping_s_t and mapping_s_t[c1] != c2:\n                return False\n            if c2 in mapping_t_s and mapping_t_s[c2] != c1:\n                return False\n            mapping_s_t[c1] = c2\n            mapping_t_s[c2] = c1\n        return True"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['egg', 'add']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['foo', 'bar']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['paper', 'title']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', 'aa']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aa', 'ab']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', 'b']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'abcd']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'abce']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['你好', '世界']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['你好', '你好']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a😊b', 'c😊d']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a😊b', 'c😊c']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['a b', 'c d']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a b', 'c d']\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isIsomorphic', ('egg', 'add'), True)",
+      "('isIsomorphic', ('foo', 'bar'), False)",
+      "('isIsomorphic', ('paper', 'title'), True)",
+      "('isIsomorphic', ('ab', 'aa'), False)",
+      "('isIsomorphic', ('aa', 'ab'), False)",
+      "('isIsomorphic', ('', ''), True)",
+      "('isIsomorphic', ('a', 'a'), True)",
+      "('isIsomorphic', ('a', 'b'), True)",
+      "('isIsomorphic', ('abcd', 'abcd'), True)",
+      "('isIsomorphic', ('abcd', 'abce'), False)",
+      "('isIsomorphic', ('你好', '世界'), False)",
+      "('isIsomorphic', ('你好', '你好'), True)",
+      "('isIsomorphic', ('a😊b', 'c😊d'), True)",
+      "('isIsomorphic', ('a😊b', 'c😊c'), False)",
+      "('isIsomorphic', ('a b', 'c d'), True)",
+      "('isIsomorphic', ('a b', 'c d'), True)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isIsomorphic('egg', 'add')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isIsomorphic('foo', 'bar')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isIsomorphic('paper', 'title')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isIsomorphic('ab', 'aa')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isIsomorphic('aa', 'ab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isIsomorphic('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isIsomorphic('a', 'a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isIsomorphic('a', 'b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isIsomorphic('abcd', 'abcd')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ❌ 失敗\n  標準輸入: isIsomorphic('abcd', 'abce')\n  標準輸出: False\n  你的輸出: True\n\n[測試#11] ❌ 失敗\n  標準輸入: isIsomorphic('你好', '世界')\n  標準輸出: False\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isIsomorphic('你好', '你好')\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isIsomorphic('a😊b', 'c😊d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isIsomorphic('a😊b', 'c😊c')\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: isIsomorphic('a b', 'c d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: isIsomorphic('a b', 'c d')\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (14/16) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 16,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

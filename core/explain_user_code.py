@@ -1,28 +1,35 @@
+# explain_user_code.py
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
+from typing import Optional
+
 from core.model_interface import build_explain_prompt, generate_response
 
+def explain_user_code(user_code: str = "", user_need: str = "") -> str:
+    if not (user_code or "").strip():
+        return "請提供要解釋的 Python 程式碼。"
+    prompt = build_explain_prompt(user_need or "", user_code)
+    resp = generate_response(prompt)
+    return resp or "[提示] 模型未回傳內容。"
 
-def explain_user_code():
-    print("=== 程式碼解釋模式 ===")
-    print("請貼上 Python 程式碼，結束輸入請輸入單獨一行 'END'。")
+app = FastAPI(title="Python 程式碼解釋 API", version="1.0.0")
 
-    lines = []
-    while True:
-        try:
-            line = input()
-        except EOFError:
-            break
-        if line.strip() == "END":
-            break
-        lines.append(line)
+class ExplainRequest(BaseModel):
+    code: str = Field(..., description="要解釋的 Python 程式碼")
+    need: Optional[str] = Field("", description="解釋背景或需求（可留空）")
 
-    user_code = "\n".join(lines)
-    if not user_code.strip():
-        print("[提示] 沒有輸入程式碼。")
-        return
+class ExplainResponse(BaseModel):
+    ok: bool
+    explanation: str
 
-    user_need = input("請輸入需求 (用於解釋背景，可留空): ").strip()
-    explain_prompt = build_explain_prompt(user_need, user_code)
-    explain_resp = generate_response(explain_prompt)
+@app.post("/explain", response_model=ExplainResponse)
+def explain(req: ExplainRequest):
+    try:
+        explanation = explain_user_code(req.code, req.need)
+        return ExplainResponse(ok=True, explanation=explanation)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"解釋失敗：{e}")
 
-    print("\n=== 模型回覆 (解釋) ===\n")
-    print(explain_resp, "\n")
+@app.get("/")
+def root():
+    return {"status": "ok"}

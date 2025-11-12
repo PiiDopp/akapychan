@@ -1,0 +1,95 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode859.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Buddy Strings",
+    "description": "Given two strings s and goal, return true if you can swap two letters in s so the result is equal to goal, otherwise, return false.\n\nSwapping letters is defined as taking two indices i and j (0-indexed) such that i != j and swapping the characters at s[i] and s[j].\n\nFor example, swapping at indices 0 and 2 in \"abcd\" results in \"cbad\".",
+    "examples": [
+      {
+        "input": "s = \"ab\", goal = \"ba\"",
+        "output": "true",
+        "explanation": "You can swap s[0] = 'a' and s[1] = 'b' to get \"ba\", which is equal to goal."
+      },
+      {
+        "input": "s = \"ab\", goal = \"ab\"",
+        "output": "false",
+        "explanation": "The only letters you can swap are s[0] = 'a' and s[1] = 'b', which results in \"ba\" != goal."
+      },
+      {
+        "input": "s = \"aa\", goal = \"aa\"",
+        "output": "true",
+        "explanation": "You can swap s[0] = 'a' and s[1] = 'a' to get \"aa\", which is equal to goal."
+      }
+    ],
+    "solution": "class Solution(object):\n    def buddyStrings(self, s, goal):\n        if len(s) != len(goal):\n            return False\n\n        if s == goal:\n            return len(set(s)) < len(s)\n\n        diffs = [(a, b) for a, b in zip(s, goal) if a != b]\n        return len(diffs) == 2 and diffs[0] == diffs[1][::-1]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['ab', 'ba']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', 'ab']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aa', 'aa']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'abdc']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'abcd']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abca', 'abca']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abca', 'abac']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'abd']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['你好', '好你']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', 'abc']\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('buddyStrings', ('ab', 'ba'), True)",
+      "('buddyStrings', ('ab', 'ab'), False)",
+      "('buddyStrings', ('aa', 'aa'), True)",
+      "('buddyStrings', ('abcd', 'abdc'), True)",
+      "('buddyStrings', ('abcd', 'abcd'), False)",
+      "('buddyStrings', ('abca', 'abca'), True)",
+      "('buddyStrings', ('abca', 'abac'), True)",
+      "('buddyStrings', ('abc', 'abd'), False)",
+      "('buddyStrings', ('a', 'a'), False)",
+      "('buddyStrings', ('你好', '好你'), True)",
+      "('buddyStrings', ('ab', 'abc'), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: buddyStrings('ab', 'ba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: buddyStrings('ab', 'ab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: buddyStrings('aa', 'aa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: buddyStrings('abcd', 'abdc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: buddyStrings('abcd', 'abcd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: buddyStrings('abca', 'abca')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: buddyStrings('abca', 'abac')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: buddyStrings('abc', 'abd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: buddyStrings('a', 'a')\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: buddyStrings('你好', '好你')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: buddyStrings('ab', 'abc')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (11/11) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 11,
+    "passed_count": 11,
+    "accuracy_rate": 1.0
+  }
+}

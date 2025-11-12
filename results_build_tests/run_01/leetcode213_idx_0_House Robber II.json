@@ -1,0 +1,104 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode213.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "House Robber II",
+    "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have a security system connected, and it will automatically contact the police if two adjacent houses were broken into on the same night.\n\nGiven an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
+    "examples": [
+      {
+        "input": "nums = [2,3,2]",
+        "output": "3",
+        "explanation": "You cannot rob house 1 (money = 2) and then rob house 3 (money = 2), because they are adjacent houses."
+      },
+      {
+        "input": "nums = [1,2,3,1]",
+        "output": "4",
+        "explanation": "Rob house 1 (money = 1) and then rob house 3 (money = 3). Total amount you can rob = 1 + 3 = 4."
+      },
+      {
+        "input": "nums = [1,2,3]",
+        "output": "3"
+      }
+    ],
+    "solution": "class Solution:\n    def rob(self, nums):\n        if not nums:\n            return 0\n        if len(nums) == 1:\n            return nums[0]\n        \n        def rob_linear(houses):\n            prev, curr = 0, 0\n            for num in houses:\n                prev, curr = curr, max(curr, prev + num)\n            return curr\n        \n        return max(rob_linear(nums[:-1]), rob_linear(nums[1:]))"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2\n3\n2\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1\n2\n3\n1\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n7\n9\n3\n1\n",
+        "output": "11\n"
+      },
+      {
+        "input": "4\n1\n2\n7\n5\n3\n1\n",
+        "output": "14\n"
+      },
+      {
+        "input": "0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000000\n1\n1\n1\n1000000000\n",
+        "output": "1000000001\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "2\n1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1\n2\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "6\n"
+      },
+      {
+        "input": "5\n5\n5\n5\n",
+        "output": "10\n"
+      }
+    ],
+    "parsed_tests": [
+      "('rob', ((2, 3, 2),), 4)",
+      "('rob', ((1, 2, 3, 1),), 4)",
+      "('rob', (1,), 1)",
+      "('rob', ((),), 0)",
+      "('rob', ((2, 7, 9, 3, 1),), 11)",
+      "('rob', ((4, 1, 2, 7, 5, 3, 1),), 14)",
+      "('rob', ((0, 0, 0),), 0)",
+      "('rob', ((1000000000, 1, 1, 1, 1000000000),), 1000000001)",
+      "('rob', ((1, 2),), 2)",
+      "('rob', ((2, 1),), 2)",
+      "('rob', ((1, 2, 3),), 3)",
+      "('rob', ((1, 2, 3, 4),), 6)",
+      "('rob', ((5, 5, 5, 5),), 10)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: rob((2, 3, 2),)\n  標準輸出: 4\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: rob((1, 2, 3, 1),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ✅ 通過\n  標準輸入: rob((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: rob((2, 7, 9, 3, 1),)\n  標準輸出: 11\n  你的輸出: 11\n\n[測試#6] ✅ 通過\n  標準輸入: rob((4, 1, 2, 7, 5, 3, 1),)\n  標準輸出: 14\n  你的輸出: 14\n\n[測試#7] ✅ 通過\n  標準輸入: rob((0, 0, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: rob((1000000000, 1, 1, 1, 1000000000),)\n  標準輸出: 1000000001\n  你的輸出: 1000000001\n\n[測試#9] ✅ 通過\n  標準輸入: rob((1, 2),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ✅ 通過\n  標準輸入: rob((2, 1),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#11] ✅ 通過\n  標準輸入: rob((1, 2, 3),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#12] ✅ 通過\n  標準輸入: rob((1, 2, 3, 4),)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#13] ✅ 通過\n  標準輸入: rob((5, 5, 5, 5),)\n  標準輸出: 10\n  你的輸出: 10\n\n=== 測試完成 (11/13) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 13,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

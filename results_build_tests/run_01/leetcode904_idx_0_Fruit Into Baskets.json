@@ -1,0 +1,115 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode904.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Fruit Into Baskets",
+    "description": "You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array fruits where fruits[i] is the type of fruit the ith tree produces.\n\nYou want to collect as much fruit as possible. However, the owner has some strict rules that you must follow:\n\nYou only have two baskets, and each basket can only hold a single type of fruit. There is no limit on the amount of fruit each basket can hold.\nStarting from any tree of your choice, you must pick exactly one fruit from every tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.\nOnce you reach a tree with fruit that cannot fit in your baskets, you must stop.\nGiven the integer array fruits, return the maximum number of fruits you can pick.",
+    "examples": [
+      {
+        "input": "fruits = [1,2,1]",
+        "output": "3",
+        "explanation": "We can pick from all 3 trees."
+      },
+      {
+        "input": "fruits = [0,1,2,2]",
+        "output": "3",
+        "explanation": "We can pick from trees [1,2,2]. If we had started at the first tree, we would only pick from trees [0,1]."
+      },
+      {
+        "input": "fruits = [1,2,3,2,2]",
+        "output": "4",
+        "explanation": "We can pick from trees [2,3,2,2]. If we had started at the first tree, we would only pick from trees [1,2]."
+      }
+    ],
+    "solution": "class Solution(object):\n    def totalFruit(self, fruits):\n        from collections import defaultdict\n        count = defaultdict(int)\n        left = 0\n        max_fruit = 0\n        for right, fruit in enumerate(fruits):\n            count[fruit] += 1\n            while len(count) > 2:\n                count[fruits[left]] -= 1\n                if count[fruits[left]] == 0:\n                    del count[fruits[left]]\n                left += 1\n            max_fruit = max(max_fruit, right - left + 1)\n        return max_fruit"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "7\n7\n7\n7\n7\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1\n2\n1\n2\n1\n2\n1\n2\n",
+        "output": "8\n"
+      },
+      {
+        "input": "1\n2\n3\n3\n3\n3\n3\n2\n1\n",
+        "output": "7\n"
+      },
+      {
+        "input": "-1\n-1\n2\n2\n-1\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1000000\n1000000\n999999\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1\n1\n1\n2\n2\n2\n3\n3\n3\n",
+        "output": "6\n"
+      },
+      {
+        "input": "3\n3\n3\n1\n2\n2\n2\n2\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1\n1\n3\n3\n3\n2\n2\n2\n",
+        "output": "6\n"
+      },
+      {
+        "input": "1\n1\n1\n2\n2\n2\n3\n3\n3\n2\n2\n2\n1\n1\n1\n",
+        "output": "6\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1\n2\n1\n1\n1\n2\n2\n2\n1\n",
+        "output": "7\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n1\n1\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1\n1\n2\n3\n4\n5\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('totalFruit', ((),), 0)",
+      "('totalFruit', (5,), 1)",
+      "('totalFruit', ((7, 7, 7, 7, 7),), 5)",
+      "('totalFruit', ((1, 2, 1, 2, 1, 2, 1, 2),), 8)",
+      "('totalFruit', ((1, 2, 3, 3, 3, 3, 3, 2, 1),), 7)",
+      "('totalFruit', ((-1, -1, 2, 2, -1),), 5)",
+      "('totalFruit', ((1000000, 1000000, 999999),), 3)",
+      "('totalFruit', ((1, 1, 1, 2, 2, 2, 3, 3, 3),), 6)",
+      "('totalFruit', ((3, 3, 3, 1, 2, 2, 2, 2),), 5)",
+      "('totalFruit', ((1, 1, 3, 3, 3, 2, 2, 2),), 6)",
+      "('totalFruit', ((1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 2, 1, 1, 1),), 6)",
+      "('totalFruit', ((1, 2, 3, 4, 5, 6),), 2)",
+      "('totalFruit', ((1, 2, 1, 1, 1, 2, 2, 2, 1),), 7)",
+      "('totalFruit', ((1, 2, 3, 4, 5, 1, 1),), 3)",
+      "('totalFruit', ((1, 1, 2, 3, 4, 5),), 3)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: totalFruit((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ✅ 通過\n  標準輸入: totalFruit((7, 7, 7, 7, 7),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#4] ✅ 通過\n  標準輸入: totalFruit((1, 2, 1, 2, 1, 2, 1, 2),)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#5] ✅ 通過\n  標準輸入: totalFruit((1, 2, 3, 3, 3, 3, 3, 2, 1),)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#6] ✅ 通過\n  標準輸入: totalFruit((-1, -1, 2, 2, -1),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#7] ✅ 通過\n  標準輸入: totalFruit((1000000, 1000000, 999999),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#8] ✅ 通過\n  標準輸入: totalFruit((1, 1, 1, 2, 2, 2, 3, 3, 3),)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: totalFruit((3, 3, 3, 1, 2, 2, 2, 2),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#10] ✅ 通過\n  標準輸入: totalFruit((1, 1, 3, 3, 3, 2, 2, 2),)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#11] ❌ 失敗\n  標準輸入: totalFruit((1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 2, 1, 1, 1),)\n  標準輸出: 6\n  你的輸出: 9\n\n[測試#12] ✅ 通過\n  標準輸入: totalFruit((1, 2, 3, 4, 5, 6),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#13] ❌ 失敗\n  標準輸入: totalFruit((1, 2, 1, 1, 1, 2, 2, 2, 1),)\n  標準輸出: 7\n  你的輸出: 9\n\n[測試#14] ✅ 通過\n  標準輸入: totalFruit((1, 2, 3, 4, 5, 1, 1),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#15] ✅ 通過\n  標準輸入: totalFruit((1, 1, 2, 3, 4, 5),)\n  標準輸出: 3\n  你的輸出: 3\n\n=== 測試完成 (12/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

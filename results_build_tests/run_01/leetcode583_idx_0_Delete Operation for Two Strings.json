@@ -1,0 +1,119 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode583.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Delete Operation for Two Strings",
+    "description": "Given two strings word1 and word2, return the minimum number of steps required to make word1 and word2 the same.\n\nIn one step, you can delete exactly one character in either string.",
+    "examples": [
+      {
+        "input": "word1 = \"sea\", word2 = \"eat\"",
+        "output": "2",
+        "explanation": "You need one step to make \"sea\" to \"ea\" and another step to make \"eat\" to \"ea\"."
+      },
+      {
+        "input": "word1 = \"leetcode\", word2 = \"etco\"",
+        "output": "4"
+      }
+    ],
+    "solution": "class Solution:\n    def minDistance(self, word1, word2):\n        m, n = len(word1), len(word2)\n        dp = [[0]*(n+1) for _ in range(m+1)]\n\n        for i in range(m+1):\n            dp[i][0] = i\n        for j in range(n+1):\n            dp[0][j] = j\n\n        for i in range(1, m+1):\n            for j in range(1, n+1):\n                if word1[i-1] == word2[j-1]:\n                    dp[i][j] = dp[i-1][j-1]\n                else:\n                    dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + 1\n\n        return dp[m][n]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['sea', 'eat']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['leetcode', 'etco']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', '']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['abc', 'abc']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', 'def']\n",
+        "output": "6\n"
+      },
+      {
+        "input": "['aaaa', 'aa']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['abcd', 'acbd']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['你好', '世界']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['你好世界', '世界你好']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['aA', 'Aa']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['aaaaa', 'aaa']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['longstring', '']\n",
+        "output": "9\n"
+      },
+      {
+        "input": "['longstring', 'longstring']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abcde', 'abc']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['aabbcc', 'abc']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['😀😃😄', '😃😀']\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minDistance', ('sea', 'eat'), 2)",
+      "('minDistance', ('leetcode', 'etco'), 4)",
+      "('minDistance', ('', ''), 0)",
+      "('minDistance', ('abc', ''), 3)",
+      "('minDistance', ('abc', 'abc'), 0)",
+      "('minDistance', ('abc', 'def'), 6)",
+      "('minDistance', ('aaaa', 'aa'), 2)",
+      "('minDistance', ('abcd', 'acbd'), 2)",
+      "('minDistance', ('你好', '世界'), 4)",
+      "('minDistance', ('你好世界', '世界你好'), 4)",
+      "('minDistance', ('aA', 'Aa'), 2)",
+      "('minDistance', ('aaaaa', 'aaa'), 2)",
+      "('minDistance', ('longstring', ''), 9)",
+      "('minDistance', ('longstring', 'longstring'), 0)",
+      "('minDistance', ('abcde', 'abc'), 2)",
+      "('minDistance', ('aabbcc', 'abc'), 3)",
+      "('minDistance', ('😀😃😄', '😃😀'), 3)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minDistance('sea', 'eat')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: minDistance('leetcode', 'etco')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: minDistance('', '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: minDistance('abc', '')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: minDistance('abc', 'abc')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: minDistance('abc', 'def')\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#7] ✅ 通過\n  標準輸入: minDistance('aaaa', 'aa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: minDistance('abcd', 'acbd')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: minDistance('你好', '世界')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: minDistance('你好世界', '世界你好')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#11] ✅ 通過\n  標準輸入: minDistance('aA', 'Aa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: minDistance('aaaaa', 'aaa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#13] ❌ 失敗\n  標準輸入: minDistance('longstring', '')\n  標準輸出: 9\n  你的輸出: 10\n\n[測試#14] ✅ 通過\n  標準輸入: minDistance('longstring', 'longstring')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: minDistance('abcde', 'abc')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#16] ✅ 通過\n  標準輸入: minDistance('aabbcc', 'abc')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#17] ✅ 通過\n  標準輸入: minDistance('😀😃😄', '😃😀')\n  標準輸出: 3\n  你的輸出: 3\n\n=== 測試完成 (16/17) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 17,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

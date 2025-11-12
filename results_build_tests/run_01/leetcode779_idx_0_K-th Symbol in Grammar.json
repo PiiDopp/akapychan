@@ -1,0 +1,140 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode779.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "K-th Symbol in Grammar",
+    "description": "We build a table of n rows (1-indexed). We start by writing 0 in the 1st row. Now in every subsequent row, we look at the previous row and replace each occurrence of 0 with 01, and each occurrence of 1 with 10.\n\nFor example, for n = 3, the 1st row is 0, the 2nd row is 01, and the 3rd row is 0110.\nGiven two integer n and k, return the k^th (1-indexed) symbol in the n^th row of a table of n rows.",
+    "examples": [
+      {
+        "input": "n = 1, k = 1",
+        "output": "0",
+        "explanation": "row 1: 0"
+      },
+      {
+        "input": "n = 2, k = 1",
+        "output": "0",
+        "explanation": "row 1: 0\nrow 2: 01"
+      },
+      {
+        "input": "n = 2, k = 2",
+        "output": "1",
+        "explanation": "row 1: 0\nrow 2: 01"
+      }
+    ],
+    "solution": "class Solution:\n    def kthGrammar(self, n, k):\n        if n == 1:\n            return 0\n        parent = self.kthGrammar(n-1, (k+1)//2)\n        if parent == 0:\n            return 0 if k % 2 == 1 else 1\n        else:\n            return 1 if k % 2 == 1 else 0"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "3\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n3\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n4\n",
+        "output": "0\n"
+      },
+      {
+        "input": "4\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "4\n8\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n8\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5\n9\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5\n16\n",
+        "output": "1\n"
+      },
+      {
+        "input": "6\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "6\n16\n",
+        "output": "0\n"
+      },
+      {
+        "input": "6\n32\n",
+        "output": "1\n"
+      },
+      {
+        "input": "7\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "7\n64\n",
+        "output": "0\n"
+      },
+      {
+        "input": "10\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "10\n512\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('kthGrammar', (1, 1), 0)",
+      "('kthGrammar', (2, 1), 0)",
+      "('kthGrammar', (2, 2), 1)",
+      "('kthGrammar', (3, 1), 0)",
+      "('kthGrammar', (3, 2), 1)",
+      "('kthGrammar', (3, 3), 1)",
+      "('kthGrammar', (3, 4), 0)",
+      "('kthGrammar', (4, 1), 0)",
+      "('kthGrammar', (4, 8), 1)",
+      "('kthGrammar', (5, 1), 0)",
+      "('kthGrammar', (5, 8), 1)",
+      "('kthGrammar', (5, 9), 1)",
+      "('kthGrammar', (5, 16), 1)",
+      "('kthGrammar', (6, 1), 0)",
+      "('kthGrammar', (6, 16), 0)",
+      "('kthGrammar', (6, 32), 1)",
+      "('kthGrammar', (7, 1), 0)",
+      "('kthGrammar', (7, 64), 0)",
+      "('kthGrammar', (10, 1), 0)",
+      "('kthGrammar', (10, 512), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: kthGrammar(1, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: kthGrammar(2, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: kthGrammar(2, 2)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: kthGrammar(3, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: kthGrammar(3, 2)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: kthGrammar(3, 3)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: kthGrammar(3, 4)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: kthGrammar(4, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: kthGrammar(4, 8)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: kthGrammar(5, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#11] ✅ 通過\n  標準輸入: kthGrammar(5, 8)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#12] ✅ 通過\n  標準輸入: kthGrammar(5, 9)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#13] ❌ 失敗\n  標準輸入: kthGrammar(5, 16)\n  標準輸出: 1\n  你的輸出: 0\n\n[測試#14] ✅ 通過\n  標準輸入: kthGrammar(6, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: kthGrammar(6, 16)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#16] ✅ 通過\n  標準輸入: kthGrammar(6, 32)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#17] ✅ 通過\n  標準輸入: kthGrammar(7, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#18] ✅ 通過\n  標準輸入: kthGrammar(7, 64)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#19] ✅ 通過\n  標準輸入: kthGrammar(10, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#20] ✅ 通過\n  標準輸入: kthGrammar(10, 512)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (19/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

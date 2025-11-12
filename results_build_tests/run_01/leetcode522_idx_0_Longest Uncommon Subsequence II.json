@@ -1,0 +1,133 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode522.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Uncommon Subsequence II",
+    "description": "Given an array of strings strs, return the length of the longest uncommon subsequence between them. If the longest uncommon subsequence does not exist, return -1.\n\nAn uncommon subsequence between an array of strings is a string that is a subsequence of one string but not the others.\n\nA subsequence of a string s is a string that can be obtained after deleting any number of characters from s.\n\nFor example, \"abc\" is a subsequence of \"aebdc\" because you can delete the underlined characters in \"aebdc\" to get \"abc\". Other subsequences of \"aebdc\" include \"aebdc\", \"aeb\", and \"\" (empty string).",
+    "examples": [
+      {
+        "input": "[\"aba\",\"cdc\",\"eae\"]",
+        "output": "3"
+      },
+      {
+        "input": "[\"aaa\",\"aaa\",\"aa\"]",
+        "output": "-1"
+      }
+    ],
+    "solution": "class Solution:\n    def findLUSlength(self, strs):\n        res = -1\n        strs.sort(key=lambda x: -len(x))\n        for i, s in enumerate(strs):\n            if all(not self.is_subsequence(s, t) for j, t in enumerate(strs) if i != j):\n                return len(s)\n        return res\n\n    def is_subsequence(self, s, t):\n        it = iter(t)\n        return all(c in it for c in s)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['a', 'b']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['ab', 'cd']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['a', 'ab']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['a', 'a', 'b']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['', 'a']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abc', 'abc']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abcd', 'ab', 'cd']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['aa', 'aaa']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['abc!', 'abc']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['你好', '你']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['a', 'a', 'a']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abcd', 'abcd', 'ab']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abcd', 'abce']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['abcd', 'abc']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['abcd', 'abc', 'abcd']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abcd', 'ab', 'cd', 'abcd']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abcd', 'ab', 'cd', 'abcd', 'ab']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abc', 'abcd', 'abcde']\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['abc', 'abcd', 'abc']\n",
+        "output": "4\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findLUSlength', (['a', 'b'],), 1)",
+      "('findLUSlength', (['ab', 'cd'],), 2)",
+      "('findLUSlength', (['ab', 'a'],), 2)",
+      "('findLUSlength', (['a', 'a', 'b'],), 1)",
+      "('findLUSlength', (['a', ''],), 1)",
+      "('findLUSlength', (['', ''],), -1)",
+      "('findLUSlength', (['abc', 'abc'],), -1)",
+      "('findLUSlength', (['abcd', 'ab', 'cd'],), 4)",
+      "('findLUSlength', (['aaa', 'aa'],), 3)",
+      "('findLUSlength', (['abc!', 'abc'],), 4)",
+      "('findLUSlength', (['你好', '你'],), 2)",
+      "('findLUSlength', (['a', 'a', 'a'],), -1)",
+      "('findLUSlength', (['abcd', 'abcd', 'ab'],), -1)",
+      "('findLUSlength', (['abcd', 'abce'],), 4)",
+      "('findLUSlength', (['abcd', 'abc'],), 4)",
+      "('findLUSlength', (['abcd', 'abcd', 'abc'],), -1)",
+      "('findLUSlength', (['abcd', 'abcd', 'ab', 'cd'],), -1)",
+      "('findLUSlength', (['abcd', 'abcd', 'ab', 'cd', 'ab'],), -1)",
+      "('findLUSlength', (['abcde', 'abcd', 'abc'],), 5)",
+      "('findLUSlength', (['abcd', 'abc', 'abc'],), 4)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findLUSlength(['a', 'b'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: findLUSlength(['ab', 'cd'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: findLUSlength(['ab', 'a'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: findLUSlength(['a', 'a', 'b'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: findLUSlength(['a', ''],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: findLUSlength(['', ''],)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#7] ✅ 通過\n  標準輸入: findLUSlength(['abc', 'abc'],)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#8] ✅ 通過\n  標準輸入: findLUSlength(['abcd', 'ab', 'cd'],)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#9] ✅ 通過\n  標準輸入: findLUSlength(['aaa', 'aa'],)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#10] ✅ 通過\n  標準輸入: findLUSlength(['abc!', 'abc'],)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#11] ✅ 通過\n  標準輸入: findLUSlength(['你好', '你'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: findLUSlength(['a', 'a', 'a'],)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#13] ✅ 通過\n  標準輸入: findLUSlength(['abcd', 'abcd', 'ab'],)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#14] ✅ 通過\n  標準輸入: findLUSlength(['abcd', 'abce'],)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#15] ✅ 通過\n  標準輸入: findLUSlength(['abcd', 'abc'],)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#16] ✅ 通過\n  標準輸入: findLUSlength(['abcd', 'abcd', 'abc'],)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#17] ✅ 通過\n  標準輸入: findLUSlength(['abcd', 'abcd', 'ab', 'cd'],)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#18] ✅ 通過\n  標準輸入: findLUSlength(['abcd', 'abcd', 'ab', 'cd', 'ab'],)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#19] ✅ 通過\n  標準輸入: findLUSlength(['abcde', 'abcd', 'abc'],)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#20] ✅ 通過\n  標準輸入: findLUSlength(['abcd', 'abc', 'abc'],)\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (20/20) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 20,
+    "passed_count": 20,
+    "accuracy_rate": 1.0
+  }
+}
