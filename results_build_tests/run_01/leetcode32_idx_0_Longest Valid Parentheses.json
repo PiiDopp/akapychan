@@ -28,22 +28,6 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "\n",
-        "output": "0\n"
-      },
-      {
-        "input": "(\n",
-        "output": "0\n"
-      },
-      {
-        "input": ")\n",
-        "output": "0\n"
-      },
-      {
-        "input": "()\n",
-        "output": "2\n"
-      },
-      {
         "input": "(()\n",
         "output": "2\n"
       },
@@ -52,58 +36,54 @@
         "output": "4\n"
       },
       {
-        "input": "()(())\n",
-        "output": "6\n"
+        "input": "\n",
+        "output": "0\n"
       },
       {
         "input": "((()))\n",
         "output": "6\n"
       },
       {
-        "input": "()()()()()\n",
-        "output": "10\n"
-      },
-      {
-        "input": "(()(()))(()())\n",
-        "output": "12\n"
-      },
-      {
-        "input": "(()))((()))\n",
+        "input": "())((()))\n",
         "output": "6\n"
       },
       {
-        "input": "(()(()))(()(()))\n",
-        "output": "16\n"
+        "input": "(()())\n",
+        "output": "6\n"
       },
       {
-        "input": "(()(()))(()(()))(()\n",
-        "output": "16\n"
+        "input": ")(()\n",
+        "output": "2\n"
       },
       {
-        "input": "(()(()))(()(()))(()(()))\n",
-        "output": "24\n"
+        "input": "((())())\n",
+        "output": "8\n"
+      },
+      {
+        "input": "(()((()))\n",
+        "output": "6\n"
+      },
+      {
+        "input": "(((((\n",
+        "output": "0\n"
       }
     ],
     "parsed_tests": [
-      "('longestValidParentheses', ((),), 0)",
-      "('longestValidParentheses', ('(\\n',), 0)",
-      "('longestValidParentheses', (')\\n',), 0)",
-      "('longestValidParentheses', ((),), 2)",
       "('longestValidParentheses', ('(()\\n',), 2)",
       "('longestValidParentheses', (')()())\\n',), 4)",
-      "('longestValidParentheses', ('()(())\\n',), 6)",
+      "('longestValidParentheses', ((),), 0)",
       "('longestValidParentheses', ((),), 6)",
-      "('longestValidParentheses', ('()()()()()\\n',), 10)",
-      "('longestValidParentheses', ('(()(()))(()())\\n',), 12)",
-      "('longestValidParentheses', ('(()))((()))\\n',), 6)",
-      "('longestValidParentheses', ('(()(()))(()(()))\\n',), 16)",
-      "('longestValidParentheses', ('(()(()))(()(()))(()\\n',), 16)",
-      "('longestValidParentheses', ('(()(()))(()(()))(()(()))\\n',), 24)"
+      "('longestValidParentheses', ('())((()))\\n',), 6)",
+      "('longestValidParentheses', ('(()())\\n',), 6)",
+      "('longestValidParentheses', (')(()\\n',), 2)",
+      "('longestValidParentheses', ('((())())\\n',), 8)",
+      "('longestValidParentheses', ('(()((()))\\n',), 6)",
+      "('longestValidParentheses', ('(((((\\n',), 0)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: longestValidParentheses((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: longestValidParentheses('(\\n',)\n  標準輸出: 0\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: longestValidParentheses(')\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ❌ 失敗\n  標準輸入: longestValidParentheses((),)\n  標準輸出: 2\n  你的輸出: 0\n\n[測試#5] ❌ 失敗\n  標準輸入: longestValidParentheses('(()\\n',)\n  標準輸出: 2\n  你的輸出: 4\n\n[測試#6] ✅ 通過\n  標準輸入: longestValidParentheses(')()())\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: longestValidParentheses('()(())\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#8] ❌ 失敗\n  標準輸入: longestValidParentheses((),)\n  標準輸出: 6\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: longestValidParentheses('()()()()()\\n',)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#10] ❌ 失敗\n  標準輸入: longestValidParentheses('(()(()))(()())\\n',)\n  標準輸出: 12\n  你的輸出: 14\n\n[測試#11] ✅ 通過\n  標準輸入: longestValidParentheses('(()))((()))\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#12] ✅ 通過\n  標準輸入: longestValidParentheses('(()(()))(()(()))\\n',)\n  標準輸出: 16\n  你的輸出: 16\n\n[測試#13] ❌ 失敗\n  標準輸入: longestValidParentheses('(()(()))(()(()))(()\\n',)\n  標準輸出: 16\n  你的輸出: 20\n\n[測試#14] ✅ 通過\n  標準輸入: longestValidParentheses('(()(()))(()(()))(()(()))\\n',)\n  標準輸出: 24\n  你的輸出: 24\n\n=== 測試完成 (8/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: longestValidParentheses('(()\\n',)\n  標準輸出: 2\n  你的輸出: 4\n\n[測試#2] ✅ 通過\n  標準輸入: longestValidParentheses(')()())\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: longestValidParentheses((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ❌ 失敗\n  標準輸入: longestValidParentheses((),)\n  標準輸出: 6\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: longestValidParentheses('())((()))\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#6] ✅ 通過\n  標準輸入: longestValidParentheses('(()())\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#7] ❌ 失敗\n  標準輸入: longestValidParentheses(')(()\\n',)\n  標準輸出: 2\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: longestValidParentheses('((())())\\n',)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#9] ❌ 失敗\n  標準輸入: longestValidParentheses('(()((()))\\n',)\n  標準輸出: 6\n  你的輸出: 10\n\n[測試#10] ❌ 失敗\n  標準輸入: longestValidParentheses('(((((\\n',)\n  標準輸出: 0\n  你的輸出: 2\n\n=== 測試完成 (5/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 14,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 10,
+    "passed_count": 5,
+    "accuracy_rate": 0.5
   }
 }

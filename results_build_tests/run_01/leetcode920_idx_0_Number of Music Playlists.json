@@ -37,6 +37,14 @@
         "output": "1\n"
       },
       {
+        "input": "1\n2\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n2\n0\n",
+        "output": "2\n"
+      },
+      {
         "input": "2\n3\n0\n",
         "output": "6\n"
       },
@@ -49,6 +57,10 @@
         "output": "6\n"
       },
       {
+        "input": "3\n4\n0\n",
+        "output": "36\n"
+      },
+      {
         "input": "3\n4\n1\n",
         "output": "18\n"
       },
@@ -57,7 +69,7 @@
         "output": "6\n"
       },
       {
-        "input": "3\n2\n0\n",
+        "input": "3\n5\n3\n",
         "output": "0\n"
       },
       {
@@ -65,8 +77,36 @@
         "output": "6\n"
       },
       {
-        "input": "4\n6\n0\n",
-        "output": "1560\n"
+        "input": "3\n4\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n1\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n2\n5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n2\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "2\n3\n2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "4\n4\n0\n",
+        "output": "24\n"
+      },
+      {
+        "input": "4\n5\n0\n",
+        "output": "240\n"
+      },
+      {
+        "input": "4\n5\n1\n",
+        "output": "144\n"
       },
       {
         "input": "5\n5\n0\n",
@@ -77,34 +117,44 @@
         "output": "1800\n"
       },
       {
-        "input": "5\n5\n1\n",
-        "output": "120\n"
+        "input": "10\n10\n0\n",
+        "output": "3628800\n"
       },
       {
-        "input": "50\n50\n0\n",
-        "output": "318608048\n"
+        "input": "3\n5\n0\n",
+        "output": "150\n"
       }
     ],
     "parsed_tests": [
       "('numMusicPlaylists', (1, 1, 0), 1)",
       "('numMusicPlaylists', (1, 2, 0), 1)",
+      "('numMusicPlaylists', (1, 2, 1), 0)",
+      "('numMusicPlaylists', (2, 2, 0), 2)",
       "('numMusicPlaylists', (2, 3, 0), 6)",
       "('numMusicPlaylists', (2, 3, 1), 2)",
       "('numMusicPlaylists', (3, 3, 0), 6)",
+      "('numMusicPlaylists', (3, 4, 0), 36)",
       "('numMusicPlaylists', (3, 4, 1), 18)",
       "('numMusicPlaylists', (3, 5, 2), 6)",
-      "('numMusicPlaylists', (3, 2, 0), 0)",
+      "('numMusicPlaylists', (3, 5, 3), 0)",
       "('numMusicPlaylists', (3, 3, 3), 6)",
-      "('numMusicPlaylists', (4, 6, 0), 1560)",
+      "('numMusicPlaylists', (3, 4, 3), 0)",
+      "('numMusicPlaylists', (1, 1, 5), 1)",
+      "('numMusicPlaylists', (1, 2, 5), 0)",
+      "('numMusicPlaylists', (2, 2, 2), 2)",
+      "('numMusicPlaylists', (2, 3, 2), 0)",
+      "('numMusicPlaylists', (4, 4, 0), 24)",
+      "('numMusicPlaylists', (4, 5, 0), 240)",
+      "('numMusicPlaylists', (4, 5, 1), 144)",
       "('numMusicPlaylists', (5, 5, 0), 120)",
       "('numMusicPlaylists', (5, 6, 0), 1800)",
-      "('numMusicPlaylists', (5, 5, 1), 120)",
-      "('numMusicPlaylists', (50, 50, 0), 318608048)"
+      "('numMusicPlaylists', (10, 10, 0), 3628800)",
+      "('numMusicPlaylists', (3, 5, 0), 150)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numMusicPlaylists(1, 1, 0)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: numMusicPlaylists(1, 2, 0)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numMusicPlaylists(2, 3, 0)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#4] ✅ 通過\n  標準輸入: numMusicPlaylists(2, 3, 1)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 3, 0)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#6] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 4, 1)\n  標準輸出: 18\n  你的輸出: 18\n\n[測試#7] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 5, 2)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#8] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 2, 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 3, 3)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#10] ✅ 通過\n  標準輸入: numMusicPlaylists(4, 6, 0)\n  標準輸出: 1560\n  你的輸出: 1560\n\n[測試#11] ✅ 通過\n  標準輸入: numMusicPlaylists(5, 5, 0)\n  標準輸出: 120\n  你的輸出: 120\n\n[測試#12] ✅ 通過\n  標準輸入: numMusicPlaylists(5, 6, 0)\n  標準輸出: 1800\n  你的輸出: 1800\n\n[測試#13] ✅ 通過\n  標準輸入: numMusicPlaylists(5, 5, 1)\n  標準輸出: 120\n  你的輸出: 120\n\n[測試#14] ✅ 通過\n  標準輸入: numMusicPlaylists(50, 50, 0)\n  標準輸出: 318608048\n  你的輸出: 318608048\n\n=== 測試完成 (14/14) ===\n[成功] 所有測資通過 ✅（0.0004s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numMusicPlaylists(1, 1, 0)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: numMusicPlaylists(1, 2, 0)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numMusicPlaylists(1, 2, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numMusicPlaylists(2, 2, 0)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: numMusicPlaylists(2, 3, 0)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#6] ✅ 通過\n  標準輸入: numMusicPlaylists(2, 3, 1)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 3, 0)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#8] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 4, 0)\n  標準輸出: 36\n  你的輸出: 36\n\n[測試#9] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 4, 1)\n  標準輸出: 18\n  你的輸出: 18\n\n[測試#10] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 5, 2)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#11] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 5, 3)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 3, 3)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#13] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 4, 3)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#14] ✅ 通過\n  標準輸入: numMusicPlaylists(1, 1, 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#15] ✅ 通過\n  標準輸入: numMusicPlaylists(1, 2, 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#16] ✅ 通過\n  標準輸入: numMusicPlaylists(2, 2, 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#17] ✅ 通過\n  標準輸入: numMusicPlaylists(2, 3, 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#18] ✅ 通過\n  標準輸入: numMusicPlaylists(4, 4, 0)\n  標準輸出: 24\n  你的輸出: 24\n\n[測試#19] ✅ 通過\n  標準輸入: numMusicPlaylists(4, 5, 0)\n  標準輸出: 240\n  你的輸出: 240\n\n[測試#20] ✅ 通過\n  標準輸入: numMusicPlaylists(4, 5, 1)\n  標準輸出: 144\n  你的輸出: 144\n\n[測試#21] ✅ 通過\n  標準輸入: numMusicPlaylists(5, 5, 0)\n  標準輸出: 120\n  你的輸出: 120\n\n[測試#22] ✅ 通過\n  標準輸入: numMusicPlaylists(5, 6, 0)\n  標準輸出: 1800\n  你的輸出: 1800\n\n[測試#23] ✅ 通過\n  標準輸入: numMusicPlaylists(10, 10, 0)\n  標準輸出: 3628800\n  你的輸出: 3628800\n\n[測試#24] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 5, 0)\n  標準輸出: 150\n  你的輸出: 150\n\n=== 測試完成 (24/24) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
     "all_passed": true,
-    "total_tests": 14,
-    "passed_count": 14,
+    "total_tests": 24,
+    "passed_count": 24,
     "accuracy_rate": 1.0
   }
 }

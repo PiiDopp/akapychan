@@ -29,62 +29,62 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "Hello world\n",
+        "input": "Hello World\n",
         "output": "5\n"
       },
       {
-        "input": "fly me   to   the moon\n",
-        "output": "4\n"
+        "input": "Hello World\n",
+        "output": "5\n"
+      },
+      {
+        "input": "Hello World\n",
+        "output": "5\n"
       },
       {
         "input": "\n",
         "output": "0\n"
       },
       {
-        "input": "single\n",
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "Hello\n",
+        "output": "5\n"
+      },
+      {
+        "input": "Hello, world!\n",
         "output": "6\n"
       },
       {
-        "input": "a b c d e f g h i j k l m n o p q r s t u v w x y z\n",
-        "output": "1\n"
-      },
-      {
-        "input": "你好世界\n",
+        "input": "你好 世界\n",
         "output": "2\n"
       },
       {
-        "input": "123 456 7890\n",
+        "input": "123 4567\n",
         "output": "4\n"
       },
       {
-        "input": "!@#$%^&*()\n",
-        "output": "10\n"
-      },
-      {
-        "input": "leading and trailing spaces\n",
-        "output": "6\n"
-      },
-      {
-        "input": "multiple   spaces   between   words\n",
-        "output": "5\n"
+        "input": "a   b c\n",
+        "output": "1\n"
       }
     ],
     "parsed_tests": [
-      "('lengthOfLastWord', ('Hello world\\n',), 5)",
-      "('lengthOfLastWord', ('fly me   to   the moon\\n',), 4)",
+      "('lengthOfLastWord', ('Hello World\\n',), 5)",
+      "('lengthOfLastWord', ('Hello World\\n',), 5)",
+      "('lengthOfLastWord', ('Hello World\\n',), 5)",
       "('lengthOfLastWord', ((),), 0)",
-      "('lengthOfLastWord', ('single\\n',), 6)",
-      "('lengthOfLastWord', ('a b c d e f g h i j k l m n o p q r s t u v w x y z\\n',), 1)",
-      "('lengthOfLastWord', ('你好世界\\n',), 2)",
-      "('lengthOfLastWord', ('123 456 7890\\n',), 4)",
-      "('lengthOfLastWord', ('!@#$%^&*()\\n',), 10)",
-      "('lengthOfLastWord', ('leading and trailing spaces\\n',), 6)",
-      "('lengthOfLastWord', ('multiple   spaces   between   words\\n',), 5)"
+      "('lengthOfLastWord', ((),), 0)",
+      "('lengthOfLastWord', ('Hello\\n',), 5)",
+      "('lengthOfLastWord', ('Hello, world!\\n',), 6)",
+      "('lengthOfLastWord', ('你好 世界\\n',), 2)",
+      "('lengthOfLastWord', ('123 4567\\n',), 4)",
+      "('lengthOfLastWord', ('a   b c\\n',), 1)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: lengthOfLastWord('Hello world\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#2] ✅ 通過\n  標準輸入: lengthOfLastWord('fly me   to   the moon\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'strip'\n[測試#4] ✅ 通過\n  標準輸入: lengthOfLastWord('single\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#5] ✅ 通過\n  標準輸入: lengthOfLastWord('a b c d e f g h i j k l m n o p q r s t u v w x y z\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ❌ 失敗\n  標準輸入: lengthOfLastWord('你好世界\\n',)\n  標準輸出: 2\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: lengthOfLastWord('123 456 7890\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: lengthOfLastWord('!@#$%^&*()\\n',)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#9] ✅ 通過\n  標準輸入: lengthOfLastWord('leading and trailing spaces\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#10] ✅ 通過\n  標準輸入: lengthOfLastWord('multiple   spaces   between   words\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: lengthOfLastWord('Hello World\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#2] ✅ 通過\n  標準輸入: lengthOfLastWord('Hello World\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#3] ✅ 通過\n  標準輸入: lengthOfLastWord('Hello World\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'strip'\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'strip'\n[測試#6] ✅ 通過\n  標準輸入: lengthOfLastWord('Hello\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#7] ✅ 通過\n  標準輸入: lengthOfLastWord('Hello, world!\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#8] ✅ 通過\n  標準輸入: lengthOfLastWord('你好 世界\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: lengthOfLastWord('123 4567\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: lengthOfLastWord('a   b c\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
     "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 8,
+    "accuracy_rate": 0.8
   }
 }

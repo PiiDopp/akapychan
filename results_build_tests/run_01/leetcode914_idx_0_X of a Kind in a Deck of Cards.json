@@ -1,0 +1,33 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode914.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "X of a Kind in a Deck of Cards",
+    "description": "You are given an integer array deck where deck[i] represents the number written on the ith card.\n\nPartition the cards into one or more groups such that:\n\nEach group has exactly x cards where x > 1, and\nAll the cards in one group have the same integer written on them.\nReturn true if such partition is possible, or false otherwise.",
+    "examples": [
+      {
+        "input": "deck = [1,2,3,4,4,3,2,1]",
+        "output": "true",
+        "explanation": "Possible partition [1,1],[2,2],[3,3],[4,4]."
+      },
+      {
+        "input": "deck = [1,1,1,2,2,2,3,3]",
+        "output": "false",
+        "explanation": "No possible partition."
+      }
+    ],
+    "solution": "class Solution(object):\n    def hasGroupsSizeX(self, deck):\n        \"\"\"\n        :type deck: List[int]\n        :rtype: bool\n        \"\"\"\n        from collections import Counter\n        from fractions import gcd\n        from functools import reduce\n\n        count = Counter(deck).values()\n        def list_gcd(nums):\n            from functools import reduce\n            return reduce(gcd, nums)\n\n        return list_gcd(count) >= 2"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

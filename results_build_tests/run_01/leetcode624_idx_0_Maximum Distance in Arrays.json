@@ -27,12 +27,16 @@
         "output": "8\n"
       },
       {
-        "input": "1 2 3\n",
-        "output": "0\n"
+        "input": "1\n10\n20\n",
+        "output": "19\n"
       },
       {
-        "input": "-10 -5\n0 5\n10 15\n",
-        "output": "25\n"
+        "input": "-10 -5\n-2 0\n3 5\n",
+        "output": "15\n"
+      },
+      {
+        "input": "-5 -3\n-2 2\n4 6\n",
+        "output": "11\n"
       },
       {
         "input": "1 5\n3 7\n6 10\n",
@@ -43,41 +47,52 @@
         "output": "4\n"
       },
       {
-        "input": "1\n2\n3\n",
-        "output": "2\n"
+        "input": "1 2\n1 10\n1 5\n",
+        "output": "9\n"
       },
       {
-        "input": "1 1 1\n1 1 1\n1 1 1\n",
+        "input": "1 5\n2 5\n3 5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5 10 15\n",
         "output": "0\n"
       },
       {
-        "input": "-1000000 0\n1000000 2000000\n",
-        "output": "3000000\n"
+        "input": "-1000000 0\n1000000\n",
+        "output": "2000000\n"
       },
       {
-        "input": "0\n0 0\n0\n",
-        "output": "0\n"
+        "input": "1 1 1\n2 2 2\n",
+        "output": "1\n"
       },
       {
-        "input": "-5 -3\n0 2\n4 6\n",
-        "output": "11\n"
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+        "output": "9\n"
+      },
+      {
+        "input": "-5 -4\n-3 -2\n-1 0\n1 2\n",
+        "output": "7\n"
       }
     ],
     "parsed_tests": [
       "('maxDistance', ('1 2 3\\n4 5 6\\n7 8 9\\n',), 8)",
-      "('maxDistance', ('1 2 3\\n',), 0)",
-      "('maxDistance', ('-10 -5\\n0 5\\n10 15\\n',), 25)",
+      "('maxDistance', ((1, 10, 20),), 19)",
+      "('maxDistance', ('-10 -5\\n-2 0\\n3 5\\n',), 15)",
+      "('maxDistance', ('-5 -3\\n-2 2\\n4 6\\n',), 11)",
       "('maxDistance', ('1 5\\n3 7\\n6 10\\n',), 9)",
       "('maxDistance', ('1 5\\n1 5\\n1 5\\n',), 4)",
-      "('maxDistance', ((1, 2, 3),), 2)",
-      "('maxDistance', ('1 1 1\\n1 1 1\\n1 1 1\\n',), 0)",
-      "('maxDistance', ('-1000000 0\\n1000000 2000000\\n',), 3000000)",
-      "('maxDistance', ('0\\n0 0\\n0\\n',), 0)",
-      "('maxDistance', ('-5 -3\\n0 2\\n4 6\\n',), 11)"
+      "('maxDistance', ('1 2\\n1 10\\n1 5\\n',), 9)",
+      "('maxDistance', ('1 5\\n2 5\\n3 5\\n',), 4)",
+      "('maxDistance', ('5 10 15\\n',), 0)",
+      "('maxDistance', ('-1000000 0\\n1000000\\n',), 2000000)",
+      "('maxDistance', ('1 1 1\\n2 2 2\\n',), 1)",
+      "('maxDistance', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),), 9)",
+      "('maxDistance', ('-5 -4\\n-3 -2\\n-1 0\\n1 2\\n',), 7)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#2] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#3] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#4] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#5] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#6] ❌ 執行例外: 'int' object is not subscriptable\n[測試#7] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#8] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#9] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#10] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#2] ❌ 執行例外: 'int' object is not subscriptable\n[測試#3] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#4] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#5] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#6] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#7] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#8] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#9] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#10] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#11] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#12] ❌ 執行例外: 'int' object is not subscriptable\n[測試#13] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n=== 測試完成 (0/13) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 10,
+    "total_tests": 13,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

@@ -22,77 +22,137 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['acb', 4, 'ab', 2]\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['abc', 0, 'ab', 1]\n",
+        "input": "['ab', 1, 'ba', 1]\n",
         "output": "0\n"
       },
       {
-        "input": "['', 5, 'ab', 1]\n",
-        "output": "0\n"
+        "input": "['ab', 2, 'ba', 1]\n",
+        "output": "1\n"
       },
       {
-        "input": "['aaaaa', 3, 'aa', 2]\n",
+        "input": "['ab', 4, 'ba', 1]\n",
         "output": "3\n"
       },
       {
-        "input": "['ab', 3, 'ba', 1]\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['abc', 10, 'abcabc', 1]\n",
-        "output": "5\n"
-      },
-      {
-        "input": "['abc', 10, 'abcabc', 2]\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['abc', 10, 'abcabc', 3]\n",
+        "input": "['ab', 4, 'ba', 2]\n",
         "output": "1\n"
       },
       {
-        "input": "['abc', 10, 'abcabc', 4]\n",
+        "input": "['ab', 4, 'ba', 3]\n",
         "output": "1\n"
       },
       {
-        "input": "['abc', 10, 'abcabc', 5]\n",
+        "input": "['ab', 4, 'ba', 4]\n",
         "output": "1\n"
       },
       {
-        "input": "['abc', 10, 'abcabc', 6]\n",
+        "input": "['ab', 4, 'ba', 5]\n",
         "output": "0\n"
       },
       {
-        "input": "['abc', 10, 'abcabcabc', 1]\n",
+        "input": "['abc', 0, 'a', 1]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['', 5, 'a', 1]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['a', 1, 'aa', 1]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['a', 100, 'a', 1]\n",
+        "output": "100\n"
+      },
+      {
+        "input": "['a', 100, 'a', 2]\n",
+        "output": "50\n"
+      },
+      {
+        "input": "['a', 100, 'a', 3]\n",
+        "output": "33\n"
+      },
+      {
+        "input": "['a', 100, 'a', 101]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', 3, 'abc', 1]\n",
         "output": "3\n"
       },
       {
-        "input": "['a', 1000000, 'a', 1]\n",
+        "input": "['abc', 3, 'abc', 2]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abc', 3, 'abc', 3]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', 3, 'abc', 4]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', 3, 'abc', 5]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['ab', 1000000, 'ba', 1]\n",
+        "output": "500000\n"
+      },
+      {
+        "input": "['ab', 1000000, 'ba', 2]\n",
+        "output": "500000\n"
+      },
+      {
+        "input": "['ab', 1000000, 'ba', 3]\n",
+        "output": "333333\n"
+      },
+      {
+        "input": "['abc', 1000000, 'abc', 1]\n",
         "output": "1000000\n"
+      },
+      {
+        "input": "['abc', 1000000, 'abc', 2]\n",
+        "output": "500000\n"
+      },
+      {
+        "input": "['abc', 1000000, 'abc', 3]\n",
+        "output": "333333\n"
       }
     ],
     "parsed_tests": [
-      "('getMaxRepetitions', ('acb', 4, 'ab', 2), 2)",
-      "('getMaxRepetitions', ('abc', 0, 'ab', 1), 0)",
-      "('getMaxRepetitions', ('', 5, 'ab', 1), 0)",
-      "('getMaxRepetitions', ('aaaaa', 3, 'aa', 2), 3)",
-      "('getMaxRepetitions', ('ab', 3, 'ba', 1), 2)",
-      "('getMaxRepetitions', ('abc', 10, 'abcabc', 1), 5)",
-      "('getMaxRepetitions', ('abc', 10, 'abcabc', 2), 2)",
-      "('getMaxRepetitions', ('abc', 10, 'abcabc', 3), 1)",
-      "('getMaxRepetitions', ('abc', 10, 'abcabc', 4), 1)",
-      "('getMaxRepetitions', ('abc', 10, 'abcabc', 5), 1)",
-      "('getMaxRepetitions', ('abc', 10, 'abcabc', 6), 0)",
-      "('getMaxRepetitions', ('abc', 10, 'abcabcabc', 1), 3)",
-      "('getMaxRepetitions', ('a', 1000000, 'a', 1), 1000000)"
+      "('getMaxRepetitions', ('ab', 1, 'ba', 1), 0)",
+      "('getMaxRepetitions', ('ab', 2, 'ba', 1), 1)",
+      "('getMaxRepetitions', ('ab', 4, 'ba', 1), 3)",
+      "('getMaxRepetitions', ('ab', 4, 'ba', 2), 1)",
+      "('getMaxRepetitions', ('ab', 4, 'ba', 3), 1)",
+      "('getMaxRepetitions', ('ab', 4, 'ba', 4), 1)",
+      "('getMaxRepetitions', ('ab', 4, 'ba', 5), 0)",
+      "('getMaxRepetitions', ('abc', 0, 'a', 1), 0)",
+      "('getMaxRepetitions', ('', 5, 'a', 1), 0)",
+      "('getMaxRepetitions', ('a', 1, 'aa', 1), 0)",
+      "('getMaxRepetitions', ('a', 100, 'a', 1), 100)",
+      "('getMaxRepetitions', ('a', 100, 'a', 2), 50)",
+      "('getMaxRepetitions', ('a', 100, 'a', 3), 33)",
+      "('getMaxRepetitions', ('a', 100, 'a', 101), 0)",
+      "('getMaxRepetitions', ('abc', 3, 'abc', 1), 3)",
+      "('getMaxRepetitions', ('abc', 3, 'abc', 2), 1)",
+      "('getMaxRepetitions', ('abc', 3, 'abc', 3), 0)",
+      "('getMaxRepetitions', ('abc', 3, 'abc', 4), 0)",
+      "('getMaxRepetitions', ('abc', 3, 'abc', 5), 0)",
+      "('getMaxRepetitions', ('ab', 1000000, 'ba', 1), 500000)",
+      "('getMaxRepetitions', ('ab', 1000000, 'ba', 2), 500000)",
+      "('getMaxRepetitions', ('ab', 1000000, 'ba', 3), 333333)",
+      "('getMaxRepetitions', ('abc', 1000000, 'abc', 1), 1000000)",
+      "('getMaxRepetitions', ('abc', 1000000, 'abc', 2), 500000)",
+      "('getMaxRepetitions', ('abc', 1000000, 'abc', 3), 333333)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: getMaxRepetitions('acb', 4, 'ab', 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 0, 'ab', 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: getMaxRepetitions('', 5, 'ab', 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: getMaxRepetitions('aaaaa', 3, 'aa', 2)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: getMaxRepetitions('ab', 3, 'ba', 1)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 1)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#7] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 3)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 4)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabc', 6)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 10, 'abcabcabc', 1)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#13] ✅ 通過\n  標準輸入: getMaxRepetitions('a', 1000000, 'a', 1)\n  標準輸出: 1000000\n  你的輸出: 1000000\n\n=== 測試完成 (13/13) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
-    "all_passed": true,
-    "total_tests": 13,
-    "passed_count": 13,
-    "accuracy_rate": 1.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: getMaxRepetitions('ab', 1, 'ba', 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: getMaxRepetitions('ab', 2, 'ba', 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: getMaxRepetitions('ab', 4, 'ba', 1)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: getMaxRepetitions('ab', 4, 'ba', 2)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: getMaxRepetitions('ab', 4, 'ba', 3)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ❌ 失敗\n  標準輸入: getMaxRepetitions('ab', 4, 'ba', 4)\n  標準輸出: 1\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: getMaxRepetitions('ab', 4, 'ba', 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 0, 'a', 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: getMaxRepetitions('', 5, 'a', 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: getMaxRepetitions('a', 1, 'aa', 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#11] ✅ 通過\n  標準輸入: getMaxRepetitions('a', 100, 'a', 1)\n  標準輸出: 100\n  你的輸出: 100\n\n[測試#12] ✅ 通過\n  標準輸入: getMaxRepetitions('a', 100, 'a', 2)\n  標準輸出: 50\n  你的輸出: 50\n\n[測試#13] ✅ 通過\n  標準輸入: getMaxRepetitions('a', 100, 'a', 3)\n  標準輸出: 33\n  你的輸出: 33\n\n[測試#14] ✅ 通過\n  標準輸入: getMaxRepetitions('a', 100, 'a', 101)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 3, 'abc', 1)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#16] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 3, 'abc', 2)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#17] ❌ 失敗\n  標準輸入: getMaxRepetitions('abc', 3, 'abc', 3)\n  標準輸出: 0\n  你的輸出: 1\n\n[測試#18] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 3, 'abc', 4)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#19] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 3, 'abc', 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#20] ❌ 失敗\n  標準輸入: getMaxRepetitions('ab', 1000000, 'ba', 1)\n  標準輸出: 500000\n  你的輸出: 999999\n\n[測試#21] ❌ 失敗\n  標準輸入: getMaxRepetitions('ab', 1000000, 'ba', 2)\n  標準輸出: 500000\n  你的輸出: 499999\n\n[測試#22] ✅ 通過\n  標準輸入: getMaxRepetitions('ab', 1000000, 'ba', 3)\n  標準輸出: 333333\n  你的輸出: 333333\n\n[測試#23] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 1000000, 'abc', 1)\n  標準輸出: 1000000\n  你的輸出: 1000000\n\n[測試#24] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 1000000, 'abc', 2)\n  標準輸出: 500000\n  你的輸出: 500000\n\n[測試#25] ✅ 通過\n  標準輸入: getMaxRepetitions('abc', 1000000, 'abc', 3)\n  標準輸出: 333333\n  你的輸出: 333333\n\n=== 測試完成 (21/25) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 25,
+    "passed_count": 21,
+    "accuracy_rate": 0.84
   }
 }

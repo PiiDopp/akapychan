@@ -23,62 +23,57 @@
     "error": null,
     "generated_tests": [
       {
+        "input": "1\n2\n3\n",
+        "output": "[1, 2]\n"
+      },
+      {
+        "input": "1\n2\n4\n8\n",
+        "output": "[1, 2, 4, 8]\n"
+      },
+      {
+        "input": "2\n3\n5\n7\n",
+        "output": "[2]\n"
+      },
+      {
         "input": "\n",
         "output": "[]\n"
       },
       {
-        "input": "5\n",
-        "output": "[5]\n"
+        "input": "3\n5\n10\n20\n25\n",
+        "output": "[5, 10, 20]\n"
       },
       {
-        "input": "2\n3\n5\n7\n11\n",
-        "output": "[2]\n"
-      },
-      {
-        "input": "1\n2\n4\n8\n16\n",
+        "input": "1\n2\n4\n8\n16\n3\n6\n12\n",
         "output": "[1, 2, 4, 8, 16]\n"
       },
       {
-        "input": "3\n1\n6\n2\n12\n",
-        "output": "[1, 2, 6, 12]\n"
+        "input": "42\n",
+        "output": "[42]\n"
       },
       {
-        "input": "100\n200\n400\n800\n1600\n",
-        "output": "[100, 200, 400, 800, 1600]\n"
+        "input": "9\n3\n6\n12\n18\n",
+        "output": "[3, 6, 18]\n"
       },
       {
-        "input": "2\n4\n8\n3\n9\n27\n",
-        "output": "[2, 4, 8]\n"
-      },
-      {
-        "input": "1\n7\n14\n28\n3\n6\n",
-        "output": "[1, 7, 14, 28]\n"
-      },
-      {
-        "input": "2\n3\n6\n9\n18\n",
-        "output": "[2, 6, 18]\n"
-      },
-      {
-        "input": "1\n2\n4\n8\n16\n32\n64\n128\n256\n512\n1024\n2048\n4096\n8192\n16384\n32768\n65536\n131072\n262144\n524288\n1048576\n2097152\n4194304\n8388608\n16777216\n33554432\n67108864\n134217728\n268435456\n536870912\n1073741824\n2147483648\n",
-        "output": "[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824, 2147483648]\n"
+        "input": "2\n4\n8\n16\n32\n64\n128\n",
+        "output": "[2, 4, 8, 16, 32, 64, 128]\n"
       }
     ],
     "parsed_tests": [
+      "('largestDivisibleSubset', ((1, 2, 3),), [1, 2])",
+      "('largestDivisibleSubset', ((1, 2, 4, 8),), [1, 2, 4, 8])",
+      "('largestDivisibleSubset', ((2, 3, 5, 7),), [2])",
       "('largestDivisibleSubset', ((),), [])",
-      "('largestDivisibleSubset', (5,), [5])",
-      "('largestDivisibleSubset', ((2, 3, 5, 7, 11),), [2])",
-      "('largestDivisibleSubset', ((1, 2, 4, 8, 16),), [1, 2, 4, 8, 16])",
-      "('largestDivisibleSubset', ((3, 1, 6, 2, 12),), [1, 2, 6, 12])",
-      "('largestDivisibleSubset', ((100, 200, 400, 800, 1600),), [100, 200, 400, 800, 1600])",
-      "('largestDivisibleSubset', ((2, 4, 8, 3, 9, 27),), [2, 4, 8])",
-      "('largestDivisibleSubset', ((1, 7, 14, 28, 3, 6),), [1, 7, 14, 28])",
-      "('largestDivisibleSubset', ((2, 3, 6, 9, 18),), [2, 6, 18])",
-      "('largestDivisibleSubset', ((1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824, 2147483648),), [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824, 2147483648])"
+      "('largestDivisibleSubset', ((3, 5, 10, 20, 25),), [5, 10, 20])",
+      "('largestDivisibleSubset', ((1, 2, 4, 8, 16, 3, 6, 12),), [1, 2, 4, 8, 16])",
+      "('largestDivisibleSubset', (42,), [42])",
+      "('largestDivisibleSubset', ((9, 3, 6, 12, 18),), [3, 6, 18])",
+      "('largestDivisibleSubset', ((2, 4, 8, 16, 32, 64, 128),), [2, 4, 8, 16, 32, 64, 128])"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: largestDivisibleSubset((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#2] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n=== 測試完成 (1/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#4] ✅ 通過\n  標準輸入: largestDivisibleSubset((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n=== 測試完成 (1/9) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 9,
+    "passed_count": 1,
+    "accuracy_rate": 0.1111111111111111
   }
 }

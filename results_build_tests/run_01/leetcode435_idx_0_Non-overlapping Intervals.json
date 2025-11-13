@@ -1,0 +1,90 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode435.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Non-overlapping Intervals",
+    "description": "Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.\n\nNote that intervals which only touch at a point are non-overlapping. For example, [1, 2] and [2, 3] are non-overlapping.",
+    "examples": [
+      {
+        "input": "intervals = [[1,2],[2,3],[3,4],[1,3]]",
+        "output": "1",
+        "explanation": "[1,3] can be removed and the rest of the intervals are non-overlapping."
+      },
+      {
+        "input": "intervals = [[1,2],[1,2],[1,2]]",
+        "output": "2",
+        "explanation": "You need to remove two [1,2] to make the rest of the intervals non-overlapping."
+      },
+      {
+        "input": "intervals = [[1,2],[2,3]]",
+        "output": "0",
+        "explanation": "You don't need to remove any of the intervals since they're already non-overlapping."
+      }
+    ],
+    "solution": "class Solution:\n    def eraseOverlapIntervals(self, intervals):\n        if not intervals:\n            return 0\n        \n        # 先按照結束時間排序\n        intervals.sort(key=lambda x: x[1])\n        end = intervals[0][1]\n        count = 1  # 記錄不重疊區間數\n        \n        for i in range(1, len(intervals)):\n            if intervals[i][0] >= end:\n                end = intervals[i][1]\n                count += 1\n        \n        # 需要移除的區間數 = 總區間數 - 不重疊區間數\n        return len(intervals) - count"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2\n3 4\n5 6\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 3\n2 4\n3 5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 10\n2 9\n3 8\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 2\n2 3\n3 4\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 5\n2 3\n4 6\n7 8\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 3\n2 3\n3 4\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 4\n1 5\n1 6\n",
+        "output": "2\n"
+      },
+      {
+        "input": "5 6\n1 2\n3 4\n2 3\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('eraseOverlapIntervals', ('1 2\\n3 4\\n5 6\\n',), 0)",
+      "('eraseOverlapIntervals', ('1 3\\n2 4\\n3 5\\n',), 1)",
+      "('eraseOverlapIntervals', ('1 10\\n2 9\\n3 8\\n',), 2)",
+      "('eraseOverlapIntervals', ('1 2\\n2 3\\n3 4\\n',), 0)",
+      "('eraseOverlapIntervals', ('1 5\\n2 3\\n4 6\\n7 8\\n',), 1)",
+      "('eraseOverlapIntervals', ('1 2\\n',), 0)",
+      "('eraseOverlapIntervals', ((),), 0)",
+      "('eraseOverlapIntervals', ('1 3\\n2 3\\n3 4\\n',), 1)",
+      "('eraseOverlapIntervals', ('1 4\\n1 5\\n1 6\\n',), 2)",
+      "('eraseOverlapIntervals', ('5 6\\n1 2\\n3 4\\n2 3\\n',), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ✅ 通過\n  標準輸入: eraseOverlapIntervals((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (1/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 1,
+    "accuracy_rate": 0.1
+  }
+}

@@ -19,66 +19,14 @@
     "solution": "class Solution:\n    def maxProfit(self, prices, fee):\n        n = len(prices)\n        if n == 0:\n            return 0\n        hold = -prices[0]\n        cash = 0\n        for price in prices[1:]:\n            cash = max(cash, hold + price - fee)\n            hold = max(hold, cash - price)\n        return cash"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "[]\n5\n",
-        "output": "0\n"
-      },
-      {
-        "input": "[10]\n2\n",
-        "output": "0\n"
-      },
-      {
-        "input": "[1, 2, 3, 4, 5]\n1\n",
-        "output": "3\n"
-      },
-      {
-        "input": "[5, 4, 3, 2, 1]\n1\n",
-        "output": "0\n"
-      },
-      {
-        "input": "[1, 3, 2, 8, 4, 9]\n0\n",
-        "output": "13\n"
-      },
-      {
-        "input": "[1, 3, 2, 8, 4, 9]\n10\n",
-        "output": "0\n"
-      },
-      {
-        "input": "[1, 10, 1, 10, 1, 10]\n2\n",
-        "output": "21\n"
-      },
-      {
-        "input": "[1, 3, 7, 5, 10, 3]\n3\n",
-        "output": "6\n"
-      },
-      {
-        "input": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n1\n",
-        "output": "8\n"
-      },
-      {
-        "input": "[5, 5, 5, 5]\n0\n",
-        "output": "0\n"
-      }
-    ],
-    "parsed_tests": [
-      "('maxProfit', ([], 5), 0)",
-      "('maxProfit', ([10], 2), 0)",
-      "('maxProfit', ([1, 2, 3, 4, 5], 1), 3)",
-      "('maxProfit', ([5, 4, 3, 2, 1], 1), 0)",
-      "('maxProfit', ([1, 3, 2, 8, 4, 9], 0), 13)",
-      "('maxProfit', ([1, 3, 2, 8, 4, 9], 10), 0)",
-      "('maxProfit', ([1, 10, 1, 10, 1, 10], 2), 21)",
-      "('maxProfit', ([1, 3, 7, 5, 10, 3], 3), 6)",
-      "('maxProfit', ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1), 8)",
-      "('maxProfit', ([5, 5, 5, 5], 0), 0)"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: maxProfit([], 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: maxProfit([10], 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: maxProfit([1, 2, 3, 4, 5], 1)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: maxProfit([5, 4, 3, 2, 1], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: maxProfit([1, 3, 2, 8, 4, 9], 0)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#6] ✅ 通過\n  標準輸入: maxProfit([1, 3, 2, 8, 4, 9], 10)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: maxProfit([1, 10, 1, 10, 1, 10], 2)\n  標準輸出: 21\n  你的輸出: 21\n\n[測試#8] ✅ 通過\n  標準輸入: maxProfit([1, 3, 7, 5, 10, 3], 3)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: maxProfit([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#10] ✅ 通過\n  標準輸入: maxProfit([5, 5, 5, 5], 0)\n  標準輸出: 0\n  你的輸出: 0\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
-    "all_passed": true,
-    "total_tests": 10,
-    "passed_count": 10,
-    "accuracy_rate": 1.0
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
   }
 }

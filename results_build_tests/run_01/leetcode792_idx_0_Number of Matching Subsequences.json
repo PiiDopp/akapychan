@@ -27,48 +27,48 @@
         "output": "3\n"
       },
       {
-        "input": "['', ['', 'a']]\n",
+        "input": "['', ['a', '']]\n",
         "output": "1\n"
       },
       {
-        "input": "['abc', []]\n",
+        "input": "['anything', []]\n",
         "output": "0\n"
       },
       {
-        "input": "['abc', ['abcd']]\n",
-        "output": "0\n"
+        "input": "['abc', ['abcd', 'abc']]\n",
+        "output": "1\n"
       },
       {
-        "input": "['abc', ['', '', 'a']]\n",
-        "output": "3\n"
+        "input": "['aaaaa', ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']]\n",
+        "output": "4\n"
       },
       {
-        "input": "['abacb', ['ab', 'ba', 'ac', 'ca', 'cb', 'abc', 'acb', 'bac']]\n",
-        "output": "7\n"
+        "input": "['a!b@c#d$', ['a!b', 'b@c#', '!@#', 'a!b@c#d$', 'a!b@c#d$!']]\n",
+        "output": "4\n"
       },
       {
         "input": "['你好世界', ['你', '好世', '世界', '你好世', '世界你']]\n",
         "output": "4\n"
       },
       {
-        "input": "['aaaaa', ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']]\n",
-        "output": "4\n"
+        "input": "['abc', ['a', 'a', 'b', 'c', 'ab', 'bc', 'abc']]\n",
+        "output": "7\n"
       }
     ],
     "parsed_tests": [
       "('numMatchingSubseq', ('abcde', ['a', 'bb', 'acd', 'ace']), 3)",
-      "('numMatchingSubseq', ('', ['', 'a']), 1)",
-      "('numMatchingSubseq', ('abc', []), 0)",
-      "('numMatchingSubseq', ('abc', ['abcd']), 0)",
-      "('numMatchingSubseq', ('abc', ['', '', 'a']), 3)",
-      "('numMatchingSubseq', ('abacb', ['ab', 'ba', 'ac', 'ca', 'cb', 'abc', 'acb', 'bac']), 7)",
+      "('numMatchingSubseq', ('', ['a', '']), 1)",
+      "('numMatchingSubseq', ('anything', []), 0)",
+      "('numMatchingSubseq', ('abc', ['abcd', 'abc']), 1)",
+      "('numMatchingSubseq', ('aaaaa', ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']), 4)",
+      "('numMatchingSubseq', ('a!b@c#d$', ['a!b', 'b@c#', '!@#', 'a!b@c#d$', 'a!b@c#d$!']), 4)",
       "('numMatchingSubseq', ('你好世界', ['你', '好世', '世界', '你好世', '世界你']), 4)",
-      "('numMatchingSubseq', ('aaaaa', ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']), 4)"
+      "('numMatchingSubseq', ('abc', ['a', 'a', 'b', 'c', 'ab', 'bc', 'abc']), 7)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numMatchingSubseq('abcde', ['a', 'bb', 'acd', 'ace'])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ✅ 通過\n  標準輸入: numMatchingSubseq('abc', [])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numMatchingSubseq('abc', ['abcd'])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ❌ 執行例外: string index out of range\n[測試#6] ✅ 通過\n  標準輸入: numMatchingSubseq('abacb', ['ab', 'ba', 'ac', 'ca', 'cb', 'abc', 'acb', 'bac'])\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#7] ✅ 通過\n  標準輸入: numMatchingSubseq('你好世界', ['你', '好世', '世界', '你好世', '世界你'])\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: numMatchingSubseq('aaaaa', ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa'])\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (6/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numMatchingSubseq('abcde', ['a', 'bb', 'acd', 'ace'])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ✅ 通過\n  標準輸入: numMatchingSubseq('anything', [])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numMatchingSubseq('abc', ['abcd', 'abc'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: numMatchingSubseq('aaaaa', ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa'])\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#6] ✅ 通過\n  標準輸入: numMatchingSubseq('a!b@c#d$', ['a!b', 'b@c#', '!@#', 'a!b@c#d$', 'a!b@c#d$!'])\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: numMatchingSubseq('你好世界', ['你', '好世', '世界', '你好世', '世界你'])\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: numMatchingSubseq('abc', ['a', 'a', 'b', 'c', 'ab', 'bc', 'abc'])\n  標準輸出: 7\n  你的輸出: 7\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
     "total_tests": 8,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 7,
+    "accuracy_rate": 0.875
   }
 }

@@ -44,40 +44,56 @@
         "output": "2\n"
       },
       {
+        "input": "aaabbb\n",
+        "output": "2\n"
+      },
+      {
+        "input": "abcabc\n",
+        "output": "5\n"
+      },
+      {
+        "input": "aabbaa\n",
+        "output": "2\n"
+      },
+      {
+        "input": "abcd\n",
+        "output": "4\n"
+      },
+      {
         "input": "abab\n",
         "output": "3\n"
       },
       {
-        "input": "abc\n",
-        "output": "3\n"
-      },
-      {
-        "input": "abcabc\n",
+        "input": "ababa\n",
         "output": "4\n"
       },
       {
-        "input": "aabbaa\n",
-        "output": "3\n"
+        "input": "abcabcabc\n",
+        "output": "7\n"
       },
       {
-        "input": "zzzzzzzzzz\n",
-        "output": "1\n"
+        "input": "baab\n",
+        "output": "2\n"
       },
       {
-        "input": "ababab\n",
-        "output": "3\n"
-      },
-      {
-        "input": "abcdabcd\n",
-        "output": "5\n"
+        "input": "abba\n",
+        "output": "2\n"
       },
       {
         "input": "abac\n",
         "output": "3\n"
       },
       {
-        "input": "abcba\n",
-        "output": "4\n"
+        "input": "abca\n",
+        "output": "3\n"
+      },
+      {
+        "input": "aabb\n",
+        "output": "2\n"
+      },
+      {
+        "input": "abababab\n",
+        "output": "5\n"
       }
     ],
     "parsed_tests": [
@@ -86,20 +102,24 @@
       "('strangePrinter', ('aa\\n',), 1)",
       "('strangePrinter', ('ab\\n',), 2)",
       "('strangePrinter', ('aba\\n',), 2)",
+      "('strangePrinter', ('aaabbb\\n',), 2)",
+      "('strangePrinter', ('abcabc\\n',), 5)",
+      "('strangePrinter', ('aabbaa\\n',), 2)",
+      "('strangePrinter', ('abcd\\n',), 4)",
       "('strangePrinter', ('abab\\n',), 3)",
-      "('strangePrinter', ('abc\\n',), 3)",
-      "('strangePrinter', ('abcabc\\n',), 4)",
-      "('strangePrinter', ('aabbaa\\n',), 3)",
-      "('strangePrinter', ('zzzzzzzzzz\\n',), 1)",
-      "('strangePrinter', ('ababab\\n',), 3)",
-      "('strangePrinter', ('abcdabcd\\n',), 5)",
+      "('strangePrinter', ('ababa\\n',), 4)",
+      "('strangePrinter', ('abcabcabc\\n',), 7)",
+      "('strangePrinter', ('baab\\n',), 2)",
+      "('strangePrinter', ('abba\\n',), 2)",
       "('strangePrinter', ('abac\\n',), 3)",
-      "('strangePrinter', ('abcba\\n',), 4)"
+      "('strangePrinter', ('abca\\n',), 3)",
+      "('strangePrinter', ('aabb\\n',), 2)",
+      "('strangePrinter', ('abababab\\n',), 5)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: strangePrinter((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: strangePrinter('a\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#3] ❌ 失敗\n  標準輸入: strangePrinter('aa\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#4] ❌ 失敗\n  標準輸入: strangePrinter('ab\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#5] ❌ 失敗\n  標準輸入: strangePrinter('aba\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#6] ❌ 失敗\n  標準輸入: strangePrinter('abab\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: strangePrinter('abc\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#8] ❌ 失敗\n  標準輸入: strangePrinter('abcabc\\n',)\n  標準輸出: 4\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: strangePrinter('aabbaa\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#10] ❌ 失敗\n  標準輸入: strangePrinter('zzzzzzzzzz\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#11] ❌ 失敗\n  標準輸入: strangePrinter('ababab\\n',)\n  標準輸出: 3\n  你的輸出: 5\n\n[測試#12] ❌ 失敗\n  標準輸入: strangePrinter('abcdabcd\\n',)\n  標準輸出: 5\n  你的輸出: 8\n\n[測試#13] ❌ 失敗\n  標準輸入: strangePrinter('abac\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#14] ✅ 通過\n  標準輸入: strangePrinter('abcba\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (3/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: strangePrinter((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: strangePrinter('a\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#3] ❌ 失敗\n  標準輸入: strangePrinter('aa\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#4] ❌ 失敗\n  標準輸入: strangePrinter('ab\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#5] ❌ 失敗\n  標準輸入: strangePrinter('aba\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#6] ❌ 失敗\n  標準輸入: strangePrinter('aaabbb\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#7] ❌ 失敗\n  標準輸入: strangePrinter('abcabc\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#8] ❌ 失敗\n  標準輸入: strangePrinter('aabbaa\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#9] ❌ 失敗\n  標準輸入: strangePrinter('abcd\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#10] ❌ 失敗\n  標準輸入: strangePrinter('abab\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#11] ✅ 通過\n  標準輸入: strangePrinter('ababa\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#12] ❌ 失敗\n  標準輸入: strangePrinter('abcabcabc\\n',)\n  標準輸出: 7\n  你的輸出: 8\n\n[測試#13] ❌ 失敗\n  標準輸入: strangePrinter('baab\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#14] ❌ 失敗\n  標準輸入: strangePrinter('abba\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#15] ❌ 失敗\n  標準輸入: strangePrinter('abac\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#16] ❌ 失敗\n  標準輸入: strangePrinter('abca\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#17] ❌ 失敗\n  標準輸入: strangePrinter('aabb\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#18] ❌ 失敗\n  標準輸入: strangePrinter('abababab\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n=== 測試完成 (2/18) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 14,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 18,
+    "passed_count": 2,
+    "accuracy_rate": 0.1111111111111111
   }
 }

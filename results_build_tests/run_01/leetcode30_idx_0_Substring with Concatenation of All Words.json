@@ -25,65 +25,13 @@
     "solution": "class Solution(object):\n    def findSubstring(self, s, words):\n        \"\"\"\n        :type s: str\n        :type words: List[str]\n        :rtype: List[int]\n        \"\"\"\n        ret = []\n        n = len(s)\n        k = len(words)\n        m = len(words[0])\n        p = m * k\n        initWindow = []\n        notValid = set()\n        valid = set()\n\n        if n < p:\n            return []\n\n        def validSubtring(substring):\n            tempWords = words[:]\n            i = 0\n            while i < p:\n                currWord = substring[i:i+m]\n                if currWord in tempWords:\n                    tempWords.remove(currWord)\n                i += m\n            return tempWords == []\n\n        for i in range(p):\n            initWindow.append(s[i])\n\n        if validSubtring(''.join(initWindow)):\n            ret.append(0)\n\n        i = p\n        while i < n:\n            initWindow.pop(0)\n            initWindow.append(s[i])\n            tempString = ''.join(initWindow)\n            if tempString not in notValid:\n                if tempString in valid or validSubtring(tempString):\n                    ret.append(i - p + 1)\n                    valid.add(tempString)\n                else:\n                    notValid.add(tempString)\n            i += 1\n\n        return ret"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "['barfoothefoobarman', ['foo', 'bar']]\n",
-        "output": "[0, 9]\n"
-      },
-      {
-        "input": "['wordgoodgoodgoodbestword', ['word', 'good', 'best', 'good']]\n",
-        "output": "[8]\n"
-      },
-      {
-        "input": "['barfoo', ['baz', 'foo']]\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "['a', ['a']]\n",
-        "output": "[0]\n"
-      },
-      {
-        "input": "['ab', ['abc']]\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "['barfoofoobarthefoobarman', ['foo', 'bar', 'foo']]\n",
-        "output": "[0, 3]\n"
-      },
-      {
-        "input": "['foobar', ['foo', 'bar']]\n",
-        "output": "[0]\n"
-      },
-      {
-        "input": "['fo', ['foo', 'bar']]\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "['', ['a']]\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "['ab!cd!ef!ab!cd!ef!', ['ab!', 'cd!', 'ef!']]\n",
-        "output": "[0, 6, 9]\n"
-      }
-    ],
-    "parsed_tests": [
-      "('findSubstring', ('barfoothefoobarman', ['foo', 'bar']), [0, 9])",
-      "('findSubstring', ('wordgoodgoodgoodbestword', ['word', 'good', 'best', 'good']), [8])",
-      "('findSubstring', ('barfoo', ['baz', 'foo']), [])",
-      "('findSubstring', ('a', ['a']), [0])",
-      "('findSubstring', ('ab', ['abc']), [])",
-      "('findSubstring', ('barfoofoobarthefoobarman', ['foo', 'bar', 'foo']), [0, 3])",
-      "('findSubstring', ('foobar', ['foo', 'bar']), [0])",
-      "('findSubstring', ('fo', ['foo', 'bar']), [])",
-      "('findSubstring', ('', ['a']), [])",
-      "('findSubstring', ('ab!cd!ef!ab!cd!ef!', ['ab!', 'cd!', 'ef!']), [0, 6, 9])"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findSubstring('barfoothefoobarman', ['foo', 'bar'])\n  標準輸出: [0, 9]\n  你的輸出: [0, 9]\n\n[測試#2] ✅ 通過\n  標準輸入: findSubstring('wordgoodgoodgoodbestword', ['word', 'good', 'best', 'good'])\n  標準輸出: [8]\n  你的輸出: [8]\n\n[測試#3] ✅ 通過\n  標準輸入: findSubstring('barfoo', ['baz', 'foo'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: findSubstring('a', ['a'])\n  標準輸出: [0]\n  你的輸出: [0]\n\n[測試#5] ✅ 通過\n  標準輸入: findSubstring('ab', ['abc'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: findSubstring('barfoofoobarthefoobarman', ['foo', 'bar', 'foo'])\n  標準輸出: [0, 3]\n  你的輸出: [0, 3]\n\n[測試#7] ✅ 通過\n  標準輸入: findSubstring('foobar', ['foo', 'bar'])\n  標準輸出: [0]\n  你的輸出: [0]\n\n[測試#8] ✅ 通過\n  標準輸入: findSubstring('fo', ['foo', 'bar'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#9] ✅ 通過\n  標準輸入: findSubstring('', ['a'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#10] ❌ 失敗\n  標準輸入: findSubstring('ab!cd!ef!ab!cd!ef!', ['ab!', 'cd!', 'ef!'])\n  標準輸出: [0, 6, 9]\n  你的輸出: [0, 3, 6, 9]\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
     "all_passed": false,
-    "total_tests": 10,
+    "total_tests": 0,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

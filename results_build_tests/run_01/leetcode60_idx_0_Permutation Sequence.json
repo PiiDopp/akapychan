@@ -42,20 +42,8 @@
         "output": "123\n"
       },
       {
-        "input": "3\n2\n",
-        "output": "132\n"
-      },
-      {
         "input": "3\n3\n",
         "output": "213\n"
-      },
-      {
-        "input": "3\n4\n",
-        "output": "231\n"
-      },
-      {
-        "input": "3\n5\n",
-        "output": "312\n"
       },
       {
         "input": "3\n6\n",
@@ -66,36 +54,36 @@
         "output": "2314\n"
       },
       {
-        "input": "4\n12\n",
-        "output": "2431\n"
-      },
-      {
-        "input": "4\n13\n",
-        "output": "3124\n"
-      },
-      {
-        "input": "4\n16\n",
-        "output": "3241\n"
-      },
-      {
-        "input": "4\n20\n",
-        "output": "4213\n"
-      },
-      {
-        "input": "4\n24\n",
-        "output": "4321\n"
-      },
-      {
         "input": "5\n1\n",
         "output": "12345\n"
+      },
+      {
+        "input": "5\n60\n",
+        "output": "32541\n"
       },
       {
         "input": "5\n120\n",
         "output": "54321\n"
       },
       {
+        "input": "7\n1\n",
+        "output": "1234567\n"
+      },
+      {
+        "input": "7\n2500\n",
+        "output": "4371562\n"
+      },
+      {
+        "input": "7\n5040\n",
+        "output": "7654321\n"
+      },
+      {
         "input": "10\n1\n",
         "output": "12345678910\n"
+      },
+      {
+        "input": "10\n1234567\n",
+        "output": "45810913267\n"
       },
       {
         "input": "10\n3628800\n",
@@ -107,25 +95,22 @@
       "('getPermutation', (2, 1), 12)",
       "('getPermutation', (2, 2), 21)",
       "('getPermutation', (3, 1), 123)",
-      "('getPermutation', (3, 2), 132)",
       "('getPermutation', (3, 3), 213)",
-      "('getPermutation', (3, 4), 231)",
-      "('getPermutation', (3, 5), 312)",
       "('getPermutation', (3, 6), 321)",
       "('getPermutation', (4, 9), 2314)",
-      "('getPermutation', (4, 12), 2431)",
-      "('getPermutation', (4, 13), 3124)",
-      "('getPermutation', (4, 16), 3241)",
-      "('getPermutation', (4, 20), 4213)",
-      "('getPermutation', (4, 24), 4321)",
       "('getPermutation', (5, 1), 12345)",
+      "('getPermutation', (5, 60), 32541)",
       "('getPermutation', (5, 120), 54321)",
+      "('getPermutation', (7, 1), 1234567)",
+      "('getPermutation', (7, 2500), 4371562)",
+      "('getPermutation', (7, 5040), 7654321)",
       "('getPermutation', (10, 1), 12345678910)",
+      "('getPermutation', (10, 1234567), 45810913267)",
       "('getPermutation', (10, 3628800), 10987654321)"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: getPermutation(1, 1)\n  標準輸出: 1\n  你的輸出: '1'\n\n[測試#2] ❌ 失敗\n  標準輸入: getPermutation(2, 1)\n  標準輸出: 12\n  你的輸出: '12'\n\n[測試#3] ❌ 失敗\n  標準輸入: getPermutation(2, 2)\n  標準輸出: 21\n  你的輸出: '21'\n\n[測試#4] ❌ 失敗\n  標準輸入: getPermutation(3, 1)\n  標準輸出: 123\n  你的輸出: '123'\n\n[測試#5] ❌ 失敗\n  標準輸入: getPermutation(3, 2)\n  標準輸出: 132\n  你的輸出: '132'\n\n[測試#6] ❌ 失敗\n  標準輸入: getPermutation(3, 3)\n  標準輸出: 213\n  你的輸出: '213'\n\n[測試#7] ❌ 失敗\n  標準輸入: getPermutation(3, 4)\n  標準輸出: 231\n  你的輸出: '231'\n\n[測試#8] ❌ 失敗\n  標準輸入: getPermutation(3, 5)\n  標準輸出: 312\n  你的輸出: '312'\n\n[測試#9] ❌ 失敗\n  標準輸入: getPermutation(3, 6)\n  標準輸出: 321\n  你的輸出: '321'\n\n[測試#10] ❌ 失敗\n  標準輸入: getPermutation(4, 9)\n  標準輸出: 2314\n  你的輸出: '2314'\n\n[測試#11] ❌ 失敗\n  標準輸入: getPermutation(4, 12)\n  標準輸出: 2431\n  你的輸出: '2431'\n\n[測試#12] ❌ 失敗\n  標準輸入: getPermutation(4, 13)\n  標準輸出: 3124\n  你的輸出: '3124'\n\n[測試#13] ❌ 失敗\n  標準輸入: getPermutation(4, 16)\n  標準輸出: 3241\n  你的輸出: '3241'\n\n[測試#14] ❌ 失敗\n  標準輸入: getPermutation(4, 20)\n  標準輸出: 4213\n  你的輸出: '4132'\n\n[測試#15] ❌ 失敗\n  標準輸入: getPermutation(4, 24)\n  標準輸出: 4321\n  你的輸出: '4321'\n\n[測試#16] ❌ 失敗\n  標準輸入: getPermutation(5, 1)\n  標準輸出: 12345\n  你的輸出: '12345'\n\n[測試#17] ❌ 失敗\n  標準輸入: getPermutation(5, 120)\n  標準輸出: 54321\n  你的輸出: '54321'\n\n[測試#18] ❌ 失敗\n  標準輸入: getPermutation(10, 1)\n  標準輸出: 12345678910\n  你的輸出: '12345678910'\n\n[測試#19] ❌ 失敗\n  標準輸入: getPermutation(10, 3628800)\n  標準輸出: 10987654321\n  你的輸出: '10987654321'\n\n=== 測試完成 (0/19) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: getPermutation(1, 1)\n  標準輸出: 1\n  你的輸出: '1'\n\n[測試#2] ❌ 失敗\n  標準輸入: getPermutation(2, 1)\n  標準輸出: 12\n  你的輸出: '12'\n\n[測試#3] ❌ 失敗\n  標準輸入: getPermutation(2, 2)\n  標準輸出: 21\n  你的輸出: '21'\n\n[測試#4] ❌ 失敗\n  標準輸入: getPermutation(3, 1)\n  標準輸出: 123\n  你的輸出: '123'\n\n[測試#5] ❌ 失敗\n  標準輸入: getPermutation(3, 3)\n  標準輸出: 213\n  你的輸出: '213'\n\n[測試#6] ❌ 失敗\n  標準輸入: getPermutation(3, 6)\n  標準輸出: 321\n  你的輸出: '321'\n\n[測試#7] ❌ 失敗\n  標準輸入: getPermutation(4, 9)\n  標準輸出: 2314\n  你的輸出: '2314'\n\n[測試#8] ❌ 失敗\n  標準輸入: getPermutation(5, 1)\n  標準輸出: 12345\n  你的輸出: '12345'\n\n[測試#9] ❌ 失敗\n  標準輸入: getPermutation(5, 60)\n  標準輸出: 32541\n  你的輸出: '32541'\n\n[測試#10] ❌ 失敗\n  標準輸入: getPermutation(5, 120)\n  標準輸出: 54321\n  你的輸出: '54321'\n\n[測試#11] ❌ 失敗\n  標準輸入: getPermutation(7, 1)\n  標準輸出: 1234567\n  你的輸出: '1234567'\n\n[測試#12] ❌ 失敗\n  標準輸入: getPermutation(7, 2500)\n  標準輸出: 4371562\n  你的輸出: '4371562'\n\n[測試#13] ❌ 失敗\n  標準輸入: getPermutation(7, 5040)\n  標準輸出: 7654321\n  你的輸出: '7654321'\n\n[測試#14] ❌ 失敗\n  標準輸入: getPermutation(10, 1)\n  標準輸出: 12345678910\n  你的輸出: '12345678910'\n\n[測試#15] ❌ 失敗\n  標準輸入: getPermutation(10, 1234567)\n  標準輸出: 45810913267\n  你的輸出: '45710813269'\n\n[測試#16] ❌ 失敗\n  標準輸入: getPermutation(10, 3628800)\n  標準輸出: 10987654321\n  你的輸出: '10987654321'\n\n=== 測試完成 (0/16) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 19,
+    "total_tests": 16,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

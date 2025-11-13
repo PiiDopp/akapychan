@@ -1,0 +1,117 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode301(hard)--.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Remove Invalid Parentheses",
+    "description": "Given a string s that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid.\n\nReturn a list of unique strings that are valid with the minimum number of removals. You may return the answer in any order.",
+    "examples": [
+      {
+        "input": "s = \"()())()\"",
+        "output": "[\"(())()\",\"()()()\"]"
+      },
+      {
+        "input": "s = \"(a)())()\"",
+        "output": "[\"(a())()\",\"(a)()()\"]"
+      },
+      {
+        "input": "s = \")(\"",
+        "output": "[\"\"]"
+      }
+    ],
+    "solution": "class Solution(object):\n    def removeInvalidParentheses(self, s):\n        \"\"\"\n        :type s: str\n        :rtype: List[str]\n        \"\"\"\n        res = set()\n        def isValid(string):\n            count = 0\n            for c in string:\n                if c == '(':\n                    count += 1\n                elif c == ')':\n                    count -= 1\n                    if count < 0:\n                        return False\n            return count == 0\n        \n        level = {s}\n        while level:\n            valid = list(filter(isValid, level))\n            if valid:\n                return valid\n            next_level = set()\n            for item in level:\n                for i in range(len(item)):\n                    if item[i] in ('(', ')'):\n                        next_level.add(item[:i] + item[i+1:])\n            level = next_level\n        return []"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "()()\n",
+        "output": "['()()']\n"
+      },
+      {
+        "input": "(a)())()\n",
+        "output": "['(a)()()', '(a())()']\n"
+      },
+      {
+        "input": ")(\n",
+        "output": "['']\n"
+      },
+      {
+        "input": "(((\n",
+        "output": "['']\n"
+      },
+      {
+        "input": "))((\n",
+        "output": "['']\n"
+      },
+      {
+        "input": "(()\n",
+        "output": "['()']\n"
+      },
+      {
+        "input": "())\n",
+        "output": "['()']\n"
+      },
+      {
+        "input": "a(b)c\n",
+        "output": "['a(b)c']\n"
+      },
+      {
+        "input": "a(b)c)\n",
+        "output": "['a(b)c']\n"
+      },
+      {
+        "input": "((a)(b))\n",
+        "output": "['((a)(b))']\n"
+      },
+      {
+        "input": "((a)(b))(\n",
+        "output": "['((a)(b))']\n"
+      },
+      {
+        "input": "\n",
+        "output": "['']\n"
+      },
+      {
+        "input": "abc\n",
+        "output": "['abc']\n"
+      },
+      {
+        "input": "(((a)))\n",
+        "output": "['(((a)))']\n"
+      },
+      {
+        "input": "((a)(b)))((\n",
+        "output": "['((a)(b))']\n"
+      },
+      {
+        "input": "(()())\n",
+        "output": "['(()())']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('removeInvalidParentheses', ('()()\\n',), ['()()'])",
+      "('removeInvalidParentheses', ('(a)())()\\n',), ['(a)()()', '(a())()'])",
+      "('removeInvalidParentheses', (')(\\n',), [''])",
+      "('removeInvalidParentheses', ('(((\\n',), [''])",
+      "('removeInvalidParentheses', ('))((\\n',), [''])",
+      "('removeInvalidParentheses', ('(()\\n',), ['()'])",
+      "('removeInvalidParentheses', ('())\\n',), ['()'])",
+      "('removeInvalidParentheses', ('a(b)c\\n',), ['a(b)c'])",
+      "('removeInvalidParentheses', ('a(b)c)\\n',), ['a(b)c'])",
+      "('removeInvalidParentheses', ('((a)(b))\\n',), ['((a)(b))'])",
+      "('removeInvalidParentheses', ('((a)(b))(\\n',), ['((a)(b))'])",
+      "('removeInvalidParentheses', ((),), [''])",
+      "('removeInvalidParentheses', ('abc\\n',), ['abc'])",
+      "('removeInvalidParentheses', ('(((a)))\\n',), ['(((a)))'])",
+      "('removeInvalidParentheses', ('((a)(b)))((\\n',), ['((a)(b))'])",
+      "('removeInvalidParentheses', ('(()())\\n',), ['(()())'])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: removeInvalidParentheses('()()\\n',)\n  標準輸出: ['()()']\n  你的輸出: ['()()\\n']\n\n[測試#2] ❌ 失敗\n  標準輸入: removeInvalidParentheses('(a)())()\\n',)\n  標準輸出: ['(a)()()', '(a())()']\n  你的輸出: ['(a())()\\n', '(a)()()\\n']\n\n[測試#3] ❌ 失敗\n  標準輸入: removeInvalidParentheses(')(\\n',)\n  標準輸出: ['']\n  你的輸出: ['\\n']\n\n[測試#4] ❌ 失敗\n  標準輸入: removeInvalidParentheses('(((\\n',)\n  標準輸出: ['']\n  你的輸出: ['\\n']\n\n[測試#5] ❌ 失敗\n  標準輸入: removeInvalidParentheses('))((\\n',)\n  標準輸出: ['']\n  你的輸出: ['\\n']\n\n[測試#6] ❌ 失敗\n  標準輸入: removeInvalidParentheses('(()\\n',)\n  標準輸出: ['()']\n  你的輸出: ['()\\n']\n\n[測試#7] ❌ 失敗\n  標準輸入: removeInvalidParentheses('())\\n',)\n  標準輸出: ['()']\n  你的輸出: ['()\\n']\n\n[測試#8] ❌ 失敗\n  標準輸入: removeInvalidParentheses('a(b)c\\n',)\n  標準輸出: ['a(b)c']\n  你的輸出: ['a(b)c\\n']\n\n[測試#9] ❌ 失敗\n  標準輸入: removeInvalidParentheses('a(b)c)\\n',)\n  標準輸出: ['a(b)c']\n  你的輸出: ['a(bc)\\n', 'a(b)c\\n']\n\n[測試#10] ❌ 失敗\n  標準輸入: removeInvalidParentheses('((a)(b))\\n',)\n  標準輸出: ['((a)(b))']\n  你的輸出: ['((a)(b))\\n']\n\n[測試#11] ❌ 失敗\n  標準輸入: removeInvalidParentheses('((a)(b))(\\n',)\n  標準輸出: ['((a)(b))']\n  你的輸出: ['((a)(b))\\n']\n\n[測試#12] ❌ 失敗\n  標準輸入: removeInvalidParentheses((),)\n  標準輸出: ['']\n  你的輸出: [()]\n\n[測試#13] ❌ 失敗\n  標準輸入: removeInvalidParentheses('abc\\n',)\n  標準輸出: ['abc']\n  你的輸出: ['abc\\n']\n\n[測試#14] ❌ 失敗\n  標準輸入: removeInvalidParentheses('(((a)))\\n',)\n  標準輸出: ['(((a)))']\n  你的輸出: ['(((a)))\\n']\n\n[測試#15] ❌ 失敗\n  標準輸入: removeInvalidParentheses('((a)(b)))((\\n',)\n  標準輸出: ['((a)(b))']\n  你的輸出: ['((a)(b))\\n', '((a(b)))\\n']\n\n[測試#16] ❌ 失敗\n  標準輸入: removeInvalidParentheses('(()())\\n',)\n  標準輸出: ['(()())']\n  你的輸出: ['(()())\\n']\n\n=== 測試完成 (0/16) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
+    "all_passed": false,
+    "total_tests": 16,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

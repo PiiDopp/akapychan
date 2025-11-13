@@ -42,24 +42,24 @@
         "output": "6\n"
       },
       {
-        "input": "['a', 'aaaaaaaaaa']\n",
-        "output": "10\n"
+        "input": "['😀', '😀😃😀😄']\n",
+        "output": "2\n"
       },
       {
-        "input": "['abcd', 'efgh']\n",
-        "output": "0\n"
+        "input": "['a', 'aaaaaaaaaaaaaaaaaaaaaaaa']\n",
+        "output": "24\n"
       },
       {
         "input": "['a', 'b']\n",
         "output": "0\n"
       },
       {
-        "input": "['a', 'A']\n",
-        "output": "0\n"
+        "input": "['a', 'a']\n",
+        "output": "1\n"
       },
       {
-        "input": "['a', 'aA']\n",
-        "output": "1\n"
+        "input": "['aA', 'AaAa']\n",
+        "output": "4\n"
       }
     ],
     "parsed_tests": [
@@ -68,13 +68,13 @@
       "('numJewelsInStones', ('', 'abc'), 0)",
       "('numJewelsInStones', ('abc', ''), 0)",
       "('numJewelsInStones', ('abc', 'abcabc'), 6)",
-      "('numJewelsInStones', ('a', 'aaaaaaaaaa'), 10)",
-      "('numJewelsInStones', ('abcd', 'efgh'), 0)",
+      "('numJewelsInStones', ('😀', '😀😃😀😄'), 2)",
+      "('numJewelsInStones', ('a', 'aaaaaaaaaaaaaaaaaaaaaaaa'), 24)",
       "('numJewelsInStones', ('a', 'b'), 0)",
-      "('numJewelsInStones', ('a', 'A'), 0)",
-      "('numJewelsInStones', ('a', 'aA'), 1)"
+      "('numJewelsInStones', ('a', 'a'), 1)",
+      "('numJewelsInStones', ('aA', 'AaAa'), 4)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numJewelsInStones('aA', 'aAAbbbb')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: numJewelsInStones('z', 'ZZ')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: numJewelsInStones('', 'abc')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numJewelsInStones('abc', '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: numJewelsInStones('abc', 'abcabc')\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#6] ✅ 通過\n  標準輸入: numJewelsInStones('a', 'aaaaaaaaaa')\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#7] ✅ 通過\n  標準輸入: numJewelsInStones('abcd', 'efgh')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: numJewelsInStones('a', 'b')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: numJewelsInStones('a', 'A')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: numJewelsInStones('a', 'aA')\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numJewelsInStones('aA', 'aAAbbbb')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: numJewelsInStones('z', 'ZZ')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: numJewelsInStones('', 'abc')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numJewelsInStones('abc', '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: numJewelsInStones('abc', 'abcabc')\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#6] ✅ 通過\n  標準輸入: numJewelsInStones('😀', '😀😃😀😄')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: numJewelsInStones('a', 'aaaaaaaaaaaaaaaaaaaaaaaa')\n  標準輸出: 24\n  你的輸出: 24\n\n[測試#8] ✅ 通過\n  標準輸入: numJewelsInStones('a', 'b')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: numJewelsInStones('a', 'a')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: numJewelsInStones('aA', 'AaAa')\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
     "all_passed": true,
     "total_tests": 10,
     "passed_count": 10,

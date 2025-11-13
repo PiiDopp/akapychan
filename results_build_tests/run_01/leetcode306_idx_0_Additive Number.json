@@ -28,11 +28,11 @@
         "output": "True\n"
       },
       {
-        "input": "123\n",
+        "input": "199100199\n",
         "output": "True\n"
       },
       {
-        "input": "199100199\n",
+        "input": "123\n",
         "output": "True\n"
       },
       {
@@ -48,8 +48,8 @@
         "output": "False\n"
       },
       {
-        "input": "101\n",
-        "output": "True\n"
+        "input": "110\n",
+        "output": "False\n"
       },
       {
         "input": "123456579\n",
@@ -60,51 +60,56 @@
         "output": "False\n"
       },
       {
-        "input": "1234565790\n",
+        "input": "11235813\n",
         "output": "False\n"
       },
       {
-        "input": "12\n",
+        "input": "101\n",
+        "output": "True\n"
+      },
+      {
+        "input": "100200300\n",
+        "output": "True\n"
+      },
+      {
+        "input": "100200300400\n",
         "output": "False\n"
       },
       {
-        "input": "12345678901234567890\n",
+        "input": "0000\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0001\n",
         "output": "False\n"
       },
       {
-        "input": "110\n",
-        "output": "False\n"
-      },
-      {
-        "input": "121\n",
-        "output": "False\n"
-      },
-      {
-        "input": "121212\n",
+        "input": "123456789\n",
         "output": "False\n"
       }
     ],
     "parsed_tests": [
       "('isAdditiveNumber', (112358,), True)",
-      "('isAdditiveNumber', (123,), True)",
       "('isAdditiveNumber', (199100199,), True)",
+      "('isAdditiveNumber', (123,), True)",
       "('isAdditiveNumber', (1023,), False)",
       "('isAdditiveNumber', (0,), True)",
       "('isAdditiveNumber', ('010\\n',), False)",
-      "('isAdditiveNumber', (101,), True)",
+      "('isAdditiveNumber', (110,), False)",
       "('isAdditiveNumber', (123456579,), True)",
       "('isAdditiveNumber', (123456580,), False)",
-      "('isAdditiveNumber', (1234565790,), False)",
-      "('isAdditiveNumber', (12,), False)",
-      "('isAdditiveNumber', (12345678901234567890,), False)",
-      "('isAdditiveNumber', (110,), False)",
-      "('isAdditiveNumber', (121,), False)",
-      "('isAdditiveNumber', (121212,), False)"
+      "('isAdditiveNumber', (11235813,), False)",
+      "('isAdditiveNumber', (101,), True)",
+      "('isAdditiveNumber', (100200300,), True)",
+      "('isAdditiveNumber', (100200300400,), False)",
+      "('isAdditiveNumber', (0,), True)",
+      "('isAdditiveNumber', ('0001\\n',), False)",
+      "('isAdditiveNumber', (123456789,), False)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ✅ 通過\n  標準輸入: isAdditiveNumber('010\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: object of type 'int' has no len()\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 執行例外: object of type 'int' has no len()\n[測試#11] ❌ 執行例外: object of type 'int' has no len()\n[測試#12] ❌ 執行例外: object of type 'int' has no len()\n[測試#13] ❌ 執行例外: object of type 'int' has no len()\n[測試#14] ❌ 執行例外: object of type 'int' has no len()\n[測試#15] ❌ 執行例外: object of type 'int' has no len()\n=== 測試完成 (1/15) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ✅ 通過\n  標準輸入: isAdditiveNumber('010\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: object of type 'int' has no len()\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 執行例外: object of type 'int' has no len()\n[測試#11] ❌ 執行例外: object of type 'int' has no len()\n[測試#12] ❌ 執行例外: object of type 'int' has no len()\n[測試#13] ❌ 執行例外: object of type 'int' has no len()\n[測試#14] ❌ 執行例外: object of type 'int' has no len()\n[測試#15] ✅ 通過\n  標準輸入: isAdditiveNumber('0001\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ❌ 執行例外: object of type 'int' has no len()\n=== 測試完成 (2/16) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 15,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 16,
+    "passed_count": 2,
+    "accuracy_rate": 0.125
   }
 }

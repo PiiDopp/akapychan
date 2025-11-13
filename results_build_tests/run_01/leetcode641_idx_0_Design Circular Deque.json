@@ -16,8 +16,279 @@
   },
   "experiment_result": {
     "success": false,
-    "error": "非 LeetCode 格式程式碼",
-    "generated_tests": [],
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "k": 3,
+        "operations": [
+          {
+            "op": "insertFront",
+            "args": [
+              1
+            ]
+          },
+          {
+            "op": "insertLast",
+            "args": [
+              2
+            ]
+          },
+          {
+            "op": "getFront",
+            "args": []
+          },
+          {
+            "op": "getRear",
+            "args": []
+          },
+          {
+            "op": "deleteFront",
+            "args": []
+          },
+          {
+            "op": "deleteLast",
+            "args": []
+          },
+          {
+            "op": "isEmpty",
+            "args": []
+          },
+          {
+            "op": "isFull",
+            "args": []
+          }
+        ],
+        "expected": [
+          true,
+          true,
+          1,
+          2,
+          true,
+          true,
+          true,
+          false
+        ]
+      },
+      {
+        "k": 2,
+        "operations": [
+          {
+            "op": "insertFront",
+            "args": [
+              10
+            ]
+          },
+          {
+            "op": "insertLast",
+            "args": [
+              20
+            ]
+          },
+          {
+            "op": "insertFront",
+            "args": [
+              30
+            ]
+          },
+          {
+            "op": "insertLast",
+            "args": [
+              40
+            ]
+          },
+          {
+            "op": "isFull",
+            "args": []
+          },
+          {
+            "op": "getFront",
+            "args": []
+          },
+          {
+            "op": "getRear",
+            "args": []
+          },
+          {
+            "op": "deleteLast",
+            "args": []
+          },
+          {
+            "op": "getRear",
+            "args": []
+          },
+          {
+            "op": "isFull",
+            "args": []
+          }
+        ],
+        "expected": [
+          true,
+          true,
+          false,
+          false,
+          true,
+          10,
+          20,
+          true,
+          10,
+          false
+        ]
+      },
+      {
+        "k": 3,
+        "operations": [
+          {
+            "op": "insertLast",
+            "args": [
+              1
+            ]
+          },
+          {
+            "op": "insertLast",
+            "args": [
+              2
+            ]
+          },
+          {
+            "op": "insertLast",
+            "args": [
+              3
+            ]
+          },
+          {
+            "op": "deleteFront",
+            "args": []
+          },
+          {
+            "op": "insertFront",
+            "args": [
+              4
+            ]
+          },
+          {
+            "op": "getFront",
+            "args": []
+          },
+          {
+            "op": "getRear",
+            "args": []
+          },
+          {
+            "op": "deleteLast",
+            "args": []
+          },
+          {
+            "op": "getRear",
+            "args": []
+          },
+          {
+            "op": "isFull",
+            "args": []
+          }
+        ],
+        "expected": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          4,
+          3,
+          true,
+          2,
+          false
+        ]
+      },
+      {
+        "k": 1,
+        "operations": [
+          {
+            "op": "insertFront",
+            "args": [
+              5
+            ]
+          },
+          {
+            "op": "getFront",
+            "args": []
+          },
+          {
+            "op": "deleteLast",
+            "args": []
+          },
+          {
+            "op": "isEmpty",
+            "args": []
+          }
+        ],
+        "expected": [
+          true,
+          5,
+          true,
+          true
+        ]
+      },
+      {
+        "k": 4,
+        "operations": [
+          {
+            "op": "insertFront",
+            "args": [
+              1
+            ]
+          },
+          {
+            "op": "insertLast",
+            "args": [
+              2
+            ]
+          },
+          {
+            "op": "insertFront",
+            "args": [
+              3
+            ]
+          },
+          {
+            "op": "insertLast",
+            "args": [
+              4
+            ]
+          },
+          {
+            "op": "deleteFront",
+            "args": []
+          },
+          {
+            "op": "deleteLast",
+            "args": []
+          },
+          {
+            "op": "getFront",
+            "args": []
+          },
+          {
+            "op": "getRear",
+            "args": []
+          },
+          {
+            "op": "isFull",
+            "args": []
+          }
+        ],
+        "expected": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          1,
+          2,
+          false
+        ]
+      }
+    ],
     "parsed_tests": [],
     "runlog": "",
     "all_passed": false,

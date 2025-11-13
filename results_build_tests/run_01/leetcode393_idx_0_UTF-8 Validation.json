@@ -32,7 +32,7 @@
         "output": "True\n"
       },
       {
-        "input": "194\n128\n",
+        "input": "194\n162\n",
         "output": "True\n"
       },
       {
@@ -40,11 +40,7 @@
         "output": "True\n"
       },
       {
-        "input": "240\n144\n128\n128\n",
-        "output": "True\n"
-      },
-      {
-        "input": "244\n143\n191\n191\n",
+        "input": "240\n144\n141\n136\n",
         "output": "True\n"
       },
       {
@@ -52,23 +48,7 @@
         "output": "False\n"
       },
       {
-        "input": "192\n128\n",
-        "output": "False\n"
-      },
-      {
-        "input": "224\n128\n128\n",
-        "output": "False\n"
-      },
-      {
-        "input": "240\n128\n128\n128\n",
-        "output": "False\n"
-      },
-      {
-        "input": "245\n128\n128\n128\n",
-        "output": "False\n"
-      },
-      {
-        "input": "194\n",
+        "input": "194\n32\n",
         "output": "False\n"
       },
       {
@@ -76,45 +56,55 @@
         "output": "False\n"
       },
       {
-        "input": "240\n144\n128\n",
+        "input": "248\n128\n128\n128\n128\n",
         "output": "False\n"
       },
       {
-        "input": "255\n",
+        "input": "65\n194\n162\n128\n",
         "output": "False\n"
       },
       {
-        "input": "194\n128\n128\n",
+        "input": "65\n194\n162\n226\n130\n172\n",
+        "output": "True\n"
+      },
+      {
+        "input": "\n",
+        "output": "True\n"
+      },
+      {
+        "input": "128\n",
         "output": "False\n"
       },
       {
-        "input": "244\n144\n128\n128\n128\n",
+        "input": "254\n",
         "output": "False\n"
+      },
+      {
+        "input": "244\n144\n128\n128\n",
+        "output": "True\n"
       }
     ],
     "parsed_tests": [
       "('validUtf8', (0,), True)",
       "('validUtf8', (127,), True)",
-      "('validUtf8', ((194, 128),), True)",
+      "('validUtf8', ((194, 162),), True)",
       "('validUtf8', ((226, 130, 172),), True)",
-      "('validUtf8', ((240, 144, 128, 128),), True)",
-      "('validUtf8', ((244, 143, 191, 191),), True)",
+      "('validUtf8', ((240, 144, 141, 136),), True)",
       "('validUtf8', (128,), False)",
-      "('validUtf8', ((192, 128),), False)",
-      "('validUtf8', ((224, 128, 128),), False)",
-      "('validUtf8', ((240, 128, 128, 128),), False)",
-      "('validUtf8', ((245, 128, 128, 128),), False)",
-      "('validUtf8', (194,), False)",
+      "('validUtf8', ((194, 32),), False)",
       "('validUtf8', ((226, 130),), False)",
-      "('validUtf8', ((240, 144, 128),), False)",
-      "('validUtf8', (255,), False)",
-      "('validUtf8', ((194, 128, 128),), False)",
-      "('validUtf8', ((244, 144, 128, 128, 128),), False)"
+      "('validUtf8', ((248, 128, 128, 128, 128),), False)",
+      "('validUtf8', ((65, 194, 162, 128),), False)",
+      "('validUtf8', ((65, 194, 162, 226, 130, 172),), True)",
+      "('validUtf8', ((),), True)",
+      "('validUtf8', (128,), False)",
+      "('validUtf8', (254,), False)",
+      "('validUtf8', ((244, 144, 128, 128),), True)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: 'int' object is not iterable\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ✅ 通過\n  標準輸入: validUtf8((194, 128),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: validUtf8((226, 130, 172),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: validUtf8((240, 144, 128, 128),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: validUtf8((244, 143, 191, 191),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ❌ 執行例外: 'int' object is not iterable\n[測試#8] ❌ 失敗\n  標準輸入: validUtf8((192, 128),)\n  標準輸出: False\n  你的輸出: True\n\n[測試#9] ❌ 失敗\n  標準輸入: validUtf8((224, 128, 128),)\n  標準輸出: False\n  你的輸出: True\n\n[測試#10] ❌ 失敗\n  標準輸入: validUtf8((240, 128, 128, 128),)\n  標準輸出: False\n  你的輸出: True\n\n[測試#11] ❌ 失敗\n  標準輸入: validUtf8((245, 128, 128, 128),)\n  標準輸出: False\n  你的輸出: True\n\n[測試#12] ❌ 執行例外: 'int' object is not iterable\n[測試#13] ✅ 通過\n  標準輸入: validUtf8((226, 130),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: validUtf8((240, 144, 128),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ❌ 執行例外: 'int' object is not iterable\n[測試#16] ✅ 通過\n  標準輸入: validUtf8((194, 128, 128),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: validUtf8((244, 144, 128, 128, 128),)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (8/17) ===\n[警告] 部分測資未通過 ❌（0.0019s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: 'int' object is not iterable\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ✅ 通過\n  標準輸入: validUtf8((194, 162),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: validUtf8((226, 130, 172),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: validUtf8((240, 144, 141, 136),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ✅ 通過\n  標準輸入: validUtf8((194, 32),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: validUtf8((226, 130),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: validUtf8((248, 128, 128, 128, 128),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: validUtf8((65, 194, 162, 128),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: validUtf8((65, 194, 162, 226, 130, 172),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: validUtf8((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ❌ 執行例外: 'int' object is not iterable\n[測試#14] ❌ 執行例外: 'int' object is not iterable\n[測試#15] ✅ 通過\n  標準輸入: validUtf8((244, 144, 128, 128),)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (10/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 17,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 15,
+    "passed_count": 10,
+    "accuracy_rate": 0.6666666666666666
   }
 }

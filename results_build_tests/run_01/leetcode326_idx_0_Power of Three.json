@@ -25,14 +25,211 @@
     "solution": "class Solution:\n    def isPowerOfThree(self, n):\n        if n <= 0:\n            return False\n        while n % 3 == 0:\n            n //= 3\n        return n == 1"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
-    "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "9\n",
+        "output": "True\n"
+      },
+      {
+        "input": "27\n",
+        "output": "True\n"
+      },
+      {
+        "input": "81\n",
+        "output": "True\n"
+      },
+      {
+        "input": "243\n",
+        "output": "True\n"
+      },
+      {
+        "input": "729\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2187\n",
+        "output": "True\n"
+      },
+      {
+        "input": "6561\n",
+        "output": "True\n"
+      },
+      {
+        "input": "19683\n",
+        "output": "True\n"
+      },
+      {
+        "input": "59049\n",
+        "output": "True\n"
+      },
+      {
+        "input": "177147\n",
+        "output": "True\n"
+      },
+      {
+        "input": "531441\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1594323\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4782969\n",
+        "output": "True\n"
+      },
+      {
+        "input": "14348907\n",
+        "output": "True\n"
+      },
+      {
+        "input": "43046721\n",
+        "output": "True\n"
+      },
+      {
+        "input": "129140163\n",
+        "output": "True\n"
+      },
+      {
+        "input": "387420489\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1162261467\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3486784401\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n",
+        "output": "False\n"
+      },
+      {
+        "input": "6\n",
+        "output": "False\n"
+      },
+      {
+        "input": "10\n",
+        "output": "False\n"
+      },
+      {
+        "input": "12\n",
+        "output": "False\n"
+      },
+      {
+        "input": "14\n",
+        "output": "False\n"
+      },
+      {
+        "input": "15\n",
+        "output": "False\n"
+      },
+      {
+        "input": "18\n",
+        "output": "False\n"
+      },
+      {
+        "input": "20\n",
+        "output": "False\n"
+      },
+      {
+        "input": "30\n",
+        "output": "False\n"
+      },
+      {
+        "input": "100\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1000000000\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2324522934\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isPowerOfThree', (1,), True)",
+      "('isPowerOfThree', (3,), True)",
+      "('isPowerOfThree', (9,), True)",
+      "('isPowerOfThree', (27,), True)",
+      "('isPowerOfThree', (81,), True)",
+      "('isPowerOfThree', (243,), True)",
+      "('isPowerOfThree', (729,), True)",
+      "('isPowerOfThree', (2187,), True)",
+      "('isPowerOfThree', (6561,), True)",
+      "('isPowerOfThree', (19683,), True)",
+      "('isPowerOfThree', (59049,), True)",
+      "('isPowerOfThree', (177147,), True)",
+      "('isPowerOfThree', (531441,), True)",
+      "('isPowerOfThree', (1594323,), True)",
+      "('isPowerOfThree', (4782969,), True)",
+      "('isPowerOfThree', (14348907,), True)",
+      "('isPowerOfThree', (43046721,), True)",
+      "('isPowerOfThree', (129140163,), True)",
+      "('isPowerOfThree', (387420489,), True)",
+      "('isPowerOfThree', (1162261467,), True)",
+      "('isPowerOfThree', (3486784401,), True)",
+      "('isPowerOfThree', (0,), False)",
+      "('isPowerOfThree', (-1,), False)",
+      "('isPowerOfThree', (-3,), False)",
+      "('isPowerOfThree', (2,), False)",
+      "('isPowerOfThree', (4,), False)",
+      "('isPowerOfThree', (5,), False)",
+      "('isPowerOfThree', (6,), False)",
+      "('isPowerOfThree', (10,), False)",
+      "('isPowerOfThree', (12,), False)",
+      "('isPowerOfThree', (14,), False)",
+      "('isPowerOfThree', (15,), False)",
+      "('isPowerOfThree', (18,), False)",
+      "('isPowerOfThree', (20,), False)",
+      "('isPowerOfThree', (30,), False)",
+      "('isPowerOfThree', (100,), False)",
+      "('isPowerOfThree', (1000000000,), False)",
+      "('isPowerOfThree', (2147483647,), False)",
+      "('isPowerOfThree', (2324522934,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPowerOfThree(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isPowerOfThree(3,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isPowerOfThree(9,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isPowerOfThree(27,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isPowerOfThree(81,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isPowerOfThree(243,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isPowerOfThree(729,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isPowerOfThree(2187,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isPowerOfThree(6561,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isPowerOfThree(19683,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isPowerOfThree(59049,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isPowerOfThree(177147,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isPowerOfThree(531441,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isPowerOfThree(1594323,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: isPowerOfThree(4782969,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: isPowerOfThree(14348907,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: isPowerOfThree(43046721,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: isPowerOfThree(129140163,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: isPowerOfThree(387420489,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: isPowerOfThree(1162261467,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: isPowerOfThree(3486784401,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#22] ✅ 通過\n  標準輸入: isPowerOfThree(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#23] ✅ 通過\n  標準輸入: isPowerOfThree(-1,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#24] ✅ 通過\n  標準輸入: isPowerOfThree(-3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#25] ✅ 通過\n  標準輸入: isPowerOfThree(2,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#26] ✅ 通過\n  標準輸入: isPowerOfThree(4,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#27] ✅ 通過\n  標準輸入: isPowerOfThree(5,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#28] ✅ 通過\n  標準輸入: isPowerOfThree(6,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#29] ✅ 通過\n  標準輸入: isPowerOfThree(10,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#30] ✅ 通過\n  標準輸入: isPowerOfThree(12,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#31] ✅ 通過\n  標準輸入: isPowerOfThree(14,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#32] ✅ 通過\n  標準輸入: isPowerOfThree(15,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#33] ✅ 通過\n  標準輸入: isPowerOfThree(18,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#34] ✅ 通過\n  標準輸入: isPowerOfThree(20,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#35] ✅ 通過\n  標準輸入: isPowerOfThree(30,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#36] ✅ 通過\n  標準輸入: isPowerOfThree(100,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#37] ✅ 通過\n  標準輸入: isPowerOfThree(1000000000,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#38] ✅ 通過\n  標準輸入: isPowerOfThree(2147483647,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#39] ✅ 通過\n  標準輸入: isPowerOfThree(2324522934,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (39/39) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 39,
+    "passed_count": 39,
+    "accuracy_rate": 1.0
   }
 }

@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode479.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Largest Palindrome Product",
+    "description": "Given an integer n, return the largest palindromic integer that can be represented as the product of two n-digits integers. Since the answer can be very large, return it modulo 1337.",
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "987",
+        "explanation": "99 x 91 = 9009, 9009 % 1337 = 987"
+      },
+      {
+        "input": "n = 1",
+        "output": "9"
+      }
+    ],
+    "solution": "class Solution:\n    def largestPalindrome(self, n):\n        if n == 1:\n            return 9\n        # 預先計算 n 位數的最大回文乘積模 1337\n        precomputed = [0, 9, 987, 123, 597, 677, 1218, 877, 475]\n        return precomputed[n]  # n 從 1 到 8"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "9\n"
+      },
+      {
+        "input": "2\n",
+        "output": "987\n"
+      },
+      {
+        "input": "3\n",
+        "output": "123\n"
+      },
+      {
+        "input": "4\n",
+        "output": "597\n"
+      },
+      {
+        "input": "5\n",
+        "output": "677\n"
+      },
+      {
+        "input": "6\n",
+        "output": "1218\n"
+      },
+      {
+        "input": "7\n",
+        "output": "877\n"
+      },
+      {
+        "input": "8\n",
+        "output": "475\n"
+      }
+    ],
+    "parsed_tests": [
+      "('largestPalindrome', (1,), 9)",
+      "('largestPalindrome', (2,), 987)",
+      "('largestPalindrome', (3,), 123)",
+      "('largestPalindrome', (4,), 597)",
+      "('largestPalindrome', (5,), 677)",
+      "('largestPalindrome', (6,), 1218)",
+      "('largestPalindrome', (7,), 877)",
+      "('largestPalindrome', (8,), 475)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: largestPalindrome(1,)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#2] ✅ 通過\n  標準輸入: largestPalindrome(2,)\n  標準輸出: 987\n  你的輸出: 987\n\n[測試#3] ✅ 通過\n  標準輸入: largestPalindrome(3,)\n  標準輸出: 123\n  你的輸出: 123\n\n[測試#4] ✅ 通過\n  標準輸入: largestPalindrome(4,)\n  標準輸出: 597\n  你的輸出: 597\n\n[測試#5] ✅ 通過\n  標準輸入: largestPalindrome(5,)\n  標準輸出: 677\n  你的輸出: 677\n\n[測試#6] ✅ 通過\n  標準輸入: largestPalindrome(6,)\n  標準輸出: 1218\n  你的輸出: 1218\n\n[測試#7] ✅ 通過\n  標準輸入: largestPalindrome(7,)\n  標準輸出: 877\n  你的輸出: 877\n\n[測試#8] ✅ 通過\n  標準輸入: largestPalindrome(8,)\n  標準輸出: 475\n  你的輸出: 475\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

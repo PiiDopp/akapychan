@@ -36,54 +36,54 @@
         "output": "abc\n"
       },
       {
-        "input": "(a(b\n",
-        "output": "ab\n"
+        "input": "((a)\n",
+        "output": "(a)\n"
       },
       {
-        "input": "((a))b)\n",
-        "output": "((a))b\n"
+        "input": "a)b(c)d)\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "((()))\n",
+        "output": "((()))\n"
       },
       {
         "input": ")))(((\n",
         "output": "\n"
       },
       {
-        "input": "\n",
-        "output": "\n"
+        "input": "a(b)c)d(e\n",
+        "output": "abcde\n"
       },
       {
         "input": "abc\n",
         "output": "abc\n"
       },
       {
-        "input": "a(b)c)d(e(f)g\n",
-        "output": "a(b)cde(f)g\n"
+        "input": "a(b)c)\n",
+        "output": "a(b)c\n"
       },
       {
-        "input": "((a)(b\n",
-        "output": "(a)b\n"
-      },
-      {
-        "input": "a)b)c)d\n",
-        "output": "abcd\n"
+        "input": "((a)b)c\n",
+        "output": "((a)b)c\n"
       }
     ],
     "parsed_tests": [
       "('minRemoveToMakeValid', ('a(b)c\\n',), 'a(b)c\\n')",
       "('minRemoveToMakeValid', ('a)b(c\\n',), 'abc\\n')",
-      "('minRemoveToMakeValid', ('(a(b\\n',), 'ab\\n')",
-      "('minRemoveToMakeValid', ('((a))b)\\n',), '((a))b\\n')",
+      "('minRemoveToMakeValid', ('((a)\\n',), '(a)\\n')",
+      "('minRemoveToMakeValid', ('a)b(c)d)\\n',), 'abcd\\n')",
+      "('minRemoveToMakeValid', ((),), ())",
       "('minRemoveToMakeValid', (')))(((\\n',), '\\n')",
-      "('minRemoveToMakeValid', ((),), '\\n')",
+      "('minRemoveToMakeValid', ('a(b)c)d(e\\n',), 'abcde\\n')",
       "('minRemoveToMakeValid', ('abc\\n',), 'abc\\n')",
-      "('minRemoveToMakeValid', ('a(b)c)d(e(f)g\\n',), 'a(b)cde(f)g\\n')",
-      "('minRemoveToMakeValid', ('((a)(b\\n',), '(a)b\\n')",
-      "('minRemoveToMakeValid', ('a)b)c)d\\n',), 'abcd\\n')"
+      "('minRemoveToMakeValid', ('a(b)c)\\n',), 'a(b)c\\n')",
+      "('minRemoveToMakeValid', ('((a)b)c\\n',), '((a)b)c\\n')"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minRemoveToMakeValid('a(b)c\\n',)\n  標準輸出: 'a(b)c\\n'\n  你的輸出: 'a(b)c\\n'\n\n[測試#2] ✅ 通過\n  標準輸入: minRemoveToMakeValid('a)b(c\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: minRemoveToMakeValid('(a(b\\n',)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab\\n'\n\n[測試#4] ✅ 通過\n  標準輸入: minRemoveToMakeValid('((a))b)\\n',)\n  標準輸出: '((a))b\\n'\n  你的輸出: '((a))b\\n'\n\n[測試#5] ✅ 通過\n  標準輸入: minRemoveToMakeValid(')))(((\\n',)\n  標準輸出: '\\n'\n  你的輸出: '\\n'\n\n[測試#6] ❌ 失敗\n  標準輸入: minRemoveToMakeValid((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#7] ✅ 通過\n  標準輸入: minRemoveToMakeValid('abc\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#8] ✅ 通過\n  標準輸入: minRemoveToMakeValid('a(b)c)d(e(f)g\\n',)\n  標準輸出: 'a(b)cde(f)g\\n'\n  你的輸出: 'a(b)cde(f)g\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: minRemoveToMakeValid('((a)(b\\n',)\n  標準輸出: '(a)b\\n'\n  你的輸出: '(a)b\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: minRemoveToMakeValid('a)b)c)d\\n',)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd\\n'\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minRemoveToMakeValid('a(b)c\\n',)\n  標準輸出: 'a(b)c\\n'\n  你的輸出: 'a(b)c\\n'\n\n[測試#2] ✅ 通過\n  標準輸入: minRemoveToMakeValid('a)b(c\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: minRemoveToMakeValid('((a)\\n',)\n  標準輸出: '(a)\\n'\n  你的輸出: '(a)\\n'\n\n[測試#4] ❌ 失敗\n  標準輸入: minRemoveToMakeValid('a)b(c)d)\\n',)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'ab(c)d\\n'\n\n[測試#5] ❌ 失敗\n  標準輸入: minRemoveToMakeValid((),)\n  標準輸出: ()\n  你的輸出: ''\n\n[測試#6] ✅ 通過\n  標準輸入: minRemoveToMakeValid(')))(((\\n',)\n  標準輸出: '\\n'\n  你的輸出: '\\n'\n\n[測試#7] ❌ 失敗\n  標準輸入: minRemoveToMakeValid('a(b)c)d(e\\n',)\n  標準輸出: 'abcde\\n'\n  你的輸出: 'a(b)cde\\n'\n\n[測試#8] ✅ 通過\n  標準輸入: minRemoveToMakeValid('abc\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: minRemoveToMakeValid('a(b)c)\\n',)\n  標準輸出: 'a(b)c\\n'\n  你的輸出: 'a(b)c\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: minRemoveToMakeValid('((a)b)c\\n',)\n  標準輸出: '((a)b)c\\n'\n  你的輸出: '((a)b)c\\n'\n\n=== 測試完成 (7/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
     "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 7,
+    "accuracy_rate": 0.7
   }
 }

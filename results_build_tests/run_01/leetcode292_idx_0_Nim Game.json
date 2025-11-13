@@ -1,0 +1,88 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode292.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Nim Game",
+    "description": "You are playing the following Nim Game with your friend:\n\nInitially, there is a heap of stones on the table.\nYou and your friend will alternate taking turns, and you go first.\nOn each turn, the person whose turn it is will remove 1 to 3 stones from the heap.\nThe one who removes the last stone is the winner.\nGiven n, the number of stones in the heap, return true if you can win the game assuming both you and your friend play optimally, otherwise return false.",
+    "examples": [
+      {
+        "input": "n = 4",
+        "output": "false",
+        "explanation": "These are the possible outcomes:\n1. You remove 1 stone. Your friend removes 3 stones, including the last stone. Your friend wins.\n2. You remove 2 stones. Your friend removes 2 stones, including the last stone. Your friend wins.\n3. You remove 3 stones. Your friend removes the last stone. Your friend wins.\nIn all outcomes, your friend wins."
+      },
+      {
+        "input": "n = 1",
+        "output": "true"
+      },
+      {
+        "input": "n = 2",
+        "output": "true"
+      }
+    ],
+    "solution": "class Solution:\n    def canWinNim(self, n):\n        # 如果石子數量是 4 的倍數，先手必輸；否則先手必勝\n        return n % 4 != 0"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "8\n",
+        "output": "False\n"
+      },
+      {
+        "input": "12\n",
+        "output": "False\n"
+      },
+      {
+        "input": "100\n",
+        "output": "False\n"
+      },
+      {
+        "input": "101\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('canWinNim', (1,), True)",
+      "('canWinNim', (2,), True)",
+      "('canWinNim', (3,), True)",
+      "('canWinNim', (4,), False)",
+      "('canWinNim', (5,), True)",
+      "('canWinNim', (8,), False)",
+      "('canWinNim', (12,), False)",
+      "('canWinNim', (100,), False)",
+      "('canWinNim', (101,), True)",
+      "('canWinNim', (0,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: canWinNim(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: canWinNim(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: canWinNim(3,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: canWinNim(4,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: canWinNim(5,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: canWinNim(8,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: canWinNim(12,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: canWinNim(100,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: canWinNim(101,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: canWinNim(0,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 10,
+    "passed_count": 10,
+    "accuracy_rate": 1.0
+  }
+}

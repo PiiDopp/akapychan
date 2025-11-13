@@ -25,14 +25,166 @@
     "solution": "class Solution(object):\n    def isMatch(self, s, p):\n        \"\"\"\n        :type s: str\n        :type p: str\n        :rtype: bool\n        \"\"\"\n        m, n = len(s), len(p)\n        dp = [[False] * (n + 1) for _ in range(m + 1)]\n        dp[0][0] = True\n\n        for j in range(2, n + 1):\n            if p[j - 1] == '*':\n                dp[0][j] = dp[0][j - 2]\n\n        for i in range(1, m + 1):\n            for j in range(1, n + 1):\n                if p[j - 1] == s[i - 1] or p[j - 1] == '.':\n                    dp[i][j] = dp[i - 1][j - 1]\n                elif p[j - 1] == '*':\n                    dp[i][j] = dp[i][j - 2]\n                    if p[j - 2] == s[i - 1] or p[j - 2] == '.':\n                        dp[i][j] = dp[i][j] or dp[i - 1][j]\n        return dp[m][n]"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['aab', 'c*a*b']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['mississippi', 'mis*is*p*.']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['ab', '.*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', '.*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['', ' .*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['', '.']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['b', 'a*b']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['b', 'a*']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aaab', 'a*b']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aaab', 'a*b*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'a.c']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'a..c']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aa', 'a*a']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', 'a*a']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['', 'a*a']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abc', 'a*b*c*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'a*b*c*d*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', '.']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', '..']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', '...']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['', 'a*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['', 'a*b*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['', 'a*b*c*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', '.*a.*b.*c*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', '.*a.*b.*c']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['a', 'a**']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', '*a']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['ab', 'a.*b.*c*']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', 'a.*b.*c']\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isMatch', ('aab', 'c*a*b'), True)",
+      "('isMatch', ('mississippi', 'mis*is*p*.'), False)",
+      "('isMatch', ('ab', '.*'), True)",
+      "('isMatch', ('a', '.*'), True)",
+      "('isMatch', ('', ' .*'), True)",
+      "('isMatch', ('', '.'), False)",
+      "('isMatch', ('b', 'a*b'), True)",
+      "('isMatch', ('b', 'a*'), False)",
+      "('isMatch', ('aaab', 'a*b'), True)",
+      "('isMatch', ('aaab', 'a*b*'), True)",
+      "('isMatch', ('abc', 'a.c'), True)",
+      "('isMatch', ('abc', 'a..c'), False)",
+      "('isMatch', ('aa', 'a*a'), True)",
+      "('isMatch', ('a', 'a*a'), True)",
+      "('isMatch', ('', 'a*a'), False)",
+      "('isMatch', ('abc', 'a*b*c*'), True)",
+      "('isMatch', ('abc', 'a*b*c*d*'), True)",
+      "('isMatch', ('a', '.'), True)",
+      "('isMatch', ('ab', '..'), True)",
+      "('isMatch', ('ab', '...'), False)",
+      "('isMatch', ('', ''), True)",
+      "('isMatch', ('', 'a*'), True)",
+      "('isMatch', ('', 'a*b*'), True)",
+      "('isMatch', ('', 'a*b*c*'), True)",
+      "('isMatch', ('ab', '.*a.*b.*c*'), True)",
+      "('isMatch', ('ab', '.*a.*b.*c'), False)",
+      "('isMatch', ('a', 'a**'), True)",
+      "('isMatch', ('a', '*a'), False)",
+      "('isMatch', ('ab', 'a.*b.*c*'), True)",
+      "('isMatch', ('ab', 'a.*b.*c'), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isMatch('aab', 'c*a*b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isMatch('mississippi', 'mis*is*p*.')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isMatch('ab', '.*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isMatch('a', '.*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ❌ 失敗\n  標準輸入: isMatch('', ' .*')\n  標準輸出: True\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isMatch('', '.')\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isMatch('b', 'a*b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isMatch('b', 'a*')\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: isMatch('aaab', 'a*b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isMatch('aaab', 'a*b*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isMatch('abc', 'a.c')\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isMatch('abc', 'a..c')\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: isMatch('aa', 'a*a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isMatch('a', 'a*a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: isMatch('', 'a*a')\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: isMatch('abc', 'a*b*c*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: isMatch('abc', 'a*b*c*d*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: isMatch('a', '.')\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: isMatch('ab', '..')\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: isMatch('ab', '...')\n  標準輸出: False\n  你的輸出: False\n\n[測試#21] ✅ 通過\n  標準輸入: isMatch('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#22] ✅ 通過\n  標準輸入: isMatch('', 'a*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#23] ✅ 通過\n  標準輸入: isMatch('', 'a*b*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#24] ✅ 通過\n  標準輸入: isMatch('', 'a*b*c*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#25] ✅ 通過\n  標準輸入: isMatch('ab', '.*a.*b.*c*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#26] ✅ 通過\n  標準輸入: isMatch('ab', '.*a.*b.*c')\n  標準輸出: False\n  你的輸出: False\n\n[測試#27] ✅ 通過\n  標準輸入: isMatch('a', 'a**')\n  標準輸出: True\n  你的輸出: True\n\n[測試#28] ✅ 通過\n  標準輸入: isMatch('a', '*a')\n  標準輸出: False\n  你的輸出: False\n\n[測試#29] ✅ 通過\n  標準輸入: isMatch('ab', 'a.*b.*c*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#30] ✅ 通過\n  標準輸入: isMatch('ab', 'a.*b.*c')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (29/30) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 30,
+    "passed_count": 29,
+    "accuracy_rate": 0.9666666666666667
   }
 }

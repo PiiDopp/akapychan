@@ -23,14 +23,56 @@
     "solution": "from collections import defaultdict\n\nclass Solution:\n    def calcEquation(self, equations, values, queries):\n        graph = defaultdict(dict)\n        for (a, b), val in zip(equations, values):\n            graph[a][b] = val\n            graph[b][a] = 1 / val\n\n        def dfs(src, dst, visited):\n            if src not in graph or dst not in graph:\n                return -1.0\n            if src == dst:\n                return 1.0\n            visited.add(src)\n            for neighbor, weight in graph[src].items():\n                if neighbor not in visited:\n                    res = dfs(neighbor, dst, visited)\n                    if res != -1:\n                        return weight * res\n            return -1\n\n        res = []\n        for u, v in queries:\n            res.append(dfs(u, v, set()))\n        return res"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[[['a', 'b'], ['b', 'c']], [2.0, 3.0], [['a', 'c'], ['c', 'a'], ['b', 'a']]]\n",
+        "output": "[6.0, 0.16666666666666666, 0.5]\n"
+      },
+      {
+        "input": "[[['a', 'b'], ['b', 'c']], [2.0, 3.0], [['a', 'e'], ['e', 'a']]]\n",
+        "output": "[-1.0, -1.0]\n"
+      },
+      {
+        "input": "[[['a', 'b']], [2.0], [['a', 'a']]]\n",
+        "output": "[1.0]\n"
+      },
+      {
+        "input": "[[['a', 'b']], [2.0], [['x', 'x']]]\n",
+        "output": "[-1.0]\n"
+      },
+      {
+        "input": "[[['a', 'b'], ['c', 'd']], [2.0, 3.0], [['a', 'd'], ['c', 'b']]]\n",
+        "output": "[-1.0, -1.0]\n"
+      },
+      {
+        "input": "[[['x', 'y'], ['y', 'z'], ['z', 'w']], [2.0, 3.0, 4.0], [['x', 'w'], ['w', 'x'], ['x', 'x'], ['y', 'z'], ['a', 'b']]]\n",
+        "output": "[24.0, 0.041666666666666664, 1.0, 3.0, -1.0]\n"
+      },
+      {
+        "input": "[[['a', 'b']], [2.0], [['b', 'a'], ['a', 'b']]]\n",
+        "output": "[0.5, 2.0]\n"
+      },
+      {
+        "input": "[[[]], [[]], [['a', 'b']]]\n",
+        "output": "[-1.0]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('calcEquation', ([['a', 'b'], ['b', 'c']], [2.0, 3.0], [['a', 'c'], ['c', 'a'], ['b', 'a']]), [6.0, 0.16666666666666666, 0.5])",
+      "('calcEquation', ([['a', 'b'], ['b', 'c']], [2.0, 3.0], [['a', 'e'], ['e', 'a']]), [-1.0, -1.0])",
+      "('calcEquation', ([['a', 'b']], [2.0], [['a', 'a']]), [1.0])",
+      "('calcEquation', ([['a', 'b']], [2.0], [['x', 'x']]), [-1.0])",
+      "('calcEquation', ([['a', 'b'], ['c', 'd']], [2.0, 3.0], [['a', 'd'], ['c', 'b']]), [-1.0, -1.0])",
+      "('calcEquation', ([['x', 'y'], ['y', 'z'], ['z', 'w']], [2.0, 3.0, 4.0], [['x', 'w'], ['w', 'x'], ['x', 'x'], ['y', 'z'], ['a', 'b']]), [24.0, 0.041666666666666664, 1.0, 3.0, -1.0])",
+      "('calcEquation', ([['a', 'b']], [2.0], [['b', 'a'], ['a', 'b']]), [0.5, 2.0])",
+      "('calcEquation', ([[]], [[]], [['a', 'b']]), [-1.0])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: calcEquation([['a', 'b'], ['b', 'c']], [2.0, 3.0], [['a', 'c'], ['c', 'a'], ['b', 'a']])\n  標準輸出: [6.0, 0.16666666666666666, 0.5]\n  你的輸出: [6.0, 0.16666666666666666, 0.5]\n\n[測試#2] ✅ 通過\n  標準輸入: calcEquation([['a', 'b'], ['b', 'c']], [2.0, 3.0], [['a', 'e'], ['e', 'a']])\n  標準輸出: [-1.0, -1.0]\n  你的輸出: [-1.0, -1.0]\n\n[測試#3] ✅ 通過\n  標準輸入: calcEquation([['a', 'b']], [2.0], [['a', 'a']])\n  標準輸出: [1.0]\n  你的輸出: [1.0]\n\n[測試#4] ✅ 通過\n  標準輸入: calcEquation([['a', 'b']], [2.0], [['x', 'x']])\n  標準輸出: [-1.0]\n  你的輸出: [-1.0]\n\n[測試#5] ✅ 通過\n  標準輸入: calcEquation([['a', 'b'], ['c', 'd']], [2.0, 3.0], [['a', 'd'], ['c', 'b']])\n  標準輸出: [-1.0, -1.0]\n  你的輸出: [-1, -1]\n\n[測試#6] ✅ 通過\n  標準輸入: calcEquation([['x', 'y'], ['y', 'z'], ['z', 'w']], [2.0, 3.0, 4.0], [['x', 'w'], ['w', 'x'], ['x', 'x'], ['y', 'z'], ['a', 'b']])\n  標準輸出: [24.0, 0.041666666666666664, 1.0, 3.0, -1.0]\n  你的輸出: [24.0, 0.041666666666666664, 1.0, 3.0, -1.0]\n\n[測試#7] ✅ 通過\n  標準輸入: calcEquation([['a', 'b']], [2.0], [['b', 'a'], ['a', 'b']])\n  標準輸出: [0.5, 2.0]\n  你的輸出: [0.5, 2.0]\n\n[測試#8] ❌ 執行例外: not enough values to unpack (expected 2, got 0)\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 8,
+    "passed_count": 7,
+    "accuracy_rate": 0.875
   }
 }

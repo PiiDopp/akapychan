@@ -19,105 +19,13 @@
     "solution": "class Solution:\n    def magicalString(self, n):\n        if n == 0:\n            return 0\n        if n <= 3:\n            return 1\n\n        s = [1, 2, 2]  # 初始字符串\n        head = 2  # 指向生成規則的位置\n        num = 1  # 下一個要添加的數字\n        while len(s) < n:\n            s.extend([num] * s[head])\n            num ^= 3  # 1 和 2 互換\n            head += 1\n        return s[:n].count(1)"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "0\n",
-        "output": "0\n"
-      },
-      {
-        "input": "1\n",
-        "output": "1\n"
-      },
-      {
-        "input": "2\n",
-        "output": "1\n"
-      },
-      {
-        "input": "3\n",
-        "output": "1\n"
-      },
-      {
-        "input": "4\n",
-        "output": "2\n"
-      },
-      {
-        "input": "5\n",
-        "output": "3\n"
-      },
-      {
-        "input": "6\n",
-        "output": "3\n"
-      },
-      {
-        "input": "7\n",
-        "output": "4\n"
-      },
-      {
-        "input": "8\n",
-        "output": "4\n"
-      },
-      {
-        "input": "9\n",
-        "output": "4\n"
-      },
-      {
-        "input": "10\n",
-        "output": "5\n"
-      },
-      {
-        "input": "11\n",
-        "output": "6\n"
-      },
-      {
-        "input": "12\n",
-        "output": "6\n"
-      },
-      {
-        "input": "13\n",
-        "output": "6\n"
-      },
-      {
-        "input": "14\n",
-        "output": "7\n"
-      },
-      {
-        "input": "15\n",
-        "output": "8\n"
-      },
-      {
-        "input": "100\n",
-        "output": "51\n"
-      },
-      {
-        "input": "1000\n",
-        "output": "512\n"
-      }
-    ],
-    "parsed_tests": [
-      "('magicalString', (0,), 0)",
-      "('magicalString', (1,), 1)",
-      "('magicalString', (2,), 1)",
-      "('magicalString', (3,), 1)",
-      "('magicalString', (4,), 2)",
-      "('magicalString', (5,), 3)",
-      "('magicalString', (6,), 3)",
-      "('magicalString', (7,), 4)",
-      "('magicalString', (8,), 4)",
-      "('magicalString', (9,), 4)",
-      "('magicalString', (10,), 5)",
-      "('magicalString', (11,), 6)",
-      "('magicalString', (12,), 6)",
-      "('magicalString', (13,), 6)",
-      "('magicalString', (14,), 7)",
-      "('magicalString', (15,), 8)",
-      "('magicalString', (100,), 51)",
-      "('magicalString', (1000,), 512)"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: magicalString(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: magicalString(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: magicalString(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: magicalString(3,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: magicalString(4,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: magicalString(5,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: magicalString(6,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#8] ✅ 通過\n  標準輸入: magicalString(7,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#9] ✅ 通過\n  標準輸入: magicalString(8,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: magicalString(9,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#11] ✅ 通過\n  標準輸入: magicalString(10,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#12] ❌ 失敗\n  標準輸入: magicalString(11,)\n  標準輸出: 6\n  你的輸出: 5\n\n[測試#13] ❌ 失敗\n  標準輸入: magicalString(12,)\n  標準輸出: 6\n  你的輸出: 5\n\n[測試#14] ✅ 通過\n  標準輸入: magicalString(13,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#15] ✅ 通過\n  標準輸入: magicalString(14,)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#16] ❌ 失敗\n  標準輸入: magicalString(15,)\n  標準輸出: 8\n  你的輸出: 7\n\n[測試#17] ❌ 失敗\n  標準輸入: magicalString(100,)\n  標準輸出: 51\n  你的輸出: 49\n\n[測試#18] ❌ 失敗\n  標準輸入: magicalString(1000,)\n  標準輸出: 512\n  你的輸出: 502\n\n=== 測試完成 (13/18) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
     "all_passed": false,
-    "total_tests": 18,
+    "total_tests": 0,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

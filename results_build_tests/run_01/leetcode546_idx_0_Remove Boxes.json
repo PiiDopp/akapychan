@@ -31,19 +31,19 @@
         "output": "0\n"
       },
       {
-        "input": "5\n",
+        "input": "1\n",
         "output": "1\n"
       },
       {
-        "input": "2\n2\n",
+        "input": "1\n1\n",
         "output": "4\n"
       },
       {
-        "input": "2\n3\n",
+        "input": "1\n2\n",
         "output": "2\n"
       },
       {
-        "input": "4\n4\n4\n",
+        "input": "1\n1\n1\n",
         "output": "9\n"
       },
       {
@@ -55,49 +55,84 @@
         "output": "8\n"
       },
       {
+        "input": "1\n2\n3\n4\n",
+        "output": "4\n"
+      },
+      {
         "input": "1\n1\n2\n2\n1\n1\n",
         "output": "20\n"
       },
       {
         "input": "1\n2\n1\n2\n1\n",
-        "output": "7\n"
+        "output": "11\n"
       },
       {
-        "input": "3\n3\n3\n3\n3\n3\n3\n3\n3\n3\n",
-        "output": "100\n"
+        "input": "1\n1\n1\n1\n1\n",
+        "output": "25\n"
+      },
+      {
+        "input": "1\n2\n1\n1\n2\n1\n",
+        "output": "12\n"
+      },
+      {
+        "input": "1\n2\n3\n2\n1\n",
+        "output": "9\n"
+      },
+      {
+        "input": "1\n1\n2\n3\n3\n2\n1\n1\n",
+        "output": "24\n"
+      },
+      {
+        "input": "1\n2\n1\n2\n1\n2\n1\n",
+        "output": "19\n"
+      },
+      {
+        "input": "1\n3\n3\n1\n3\n",
+        "output": "9\n"
       },
       {
         "input": "1\n2\n2\n3\n3\n3\n2\n2\n1\n",
         "output": "29\n"
       },
       {
-        "input": "1\n2\n3\n4\n5\n",
-        "output": "5\n"
+        "input": "1\n1\n2\n2\n3\n3\n2\n2\n1\n1\n",
+        "output": "36\n"
       },
       {
         "input": "1\n1\n1\n2\n2\n2\n1\n1\n1\n",
         "output": "45\n"
+      },
+      {
+        "input": "1\n2\n1\n2\n1\n2\n1\n2\n",
+        "output": "20\n"
       }
     ],
     "parsed_tests": [
       "('removeBoxes', ((),), 0)",
-      "('removeBoxes', (5,), 1)",
-      "('removeBoxes', ((2, 2),), 4)",
-      "('removeBoxes', ((2, 3),), 2)",
-      "('removeBoxes', ((4, 4, 4),), 9)",
+      "('removeBoxes', (1,), 1)",
+      "('removeBoxes', ((1, 1),), 4)",
+      "('removeBoxes', ((1, 2),), 2)",
+      "('removeBoxes', ((1, 1, 1),), 9)",
       "('removeBoxes', ((1, 2, 1),), 5)",
       "('removeBoxes', ((1, 2, 2, 1),), 8)",
+      "('removeBoxes', ((1, 2, 3, 4),), 4)",
       "('removeBoxes', ((1, 1, 2, 2, 1, 1),), 20)",
-      "('removeBoxes', ((1, 2, 1, 2, 1),), 7)",
-      "('removeBoxes', ((3, 3, 3, 3, 3, 3, 3, 3, 3, 3),), 100)",
+      "('removeBoxes', ((1, 2, 1, 2, 1),), 11)",
+      "('removeBoxes', ((1, 1, 1, 1, 1),), 25)",
+      "('removeBoxes', ((1, 2, 1, 1, 2, 1),), 12)",
+      "('removeBoxes', ((1, 2, 3, 2, 1),), 9)",
+      "('removeBoxes', ((1, 1, 2, 3, 3, 2, 1, 1),), 24)",
+      "('removeBoxes', ((1, 2, 1, 2, 1, 2, 1),), 19)",
+      "('removeBoxes', ((1, 3, 3, 1, 3),), 9)",
       "('removeBoxes', ((1, 2, 2, 3, 3, 3, 2, 2, 1),), 29)",
-      "('removeBoxes', ((1, 2, 3, 4, 5),), 5)",
-      "('removeBoxes', ((1, 1, 1, 2, 2, 2, 1, 1, 1),), 45)"
+      "('removeBoxes', ((1, 1, 2, 2, 3, 3, 2, 2, 1, 1),), 36)",
+      "('removeBoxes', ((1, 1, 1, 2, 2, 2, 1, 1, 1),), 45)",
+      "('removeBoxes', ((1, 2, 1, 2, 1, 2, 1, 2),), 20)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: removeBoxes((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ✅ 通過\n  標準輸入: removeBoxes((2, 2),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: removeBoxes((2, 3),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: removeBoxes((4, 4, 4),)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#6] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 1),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#7] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 2, 1),)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#8] ✅ 通過\n  標準輸入: removeBoxes((1, 1, 2, 2, 1, 1),)\n  標準輸出: 20\n  你的輸出: 20\n\n[測試#9] ❌ 失敗\n  標準輸入: removeBoxes((1, 2, 1, 2, 1),)\n  標準輸出: 7\n  你的輸出: 11\n\n[測試#10] ✅ 通過\n  標準輸入: removeBoxes((3, 3, 3, 3, 3, 3, 3, 3, 3, 3),)\n  標準輸出: 100\n  你的輸出: 100\n\n[測試#11] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 2, 3, 3, 3, 2, 2, 1),)\n  標準輸出: 29\n  你的輸出: 29\n\n[測試#12] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 3, 4, 5),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#13] ✅ 通過\n  標準輸入: removeBoxes((1, 1, 1, 2, 2, 2, 1, 1, 1),)\n  標準輸出: 45\n  你的輸出: 45\n\n=== 測試完成 (11/13) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: removeBoxes((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ✅ 通過\n  標準輸入: removeBoxes((1, 1),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: removeBoxes((1, 2),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: removeBoxes((1, 1, 1),)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#6] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 1),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#7] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 2, 1),)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#8] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 3, 4),)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#9] ✅ 通過\n  標準輸入: removeBoxes((1, 1, 2, 2, 1, 1),)\n  標準輸出: 20\n  你的輸出: 20\n\n[測試#10] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 1, 2, 1),)\n  標準輸出: 11\n  你的輸出: 11\n\n[測試#11] ✅ 通過\n  標準輸入: removeBoxes((1, 1, 1, 1, 1),)\n  標準輸出: 25\n  你的輸出: 25\n\n[測試#12] ❌ 失敗\n  標準輸入: removeBoxes((1, 2, 1, 1, 2, 1),)\n  標準輸出: 12\n  你的輸出: 18\n\n[測試#13] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 3, 2, 1),)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#14] ✅ 通過\n  標準輸入: removeBoxes((1, 1, 2, 3, 3, 2, 1, 1),)\n  標準輸出: 24\n  你的輸出: 24\n\n[測試#15] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 1, 2, 1, 2, 1),)\n  標準輸出: 19\n  你的輸出: 19\n\n[測試#16] ❌ 失敗\n  標準輸入: removeBoxes((1, 3, 3, 1, 3),)\n  標準輸出: 9\n  你的輸出: 11\n\n[測試#17] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 2, 3, 3, 3, 2, 2, 1),)\n  標準輸出: 29\n  你的輸出: 29\n\n[測試#18] ✅ 通過\n  標準輸入: removeBoxes((1, 1, 2, 2, 3, 3, 2, 2, 1, 1),)\n  標準輸出: 36\n  你的輸出: 36\n\n[測試#19] ✅ 通過\n  標準輸入: removeBoxes((1, 1, 1, 2, 2, 2, 1, 1, 1),)\n  標準輸出: 45\n  你的輸出: 45\n\n[測試#20] ✅ 通過\n  標準輸入: removeBoxes((1, 2, 1, 2, 1, 2, 1, 2),)\n  標準輸出: 20\n  你的輸出: 20\n\n=== 測試完成 (17/20) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
     "all_passed": false,
-    "total_tests": 13,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 20,
+    "passed_count": 17,
+    "accuracy_rate": 0.85
   }
 }

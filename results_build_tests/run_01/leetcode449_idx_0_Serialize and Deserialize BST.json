@@ -19,85 +19,8 @@
   },
   "experiment_result": {
     "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [
-      {
-        "tree": [],
-        "serialized": ""
-      },
-      {
-        "tree": [
-          5
-        ],
-        "serialized": "5"
-      },
-      {
-        "tree": [
-          5,
-          4,
-          null,
-          3,
-          null,
-          2,
-          null,
-          1
-        ],
-        "serialized": "5,4,3,2,1"
-      },
-      {
-        "tree": [
-          1,
-          null,
-          2,
-          null,
-          3,
-          null,
-          4,
-          null,
-          5
-        ],
-        "serialized": "1,2,3,4,5"
-      },
-      {
-        "tree": [
-          4,
-          2,
-          6,
-          1,
-          3,
-          5,
-          7
-        ],
-        "serialized": "4,2,1,3,6,5,7"
-      },
-      {
-        "tree": [
-          10,
-          5,
-          15,
-          3,
-          7,
-          null,
-          18,
-          null,
-          null,
-          6
-        ],
-        "serialized": "10,5,3,7,6,15,18"
-      },
-      {
-        "tree": [
-          1000,
-          500,
-          1500,
-          250,
-          750,
-          1250,
-          1750
-        ],
-        "serialized": "1000,500,250,750,1500,1250,1750"
-      }
-    ],
+    "error": "非 LeetCode 格式程式碼",
+    "generated_tests": [],
     "parsed_tests": [],
     "runlog": "",
     "all_passed": false,

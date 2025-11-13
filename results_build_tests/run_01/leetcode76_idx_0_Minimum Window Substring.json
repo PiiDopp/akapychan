@@ -33,31 +33,71 @@
         "output": "BANC\n"
       },
       {
+        "input": "['a', 'a']\n",
+        "output": "a\n"
+      },
+      {
         "input": "['a', 'aa']\n",
         "output": "\n"
       },
       {
-        "input": "['aa', 'aa']\n",
-        "output": "aa\n"
+        "input": "['ab', 'b']\n",
+        "output": "b\n"
       },
       {
-        "input": "['aab', 'aa']\n",
-        "output": "aa\n"
-      },
-      {
-        "input": "['abca', 'aa']\n",
-        "output": "abca\n"
-      },
-      {
-        "input": "['aA', 'aa']\n",
+        "input": "['ab', 'c']\n",
         "output": "\n"
       },
       {
-        "input": "['a!b@c', '!@']\n",
-        "output": "!b@\n"
+        "input": "['aaabbb', 'ab']\n",
+        "output": "ab\n"
       },
       {
-        "input": "['abc', 'abcd']\n",
+        "input": "['aaabbb', 'aaa']\n",
+        "output": "aaa\n"
+      },
+      {
+        "input": "['aabbcc', 'abc']\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['aabbcc', 'aabbcc']\n",
+        "output": "aabbcc\n"
+      },
+      {
+        "input": "['aabbcc', 'aabbccd']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['aabbcc', 'aa']\n",
+        "output": "aa\n"
+      },
+      {
+        "input": "['aabbcc', 'bb']\n",
+        "output": "bb\n"
+      },
+      {
+        "input": "['aabbcc', 'cc']\n",
+        "output": "cc\n"
+      },
+      {
+        "input": "['aabbcc', 'ac']\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['a!b@c#d$e%f^', '!@#']\n",
+        "output": "!b@c#\n"
+      },
+      {
+        "input": "['你好世界', '世界']\n",
+        "output": "世界\n"
+      },
+      {
+        "input": "['abca', 'aa']\n",
+        "output": "aba\n"
+      },
+      {
+        "input": "['', 'a']\n",
         "output": "\n"
       },
       {
@@ -65,35 +105,35 @@
         "output": "\n"
       },
       {
-        "input": "['', 'a']\n",
+        "input": "['', '']\n",
         "output": "\n"
-      },
-      {
-        "input": "['aabca', 'aab']\n",
-        "output": "aab\n"
-      },
-      {
-        "input": "['abcaab', 'aab']\n",
-        "output": "aab\n"
       }
     ],
     "parsed_tests": [
       "('minWindow', ('ADOBECODEBANC', 'ABC'), 'BANC\\n')",
+      "('minWindow', ('a', 'a'), 'a\\n')",
       "('minWindow', ('a', 'aa'), '\\n')",
-      "('minWindow', ('aa', 'aa'), 'aa\\n')",
-      "('minWindow', ('aab', 'aa'), 'aa\\n')",
-      "('minWindow', ('abca', 'aa'), 'abca\\n')",
-      "('minWindow', ('aA', 'aa'), '\\n')",
-      "('minWindow', ('a!b@c', '!@'), '!b@\\n')",
-      "('minWindow', ('abc', 'abcd'), '\\n')",
-      "('minWindow', ('abc', ''), '\\n')",
+      "('minWindow', ('ab', 'b'), 'b\\n')",
+      "('minWindow', ('ab', 'c'), '\\n')",
+      "('minWindow', ('aaabbb', 'ab'), 'ab\\n')",
+      "('minWindow', ('aaabbb', 'aaa'), 'aaa\\n')",
+      "('minWindow', ('aabbcc', 'abc'), 'abc\\n')",
+      "('minWindow', ('aabbcc', 'aabbcc'), 'aabbcc\\n')",
+      "('minWindow', ('aabbcc', 'aabbccd'), '\\n')",
+      "('minWindow', ('aabbcc', 'aa'), 'aa\\n')",
+      "('minWindow', ('aabbcc', 'bb'), 'bb\\n')",
+      "('minWindow', ('aabbcc', 'cc'), 'cc\\n')",
+      "('minWindow', ('aabbcc', 'ac'), 'abc\\n')",
+      "('minWindow', ('a!b@c#d$e%f^', '!@#'), '!b@c#\\n')",
+      "('minWindow', ('你好世界', '世界'), '世界\\n')",
+      "('minWindow', ('abca', 'aa'), 'aba\\n')",
       "('minWindow', ('', 'a'), '\\n')",
-      "('minWindow', ('aabca', 'aab'), 'aab\\n')",
-      "('minWindow', ('abcaab', 'aab'), 'aab\\n')"
+      "('minWindow', ('abc', ''), '\\n')",
+      "('minWindow', ('', ''), '\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: minWindow('ADOBECODEBANC', 'ABC')\n  標準輸出: 'BANC\\n'\n  你的輸出: 'BANC'\n\n[測試#2] ❌ 失敗\n  標準輸入: minWindow('a', 'aa')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#3] ❌ 失敗\n  標準輸入: minWindow('aa', 'aa')\n  標準輸出: 'aa\\n'\n  你的輸出: 'aa'\n\n[測試#4] ❌ 失敗\n  標準輸入: minWindow('aab', 'aa')\n  標準輸出: 'aa\\n'\n  你的輸出: 'aa'\n\n[測試#5] ❌ 失敗\n  標準輸入: minWindow('abca', 'aa')\n  標準輸出: 'abca\\n'\n  你的輸出: 'abca'\n\n[測試#6] ❌ 失敗\n  標準輸入: minWindow('aA', 'aa')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#7] ❌ 失敗\n  標準輸入: minWindow('a!b@c', '!@')\n  標準輸出: '!b@\\n'\n  你的輸出: '!b@'\n\n[測試#8] ❌ 失敗\n  標準輸入: minWindow('abc', 'abcd')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#9] ❌ 失敗\n  標準輸入: minWindow('abc', '')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#10] ❌ 失敗\n  標準輸入: minWindow('', 'a')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#11] ❌ 失敗\n  標準輸入: minWindow('aabca', 'aab')\n  標準輸出: 'aab\\n'\n  你的輸出: 'aab'\n\n[測試#12] ❌ 失敗\n  標準輸入: minWindow('abcaab', 'aab')\n  標準輸出: 'aab\\n'\n  你的輸出: 'aab'\n\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: minWindow('ADOBECODEBANC', 'ABC')\n  標準輸出: 'BANC\\n'\n  你的輸出: 'BANC'\n\n[測試#2] ❌ 失敗\n  標準輸入: minWindow('a', 'a')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#3] ❌ 失敗\n  標準輸入: minWindow('a', 'aa')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#4] ❌ 失敗\n  標準輸入: minWindow('ab', 'b')\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n[測試#5] ❌ 失敗\n  標準輸入: minWindow('ab', 'c')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: minWindow('aaabbb', 'ab')\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#7] ❌ 失敗\n  標準輸入: minWindow('aaabbb', 'aaa')\n  標準輸出: 'aaa\\n'\n  你的輸出: 'aaa'\n\n[測試#8] ❌ 失敗\n  標準輸入: minWindow('aabbcc', 'abc')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abbc'\n\n[測試#9] ❌ 失敗\n  標準輸入: minWindow('aabbcc', 'aabbcc')\n  標準輸出: 'aabbcc\\n'\n  你的輸出: 'aabbcc'\n\n[測試#10] ❌ 失敗\n  標準輸入: minWindow('aabbcc', 'aabbccd')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#11] ❌ 失敗\n  標準輸入: minWindow('aabbcc', 'aa')\n  標準輸出: 'aa\\n'\n  你的輸出: 'aa'\n\n[測試#12] ❌ 失敗\n  標準輸入: minWindow('aabbcc', 'bb')\n  標準輸出: 'bb\\n'\n  你的輸出: 'bb'\n\n[測試#13] ❌ 失敗\n  標準輸入: minWindow('aabbcc', 'cc')\n  標準輸出: 'cc\\n'\n  你的輸出: 'cc'\n\n[測試#14] ❌ 失敗\n  標準輸入: minWindow('aabbcc', 'ac')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abbc'\n\n[測試#15] ❌ 失敗\n  標準輸入: minWindow('a!b@c#d$e%f^', '!@#')\n  標準輸出: '!b@c#\\n'\n  你的輸出: '!b@c#'\n\n[測試#16] ❌ 失敗\n  標準輸入: minWindow('你好世界', '世界')\n  標準輸出: '世界\\n'\n  你的輸出: '世界'\n\n[測試#17] ❌ 失敗\n  標準輸入: minWindow('abca', 'aa')\n  標準輸出: 'aba\\n'\n  你的輸出: 'abca'\n\n[測試#18] ❌ 失敗\n  標準輸入: minWindow('', 'a')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#19] ❌ 失敗\n  標準輸入: minWindow('abc', '')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#20] ❌ 失敗\n  標準輸入: minWindow('', '')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n=== 測試完成 (0/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 12,
+    "total_tests": 20,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

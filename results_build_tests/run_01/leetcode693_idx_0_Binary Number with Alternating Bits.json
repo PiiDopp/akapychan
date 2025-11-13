@@ -25,14 +25,121 @@
     "solution": "class Solution:\n    def hasAlternatingBits(self, n):\n        prev_bit = n & 1\n        n >>= 1\n        while n > 0:\n            curr_bit = n & 1\n            if curr_bit == prev_bit:\n                return False\n            prev_bit = curr_bit\n            n >>= 1\n        return True"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
-    "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "6\n",
+        "output": "False\n"
+      },
+      {
+        "input": "7\n",
+        "output": "False\n"
+      },
+      {
+        "input": "8\n",
+        "output": "False\n"
+      },
+      {
+        "input": "9\n",
+        "output": "False\n"
+      },
+      {
+        "input": "10\n",
+        "output": "True\n"
+      },
+      {
+        "input": "21\n",
+        "output": "True\n"
+      },
+      {
+        "input": "42\n",
+        "output": "True\n"
+      },
+      {
+        "input": "170\n",
+        "output": "True\n"
+      },
+      {
+        "input": "255\n",
+        "output": "False\n"
+      },
+      {
+        "input": "43690\n",
+        "output": "True\n"
+      },
+      {
+        "input": "65535\n",
+        "output": "False\n"
+      },
+      {
+        "input": "65536\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2863311530\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4294967295\n",
+        "output": "False\n"
+      },
+      {
+        "input": "12297829382473034410\n",
+        "output": "True\n"
+      },
+      {
+        "input": "18446744073709551615\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('hasAlternatingBits', (1,), True)",
+      "('hasAlternatingBits', (2,), True)",
+      "('hasAlternatingBits', (3,), False)",
+      "('hasAlternatingBits', (4,), False)",
+      "('hasAlternatingBits', (5,), True)",
+      "('hasAlternatingBits', (6,), False)",
+      "('hasAlternatingBits', (7,), False)",
+      "('hasAlternatingBits', (8,), False)",
+      "('hasAlternatingBits', (9,), False)",
+      "('hasAlternatingBits', (10,), True)",
+      "('hasAlternatingBits', (21,), True)",
+      "('hasAlternatingBits', (42,), True)",
+      "('hasAlternatingBits', (170,), True)",
+      "('hasAlternatingBits', (255,), False)",
+      "('hasAlternatingBits', (43690,), True)",
+      "('hasAlternatingBits', (65535,), False)",
+      "('hasAlternatingBits', (65536,), False)",
+      "('hasAlternatingBits', (2863311530,), True)",
+      "('hasAlternatingBits', (4294967295,), False)",
+      "('hasAlternatingBits', (12297829382473034410,), True)",
+      "('hasAlternatingBits', (18446744073709551615,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: hasAlternatingBits(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: hasAlternatingBits(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: hasAlternatingBits(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: hasAlternatingBits(4,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: hasAlternatingBits(5,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: hasAlternatingBits(6,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: hasAlternatingBits(7,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: hasAlternatingBits(8,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: hasAlternatingBits(9,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: hasAlternatingBits(10,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: hasAlternatingBits(21,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: hasAlternatingBits(42,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: hasAlternatingBits(170,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: hasAlternatingBits(255,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: hasAlternatingBits(43690,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: hasAlternatingBits(65535,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: hasAlternatingBits(65536,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: hasAlternatingBits(2863311530,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: hasAlternatingBits(4294967295,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ✅ 通過\n  標準輸入: hasAlternatingBits(12297829382473034410,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: hasAlternatingBits(18446744073709551615,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (21/21) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 21,
+    "passed_count": 21,
+    "accuracy_rate": 1.0
   }
 }

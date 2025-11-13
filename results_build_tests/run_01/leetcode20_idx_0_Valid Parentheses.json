@@ -62,7 +62,7 @@
         "output": "False\n"
       },
       {
-        "input": ")\n",
+        "input": "}\n",
         "output": "False\n"
       },
       {
@@ -78,12 +78,16 @@
         "output": "True\n"
       },
       {
-        "input": "(((\n",
+        "input": "([)\n",
         "output": "False\n"
       },
       {
-        "input": ")))\n",
+        "input": "([{}])(\n",
         "output": "False\n"
+      },
+      {
+        "input": "([{}]){}\n",
+        "output": "True\n"
       }
     ],
     "parsed_tests": [
@@ -94,17 +98,18 @@
       "('isValid', ('{[]}\\n',), True)",
       "('isValid', ((),), True)",
       "('isValid', ('(\\n',), False)",
-      "('isValid', (')\\n',), False)",
+      "('isValid', ('}\\n',), False)",
       "('isValid', ([{}],), True)",
       "('isValid', ('([{}])]\\n',), False)",
       "('isValid', ((),), True)",
-      "('isValid', ('(((\\n',), False)",
-      "('isValid', (')))\\n',), False)"
+      "('isValid', ('([)\\n',), False)",
+      "('isValid', ('([{}])(\\n',), False)",
+      "('isValid', ('([{}]){}\\n',), True)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isValid((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ❌ 失敗\n  標準輸入: isValid('()[]{}\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isValid('(]\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isValid('([)]\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ❌ 失敗\n  標準輸入: isValid('{[]}\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isValid((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isValid('(\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isValid(')\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ❌ 執行例外: unhashable type: 'dict'\n[測試#10] ✅ 通過\n  標準輸入: isValid('([{}])]\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isValid((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isValid('(((\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: isValid(')))\\n',)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (10/13) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isValid((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ❌ 失敗\n  標準輸入: isValid('()[]{}\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isValid('(]\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isValid('([)]\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ❌ 失敗\n  標準輸入: isValid('{[]}\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isValid((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isValid('(\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isValid('}\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ❌ 執行例外: unhashable type: 'dict'\n[測試#10] ✅ 通過\n  標準輸入: isValid('([{}])]\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isValid((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isValid('([)\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: isValid('([{}])(\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ❌ 失敗\n  標準輸入: isValid('([{}]){}\\n',)\n  標準輸出: True\n  你的輸出: False\n\n=== 測試完成 (10/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 13,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 14,
+    "passed_count": 10,
+    "accuracy_rate": 0.7142857142857143
   }
 }

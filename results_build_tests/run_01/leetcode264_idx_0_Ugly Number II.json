@@ -64,6 +64,22 @@
         "output": "12\n"
       },
       {
+        "input": "11\n",
+        "output": "15\n"
+      },
+      {
+        "input": "12\n",
+        "output": "16\n"
+      },
+      {
+        "input": "13\n",
+        "output": "18\n"
+      },
+      {
+        "input": "14\n",
+        "output": "20\n"
+      },
+      {
         "input": "15\n",
         "output": "24\n"
       },
@@ -76,12 +92,16 @@
         "output": "1536\n"
       },
       {
+        "input": "150\n",
+        "output": "8192\n"
+      },
+      {
         "input": "1000\n",
         "output": "512000\n"
       },
       {
-        "input": "1500\n",
-        "output": "859963392\n"
+        "input": "10000\n",
+        "output": "5120000\n"
       }
     ],
     "parsed_tests": [
@@ -95,16 +115,21 @@
       "('nthUglyNumber', (8,), 9)",
       "('nthUglyNumber', (9,), 10)",
       "('nthUglyNumber', (10,), 12)",
+      "('nthUglyNumber', (11,), 15)",
+      "('nthUglyNumber', (12,), 16)",
+      "('nthUglyNumber', (13,), 18)",
+      "('nthUglyNumber', (14,), 20)",
       "('nthUglyNumber', (15,), 24)",
       "('nthUglyNumber', (20,), 36)",
       "('nthUglyNumber', (100,), 1536)",
+      "('nthUglyNumber', (150,), 8192)",
       "('nthUglyNumber', (1000,), 512000)",
-      "('nthUglyNumber', (1500,), 859963392)"
+      "('nthUglyNumber', (10000,), 5120000)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: nthUglyNumber(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: nthUglyNumber(2,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: nthUglyNumber(3,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: nthUglyNumber(4,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#5] ✅ 通過\n  標準輸入: nthUglyNumber(5,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#6] ✅ 通過\n  標準輸入: nthUglyNumber(6,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#7] ✅ 通過\n  標準輸入: nthUglyNumber(7,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#8] ✅ 通過\n  標準輸入: nthUglyNumber(8,)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#9] ✅ 通過\n  標準輸入: nthUglyNumber(9,)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#10] ✅ 通過\n  標準輸入: nthUglyNumber(10,)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#11] ✅ 通過\n  標準輸入: nthUglyNumber(15,)\n  標準輸出: 24\n  你的輸出: 24\n\n[測試#12] ✅ 通過\n  標準輸入: nthUglyNumber(20,)\n  標準輸出: 36\n  你的輸出: 36\n\n[測試#13] ✅ 通過\n  標準輸入: nthUglyNumber(100,)\n  標準輸出: 1536\n  你的輸出: 1536\n\n[測試#14] ❌ 失敗\n  標準輸入: nthUglyNumber(1000,)\n  標準輸出: 512000\n  你的輸出: 51200000\n\n[測試#15] ✅ 通過\n  標準輸入: nthUglyNumber(1500,)\n  標準輸出: 859963392\n  你的輸出: 859963392\n\n=== 測試完成 (14/15) ===\n[警告] 部分測資未通過 ❌（0.0006s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: nthUglyNumber(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: nthUglyNumber(2,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: nthUglyNumber(3,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: nthUglyNumber(4,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#5] ✅ 通過\n  標準輸入: nthUglyNumber(5,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#6] ✅ 通過\n  標準輸入: nthUglyNumber(6,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#7] ✅ 通過\n  標準輸入: nthUglyNumber(7,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#8] ✅ 通過\n  標準輸入: nthUglyNumber(8,)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#9] ✅ 通過\n  標準輸入: nthUglyNumber(9,)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#10] ✅ 通過\n  標準輸入: nthUglyNumber(10,)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#11] ✅ 通過\n  標準輸入: nthUglyNumber(11,)\n  標準輸出: 15\n  你的輸出: 15\n\n[測試#12] ✅ 通過\n  標準輸入: nthUglyNumber(12,)\n  標準輸出: 16\n  你的輸出: 16\n\n[測試#13] ✅ 通過\n  標準輸入: nthUglyNumber(13,)\n  標準輸出: 18\n  你的輸出: 18\n\n[測試#14] ✅ 通過\n  標準輸入: nthUglyNumber(14,)\n  標準輸出: 20\n  你的輸出: 20\n\n[測試#15] ✅ 通過\n  標準輸入: nthUglyNumber(15,)\n  標準輸出: 24\n  你的輸出: 24\n\n[測試#16] ✅ 通過\n  標準輸入: nthUglyNumber(20,)\n  標準輸出: 36\n  你的輸出: 36\n\n[測試#17] ✅ 通過\n  標準輸入: nthUglyNumber(100,)\n  標準輸出: 1536\n  你的輸出: 1536\n\n[測試#18] ❌ 失敗\n  標準輸入: nthUglyNumber(150,)\n  標準輸出: 8192\n  你的輸出: 5832\n\n[測試#19] ❌ 失敗\n  標準輸入: nthUglyNumber(1000,)\n  標準輸出: 512000\n  你的輸出: 51200000\n\n[測試#20] ❌ 失敗\n  標準輸入: nthUglyNumber(10000,)\n  標準輸出: 5120000\n  你的輸出: 288325195312500000\n\n=== 測試完成 (17/20) ===\n[警告] 部分測資未通過 ❌（0.0031s）\n",
     "all_passed": false,
-    "total_tests": 15,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 20,
+    "passed_count": 17,
+    "accuracy_rate": 0.85
   }
 }

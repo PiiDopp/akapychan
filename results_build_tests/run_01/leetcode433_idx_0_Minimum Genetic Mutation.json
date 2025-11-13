@@ -22,6 +22,14 @@
     "error": null,
     "generated_tests": [
       {
+        "input": "['AACCGGTT', 'AACCGGTT', ['AACCGGTT']]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['AACCGGTT', 'AACCGGTT', ['AACCGGTA']]\n",
+        "output": "-1\n"
+      },
+      {
         "input": "['AACCGGTT', 'AACCGGTA', ['AACCGGTA']]\n",
         "output": "1\n"
       },
@@ -30,64 +38,71 @@
         "output": "2\n"
       },
       {
-        "input": "['AACCGGTT', 'AACCGGTA', []]\n",
+        "input": "['AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AAACGGTT']]\n",
         "output": "-1\n"
       },
       {
-        "input": "['AACCGGTT', 'AACCGGTA', ['AACCGGTT']]\n",
-        "output": "-1\n"
-      },
-      {
-        "input": "['AAAAACCC', 'AACCCCCC', ['AACCCCCC']]\n",
-        "output": "-1\n"
-      },
-      {
-        "input": "['AAAAACCC', 'AACCCCCC', ['AAAACCCC', 'AAACCCCC', 'AACCCCCC']]\n",
+        "input": "['AAAAAAAA', 'AAAACCCA', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA']]\n",
         "output": "3\n"
       },
       {
-        "input": "['AACCGGTT', 'AACCGGTT', ['AACCGGTT']]\n",
-        "output": "0\n"
+        "input": "['AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCC']]\n",
+        "output": "4\n"
       },
       {
-        "input": "['AACCGGTT', 'AACCGGTT', []]\n",
+        "input": "['AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCB', 'AAAACCCC']]\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCC']]\n",
         "output": "-1\n"
       },
       {
-        "input": "['AACCGGTT', 'AACCGGTA', ['AACCGGTA', 'AACCGGTC', 'AACCGGTT']]\n",
+        "input": "['AAAAAAAA', 'AAAACAAA', ['AAAACAAA']]\n",
         "output": "1\n"
       },
       {
-        "input": "['AACCGGTT', 'AACCGGTA', ['AACCGGTT', 'AACCGGTC']]\n",
+        "input": "['AAAAAAAA', 'AAAACCAA', ['AAAACAAA', 'AAAACCAA']]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['AAAAAAAA', 'AAAACCCA', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA']]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCC']]\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCB', 'AAAACCCC']]\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['AAAAAAAA', 'AAAACCCA', ['AAAACAAA', 'AAAACCAA']]\n",
         "output": "-1\n"
-      },
-      {
-        "input": "['AACCGGTT', 'AACCGGTA', ['AACCGGTA', 'AACCGGTC']]\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['AACCGGTT', 'AACCGGTA', ['AACCGGTC', 'AACCGGTT', 'AACCGGTA']]\n",
-        "output": "1\n"
       }
     ],
     "parsed_tests": [
+      "('minMutation', ('AACCGGTT', 'AACCGGTT', ['AACCGGTT']), 0)",
+      "('minMutation', ('AACCGGTT', 'AACCGGTT', ['AACCGGTA']), -1)",
       "('minMutation', ('AACCGGTT', 'AACCGGTA', ['AACCGGTA']), 1)",
       "('minMutation', ('AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AAACGGTA']), 2)",
-      "('minMutation', ('AACCGGTT', 'AACCGGTA', []), -1)",
-      "('minMutation', ('AACCGGTT', 'AACCGGTA', ['AACCGGTT']), -1)",
-      "('minMutation', ('AAAAACCC', 'AACCCCCC', ['AACCCCCC']), -1)",
-      "('minMutation', ('AAAAACCC', 'AACCCCCC', ['AAAACCCC', 'AAACCCCC', 'AACCCCCC']), 3)",
-      "('minMutation', ('AACCGGTT', 'AACCGGTT', ['AACCGGTT']), 0)",
-      "('minMutation', ('AACCGGTT', 'AACCGGTT', []), -1)",
-      "('minMutation', ('AACCGGTT', 'AACCGGTA', ['AACCGGTA', 'AACCGGTC', 'AACCGGTT']), 1)",
-      "('minMutation', ('AACCGGTT', 'AACCGGTA', ['AACCGGTT', 'AACCGGTC']), -1)",
-      "('minMutation', ('AACCGGTT', 'AACCGGTA', ['AACCGGTA', 'AACCGGTC']), 1)",
-      "('minMutation', ('AACCGGTT', 'AACCGGTA', ['AACCGGTC', 'AACCGGTT', 'AACCGGTA']), 1)"
+      "('minMutation', ('AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AAACGGTT']), -1)",
+      "('minMutation', ('AAAAAAAA', 'AAAACCCA', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA']), 3)",
+      "('minMutation', ('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCC']), 4)",
+      "('minMutation', ('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCB', 'AAAACCCC']), 5)",
+      "('minMutation', ('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCC']), -1)",
+      "('minMutation', ('AAAAAAAA', 'AAAACAAA', ['AAAACAAA']), 1)",
+      "('minMutation', ('AAAAAAAA', 'AAAACCAA', ['AAAACAAA', 'AAAACCAA']), 2)",
+      "('minMutation', ('AAAAAAAA', 'AAAACCCA', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA']), 3)",
+      "('minMutation', ('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCC']), 4)",
+      "('minMutation', ('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCB', 'AAAACCCC']), 5)",
+      "('minMutation', ('AAAAAAAA', 'AAAACCCA', ['AAAACAAA', 'AAAACCAA']), -1)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTA'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AAACGGTA'])\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', [])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#4] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTT'])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: minMutation('AAAAACCC', 'AACCCCCC', ['AACCCCCC'])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#6] ✅ 通過\n  標準輸入: minMutation('AAAAACCC', 'AACCCCCC', ['AAAACCCC', 'AAACCCCC', 'AACCCCCC'])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTT', ['AACCGGTT'])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTT', [])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#9] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTA', 'AACCGGTC', 'AACCGGTT'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTT', 'AACCGGTC'])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#11] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTA', 'AACCGGTC'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#12] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTC', 'AACCGGTT', 'AACCGGTA'])\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (12/12) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
-    "all_passed": true,
-    "total_tests": 12,
-    "passed_count": 12,
-    "accuracy_rate": 1.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTT', ['AACCGGTT'])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTT', ['AACCGGTA'])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#3] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTA'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AAACGGTA'])\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AAACGGTT'])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#6] ✅ 通過\n  標準輸入: minMutation('AAAAAAAA', 'AAAACCCA', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA'])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: minMutation('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCC'])\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ❌ 失敗\n  標準輸入: minMutation('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCB', 'AAAACCCC'])\n  標準輸出: 5\n  你的輸出: 4\n\n[測試#9] ✅ 通過\n  標準輸入: minMutation('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCC'])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#10] ✅ 通過\n  標準輸入: minMutation('AAAAAAAA', 'AAAACAAA', ['AAAACAAA'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: minMutation('AAAAAAAA', 'AAAACCAA', ['AAAACAAA', 'AAAACCAA'])\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: minMutation('AAAAAAAA', 'AAAACCCA', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA'])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#13] ✅ 通過\n  標準輸入: minMutation('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCC'])\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#14] ❌ 失敗\n  標準輸入: minMutation('AAAAAAAA', 'AAAACCCC', ['AAAACAAA', 'AAAACCAA', 'AAAACCCA', 'AAAACCCB', 'AAAACCCC'])\n  標準輸出: 5\n  你的輸出: 4\n\n[測試#15] ✅ 通過\n  標準輸入: minMutation('AAAAAAAA', 'AAAACCCA', ['AAAACAAA', 'AAAACCAA'])\n  標準輸出: -1\n  你的輸出: -1\n\n=== 測試完成 (13/15) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 13,
+    "accuracy_rate": 0.8666666666666667
   }
 }

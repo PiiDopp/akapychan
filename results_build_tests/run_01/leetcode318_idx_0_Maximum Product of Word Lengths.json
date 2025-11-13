@@ -33,11 +33,11 @@
         "output": "16\n"
       },
       {
-        "input": "['a', 'aa', 'aaa']\n",
-        "output": "0\n"
+        "input": "['a', 'ab', 'abc', 'd', 'cd', 'bcd']\n",
+        "output": "4\n"
       },
       {
-        "input": "['abc']\n",
+        "input": "['a', 'aa', 'aaa', 'aaaa']\n",
         "output": "0\n"
       },
       {
@@ -45,46 +45,46 @@
         "output": "0\n"
       },
       {
-        "input": "['', 'abc', 'def']\n",
-        "output": "9\n"
+        "input": "['abcd', 'efgh', 'ijkl', 'mnop']\n",
+        "output": "16\n"
       },
       {
-        "input": "['ab', 'cd', 'ef', 'gh']\n",
+        "input": "['ab', 'cd', 'ef', 'gh', 'ij', 'kl']\n",
         "output": "4\n"
       },
       {
-        "input": "['abcdefghijklmnopqrstuvwxyz', 'abc', 'def']\n",
-        "output": "0\n"
-      },
-      {
-        "input": "['ab', 'bc', 'cd', 'de', 'ef', 'fg', 'gh']\n",
-        "output": "4\n"
-      },
-      {
-        "input": "['ab', 'a']\n",
-        "output": "0\n"
-      },
-      {
-        "input": "['abc', 'defg', 'hij']\n",
+        "input": "['abc', 'def', 'ghi', 'jklm', 'nopqrs']\n",
         "output": "12\n"
+      },
+      {
+        "input": "['a', 'b', 'c', 'd', 'e', 'f']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['abc', 'abc', 'abc']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abcd', 'efgh', 'abcd']\n",
+        "output": "16\n"
       }
     ],
     "parsed_tests": [
       "('maxProduct', (['abcw', 'baz', 'foo', 'bar', 'xtfn', 'abcdef'],), 16)",
-      "('maxProduct', (['a', 'aa', 'aaa'],), 0)",
-      "('maxProduct', (['abc'],), 0)",
+      "('maxProduct', (['a', 'ab', 'abc', 'd', 'cd', 'bcd'],), 4)",
+      "('maxProduct', (['a', 'aa', 'aaa', 'aaaa'],), 0)",
       "('maxProduct', ((),), 0)",
-      "('maxProduct', (['', 'abc', 'def'],), 9)",
-      "('maxProduct', (['ab', 'cd', 'ef', 'gh'],), 4)",
-      "('maxProduct', (['abcdefghijklmnopqrstuvwxyz', 'abc', 'def'],), 0)",
-      "('maxProduct', (['ab', 'bc', 'cd', 'de', 'ef', 'fg', 'gh'],), 4)",
-      "('maxProduct', (['ab', 'a'],), 0)",
-      "('maxProduct', (['abc', 'defg', 'hij'],), 12)"
+      "('maxProduct', (['abcd', 'efgh', 'ijkl', 'mnop'],), 16)",
+      "('maxProduct', (['ab', 'cd', 'ef', 'gh', 'ij', 'kl'],), 4)",
+      "('maxProduct', (['abc', 'def', 'ghi', 'jklm', 'nopqrs'],), 12)",
+      "('maxProduct', (['a', 'b', 'c', 'd', 'e', 'f'],), 4)",
+      "('maxProduct', (['abc', 'abc', 'abc'],), 0)",
+      "('maxProduct', (['abcd', 'efgh', 'abcd'],), 16)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: maxProduct(['abcw', 'baz', 'foo', 'bar', 'xtfn', 'abcdef'],)\n  標準輸出: 16\n  你的輸出: 16\n\n[測試#2] ✅ 通過\n  標準輸入: maxProduct(['a', 'aa', 'aaa'],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: maxProduct(['abc'],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: maxProduct((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: maxProduct(['', 'abc', 'def'],)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#6] ✅ 通過\n  標準輸入: maxProduct(['ab', 'cd', 'ef', 'gh'],)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: maxProduct(['abcdefghijklmnopqrstuvwxyz', 'abc', 'def'],)\n  標準輸出: 0\n  你的輸出: 9\n\n[測試#8] ✅ 通過\n  標準輸入: maxProduct(['ab', 'bc', 'cd', 'de', 'ef', 'fg', 'gh'],)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#9] ✅ 通過\n  標準輸入: maxProduct(['ab', 'a'],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: maxProduct(['abc', 'defg', 'hij'],)\n  標準輸出: 12\n  你的輸出: 12\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: maxProduct(['abcw', 'baz', 'foo', 'bar', 'xtfn', 'abcdef'],)\n  標準輸出: 16\n  你的輸出: 16\n\n[測試#2] ✅ 通過\n  標準輸入: maxProduct(['a', 'ab', 'abc', 'd', 'cd', 'bcd'],)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: maxProduct(['a', 'aa', 'aaa', 'aaaa'],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: maxProduct((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: maxProduct(['abcd', 'efgh', 'ijkl', 'mnop'],)\n  標準輸出: 16\n  你的輸出: 16\n\n[測試#6] ✅ 通過\n  標準輸入: maxProduct(['ab', 'cd', 'ef', 'gh', 'ij', 'kl'],)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: maxProduct(['abc', 'def', 'ghi', 'jklm', 'nopqrs'],)\n  標準輸出: 12\n  你的輸出: 24\n\n[測試#8] ❌ 失敗\n  標準輸入: maxProduct(['a', 'b', 'c', 'd', 'e', 'f'],)\n  標準輸出: 4\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: maxProduct(['abc', 'abc', 'abc'],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: maxProduct(['abcd', 'efgh', 'abcd'],)\n  標準輸出: 16\n  你的輸出: 16\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
     "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 8,
+    "accuracy_rate": 0.8
   }
 }

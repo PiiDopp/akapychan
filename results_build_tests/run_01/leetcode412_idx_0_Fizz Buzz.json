@@ -26,14 +26,6 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "0\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "-5\n",
-        "output": "[]\n"
-      },
-      {
         "input": "1\n",
         "output": "['1']\n"
       },
@@ -54,8 +46,8 @@
         "output": "['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']\n"
       },
       {
-        "input": "16\n",
-        "output": "['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16']\n"
+        "input": "0\n",
+        "output": "[]\n"
       },
       {
         "input": "20\n",
@@ -63,20 +55,18 @@
       }
     ],
     "parsed_tests": [
-      "('fizzBuzz', (0,), [])",
-      "('fizzBuzz', (-5,), [])",
       "('fizzBuzz', (1,), ['1'])",
       "('fizzBuzz', (2,), ['1', '2'])",
       "('fizzBuzz', (3,), ['1', '2', 'Fizz'])",
       "('fizzBuzz', (5,), ['1', '2', 'Fizz', '4', 'Buzz'])",
       "('fizzBuzz', (15,), ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz'])",
-      "('fizzBuzz', (16,), ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16'])",
+      "('fizzBuzz', (0,), [])",
       "('fizzBuzz', (20,), ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz'])"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: fizzBuzz(0,)\n  標準輸出: []\n  你的輸出: []\n\n[測試#2] ✅ 通過\n  標準輸入: fizzBuzz(-5,)\n  標準輸出: []\n  你的輸出: []\n\n[測試#3] ✅ 通過\n  標準輸入: fizzBuzz(1,)\n  標準輸出: ['1']\n  你的輸出: ['1']\n\n[測試#4] ✅ 通過\n  標準輸入: fizzBuzz(2,)\n  標準輸出: ['1', '2']\n  你的輸出: ['1', '2']\n\n[測試#5] ✅ 通過\n  標準輸入: fizzBuzz(3,)\n  標準輸出: ['1', '2', 'Fizz']\n  你的輸出: ['1', '2', 'Fizz']\n\n[測試#6] ✅ 通過\n  標準輸入: fizzBuzz(5,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz']\n\n[測試#7] ✅ 通過\n  標準輸入: fizzBuzz(15,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']\n\n[測試#8] ✅ 通過\n  標準輸入: fizzBuzz(16,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16']\n\n[測試#9] ✅ 通過\n  標準輸入: fizzBuzz(20,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz']\n\n=== 測試完成 (9/9) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: fizzBuzz(1,)\n  標準輸出: ['1']\n  你的輸出: ['1']\n\n[測試#2] ✅ 通過\n  標準輸入: fizzBuzz(2,)\n  標準輸出: ['1', '2']\n  你的輸出: ['1', '2']\n\n[測試#3] ✅ 通過\n  標準輸入: fizzBuzz(3,)\n  標準輸出: ['1', '2', 'Fizz']\n  你的輸出: ['1', '2', 'Fizz']\n\n[測試#4] ✅ 通過\n  標準輸入: fizzBuzz(5,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz']\n\n[測試#5] ✅ 通過\n  標準輸入: fizzBuzz(15,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']\n\n[測試#6] ✅ 通過\n  標準輸入: fizzBuzz(0,)\n  標準輸出: []\n  你的輸出: []\n\n[測試#7] ✅ 通過\n  標準輸入: fizzBuzz(20,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz']\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
     "all_passed": true,
-    "total_tests": 9,
-    "passed_count": 9,
+    "total_tests": 7,
+    "passed_count": 7,
     "accuracy_rate": 1.0
   }
 }

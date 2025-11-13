@@ -34,6 +34,10 @@
         "output": "1\n"
       },
       {
+        "input": "2\n",
+        "output": "1\n"
+      },
+      {
         "input": "9\n",
         "output": "1\n"
       },
@@ -46,12 +50,20 @@
         "output": "4\n"
       },
       {
+        "input": "12\n",
+        "output": "5\n"
+      },
+      {
         "input": "19\n",
         "output": "12\n"
       },
       {
         "input": "20\n",
         "output": "12\n"
+      },
+      {
+        "input": "21\n",
+        "output": "13\n"
       },
       {
         "input": "99\n",
@@ -63,23 +75,15 @@
       },
       {
         "input": "101\n",
-        "output": "22\n"
+        "output": "23\n"
       },
       {
         "input": "110\n",
-        "output": "34\n"
+        "output": "33\n"
       },
       {
         "input": "111\n",
-        "output": "37\n"
-      },
-      {
-        "input": "199\n",
-        "output": "140\n"
-      },
-      {
-        "input": "200\n",
-        "output": "140\n"
+        "output": "36\n"
       },
       {
         "input": "999\n",
@@ -90,114 +94,65 @@
         "output": "301\n"
       },
       {
-        "input": "1001\n",
-        "output": "303\n"
-      },
-      {
-        "input": "1100\n",
-        "output": "432\n"
-      },
-      {
-        "input": "1111\n",
-        "output": "458\n"
-      },
-      {
-        "input": "1999\n",
-        "output": "1600\n"
-      },
-      {
-        "input": "2000\n",
-        "output": "1600\n"
-      },
-      {
-        "input": "9999\n",
-        "output": "4000\n"
-      },
-      {
-        "input": "10000\n",
-        "output": "4001\n"
-      },
-      {
-        "input": "10001\n",
-        "output": "4003\n"
-      },
-      {
-        "input": "11000\n",
-        "output": "5302\n"
-      },
-      {
         "input": "12345\n",
         "output": "8121\n"
       },
       {
-        "input": "987654321\n",
-        "output": "902521373\n"
+        "input": "99999\n",
+        "output": "50000\n"
       },
       {
-        "input": "1234567890\n",
-        "output": "1305676379\n"
+        "input": "100000\n",
+        "output": "50001\n"
       },
       {
-        "input": "999999999\n",
-        "output": "900000000\n"
+        "input": "999999\n",
+        "output": "600000\n"
       },
       {
-        "input": "1000000000\n",
-        "output": "900000001\n"
+        "input": "1000000\n",
+        "output": "600001\n"
       },
       {
-        "input": "1000000001\n",
-        "output": "900000002\n"
+        "input": "1000001\n",
+        "output": "600003\n"
       },
       {
-        "input": "1000000002\n",
-        "output": "900000004\n"
-      },
-      {
-        "input": "1111111111\n",
-        "output": "1000000008\n"
+        "input": "10000000\n",
+        "output": "7000001\n"
       }
     ],
     "parsed_tests": [
       "('countDigitOne', (-5,), 0)",
       "('countDigitOne', (0,), 0)",
       "('countDigitOne', (1,), 1)",
+      "('countDigitOne', (2,), 1)",
       "('countDigitOne', (9,), 1)",
       "('countDigitOne', (10,), 2)",
       "('countDigitOne', (11,), 4)",
+      "('countDigitOne', (12,), 5)",
       "('countDigitOne', (19,), 12)",
       "('countDigitOne', (20,), 12)",
+      "('countDigitOne', (21,), 13)",
       "('countDigitOne', (99,), 20)",
       "('countDigitOne', (100,), 21)",
-      "('countDigitOne', (101,), 22)",
-      "('countDigitOne', (110,), 34)",
-      "('countDigitOne', (111,), 37)",
-      "('countDigitOne', (199,), 140)",
-      "('countDigitOne', (200,), 140)",
+      "('countDigitOne', (101,), 23)",
+      "('countDigitOne', (110,), 33)",
+      "('countDigitOne', (111,), 36)",
       "('countDigitOne', (999,), 300)",
       "('countDigitOne', (1000,), 301)",
-      "('countDigitOne', (1001,), 303)",
-      "('countDigitOne', (1100,), 432)",
-      "('countDigitOne', (1111,), 458)",
-      "('countDigitOne', (1999,), 1600)",
-      "('countDigitOne', (2000,), 1600)",
-      "('countDigitOne', (9999,), 4000)",
-      "('countDigitOne', (10000,), 4001)",
-      "('countDigitOne', (10001,), 4003)",
-      "('countDigitOne', (11000,), 5302)",
       "('countDigitOne', (12345,), 8121)",
-      "('countDigitOne', (987654321,), 902521373)",
-      "('countDigitOne', (1234567890,), 1305676379)",
-      "('countDigitOne', (999999999,), 900000000)",
-      "('countDigitOne', (1000000000,), 900000001)",
-      "('countDigitOne', (1000000001,), 900000002)",
-      "('countDigitOne', (1000000002,), 900000004)",
-      "('countDigitOne', (1111111111,), 1000000008)"
+      "('countDigitOne', (99999,), 50000)",
+      "('countDigitOne', (100000,), 50001)",
+      "('countDigitOne', (999999,), 600000)",
+      "('countDigitOne', (1000000,), 600001)",
+      "('countDigitOne', (1000001,), 600003)",
+      "('countDigitOne', (10000000,), 7000001)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countDigitOne(-5,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: countDigitOne(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: countDigitOne(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: countDigitOne(9,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: countDigitOne(10,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: countDigitOne(11,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: countDigitOne(19,)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#8] ✅ 通過\n  標準輸入: countDigitOne(20,)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#9] ✅ 通過\n  標準輸入: countDigitOne(99,)\n  標準輸出: 20\n  你的輸出: 20\n\n[測試#10] ✅ 通過\n  標準輸入: countDigitOne(100,)\n  標準輸出: 21\n  你的輸出: 21\n\n[測試#11] ❌ 失敗\n  標準輸入: countDigitOne(101,)\n  標準輸出: 22\n  你的輸出: 23\n\n[測試#12] ❌ 失敗\n  標準輸入: countDigitOne(110,)\n  標準輸出: 34\n  你的輸出: 33\n\n[測試#13] ❌ 失敗\n  標準輸入: countDigitOne(111,)\n  標準輸出: 37\n  你的輸出: 36\n\n[測試#14] ✅ 通過\n  標準輸入: countDigitOne(199,)\n  標準輸出: 140\n  你的輸出: 140\n\n[測試#15] ✅ 通過\n  標準輸入: countDigitOne(200,)\n  標準輸出: 140\n  你的輸出: 140\n\n[測試#16] ✅ 通過\n  標準輸入: countDigitOne(999,)\n  標準輸出: 300\n  你的輸出: 300\n\n[測試#17] ✅ 通過\n  標準輸入: countDigitOne(1000,)\n  標準輸出: 301\n  你的輸出: 301\n\n[測試#18] ✅ 通過\n  標準輸入: countDigitOne(1001,)\n  標準輸出: 303\n  你的輸出: 303\n\n[測試#19] ❌ 失敗\n  標準輸入: countDigitOne(1100,)\n  標準輸出: 432\n  你的輸出: 422\n\n[測試#20] ❌ 失敗\n  標準輸入: countDigitOne(1111,)\n  標準輸出: 458\n  你的輸出: 448\n\n[測試#21] ✅ 通過\n  標準輸入: countDigitOne(1999,)\n  標準輸出: 1600\n  你的輸出: 1600\n\n[測試#22] ✅ 通過\n  標準輸入: countDigitOne(2000,)\n  標準輸出: 1600\n  你的輸出: 1600\n\n[測試#23] ✅ 通過\n  標準輸入: countDigitOne(9999,)\n  標準輸出: 4000\n  你的輸出: 4000\n\n[測試#24] ✅ 通過\n  標準輸入: countDigitOne(10000,)\n  標準輸出: 4001\n  你的輸出: 4001\n\n[測試#25] ✅ 通過\n  標準輸入: countDigitOne(10001,)\n  標準輸出: 4003\n  你的輸出: 4003\n\n[測試#26] ✅ 通過\n  標準輸入: countDigitOne(11000,)\n  標準輸出: 5302\n  你的輸出: 5302\n\n[測試#27] ✅ 通過\n  標準輸入: countDigitOne(12345,)\n  標準輸出: 8121\n  你的輸出: 8121\n\n[測試#28] ❌ 失敗\n  標準輸入: countDigitOne(987654321,)\n  標準輸出: 902521373\n  你的輸出: 891632373\n\n[測試#29] ❌ 失敗\n  標準輸入: countDigitOne(1234567890,)\n  標準輸出: 1305676379\n  你的輸出: 1429355270\n\n[測試#30] ✅ 通過\n  標準輸入: countDigitOne(999999999,)\n  標準輸出: 900000000\n  你的輸出: 900000000\n\n[測試#31] ✅ 通過\n  標準輸入: countDigitOne(1000000000,)\n  標準輸出: 900000001\n  你的輸出: 900000001\n\n[測試#32] ❌ 失敗\n  標準輸入: countDigitOne(1000000001,)\n  標準輸出: 900000002\n  你的輸出: 900000003\n\n[測試#33] ✅ 通過\n  標準輸入: countDigitOne(1000000002,)\n  標準輸出: 900000004\n  你的輸出: 900000004\n\n[測試#34] ❌ 失敗\n  標準輸入: countDigitOne(1111111111,)\n  標準輸出: 1000000008\n  你的輸出: 1111111120\n\n=== 測試完成 (25/34) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
-    "all_passed": false,
-    "total_tests": 34,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countDigitOne(-5,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: countDigitOne(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: countDigitOne(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: countDigitOne(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: countDigitOne(9,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: countDigitOne(10,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: countDigitOne(11,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: countDigitOne(12,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#9] ✅ 通過\n  標準輸入: countDigitOne(19,)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#10] ✅ 通過\n  標準輸入: countDigitOne(20,)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#11] ✅ 通過\n  標準輸入: countDigitOne(21,)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#12] ✅ 通過\n  標準輸入: countDigitOne(99,)\n  標準輸出: 20\n  你的輸出: 20\n\n[測試#13] ✅ 通過\n  標準輸入: countDigitOne(100,)\n  標準輸出: 21\n  你的輸出: 21\n\n[測試#14] ✅ 通過\n  標準輸入: countDigitOne(101,)\n  標準輸出: 23\n  你的輸出: 23\n\n[測試#15] ✅ 通過\n  標準輸入: countDigitOne(110,)\n  標準輸出: 33\n  你的輸出: 33\n\n[測試#16] ✅ 通過\n  標準輸入: countDigitOne(111,)\n  標準輸出: 36\n  你的輸出: 36\n\n[測試#17] ✅ 通過\n  標準輸入: countDigitOne(999,)\n  標準輸出: 300\n  你的輸出: 300\n\n[測試#18] ✅ 通過\n  標準輸入: countDigitOne(1000,)\n  標準輸出: 301\n  你的輸出: 301\n\n[測試#19] ✅ 通過\n  標準輸入: countDigitOne(12345,)\n  標準輸出: 8121\n  你的輸出: 8121\n\n[測試#20] ✅ 通過\n  標準輸入: countDigitOne(99999,)\n  標準輸出: 50000\n  你的輸出: 50000\n\n[測試#21] ✅ 通過\n  標準輸入: countDigitOne(100000,)\n  標準輸出: 50001\n  你的輸出: 50001\n\n[測試#22] ✅ 通過\n  標準輸入: countDigitOne(999999,)\n  標準輸出: 600000\n  你的輸出: 600000\n\n[測試#23] ✅ 通過\n  標準輸入: countDigitOne(1000000,)\n  標準輸出: 600001\n  你的輸出: 600001\n\n[測試#24] ✅ 通過\n  標準輸入: countDigitOne(1000001,)\n  標準輸出: 600003\n  你的輸出: 600003\n\n[測試#25] ✅ 通過\n  標準輸入: countDigitOne(10000000,)\n  標準輸出: 7000001\n  你的輸出: 7000001\n\n=== 測試完成 (25/25) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 25,
+    "passed_count": 25,
+    "accuracy_rate": 1.0
   }
 }

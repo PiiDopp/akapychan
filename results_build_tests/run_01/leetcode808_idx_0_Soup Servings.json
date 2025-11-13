@@ -1,0 +1,115 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode808.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Soup Servings",
+    "description": "You have two soups, A and B, each starting with n mL. On every turn, one of the following four serving operations is chosen at random, each with probability 0.25 independent of all previous turns:\n\npour 100 mL from type A and 0 mL from type B\npour 75 mL from type A and 25 mL from type B\npour 50 mL from type A and 50 mL from type B\npour 25 mL from type A and 75 mL from type B\nNote:\n\nThere is no operation that pours 0 mL from A and 100 mL from B.\nThe amounts from A and B are poured simultaneously during the turn.\nIf an operation asks you to pour more than you have left of a soup, pour all that remains of that soup.\nThe process stops immediately after any turn in which one of the soups is used up.\n\nReturn the probability that A is used up before B, plus half the probability that both soups are used up in the same turn. Answers within 10-5 of the actual answer will be accepted.",
+    "examples": [
+      {
+        "input": "n = 50",
+        "output": "0.62500",
+        "explanation": "If we perform either of the first two serving operations, soup A will become empty first.\nIf we perform the third operation, A and B will become empty at the same time.\nIf we perform the fourth operation, B will become empty first.\nSo the total probability of A becoming empty first plus half the probability that A and B become empty at the same time, is 0.25 * (1 + 1 + 0.5 + 0) = 0.625."
+      },
+      {
+        "input": "n = 100",
+        "output": "0.71875",
+        "explanation": "If we perform the first serving operation, soup A will become empty first.\nIf we perform the second serving operations, A will become empty on performing operation [1, 2, 3], and both A and B become empty on performing operation 4.\nIf the third operation, A will become empty on performing operation [1, 2], and both A and B become empty on performing operation 3.\nIf the fourth operation, A will become empty on performing operation 1, and both A and B become empty on performing operation 2.\nSo the total probability is 0.71875."
+      }
+    ],
+    "solution": "class Solution:\n    def soupServings(self, N):\n        if N >= 4800:  # approximation for large N\n            return 1.0\n\n        memo = {}\n        def dfs(a, b):\n            if (a, b) in memo:\n                return memo[(a, b)]\n            if a <= 0 and b <= 0:\n                return 0.5\n            if a <= 0:\n                return 1\n            if b <= 0:\n                return 0\n            res = 0.25 * (dfs(a-100, b) + dfs(a-75, b-25) + dfs(a-50, b-50) + dfs(a-25, b-75))\n            memo[(a, b)] = res\n            return res\n\n        N = (N + 24) // 25 * 25  # scale down to multiples of 25\n        return dfs(N, N)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "0.5\n"
+      },
+      {
+        "input": "1\n",
+        "output": "0.625\n"
+      },
+      {
+        "input": "24\n",
+        "output": "0.625\n"
+      },
+      {
+        "input": "25\n",
+        "output": "0.625\n"
+      },
+      {
+        "input": "26\n",
+        "output": "0.625\n"
+      },
+      {
+        "input": "49\n",
+        "output": "0.625\n"
+      },
+      {
+        "input": "50\n",
+        "output": "0.625\n"
+      },
+      {
+        "input": "51\n",
+        "output": "0.65625\n"
+      },
+      {
+        "input": "75\n",
+        "output": "0.65625\n"
+      },
+      {
+        "input": "100\n",
+        "output": "0.59375\n"
+      },
+      {
+        "input": "125\n",
+        "output": "0.40625\n"
+      },
+      {
+        "input": "150\n",
+        "output": "0.3828125\n"
+      },
+      {
+        "input": "4799\n",
+        "output": "1.0\n"
+      },
+      {
+        "input": "4800\n",
+        "output": "1.0\n"
+      },
+      {
+        "input": "4801\n",
+        "output": "1.0\n"
+      },
+      {
+        "input": "10000\n",
+        "output": "1.0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('soupServings', (0,), 0.5)",
+      "('soupServings', (1,), 0.625)",
+      "('soupServings', (24,), 0.625)",
+      "('soupServings', (25,), 0.625)",
+      "('soupServings', (26,), 0.625)",
+      "('soupServings', (49,), 0.625)",
+      "('soupServings', (50,), 0.625)",
+      "('soupServings', (51,), 0.65625)",
+      "('soupServings', (75,), 0.65625)",
+      "('soupServings', (100,), 0.59375)",
+      "('soupServings', (125,), 0.40625)",
+      "('soupServings', (150,), 0.3828125)",
+      "('soupServings', (4799,), 1.0)",
+      "('soupServings', (4800,), 1.0)",
+      "('soupServings', (4801,), 1.0)",
+      "('soupServings', (10000,), 1.0)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: soupServings(0,)\n  標準輸出: 0.5\n  你的輸出: 0.5\n\n[測試#2] ✅ 通過\n  標準輸入: soupServings(1,)\n  標準輸出: 0.625\n  你的輸出: 0.625\n\n[測試#3] ✅ 通過\n  標準輸入: soupServings(24,)\n  標準輸出: 0.625\n  你的輸出: 0.625\n\n[測試#4] ✅ 通過\n  標準輸入: soupServings(25,)\n  標準輸出: 0.625\n  你的輸出: 0.625\n\n[測試#5] ✅ 通過\n  標準輸入: soupServings(26,)\n  標準輸出: 0.625\n  你的輸出: 0.625\n\n[測試#6] ✅ 通過\n  標準輸入: soupServings(49,)\n  標準輸出: 0.625\n  你的輸出: 0.625\n\n[測試#7] ✅ 通過\n  標準輸入: soupServings(50,)\n  標準輸出: 0.625\n  你的輸出: 0.625\n\n[測試#8] ✅ 通過\n  標準輸入: soupServings(51,)\n  標準輸出: 0.65625\n  你的輸出: 0.65625\n\n[測試#9] ✅ 通過\n  標準輸入: soupServings(75,)\n  標準輸出: 0.65625\n  你的輸出: 0.65625\n\n[測試#10] ❌ 失敗\n  標準輸入: soupServings(100,)\n  標準輸出: 0.59375\n  你的輸出: 0.71875\n\n[測試#11] ❌ 失敗\n  標準輸入: soupServings(125,)\n  標準輸出: 0.40625\n  你的輸出: 0.7421875\n\n[測試#12] ❌ 失敗\n  標準輸入: soupServings(150,)\n  標準輸出: 0.3828125\n  你的輸出: 0.7578125\n\n[測試#13] ❌ 失敗\n  標準輸入: soupServings(4799,)\n  標準輸出: 1.0\n  你的輸出: 0.999994994425816\n\n[測試#14] ✅ 通過\n  標準輸入: soupServings(4800,)\n  標準輸出: 1.0\n  你的輸出: 1.0\n\n[測試#15] ✅ 通過\n  標準輸入: soupServings(4801,)\n  標準輸出: 1.0\n  你的輸出: 1.0\n\n[測試#16] ✅ 通過\n  標準輸入: soupServings(10000,)\n  標準輸出: 1.0\n  你的輸出: 1.0\n\n=== 測試完成 (12/16) ===\n[警告] 部分測資未通過 ❌（0.0077s）\n",
+    "all_passed": false,
+    "total_tests": 16,
+    "passed_count": 12,
+    "accuracy_rate": 0.75
+  }
+}

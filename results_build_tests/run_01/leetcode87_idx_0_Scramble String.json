@@ -27,10 +27,6 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['abc', 'abc']\n",
-        "output": "True\n"
-      },
-      {
         "input": "['great', 'rgeat']\n",
         "output": "True\n"
       },
@@ -39,100 +35,64 @@
         "output": "False\n"
       },
       {
-        "input": "['', '']\n",
-        "output": "True\n"
-      },
-      {
         "input": "['a', 'a']\n",
         "output": "True\n"
-      },
-      {
-        "input": "['a', 'b']\n",
-        "output": "False\n"
       },
       {
         "input": "['ab', 'ba']\n",
         "output": "True\n"
       },
       {
-        "input": "['ab', 'aa']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['aabb', 'bbaa']\n",
+        "input": "['abc', 'bca']\n",
         "output": "True\n"
       },
       {
-        "input": "['aabb', 'abab']\n",
+        "input": "['abcde', 'abced']\n",
         "output": "True\n"
       },
       {
-        "input": "['aabb', 'baba']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['ab cd', 'cd ab']\n",
+        "input": "['abcd', 'abcd']\n",
         "output": "True\n"
       },
       {
-        "input": "['你好', '好你']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abcdefgh', 'hgfedcba']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abcdefgh', 'hgfedcbb']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['aabcc', 'ccbaa']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['aabcc', 'ccbab']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abcd', 'dcba']\n",
+        "input": "['abcd', 'abdc']\n",
         "output": "True\n"
       },
       {
         "input": "['abcd', 'acbd']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aab', 'aba']\n",
         "output": "True\n"
       },
       {
-        "input": "['abcd', 'baca']\n",
+        "input": "['abc', 'def']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['a', 'b']\n",
         "output": "False\n"
       }
     ],
     "parsed_tests": [
-      "('isScramble', ('abc', 'abc'), True)",
       "('isScramble', ('great', 'rgeat'), True)",
       "('isScramble', ('abcde', 'caebd'), False)",
-      "('isScramble', ('', ''), True)",
       "('isScramble', ('a', 'a'), True)",
-      "('isScramble', ('a', 'b'), False)",
       "('isScramble', ('ab', 'ba'), True)",
-      "('isScramble', ('ab', 'aa'), False)",
-      "('isScramble', ('aabb', 'bbaa'), True)",
-      "('isScramble', ('aabb', 'abab'), True)",
-      "('isScramble', ('aabb', 'baba'), False)",
-      "('isScramble', ('ab cd', 'cd ab'), True)",
-      "('isScramble', ('你好', '好你'), True)",
-      "('isScramble', ('abcdefgh', 'hgfedcba'), True)",
-      "('isScramble', ('abcdefgh', 'hgfedcbb'), False)",
-      "('isScramble', ('aabcc', 'ccbaa'), True)",
-      "('isScramble', ('aabcc', 'ccbab'), False)",
-      "('isScramble', ('abcd', 'dcba'), True)",
-      "('isScramble', ('abcd', 'acbd'), True)",
-      "('isScramble', ('abcd', 'baca'), False)"
+      "('isScramble', ('abc', 'bca'), True)",
+      "('isScramble', ('abcde', 'abced'), True)",
+      "('isScramble', ('abcd', 'abcd'), True)",
+      "('isScramble', ('abcd', 'abdc'), True)",
+      "('isScramble', ('abcd', 'acbd'), False)",
+      "('isScramble', ('aab', 'aba'), True)",
+      "('isScramble', ('abc', 'def'), False)",
+      "('isScramble', ('a', 'b'), False)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isScramble('abc', 'abc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isScramble('great', 'rgeat')\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isScramble('abcde', 'caebd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isScramble('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isScramble('a', 'a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isScramble('a', 'b')\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isScramble('ab', 'ba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isScramble('ab', 'aa')\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: isScramble('aabb', 'bbaa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isScramble('aabb', 'abab')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ❌ 失敗\n  標準輸入: isScramble('aabb', 'baba')\n  標準輸出: False\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isScramble('ab cd', 'cd ab')\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isScramble('你好', '好你')\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isScramble('abcdefgh', 'hgfedcba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: isScramble('abcdefgh', 'hgfedcbb')\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: isScramble('aabcc', 'ccbaa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: isScramble('aabcc', 'ccbab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: isScramble('abcd', 'dcba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: isScramble('abcd', 'acbd')\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: isScramble('abcd', 'baca')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (19/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isScramble('great', 'rgeat')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isScramble('abcde', 'caebd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isScramble('a', 'a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isScramble('ab', 'ba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isScramble('abc', 'bca')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isScramble('abcde', 'abced')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isScramble('abcd', 'abcd')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isScramble('abcd', 'abdc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ❌ 失敗\n  標準輸入: isScramble('abcd', 'acbd')\n  標準輸出: False\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isScramble('aab', 'aba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isScramble('abc', 'def')\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: isScramble('a', 'b')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (11/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 20,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 12,
+    "passed_count": 11,
+    "accuracy_rate": 0.9166666666666666
   }
 }

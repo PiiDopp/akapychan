@@ -1,0 +1,83 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode392.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Is Subsequence",
+    "description": "Given two strings s and t, return true if s is a subsequence of t, or false otherwise.\n\nA subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., \"ace\" is a subsequence of \"abcde\" while \"aec\" is not).",
+    "examples": [
+      {
+        "input": "s = \"abc\", t = \"ahbgdc\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"axc\", t = \"ahbgdc\"",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution:\n    def isSubsequence(self, s, t):\n        if not s:\n            return True\n        index_s = 0\n        for char in t:\n            if char == s[index_s]:\n                index_s += 1\n                if index_s == len(s):\n                    return True\n        return False"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['ace', 'abcde']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aec', 'abcde']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['', 'anything']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', '']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abc', 'abc']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aaa', 'aaab']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aab', 'ab']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['a b', 'a b c']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['你好', '世界你好']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['世界', '你好']\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isSubsequence', ('ace', 'abcde'), True)",
+      "('isSubsequence', ('aec', 'abcde'), False)",
+      "('isSubsequence', ('', 'anything'), True)",
+      "('isSubsequence', ('abc', ''), False)",
+      "('isSubsequence', ('abc', 'abc'), True)",
+      "('isSubsequence', ('aaa', 'aaab'), True)",
+      "('isSubsequence', ('aab', 'ab'), False)",
+      "('isSubsequence', ('a b', 'a b c'), True)",
+      "('isSubsequence', ('你好', '世界你好'), True)",
+      "('isSubsequence', ('世界', '你好'), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isSubsequence('ace', 'abcde')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isSubsequence('aec', 'abcde')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isSubsequence('', 'anything')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isSubsequence('abc', '')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isSubsequence('abc', 'abc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isSubsequence('aaa', 'aaab')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isSubsequence('aab', 'ab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isSubsequence('a b', 'a b c')\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isSubsequence('你好', '世界你好')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isSubsequence('世界', '你好')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 10,
+    "passed_count": 10,
+    "accuracy_rate": 1.0
+  }
+}

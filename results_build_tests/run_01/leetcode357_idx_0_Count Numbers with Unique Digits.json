@@ -1,0 +1,104 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode357.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Count Numbers with Unique Digits",
+    "description": "Given an integer n, return the count of all numbers with unique digits, x, where 0 <= x < 10^n.",
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "91",
+        "explanation": "The answer should be the total numbers in the range of 0 ≤ x < 100, excluding 11,22,33,44,55,66,77,88,99"
+      },
+      {
+        "input": "n = 0",
+        "output": "1"
+      }
+    ],
+    "solution": "class Solution:\n    def countNumbersWithUniqueDigits(self, n):\n        if n == 0:\n            return 1\n        n = min(n, 10)  # 超過10位數會重複\n        res = 10\n        uniqueDigits = 9\n        availableNumber = 9\n        for i in range(2, n + 1):\n            uniqueDigits *= availableNumber\n            res += uniqueDigits\n            availableNumber -= 1\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n",
+        "output": "10\n"
+      },
+      {
+        "input": "2\n",
+        "output": "91\n"
+      },
+      {
+        "input": "3\n",
+        "output": "739\n"
+      },
+      {
+        "input": "4\n",
+        "output": "5275\n"
+      },
+      {
+        "input": "5\n",
+        "output": "32491\n"
+      },
+      {
+        "input": "6\n",
+        "output": "168571\n"
+      },
+      {
+        "input": "7\n",
+        "output": "712891\n"
+      },
+      {
+        "input": "8\n",
+        "output": "2345851\n"
+      },
+      {
+        "input": "9\n",
+        "output": "5611771\n"
+      },
+      {
+        "input": "10\n",
+        "output": "8877691\n"
+      },
+      {
+        "input": "11\n",
+        "output": "8877691\n"
+      },
+      {
+        "input": "20\n",
+        "output": "8877691\n"
+      },
+      {
+        "input": "100\n",
+        "output": "8877691\n"
+      }
+    ],
+    "parsed_tests": [
+      "('countNumbersWithUniqueDigits', (0,), 1)",
+      "('countNumbersWithUniqueDigits', (1,), 10)",
+      "('countNumbersWithUniqueDigits', (2,), 91)",
+      "('countNumbersWithUniqueDigits', (3,), 739)",
+      "('countNumbersWithUniqueDigits', (4,), 5275)",
+      "('countNumbersWithUniqueDigits', (5,), 32491)",
+      "('countNumbersWithUniqueDigits', (6,), 168571)",
+      "('countNumbersWithUniqueDigits', (7,), 712891)",
+      "('countNumbersWithUniqueDigits', (8,), 2345851)",
+      "('countNumbersWithUniqueDigits', (9,), 5611771)",
+      "('countNumbersWithUniqueDigits', (10,), 8877691)",
+      "('countNumbersWithUniqueDigits', (11,), 8877691)",
+      "('countNumbersWithUniqueDigits', (20,), 8877691)",
+      "('countNumbersWithUniqueDigits', (100,), 8877691)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(0,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(1,)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#3] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(2,)\n  標準輸出: 91\n  你的輸出: 91\n\n[測試#4] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(3,)\n  標準輸出: 739\n  你的輸出: 739\n\n[測試#5] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(4,)\n  標準輸出: 5275\n  你的輸出: 5275\n\n[測試#6] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(5,)\n  標準輸出: 32491\n  你的輸出: 32491\n\n[測試#7] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(6,)\n  標準輸出: 168571\n  你的輸出: 168571\n\n[測試#8] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(7,)\n  標準輸出: 712891\n  你的輸出: 712891\n\n[測試#9] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(8,)\n  標準輸出: 2345851\n  你的輸出: 2345851\n\n[測試#10] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(9,)\n  標準輸出: 5611771\n  你的輸出: 5611771\n\n[測試#11] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(10,)\n  標準輸出: 8877691\n  你的輸出: 8877691\n\n[測試#12] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(11,)\n  標準輸出: 8877691\n  你的輸出: 8877691\n\n[測試#13] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(20,)\n  標準輸出: 8877691\n  你的輸出: 8877691\n\n[測試#14] ✅ 通過\n  標準輸入: countNumbersWithUniqueDigits(100,)\n  標準輸出: 8877691\n  你的輸出: 8877691\n\n=== 測試完成 (14/14) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 14,
+    "passed_count": 14,
+    "accuracy_rate": 1.0
+  }
+}

@@ -43,20 +43,8 @@
         "output": "[2, 2]\n"
       },
       {
-        "input": "5\n",
-        "output": "[5, 1]\n"
-      },
-      {
         "input": "6\n",
         "output": "[3, 2]\n"
-      },
-      {
-        "input": "7\n",
-        "output": "[7, 1]\n"
-      },
-      {
-        "input": "8\n",
-        "output": "[4, 2]\n"
       },
       {
         "input": "9\n",
@@ -75,8 +63,24 @@
         "output": "[5, 3]\n"
       },
       {
+        "input": "16\n",
+        "output": "[4, 4]\n"
+      },
+      {
+        "input": "18\n",
+        "output": "[6, 3]\n"
+      },
+      {
         "input": "20\n",
         "output": "[5, 4]\n"
+      },
+      {
+        "input": "21\n",
+        "output": "[7, 3]\n"
+      },
+      {
+        "input": "24\n",
+        "output": "[6, 4]\n"
       },
       {
         "input": "25\n",
@@ -91,20 +95,12 @@
         "output": "[6, 6]\n"
       },
       {
-        "input": "40\n",
-        "output": "[10, 4]\n"
-      },
-      {
         "input": "49\n",
         "output": "[7, 7]\n"
       },
       {
         "input": "50\n",
         "output": "[10, 5]\n"
-      },
-      {
-        "input": "60\n",
-        "output": "[10, 6]\n"
       },
       {
         "input": "72\n",
@@ -119,8 +115,8 @@
         "output": "[101, 1]\n"
       },
       {
-        "input": "102\n",
-        "output": "[17, 6]\n"
+        "input": "120\n",
+        "output": "[12, 10]\n"
       },
       {
         "input": "144\n",
@@ -147,32 +143,32 @@
         "output": "[20, 15]\n"
       },
       {
-        "input": "400\n",
-        "output": "[20, 20]\n"
-      },
-      {
         "input": "500\n",
         "output": "[25, 20]\n"
-      },
-      {
-        "input": "600\n",
-        "output": "[30, 20]\n"
-      },
-      {
-        "input": "720\n",
-        "output": "[30, 24]\n"
       },
       {
         "input": "1000\n",
         "output": "[40, 25]\n"
       },
       {
-        "input": "1024\n",
-        "output": "[32, 32]\n"
+        "input": "10000\n",
+        "output": "[100, 100]\n"
       },
       {
-        "input": "1234\n",
-        "output": "[617, 2]\n"
+        "input": "9999\n",
+        "output": "[101, 99]\n"
+      },
+      {
+        "input": "999983\n",
+        "output": "[999983, 1]\n"
+      },
+      {
+        "input": "1000000\n",
+        "output": "[1000, 1000]\n"
+      },
+      {
+        "input": "1999966\n",
+        "output": "[999983, 2]\n"
       }
     ],
     "parsed_tests": [
@@ -180,44 +176,43 @@
       "('constructRectangle', (2,), [2, 1])",
       "('constructRectangle', (3,), [3, 1])",
       "('constructRectangle', (4,), [2, 2])",
-      "('constructRectangle', (5,), [5, 1])",
       "('constructRectangle', (6,), [3, 2])",
-      "('constructRectangle', (7,), [7, 1])",
-      "('constructRectangle', (8,), [4, 2])",
       "('constructRectangle', (9,), [3, 3])",
       "('constructRectangle', (10,), [5, 2])",
       "('constructRectangle', (12,), [4, 3])",
       "('constructRectangle', (15,), [5, 3])",
+      "('constructRectangle', (16,), [4, 4])",
+      "('constructRectangle', (18,), [6, 3])",
       "('constructRectangle', (20,), [5, 4])",
+      "('constructRectangle', (21,), [7, 3])",
+      "('constructRectangle', (24,), [6, 4])",
       "('constructRectangle', (25,), [5, 5])",
       "('constructRectangle', (30,), [6, 5])",
       "('constructRectangle', (36,), [6, 6])",
-      "('constructRectangle', (40,), [10, 4])",
       "('constructRectangle', (49,), [7, 7])",
       "('constructRectangle', (50,), [10, 5])",
-      "('constructRectangle', (60,), [10, 6])",
       "('constructRectangle', (72,), [9, 8])",
       "('constructRectangle', (100,), [10, 10])",
       "('constructRectangle', (101,), [101, 1])",
-      "('constructRectangle', (102,), [17, 6])",
+      "('constructRectangle', (120,), [12, 10])",
       "('constructRectangle', (144,), [12, 12])",
       "('constructRectangle', (200,), [20, 10])",
       "('constructRectangle', (225,), [15, 15])",
       "('constructRectangle', (256,), [16, 16])",
       "('constructRectangle', (289,), [17, 17])",
       "('constructRectangle', (300,), [20, 15])",
-      "('constructRectangle', (400,), [20, 20])",
       "('constructRectangle', (500,), [25, 20])",
-      "('constructRectangle', (600,), [30, 20])",
-      "('constructRectangle', (720,), [30, 24])",
       "('constructRectangle', (1000,), [40, 25])",
-      "('constructRectangle', (1024,), [32, 32])",
-      "('constructRectangle', (1234,), [617, 2])"
+      "('constructRectangle', (10000,), [100, 100])",
+      "('constructRectangle', (9999,), [101, 99])",
+      "('constructRectangle', (999983,), [999983, 1])",
+      "('constructRectangle', (1000000,), [1000, 1000])",
+      "('constructRectangle', (1999966,), [999983, 2])"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: constructRectangle(1,)\n  標準輸出: [1, 1]\n  你的輸出: [1, 1]\n\n[測試#2] ✅ 通過\n  標準輸入: constructRectangle(2,)\n  標準輸出: [2, 1]\n  你的輸出: [2, 1]\n\n[測試#3] ✅ 通過\n  標準輸入: constructRectangle(3,)\n  標準輸出: [3, 1]\n  你的輸出: [3, 1]\n\n[測試#4] ✅ 通過\n  標準輸入: constructRectangle(4,)\n  標準輸出: [2, 2]\n  你的輸出: [2, 2]\n\n[測試#5] ✅ 通過\n  標準輸入: constructRectangle(5,)\n  標準輸出: [5, 1]\n  你的輸出: [5, 1]\n\n[測試#6] ✅ 通過\n  標準輸入: constructRectangle(6,)\n  標準輸出: [3, 2]\n  你的輸出: [3, 2]\n\n[測試#7] ✅ 通過\n  標準輸入: constructRectangle(7,)\n  標準輸出: [7, 1]\n  你的輸出: [7, 1]\n\n[測試#8] ✅ 通過\n  標準輸入: constructRectangle(8,)\n  標準輸出: [4, 2]\n  你的輸出: [4, 2]\n\n[測試#9] ✅ 通過\n  標準輸入: constructRectangle(9,)\n  標準輸出: [3, 3]\n  你的輸出: [3, 3]\n\n[測試#10] ✅ 通過\n  標準輸入: constructRectangle(10,)\n  標準輸出: [5, 2]\n  你的輸出: [5, 2]\n\n[測試#11] ✅ 通過\n  標準輸入: constructRectangle(12,)\n  標準輸出: [4, 3]\n  你的輸出: [4, 3]\n\n[測試#12] ✅ 通過\n  標準輸入: constructRectangle(15,)\n  標準輸出: [5, 3]\n  你的輸出: [5, 3]\n\n[測試#13] ✅ 通過\n  標準輸入: constructRectangle(20,)\n  標準輸出: [5, 4]\n  你的輸出: [5, 4]\n\n[測試#14] ✅ 通過\n  標準輸入: constructRectangle(25,)\n  標準輸出: [5, 5]\n  你的輸出: [5, 5]\n\n[測試#15] ✅ 通過\n  標準輸入: constructRectangle(30,)\n  標準輸出: [6, 5]\n  你的輸出: [6, 5]\n\n[測試#16] ✅ 通過\n  標準輸入: constructRectangle(36,)\n  標準輸出: [6, 6]\n  你的輸出: [6, 6]\n\n[測試#17] ❌ 失敗\n  標準輸入: constructRectangle(40,)\n  標準輸出: [10, 4]\n  你的輸出: [8, 5]\n\n[測試#18] ✅ 通過\n  標準輸入: constructRectangle(49,)\n  標準輸出: [7, 7]\n  你的輸出: [7, 7]\n\n[測試#19] ✅ 通過\n  標準輸入: constructRectangle(50,)\n  標準輸出: [10, 5]\n  你的輸出: [10, 5]\n\n[測試#20] ✅ 通過\n  標準輸入: constructRectangle(60,)\n  標準輸出: [10, 6]\n  你的輸出: [10, 6]\n\n[測試#21] ✅ 通過\n  標準輸入: constructRectangle(72,)\n  標準輸出: [9, 8]\n  你的輸出: [9, 8]\n\n[測試#22] ✅ 通過\n  標準輸入: constructRectangle(100,)\n  標準輸出: [10, 10]\n  你的輸出: [10, 10]\n\n[測試#23] ✅ 通過\n  標準輸入: constructRectangle(101,)\n  標準輸出: [101, 1]\n  你的輸出: [101, 1]\n\n[測試#24] ✅ 通過\n  標準輸入: constructRectangle(102,)\n  標準輸出: [17, 6]\n  你的輸出: [17, 6]\n\n[測試#25] ✅ 通過\n  標準輸入: constructRectangle(144,)\n  標準輸出: [12, 12]\n  你的輸出: [12, 12]\n\n[測試#26] ✅ 通過\n  標準輸入: constructRectangle(200,)\n  標準輸出: [20, 10]\n  你的輸出: [20, 10]\n\n[測試#27] ✅ 通過\n  標準輸入: constructRectangle(225,)\n  標準輸出: [15, 15]\n  你的輸出: [15, 15]\n\n[測試#28] ✅ 通過\n  標準輸入: constructRectangle(256,)\n  標準輸出: [16, 16]\n  你的輸出: [16, 16]\n\n[測試#29] ✅ 通過\n  標準輸入: constructRectangle(289,)\n  標準輸出: [17, 17]\n  你的輸出: [17, 17]\n\n[測試#30] ✅ 通過\n  標準輸入: constructRectangle(300,)\n  標準輸出: [20, 15]\n  你的輸出: [20, 15]\n\n[測試#31] ✅ 通過\n  標準輸入: constructRectangle(400,)\n  標準輸出: [20, 20]\n  你的輸出: [20, 20]\n\n[測試#32] ✅ 通過\n  標準輸入: constructRectangle(500,)\n  標準輸出: [25, 20]\n  你的輸出: [25, 20]\n\n[測試#33] ❌ 失敗\n  標準輸入: constructRectangle(600,)\n  標準輸出: [30, 20]\n  你的輸出: [25, 24]\n\n[測試#34] ✅ 通過\n  標準輸入: constructRectangle(720,)\n  標準輸出: [30, 24]\n  你的輸出: [30, 24]\n\n[測試#35] ✅ 通過\n  標準輸入: constructRectangle(1000,)\n  標準輸出: [40, 25]\n  你的輸出: [40, 25]\n\n[測試#36] ✅ 通過\n  標準輸入: constructRectangle(1024,)\n  標準輸出: [32, 32]\n  你的輸出: [32, 32]\n\n[測試#37] ✅ 通過\n  標準輸入: constructRectangle(1234,)\n  標準輸出: [617, 2]\n  你的輸出: [617, 2]\n\n=== 測試完成 (35/37) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
-    "all_passed": false,
-    "total_tests": 37,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: constructRectangle(1,)\n  標準輸出: [1, 1]\n  你的輸出: [1, 1]\n\n[測試#2] ✅ 通過\n  標準輸入: constructRectangle(2,)\n  標準輸出: [2, 1]\n  你的輸出: [2, 1]\n\n[測試#3] ✅ 通過\n  標準輸入: constructRectangle(3,)\n  標準輸出: [3, 1]\n  你的輸出: [3, 1]\n\n[測試#4] ✅ 通過\n  標準輸入: constructRectangle(4,)\n  標準輸出: [2, 2]\n  你的輸出: [2, 2]\n\n[測試#5] ✅ 通過\n  標準輸入: constructRectangle(6,)\n  標準輸出: [3, 2]\n  你的輸出: [3, 2]\n\n[測試#6] ✅ 通過\n  標準輸入: constructRectangle(9,)\n  標準輸出: [3, 3]\n  你的輸出: [3, 3]\n\n[測試#7] ✅ 通過\n  標準輸入: constructRectangle(10,)\n  標準輸出: [5, 2]\n  你的輸出: [5, 2]\n\n[測試#8] ✅ 通過\n  標準輸入: constructRectangle(12,)\n  標準輸出: [4, 3]\n  你的輸出: [4, 3]\n\n[測試#9] ✅ 通過\n  標準輸入: constructRectangle(15,)\n  標準輸出: [5, 3]\n  你的輸出: [5, 3]\n\n[測試#10] ✅ 通過\n  標準輸入: constructRectangle(16,)\n  標準輸出: [4, 4]\n  你的輸出: [4, 4]\n\n[測試#11] ✅ 通過\n  標準輸入: constructRectangle(18,)\n  標準輸出: [6, 3]\n  你的輸出: [6, 3]\n\n[測試#12] ✅ 通過\n  標準輸入: constructRectangle(20,)\n  標準輸出: [5, 4]\n  你的輸出: [5, 4]\n\n[測試#13] ✅ 通過\n  標準輸入: constructRectangle(21,)\n  標準輸出: [7, 3]\n  你的輸出: [7, 3]\n\n[測試#14] ✅ 通過\n  標準輸入: constructRectangle(24,)\n  標準輸出: [6, 4]\n  你的輸出: [6, 4]\n\n[測試#15] ✅ 通過\n  標準輸入: constructRectangle(25,)\n  標準輸出: [5, 5]\n  你的輸出: [5, 5]\n\n[測試#16] ✅ 通過\n  標準輸入: constructRectangle(30,)\n  標準輸出: [6, 5]\n  你的輸出: [6, 5]\n\n[測試#17] ✅ 通過\n  標準輸入: constructRectangle(36,)\n  標準輸出: [6, 6]\n  你的輸出: [6, 6]\n\n[測試#18] ✅ 通過\n  標準輸入: constructRectangle(49,)\n  標準輸出: [7, 7]\n  你的輸出: [7, 7]\n\n[測試#19] ✅ 通過\n  標準輸入: constructRectangle(50,)\n  標準輸出: [10, 5]\n  你的輸出: [10, 5]\n\n[測試#20] ✅ 通過\n  標準輸入: constructRectangle(72,)\n  標準輸出: [9, 8]\n  你的輸出: [9, 8]\n\n[測試#21] ✅ 通過\n  標準輸入: constructRectangle(100,)\n  標準輸出: [10, 10]\n  你的輸出: [10, 10]\n\n[測試#22] ✅ 通過\n  標準輸入: constructRectangle(101,)\n  標準輸出: [101, 1]\n  你的輸出: [101, 1]\n\n[測試#23] ✅ 通過\n  標準輸入: constructRectangle(120,)\n  標準輸出: [12, 10]\n  你的輸出: [12, 10]\n\n[測試#24] ✅ 通過\n  標準輸入: constructRectangle(144,)\n  標準輸出: [12, 12]\n  你的輸出: [12, 12]\n\n[測試#25] ✅ 通過\n  標準輸入: constructRectangle(200,)\n  標準輸出: [20, 10]\n  你的輸出: [20, 10]\n\n[測試#26] ✅ 通過\n  標準輸入: constructRectangle(225,)\n  標準輸出: [15, 15]\n  你的輸出: [15, 15]\n\n[測試#27] ✅ 通過\n  標準輸入: constructRectangle(256,)\n  標準輸出: [16, 16]\n  你的輸出: [16, 16]\n\n[測試#28] ✅ 通過\n  標準輸入: constructRectangle(289,)\n  標準輸出: [17, 17]\n  你的輸出: [17, 17]\n\n[測試#29] ✅ 通過\n  標準輸入: constructRectangle(300,)\n  標準輸出: [20, 15]\n  你的輸出: [20, 15]\n\n[測試#30] ✅ 通過\n  標準輸入: constructRectangle(500,)\n  標準輸出: [25, 20]\n  你的輸出: [25, 20]\n\n[測試#31] ✅ 通過\n  標準輸入: constructRectangle(1000,)\n  標準輸出: [40, 25]\n  你的輸出: [40, 25]\n\n[測試#32] ✅ 通過\n  標準輸入: constructRectangle(10000,)\n  標準輸出: [100, 100]\n  你的輸出: [100, 100]\n\n[測試#33] ✅ 通過\n  標準輸入: constructRectangle(9999,)\n  標準輸出: [101, 99]\n  你的輸出: [101, 99]\n\n[測試#34] ✅ 通過\n  標準輸入: constructRectangle(999983,)\n  標準輸出: [999983, 1]\n  你的輸出: [999983, 1]\n\n[測試#35] ✅ 通過\n  標準輸入: constructRectangle(1000000,)\n  標準輸出: [1000, 1000]\n  你的輸出: [1000, 1000]\n\n[測試#36] ✅ 通過\n  標準輸入: constructRectangle(1999966,)\n  標準輸出: [999983, 2]\n  你的輸出: [999983, 2]\n\n=== 測試完成 (36/36) ===\n[成功] 所有測資通過 ✅（0.0002s）\n",
+    "all_passed": true,
+    "total_tests": 36,
+    "passed_count": 36,
+    "accuracy_rate": 1.0
   }
 }

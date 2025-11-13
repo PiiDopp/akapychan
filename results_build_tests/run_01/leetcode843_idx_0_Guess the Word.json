@@ -20,82 +20,45 @@
     "solution": "import random\n\nclass Solution(object):\n    def findSecretWord(self, words, master):\n        def most_overlap_word():\n            record = [[0 for _ in range(26)] for _ in range(6)]\n            for word in candidates:\n                for i, c in enumerate(word):\n                    record[i][ord(c) - ord('a')] += 1\n            best = 0\n            for word in candidates:\n                score = 0\n                for i, c in enumerate(word):\n                    score += record[i][ord(c) - ord('a')]\n                if score > best:\n                    best = score\n                    best_word = word\n            return best_word\n\n        def greedy_balance():\n            targ_r = (1/6)**(1/6)\n            filtered = candidates[:]\n            for i in range(5, 0, -1):\n                char_count = [0 for _ in range(26)]\n                char_words = [[] for _ in range(26)]\n                for word in filtered:\n                    index = ord(word[i]) - ord('a')\n                    char_count[index] += 1\n                    char_words[index].append(word)\n                char_diff = [abs(count - len(filtered)*targ_r) for count in char_count]\n                select_char_index = char_diff.index(min(char_diff))\n                filtered = char_words[select_char_index]\n            return random.choice(filtered)\n\n        def matches(a, b):\n            return sum(c1 == c2 for c1, c2 in zip(a, b))\n\n        candidates = words[:]\n        iter_ = 0\n        while candidates:\n            if iter_ < 1:\n                key = greedy_balance()\n            else:\n                key = most_overlap_word()\n            r = master.guess(key)\n            if r == 6:\n                return\n            candidates = [w for w in candidates if matches(key, w) == r]\n            iter_ += 1"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
+    "success": true,
+    "error": null,
     "generated_tests": [
       {
-        "words": [
-          "abcdef"
-        ],
-        "secret": "abcdef",
-        "allowedGuesses": 1
+        "input": "{'words': ['abcdef'], 'secret': 'abcdef', 'allowedGuesses': 1}\n",
+        "output": "You guessed the secret word correctly.\n"
       },
       {
-        "words": [
-          "abcdef",
-          "ghijkl"
-        ],
-        "secret": "ghijkl",
-        "allowedGuesses": 2
+        "input": "{'words': ['abcdef', 'ghijkl'], 'secret': 'ghijkl', 'allowedGuesses': 1}\n",
+        "output": "Either you took too many guesses, or you did not find the secret word.\n"
       },
       {
-        "words": [
-          "abcdef",
-          "ghijkl",
-          "mnopqr",
-          "stuvwx",
-          "yzabcd",
-          "efghij",
-          "klmnop",
-          "qrstuv",
-          "wxyzab",
-          "cdefgh"
-        ],
-        "secret": "stuvwx",
-        "allowedGuesses": 10
+        "input": "{'words': ['abcdef', 'ghijkl'], 'secret': 'abcdef', 'allowedGuesses': 1}\n",
+        "output": "You guessed the secret word correctly.\n"
       },
       {
-        "words": [
-          "abcdef",
-          "ghijkl",
-          "mnopqr",
-          "stuvwx",
-          "yzabcd",
-          "efghij",
-          "klmnop",
-          "qrstuv",
-          "wxyzab",
-          "cdefgh"
-        ],
-        "secret": "yzabcd",
-        "allowedGuesses": 3
+        "input": "{'words': ['abcdef', 'bcdefg', 'cdefgh', 'defghi', 'efghij', 'fghijk', 'ghijkl', 'hijklm', 'ijklmn', 'jklmno', 'klmnop', 'lmnopq', 'mnopqr', 'nopqrs', 'opqrst', 'pqrstu', 'qrstuv', 'rstuvw', 'stuvwx', 'tuvwxy'], 'secret': 'mnopqr', 'allowedGuesses': 10}\n",
+        "output": "You guessed the secret word correctly.\n"
       },
       {
-        "words": [
-          "abcdef",
-          "ghijkl",
-          "mnopqr",
-          "stuvwx",
-          "yzabcd",
-          "efghij",
-          "klmnop",
-          "qrstuv",
-          "wxyzab",
-          "cdefgh",
-          "ijklmn",
-          "nopqrs",
-          "opqrst",
-          "pqrstu",
-          "qrstuv"
-        ],
-        "secret": "pqrstu",
-        "allowedGuesses": 15
+        "input": "{'words': ['abcdef', 'bcdefg', 'cdefgh', 'defghi', 'efghij', 'fghijk', 'ghijkl', 'hijklm', 'ijklmn', 'jklmno', 'klmnop', 'lmnopq', 'mnopqr', 'nopqrs', 'opqrst', 'pqrstu', 'qrstuv', 'rstuvw', 'stuvwx', 'tuvwxy'], 'secret': 'mnopqr', 'allowedGuesses': 5}\n",
+        "output": "Either you took too many guesses, or you did not find the secret word.\n"
+      },
+      {
+        "input": "{'words': ['abcdef', 'bcdefg', 'cdefgh', 'defghi', 'efghij', 'fghijk', 'ghijkl', 'hijklm', 'ijklmn', 'jklmno'], 'secret': 'jklmno', 'allowedGuesses': 10}\n",
+        "output": "You guessed the secret word correctly.\n"
       }
     ],
-    "parsed_tests": [],
-    "runlog": "",
+    "parsed_tests": [
+      "('findSecretWord', (\"{'words': ['abcdef'], 'secret': 'abcdef', 'allowedGuesses': 1}\\n\",), 'You guessed the secret word correctly.\\n')",
+      "('findSecretWord', (\"{'words': ['abcdef', 'ghijkl'], 'secret': 'ghijkl', 'allowedGuesses': 1}\\n\",), 'Either you took too many guesses, or you did not find the secret word.\\n')",
+      "('findSecretWord', (\"{'words': ['abcdef', 'ghijkl'], 'secret': 'abcdef', 'allowedGuesses': 1}\\n\",), 'You guessed the secret word correctly.\\n')",
+      "('findSecretWord', (\"{'words': ['abcdef', 'bcdefg', 'cdefgh', 'defghi', 'efghij', 'fghijk', 'ghijkl', 'hijklm', 'ijklmn', 'jklmno', 'klmnop', 'lmnopq', 'mnopqr', 'nopqrs', 'opqrst', 'pqrstu', 'qrstuv', 'rstuvw', 'stuvwx', 'tuvwxy'], 'secret': 'mnopqr', 'allowedGuesses': 10}\\n\",), 'You guessed the secret word correctly.\\n')",
+      "('findSecretWord', (\"{'words': ['abcdef', 'bcdefg', 'cdefgh', 'defghi', 'efghij', 'fghijk', 'ghijkl', 'hijklm', 'ijklmn', 'jklmno', 'klmnop', 'lmnopq', 'mnopqr', 'nopqrs', 'opqrst', 'pqrstu', 'qrstuv', 'rstuvw', 'stuvwx', 'tuvwxy'], 'secret': 'mnopqr', 'allowedGuesses': 5}\\n\",), 'Either you took too many guesses, or you did not find the secret word.\\n')",
+      "('findSecretWord', (\"{'words': ['abcdef', 'bcdefg', 'cdefgh', 'defghi', 'efghij', 'fghijk', 'ghijkl', 'hijklm', 'ijklmn', 'jklmno'], 'secret': 'jklmno', 'allowedGuesses': 10}\\n\",), 'You guessed the secret word correctly.\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.findSecretWord() missing 1 required positional argument: 'master'\n[測試#2] ❌ 執行例外: Solution.findSecretWord() missing 1 required positional argument: 'master'\n[測試#3] ❌ 執行例外: Solution.findSecretWord() missing 1 required positional argument: 'master'\n[測試#4] ❌ 執行例外: Solution.findSecretWord() missing 1 required positional argument: 'master'\n[測試#5] ❌ 執行例外: Solution.findSecretWord() missing 1 required positional argument: 'master'\n[測試#6] ❌ 執行例外: Solution.findSecretWord() missing 1 required positional argument: 'master'\n=== 測試完成 (0/6) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 0,
+    "total_tests": 6,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

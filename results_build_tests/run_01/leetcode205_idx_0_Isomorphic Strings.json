@@ -44,10 +44,6 @@
         "output": "False\n"
       },
       {
-        "input": "['aa', 'ab']\n",
-        "output": "False\n"
-      },
-      {
         "input": "['', '']\n",
         "output": "True\n"
       },
@@ -56,40 +52,24 @@
         "output": "True\n"
       },
       {
-        "input": "['a', 'b']\n",
+        "input": "['ab', 'bc']\n",
         "output": "True\n"
       },
       {
-        "input": "['abcd', 'abcd']\n",
-        "output": "True\n"
+        "input": "['ab', 'cc']\n",
+        "output": "False\n"
       },
       {
-        "input": "['abcd', 'abce']\n",
+        "input": "['abc', 'ab']\n",
         "output": "False\n"
       },
       {
         "input": "['你好', '世界']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['你好', '世世']\n",
         "output": "False\n"
-      },
-      {
-        "input": "['你好', '你好']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['a😊b', 'c😊d']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['a😊b', 'c😊c']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['a b', 'c d']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['a b', 'c d']\n",
-        "output": "True\n"
       }
     ],
     "parsed_tests": [
@@ -97,23 +77,18 @@
       "('isIsomorphic', ('foo', 'bar'), False)",
       "('isIsomorphic', ('paper', 'title'), True)",
       "('isIsomorphic', ('ab', 'aa'), False)",
-      "('isIsomorphic', ('aa', 'ab'), False)",
       "('isIsomorphic', ('', ''), True)",
       "('isIsomorphic', ('a', 'a'), True)",
-      "('isIsomorphic', ('a', 'b'), True)",
-      "('isIsomorphic', ('abcd', 'abcd'), True)",
-      "('isIsomorphic', ('abcd', 'abce'), False)",
-      "('isIsomorphic', ('你好', '世界'), False)",
-      "('isIsomorphic', ('你好', '你好'), True)",
-      "('isIsomorphic', ('a😊b', 'c😊d'), True)",
-      "('isIsomorphic', ('a😊b', 'c😊c'), False)",
-      "('isIsomorphic', ('a b', 'c d'), True)",
-      "('isIsomorphic', ('a b', 'c d'), True)"
+      "('isIsomorphic', ('ab', 'bc'), True)",
+      "('isIsomorphic', ('ab', 'cc'), False)",
+      "('isIsomorphic', ('abc', 'ab'), False)",
+      "('isIsomorphic', ('你好', '世界'), True)",
+      "('isIsomorphic', ('你好', '世世'), False)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isIsomorphic('egg', 'add')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isIsomorphic('foo', 'bar')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isIsomorphic('paper', 'title')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isIsomorphic('ab', 'aa')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isIsomorphic('aa', 'ab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isIsomorphic('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isIsomorphic('a', 'a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isIsomorphic('a', 'b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isIsomorphic('abcd', 'abcd')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ❌ 失敗\n  標準輸入: isIsomorphic('abcd', 'abce')\n  標準輸出: False\n  你的輸出: True\n\n[測試#11] ❌ 失敗\n  標準輸入: isIsomorphic('你好', '世界')\n  標準輸出: False\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isIsomorphic('你好', '你好')\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isIsomorphic('a😊b', 'c😊d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isIsomorphic('a😊b', 'c😊c')\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: isIsomorphic('a b', 'c d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: isIsomorphic('a b', 'c d')\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (14/16) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
-    "all_passed": false,
-    "total_tests": 16,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isIsomorphic('egg', 'add')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isIsomorphic('foo', 'bar')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isIsomorphic('paper', 'title')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isIsomorphic('ab', 'aa')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isIsomorphic('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isIsomorphic('a', 'a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isIsomorphic('ab', 'bc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isIsomorphic('ab', 'cc')\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: isIsomorphic('abc', 'ab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: isIsomorphic('你好', '世界')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isIsomorphic('你好', '世世')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (11/11) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 11,
+    "passed_count": 11,
+    "accuracy_rate": 1.0
   }
 }

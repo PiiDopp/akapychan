@@ -20,14 +20,96 @@
     "solution": "class Solution(object):\n    def threeSumClosest(self, nums, target):\n        \"\"\"\n        :type nums: List[int]\n        :type target: int\n        :rtype: int\n        \"\"\"\n        nums.sort()\n        n = len(nums)\n        closest_sum = float('inf')\n        \n        for i in range(n):\n            left, right = i + 1, n - 1\n            while left < right:\n                total = nums[i] + nums[left] + nums[right]\n                if abs(total - target) < abs(closest_sum - target):\n                    closest_sum = total\n                if total < target:\n                    left += 1\n                elif total > target:\n                    right -= 1\n                else:\n                    return total\n        return closest_sum"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
-    "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 2, 3, 4, 5]\n10\n",
+        "output": "10\n"
+      },
+      {
+        "input": "[10, 20, 30, 40]\n100\n",
+        "output": "90\n"
+      },
+      {
+        "input": "[-5, -4, -3, -2, -1]\n-10\n",
+        "output": "-10\n"
+      },
+      {
+        "input": "[-1, 2, -3, 4, -5, 6]\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1, 1, 1, 1, 1]\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[-1, -1, -1, -1]\n-1\n",
+        "output": "-3\n"
+      },
+      {
+        "input": "[0, 0, 0, 0]\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[100, 200, 300]\n-1000\n",
+        "output": "600\n"
+      },
+      {
+        "input": "[1000000, -1000000, 500000, -500000, 0]\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[0, 0, 0, 1, 2]\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1, 2, 3]\n10\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[-2147483648, 2147483647, 0]\n0\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[1, 2, 2, 3, 4]\n7\n",
+        "output": "7\n"
+      },
+      {
+        "input": "[1, 2, 5, 10]\n12\n",
+        "output": "13\n"
+      },
+      {
+        "input": "[-5, -4, -3, 10]\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[-5, -4, -3, 10]\n-6\n",
+        "output": "-12\n"
+      }
+    ],
+    "parsed_tests": [
+      "('threeSumClosest', ([1, 2, 3, 4, 5], 10), 10)",
+      "('threeSumClosest', ([10, 20, 30, 40], 100), 90)",
+      "('threeSumClosest', ([-5, -4, -3, -2, -1], -10), -10)",
+      "('threeSumClosest', ([-5, -3, -1, 2, 4, 6], 0), 0)",
+      "('threeSumClosest', ([1, 1, 1, 1, 1], 3), 3)",
+      "('threeSumClosest', ([-1, -1, -1, -1], -1), -3)",
+      "('threeSumClosest', ([0, 0, 0, 0], 0), 0)",
+      "('threeSumClosest', ([100, 200, 300], -1000), 600)",
+      "('threeSumClosest', ([-1000000, -500000, 0, 500000, 1000000], 0), 0)",
+      "('threeSumClosest', ([0, 0, 0, 1, 2], 1), 1)",
+      "('threeSumClosest', ([1, 2, 3], 10), 6)",
+      "('threeSumClosest', ([-2147483648, 0, 2147483647], 0), -1)",
+      "('threeSumClosest', ([1, 2, 2, 3, 4], 7), 7)",
+      "('threeSumClosest', ([1, 2, 5, 10], 12), 13)",
+      "('threeSumClosest', ([-5, -4, -3, 10], 1), 1)",
+      "('threeSumClosest', ([-5, -4, -3, 10], -6), -12)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: threeSumClosest([1, 2, 3, 4, 5], 10)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#2] ✅ 通過\n  標準輸入: threeSumClosest([10, 20, 30, 40], 100)\n  標準輸出: 90\n  你的輸出: 90\n\n[測試#3] ✅ 通過\n  標準輸入: threeSumClosest([-5, -4, -3, -2, -1], -10)\n  標準輸出: -10\n  你的輸出: -10\n\n[測試#4] ✅ 通過\n  標準輸入: threeSumClosest([-5, -3, -1, 2, 4, 6], 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: threeSumClosest([1, 1, 1, 1, 1], 3)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: threeSumClosest([-1, -1, -1, -1], -1)\n  標準輸出: -3\n  你的輸出: -3\n\n[測試#7] ✅ 通過\n  標準輸入: threeSumClosest([0, 0, 0, 0], 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: threeSumClosest([100, 200, 300], -1000)\n  標準輸出: 600\n  你的輸出: 600\n\n[測試#9] ✅ 通過\n  標準輸入: threeSumClosest([-1000000, -500000, 0, 500000, 1000000], 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: threeSumClosest([0, 0, 0, 1, 2], 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: threeSumClosest([1, 2, 3], 10)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#12] ✅ 通過\n  標準輸入: threeSumClosest([-2147483648, 0, 2147483647], 0)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#13] ✅ 通過\n  標準輸入: threeSumClosest([1, 2, 2, 3, 4], 7)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#14] ✅ 通過\n  標準輸入: threeSumClosest([1, 2, 5, 10], 12)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#15] ✅ 通過\n  標準輸入: threeSumClosest([-5, -4, -3, 10], 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#16] ✅ 通過\n  標準輸入: threeSumClosest([-5, -4, -3, 10], -6)\n  標準輸出: -12\n  你的輸出: -12\n\n=== 測試完成 (16/16) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 16,
+    "passed_count": 16,
+    "accuracy_rate": 1.0
   }
 }

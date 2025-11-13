@@ -39,6 +39,10 @@
     "error": null,
     "generated_tests": [
       {
+        "input": "/\n",
+        "output": "/\n"
+      },
+      {
         "input": "/home/\n",
         "output": "/home\n"
       },
@@ -59,22 +63,6 @@
         "output": "/c\n"
       },
       {
-        "input": "/a/../b/../c/../\n",
-        "output": "/\n"
-      },
-      {
-        "input": "/a/b/c/../../..\n",
-        "output": "/\n"
-      },
-      {
-        "input": "/a/b/c/../../../..\n",
-        "output": "/\n"
-      },
-      {
-        "input": "/a/b/../../../../c\n",
-        "output": "/c\n"
-      },
-      {
         "input": "/a/..../b\n",
         "output": "/a/..../b\n"
       },
@@ -87,64 +75,26 @@
         "output": "/a/b\n"
       },
       {
-        "input": "/\n",
-        "output": "/\n"
-      },
-      {
-        "input": "/a/b/c///\n",
-        "output": "/a/b/c\n"
-      },
-      {
-        "input": "////a///b//c\n",
-        "output": "/a/b/c\n"
-      },
-      {
-        "input": "////\n",
-        "output": "/\n"
-      },
-      {
-        "input": "/./././\n",
-        "output": "/\n"
-      },
-      {
-        "input": "/../../../../\n",
-        "output": "/\n"
-      },
-      {
-        "input": "/a/../../b\n",
-        "output": "/b\n"
-      },
-      {
-        "input": "/a/..b/c\n",
-        "output": "/a/..b/c\n"
+        "input": "/a/../..//c\n",
+        "output": "/c\n"
       }
     ],
     "parsed_tests": [
+      "('simplifyPath', ('/\\n',), '/\\n')",
       "('simplifyPath', ('/home/\\n',), '/home\\n')",
       "('simplifyPath', ('/../\\n',), '/\\n')",
       "('simplifyPath', ('/home//foo/\\n',), '/home/foo\\n')",
       "('simplifyPath', ('/a/./b/../../c/\\n',), '/c\\n')",
       "('simplifyPath', ('/a/../../b/../c//.//\\n',), '/c\\n')",
-      "('simplifyPath', ('/a/../b/../c/../\\n',), '/\\n')",
-      "('simplifyPath', ('/a/b/c/../../..\\n',), '/\\n')",
-      "('simplifyPath', ('/a/b/c/../../../..\\n',), '/\\n')",
-      "('simplifyPath', ('/a/b/../../../../c\\n',), '/c\\n')",
       "('simplifyPath', ('/a/..../b\\n',), '/a/..../b\\n')",
       "('simplifyPath', ('/a/.../b\\n',), '/a/.../b\\n')",
       "('simplifyPath', ('/a/./././b\\n',), '/a/b\\n')",
-      "('simplifyPath', ('/\\n',), '/\\n')",
-      "('simplifyPath', ('/a/b/c///\\n',), '/a/b/c\\n')",
-      "('simplifyPath', ('////a///b//c\\n',), '/a/b/c\\n')",
-      "('simplifyPath', ('////\\n',), '/\\n')",
-      "('simplifyPath', ('/./././\\n',), '/\\n')",
-      "('simplifyPath', ('/../../../../\\n',), '/\\n')",
-      "('simplifyPath', ('/a/../../b\\n',), '/b\\n')",
-      "('simplifyPath', ('/a/..b/c\\n',), '/a/..b/c\\n')"
+      "('simplifyPath', ('/a/../..//c\\n',), '/c\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: simplifyPath('/home/\\n',)\n  標準輸出: '/home\\n'\n  你的輸出: '/home/\\n'\n\n[測試#2] ✅ 通過\n  標準輸入: simplifyPath('/../\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#3] ❌ 失敗\n  標準輸入: simplifyPath('/home//foo/\\n',)\n  標準輸出: '/home/foo\\n'\n  你的輸出: '/home/foo/\\n'\n\n[測試#4] ❌ 失敗\n  標準輸入: simplifyPath('/a/./b/../../c/\\n',)\n  標準輸出: '/c\\n'\n  你的輸出: '/c/\\n'\n\n[測試#5] ❌ 失敗\n  標準輸入: simplifyPath('/a/../../b/../c//.//\\n',)\n  標準輸出: '/c\\n'\n  你的輸出: '/c/\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: simplifyPath('/a/../b/../c/../\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#7] ❌ 失敗\n  標準輸入: simplifyPath('/a/b/c/../../..\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/a/..\\n'\n\n[測試#8] ❌ 失敗\n  標準輸入: simplifyPath('/a/b/c/../../../..\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/..\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: simplifyPath('/a/b/../../../../c\\n',)\n  標準輸出: '/c\\n'\n  你的輸出: '/c\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: simplifyPath('/a/..../b\\n',)\n  標準輸出: '/a/..../b\\n'\n  你的輸出: '/a/..../b\\n'\n\n[測試#11] ✅ 通過\n  標準輸入: simplifyPath('/a/.../b\\n',)\n  標準輸出: '/a/.../b\\n'\n  你的輸出: '/a/.../b\\n'\n\n[測試#12] ✅ 通過\n  標準輸入: simplifyPath('/a/./././b\\n',)\n  標準輸出: '/a/b\\n'\n  你的輸出: '/a/b\\n'\n\n[測試#13] ✅ 通過\n  標準輸入: simplifyPath('/\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#14] ❌ 失敗\n  標準輸入: simplifyPath('/a/b/c///\\n',)\n  標準輸出: '/a/b/c\\n'\n  你的輸出: '/a/b/c/\\n'\n\n[測試#15] ✅ 通過\n  標準輸入: simplifyPath('////a///b//c\\n',)\n  標準輸出: '/a/b/c\\n'\n  你的輸出: '/a/b/c\\n'\n\n[測試#16] ✅ 通過\n  標準輸入: simplifyPath('////\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#17] ✅ 通過\n  標準輸入: simplifyPath('/./././\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#18] ✅ 通過\n  標準輸入: simplifyPath('/../../../../\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#19] ✅ 通過\n  標準輸入: simplifyPath('/a/../../b\\n',)\n  標準輸出: '/b\\n'\n  你的輸出: '/b\\n'\n\n[測試#20] ✅ 通過\n  標準輸入: simplifyPath('/a/..b/c\\n',)\n  標準輸出: '/a/..b/c\\n'\n  你的輸出: '/a/..b/c\\n'\n\n=== 測試完成 (13/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: simplifyPath('/\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#2] ❌ 失敗\n  標準輸入: simplifyPath('/home/\\n',)\n  標準輸出: '/home\\n'\n  你的輸出: '/home/\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: simplifyPath('/../\\n',)\n  標準輸出: '/\\n'\n  你的輸出: '/\\n'\n\n[測試#4] ❌ 失敗\n  標準輸入: simplifyPath('/home//foo/\\n',)\n  標準輸出: '/home/foo\\n'\n  你的輸出: '/home/foo/\\n'\n\n[測試#5] ❌ 失敗\n  標準輸入: simplifyPath('/a/./b/../../c/\\n',)\n  標準輸出: '/c\\n'\n  你的輸出: '/c/\\n'\n\n[測試#6] ❌ 失敗\n  標準輸入: simplifyPath('/a/../../b/../c//.//\\n',)\n  標準輸出: '/c\\n'\n  你的輸出: '/c/\\n'\n\n[測試#7] ✅ 通過\n  標準輸入: simplifyPath('/a/..../b\\n',)\n  標準輸出: '/a/..../b\\n'\n  你的輸出: '/a/..../b\\n'\n\n[測試#8] ✅ 通過\n  標準輸入: simplifyPath('/a/.../b\\n',)\n  標準輸出: '/a/.../b\\n'\n  你的輸出: '/a/.../b\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: simplifyPath('/a/./././b\\n',)\n  標準輸出: '/a/b\\n'\n  你的輸出: '/a/b\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: simplifyPath('/a/../..//c\\n',)\n  標準輸出: '/c\\n'\n  你的輸出: '/c\\n'\n\n=== 測試完成 (6/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 20,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 10,
+    "passed_count": 6,
+    "accuracy_rate": 0.6
   }
 }

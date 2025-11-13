@@ -1,0 +1,135 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode152.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum Product Subarray",
+    "description": "Given an integer array nums, find a subarray that has the largest product, and return the product.\n\nThe test cases are generated so that the answer will fit in a 32-bit integer.",
+    "examples": [
+      {
+        "input": "nums = [2,3,-2,4]",
+        "output": "6",
+        "explanation": "[2,3] has the largest product 6."
+      },
+      {
+        "input": "nums = [-2,0,-1]",
+        "output": "0",
+        "explanation": "The result cannot be 2, because [-2,-1] is not a subarray."
+      }
+    ],
+    "solution": "class Solution:\n    def maxProduct(self, nums):\n        if not nums:\n            return 0\n\n        max_prod = min_prod = result = nums[0]\n\n        for num in nums[1:]:\n            if num < 0:\n                max_prod, min_prod = min_prod, max_prod\n\n            max_prod = max(num, max_prod * num)\n            min_prod = min(num, min_prod * num)\n\n            result = max(result, max_prod)\n\n        return result"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "-3\n",
+        "output": "-3\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "24\n"
+      },
+      {
+        "input": "-1\n-2\n-3\n-4\n",
+        "output": "24\n"
+      },
+      {
+        "input": "-1\n-2\n-3\n",
+        "output": "6\n"
+      },
+      {
+        "input": "0\n2\n3\n",
+        "output": "6\n"
+      },
+      {
+        "input": "2\n0\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "-2\n3\n4\n",
+        "output": "12\n"
+      },
+      {
+        "input": "3\n4\n-2\n",
+        "output": "12\n"
+      },
+      {
+        "input": "1000\n1000\n1000\n",
+        "output": "1000000000\n"
+      },
+      {
+        "input": "2\n-5\n-2\n0\n3\n",
+        "output": "20\n"
+      },
+      {
+        "input": "0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-2\n-3\n-4\n-5\n",
+        "output": "120\n"
+      },
+      {
+        "input": "-2\n-3\n-4\n",
+        "output": "12\n"
+      },
+      {
+        "input": "0\n-1\n0\n-2\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "-1\n-1\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "-1\n2\n-3\n",
+        "output": "6\n"
+      },
+      {
+        "input": "-1000\n-1000\n-1000\n",
+        "output": "1000000\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maxProduct', (5,), 5)",
+      "('maxProduct', (-3,), -3)",
+      "('maxProduct', ((1, 2, 3, 4),), 24)",
+      "('maxProduct', ((-1, -2, -3, -4),), 24)",
+      "('maxProduct', ((-1, -2, -3),), 6)",
+      "('maxProduct', ((0, 2, 3),), 6)",
+      "('maxProduct', ((2, 0, 3),), 3)",
+      "('maxProduct', ((-2, 3, 4),), 12)",
+      "('maxProduct', ((3, 4, -2),), 12)",
+      "('maxProduct', ((1000, 1000, 1000),), 1000000000)",
+      "('maxProduct', ((2, -5, -2, 0, 3),), 20)",
+      "('maxProduct', ((0, 0, 0),), 0)",
+      "('maxProduct', ((-2, -3, -4, -5),), 120)",
+      "('maxProduct', ((-2, -3, -4),), 12)",
+      "('maxProduct', ((0, -1, 0, -2, 0),), 0)",
+      "('maxProduct', (0,), 0)",
+      "('maxProduct', ((-1, 2),), 2)",
+      "('maxProduct', ((-1, -1, 2),), 2)",
+      "('maxProduct', ((-1, 2, -3),), 6)",
+      "('maxProduct', ((-1000, -1000, -1000),), 1000000)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'int' object is not subscriptable\n[測試#2] ❌ 執行例外: 'int' object is not subscriptable\n[測試#3] ✅ 通過\n  標準輸入: maxProduct((1, 2, 3, 4),)\n  標準輸出: 24\n  你的輸出: 24\n\n[測試#4] ✅ 通過\n  標準輸入: maxProduct((-1, -2, -3, -4),)\n  標準輸出: 24\n  你的輸出: 24\n\n[測試#5] ✅ 通過\n  標準輸入: maxProduct((-1, -2, -3),)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#6] ✅ 通過\n  標準輸入: maxProduct((0, 2, 3),)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#7] ✅ 通過\n  標準輸入: maxProduct((2, 0, 3),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#8] ✅ 通過\n  標準輸入: maxProduct((-2, 3, 4),)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#9] ✅ 通過\n  標準輸入: maxProduct((3, 4, -2),)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#10] ✅ 通過\n  標準輸入: maxProduct((1000, 1000, 1000),)\n  標準輸出: 1000000000\n  你的輸出: 1000000000\n\n[測試#11] ✅ 通過\n  標準輸入: maxProduct((2, -5, -2, 0, 3),)\n  標準輸出: 20\n  你的輸出: 20\n\n[測試#12] ✅ 通過\n  標準輸入: maxProduct((0, 0, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#13] ✅ 通過\n  標準輸入: maxProduct((-2, -3, -4, -5),)\n  標準輸出: 120\n  你的輸出: 120\n\n[測試#14] ✅ 通過\n  標準輸入: maxProduct((-2, -3, -4),)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#15] ✅ 通過\n  標準輸入: maxProduct((0, -1, 0, -2, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#16] ✅ 通過\n  標準輸入: maxProduct(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#17] ✅ 通過\n  標準輸入: maxProduct((-1, 2),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#18] ✅ 通過\n  標準輸入: maxProduct((-1, -1, 2),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#19] ✅ 通過\n  標準輸入: maxProduct((-1, 2, -3),)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#20] ✅ 通過\n  標準輸入: maxProduct((-1000, -1000, -1000),)\n  標準輸出: 1000000\n  你的輸出: 1000000\n\n=== 測試完成 (18/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 18,
+    "accuracy_rate": 0.9
+  }
+}

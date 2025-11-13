@@ -28,14 +28,6 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "0\n",
-        "output": "False\n"
-      },
-      {
-        "input": "-1\n",
-        "output": "False\n"
-      },
-      {
         "input": "1\n",
         "output": "True\n"
       },
@@ -56,120 +48,80 @@
         "output": "False\n"
       },
       {
+        "input": "6\n",
+        "output": "False\n"
+      },
+      {
+        "input": "7\n",
+        "output": "False\n"
+      },
+      {
         "input": "8\n",
         "output": "True\n"
+      },
+      {
+        "input": "9\n",
+        "output": "False\n"
+      },
+      {
+        "input": "10\n",
+        "output": "False\n"
       },
       {
         "input": "16\n",
         "output": "True\n"
       },
       {
+        "input": "17\n",
+        "output": "False\n"
+      },
+      {
         "input": "32\n",
         "output": "True\n"
+      },
+      {
+        "input": "33\n",
+        "output": "False\n"
       },
       {
         "input": "64\n",
         "output": "True\n"
       },
       {
-        "input": "128\n",
-        "output": "True\n"
+        "input": "65\n",
+        "output": "False\n"
       },
       {
-        "input": "256\n",
-        "output": "True\n"
+        "input": "0\n",
+        "output": "False\n"
       },
       {
-        "input": "512\n",
-        "output": "True\n"
+        "input": "-1\n",
+        "output": "False\n"
       },
       {
-        "input": "1024\n",
-        "output": "True\n"
-      },
-      {
-        "input": "2048\n",
-        "output": "True\n"
-      },
-      {
-        "input": "4096\n",
-        "output": "True\n"
-      },
-      {
-        "input": "8192\n",
-        "output": "True\n"
-      },
-      {
-        "input": "16384\n",
-        "output": "True\n"
-      },
-      {
-        "input": "32768\n",
-        "output": "True\n"
-      },
-      {
-        "input": "65536\n",
-        "output": "True\n"
-      },
-      {
-        "input": "131072\n",
-        "output": "True\n"
-      },
-      {
-        "input": "262144\n",
-        "output": "True\n"
-      },
-      {
-        "input": "524288\n",
-        "output": "True\n"
-      },
-      {
-        "input": "1048576\n",
-        "output": "True\n"
-      },
-      {
-        "input": "2097152\n",
-        "output": "True\n"
-      },
-      {
-        "input": "4194304\n",
-        "output": "True\n"
-      },
-      {
-        "input": "8388608\n",
-        "output": "True\n"
-      },
-      {
-        "input": "16777216\n",
-        "output": "True\n"
-      },
-      {
-        "input": "33554432\n",
-        "output": "True\n"
-      },
-      {
-        "input": "67108864\n",
-        "output": "True\n"
-      },
-      {
-        "input": "134217728\n",
-        "output": "True\n"
-      },
-      {
-        "input": "268435456\n",
-        "output": "True\n"
-      },
-      {
-        "input": "536870912\n",
-        "output": "True\n"
+        "input": "-2\n",
+        "output": "False\n"
       },
       {
         "input": "1073741824\n",
         "output": "True\n"
       },
       {
-        "input": "123456789\n",
+        "input": "1073741823\n",
         "output": "False\n"
+      },
+      {
+        "input": "1073741825\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2147483648\n",
+        "output": "True\n"
+      },
+      {
+        "input": "4294967296\n",
+        "output": "True\n"
       },
       {
         "input": "9223372036854775808\n",
@@ -178,52 +130,80 @@
       {
         "input": "9223372036854775807\n",
         "output": "False\n"
+      },
+      {
+        "input": "18446744073709551616\n",
+        "output": "True\n"
+      },
+      {
+        "input": "18446744073709551615\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1267650600228229401496703205376\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1267650600228229401496703205375\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1267650600228229401496703205377\n",
+        "output": "False\n"
+      },
+      {
+        "input": "10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376\n",
+        "output": "True\n"
+      },
+      {
+        "input": "10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069375\n",
+        "output": "False\n"
+      },
+      {
+        "input": "10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069377\n",
+        "output": "False\n"
       }
     ],
     "parsed_tests": [
-      "('isPowerOfTwo', (0,), False)",
-      "('isPowerOfTwo', (-1,), False)",
       "('isPowerOfTwo', (1,), True)",
       "('isPowerOfTwo', (2,), True)",
       "('isPowerOfTwo', (3,), False)",
       "('isPowerOfTwo', (4,), True)",
       "('isPowerOfTwo', (5,), False)",
+      "('isPowerOfTwo', (6,), False)",
+      "('isPowerOfTwo', (7,), False)",
       "('isPowerOfTwo', (8,), True)",
+      "('isPowerOfTwo', (9,), False)",
+      "('isPowerOfTwo', (10,), False)",
       "('isPowerOfTwo', (16,), True)",
+      "('isPowerOfTwo', (17,), False)",
       "('isPowerOfTwo', (32,), True)",
+      "('isPowerOfTwo', (33,), False)",
       "('isPowerOfTwo', (64,), True)",
-      "('isPowerOfTwo', (128,), True)",
-      "('isPowerOfTwo', (256,), True)",
-      "('isPowerOfTwo', (512,), True)",
-      "('isPowerOfTwo', (1024,), True)",
-      "('isPowerOfTwo', (2048,), True)",
-      "('isPowerOfTwo', (4096,), True)",
-      "('isPowerOfTwo', (8192,), True)",
-      "('isPowerOfTwo', (16384,), True)",
-      "('isPowerOfTwo', (32768,), True)",
-      "('isPowerOfTwo', (65536,), True)",
-      "('isPowerOfTwo', (131072,), True)",
-      "('isPowerOfTwo', (262144,), True)",
-      "('isPowerOfTwo', (524288,), True)",
-      "('isPowerOfTwo', (1048576,), True)",
-      "('isPowerOfTwo', (2097152,), True)",
-      "('isPowerOfTwo', (4194304,), True)",
-      "('isPowerOfTwo', (8388608,), True)",
-      "('isPowerOfTwo', (16777216,), True)",
-      "('isPowerOfTwo', (33554432,), True)",
-      "('isPowerOfTwo', (67108864,), True)",
-      "('isPowerOfTwo', (134217728,), True)",
-      "('isPowerOfTwo', (268435456,), True)",
-      "('isPowerOfTwo', (536870912,), True)",
+      "('isPowerOfTwo', (65,), False)",
+      "('isPowerOfTwo', (0,), False)",
+      "('isPowerOfTwo', (-1,), False)",
+      "('isPowerOfTwo', (-2,), False)",
       "('isPowerOfTwo', (1073741824,), True)",
-      "('isPowerOfTwo', (123456789,), False)",
+      "('isPowerOfTwo', (1073741823,), False)",
+      "('isPowerOfTwo', (1073741825,), False)",
+      "('isPowerOfTwo', (2147483648,), True)",
+      "('isPowerOfTwo', (4294967296,), True)",
       "('isPowerOfTwo', (9223372036854775808,), True)",
-      "('isPowerOfTwo', (9223372036854775807,), False)"
+      "('isPowerOfTwo', (9223372036854775807,), False)",
+      "('isPowerOfTwo', (18446744073709551616,), True)",
+      "('isPowerOfTwo', (18446744073709551615,), False)",
+      "('isPowerOfTwo', (1267650600228229401496703205376,), True)",
+      "('isPowerOfTwo', (1267650600228229401496703205375,), False)",
+      "('isPowerOfTwo', (1267650600228229401496703205377,), False)",
+      "('isPowerOfTwo', (10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376,), True)",
+      "('isPowerOfTwo', (10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069375,), False)",
+      "('isPowerOfTwo', (10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069377,), False)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPowerOfTwo(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#2] ✅ 通過\n  標準輸入: isPowerOfTwo(-1,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isPowerOfTwo(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isPowerOfTwo(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isPowerOfTwo(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isPowerOfTwo(4,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isPowerOfTwo(5,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isPowerOfTwo(8,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isPowerOfTwo(16,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isPowerOfTwo(32,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isPowerOfTwo(64,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isPowerOfTwo(128,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isPowerOfTwo(256,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isPowerOfTwo(512,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: isPowerOfTwo(1024,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: isPowerOfTwo(2048,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: isPowerOfTwo(4096,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: isPowerOfTwo(8192,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: isPowerOfTwo(16384,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: isPowerOfTwo(32768,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: isPowerOfTwo(65536,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#22] ✅ 通過\n  標準輸入: isPowerOfTwo(131072,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#23] ✅ 通過\n  標準輸入: isPowerOfTwo(262144,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#24] ✅ 通過\n  標準輸入: isPowerOfTwo(524288,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#25] ✅ 通過\n  標準輸入: isPowerOfTwo(1048576,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#26] ✅ 通過\n  標準輸入: isPowerOfTwo(2097152,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#27] ✅ 通過\n  標準輸入: isPowerOfTwo(4194304,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#28] ✅ 通過\n  標準輸入: isPowerOfTwo(8388608,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#29] ✅ 通過\n  標準輸入: isPowerOfTwo(16777216,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#30] ✅ 通過\n  標準輸入: isPowerOfTwo(33554432,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#31] ✅ 通過\n  標準輸入: isPowerOfTwo(67108864,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#32] ✅ 通過\n  標準輸入: isPowerOfTwo(134217728,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#33] ✅ 通過\n  標準輸入: isPowerOfTwo(268435456,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#34] ✅ 通過\n  標準輸入: isPowerOfTwo(536870912,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#35] ✅ 通過\n  標準輸入: isPowerOfTwo(1073741824,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#36] ✅ 通過\n  標準輸入: isPowerOfTwo(123456789,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#37] ✅ 通過\n  標準輸入: isPowerOfTwo(9223372036854775808,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#38] ✅ 通過\n  標準輸入: isPowerOfTwo(9223372036854775807,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (38/38) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPowerOfTwo(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isPowerOfTwo(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isPowerOfTwo(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isPowerOfTwo(4,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isPowerOfTwo(5,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isPowerOfTwo(6,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isPowerOfTwo(7,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isPowerOfTwo(8,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isPowerOfTwo(9,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: isPowerOfTwo(10,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isPowerOfTwo(16,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isPowerOfTwo(17,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: isPowerOfTwo(32,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isPowerOfTwo(33,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: isPowerOfTwo(64,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: isPowerOfTwo(65,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: isPowerOfTwo(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: isPowerOfTwo(-1,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: isPowerOfTwo(-2,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ✅ 通過\n  標準輸入: isPowerOfTwo(1073741824,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: isPowerOfTwo(1073741823,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#22] ✅ 通過\n  標準輸入: isPowerOfTwo(1073741825,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#23] ✅ 通過\n  標準輸入: isPowerOfTwo(2147483648,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#24] ✅ 通過\n  標準輸入: isPowerOfTwo(4294967296,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#25] ✅ 通過\n  標準輸入: isPowerOfTwo(9223372036854775808,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#26] ✅ 通過\n  標準輸入: isPowerOfTwo(9223372036854775807,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#27] ✅ 通過\n  標準輸入: isPowerOfTwo(18446744073709551616,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#28] ✅ 通過\n  標準輸入: isPowerOfTwo(18446744073709551615,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#29] ✅ 通過\n  標準輸入: isPowerOfTwo(1267650600228229401496703205376,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#30] ✅ 通過\n  標準輸入: isPowerOfTwo(1267650600228229401496703205375,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#31] ✅ 通過\n  標準輸入: isPowerOfTwo(1267650600228229401496703205377,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#32] ✅ 通過\n  標準輸入: isPowerOfTwo(10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#33] ✅ 通過\n  標準輸入: isPowerOfTwo(10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069375,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#34] ✅ 通過\n  標準輸入: isPowerOfTwo(10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069377,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (34/34) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
     "all_passed": true,
-    "total_tests": 38,
-    "passed_count": 38,
+    "total_tests": 34,
+    "passed_count": 34,
     "accuracy_rate": 1.0
   }
 }

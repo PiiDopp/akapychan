@@ -27,12 +27,8 @@
         "output": "[4, 2]\n"
       },
       {
-        "input": "eccbbbbdec\n",
-        "output": "[10]\n"
-      },
-      {
-        "input": "abcde\n",
-        "output": "[1, 1, 1, 1, 1]\n"
+        "input": "abc\n",
+        "output": "[1, 1, 1]\n"
       },
       {
         "input": "aaaa\n",
@@ -43,42 +39,51 @@
         "output": "[]\n"
       },
       {
-        "input": "x\n",
+        "input": "a\n",
         "output": "[1]\n"
       },
       {
-        "input": "ab\n",
-        "output": "[1, 1]\n"
+        "input": "ababcbacadefegdehijhklij\n",
+        "output": "[9, 7, 8]\n"
       },
       {
-        "input": "abcaefgh\n",
-        "output": "[4, 1, 1, 1, 1]\n"
+        "input": "abcabcbb\n",
+        "output": "[6, 2]\n"
       },
       {
-        "input": "abcbadefgh\n",
-        "output": "[5, 1, 1, 1, 1, 1]\n"
+        "input": "123321\n",
+        "output": "[6]\n"
       },
       {
-        "input": "abcbadefghijklmnopq\n",
-        "output": "[5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
+        "input": "abcbac\n",
+        "output": "[5, 1]\n"
+      },
+      {
+        "input": "AaBbAa\n",
+        "output": "[6]\n"
+      },
+      {
+        "input": "a!b!a\n",
+        "output": "[5]\n"
       }
     ],
     "parsed_tests": [
       "('partitionLabels', ('ababcc\\n',), [4, 2])",
-      "('partitionLabels', ('eccbbbbdec\\n',), [10])",
-      "('partitionLabels', ('abcde\\n',), [1, 1, 1, 1, 1])",
+      "('partitionLabels', ('abc\\n',), [1, 1, 1])",
       "('partitionLabels', ('aaaa\\n',), [4])",
       "('partitionLabels', ((),), [])",
-      "('partitionLabels', ('x\\n',), [1])",
-      "('partitionLabels', ('ab\\n',), [1, 1])",
-      "('partitionLabels', ('abcaefgh\\n',), [4, 1, 1, 1, 1])",
-      "('partitionLabels', ('abcbadefgh\\n',), [5, 1, 1, 1, 1, 1])",
-      "('partitionLabels', ('abcbadefghijklmnopq\\n',), [5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])"
+      "('partitionLabels', ('a\\n',), [1])",
+      "('partitionLabels', ('ababcbacadefegdehijhklij\\n',), [9, 7, 8])",
+      "('partitionLabels', ('abcabcbb\\n',), [6, 2])",
+      "('partitionLabels', (123321,), [6])",
+      "('partitionLabels', ('abcbac\\n',), [5, 1])",
+      "('partitionLabels', ('AaBbAa\\n',), [6])",
+      "('partitionLabels', ('a!b!a\\n',), [5])"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: partitionLabels('ababcc\\n',)\n  標準輸出: [4, 2]\n  你的輸出: [4, 2, 1]\n\n[測試#2] ❌ 失敗\n  標準輸入: partitionLabels('eccbbbbdec\\n',)\n  標準輸出: [10]\n  你的輸出: [10, 1]\n\n[測試#3] ❌ 失敗\n  標準輸入: partitionLabels('abcde\\n',)\n  標準輸出: [1, 1, 1, 1, 1]\n  你的輸出: [1, 1, 1, 1, 1, 1]\n\n[測試#4] ❌ 失敗\n  標準輸入: partitionLabels('aaaa\\n',)\n  標準輸出: [4]\n  你的輸出: [4, 1]\n\n[測試#5] ✅ 通過\n  標準輸入: partitionLabels((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ❌ 失敗\n  標準輸入: partitionLabels('x\\n',)\n  標準輸出: [1]\n  你的輸出: [1, 1]\n\n[測試#7] ❌ 失敗\n  標準輸入: partitionLabels('ab\\n',)\n  標準輸出: [1, 1]\n  你的輸出: [1, 1, 1]\n\n[測試#8] ❌ 失敗\n  標準輸入: partitionLabels('abcaefgh\\n',)\n  標準輸出: [4, 1, 1, 1, 1]\n  你的輸出: [4, 1, 1, 1, 1, 1]\n\n[測試#9] ❌ 失敗\n  標準輸入: partitionLabels('abcbadefgh\\n',)\n  標準輸出: [5, 1, 1, 1, 1, 1]\n  你的輸出: [5, 1, 1, 1, 1, 1, 1]\n\n[測試#10] ❌ 失敗\n  標準輸入: partitionLabels('abcbadefghijklmnopq\\n',)\n  標準輸出: [5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n  你的輸出: [5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n\n=== 測試完成 (1/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: partitionLabels('ababcc\\n',)\n  標準輸出: [4, 2]\n  你的輸出: [4, 2, 1]\n\n[測試#2] ❌ 失敗\n  標準輸入: partitionLabels('abc\\n',)\n  標準輸出: [1, 1, 1]\n  你的輸出: [1, 1, 1, 1]\n\n[測試#3] ❌ 失敗\n  標準輸入: partitionLabels('aaaa\\n',)\n  標準輸出: [4]\n  你的輸出: [4, 1]\n\n[測試#4] ✅ 通過\n  標準輸入: partitionLabels((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ❌ 失敗\n  標準輸入: partitionLabels('a\\n',)\n  標準輸出: [1]\n  你的輸出: [1, 1]\n\n[測試#6] ❌ 失敗\n  標準輸入: partitionLabels('ababcbacadefegdehijhklij\\n',)\n  標準輸出: [9, 7, 8]\n  你的輸出: [9, 7, 8, 1]\n\n[測試#7] ❌ 失敗\n  標準輸入: partitionLabels('abcabcbb\\n',)\n  標準輸出: [6, 2]\n  你的輸出: [8, 1]\n\n[測試#8] ❌ 執行例外: 'int' object is not iterable\n[測試#9] ❌ 失敗\n  標準輸入: partitionLabels('abcbac\\n',)\n  標準輸出: [5, 1]\n  你的輸出: [6, 1]\n\n[測試#10] ❌ 失敗\n  標準輸入: partitionLabels('AaBbAa\\n',)\n  標準輸出: [6]\n  你的輸出: [6, 1]\n\n[測試#11] ❌ 失敗\n  標準輸入: partitionLabels('a!b!a\\n',)\n  標準輸出: [5]\n  你的輸出: [5, 1]\n\n=== 測試完成 (1/11) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 11,
+    "passed_count": 1,
+    "accuracy_rate": 0.09090909090909091
   }
 }

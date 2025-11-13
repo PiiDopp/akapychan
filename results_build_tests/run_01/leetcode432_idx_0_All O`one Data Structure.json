@@ -21,25 +21,16 @@
       {
         "operations": [
           {
-            "op": "AllOne"
+            "op": "inc",
+            "key": "a"
           },
           {
             "op": "inc",
-            "args": [
-              "a"
-            ]
+            "key": "a"
           },
           {
             "op": "inc",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "inc",
-            "args": [
-              "b"
-            ]
+            "key": "b"
           },
           {
             "op": "getMaxKey"
@@ -49,169 +40,6 @@
           }
         ],
         "expected": [
-          null,
-          null,
-          null,
-          null,
-          "b",
-          "a"
-        ]
-      },
-      {
-        "operations": [
-          {
-            "op": "AllOne"
-          },
-          {
-            "op": "inc",
-            "args": [
-              "a"
-            ]
-          },
-          {
-            "op": "inc",
-            "args": [
-              "a"
-            ]
-          },
-          {
-            "op": "dec",
-            "args": [
-              "a"
-            ]
-          },
-          {
-            "op": "dec",
-            "args": [
-              "a"
-            ]
-          },
-          {
-            "op": "getMaxKey"
-          },
-          {
-            "op": "getMinKey"
-          }
-        ],
-        "expected": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          "",
-          ""
-        ]
-      },
-      {
-        "operations": [
-          {
-            "op": "AllOne"
-          },
-          {
-            "op": "inc",
-            "args": [
-              "a"
-            ]
-          },
-          {
-            "op": "inc",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "inc",
-            "args": [
-              "c"
-            ]
-          },
-          {
-            "op": "inc",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "getMaxKey"
-          },
-          {
-            "op": "getMinKey"
-          }
-        ],
-        "expected": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          "b",
-          "a"
-        ]
-      },
-      {
-        "operations": [
-          {
-            "op": "AllOne"
-          },
-          {
-            "op": "inc",
-            "args": [
-              "a"
-            ]
-          },
-          {
-            "op": "inc",
-            "args": [
-              "a"
-            ]
-          },
-          {
-            "op": "inc",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "inc",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "inc",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "dec",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "dec",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "getMaxKey"
-          },
-          {
-            "op": "getMinKey"
-          }
-        ],
-        "expected": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           "a",
           "b"
         ]
@@ -219,7 +47,12 @@
       {
         "operations": [
           {
-            "op": "AllOne"
+            "op": "inc",
+            "key": "x"
+          },
+          {
+            "op": "dec",
+            "key": "x"
           },
           {
             "op": "getMaxKey"
@@ -229,7 +62,6 @@
           }
         ],
         "expected": [
-          null,
           "",
           ""
         ]
@@ -237,61 +69,28 @@
       {
         "operations": [
           {
-            "op": "AllOne"
+            "op": "inc",
+            "key": "p"
           },
           {
             "op": "inc",
-            "args": [
-              "a"
-            ]
+            "key": "q"
           },
           {
             "op": "inc",
-            "args": [
-              "b"
-            ]
+            "key": "r"
           },
           {
             "op": "inc",
-            "args": [
-              "c"
-            ]
+            "key": "p"
           },
           {
             "op": "inc",
-            "args": [
-              "a"
-            ]
+            "key": "q"
           },
           {
             "op": "inc",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "dec",
-            "args": [
-              "a"
-            ]
-          },
-          {
-            "op": "dec",
-            "args": [
-              "a"
-            ]
-          },
-          {
-            "op": "dec",
-            "args": [
-              "b"
-            ]
-          },
-          {
-            "op": "dec",
-            "args": [
-              "b"
-            ]
+            "key": "p"
           },
           {
             "op": "getMaxKey"
@@ -301,18 +100,142 @@
           }
         ],
         "expected": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          "c",
-          "c"
+          "p",
+          "r"
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "getMaxKey"
+          },
+          {
+            "op": "getMinKey"
+          }
+        ],
+        "expected": [
+          "",
+          ""
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "inc",
+            "key": "a"
+          },
+          {
+            "op": "inc",
+            "key": "b"
+          },
+          {
+            "op": "inc",
+            "key": "a"
+          },
+          {
+            "op": "inc",
+            "key": "c"
+          },
+          {
+            "op": "inc",
+            "key": "a"
+          },
+          {
+            "op": "dec",
+            "key": "b"
+          },
+          {
+            "op": "dec",
+            "key": "c"
+          },
+          {
+            "op": "getMaxKey"
+          },
+          {
+            "op": "getMinKey"
+          }
+        ],
+        "expected": [
+          "a",
+          "a"
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "inc",
+            "key": "k"
+          },
+          {
+            "op": "inc",
+            "key": "k"
+          },
+          {
+            "op": "dec",
+            "key": "k"
+          },
+          {
+            "op": "getMaxKey"
+          },
+          {
+            "op": "getMinKey"
+          }
+        ],
+        "expected": [
+          "k",
+          "k"
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "inc",
+            "key": "m"
+          },
+          {
+            "op": "inc",
+            "key": "n"
+          },
+          {
+            "op": "inc",
+            "key": "m"
+          },
+          {
+            "op": "inc",
+            "key": "m"
+          },
+          {
+            "op": "getMaxKey"
+          },
+          {
+            "op": "getMinKey"
+          }
+        ],
+        "expected": [
+          "m",
+          "n"
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "inc",
+            "key": "p"
+          },
+          {
+            "op": "dec",
+            "key": "p"
+          },
+          {
+            "op": "getMaxKey"
+          },
+          {
+            "op": "getMinKey"
+          }
+        ],
+        "expected": [
+          "",
+          ""
         ]
       }
     ],

@@ -16,8 +16,128 @@
   },
   "experiment_result": {
     "success": false,
-    "error": "非 LeetCode 格式程式碼",
-    "generated_tests": [],
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "dictionary": [
+          "hello",
+          "leetcode"
+        ],
+        "searchWord": "hhllo",
+        "expected": true
+      },
+      {
+        "dictionary": [
+          "hello",
+          "leetcode"
+        ],
+        "searchWord": "hello",
+        "expected": false
+      },
+      {
+        "dictionary": [
+          "hello",
+          "leetcode"
+        ],
+        "searchWord": "hell",
+        "expected": false
+      },
+      {
+        "dictionary": [
+          "hello",
+          "leetcode"
+        ],
+        "searchWord": "hella",
+        "expected": true
+      },
+      {
+        "dictionary": [
+          "hello",
+          "hallo"
+        ],
+        "searchWord": "hallo",
+        "expected": true
+      },
+      {
+        "dictionary": [
+          "abcd",
+          "efgh"
+        ],
+        "searchWord": "abce",
+        "expected": true
+      },
+      {
+        "dictionary": [
+          "abcd",
+          "efgh"
+        ],
+        "searchWord": "abcd",
+        "expected": false
+      },
+      {
+        "dictionary": [
+          "a",
+          "b",
+          "c"
+        ],
+        "searchWord": "d",
+        "expected": true
+      },
+      {
+        "dictionary": [
+          "a",
+          "b",
+          "c"
+        ],
+        "searchWord": "aa",
+        "expected": false
+      },
+      {
+        "dictionary": [
+          "aa",
+          "bb"
+        ],
+        "searchWord": "ab",
+        "expected": true
+      },
+      {
+        "dictionary": [
+          "abc",
+          "def"
+        ],
+        "searchWord": "xyz",
+        "expected": false
+      },
+      {
+        "dictionary": [],
+        "searchWord": "any",
+        "expected": false
+      },
+      {
+        "dictionary": [
+          "a!",
+          "b?"
+        ],
+        "searchWord": "a?",
+        "expected": true
+      },
+      {
+        "dictionary": [
+          "123",
+          "456"
+        ],
+        "searchWord": "124",
+        "expected": true
+      },
+      {
+        "dictionary": [
+          "Abc",
+          "Def"
+        ],
+        "searchWord": "abc",
+        "expected": true
+      }
+    ],
     "parsed_tests": [],
     "runlog": "",
     "all_passed": false,

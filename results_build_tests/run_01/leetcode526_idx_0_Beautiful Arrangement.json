@@ -48,19 +48,15 @@
       },
       {
         "input": "7\n",
-        "output": "140\n"
+        "output": "104\n"
       },
       {
-        "input": "8\n",
-        "output": "504\n"
-      },
-      {
-        "input": "9\n",
-        "output": "1680\n"
+        "input": "0\n",
+        "output": "0\n"
       },
       {
         "input": "10\n",
-        "output": "5040\n"
+        "output": "0\n"
       }
     ],
     "parsed_tests": [
@@ -70,15 +66,14 @@
       "('countArrangement', (4,), 8)",
       "('countArrangement', (5,), 12)",
       "('countArrangement', (6,), 40)",
-      "('countArrangement', (7,), 140)",
-      "('countArrangement', (8,), 504)",
-      "('countArrangement', (9,), 1680)",
-      "('countArrangement', (10,), 5040)"
+      "('countArrangement', (7,), 104)",
+      "('countArrangement', (0,), 0)",
+      "('countArrangement', (10,), 0)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countArrangement(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: countArrangement(2,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: countArrangement(3,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: countArrangement(4,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#5] ❌ 失敗\n  標準輸入: countArrangement(5,)\n  標準輸出: 12\n  你的輸出: 10\n\n[測試#6] ❌ 失敗\n  標準輸入: countArrangement(6,)\n  標準輸出: 40\n  你的輸出: 36\n\n[測試#7] ❌ 失敗\n  標準輸入: countArrangement(7,)\n  標準輸出: 140\n  你的輸出: 41\n\n[測試#8] ❌ 失敗\n  標準輸入: countArrangement(8,)\n  標準輸出: 504\n  你的輸出: 132\n\n[測試#9] ❌ 失敗\n  標準輸入: countArrangement(9,)\n  標準輸出: 1680\n  你的輸出: 250\n\n[測試#10] ❌ 失敗\n  標準輸入: countArrangement(10,)\n  標準輸出: 5040\n  你的輸出: 700\n\n=== 測試完成 (4/10) ===\n[警告] 部分測資未通過 ❌（0.0039s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countArrangement(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: countArrangement(2,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: countArrangement(3,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: countArrangement(4,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#5] ❌ 失敗\n  標準輸入: countArrangement(5,)\n  標準輸出: 12\n  你的輸出: 10\n\n[測試#6] ❌ 失敗\n  標準輸入: countArrangement(6,)\n  標準輸出: 40\n  你的輸出: 36\n\n[測試#7] ❌ 失敗\n  標準輸入: countArrangement(7,)\n  標準輸出: 104\n  你的輸出: 41\n\n[測試#8] ❌ 失敗\n  標準輸入: countArrangement(0,)\n  標準輸出: 0\n  你的輸出: 1\n\n[測試#9] ❌ 失敗\n  標準輸入: countArrangement(10,)\n  標準輸出: 0\n  你的輸出: 700\n\n=== 測試完成 (4/9) ===\n[警告] 部分測資未通過 ❌（0.0028s）\n",
     "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 9,
+    "passed_count": 4,
+    "accuracy_rate": 0.4444444444444444
   }
 }

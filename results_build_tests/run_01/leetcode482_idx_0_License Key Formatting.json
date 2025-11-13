@@ -24,61 +24,106 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['2-4A0r7-4k', 4]\n",
-        "output": "24A0-R74K\n"
+        "input": "['5F3Z-2e-9-w', 4]\n",
+        "output": "5F3Z-2E9W\n"
       },
       {
-        "input": "['2-4A0r7-4k', 3]\n",
-        "output": "24-A0R-74K\n"
-      },
-      {
-        "input": "['2-4A0r7-4k', 10]\n",
-        "output": "24A0R74K\n"
-      },
-      {
-        "input": "['2-4A0r7-4k', 1]\n",
-        "output": "2-4-4-A-0-R-7-4-K\n"
+        "input": "['2-5g-3-J', 2]\n",
+        "output": "2-5G-3J\n"
       },
       {
         "input": "['---', 3]\n",
         "output": "\n"
       },
       {
-        "input": "['a-bc-DEF-123', 2]\n",
-        "output": "A-BC-DE-F1-23\n"
+        "input": "['abcde', 2]\n",
+        "output": "A-BC-DE\n"
       },
       {
-        "input": "['--a--b-c--', 2]\n",
-        "output": "A-BC\n"
+        "input": "['abcd', 2]\n",
+        "output": "AB-CD\n"
       },
       {
-        "input": "['12345', 2]\n",
-        "output": "1-23-45\n"
+        "input": "['123456', 3]\n",
+        "output": "123-456\n"
       },
       {
-        "input": "['abc', 3]\n",
+        "input": "['a1b2c3', 2]\n",
+        "output": "A1-B2-C3\n"
+      },
+      {
+        "input": "['a1b2c3', 1]\n",
+        "output": "A-1-B-2-C-3\n"
+      },
+      {
+        "input": "['abc', 5]\n",
         "output": "ABC\n"
       },
       {
-        "input": "['123-456', 1]\n",
-        "output": "1-2-3-4-5-6\n"
+        "input": "['a1b2c3d4', 4]\n",
+        "output": "A1B2-C3D4\n"
+      },
+      {
+        "input": "['a--b-c', 2]\n",
+        "output": "A-BC\n"
+      },
+      {
+        "input": "['-a-b-c-', 2]\n",
+        "output": "A-BC\n"
+      },
+      {
+        "input": "['a1B2c3D4', 3]\n",
+        "output": "A1-B2C-3D4\n"
+      },
+      {
+        "input": "['12-AB-34-cd-56', 3]\n",
+        "output": "1-2AB-34C-D56\n"
+      },
+      {
+        "input": "['---abc---', 2]\n",
+        "output": "A-BC\n"
+      },
+      {
+        "input": "['---123---', 2]\n",
+        "output": "1-23\n"
+      },
+      {
+        "input": "['', 3]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['ab', 5]\n",
+        "output": "AB\n"
+      },
+      {
+        "input": "['ABC-DEF', 3]\n",
+        "output": "ABC-DEF\n"
       }
     ],
     "parsed_tests": [
-      "('licenseKeyFormatting', ('2-4A0r7-4k', 4), '24A0-R74K\\n')",
-      "('licenseKeyFormatting', ('2-4A0r7-4k', 3), '24-A0R-74K\\n')",
-      "('licenseKeyFormatting', ('2-4A0r7-4k', 10), '24A0R74K\\n')",
-      "('licenseKeyFormatting', ('2-4A0r7-4k', 1), '2-4-4-A-0-R-7-4-K\\n')",
+      "('licenseKeyFormatting', ('5F3Z-2e-9-w', 4), '5F3Z-2E9W\\n')",
+      "('licenseKeyFormatting', ('2-5g-3-J', 2), '2-5G-3J\\n')",
       "('licenseKeyFormatting', ('---', 3), '\\n')",
-      "('licenseKeyFormatting', ('a-bc-DEF-123', 2), 'A-BC-DE-F1-23\\n')",
-      "('licenseKeyFormatting', ('--a--b-c--', 2), 'A-BC\\n')",
-      "('licenseKeyFormatting', ('12345', 2), '1-23-45\\n')",
-      "('licenseKeyFormatting', ('abc', 3), 'ABC\\n')",
-      "('licenseKeyFormatting', ('123-456', 1), '1-2-3-4-5-6\\n')"
+      "('licenseKeyFormatting', ('abcde', 2), 'A-BC-DE\\n')",
+      "('licenseKeyFormatting', ('abcd', 2), 'AB-CD\\n')",
+      "('licenseKeyFormatting', ('123456', 3), '123-456\\n')",
+      "('licenseKeyFormatting', ('a1b2c3', 2), 'A1-B2-C3\\n')",
+      "('licenseKeyFormatting', ('a1b2c3', 1), 'A-1-B-2-C-3\\n')",
+      "('licenseKeyFormatting', ('abc', 5), 'ABC\\n')",
+      "('licenseKeyFormatting', ('a1b2c3d4', 4), 'A1B2-C3D4\\n')",
+      "('licenseKeyFormatting', ('a--b-c', 2), 'A-BC\\n')",
+      "('licenseKeyFormatting', ('-a-b-c-', 2), 'A-BC\\n')",
+      "('licenseKeyFormatting', ('a1B2c3D4', 3), 'A1-B2C-3D4\\n')",
+      "('licenseKeyFormatting', ('12-AB-34-cd-56', 3), '1-2AB-34C-D56\\n')",
+      "('licenseKeyFormatting', ('---abc---', 2), 'A-BC\\n')",
+      "('licenseKeyFormatting', ('---123---', 2), '1-23\\n')",
+      "('licenseKeyFormatting', ('', 3), '\\n')",
+      "('licenseKeyFormatting', ('ab', 5), 'AB\\n')",
+      "('licenseKeyFormatting', ('ABC-DEF', 3), 'ABC-DEF\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-4A0r7-4k', 4)\n  標準輸出: '24A0-R74K\\n'\n  你的輸出: '24A0-R74K'\n\n[測試#2] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-4A0r7-4k', 3)\n  標準輸出: '24-A0R-74K\\n'\n  你的輸出: '24-A0R-74K'\n\n[測試#3] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-4A0r7-4k', 10)\n  標準輸出: '24A0R74K\\n'\n  你的輸出: '24A0R74K'\n\n[測試#4] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-4A0r7-4k', 1)\n  標準輸出: '2-4-4-A-0-R-7-4-K\\n'\n  你的輸出: '2-4-A-0-R-7-4-K'\n\n[測試#5] ❌ 失敗\n  標準輸入: licenseKeyFormatting('---', 3)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: licenseKeyFormatting('a-bc-DEF-123', 2)\n  標準輸出: 'A-BC-DE-F1-23\\n'\n  你的輸出: 'A-BC-DE-F1-23'\n\n[測試#7] ❌ 失敗\n  標準輸入: licenseKeyFormatting('--a--b-c--', 2)\n  標準輸出: 'A-BC\\n'\n  你的輸出: 'A-BC'\n\n[測試#8] ❌ 失敗\n  標準輸入: licenseKeyFormatting('12345', 2)\n  標準輸出: '1-23-45\\n'\n  你的輸出: '1-23-45'\n\n[測試#9] ❌ 失敗\n  標準輸入: licenseKeyFormatting('abc', 3)\n  標準輸出: 'ABC\\n'\n  你的輸出: 'ABC'\n\n[測試#10] ❌ 失敗\n  標準輸入: licenseKeyFormatting('123-456', 1)\n  標準輸出: '1-2-3-4-5-6\\n'\n  你的輸出: '1-2-3-4-5-6'\n\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: licenseKeyFormatting('5F3Z-2e-9-w', 4)\n  標準輸出: '5F3Z-2E9W\\n'\n  你的輸出: '5F3Z-2E9W'\n\n[測試#2] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-5g-3-J', 2)\n  標準輸出: '2-5G-3J\\n'\n  你的輸出: '2-5G-3J'\n\n[測試#3] ❌ 失敗\n  標準輸入: licenseKeyFormatting('---', 3)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#4] ❌ 失敗\n  標準輸入: licenseKeyFormatting('abcde', 2)\n  標準輸出: 'A-BC-DE\\n'\n  你的輸出: 'A-BC-DE'\n\n[測試#5] ❌ 失敗\n  標準輸入: licenseKeyFormatting('abcd', 2)\n  標準輸出: 'AB-CD\\n'\n  你的輸出: 'AB-CD'\n\n[測試#6] ❌ 失敗\n  標準輸入: licenseKeyFormatting('123456', 3)\n  標準輸出: '123-456\\n'\n  你的輸出: '123-456'\n\n[測試#7] ❌ 失敗\n  標準輸入: licenseKeyFormatting('a1b2c3', 2)\n  標準輸出: 'A1-B2-C3\\n'\n  你的輸出: 'A1-B2-C3'\n\n[測試#8] ❌ 失敗\n  標準輸入: licenseKeyFormatting('a1b2c3', 1)\n  標準輸出: 'A-1-B-2-C-3\\n'\n  你的輸出: 'A-1-B-2-C-3'\n\n[測試#9] ❌ 失敗\n  標準輸入: licenseKeyFormatting('abc', 5)\n  標準輸出: 'ABC\\n'\n  你的輸出: 'ABC'\n\n[測試#10] ❌ 失敗\n  標準輸入: licenseKeyFormatting('a1b2c3d4', 4)\n  標準輸出: 'A1B2-C3D4\\n'\n  你的輸出: 'A1B2-C3D4'\n\n[測試#11] ❌ 失敗\n  標準輸入: licenseKeyFormatting('a--b-c', 2)\n  標準輸出: 'A-BC\\n'\n  你的輸出: 'A-BC'\n\n[測試#12] ❌ 失敗\n  標準輸入: licenseKeyFormatting('-a-b-c-', 2)\n  標準輸出: 'A-BC\\n'\n  你的輸出: 'A-BC'\n\n[測試#13] ❌ 失敗\n  標準輸入: licenseKeyFormatting('a1B2c3D4', 3)\n  標準輸出: 'A1-B2C-3D4\\n'\n  你的輸出: 'A1-B2C-3D4'\n\n[測試#14] ❌ 失敗\n  標準輸入: licenseKeyFormatting('12-AB-34-cd-56', 3)\n  標準輸出: '1-2AB-34C-D56\\n'\n  你的輸出: '1-2AB-34C-D56'\n\n[測試#15] ❌ 失敗\n  標準輸入: licenseKeyFormatting('---abc---', 2)\n  標準輸出: 'A-BC\\n'\n  你的輸出: 'A-BC'\n\n[測試#16] ❌ 失敗\n  標準輸入: licenseKeyFormatting('---123---', 2)\n  標準輸出: '1-23\\n'\n  你的輸出: '1-23'\n\n[測試#17] ❌ 失敗\n  標準輸入: licenseKeyFormatting('', 3)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#18] ❌ 失敗\n  標準輸入: licenseKeyFormatting('ab', 5)\n  標準輸出: 'AB\\n'\n  你的輸出: 'AB'\n\n[測試#19] ❌ 失敗\n  標準輸入: licenseKeyFormatting('ABC-DEF', 3)\n  標準輸出: 'ABC-DEF\\n'\n  你的輸出: 'ABC-DEF'\n\n=== 測試完成 (0/19) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 10,
+    "total_tests": 19,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

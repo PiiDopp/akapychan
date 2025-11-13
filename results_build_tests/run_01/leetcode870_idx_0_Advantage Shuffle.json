@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode870.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Advantage Shuffle",
+    "description": "You are given two integer arrays nums1 and nums2 both of the same length. The advantage of nums1 with respect to nums2 is the number of indices i for which nums1[i] > nums2[i].\n\nReturn any permutation of nums1 that maximizes its advantage with respect to nums2.",
+    "examples": [
+      {
+        "input": "nums1 = [2,7,11,15], nums2 = [1,10,4,11]",
+        "output": "[2,11,7,15]"
+      },
+      {
+        "input": "nums1 = [12,24,8,32], nums2 = [13,25,32,11]",
+        "output": "[24,32,8,12]"
+      }
+    ],
+    "solution": "class Solution(object):\n    def advantageCount(self, A, B):\n        import collections\n        n = len(A)\n        A.sort()\n        B_sorted = sorted([(b, i) for i, b in enumerate(B)], reverse=True)\n        res = [0] * n\n        left, right = 0, n - 1\n\n        for b, i in B_sorted:\n            if A[right] > b:\n                res[i] = A[right]\n                right -= 1\n            else:\n                res[i] = A[left]\n                left += 1\n\n        return res"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

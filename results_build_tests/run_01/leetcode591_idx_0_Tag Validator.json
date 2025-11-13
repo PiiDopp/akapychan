@@ -33,15 +33,7 @@
         "output": "True\n"
       },
       {
-        "input": "<A>text</A>\n",
-        "output": "True\n"
-      },
-      {
         "input": "<A><B></B></A>\n",
-        "output": "True\n"
-      },
-      {
-        "input": "<A><B><![CDATA[<C></C>]]></B></A>\n",
         "output": "True\n"
       },
       {
@@ -49,8 +41,8 @@
         "output": "True\n"
       },
       {
-        "input": "<A><![CDATA[<B></B></A>\n",
-        "output": "False\n"
+        "input": "<ABCDEFGHI></ABCDEFGHI>\n",
+        "output": "True\n"
       },
       {
         "input": "<ABCDEFGHIJ></ABCDEFGHIJ>\n",
@@ -65,15 +57,23 @@
         "output": "False\n"
       },
       {
-        "input": "<A><B></A></B>\n",
+        "input": "<A></B>\n",
         "output": "False\n"
       },
       {
-        "input": "<A></A></B>\n",
+        "input": "<A></A></A>\n",
         "output": "False\n"
       },
       {
-        "input": "<A><B></B>\n",
+        "input": "<A></A><\n",
+        "output": "False\n"
+      },
+      {
+        "input": "<A></A>>\n",
+        "output": "False\n"
+      },
+      {
+        "input": "<A>\n",
         "output": "False\n"
       },
       {
@@ -81,65 +81,65 @@
         "output": "False\n"
       },
       {
-        "input": "<A>text<</A>\n",
+        "input": "<A></A>y\n",
         "output": "False\n"
       },
       {
-        "input": "<A><B></B\n",
+        "input": "x<A></A>\n",
         "output": "False\n"
       },
       {
-        "input": "text\n",
+        "input": "\n",
         "output": "False\n"
       },
       {
-        "input": "<A></A><B></B>\n",
+        "input": "<A><B></B>\n",
         "output": "False\n"
       },
       {
-        "input": "<A></A>text\n",
+        "input": "<A><B></A></B>\n",
         "output": "False\n"
       },
       {
-        "input": "<></>\n",
+        "input": "<A><![CDATA[<B></B></A>\n",
         "output": "False\n"
       },
       {
-        "input": "<ABCDEFGHI></ABCDEFGHI>\n",
+        "input": "<A><B><C></C></B></A>\n",
         "output": "True\n"
       },
       {
-        "input": "<ABCDEF!></ABCDEF!>\n",
-        "output": "False\n"
+        "input": "<A><B><![CDATA[<C></C>]]></B></A>\n",
+        "output": "True\n"
       }
     ],
     "parsed_tests": [
       "('isValid', ('<A></A>\\n',), True)",
-      "('isValid', ('<A>text</A>\\n',), True)",
       "('isValid', ('<A><B></B></A>\\n',), True)",
-      "('isValid', ('<A><B><![CDATA[<C></C>]]></B></A>\\n',), True)",
       "('isValid', ('<A><![CDATA[<B></B>]]></A>\\n',), True)",
-      "('isValid', ('<A><![CDATA[<B></B></A>\\n',), False)",
+      "('isValid', ('<ABCDEFGHI></ABCDEFGHI>\\n',), True)",
       "('isValid', ('<ABCDEFGHIJ></ABCDEFGHIJ>\\n',), False)",
       "('isValid', ('<a></a>\\n',), False)",
       "('isValid', ('<A1></A1>\\n',), False)",
-      "('isValid', ('<A><B></A></B>\\n',), False)",
-      "('isValid', ('<A></A></B>\\n',), False)",
-      "('isValid', ('<A><B></B>\\n',), False)",
+      "('isValid', ('<A></B>\\n',), False)",
+      "('isValid', ('<A></A></A>\\n',), False)",
+      "('isValid', ('<A></A><\\n',), False)",
+      "('isValid', ('<A></A>>\\n',), False)",
+      "('isValid', ('<A>\\n',), False)",
       "('isValid', ('</A>\\n',), False)",
-      "('isValid', ('<A>text<</A>\\n',), False)",
-      "('isValid', ('<A><B></B\\n',), False)",
-      "('isValid', ('text\\n',), False)",
-      "('isValid', ('<A></A><B></B>\\n',), False)",
-      "('isValid', ('<A></A>text\\n',), False)",
-      "('isValid', ('<></>\\n',), False)",
-      "('isValid', ('<ABCDEFGHI></ABCDEFGHI>\\n',), True)",
-      "('isValid', ('<ABCDEF!></ABCDEF!>\\n',), False)"
+      "('isValid', ('<A></A>y\\n',), False)",
+      "('isValid', ('x<A></A>\\n',), False)",
+      "('isValid', ((),), False)",
+      "('isValid', ('<A><B></B>\\n',), False)",
+      "('isValid', ('<A><B></A></B>\\n',), False)",
+      "('isValid', ('<A><![CDATA[<B></B></A>\\n',), False)",
+      "('isValid', ('<A><B><C></C></B></A>\\n',), True)",
+      "('isValid', ('<A><B><![CDATA[<C></C>]]></B></A>\\n',), True)"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: isValid('<A></A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#2] ❌ 失敗\n  標準輸入: isValid('<A>text</A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#3] ❌ 失敗\n  標準輸入: isValid('<A><B></B></A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#4] ❌ 失敗\n  標準輸入: isValid('<A><B><![CDATA[<C></C>]]></B></A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#5] ❌ 失敗\n  標準輸入: isValid('<A><![CDATA[<B></B>]]></A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isValid('<A><![CDATA[<B></B></A>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isValid('<ABCDEFGHIJ></ABCDEFGHIJ>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isValid('<a></a>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: isValid('<A1></A1>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: isValid('<A><B></A></B>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isValid('<A></A></B>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: isValid('<A><B></B>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: isValid('</A>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: isValid('<A>text<</A>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: isValid('<A><B></B\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: isValid('text\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: isValid('<A></A><B></B>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: isValid('<A></A>text\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: isValid('<></>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ❌ 失敗\n  標準輸入: isValid('<ABCDEFGHI></ABCDEFGHI>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#21] ✅ 通過\n  標準輸入: isValid('<ABCDEF!></ABCDEF!>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (15/21) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: isValid('<A></A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#2] ❌ 失敗\n  標準輸入: isValid('<A><B></B></A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#3] ❌ 失敗\n  標準輸入: isValid('<A><![CDATA[<B></B>]]></A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#4] ❌ 失敗\n  標準輸入: isValid('<ABCDEFGHI></ABCDEFGHI>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isValid('<ABCDEFGHIJ></ABCDEFGHIJ>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isValid('<a></a>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isValid('<A1></A1>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isValid('<A></B>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: isValid('<A></A></A>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: isValid('<A></A><\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isValid('<A></A>>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: isValid('<A>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: isValid('</A>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: isValid('<A></A>y\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: isValid('x<A></A>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ❌ 執行例外: tuple index out of range\n[測試#17] ✅ 通過\n  標準輸入: isValid('<A><B></B>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: isValid('<A><B></A></B>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: isValid('<A><![CDATA[<B></B></A>\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ❌ 失敗\n  標準輸入: isValid('<A><B><C></C></B></A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#21] ❌ 失敗\n  標準輸入: isValid('<A><B><![CDATA[<C></C>]]></B></A>\\n',)\n  標準輸出: True\n  你的輸出: False\n\n=== 測試完成 (14/21) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
     "total_tests": 21,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 14,
+    "accuracy_rate": 0.6666666666666666
   }
 }

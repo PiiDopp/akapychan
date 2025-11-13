@@ -24,6 +24,26 @@
     "error": null,
     "generated_tests": [
       {
+        "input": "0\n1\n2\n3\n4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n0\n2\n3\n4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n1\n3\n2\n4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n0\n1\n3\n4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "3\n0\n1\n2\n",
+        "output": "False\n"
+      },
+      {
         "input": "0\n",
         "output": "True\n"
       },
@@ -32,55 +52,7 @@
         "output": "True\n"
       },
       {
-        "input": "0\n1\n2\n",
-        "output": "True\n"
-      },
-      {
-        "input": "0\n2\n1\n",
-        "output": "True\n"
-      },
-      {
-        "input": "1\n0\n2\n",
-        "output": "True\n"
-      },
-      {
-        "input": "2\n0\n1\n",
-        "output": "False\n"
-      },
-      {
-        "input": "2\n1\n0\n",
-        "output": "False\n"
-      },
-      {
-        "input": "0\n1\n2\n3\n",
-        "output": "True\n"
-      },
-      {
-        "input": "0\n2\n1\n3\n",
-        "output": "True\n"
-      },
-      {
-        "input": "0\n3\n1\n2\n",
-        "output": "False\n"
-      },
-      {
-        "input": "1\n0\n3\n2\n",
-        "output": "True\n"
-      },
-      {
-        "input": "1\n3\n0\n2\n",
-        "output": "False\n"
-      },
-      {
-        "input": "0\n2\n3\n1\n",
-        "output": "False\n"
-      },
-      {
-        "input": "0\n3\n2\n1\n",
-        "output": "False\n"
-      },
-      {
-        "input": "0\n1\n3\n2\n",
+        "input": "0\n1\n",
         "output": "True\n"
       },
       {
@@ -88,63 +60,36 @@
         "output": "True\n"
       },
       {
-        "input": "0\n2\n4\n1\n3\n",
+        "input": "2\n3\n0\n1\n4\n",
         "output": "False\n"
       },
       {
-        "input": "0\n1\n2\n4\n3\n",
-        "output": "True\n"
-      },
-      {
-        "input": "0\n2\n3\n1\n4\n5\n",
+        "input": "0\n2\n3\n1\n4\n",
         "output": "False\n"
       },
       {
-        "input": "0\n2\n1\n4\n3\n5\n",
-        "output": "True\n"
-      },
-      {
-        "input": "0\n1\n2\n3\n4\n5\n",
-        "output": "True\n"
-      },
-      {
-        "input": "0\n2\n3\n1\n4\n5\n",
+        "input": "2\n1\n0\n",
         "output": "False\n"
-      },
-      {
-        "input": "0\n2\n1\n4\n3\n5\n",
-        "output": "True\n"
       }
     ],
     "parsed_tests": [
+      "('isIdealPermutation', ((0, 1, 2, 3, 4),), True)",
+      "('isIdealPermutation', ((1, 0, 2, 3, 4),), True)",
+      "('isIdealPermutation', ((0, 1, 3, 2, 4),), True)",
+      "('isIdealPermutation', ((2, 0, 1, 3, 4),), False)",
+      "('isIdealPermutation', ((3, 0, 1, 2),), False)",
       "('isIdealPermutation', (0,), True)",
       "('isIdealPermutation', ((1, 0),), True)",
-      "('isIdealPermutation', ((0, 1, 2),), True)",
-      "('isIdealPermutation', ((0, 2, 1),), True)",
-      "('isIdealPermutation', ((1, 0, 2),), True)",
-      "('isIdealPermutation', ((2, 0, 1),), False)",
-      "('isIdealPermutation', ((2, 1, 0),), False)",
-      "('isIdealPermutation', ((0, 1, 2, 3),), True)",
-      "('isIdealPermutation', ((0, 2, 1, 3),), True)",
-      "('isIdealPermutation', ((0, 3, 1, 2),), False)",
-      "('isIdealPermutation', ((1, 0, 3, 2),), True)",
-      "('isIdealPermutation', ((1, 3, 0, 2),), False)",
-      "('isIdealPermutation', ((0, 2, 3, 1),), False)",
-      "('isIdealPermutation', ((0, 3, 2, 1),), False)",
-      "('isIdealPermutation', ((0, 1, 3, 2),), True)",
+      "('isIdealPermutation', ((0, 1),), True)",
       "('isIdealPermutation', ((0, 2, 1, 4, 3),), True)",
-      "('isIdealPermutation', ((0, 2, 4, 1, 3),), False)",
-      "('isIdealPermutation', ((0, 1, 2, 4, 3),), True)",
-      "('isIdealPermutation', ((0, 2, 3, 1, 4, 5),), False)",
-      "('isIdealPermutation', ((0, 2, 1, 4, 3, 5),), True)",
-      "('isIdealPermutation', ((0, 1, 2, 3, 4, 5),), True)",
-      "('isIdealPermutation', ((0, 2, 3, 1, 4, 5),), False)",
-      "('isIdealPermutation', ((0, 2, 1, 4, 3, 5),), True)"
+      "('isIdealPermutation', ((2, 3, 0, 1, 4),), False)",
+      "('isIdealPermutation', ((0, 2, 3, 1, 4),), False)",
+      "('isIdealPermutation', ((2, 1, 0),), False)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: 'int' object is not subscriptable\n[測試#2] ✅ 通過\n  標準輸入: isIdealPermutation((1, 0),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isIdealPermutation((0, 1, 2),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 1),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isIdealPermutation((1, 0, 2),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isIdealPermutation((2, 0, 1),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isIdealPermutation((2, 1, 0),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isIdealPermutation((0, 1, 2, 3),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 1, 3),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isIdealPermutation((0, 3, 1, 2),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isIdealPermutation((1, 0, 3, 2),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isIdealPermutation((1, 3, 0, 2),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 3, 1),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: isIdealPermutation((0, 3, 2, 1),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: isIdealPermutation((0, 1, 3, 2),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 1, 4, 3),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 4, 1, 3),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: isIdealPermutation((0, 1, 2, 4, 3),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 3, 1, 4, 5),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 1, 4, 3, 5),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: isIdealPermutation((0, 1, 2, 3, 4, 5),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#22] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 3, 1, 4, 5),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#23] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 1, 4, 3, 5),)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (22/23) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isIdealPermutation((0, 1, 2, 3, 4),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isIdealPermutation((1, 0, 2, 3, 4),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isIdealPermutation((0, 1, 3, 2, 4),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isIdealPermutation((2, 0, 1, 3, 4),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isIdealPermutation((3, 0, 1, 2),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ❌ 執行例外: 'int' object is not subscriptable\n[測試#7] ✅ 通過\n  標準輸入: isIdealPermutation((1, 0),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isIdealPermutation((0, 1),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 1, 4, 3),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isIdealPermutation((2, 3, 0, 1, 4),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isIdealPermutation((0, 2, 3, 1, 4),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: isIdealPermutation((2, 1, 0),)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (11/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 23,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 12,
+    "passed_count": 11,
+    "accuracy_rate": 0.9166666666666666
   }
 }

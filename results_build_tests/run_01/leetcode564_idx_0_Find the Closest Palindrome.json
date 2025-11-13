@@ -40,7 +40,31 @@
       },
       {
         "input": "99\n",
-        "output": "101\n"
+        "output": "88\n"
+      },
+      {
+        "input": "100\n",
+        "output": "99\n"
+      },
+      {
+        "input": "101\n",
+        "output": "99\n"
+      },
+      {
+        "input": "123\n",
+        "output": "121\n"
+      },
+      {
+        "input": "1234\n",
+        "output": "1221\n"
+      },
+      {
+        "input": "12321\n",
+        "output": "12221\n"
+      },
+      {
+        "input": "123456789\n",
+        "output": "123454321\n"
       },
       {
         "input": "1000\n",
@@ -51,28 +75,32 @@
         "output": "999\n"
       },
       {
+        "input": "999\n",
+        "output": "1001\n"
+      },
+      {
+        "input": "9999\n",
+        "output": "10001\n"
+      },
+      {
+        "input": "100000\n",
+        "output": "99999\n"
+      },
+      {
         "input": "999999\n",
         "output": "1000001\n"
       },
       {
-        "input": "1000001\n",
-        "output": "1000000\n"
+        "input": "12345678901234567890\n",
+        "output": "12345678900987654321\n"
       },
       {
-        "input": "123456\n",
-        "output": "123321\n"
+        "input": "1000000000\n",
+        "output": "999999999\n"
       },
       {
-        "input": "12345678987654321\n",
-        "output": "12345678887654321\n"
-      },
-      {
-        "input": "100000000000000000\n",
-        "output": "99999999999999999\n"
-      },
-      {
-        "input": "1000000000000000000\n",
-        "output": "999999999999999999\n"
+        "input": "9999999999\n",
+        "output": "10000000001\n"
       }
     ],
     "parsed_tests": [
@@ -80,19 +108,26 @@
       "('nearestPalindromic', (2,), 1)",
       "('nearestPalindromic', (10,), 9)",
       "('nearestPalindromic', (11,), 9)",
-      "('nearestPalindromic', (99,), 101)",
+      "('nearestPalindromic', (99,), 88)",
+      "('nearestPalindromic', (100,), 99)",
+      "('nearestPalindromic', (101,), 99)",
+      "('nearestPalindromic', (123,), 121)",
+      "('nearestPalindromic', (1234,), 1221)",
+      "('nearestPalindromic', (12321,), 12221)",
+      "('nearestPalindromic', (123456789,), 123454321)",
       "('nearestPalindromic', (1000,), 999)",
       "('nearestPalindromic', (1001,), 999)",
+      "('nearestPalindromic', (999,), 1001)",
+      "('nearestPalindromic', (9999,), 10001)",
+      "('nearestPalindromic', (100000,), 99999)",
       "('nearestPalindromic', (999999,), 1000001)",
-      "('nearestPalindromic', (1000001,), 1000000)",
-      "('nearestPalindromic', (123456,), 123321)",
-      "('nearestPalindromic', (12345678987654321,), 12345678887654321)",
-      "('nearestPalindromic', (100000000000000000,), 99999999999999999)",
-      "('nearestPalindromic', (1000000000000000000,), 999999999999999999)"
+      "('nearestPalindromic', (12345678901234567890,), 12345678900987654321)",
+      "('nearestPalindromic', (1000000000,), 999999999)",
+      "('nearestPalindromic', (9999999999,), 10000000001)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: object of type 'int' has no len()\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 執行例外: object of type 'int' has no len()\n[測試#11] ❌ 執行例外: object of type 'int' has no len()\n[測試#12] ❌ 執行例外: object of type 'int' has no len()\n[測試#13] ❌ 執行例外: object of type 'int' has no len()\n=== 測試完成 (0/13) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: object of type 'int' has no len()\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 執行例外: object of type 'int' has no len()\n[測試#11] ❌ 執行例外: object of type 'int' has no len()\n[測試#12] ❌ 執行例外: object of type 'int' has no len()\n[測試#13] ❌ 執行例外: object of type 'int' has no len()\n[測試#14] ❌ 執行例外: object of type 'int' has no len()\n[測試#15] ❌ 執行例外: object of type 'int' has no len()\n[測試#16] ❌ 執行例外: object of type 'int' has no len()\n[測試#17] ❌ 執行例外: object of type 'int' has no len()\n[測試#18] ❌ 執行例外: object of type 'int' has no len()\n[測試#19] ❌ 執行例外: object of type 'int' has no len()\n[測試#20] ❌ 執行例外: object of type 'int' has no len()\n=== 測試完成 (0/20) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 13,
+    "total_tests": 20,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

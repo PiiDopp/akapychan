@@ -24,82 +24,72 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "[1, 2, 3, 6, 2, 7, 9, 8, 5, 4]\n3\n",
-        "output": "True\n"
-      },
-      {
-        "input": "[1, 2, 3, 4, 5]\n4\n",
-        "output": "False\n"
-      },
-      {
-        "input": "[1, 2, 4, 5, 6, 7]\n3\n",
-        "output": "False\n"
-      },
-      {
         "input": "[1, 2, 3, 3, 4, 5]\n3\n",
         "output": "True\n"
       },
       {
-        "input": "[-3, -2, -1, 0, 1, 2]\n3\n",
-        "output": "True\n"
-      },
-      {
-        "input": "[5, 10, 15]\n1\n",
-        "output": "True\n"
-      },
-      {
-        "input": "[]\n3\n",
-        "output": "True\n"
-      },
-      {
-        "input": "[1, 2]\n4\n",
+        "input": "[1, 2, 3, 4]\n3\n",
         "output": "False\n"
       },
       {
-        "input": "[1000000, 1000001, 1000002]\n3\n",
-        "output": "True\n"
-      },
-      {
-        "input": "[1, 1, 2, 2, 3, 3]\n2\n",
+        "input": "[1, 2, 4, 5]\n2\n",
         "output": "False\n"
       },
       {
-        "input": "[1, 3, 5]\n3\n",
+        "input": "[1, 1, 2, 2, 3, 3]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[-2, -1, 0, 1, 2, 3]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[]\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[5, 6, 7, 8]\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 3]\n6\n",
         "output": "False\n"
       },
       {
-        "input": "[5, 6, 7]\n3\n",
+        "input": "[1, 1, 2, 2]\n2\n",
         "output": "True\n"
       },
       {
-        "input": "[1, 2, 2, 3]\n2\n",
-        "output": "True\n"
+        "input": "[1, 1, 3, 3]\n2\n",
+        "output": "False\n"
       },
       {
         "input": "[1, 2, 2, 3, 4, 5]\n3\n",
         "output": "False\n"
+      },
+      {
+        "input": "[100, 101, 102, 103]\n2\n",
+        "output": "True\n"
       }
     ],
     "parsed_tests": [
-      "('isNStraightHand', ([1, 2, 3, 6, 2, 7, 9, 8, 5, 4], 3), True)",
-      "('isNStraightHand', ([1, 2, 3, 4, 5], 4), False)",
-      "('isNStraightHand', ([1, 2, 4, 5, 6, 7], 3), False)",
       "('isNStraightHand', ([1, 2, 3, 3, 4, 5], 3), True)",
-      "('isNStraightHand', ([-3, -2, -1, 0, 1, 2], 3), True)",
-      "('isNStraightHand', ([5, 10, 15], 1), True)",
-      "('isNStraightHand', ([], 3), True)",
-      "('isNStraightHand', ([1, 2], 4), False)",
-      "('isNStraightHand', ([1000000, 1000001, 1000002], 3), True)",
-      "('isNStraightHand', ([1, 1, 2, 2, 3, 3], 2), False)",
-      "('isNStraightHand', ([1, 3, 5], 3), False)",
-      "('isNStraightHand', ([5, 6, 7], 3), True)",
-      "('isNStraightHand', ([1, 2, 2, 3], 2), True)",
-      "('isNStraightHand', ([1, 2, 2, 3, 4, 5], 3), False)"
+      "('isNStraightHand', ([1, 2, 3, 4], 3), False)",
+      "('isNStraightHand', ([1, 2, 4, 5], 2), False)",
+      "('isNStraightHand', ([1, 1, 2, 2, 3, 3], 3), True)",
+      "('isNStraightHand', ([-2, -1, 0, 1, 2, 3], 3), True)",
+      "('isNStraightHand', ([], 1), True)",
+      "('isNStraightHand', ([5, 6, 7, 8], 1), True)",
+      "('isNStraightHand', ([1, 2, 3], 6), False)",
+      "('isNStraightHand', ([1, 1, 2, 2], 2), True)",
+      "('isNStraightHand', ([1, 1, 3, 3], 2), False)",
+      "('isNStraightHand', ([1, 2, 2, 3, 4, 5], 3), False)",
+      "('isNStraightHand', ([100, 101, 102, 103], 2), True)"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: isNStraightHand([1, 2, 3, 6, 2, 7, 9, 8, 5, 4], 3)\n  標準輸出: True\n  你的輸出: False\n\n[測試#2] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 3, 4, 5], 4)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 4, 5, 6, 7], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 3, 3, 4, 5], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isNStraightHand([-3, -2, -1, 0, 1, 2], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isNStraightHand([5, 10, 15], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isNStraightHand([], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isNStraightHand([1, 2], 4)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: isNStraightHand([1000000, 1000001, 1000002], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isNStraightHand([1, 1, 2, 2, 3, 3], 2)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isNStraightHand([1, 3, 5], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: isNStraightHand([5, 6, 7], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 2, 3], 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 2, 3, 4, 5], 3)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (13/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 3, 3, 4, 5], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 3, 4], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ❌ 失敗\n  標準輸入: isNStraightHand([1, 2, 4, 5], 2)\n  標準輸出: False\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isNStraightHand([1, 1, 2, 2, 3, 3], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isNStraightHand([-2, -1, 0, 1, 2, 3], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isNStraightHand([], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isNStraightHand([5, 6, 7, 8], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 3], 6)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: isNStraightHand([1, 1, 2, 2], 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isNStraightHand([1, 1, 3, 3], 2)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 2, 3, 4, 5], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: isNStraightHand([100, 101, 102, 103], 2)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (11/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 14,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 12,
+    "passed_count": 11,
+    "accuracy_rate": 0.9166666666666666
   }
 }

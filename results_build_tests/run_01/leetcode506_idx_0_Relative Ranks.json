@@ -40,28 +40,24 @@
         "output": "['Bronze Medal', 'Silver Medal', 'Gold Medal']\n"
       },
       {
-        "input": "5\n4\n3\n2\n1\n",
+        "input": "10\n9\n8\n7\n6\n",
         "output": "['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5']\n"
       },
       {
-        "input": "10\n3\n8\n6\n2\n9\n1\n5\n4\n7\n",
-        "output": "['Gold Medal', '8', 'Bronze Medal', '5', '9', 'Silver Medal', '10', '6', '7', '4']\n"
+        "input": "7\n10\n4\n3\n2\n",
+        "output": "['Silver Medal', 'Gold Medal', 'Bronze Medal', '4', '5']\n"
       },
       {
         "input": "-1\n-3\n-2\n",
         "output": "['Gold Medal', 'Bronze Medal', 'Silver Medal']\n"
       },
       {
-        "input": "1000000\n999999\n999998\n",
+        "input": "1000000\n999999\n1\n",
         "output": "['Gold Medal', 'Silver Medal', 'Bronze Medal']\n"
       },
       {
-        "input": "7\n1\n5\n3\n9\n",
-        "output": "['Silver Medal', '5', 'Bronze Medal', '4', 'Gold Medal']\n"
-      },
-      {
-        "input": "100\n1\n50\n",
-        "output": "['Gold Medal', 'Bronze Medal', 'Silver Medal']\n"
+        "input": "5\n1\n4\n2\n3\n6\n",
+        "output": "['Silver Medal', '6', 'Bronze Medal', '5', '4', 'Gold Medal']\n"
       }
     ],
     "parsed_tests": [
@@ -69,17 +65,16 @@
       "('findRelativeRanks', (10,), ['Gold Medal'])",
       "('findRelativeRanks', ((5, 3),), ['Gold Medal', 'Silver Medal'])",
       "('findRelativeRanks', ((1, 2, 3),), ['Bronze Medal', 'Silver Medal', 'Gold Medal'])",
-      "('findRelativeRanks', ((5, 4, 3, 2, 1),), ['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5'])",
-      "('findRelativeRanks', ((10, 3, 8, 6, 2, 9, 1, 5, 4, 7),), ['Gold Medal', '8', 'Bronze Medal', '5', '9', 'Silver Medal', '10', '6', '7', '4'])",
+      "('findRelativeRanks', ((10, 9, 8, 7, 6),), ['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5'])",
+      "('findRelativeRanks', ((7, 10, 4, 3, 2),), ['Silver Medal', 'Gold Medal', 'Bronze Medal', '4', '5'])",
       "('findRelativeRanks', ((-1, -3, -2),), ['Gold Medal', 'Bronze Medal', 'Silver Medal'])",
-      "('findRelativeRanks', ((1000000, 999999, 999998),), ['Gold Medal', 'Silver Medal', 'Bronze Medal'])",
-      "('findRelativeRanks', ((7, 1, 5, 3, 9),), ['Silver Medal', '5', 'Bronze Medal', '4', 'Gold Medal'])",
-      "('findRelativeRanks', ((100, 1, 50),), ['Gold Medal', 'Bronze Medal', 'Silver Medal'])"
+      "('findRelativeRanks', ((1000000, 999999, 1),), ['Gold Medal', 'Silver Medal', 'Bronze Medal'])",
+      "('findRelativeRanks', ((5, 1, 4, 2, 3, 6),), ['Silver Medal', '6', 'Bronze Medal', '5', '4', 'Gold Medal'])"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findRelativeRanks((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ✅ 通過\n  標準輸入: findRelativeRanks((5, 3),)\n  標準輸出: ['Gold Medal', 'Silver Medal']\n  你的輸出: ['Gold Medal', 'Silver Medal']\n\n[測試#4] ✅ 通過\n  標準輸入: findRelativeRanks((1, 2, 3),)\n  標準輸出: ['Bronze Medal', 'Silver Medal', 'Gold Medal']\n  你的輸出: ['Bronze Medal', 'Silver Medal', 'Gold Medal']\n\n[測試#5] ✅ 通過\n  標準輸入: findRelativeRanks((5, 4, 3, 2, 1),)\n  標準輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5']\n  你的輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5']\n\n[測試#6] ✅ 通過\n  標準輸入: findRelativeRanks((10, 3, 8, 6, 2, 9, 1, 5, 4, 7),)\n  標準輸出: ['Gold Medal', '8', 'Bronze Medal', '5', '9', 'Silver Medal', '10', '6', '7', '4']\n  你的輸出: ['Gold Medal', '8', 'Bronze Medal', '5', '9', 'Silver Medal', '10', '6', '7', '4']\n\n[測試#7] ✅ 通過\n  標準輸入: findRelativeRanks((-1, -3, -2),)\n  標準輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n  你的輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n\n[測試#8] ✅ 通過\n  標準輸入: findRelativeRanks((1000000, 999999, 999998),)\n  標準輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal']\n  你的輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal']\n\n[測試#9] ✅ 通過\n  標準輸入: findRelativeRanks((7, 1, 5, 3, 9),)\n  標準輸出: ['Silver Medal', '5', 'Bronze Medal', '4', 'Gold Medal']\n  你的輸出: ['Silver Medal', '5', 'Bronze Medal', '4', 'Gold Medal']\n\n[測試#10] ✅ 通過\n  標準輸入: findRelativeRanks((100, 1, 50),)\n  標準輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n  你的輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findRelativeRanks((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ✅ 通過\n  標準輸入: findRelativeRanks((5, 3),)\n  標準輸出: ['Gold Medal', 'Silver Medal']\n  你的輸出: ['Gold Medal', 'Silver Medal']\n\n[測試#4] ✅ 通過\n  標準輸入: findRelativeRanks((1, 2, 3),)\n  標準輸出: ['Bronze Medal', 'Silver Medal', 'Gold Medal']\n  你的輸出: ['Bronze Medal', 'Silver Medal', 'Gold Medal']\n\n[測試#5] ✅ 通過\n  標準輸入: findRelativeRanks((10, 9, 8, 7, 6),)\n  標準輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5']\n  你的輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5']\n\n[測試#6] ✅ 通過\n  標準輸入: findRelativeRanks((7, 10, 4, 3, 2),)\n  標準輸出: ['Silver Medal', 'Gold Medal', 'Bronze Medal', '4', '5']\n  你的輸出: ['Silver Medal', 'Gold Medal', 'Bronze Medal', '4', '5']\n\n[測試#7] ✅ 通過\n  標準輸入: findRelativeRanks((-1, -3, -2),)\n  標準輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n  你的輸出: ['Gold Medal', 'Bronze Medal', 'Silver Medal']\n\n[測試#8] ✅ 通過\n  標準輸入: findRelativeRanks((1000000, 999999, 1),)\n  標準輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal']\n  你的輸出: ['Gold Medal', 'Silver Medal', 'Bronze Medal']\n\n[測試#9] ✅ 通過\n  標準輸入: findRelativeRanks((5, 1, 4, 2, 3, 6),)\n  標準輸出: ['Silver Medal', '6', 'Bronze Medal', '5', '4', 'Gold Medal']\n  你的輸出: ['Silver Medal', '6', 'Bronze Medal', '5', '4', 'Gold Medal']\n\n=== 測試完成 (8/9) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 9,
+    "passed_count": 8,
+    "accuracy_rate": 0.8888888888888888
   }
 }

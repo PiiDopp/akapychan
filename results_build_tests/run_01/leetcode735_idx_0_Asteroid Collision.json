@@ -30,14 +30,91 @@
     "solution": "class Solution(object):\n    def asteroidCollision(self, asteroids):\n        stack = []\n        for a in asteroids:\n            while stack and a < 0 < stack[-1]:\n                if stack[-1] < -a:\n                    stack.pop()\n                    continue\n                elif stack[-1] == -a:\n                    stack.pop()\n                break\n            else:\n                stack.append(a)\n        return stack"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "[1, 2, 3, 4]\n"
+      },
+      {
+        "input": "-1\n-2\n-3\n",
+        "output": "[-1, -2, -3]\n"
+      },
+      {
+        "input": "5\n10\n15\n",
+        "output": "[5, 10, 15]\n"
+      },
+      {
+        "input": "5\n10\n-5\n",
+        "output": "[5, 10]\n"
+      },
+      {
+        "input": "8\n-10\n10\n",
+        "output": "[-10, 10]\n"
+      },
+      {
+        "input": "10\n-10\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "5\n-10\n10\n",
+        "output": "[-10, 10]\n"
+      },
+      {
+        "input": "1\n-1\n-2\n2\n",
+        "output": "[-1, -2, 2]\n"
+      },
+      {
+        "input": "3\n4\n-4\n-3\n",
+        "output": "[3, -4, -3]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "7\n",
+        "output": "[7]\n"
+      },
+      {
+        "input": "1000000\n-1000000\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "0\n-1\n1\n",
+        "output": "[0, -1, 1]\n"
+      },
+      {
+        "input": "1\n-2\n",
+        "output": "[-2]\n"
+      },
+      {
+        "input": "1\n-2\n3\n-4\n5\n-6\n",
+        "output": "[-2, -4, -6]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('asteroidCollision', ((1, 2, 3, 4),), [1, 2, 3, 4])",
+      "('asteroidCollision', ((-1, -2, -3),), [-1, -2, -3])",
+      "('asteroidCollision', ((5, 10, 15),), [5, 10, 15])",
+      "('asteroidCollision', ((5, 10, -5),), [5, 10])",
+      "('asteroidCollision', ((8, -10, 10),), [-10, 10])",
+      "('asteroidCollision', ((10, -10),), [])",
+      "('asteroidCollision', ((5, -10, 10),), [-10, 10])",
+      "('asteroidCollision', ((1, -1, -2, 2),), [-1, -2, 2])",
+      "('asteroidCollision', ((3, 4, -4, -3),), [3, -4, -3])",
+      "('asteroidCollision', ((),), [])",
+      "('asteroidCollision', (7,), [7])",
+      "('asteroidCollision', ((1000000, -1000000),), [])",
+      "('asteroidCollision', ((0, -1, 1),), [0, -1, 1])",
+      "('asteroidCollision', ((1, -2),), [-2])",
+      "('asteroidCollision', ((1, -2, 3, -4, 5, -6),), [-2, -4, -6])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: asteroidCollision((1, 2, 3, 4),)\n  標準輸出: [1, 2, 3, 4]\n  你的輸出: [1, 2, 3, 4]\n\n[測試#2] ✅ 通過\n  標準輸入: asteroidCollision((-1, -2, -3),)\n  標準輸出: [-1, -2, -3]\n  你的輸出: [-1, -2, -3]\n\n[測試#3] ✅ 通過\n  標準輸入: asteroidCollision((5, 10, 15),)\n  標準輸出: [5, 10, 15]\n  你的輸出: [5, 10, 15]\n\n[測試#4] ✅ 通過\n  標準輸入: asteroidCollision((5, 10, -5),)\n  標準輸出: [5, 10]\n  你的輸出: [5, 10]\n\n[測試#5] ✅ 通過\n  標準輸入: asteroidCollision((8, -10, 10),)\n  標準輸出: [-10, 10]\n  你的輸出: [-10, 10]\n\n[測試#6] ✅ 通過\n  標準輸入: asteroidCollision((10, -10),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#7] ✅ 通過\n  標準輸入: asteroidCollision((5, -10, 10),)\n  標準輸出: [-10, 10]\n  你的輸出: [-10, 10]\n\n[測試#8] ❌ 失敗\n  標準輸入: asteroidCollision((1, -1, -2, 2),)\n  標準輸出: [-1, -2, 2]\n  你的輸出: [-2, 2]\n\n[測試#9] ❌ 失敗\n  標準輸入: asteroidCollision((3, 4, -4, -3),)\n  標準輸出: [3, -4, -3]\n  你的輸出: []\n\n[測試#10] ✅ 通過\n  標準輸入: asteroidCollision((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#11] ❌ 執行例外: 'int' object is not iterable\n[測試#12] ✅ 通過\n  標準輸入: asteroidCollision((1000000, -1000000),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#13] ✅ 通過\n  標準輸入: asteroidCollision((0, -1, 1),)\n  標準輸出: [0, -1, 1]\n  你的輸出: [0, -1, 1]\n\n[測試#14] ✅ 通過\n  標準輸入: asteroidCollision((1, -2),)\n  標準輸出: [-2]\n  你的輸出: [-2]\n\n[測試#15] ✅ 通過\n  標準輸入: asteroidCollision((1, -2, 3, -4, 5, -6),)\n  標準輸出: [-2, -4, -6]\n  你的輸出: [-2, -4, -6]\n\n=== 測試完成 (12/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 15,
+    "passed_count": 12,
+    "accuracy_rate": 0.8
   }
 }

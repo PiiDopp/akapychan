@@ -18,13 +18,105 @@
     "solution": "class Solution:\n    def shortestPalindrome(self, s):\n        if not s:\n            return \"\"\n        temp = s + '#' + s[::-1]\n        n = len(temp)\n        lps = [0] * n\n        for i in range(1, n):\n            length = lps[i-1]\n            while length > 0 and temp[i] != temp[length]:\n                length = lps[length-1]\n            if temp[i] == temp[length]:\n                length += 1\n            lps[i] = length\n        to_add = s[lps[-1]:][::-1]\n        return to_add + s"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "a\n",
+        "output": "a\n"
+      },
+      {
+        "input": "racecar\n",
+        "output": "racecar\n"
+      },
+      {
+        "input": "abcd\n",
+        "output": "dcbabcd\n"
+      },
+      {
+        "input": "aacecaaa\n",
+        "output": "aaacecaaa\n"
+      },
+      {
+        "input": "aaaa\n",
+        "output": "aaaa\n"
+      },
+      {
+        "input": "ab@c\n",
+        "output": "c@bab@c\n"
+      },
+      {
+        "input": "我爱你\n",
+        "output": "你爱我我爱你\n"
+      },
+      {
+        "input": "ab c\n",
+        "output": "c bab c\n"
+      },
+      {
+        "input": "abcbaabc\n",
+        "output": "cbaabcbaabc\n"
+      },
+      {
+        "input": "abab\n",
+        "output": "bababab\n"
+      },
+      {
+        "input": "abcdef\n",
+        "output": "fedcbaabcdef\n"
+      },
+      {
+        "input": "madam, I'm Adam\n",
+        "output": "madA m'I ,madam, I'm Adam\n"
+      },
+      {
+        "input": "abccba\n",
+        "output": "abccba\n"
+      },
+      {
+        "input": "abc\n",
+        "output": "cbaabc\n"
+      },
+      {
+        "input": "aaab\n",
+        "output": "baaaab\n"
+      },
+      {
+        "input": "baaa\n",
+        "output": "aaabaaa\n"
+      },
+      {
+        "input": "abcbaabcba\n",
+        "output": "abcbaabcba\n"
+      }
+    ],
+    "parsed_tests": [
+      "('shortestPalindrome', ((),), '\\n')",
+      "('shortestPalindrome', ('a\\n',), 'a\\n')",
+      "('shortestPalindrome', ('racecar\\n',), 'racecar\\n')",
+      "('shortestPalindrome', ('abcd\\n',), 'dcbabcd\\n')",
+      "('shortestPalindrome', ('aacecaaa\\n',), 'aaacecaaa\\n')",
+      "('shortestPalindrome', ('aaaa\\n',), 'aaaa\\n')",
+      "('shortestPalindrome', ('ab@c\\n',), 'c@bab@c\\n')",
+      "('shortestPalindrome', ('我爱你\\n',), '你爱我我爱你\\n')",
+      "('shortestPalindrome', ('ab c\\n',), 'c bab c\\n')",
+      "('shortestPalindrome', ('abcbaabc\\n',), 'cbaabcbaabc\\n')",
+      "('shortestPalindrome', ('abab\\n',), 'bababab\\n')",
+      "('shortestPalindrome', ('abcdef\\n',), 'fedcbaabcdef\\n')",
+      "('shortestPalindrome', (\"madam, I'm Adam\\n\",), \"madA m'I ,madam, I'm Adam\\n\")",
+      "('shortestPalindrome', ('abccba\\n',), 'abccba\\n')",
+      "('shortestPalindrome', ('abc\\n',), 'cbaabc\\n')",
+      "('shortestPalindrome', ('aaab\\n',), 'baaaab\\n')",
+      "('shortestPalindrome', ('baaa\\n',), 'aaabaaa\\n')",
+      "('shortestPalindrome', ('abcbaabcba\\n',), 'abcbaabcba\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: shortestPalindrome((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#2] ❌ 失敗\n  標準輸入: shortestPalindrome('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: '\\na\\n'\n\n[測試#3] ❌ 失敗\n  標準輸入: shortestPalindrome('racecar\\n',)\n  標準輸出: 'racecar\\n'\n  你的輸出: '\\nracecar\\n'\n\n[測試#4] ❌ 失敗\n  標準輸入: shortestPalindrome('abcd\\n',)\n  標準輸出: 'dcbabcd\\n'\n  你的輸出: '\\ndcbabcd\\n'\n\n[測試#5] ❌ 失敗\n  標準輸入: shortestPalindrome('aacecaaa\\n',)\n  標準輸出: 'aaacecaaa\\n'\n  你的輸出: '\\naaacecaaa\\n'\n\n[測試#6] ❌ 失敗\n  標準輸入: shortestPalindrome('aaaa\\n',)\n  標準輸出: 'aaaa\\n'\n  你的輸出: '\\naaaa\\n'\n\n[測試#7] ❌ 失敗\n  標準輸入: shortestPalindrome('ab@c\\n',)\n  標準輸出: 'c@bab@c\\n'\n  你的輸出: '\\nc@bab@c\\n'\n\n[測試#8] ❌ 失敗\n  標準輸入: shortestPalindrome('我爱你\\n',)\n  標準輸出: '你爱我我爱你\\n'\n  你的輸出: '\\n你爱我爱你\\n'\n\n[測試#9] ❌ 失敗\n  標準輸入: shortestPalindrome('ab c\\n',)\n  標準輸出: 'c bab c\\n'\n  你的輸出: '\\nc bab c\\n'\n\n[測試#10] ❌ 失敗\n  標準輸入: shortestPalindrome('abcbaabc\\n',)\n  標準輸出: 'cbaabcbaabc\\n'\n  你的輸出: '\\ncbaabcbaabc\\n'\n\n[測試#11] ❌ 失敗\n  標準輸入: shortestPalindrome('abab\\n',)\n  標準輸出: 'bababab\\n'\n  你的輸出: '\\nbabab\\n'\n\n[測試#12] ❌ 失敗\n  標準輸入: shortestPalindrome('abcdef\\n',)\n  標準輸出: 'fedcbaabcdef\\n'\n  你的輸出: '\\nfedcbabcdef\\n'\n\n[測試#13] ❌ 失敗\n  標準輸入: shortestPalindrome(\"madam, I'm Adam\\n\",)\n  標準輸出: \"madA m'I ,madam, I'm Adam\\n\"\n  你的輸出: \"\\nmadA m'I ,madam, I'm Adam\\n\"\n\n[測試#14] ❌ 失敗\n  標準輸入: shortestPalindrome('abccba\\n',)\n  標準輸出: 'abccba\\n'\n  你的輸出: '\\nabccba\\n'\n\n[測試#15] ❌ 失敗\n  標準輸入: shortestPalindrome('abc\\n',)\n  標準輸出: 'cbaabc\\n'\n  你的輸出: '\\ncbabc\\n'\n\n[測試#16] ❌ 失敗\n  標準輸入: shortestPalindrome('aaab\\n',)\n  標準輸出: 'baaaab\\n'\n  你的輸出: '\\nbaaab\\n'\n\n[測試#17] ❌ 失敗\n  標準輸入: shortestPalindrome('baaa\\n',)\n  標準輸出: 'aaabaaa\\n'\n  你的輸出: '\\naaabaaa\\n'\n\n[測試#18] ❌ 失敗\n  標準輸入: shortestPalindrome('abcbaabcba\\n',)\n  標準輸出: 'abcbaabcba\\n'\n  你的輸出: '\\nabcbaabcba\\n'\n\n=== 測試完成 (0/18) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 0,
+    "total_tests": 18,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

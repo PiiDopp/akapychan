@@ -1,0 +1,70 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode811.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Subdomain Visit Count",
+    "description": "A website domain \"discuss.leetcode.com\" consists of various subdomains. At the top level, we have \"com\", at the next level, we have \"leetcode.com\" and at the lowest level, \"discuss.leetcode.com\". When we visit a domain like \"discuss.leetcode.com\", we will also visit the parent domains \"leetcode.com\" and \"com\" implicitly.\n\nA count-paired domain is a domain that has one of the two formats \"rep d1.d2.d3\" or \"rep d1.d2\" where rep is the number of visits to the domain and d1.d2.d3 is the domain itself.\n\nFor example, \"9001 discuss.leetcode.com\" is a count-paired domain that indicates that discuss.leetcode.com was visited 9001 times.\nGiven an array of count-paired domains cpdomains, return an array of the count-paired domains of each subdomain in the input. You may return the answer in any order.",
+    "examples": [
+      {
+        "input": "cpdomains = [\"9001 discuss.leetcode.com\"]",
+        "output": "[\"9001 leetcode.com\",\"9001 discuss.leetcode.com\",\"9001 com\"]",
+        "explanation": "We only have one website domain: \"discuss.leetcode.com\". \nAs discussed above, the subdomain \"leetcode.com\" and \"com\" will also be visited. So they will all be visited 9001 times."
+      },
+      {
+        "input": "cpdomains = [\"900 google.mail.com\", \"50 yahoo.com\", \"1 intel.mail.com\", \"5 wiki.org\"]",
+        "output": "[\"901 mail.com\",\"50 yahoo.com\",\"900 google.mail.com\",\"5 wiki.org\",\"5 org\",\"1 intel.mail.com\",\"951 com\"]",
+        "explanation": "We will visit \"google.mail.com\" 900 times, \"yahoo.com\" 50 times, \"intel.mail.com\" once and \"wiki.org\" 5 times. \nFor the subdomains, we will visit \"mail.com\" 900 + 1 = 901 times, \"com\" 900 + 50 + 1 = 951 times, and \"org\" 5 times."
+      }
+    ],
+    "solution": "class Solution(object):\n    def subdomainVisits(self, cpdomains):\n        from collections import defaultdict\n        count = defaultdict(int)\n        for domain in cpdomains:\n            num, full_domain = domain.split()\n            num = int(num)\n            fragments = full_domain.split('.')\n            for i in range(len(fragments)):\n                sub = '.'.join(fragments[i:])\n                count[sub] += num\n        return [\"{} {}\".format(v, k) for k, v in count.items()]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['9001 discuss.leetcode.com']\n",
+        "output": "['9001 com', '9001 leetcode.com', '9001 discuss.leetcode.com']\n"
+      },
+      {
+        "input": "['9001 discuss.leetcode.com', '50 leetcode.com', '1 discuss.leetcode.com']\n",
+        "output": "['9052 com', '9051 leetcode.com', '9002 discuss.leetcode.com']\n"
+      },
+      {
+        "input": "['1 a.b.c.d.com']\n",
+        "output": "['1 a.b.c.d.com', '1 b.c.d.com', '1 c.d.com', '1 d.com', '1 com']\n"
+      },
+      {
+        "input": "['0 a.b.com', '5 a.b.com']\n",
+        "output": "['5 a.b.com', '5 b.com', '5 com']\n"
+      },
+      {
+        "input": "['1000000 abc123.com', '2000000 xyz.com']\n",
+        "output": "['1000000 abc123.com', '3000000 com', '2000000 xyz.com']\n"
+      },
+      {
+        "input": "['5 com']\n",
+        "output": "['5 com']\n"
+      },
+      {
+        "input": "['10 leetcode.com']\n",
+        "output": "['10 com', '10 leetcode.com']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('subdomainVisits', (['9001 discuss.leetcode.com'],), ['9001 com', '9001 leetcode.com', '9001 discuss.leetcode.com'])",
+      "('subdomainVisits', (['9001 discuss.leetcode.com', '50 leetcode.com', '1 discuss.leetcode.com'],), ['9052 com', '9051 leetcode.com', '9002 discuss.leetcode.com'])",
+      "('subdomainVisits', (['1 a.b.c.d.com'],), ['1 a.b.c.d.com', '1 b.c.d.com', '1 c.d.com', '1 d.com', '1 com'])",
+      "('subdomainVisits', (['0 a.b.com', '5 a.b.com'],), ['5 a.b.com', '5 b.com', '5 com'])",
+      "('subdomainVisits', (['1000000 abc123.com', '2000000 xyz.com'],), ['1000000 abc123.com', '3000000 com', '2000000 xyz.com'])",
+      "('subdomainVisits', (['5 com'],), ['5 com'])",
+      "('subdomainVisits', (['10 leetcode.com'],), ['10 com', '10 leetcode.com'])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: subdomainVisits(['9001 discuss.leetcode.com'],)\n  標準輸出: ['9001 com', '9001 leetcode.com', '9001 discuss.leetcode.com']\n  你的輸出: ['9001 discuss.leetcode.com', '9001 leetcode.com', '9001 com']\n\n[測試#2] ❌ 失敗\n  標準輸入: subdomainVisits(['9001 discuss.leetcode.com', '50 leetcode.com', '1 discuss.leetcode.com'],)\n  標準輸出: ['9052 com', '9051 leetcode.com', '9002 discuss.leetcode.com']\n  你的輸出: ['9002 discuss.leetcode.com', '9052 leetcode.com', '9052 com']\n\n[測試#3] ✅ 通過\n  標準輸入: subdomainVisits(['1 a.b.c.d.com'],)\n  標準輸出: ['1 a.b.c.d.com', '1 b.c.d.com', '1 c.d.com', '1 d.com', '1 com']\n  你的輸出: ['1 a.b.c.d.com', '1 b.c.d.com', '1 c.d.com', '1 d.com', '1 com']\n\n[測試#4] ✅ 通過\n  標準輸入: subdomainVisits(['0 a.b.com', '5 a.b.com'],)\n  標準輸出: ['5 a.b.com', '5 b.com', '5 com']\n  你的輸出: ['5 a.b.com', '5 b.com', '5 com']\n\n[測試#5] ✅ 通過\n  標準輸入: subdomainVisits(['1000000 abc123.com', '2000000 xyz.com'],)\n  標準輸出: ['1000000 abc123.com', '3000000 com', '2000000 xyz.com']\n  你的輸出: ['1000000 abc123.com', '3000000 com', '2000000 xyz.com']\n\n[測試#6] ✅ 通過\n  標準輸入: subdomainVisits(['5 com'],)\n  標準輸出: ['5 com']\n  你的輸出: ['5 com']\n\n[測試#7] ❌ 失敗\n  標準輸入: subdomainVisits(['10 leetcode.com'],)\n  標準輸出: ['10 com', '10 leetcode.com']\n  你的輸出: ['10 leetcode.com', '10 com']\n\n=== 測試完成 (4/7) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 4,
+    "accuracy_rate": 0.5714285714285714
+  }
+}

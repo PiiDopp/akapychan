@@ -23,31 +23,15 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "6\n",
-        "output": "True\n"
-      },
-      {
-        "input": "28\n",
-        "output": "True\n"
-      },
-      {
-        "input": "496\n",
-        "output": "True\n"
-      },
-      {
-        "input": "8128\n",
-        "output": "True\n"
-      },
-      {
-        "input": "33550336\n",
-        "output": "True\n"
-      },
-      {
         "input": "0\n",
         "output": "False\n"
       },
       {
         "input": "1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-10\n",
         "output": "False\n"
       },
       {
@@ -67,11 +51,11 @@
         "output": "False\n"
       },
       {
-        "input": "7\n",
-        "output": "False\n"
+        "input": "6\n",
+        "output": "True\n"
       },
       {
-        "input": "8\n",
+        "input": "7\n",
         "output": "False\n"
       },
       {
@@ -95,11 +79,47 @@
         "output": "False\n"
       },
       {
-        "input": "100\n",
+        "input": "24\n",
         "output": "False\n"
       },
       {
-        "input": "1000\n",
+        "input": "27\n",
+        "output": "False\n"
+      },
+      {
+        "input": "28\n",
+        "output": "True\n"
+      },
+      {
+        "input": "29\n",
+        "output": "False\n"
+      },
+      {
+        "input": "30\n",
+        "output": "False\n"
+      },
+      {
+        "input": "495\n",
+        "output": "False\n"
+      },
+      {
+        "input": "496\n",
+        "output": "True\n"
+      },
+      {
+        "input": "497\n",
+        "output": "False\n"
+      },
+      {
+        "input": "8127\n",
+        "output": "False\n"
+      },
+      {
+        "input": "8128\n",
+        "output": "True\n"
+      },
+      {
+        "input": "8129\n",
         "output": "False\n"
       },
       {
@@ -107,43 +127,48 @@
         "output": "False\n"
       },
       {
-        "input": "33550337\n",
-        "output": "False\n"
+        "input": "33550336\n",
+        "output": "True\n"
       },
       {
-        "input": "-5\n",
+        "input": "33550337\n",
         "output": "False\n"
       }
     ],
     "parsed_tests": [
-      "('checkPerfectNumber', (6,), True)",
-      "('checkPerfectNumber', (28,), True)",
-      "('checkPerfectNumber', (496,), True)",
-      "('checkPerfectNumber', (8128,), True)",
-      "('checkPerfectNumber', (33550336,), True)",
       "('checkPerfectNumber', (0,), False)",
       "('checkPerfectNumber', (1,), False)",
+      "('checkPerfectNumber', (-10,), False)",
       "('checkPerfectNumber', (2,), False)",
       "('checkPerfectNumber', (3,), False)",
       "('checkPerfectNumber', (4,), False)",
       "('checkPerfectNumber', (5,), False)",
+      "('checkPerfectNumber', (6,), True)",
       "('checkPerfectNumber', (7,), False)",
-      "('checkPerfectNumber', (8,), False)",
       "('checkPerfectNumber', (10,), False)",
       "('checkPerfectNumber', (12,), False)",
       "('checkPerfectNumber', (14,), False)",
       "('checkPerfectNumber', (15,), False)",
       "('checkPerfectNumber', (20,), False)",
-      "('checkPerfectNumber', (100,), False)",
-      "('checkPerfectNumber', (1000,), False)",
+      "('checkPerfectNumber', (24,), False)",
+      "('checkPerfectNumber', (27,), False)",
+      "('checkPerfectNumber', (28,), True)",
+      "('checkPerfectNumber', (29,), False)",
+      "('checkPerfectNumber', (30,), False)",
+      "('checkPerfectNumber', (495,), False)",
+      "('checkPerfectNumber', (496,), True)",
+      "('checkPerfectNumber', (497,), False)",
+      "('checkPerfectNumber', (8127,), False)",
+      "('checkPerfectNumber', (8128,), True)",
+      "('checkPerfectNumber', (8129,), False)",
       "('checkPerfectNumber', (33550335,), False)",
-      "('checkPerfectNumber', (33550337,), False)",
-      "('checkPerfectNumber', (-5,), False)"
+      "('checkPerfectNumber', (33550336,), True)",
+      "('checkPerfectNumber', (33550337,), False)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: checkPerfectNumber(6,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: checkPerfectNumber(28,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: checkPerfectNumber(496,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: checkPerfectNumber(8128,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: checkPerfectNumber(33550336,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: checkPerfectNumber(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: checkPerfectNumber(1,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: checkPerfectNumber(2,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: checkPerfectNumber(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: checkPerfectNumber(4,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: checkPerfectNumber(5,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: checkPerfectNumber(7,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: checkPerfectNumber(8,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: checkPerfectNumber(10,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: checkPerfectNumber(12,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: checkPerfectNumber(14,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: checkPerfectNumber(15,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: checkPerfectNumber(20,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: checkPerfectNumber(100,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ✅ 通過\n  標準輸入: checkPerfectNumber(1000,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#21] ✅ 通過\n  標準輸入: checkPerfectNumber(33550335,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#22] ✅ 通過\n  標準輸入: checkPerfectNumber(33550337,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#23] ✅ 通過\n  標準輸入: checkPerfectNumber(-5,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (23/23) ===\n[成功] 所有測資通過 ✅（0.0008s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: checkPerfectNumber(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#2] ✅ 通過\n  標準輸入: checkPerfectNumber(1,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: checkPerfectNumber(-10,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: checkPerfectNumber(2,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: checkPerfectNumber(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: checkPerfectNumber(4,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: checkPerfectNumber(5,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: checkPerfectNumber(6,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: checkPerfectNumber(7,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: checkPerfectNumber(10,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: checkPerfectNumber(12,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: checkPerfectNumber(14,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: checkPerfectNumber(15,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: checkPerfectNumber(20,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: checkPerfectNumber(24,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: checkPerfectNumber(27,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: checkPerfectNumber(28,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: checkPerfectNumber(29,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: checkPerfectNumber(30,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ✅ 通過\n  標準輸入: checkPerfectNumber(495,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#21] ✅ 通過\n  標準輸入: checkPerfectNumber(496,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#22] ✅ 通過\n  標準輸入: checkPerfectNumber(497,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#23] ✅ 通過\n  標準輸入: checkPerfectNumber(8127,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#24] ✅ 通過\n  標準輸入: checkPerfectNumber(8128,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#25] ✅ 通過\n  標準輸入: checkPerfectNumber(8129,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#26] ✅ 通過\n  標準輸入: checkPerfectNumber(33550335,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#27] ✅ 通過\n  標準輸入: checkPerfectNumber(33550336,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#28] ✅ 通過\n  標準輸入: checkPerfectNumber(33550337,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (28/28) ===\n[成功] 所有測資通過 ✅（0.0009s）\n",
     "all_passed": true,
-    "total_tests": 23,
-    "passed_count": 23,
+    "total_tests": 28,
+    "passed_count": 28,
     "accuracy_rate": 1.0
   }
 }

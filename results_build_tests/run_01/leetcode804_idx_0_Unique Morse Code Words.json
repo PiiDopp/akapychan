@@ -19,81 +19,14 @@
     "solution": "class Solution:\n    def uniqueMorseRepresentations(self, words):\n        morse = [\".-\",\"-...\",\"-.-.\",\"-..\",\".\",\"..-.\",\"--.\",\"....\",\"..\", \".---\",\"-.-\",\".-..\",\"--\",\"-.\",\"---\",\".--.\",\"--.-\",\".-.\",\"...\",\"-\",\"..-\",\"...-\",\".--\",\"-..-\",\"-.--\",\"--..\"]\n        seen = set()\n        for word in words:\n            code = \"\".join(morse[ord(c) - ord('a')] for c in word)\n            seen.add(code)\n        return len(seen)"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "\n",
-        "output": "0\n"
-      },
-      {
-        "input": "['a']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['a', 'a']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['gin', 'zen', 'gig', 'msg']\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['', 'a']\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['', '']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['aa', 'aaa']\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['zz', 'zz']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['ss', 'ss']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['tt', 'tt']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['ab', 'ba']\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['abc', 'def', 'ghi', 'abc', 'def']\n",
-        "output": "3\n"
-      },
-      {
-        "input": "['abcdefghijklmnopqrstuvwxyz']\n",
-        "output": "1\n"
-      }
-    ],
-    "parsed_tests": [
-      "('uniqueMorseRepresentations', ((),), 0)",
-      "('uniqueMorseRepresentations', (['a'],), 1)",
-      "('uniqueMorseRepresentations', (['a', 'a'],), 1)",
-      "('uniqueMorseRepresentations', (['gin', 'zen', 'gig', 'msg'],), 2)",
-      "('uniqueMorseRepresentations', (['', 'a'],), 2)",
-      "('uniqueMorseRepresentations', (['', ''],), 1)",
-      "('uniqueMorseRepresentations', (['aa', 'aaa'],), 2)",
-      "('uniqueMorseRepresentations', (['zz', 'zz'],), 1)",
-      "('uniqueMorseRepresentations', (['ss', 'ss'],), 1)",
-      "('uniqueMorseRepresentations', (['tt', 'tt'],), 1)",
-      "('uniqueMorseRepresentations', (['ab', 'ba'],), 2)",
-      "('uniqueMorseRepresentations', (['abc', 'def', 'ghi', 'abc', 'def'],), 3)",
-      "('uniqueMorseRepresentations', (['abcdefghijklmnopqrstuvwxyz'],), 1)"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: uniqueMorseRepresentations((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['a'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['a', 'a'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['gin', 'zen', 'gig', 'msg'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['', 'a'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['', ''],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['aa', 'aaa'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['zz', 'zz'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['ss', 'ss'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['tt', 'tt'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['ab', 'ba'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['abc', 'def', 'ghi', 'abc', 'def'],)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#13] ✅ 通過\n  標準輸入: uniqueMorseRepresentations(['abcdefghijklmnopqrstuvwxyz'],)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (13/13) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
-    "all_passed": true,
-    "total_tests": 13,
-    "passed_count": 13,
-    "accuracy_rate": 1.0
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
   }
 }

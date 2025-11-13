@@ -33,12 +33,8 @@
         "output": "1\n"
       },
       {
-        "input": "V\n",
-        "output": "5\n"
-      },
-      {
-        "input": "XXX\n",
-        "output": "30\n"
+        "input": "III\n",
+        "output": "3\n"
       },
       {
         "input": "IV\n",
@@ -65,30 +61,94 @@
         "output": "900\n"
       },
       {
-        "input": "MCMXCIV\n",
-        "output": "1994\n"
+        "input": "MCM\n",
+        "output": "1900\n"
+      },
+      {
+        "input": "MMMDCCCLXXXVIII\n",
+        "output": "3888\n"
       },
       {
         "input": "MMMCMXCIX\n",
         "output": "3999\n"
+      },
+      {
+        "input": "XLIV\n",
+        "output": "44\n"
+      },
+      {
+        "input": "LXXXIV\n",
+        "output": "84\n"
+      },
+      {
+        "input": "CXLIV\n",
+        "output": "144\n"
+      },
+      {
+        "input": "CDXLIV\n",
+        "output": "444\n"
+      },
+      {
+        "input": "CMXLIV\n",
+        "output": "944\n"
+      },
+      {
+        "input": "MCDXLIV\n",
+        "output": "1444\n"
+      },
+      {
+        "input": "MMCDXLIV\n",
+        "output": "2444\n"
+      },
+      {
+        "input": "MCMXCIV\n",
+        "output": "1994\n"
+      },
+      {
+        "input": "MDCLXVI\n",
+        "output": "1666\n"
+      },
+      {
+        "input": "XLIX\n",
+        "output": "49\n"
+      },
+      {
+        "input": "XCIX\n",
+        "output": "99\n"
+      },
+      {
+        "input": "CMXCIX\n",
+        "output": "999\n"
       }
     ],
     "parsed_tests": [
       "('romanToInt', ('I\\n',), 1)",
-      "('romanToInt', ('V\\n',), 5)",
-      "('romanToInt', ('XXX\\n',), 30)",
+      "('romanToInt', ('III\\n',), 3)",
       "('romanToInt', ('IV\\n',), 4)",
       "('romanToInt', ('IX\\n',), 9)",
       "('romanToInt', ('XL\\n',), 40)",
       "('romanToInt', ('XC\\n',), 90)",
       "('romanToInt', ('CD\\n',), 400)",
       "('romanToInt', ('CM\\n',), 900)",
+      "('romanToInt', ('MCM\\n',), 1900)",
+      "('romanToInt', ('MMMDCCCLXXXVIII\\n',), 3888)",
+      "('romanToInt', ('MMMCMXCIX\\n',), 3999)",
+      "('romanToInt', ('XLIV\\n',), 44)",
+      "('romanToInt', ('LXXXIV\\n',), 84)",
+      "('romanToInt', ('CXLIV\\n',), 144)",
+      "('romanToInt', ('CDXLIV\\n',), 444)",
+      "('romanToInt', ('CMXLIV\\n',), 944)",
+      "('romanToInt', ('MCDXLIV\\n',), 1444)",
+      "('romanToInt', ('MMCDXLIV\\n',), 2444)",
       "('romanToInt', ('MCMXCIV\\n',), 1994)",
-      "('romanToInt', ('MMMCMXCIX\\n',), 3999)"
+      "('romanToInt', ('MDCLXVI\\n',), 1666)",
+      "('romanToInt', ('XLIX\\n',), 49)",
+      "('romanToInt', ('XCIX\\n',), 99)",
+      "('romanToInt', ('CMXCIX\\n',), 999)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: '\\n'\n[測試#2] ❌ 執行例外: '\\n'\n[測試#3] ❌ 執行例外: '\\n'\n[測試#4] ❌ 執行例外: '\\n'\n[測試#5] ❌ 執行例外: '\\n'\n[測試#6] ❌ 執行例外: '\\n'\n[測試#7] ❌ 執行例外: '\\n'\n[測試#8] ❌ 執行例外: '\\n'\n[測試#9] ❌ 執行例外: '\\n'\n[測試#10] ❌ 執行例外: '\\n'\n[測試#11] ❌ 執行例外: '\\n'\n=== 測試完成 (0/11) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: '\\n'\n[測試#2] ❌ 執行例外: '\\n'\n[測試#3] ❌ 執行例外: '\\n'\n[測試#4] ❌ 執行例外: '\\n'\n[測試#5] ❌ 執行例外: '\\n'\n[測試#6] ❌ 執行例外: '\\n'\n[測試#7] ❌ 執行例外: '\\n'\n[測試#8] ❌ 執行例外: '\\n'\n[測試#9] ❌ 執行例外: '\\n'\n[測試#10] ❌ 執行例外: '\\n'\n[測試#11] ❌ 執行例外: '\\n'\n[測試#12] ❌ 執行例外: '\\n'\n[測試#13] ❌ 執行例外: '\\n'\n[測試#14] ❌ 執行例外: '\\n'\n[測試#15] ❌ 執行例外: '\\n'\n[測試#16] ❌ 執行例外: '\\n'\n[測試#17] ❌ 執行例外: '\\n'\n[測試#18] ❌ 執行例外: '\\n'\n[測試#19] ❌ 執行例外: '\\n'\n[測試#20] ❌ 執行例外: '\\n'\n[測試#21] ❌ 執行例外: '\\n'\n[測試#22] ❌ 執行例外: '\\n'\n[測試#23] ❌ 執行例外: '\\n'\n=== 測試完成 (0/23) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 11,
+    "total_tests": 23,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

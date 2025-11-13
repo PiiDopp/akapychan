@@ -20,14 +20,116 @@
     "solution": "import math\n\nclass Solution:\n    def numSquares(self, n):\n        # dp[i] 表示數字 i 最少需要的完全平方數個數\n        dp = [float('inf')] * (n + 1)\n        dp[0] = 0\n        \n        for i in range(1, n + 1):\n            j = 1\n            while j * j <= i:\n                dp[i] = min(dp[i], dp[i - j * j] + 1)\n                j += 1\n        \n        return dp[n]"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "4\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5\n",
+        "output": "2\n"
+      },
+      {
+        "input": "7\n",
+        "output": "4\n"
+      },
+      {
+        "input": "12\n",
+        "output": "3\n"
+      },
+      {
+        "input": "13\n",
+        "output": "2\n"
+      },
+      {
+        "input": "18\n",
+        "output": "2\n"
+      },
+      {
+        "input": "23\n",
+        "output": "4\n"
+      },
+      {
+        "input": "28\n",
+        "output": "4\n"
+      },
+      {
+        "input": "50\n",
+        "output": "2\n"
+      },
+      {
+        "input": "99\n",
+        "output": "1\n"
+      },
+      {
+        "input": "100\n",
+        "output": "1\n"
+      },
+      {
+        "input": "999\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1000\n",
+        "output": "2\n"
+      },
+      {
+        "input": "9999\n",
+        "output": "4\n"
+      },
+      {
+        "input": "10000\n",
+        "output": "1\n"
+      },
+      {
+        "input": "100000\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numSquares', (0,), 0)",
+      "('numSquares', (1,), 1)",
+      "('numSquares', (2,), 2)",
+      "('numSquares', (3,), 3)",
+      "('numSquares', (4,), 1)",
+      "('numSquares', (5,), 2)",
+      "('numSquares', (7,), 4)",
+      "('numSquares', (12,), 3)",
+      "('numSquares', (13,), 2)",
+      "('numSquares', (18,), 2)",
+      "('numSquares', (23,), 4)",
+      "('numSquares', (28,), 4)",
+      "('numSquares', (50,), 2)",
+      "('numSquares', (99,), 1)",
+      "('numSquares', (100,), 1)",
+      "('numSquares', (999,), 4)",
+      "('numSquares', (1000,), 2)",
+      "('numSquares', (9999,), 4)",
+      "('numSquares', (10000,), 1)",
+      "('numSquares', (100000,), 2)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numSquares(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: numSquares(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numSquares(2,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: numSquares(3,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: numSquares(4,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: numSquares(5,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: numSquares(7,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: numSquares(12,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#9] ✅ 通過\n  標準輸入: numSquares(13,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ✅ 通過\n  標準輸入: numSquares(18,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#11] ✅ 通過\n  標準輸入: numSquares(23,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#12] ✅ 通過\n  標準輸入: numSquares(28,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#13] ✅ 通過\n  標準輸入: numSquares(50,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#14] ❌ 失敗\n  標準輸入: numSquares(99,)\n  標準輸出: 1\n  你的輸出: 3\n\n[測試#15] ✅ 通過\n  標準輸入: numSquares(100,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#16] ✅ 通過\n  標準輸入: numSquares(999,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#17] ✅ 通過\n  標準輸入: numSquares(1000,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#18] ✅ 通過\n  標準輸入: numSquares(9999,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#19] ✅ 通過\n  標準輸入: numSquares(10000,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#20] ✅ 通過\n  標準輸入: numSquares(100000,)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (19/20) ===\n[警告] 部分測資未通過 ❌（2.9087s）\n",
     "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 20,
+    "passed_count": 19,
+    "accuracy_rate": 0.95
   }
 }

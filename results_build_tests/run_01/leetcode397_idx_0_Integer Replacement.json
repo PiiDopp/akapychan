@@ -24,90 +24,13 @@
     "solution": "class Solution:\n    def integerReplacement(self, n):\n        count = 0\n        while n != 1:\n            if n % 2 == 0:\n                n //= 2\n            else:\n                if n == 3 or ((n >> 1) & 1) == 0:\n                    n -= 1\n                else:\n                    n += 1\n            count += 1\n        return count"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "1\n",
-        "output": "0\n"
-      },
-      {
-        "input": "2\n",
-        "output": "1\n"
-      },
-      {
-        "input": "3\n",
-        "output": "2\n"
-      },
-      {
-        "input": "4\n",
-        "output": "2\n"
-      },
-      {
-        "input": "5\n",
-        "output": "3\n"
-      },
-      {
-        "input": "6\n",
-        "output": "3\n"
-      },
-      {
-        "input": "7\n",
-        "output": "4\n"
-      },
-      {
-        "input": "8\n",
-        "output": "3\n"
-      },
-      {
-        "input": "9\n",
-        "output": "4\n"
-      },
-      {
-        "input": "10\n",
-        "output": "4\n"
-      },
-      {
-        "input": "15\n",
-        "output": "5\n"
-      },
-      {
-        "input": "31\n",
-        "output": "6\n"
-      },
-      {
-        "input": "2147483646\n",
-        "output": "32\n"
-      },
-      {
-        "input": "2147483647\n",
-        "output": "34\n"
-      },
-      {
-        "input": "1000000000\n",
-        "output": "38\n"
-      }
-    ],
-    "parsed_tests": [
-      "('integerReplacement', (1,), 0)",
-      "('integerReplacement', (2,), 1)",
-      "('integerReplacement', (3,), 2)",
-      "('integerReplacement', (4,), 2)",
-      "('integerReplacement', (5,), 3)",
-      "('integerReplacement', (6,), 3)",
-      "('integerReplacement', (7,), 4)",
-      "('integerReplacement', (8,), 3)",
-      "('integerReplacement', (9,), 4)",
-      "('integerReplacement', (10,), 4)",
-      "('integerReplacement', (15,), 5)",
-      "('integerReplacement', (31,), 6)",
-      "('integerReplacement', (2147483646,), 32)",
-      "('integerReplacement', (2147483647,), 34)",
-      "('integerReplacement', (1000000000,), 38)"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: integerReplacement(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: integerReplacement(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: integerReplacement(3,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: integerReplacement(4,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: integerReplacement(5,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: integerReplacement(6,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: integerReplacement(7,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: integerReplacement(8,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#9] ✅ 通過\n  標準輸入: integerReplacement(9,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: integerReplacement(10,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#11] ✅ 通過\n  標準輸入: integerReplacement(15,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#12] ✅ 通過\n  標準輸入: integerReplacement(31,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#13] ✅ 通過\n  標準輸入: integerReplacement(2147483646,)\n  標準輸出: 32\n  你的輸出: 32\n\n[測試#14] ❌ 失敗\n  標準輸入: integerReplacement(2147483647,)\n  標準輸出: 34\n  你的輸出: 32\n\n[測試#15] ✅ 通過\n  標準輸入: integerReplacement(1000000000,)\n  標準輸出: 38\n  你的輸出: 38\n\n=== 測試完成 (14/15) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
     "all_passed": false,
-    "total_tests": 15,
+    "total_tests": 0,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

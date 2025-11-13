@@ -32,6 +32,18 @@
         "output": "403\n"
       },
       {
+        "input": "['', '']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', '']\n",
+        "output": "294\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "0\n"
+      },
+      {
         "input": "['abcd', 'abcd']\n",
         "output": "0\n"
       },
@@ -40,46 +52,44 @@
         "output": "597\n"
       },
       {
-        "input": "['', 'abc']\n",
-        "output": "294\n"
+        "input": "['你好', '世界']\n",
+        "output": "93247\n"
       },
       {
-        "input": "['a', 'a']\n",
+        "input": "['a😊b', 'a😊b']\n",
         "output": "0\n"
       },
       {
-        "input": "['a', 'b']\n",
-        "output": "195\n"
+        "input": "['a😊b', 'a😊c']\n",
+        "output": "197\n"
       },
       {
-        "input": "['ab', 'ba']\n",
-        "output": "194\n"
+        "input": "['aaabbb', 'ab']\n",
+        "output": "390\n"
       },
       {
-        "input": "['abcde', 'ace']\n",
-        "output": "198\n"
-      },
-      {
-        "input": "['你好', '世界']\n",
-        "output": "93231\n"
+        "input": "['😊😊', '😊']\n",
+        "output": "128522\n"
       }
     ],
     "parsed_tests": [
       "('minimumDeleteSum', ('sea', 'eat'), 231)",
       "('minimumDeleteSum', ('delete', 'leet'), 403)",
+      "('minimumDeleteSum', ('', ''), 0)",
+      "('minimumDeleteSum', ('abc', ''), 294)",
+      "('minimumDeleteSum', ('a', 'a'), 0)",
       "('minimumDeleteSum', ('abcd', 'abcd'), 0)",
       "('minimumDeleteSum', ('abc', 'def'), 597)",
-      "('minimumDeleteSum', ('', 'abc'), 294)",
-      "('minimumDeleteSum', ('a', 'a'), 0)",
-      "('minimumDeleteSum', ('a', 'b'), 195)",
-      "('minimumDeleteSum', ('ab', 'ba'), 194)",
-      "('minimumDeleteSum', ('abcde', 'ace'), 198)",
-      "('minimumDeleteSum', ('你好', '世界'), 93231)"
+      "('minimumDeleteSum', ('你好', '世界'), 93247)",
+      "('minimumDeleteSum', ('a😊b', 'a😊b'), 0)",
+      "('minimumDeleteSum', ('a😊b', 'a😊c'), 197)",
+      "('minimumDeleteSum', ('aaabbb', 'ab'), 390)",
+      "('minimumDeleteSum', ('😊😊', '😊'), 128522)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minimumDeleteSum('sea', 'eat')\n  標準輸出: 231\n  你的輸出: 231\n\n[測試#2] ✅ 通過\n  標準輸入: minimumDeleteSum('delete', 'leet')\n  標準輸出: 403\n  你的輸出: 403\n\n[測試#3] ✅ 通過\n  標準輸入: minimumDeleteSum('abcd', 'abcd')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: minimumDeleteSum('abc', 'def')\n  標準輸出: 597\n  你的輸出: 597\n\n[測試#5] ✅ 通過\n  標準輸入: minimumDeleteSum('', 'abc')\n  標準輸出: 294\n  你的輸出: 294\n\n[測試#6] ✅ 通過\n  標準輸入: minimumDeleteSum('a', 'a')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: minimumDeleteSum('a', 'b')\n  標準輸出: 195\n  你的輸出: 195\n\n[測試#8] ✅ 通過\n  標準輸入: minimumDeleteSum('ab', 'ba')\n  標準輸出: 194\n  你的輸出: 194\n\n[測試#9] ✅ 通過\n  標準輸入: minimumDeleteSum('abcde', 'ace')\n  標準輸出: 198\n  你的輸出: 198\n\n[測試#10] ❌ 失敗\n  標準輸入: minimumDeleteSum('你好', '世界')\n  標準輸出: 93231\n  你的輸出: 93247\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
-    "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minimumDeleteSum('sea', 'eat')\n  標準輸出: 231\n  你的輸出: 231\n\n[測試#2] ✅ 通過\n  標準輸入: minimumDeleteSum('delete', 'leet')\n  標準輸出: 403\n  你的輸出: 403\n\n[測試#3] ✅ 通過\n  標準輸入: minimumDeleteSum('', '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: minimumDeleteSum('abc', '')\n  標準輸出: 294\n  你的輸出: 294\n\n[測試#5] ✅ 通過\n  標準輸入: minimumDeleteSum('a', 'a')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: minimumDeleteSum('abcd', 'abcd')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: minimumDeleteSum('abc', 'def')\n  標準輸出: 597\n  你的輸出: 597\n\n[測試#8] ✅ 通過\n  標準輸入: minimumDeleteSum('你好', '世界')\n  標準輸出: 93247\n  你的輸出: 93247\n\n[測試#9] ✅ 通過\n  標準輸入: minimumDeleteSum('a😊b', 'a😊b')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: minimumDeleteSum('a😊b', 'a😊c')\n  標準輸出: 197\n  你的輸出: 197\n\n[測試#11] ✅ 通過\n  標準輸入: minimumDeleteSum('aaabbb', 'ab')\n  標準輸出: 390\n  你的輸出: 390\n\n[測試#12] ✅ 通過\n  標準輸入: minimumDeleteSum('😊😊', '😊')\n  標準輸出: 128522\n  你的輸出: 128522\n\n=== 測試完成 (12/12) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 12,
+    "passed_count": 12,
+    "accuracy_rate": 1.0
   }
 }

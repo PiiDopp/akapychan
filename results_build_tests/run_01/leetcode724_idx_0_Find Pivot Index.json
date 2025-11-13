@@ -1,0 +1,90 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode724.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Find Pivot Index",
+    "description": "Given an array of integers nums, calculate the pivot index of this array.\n\nThe pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.\n\nIf the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.\n\nReturn the leftmost pivot index. If no such index exists, return -1.",
+    "examples": [
+      {
+        "input": "nums = [1,7,3,6,5,6]",
+        "output": "3",
+        "explanation": "Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11\\nRight sum = nums[4] + nums[5] = 5 + 6 = 11"
+      },
+      {
+        "input": "nums = [1,2,3]",
+        "output": "-1",
+        "explanation": "There is no index that satisfies the conditions in the problem statement."
+      },
+      {
+        "input": "nums = [2,1,-1]",
+        "output": "0",
+        "explanation": "Left sum = 0 (no elements to the left of index 0)\\nRight sum = nums[1] + nums[2] = 1 + -1 = 0"
+      }
+    ],
+    "solution": "class Solution:\n    def pivotIndex(self, nums):\n        total = sum(nums)\n        left_sum = 0\n        \n        for i, num in enumerate(nums):\n            if left_sum == total - left_sum - num:\n                return i\n            left_sum += num\n        return -1"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n7\n3\n6\n5\n6\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1\n2\n3\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "1\n2\n3\n3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "0\n0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "10\n-10\n0\n",
+        "output": "2\n"
+      },
+      {
+        "input": "5\n5\n5\n5\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n10\n",
+        "output": "-1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('pivotIndex', ((1, 7, 3, 6, 5, 6),), 3)",
+      "('pivotIndex', ((1, 2, 3),), -1)",
+      "('pivotIndex', ((1, 2, 3, 3),), 2)",
+      "('pivotIndex', ((0, 0, 0, 0),), 0)",
+      "('pivotIndex', (1,), 0)",
+      "('pivotIndex', ((),), -1)",
+      "('pivotIndex', ((10, -10, 0),), 2)",
+      "('pivotIndex', ((5, 5, 5, 5),), -1)",
+      "('pivotIndex', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),), -1)",
+      "('pivotIndex', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10),), -1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: pivotIndex((1, 7, 3, 6, 5, 6),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: pivotIndex((1, 2, 3),)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#3] ✅ 通過\n  標準輸入: pivotIndex((1, 2, 3, 3),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: pivotIndex((0, 0, 0, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ❌ 執行例外: 'int' object is not iterable\n[測試#6] ✅ 通過\n  標準輸入: pivotIndex((),)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#7] ✅ 通過\n  標準輸入: pivotIndex((10, -10, 0),)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: pivotIndex((5, 5, 5, 5),)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#9] ✅ 通過\n  標準輸入: pivotIndex((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#10] ✅ 通過\n  標準輸入: pivotIndex((1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10),)\n  標準輸出: -1\n  你的輸出: -1\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 9,
+    "accuracy_rate": 0.9
+  }
+}

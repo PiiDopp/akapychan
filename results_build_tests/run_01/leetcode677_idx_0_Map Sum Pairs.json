@@ -1,0 +1,28 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode677.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Map Sum Pairs",
+    "description": "Design a map that allows you to do the following:\n\nMaps a string key to a given value.\nReturns the sum of the values that have a key with a prefix equal to a given string.\nImplement the MapSum class:\n\nMapSum() Initializes the MapSum object.\nvoid insert(String key, int val) Inserts the key-val pair into the map. If the key already existed, the original key-value pair will be overridden to the new one.\nint sum(string prefix) Returns the sum of all the pairs' value whose key starts with the prefix.",
+    "examples": [
+      {
+        "input": "[\"MapSum\", \"insert\", \"sum\", \"insert\", \"sum\"], [[], [\"apple\", 3], [\"ap\"], [\"app\", 2], [\"ap\"]]",
+        "output": "[null, null, 3, null, 5]",
+        "explanation": "MapSum mapSum = new MapSum();\nmapSum.insert(\"apple\", 3);  \nmapSum.sum(\"ap\");           // return 3 (apple = 3)\nmapSum.insert(\"app\", 2);    \nmapSum.sum(\"ap\");           // return 5 (apple + app = 3 + 2 = 5)"
+      }
+    ],
+    "solution": "class MapSum:\n\n    def __init__(self):\n        self.dic = {}\n\n    def insert(self, key, val):\n        self.dic[key] = val\n\n    def sum(self, prefix):\n        return sum(v for k, v in self.dic.items() if k.startswith(prefix))"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "非 LeetCode 格式程式碼",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

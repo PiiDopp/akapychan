@@ -23,67 +23,62 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "5 4\n6 4\n6 7\n2 3\n",
-        "output": "3\n"
-      },
-      {
         "input": "\n",
         "output": "0\n"
       },
       {
-        "input": "1 1\n",
+        "input": "5 4\n",
         "output": "1\n"
       },
       {
-        "input": "2 3\n2 4\n2 5\n",
-        "output": "1\n"
-      },
-      {
-        "input": "3 2\n4 2\n5 2\n",
-        "output": "1\n"
-      },
-      {
-        "input": "5 5\n4 4\n3 3\n2 2\n",
-        "output": "1\n"
-      },
-      {
-        "input": "1 1\n2 2\n3 3\n4 4\n",
-        "output": "4\n"
-      },
-      {
-        "input": "1 5\n4 6\n6 7\n2 3\n5 4\n",
-        "output": "3\n"
-      },
-      {
-        "input": "1 1\n1 1\n1 1\n",
-        "output": "1\n"
-      },
-      {
-        "input": "-1 -2\n-3 -4\n-2 -1\n",
+        "input": "5 4\n5 4\n",
         "output": "2\n"
       },
       {
-        "input": "1000000 1000000\n1000001 1000001\n1000002 1000002\n",
+        "input": "5 4\n5 6\n",
+        "output": "1\n"
+      },
+      {
+        "input": "4 5\n6 5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5 4\n6 7\n7 8\n8 9\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5 4\n6 7\n6 6\n7 8\n",
         "output": "3\n"
+      },
+      {
+        "input": "0 1\n1 0\n1 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1000000 1000000\n1000001 1000001\n",
+        "output": "2\n"
+      },
+      {
+        "input": "-1 -2\n-3 -4\n",
+        "output": "2\n"
       }
     ],
     "parsed_tests": [
-      "('maxEnvelopes', ('5 4\\n6 4\\n6 7\\n2 3\\n',), 3)",
       "('maxEnvelopes', ((),), 0)",
-      "('maxEnvelopes', ('1 1\\n',), 1)",
-      "('maxEnvelopes', ('2 3\\n2 4\\n2 5\\n',), 1)",
-      "('maxEnvelopes', ('3 2\\n4 2\\n5 2\\n',), 1)",
-      "('maxEnvelopes', ('5 5\\n4 4\\n3 3\\n2 2\\n',), 1)",
-      "('maxEnvelopes', ('1 1\\n2 2\\n3 3\\n4 4\\n',), 4)",
-      "('maxEnvelopes', ('1 5\\n4 6\\n6 7\\n2 3\\n5 4\\n',), 3)",
-      "('maxEnvelopes', ('1 1\\n1 1\\n1 1\\n',), 1)",
-      "('maxEnvelopes', ('-1 -2\\n-3 -4\\n-2 -1\\n',), 2)",
-      "('maxEnvelopes', ('1000000 1000000\\n1000001 1000001\\n1000002 1000002\\n',), 3)"
+      "('maxEnvelopes', ('5 4\\n',), 1)",
+      "('maxEnvelopes', ('5 4\\n5 4\\n',), 2)",
+      "('maxEnvelopes', ('5 4\\n5 6\\n',), 1)",
+      "('maxEnvelopes', ('4 5\\n6 5\\n',), 1)",
+      "('maxEnvelopes', ('5 4\\n6 7\\n7 8\\n8 9\\n',), 4)",
+      "('maxEnvelopes', ('5 4\\n6 7\\n6 6\\n7 8\\n',), 3)",
+      "('maxEnvelopes', ('0 1\\n1 0\\n1 1\\n',), 1)",
+      "('maxEnvelopes', ('1000000 1000000\\n1000001 1000001\\n',), 2)",
+      "('maxEnvelopes', ('-1 -2\\n-3 -4\\n',), 2)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ✅ 通過\n  標準輸入: maxEnvelopes((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#11] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (1/11) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: maxEnvelopes((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (1/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 11,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 10,
+    "passed_count": 1,
+    "accuracy_rate": 0.1
   }
 }

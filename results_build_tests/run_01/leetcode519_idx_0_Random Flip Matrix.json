@@ -17,59 +17,7 @@
   "experiment_result": {
     "success": false,
     "error": "AI 未生成任何有效測資",
-    "generated_tests": [
-      {
-        "description": "單元格矩陣（1x1）",
-        "input": {
-          "m": 1,
-          "n": 1,
-          "operations": [
-            "flip",
-            "reset",
-            "flip"
-          ]
-        },
-        "expected_output": [
-          [
-            0,
-            0
-          ],
-          null,
-          [
-            0,
-            0
-          ]
-        ]
-      },
-      {
-        "description": "2x2 矩陣翻轉所有格子",
-        "input": {
-          "m": 2,
-          "n": 2,
-          "operations": [
-            "flip",
-            "flip",
-            "flip",
-            "flip"
-          ]
-        },
-        "expected_output": "any permutation of [[0,0],[0,1],[1,0],[1,1]]"
-      },
-      {
-        "description": "3x3 矩陣部分翻轉後 reset",
-        "input": {
-          "m": 3,
-          "n": 3,
-          "operations": [
-            "flip",
-            "flip",
-            "reset",
-            "flip"
-          ]
-        },
-        "expected_output": "any index within 0-2 range"
-      }
-    ],
+    "generated_tests": [],
     "parsed_tests": [],
     "runlog": "",
     "all_passed": false,

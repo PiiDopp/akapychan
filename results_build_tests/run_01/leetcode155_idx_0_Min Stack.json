@@ -22,11 +22,115 @@
         "operations": [
           {
             "op": "push",
-            "arg": 5
+            "value": 5
           },
           {
             "op": "push",
-            "arg": 3
+            "value": 3
+          },
+          {
+            "op": "push",
+            "value": 7
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "top"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "top"
+          },
+          {
+            "op": "getMin"
+          }
+        ],
+        "expected": [
+          3,
+          3,
+          5,
+          5,
+          null,
+          null
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "push",
+            "value": 2
+          },
+          {
+            "op": "push",
+            "value": 2
+          },
+          {
+            "op": "push",
+            "value": 3
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          }
+        ],
+        "expected": [
+          2,
+          2,
+          2,
+          null
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "push",
+            "value": -1
+          },
+          {
+            "op": "push",
+            "value": -2
+          },
+          {
+            "op": "push",
+            "value": -3
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
           },
           {
             "op": "getMin"
@@ -41,29 +145,110 @@
             "op": "getMin"
           },
           {
-            "op": "top"
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
           }
         ],
         "expected": [
-          3,
-          3,
-          5,
-          5
+          -3,
+          -2,
+          -2,
+          -1,
+          null
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "pop"
+          },
+          {
+            "op": "top"
+          },
+          {
+            "op": "getMin"
+          }
+        ],
+        "expected": [
+          null,
+          null,
+          null
         ]
       },
       {
         "operations": [
           {
             "op": "push",
-            "arg": 2
+            "value": 1000000
           },
           {
             "op": "push",
-            "arg": 2
+            "value": 999999
           },
           {
             "op": "push",
-            "arg": 1
+            "value": 1000001
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          }
+        ],
+        "expected": [
+          999999,
+          999999,
+          1000000,
+          null
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "push",
+            "value": 5
+          },
+          {
+            "op": "push",
+            "value": 1
+          },
+          {
+            "op": "push",
+            "value": 5
+          },
+          {
+            "op": "push",
+            "value": 3
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
           },
           {
             "op": "getMin"
@@ -83,21 +268,9 @@
         ],
         "expected": [
           1,
-          2,
-          2
-        ]
-      },
-      {
-        "operations": [
-          {
-            "op": "top"
-          },
-          {
-            "op": "getMin"
-          }
-        ],
-        "expected": [
-          null,
+          1,
+          1,
+          5,
           null
         ]
       },
@@ -105,15 +278,15 @@
         "operations": [
           {
             "op": "push",
-            "arg": -10
+            "value": 0
           },
           {
             "op": "push",
-            "arg": 0
+            "value": 0
           },
           {
             "op": "push",
-            "arg": -20
+            "value": 1
           },
           {
             "op": "getMin"
@@ -125,34 +298,45 @@
             "op": "getMin"
           },
           {
-            "op": "top"
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
           }
         ],
         "expected": [
-          -20,
-          -10,
-          0
+          0,
+          0,
+          0,
+          null
         ]
       },
       {
         "operations": [
           {
             "op": "push",
-            "arg": 1
+            "value": 1
           },
           {
             "op": "push",
-            "arg": 2
+            "value": 2
           },
           {
             "op": "push",
-            "arg": 3
+            "value": 3
           },
           {
-            "op": "pop"
+            "op": "push",
+            "value": 4
           },
           {
-            "op": "pop"
+            "op": "getMin"
           },
           {
             "op": "pop"
@@ -161,11 +345,134 @@
             "op": "getMin"
           },
           {
-            "op": "top"
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
           }
         ],
         "expected": [
-          null,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "push",
+            "value": 4
+          },
+          {
+            "op": "push",
+            "value": 3
+          },
+          {
+            "op": "push",
+            "value": 2
+          },
+          {
+            "op": "push",
+            "value": 1
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          }
+        ],
+        "expected": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "push",
+            "value": 10
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "push",
+            "value": 5
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "push",
+            "value": 15
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          },
+          {
+            "op": "pop"
+          },
+          {
+            "op": "getMin"
+          }
+        ],
+        "expected": [
+          10,
+          5,
+          5,
+          5,
+          10,
           null
         ]
       }

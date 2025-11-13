@@ -24,111 +24,91 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['cba', 1]\n",
-        "output": "abc\n"
-      },
-      {
         "input": "['ba', 1]\n",
         "output": "ab\n"
-      },
-      {
-        "input": "['aaa', 1]\n",
-        "output": "aaa\n"
-      },
-      {
-        "input": "['bca', 1]\n",
-        "output": "abc\n"
-      },
-      {
-        "input": "['abcd', 1]\n",
-        "output": "abcd\n"
-      },
-      {
-        "input": "['dcba', 1]\n",
-        "output": "abcd\n"
-      },
-      {
-        "input": "['zxy', 1]\n",
-        "output": "xyz\n"
-      },
-      {
-        "input": "['bbba', 1]\n",
-        "output": "abbb\n"
-      },
-      {
-        "input": "['aA', 1]\n",
-        "output": "Aa\n"
-      },
-      {
-        "input": "['a b', 1]\n",
-        "output": " a b\n"
-      },
-      {
-        "input": "['cba', 2]\n",
-        "output": "abc\n"
       },
       {
         "input": "['ba', 2]\n",
         "output": "ab\n"
       },
       {
+        "input": "['cba', 1]\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['cba', 2]\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['aaa', 1]\n",
+        "output": "aaa\n"
+      },
+      {
         "input": "['aaa', 2]\n",
         "output": "aaa\n"
       },
       {
-        "input": "['bca', 2]\n",
-        "output": "abc\n"
+        "input": "['bba', 1]\n",
+        "output": "abb\n"
       },
       {
-        "input": "['abcd', 2]\n",
-        "output": "abcd\n"
+        "input": "['bba', 2]\n",
+        "output": "abb\n"
       },
       {
-        "input": "['dcba', 2]\n",
-        "output": "abcd\n"
+        "input": "['321', 1]\n",
+        "output": "132\n"
       },
       {
-        "input": "['zxy', 2]\n",
-        "output": "xyz\n"
+        "input": "['321', 2]\n",
+        "output": "123\n"
       },
       {
-        "input": "['bbba', 2]\n",
-        "output": "abbb\n"
+        "input": "['b a', 1]\n",
+        "output": " a b\n"
       },
       {
-        "input": "['aA', 2]\n",
-        "output": "Aa\n"
-      },
-      {
-        "input": "['a b', 2]\n",
+        "input": "['b a', 2]\n",
         "output": " ab\n"
+      },
+      {
+        "input": "['Aba', 1]\n",
+        "output": "Aba\n"
+      },
+      {
+        "input": "['Aba', 2]\n",
+        "output": "Aab\n"
+      },
+      {
+        "input": "['a!b', 1]\n",
+        "output": "!ba\n"
+      },
+      {
+        "input": "['a!b', 2]\n",
+        "output": "!ab\n"
       }
     ],
     "parsed_tests": [
-      "('orderlyQueue', ('cba', 1), 'abc\\n')",
       "('orderlyQueue', ('ba', 1), 'ab\\n')",
-      "('orderlyQueue', ('aaa', 1), 'aaa\\n')",
-      "('orderlyQueue', ('bca', 1), 'abc\\n')",
-      "('orderlyQueue', ('abcd', 1), 'abcd\\n')",
-      "('orderlyQueue', ('dcba', 1), 'abcd\\n')",
-      "('orderlyQueue', ('zxy', 1), 'xyz\\n')",
-      "('orderlyQueue', ('bbba', 1), 'abbb\\n')",
-      "('orderlyQueue', ('aA', 1), 'Aa\\n')",
-      "('orderlyQueue', ('a b', 1), ' a b\\n')",
-      "('orderlyQueue', ('cba', 2), 'abc\\n')",
       "('orderlyQueue', ('ba', 2), 'ab\\n')",
+      "('orderlyQueue', ('cba', 1), 'abc\\n')",
+      "('orderlyQueue', ('cba', 2), 'abc\\n')",
+      "('orderlyQueue', ('aaa', 1), 'aaa\\n')",
       "('orderlyQueue', ('aaa', 2), 'aaa\\n')",
-      "('orderlyQueue', ('bca', 2), 'abc\\n')",
-      "('orderlyQueue', ('abcd', 2), 'abcd\\n')",
-      "('orderlyQueue', ('dcba', 2), 'abcd\\n')",
-      "('orderlyQueue', ('zxy', 2), 'xyz\\n')",
-      "('orderlyQueue', ('bbba', 2), 'abbb\\n')",
-      "('orderlyQueue', ('aA', 2), 'Aa\\n')",
-      "('orderlyQueue', ('a b', 2), ' ab\\n')"
+      "('orderlyQueue', ('bba', 1), 'abb\\n')",
+      "('orderlyQueue', ('bba', 2), 'abb\\n')",
+      "('orderlyQueue', ('321', 1), 132)",
+      "('orderlyQueue', ('321', 2), 123)",
+      "('orderlyQueue', ('b a', 1), ' a b\\n')",
+      "('orderlyQueue', ('b a', 2), ' ab\\n')",
+      "('orderlyQueue', ('Aba', 1), 'Aba\\n')",
+      "('orderlyQueue', ('Aba', 2), 'Aab\\n')",
+      "('orderlyQueue', ('a!b', 1), '!ba\\n')",
+      "('orderlyQueue', ('a!b', 2), '!ab\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: orderlyQueue('cba', 1)\n  標準輸出: 'abc\\n'\n  你的輸出: 'acb'\n\n[測試#2] ❌ 失敗\n  標準輸入: orderlyQueue('ba', 1)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#3] ❌ 失敗\n  標準輸入: orderlyQueue('aaa', 1)\n  標準輸出: 'aaa\\n'\n  你的輸出: 'aaa'\n\n[測試#4] ❌ 失敗\n  標準輸入: orderlyQueue('bca', 1)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#5] ❌ 失敗\n  標準輸入: orderlyQueue('abcd', 1)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#6] ❌ 失敗\n  標準輸入: orderlyQueue('dcba', 1)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'adcb'\n\n[測試#7] ❌ 失敗\n  標準輸入: orderlyQueue('zxy', 1)\n  標準輸出: 'xyz\\n'\n  你的輸出: 'xyz'\n\n[測試#8] ❌ 失敗\n  標準輸入: orderlyQueue('bbba', 1)\n  標準輸出: 'abbb\\n'\n  你的輸出: 'abbb'\n\n[測試#9] ❌ 失敗\n  標準輸入: orderlyQueue('aA', 1)\n  標準輸出: 'Aa\\n'\n  你的輸出: 'Aa'\n\n[測試#10] ❌ 失敗\n  標準輸入: orderlyQueue('a b', 1)\n  標準輸出: ' a b\\n'\n  你的輸出: ' ba'\n\n[測試#11] ❌ 失敗\n  標準輸入: orderlyQueue('cba', 2)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#12] ❌ 失敗\n  標準輸入: orderlyQueue('ba', 2)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#13] ❌ 失敗\n  標準輸入: orderlyQueue('aaa', 2)\n  標準輸出: 'aaa\\n'\n  你的輸出: 'aaa'\n\n[測試#14] ❌ 失敗\n  標準輸入: orderlyQueue('bca', 2)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#15] ❌ 失敗\n  標準輸入: orderlyQueue('abcd', 2)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#16] ❌ 失敗\n  標準輸入: orderlyQueue('dcba', 2)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#17] ❌ 失敗\n  標準輸入: orderlyQueue('zxy', 2)\n  標準輸出: 'xyz\\n'\n  你的輸出: 'xyz'\n\n[測試#18] ❌ 失敗\n  標準輸入: orderlyQueue('bbba', 2)\n  標準輸出: 'abbb\\n'\n  你的輸出: 'abbb'\n\n[測試#19] ❌ 失敗\n  標準輸入: orderlyQueue('aA', 2)\n  標準輸出: 'Aa\\n'\n  你的輸出: 'Aa'\n\n[測試#20] ❌ 失敗\n  標準輸入: orderlyQueue('a b', 2)\n  標準輸出: ' ab\\n'\n  你的輸出: ' ab'\n\n=== 測試完成 (0/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: orderlyQueue('ba', 1)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#2] ❌ 失敗\n  標準輸入: orderlyQueue('ba', 2)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#3] ❌ 失敗\n  標準輸入: orderlyQueue('cba', 1)\n  標準輸出: 'abc\\n'\n  你的輸出: 'acb'\n\n[測試#4] ❌ 失敗\n  標準輸入: orderlyQueue('cba', 2)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#5] ❌ 失敗\n  標準輸入: orderlyQueue('aaa', 1)\n  標準輸出: 'aaa\\n'\n  你的輸出: 'aaa'\n\n[測試#6] ❌ 失敗\n  標準輸入: orderlyQueue('aaa', 2)\n  標準輸出: 'aaa\\n'\n  你的輸出: 'aaa'\n\n[測試#7] ❌ 失敗\n  標準輸入: orderlyQueue('bba', 1)\n  標準輸出: 'abb\\n'\n  你的輸出: 'abb'\n\n[測試#8] ❌ 失敗\n  標準輸入: orderlyQueue('bba', 2)\n  標準輸出: 'abb\\n'\n  你的輸出: 'abb'\n\n[測試#9] ❌ 失敗\n  標準輸入: orderlyQueue('321', 1)\n  標準輸出: 132\n  你的輸出: '132'\n\n[測試#10] ❌ 失敗\n  標準輸入: orderlyQueue('321', 2)\n  標準輸出: 123\n  你的輸出: '123'\n\n[測試#11] ❌ 失敗\n  標準輸入: orderlyQueue('b a', 1)\n  標準輸出: ' a b\\n'\n  你的輸出: ' ab'\n\n[測試#12] ❌ 失敗\n  標準輸入: orderlyQueue('b a', 2)\n  標準輸出: ' ab\\n'\n  你的輸出: ' ab'\n\n[測試#13] ❌ 失敗\n  標準輸入: orderlyQueue('Aba', 1)\n  標準輸出: 'Aba\\n'\n  你的輸出: 'Aba'\n\n[測試#14] ❌ 失敗\n  標準輸入: orderlyQueue('Aba', 2)\n  標準輸出: 'Aab\\n'\n  你的輸出: 'Aab'\n\n[測試#15] ❌ 失敗\n  標準輸入: orderlyQueue('a!b', 1)\n  標準輸出: '!ba\\n'\n  你的輸出: '!ba'\n\n[測試#16] ❌ 失敗\n  標準輸入: orderlyQueue('a!b', 2)\n  標準輸出: '!ab\\n'\n  你的輸出: '!ab'\n\n=== 測試完成 (0/16) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 20,
+    "total_tests": 16,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

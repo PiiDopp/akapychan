@@ -28,11 +28,7 @@
         "output": "3\n"
       },
       {
-        "input": "['babgbag', 'bag']\n",
-        "output": "5\n"
-      },
-      {
-        "input": "['abc', 'abc']\n",
+        "input": "['abcde', 'ace']\n",
         "output": "1\n"
       },
       {
@@ -40,11 +36,7 @@
         "output": "1\n"
       },
       {
-        "input": "['', '']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['', 'a']\n",
+        "input": "['', 'abc']\n",
         "output": "0\n"
       },
       {
@@ -52,44 +44,27 @@
         "output": "0\n"
       },
       {
-        "input": "['aaaa', 'a']\n",
-        "output": "4\n"
-      },
-      {
-        "input": "['aaaa', 'aa']\n",
-        "output": "6\n"
-      },
-      {
-        "input": "['aaaaa', 'aaa']\n",
+        "input": "['aaaaa', 'aa']\n",
         "output": "10\n"
       },
       {
-        "input": "['abcde', 'ace']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['abcde', 'aec']\n",
-        "output": "0\n"
+        "input": "['babgbag', 'bag']\n",
+        "output": "5\n"
       }
     ],
     "parsed_tests": [
       "('numDistinct', ('rabbbit', 'rabbit'), 3)",
-      "('numDistinct', ('babgbag', 'bag'), 5)",
-      "('numDistinct', ('abc', 'abc'), 1)",
-      "('numDistinct', ('abc', ''), 1)",
-      "('numDistinct', ('', ''), 1)",
-      "('numDistinct', ('', 'a'), 0)",
-      "('numDistinct', ('abc', 'abcd'), 0)",
-      "('numDistinct', ('aaaa', 'a'), 4)",
-      "('numDistinct', ('aaaa', 'aa'), 6)",
-      "('numDistinct', ('aaaaa', 'aaa'), 10)",
       "('numDistinct', ('abcde', 'ace'), 1)",
-      "('numDistinct', ('abcde', 'aec'), 0)"
+      "('numDistinct', ('abc', ''), 1)",
+      "('numDistinct', ('', 'abc'), 0)",
+      "('numDistinct', ('abc', 'abcd'), 0)",
+      "('numDistinct', ('aaaaa', 'aa'), 10)",
+      "('numDistinct', ('babgbag', 'bag'), 5)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numDistinct('rabbbit', 'rabbit')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: numDistinct('babgbag', 'bag')\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#3] ✅ 通過\n  標準輸入: numDistinct('abc', 'abc')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: numDistinct('abc', '')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: numDistinct('', '')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: numDistinct('', 'a')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: numDistinct('abc', 'abcd')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: numDistinct('aaaa', 'a')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#9] ✅ 通過\n  標準輸入: numDistinct('aaaa', 'aa')\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#10] ✅ 通過\n  標準輸入: numDistinct('aaaaa', 'aaa')\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#11] ✅ 通過\n  標準輸入: numDistinct('abcde', 'ace')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#12] ✅ 通過\n  標準輸入: numDistinct('abcde', 'aec')\n  標準輸出: 0\n  你的輸出: 0\n\n=== 測試完成 (12/12) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numDistinct('rabbbit', 'rabbit')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: numDistinct('abcde', 'ace')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numDistinct('abc', '')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: numDistinct('', 'abc')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: numDistinct('abc', 'abcd')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: numDistinct('aaaaa', 'aa')\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#7] ✅ 通過\n  標準輸入: numDistinct('babgbag', 'bag')\n  標準輸出: 5\n  你的輸出: 5\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
     "all_passed": true,
-    "total_tests": 12,
-    "passed_count": 12,
+    "total_tests": 7,
+    "passed_count": 7,
     "accuracy_rate": 1.0
   }
 }

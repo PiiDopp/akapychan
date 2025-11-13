@@ -25,14 +25,101 @@
     "solution": "class Solution:\n    def findSubstringInWraproundString(self, p):\n        # dp[i] 表示以字母 chr(i + ord('a')) 結尾的最大子串長度\n        dp = [0] * 26\n        k = 0  # 目前連續子串長度\n        \n        for i in range(len(p)):\n            if i > 0 and (ord(p[i]) - ord(p[i-1])) % 26 == 1:\n                k += 1\n            else:\n                k = 1\n            dp[ord(p[i]) - ord('a')] = max(dp[ord(p[i]) - ord('a')], k)\n        \n        return sum(dp)"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "a\n",
+        "output": "1\n"
+      },
+      {
+        "input": "z\n",
+        "output": "1\n"
+      },
+      {
+        "input": "ab\n",
+        "output": "3\n"
+      },
+      {
+        "input": "ba\n",
+        "output": "2\n"
+      },
+      {
+        "input": "abcdefghijklmnopqrstuvwxyz\n",
+        "output": "351\n"
+      },
+      {
+        "input": "abcdxyz\n",
+        "output": "16\n"
+      },
+      {
+        "input": "cba\n",
+        "output": "3\n"
+      },
+      {
+        "input": "az\n",
+        "output": "2\n"
+      },
+      {
+        "input": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz\n",
+        "output": "676\n"
+      },
+      {
+        "input": "abac\n",
+        "output": "4\n"
+      },
+      {
+        "input": "acegik\n",
+        "output": "6\n"
+      },
+      {
+        "input": "xyzabc\n",
+        "output": "21\n"
+      },
+      {
+        "input": "aaaa\n",
+        "output": "1\n"
+      },
+      {
+        "input": "qwerty\n",
+        "output": "6\n"
+      },
+      {
+        "input": "zab\n",
+        "output": "6\n"
+      },
+      {
+        "input": "zaq\n",
+        "output": "4\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findSubstringInWraproundString', ((),), 0)",
+      "('findSubstringInWraproundString', ('a\\n',), 1)",
+      "('findSubstringInWraproundString', ('z\\n',), 1)",
+      "('findSubstringInWraproundString', ('ab\\n',), 3)",
+      "('findSubstringInWraproundString', ('ba\\n',), 2)",
+      "('findSubstringInWraproundString', ('abcdefghijklmnopqrstuvwxyz\\n',), 351)",
+      "('findSubstringInWraproundString', ('abcdxyz\\n',), 16)",
+      "('findSubstringInWraproundString', ('cba\\n',), 3)",
+      "('findSubstringInWraproundString', ('az\\n',), 2)",
+      "('findSubstringInWraproundString', ('abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz\\n',), 676)",
+      "('findSubstringInWraproundString', ('abac\\n',), 4)",
+      "('findSubstringInWraproundString', ('acegik\\n',), 6)",
+      "('findSubstringInWraproundString', ('xyzabc\\n',), 21)",
+      "('findSubstringInWraproundString', ('aaaa\\n',), 1)",
+      "('findSubstringInWraproundString', ('qwerty\\n',), 6)",
+      "('findSubstringInWraproundString', ('zab\\n',), 6)",
+      "('findSubstringInWraproundString', ('zaq\\n',), 4)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findSubstringInWraproundString((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: list index out of range\n[測試#3] ❌ 執行例外: list index out of range\n[測試#4] ❌ 執行例外: list index out of range\n[測試#5] ❌ 執行例外: list index out of range\n[測試#6] ❌ 執行例外: list index out of range\n[測試#7] ❌ 執行例外: list index out of range\n[測試#8] ❌ 執行例外: list index out of range\n[測試#9] ❌ 執行例外: list index out of range\n[測試#10] ❌ 執行例外: list index out of range\n[測試#11] ❌ 執行例外: list index out of range\n[測試#12] ❌ 執行例外: list index out of range\n[測試#13] ❌ 執行例外: list index out of range\n[測試#14] ❌ 執行例外: list index out of range\n[測試#15] ❌ 執行例外: list index out of range\n[測試#16] ❌ 執行例外: list index out of range\n[測試#17] ❌ 執行例外: list index out of range\n=== 測試完成 (1/17) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 17,
+    "passed_count": 1,
+    "accuracy_rate": 0.058823529411764705
   }
 }

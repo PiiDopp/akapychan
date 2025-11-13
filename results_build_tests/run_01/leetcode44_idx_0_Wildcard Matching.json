@@ -37,35 +37,23 @@
         "output": "True\n"
       },
       {
-        "input": "['', '**']\n",
-        "output": "True\n"
+        "input": "['', 'a']\n",
+        "output": "False\n"
       },
       {
-        "input": "['', '?']\n",
+        "input": "['a', '']\n",
         "output": "False\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "True\n"
       },
       {
         "input": "['a', '?']\n",
         "output": "True\n"
       },
       {
-        "input": "['ab', '??']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abc', '??']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abc', '*']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abc', '***']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abc', 'a*']\n",
+        "input": "['a', '*']\n",
         "output": "True\n"
       },
       {
@@ -77,71 +65,7 @@
         "output": "True\n"
       },
       {
-        "input": "['ab', '*a']\n",
-        "output": "False\n"
-      },
-      {
         "input": "['ab', 'a?b']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['acb', 'a?b']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abcd', 'a*d']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abcd', 'a*c']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abcd', 'a*?d']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abcd', 'a*?e']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abcd', 'a*b*c*d']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abcd', 'a*b*c*e']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abcd', 'a*b?c']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abcd', 'a*b?c*']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abc', 'a**c']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abc', 'a***c']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abc', '*abc']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abc', '*abcd']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abc', 'abc*']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abc', 'abcd*']\n",
         "output": "False\n"
       },
       {
@@ -149,112 +73,68 @@
         "output": "True\n"
       },
       {
-        "input": "['abc', 'a*d']\n",
+        "input": "['abcd', 'a*d']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'a*c?d']\n",
         "output": "False\n"
       },
       {
-        "input": "['abc', '*?*']\n",
+        "input": "['abcd', 'a*?d']\n",
         "output": "True\n"
       },
       {
-        "input": "['abc', '*?*d']\n",
+        "input": "['abcd', 'a*b*c*d']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'a*b*d']\n",
         "output": "False\n"
       },
       {
-        "input": "['a.b', 'a.*b']\n",
+        "input": "['abcd', '****']\n",
         "output": "True\n"
       },
       {
-        "input": "['a.b', 'a?b']\n",
+        "input": "['abcd', 'a*?*d']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'a?c*']\n",
         "output": "False\n"
       },
       {
-        "input": "['a.b', 'a?*b']\n",
+        "input": "['abcd', 'a?c*d']\n",
         "output": "True\n"
-      },
-      {
-        "input": "['你好', '你*']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['你好', '*好']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['你好', '*?好']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['你好', '*?好?']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abc', 'd*']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['abc', '*a*c*']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['ab', '*?*']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['', '*?']\n",
-        "output": "False\n"
       }
     ],
     "parsed_tests": [
       "('isMatch', ('', ''), True)",
       "('isMatch', ('', '*'), True)",
-      "('isMatch', ('', '**'), True)",
-      "('isMatch', ('', '?'), False)",
+      "('isMatch', ('', 'a'), False)",
+      "('isMatch', ('a', ''), False)",
+      "('isMatch', ('a', 'a'), True)",
       "('isMatch', ('a', '?'), True)",
-      "('isMatch', ('ab', '??'), True)",
-      "('isMatch', ('abc', '??'), False)",
-      "('isMatch', ('abc', '*'), True)",
-      "('isMatch', ('abc', '***'), True)",
-      "('isMatch', ('abc', 'a*'), True)",
+      "('isMatch', ('a', '*'), True)",
       "('isMatch', ('ab', 'a*'), True)",
       "('isMatch', ('ab', '*b'), True)",
-      "('isMatch', ('ab', '*a'), False)",
       "('isMatch', ('ab', 'a?b'), False)",
-      "('isMatch', ('acb', 'a?b'), True)",
-      "('isMatch', ('abcd', 'a*d'), True)",
-      "('isMatch', ('abcd', 'a*c'), False)",
-      "('isMatch', ('abcd', 'a*?d'), True)",
-      "('isMatch', ('abcd', 'a*?e'), False)",
-      "('isMatch', ('abcd', 'a*b*c*d'), True)",
-      "('isMatch', ('abcd', 'a*b*c*e'), False)",
-      "('isMatch', ('abcd', 'a*b?c'), False)",
-      "('isMatch', ('abcd', 'a*b?c*'), False)",
-      "('isMatch', ('abc', 'a**c'), True)",
-      "('isMatch', ('abc', 'a***c'), True)",
-      "('isMatch', ('abc', '*abc'), True)",
-      "('isMatch', ('abc', '*abcd'), False)",
-      "('isMatch', ('abc', 'abc*'), True)",
-      "('isMatch', ('abc', 'abcd*'), False)",
       "('isMatch', ('abc', 'a*c'), True)",
-      "('isMatch', ('abc', 'a*d'), False)",
-      "('isMatch', ('abc', '*?*'), True)",
-      "('isMatch', ('abc', '*?*d'), False)",
-      "('isMatch', ('a.b', 'a.*b'), True)",
-      "('isMatch', ('a.b', 'a?b'), False)",
-      "('isMatch', ('a.b', 'a?*b'), True)",
-      "('isMatch', ('你好', '你*'), True)",
-      "('isMatch', ('你好', '*好'), True)",
-      "('isMatch', ('你好', '*?好'), True)",
-      "('isMatch', ('你好', '*?好?'), False)",
-      "('isMatch', ('abc', 'd*'), False)",
-      "('isMatch', ('abc', '*a*c*'), True)",
-      "('isMatch', ('ab', '*?*'), True)",
-      "('isMatch', ('', '*?'), False)"
+      "('isMatch', ('abcd', 'a*d'), True)",
+      "('isMatch', ('abcd', 'a*c?d'), False)",
+      "('isMatch', ('abcd', 'a*?d'), True)",
+      "('isMatch', ('abcd', 'a*b*c*d'), True)",
+      "('isMatch', ('abcd', 'a*b*d'), False)",
+      "('isMatch', ('abcd', '****'), True)",
+      "('isMatch', ('abcd', 'a*?*d'), True)",
+      "('isMatch', ('abcd', 'a?c*'), False)",
+      "('isMatch', ('abcd', 'a?c*d'), True)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isMatch('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isMatch('', '*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isMatch('', '**')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isMatch('', '?')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isMatch('a', '?')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isMatch('ab', '??')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isMatch('abc', '??')\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isMatch('abc', '*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isMatch('abc', '***')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isMatch('abc', 'a*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isMatch('ab', 'a*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isMatch('ab', '*b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isMatch('ab', '*a')\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: isMatch('ab', 'a?b')\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: isMatch('acb', 'a?b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*c')\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*?d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*?e')\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*b*c*d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*b*c*e')\n  標準輸出: False\n  你的輸出: False\n\n[測試#22] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*b?c')\n  標準輸出: False\n  你的輸出: False\n\n[測試#23] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*b?c*')\n  標準輸出: False\n  你的輸出: False\n\n[測試#24] ✅ 通過\n  標準輸入: isMatch('abc', 'a**c')\n  標準輸出: True\n  你的輸出: True\n\n[測試#25] ✅ 通過\n  標準輸入: isMatch('abc', 'a***c')\n  標準輸出: True\n  你的輸出: True\n\n[測試#26] ✅ 通過\n  標準輸入: isMatch('abc', '*abc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#27] ✅ 通過\n  標準輸入: isMatch('abc', '*abcd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#28] ✅ 通過\n  標準輸入: isMatch('abc', 'abc*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#29] ✅ 通過\n  標準輸入: isMatch('abc', 'abcd*')\n  標準輸出: False\n  你的輸出: False\n\n[測試#30] ✅ 通過\n  標準輸入: isMatch('abc', 'a*c')\n  標準輸出: True\n  你的輸出: True\n\n[測試#31] ✅ 通過\n  標準輸入: isMatch('abc', 'a*d')\n  標準輸出: False\n  你的輸出: False\n\n[測試#32] ✅ 通過\n  標準輸入: isMatch('abc', '*?*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#33] ✅ 通過\n  標準輸入: isMatch('abc', '*?*d')\n  標準輸出: False\n  你的輸出: False\n\n[測試#34] ✅ 通過\n  標準輸入: isMatch('a.b', 'a.*b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#35] ❌ 失敗\n  標準輸入: isMatch('a.b', 'a?b')\n  標準輸出: False\n  你的輸出: True\n\n[測試#36] ✅ 通過\n  標準輸入: isMatch('a.b', 'a?*b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#37] ✅ 通過\n  標準輸入: isMatch('你好', '你*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#38] ✅ 通過\n  標準輸入: isMatch('你好', '*好')\n  標準輸出: True\n  你的輸出: True\n\n[測試#39] ✅ 通過\n  標準輸入: isMatch('你好', '*?好')\n  標準輸出: True\n  你的輸出: True\n\n[測試#40] ✅ 通過\n  標準輸入: isMatch('你好', '*?好?')\n  標準輸出: False\n  你的輸出: False\n\n[測試#41] ✅ 通過\n  標準輸入: isMatch('abc', 'd*')\n  標準輸出: False\n  你的輸出: False\n\n[測試#42] ✅ 通過\n  標準輸入: isMatch('abc', '*a*c*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#43] ✅ 通過\n  標準輸入: isMatch('ab', '*?*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#44] ✅ 通過\n  標準輸入: isMatch('', '*?')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (43/44) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isMatch('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isMatch('', '*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isMatch('', 'a')\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isMatch('a', '')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isMatch('a', 'a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isMatch('a', '?')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isMatch('a', '*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isMatch('ab', 'a*')\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isMatch('ab', '*b')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isMatch('ab', 'a?b')\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: isMatch('abc', 'a*c')\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*c?d')\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*?d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*b*c*d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ❌ 失敗\n  標準輸入: isMatch('abcd', 'a*b*d')\n  標準輸出: False\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: isMatch('abcd', '****')\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: isMatch('abcd', 'a*?*d')\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ❌ 失敗\n  標準輸入: isMatch('abcd', 'a?c*')\n  標準輸出: False\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: isMatch('abcd', 'a?c*d')\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (18/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 44,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 20,
+    "passed_count": 18,
+    "accuracy_rate": 0.9
   }
 }

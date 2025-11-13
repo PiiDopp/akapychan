@@ -23,65 +23,13 @@
     "solution": "class Solution:\n    def rotatedDigits(self, n):\n        good = {'2', '5', '6', '9'}\n        valid = {'0','1','2','5','6','8','9'}\n        count = 0\n        for num in range(1, n+1):\n            s = str(num)\n            if all(c in valid for c in s) and any(c in good for c in s):\n                count += 1\n        return count"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "0\n",
-        "output": "0\n"
-      },
-      {
-        "input": "1\n",
-        "output": "0\n"
-      },
-      {
-        "input": "2\n",
-        "output": "1\n"
-      },
-      {
-        "input": "3\n",
-        "output": "1\n"
-      },
-      {
-        "input": "8\n",
-        "output": "0\n"
-      },
-      {
-        "input": "9\n",
-        "output": "1\n"
-      },
-      {
-        "input": "10\n",
-        "output": "4\n"
-      },
-      {
-        "input": "20\n",
-        "output": "9\n"
-      },
-      {
-        "input": "100\n",
-        "output": "40\n"
-      },
-      {
-        "input": "1000\n",
-        "output": "316\n"
-      }
-    ],
-    "parsed_tests": [
-      "('rotatedDigits', (0,), 0)",
-      "('rotatedDigits', (1,), 0)",
-      "('rotatedDigits', (2,), 1)",
-      "('rotatedDigits', (3,), 1)",
-      "('rotatedDigits', (8,), 0)",
-      "('rotatedDigits', (9,), 1)",
-      "('rotatedDigits', (10,), 4)",
-      "('rotatedDigits', (20,), 9)",
-      "('rotatedDigits', (100,), 40)",
-      "('rotatedDigits', (1000,), 316)"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: rotatedDigits(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: rotatedDigits(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: rotatedDigits(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: rotatedDigits(3,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ❌ 失敗\n  標準輸入: rotatedDigits(8,)\n  標準輸出: 0\n  你的輸出: 3\n\n[測試#6] ❌ 失敗\n  標準輸入: rotatedDigits(9,)\n  標準輸出: 1\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: rotatedDigits(10,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: rotatedDigits(20,)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#9] ✅ 通過\n  標準輸入: rotatedDigits(100,)\n  標準輸出: 40\n  你的輸出: 40\n\n[測試#10] ✅ 通過\n  標準輸入: rotatedDigits(1000,)\n  標準輸出: 316\n  你的輸出: 316\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0004s）\n",
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
     "all_passed": false,
-    "total_tests": 10,
+    "total_tests": 0,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

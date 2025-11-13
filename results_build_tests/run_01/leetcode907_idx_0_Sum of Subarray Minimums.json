@@ -1,0 +1,109 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode907.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Sum of Subarray Minimums",
+    "description": "Given an array of integers arr, find the sum of min(b), where b ranges over every (contiguous) subarray of arr. Since the answer may be large, return the answer modulo 10^9 + 7.",
+    "examples": [
+      {
+        "input": "arr = [3,1,2,4]",
+        "output": "17",
+        "explanation": "Subarrays are [3], [1], [2], [4], [3,1], [1,2], [2,4], [3,1,2], [1,2,4], [3,1,2,4]. Minimums are 3, 1, 2, 4, 1, 1, 2, 1, 1, 1. Sum is 17."
+      },
+      {
+        "input": "arr = [11,81,94,43,3]",
+        "output": "444"
+      }
+    ],
+    "solution": "class Solution(object):\n    def sumSubarrayMins(self, A):\n        stack, res, A = [], 0, [0] + A + [0]\n        \n        for i, x in enumerate(A):\n            while stack and A[stack[-1]] > x:\n                j = stack.pop()\n                k = stack[-1]\n                res += A[j] * (i - j) * (j - k)\n            stack.append(i)\n        \n        return res % (10**9 + 7)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n2\n3\n",
+        "output": "10\n"
+      },
+      {
+        "input": "3\n2\n1\n",
+        "output": "10\n"
+      },
+      {
+        "input": "2\n2\n2\n",
+        "output": "12\n"
+      },
+      {
+        "input": "0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "3\n1\n2\n4\n",
+        "output": "17\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1\n-2\n-3\n",
+        "output": "999999993\n"
+      },
+      {
+        "input": "5\n4\n3\n2\n1\n",
+        "output": "35\n"
+      },
+      {
+        "input": "1\n3\n1\n2\n",
+        "output": "13\n"
+      },
+      {
+        "input": "1000000000\n",
+        "output": "1000000000\n"
+      },
+      {
+        "input": "1000000000\n1000000000\n",
+        "output": "999999986\n"
+      },
+      {
+        "input": "1\n2\n1\n",
+        "output": "7\n"
+      },
+      {
+        "input": "2\n1\n2\n",
+        "output": "8\n"
+      },
+      {
+        "input": "1\n1\n1\n1\n",
+        "output": "10\n"
+      }
+    ],
+    "parsed_tests": [
+      "('sumSubarrayMins', (1,), 1)",
+      "('sumSubarrayMins', ((1, 2, 3),), 10)",
+      "('sumSubarrayMins', ((3, 2, 1),), 10)",
+      "('sumSubarrayMins', ((2, 2, 2),), 12)",
+      "('sumSubarrayMins', ((0, 0),), 0)",
+      "('sumSubarrayMins', ((3, 1, 2, 4),), 17)",
+      "('sumSubarrayMins', ((),), 0)",
+      "('sumSubarrayMins', ((-1, -2, -3),), 999999993)",
+      "('sumSubarrayMins', ((5, 4, 3, 2, 1),), 35)",
+      "('sumSubarrayMins', ((1, 3, 1, 2),), 13)",
+      "('sumSubarrayMins', (1000000000,), 1000000000)",
+      "('sumSubarrayMins', ((1000000000, 1000000000),), 999999986)",
+      "('sumSubarrayMins', ((1, 2, 1),), 7)",
+      "('sumSubarrayMins', ((2, 1, 2),), 8)",
+      "('sumSubarrayMins', ((1, 1, 1, 1),), 10)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: can only concatenate list (not \"int\") to list\n[測試#2] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#3] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#4] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#5] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#6] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#7] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#8] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#9] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#10] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#11] ❌ 執行例外: can only concatenate list (not \"int\") to list\n[測試#12] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#13] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#14] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n[測試#15] ❌ 執行例外: can only concatenate list (not \"tuple\") to list\n=== 測試完成 (0/15) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

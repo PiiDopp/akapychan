@@ -1,0 +1,109 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode14.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Common Prefix",
+    "description": "Write a function to find the longest common prefix string amongst an array of strings.\n\nIf there is no common prefix, return an empty string \"\".",
+    "examples": [
+      {
+        "input": "strs = [\"flower\",\"flow\",\"flight\"]",
+        "output": "\"fl\""
+      },
+      {
+        "input": "strs = [\"dog\",\"racecar\",\"car\"]",
+        "output": "\"\"",
+        "explanation": "There is no common prefix among the input strings."
+      }
+    ],
+    "solution": "class Solution(object):\n    def longestCommonPrefix(self, strs):\n        \"\"\"\n        :type strs: List[str]\n        :rtype: str\n        \"\"\"\n        if not strs:\n            return \"\"\n        prefix = strs[0]\n        for s in strs[1:]:\n            while not s.startswith(prefix):\n                prefix = prefix[:-1]\n                if not prefix:\n                    return \"\"\n        return prefix"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['flower', 'flow', 'flight']\n",
+        "output": "fl\n"
+      },
+      {
+        "input": "['dog', 'racecar', 'car']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['single']\n",
+        "output": "single\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a', 'a', 'a']\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['ab', 'a']\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['abc', 'abcd', 'ab']\n",
+        "output": "ab\n"
+      },
+      {
+        "input": "['abc', 'ABC', 'Abc']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['你好世界', '你好', '你']\n",
+        "output": "你\n"
+      },
+      {
+        "input": "['123', '12', '1']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a', '']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a', 'b']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['longstring', 'long', 'longer']\n",
+        "output": "long\n"
+      },
+      {
+        "input": "['prefix', 'prefixes', 'prefix']\n",
+        "output": "prefix\n"
+      }
+    ],
+    "parsed_tests": [
+      "('longestCommonPrefix', (['flower', 'flow', 'flight'],), 'fl\\n')",
+      "('longestCommonPrefix', (['dog', 'racecar', 'car'],), '\\n')",
+      "('longestCommonPrefix', (['single'],), 'single\\n')",
+      "('longestCommonPrefix', ((),), '\\n')",
+      "('longestCommonPrefix', (['a', 'a', 'a'],), 'a\\n')",
+      "('longestCommonPrefix', (['ab', 'a'],), 'a\\n')",
+      "('longestCommonPrefix', (['abc', 'abcd', 'ab'],), 'ab\\n')",
+      "('longestCommonPrefix', (['abc', 'ABC', 'Abc'],), '\\n')",
+      "('longestCommonPrefix', (['你好世界', '你好', '你'],), '你\\n')",
+      "('longestCommonPrefix', (['123', '12', '1'],), 1)",
+      "('longestCommonPrefix', (['', ''],), '\\n')",
+      "('longestCommonPrefix', (['a', ''],), '\\n')",
+      "('longestCommonPrefix', (['a', 'b'],), '\\n')",
+      "('longestCommonPrefix', (['longstring', 'long', 'longer'],), 'long\\n')",
+      "('longestCommonPrefix', (['prefix', 'prefixes', 'prefix'],), 'prefix\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: longestCommonPrefix(['flower', 'flow', 'flight'],)\n  標準輸出: 'fl\\n'\n  你的輸出: 'fl'\n\n[測試#2] ❌ 失敗\n  標準輸入: longestCommonPrefix(['dog', 'racecar', 'car'],)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#3] ❌ 失敗\n  標準輸入: longestCommonPrefix(['single'],)\n  標準輸出: 'single\\n'\n  你的輸出: 'single'\n\n[測試#4] ❌ 失敗\n  標準輸入: longestCommonPrefix((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ❌ 失敗\n  標準輸入: longestCommonPrefix(['a', 'a', 'a'],)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#6] ❌ 失敗\n  標準輸入: longestCommonPrefix(['ab', 'a'],)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#7] ❌ 失敗\n  標準輸入: longestCommonPrefix(['abc', 'abcd', 'ab'],)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#8] ❌ 失敗\n  標準輸入: longestCommonPrefix(['abc', 'ABC', 'Abc'],)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#9] ❌ 失敗\n  標準輸入: longestCommonPrefix(['你好世界', '你好', '你'],)\n  標準輸出: '你\\n'\n  你的輸出: '你'\n\n[測試#10] ❌ 失敗\n  標準輸入: longestCommonPrefix(['123', '12', '1'],)\n  標準輸出: 1\n  你的輸出: '1'\n\n[測試#11] ❌ 失敗\n  標準輸入: longestCommonPrefix(['', ''],)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#12] ❌ 失敗\n  標準輸入: longestCommonPrefix(['a', ''],)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#13] ❌ 失敗\n  標準輸入: longestCommonPrefix(['a', 'b'],)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#14] ❌ 失敗\n  標準輸入: longestCommonPrefix(['longstring', 'long', 'longer'],)\n  標準輸出: 'long\\n'\n  你的輸出: 'long'\n\n[測試#15] ❌ 失敗\n  標準輸入: longestCommonPrefix(['prefix', 'prefixes', 'prefix'],)\n  標準輸出: 'prefix\\n'\n  你的輸出: 'prefix'\n\n=== 測試完成 (0/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

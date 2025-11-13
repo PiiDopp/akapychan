@@ -29,86 +29,81 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['abc', 2]\n",
-        "output": "b\n"
-      },
-      {
-        "input": "['a2b', 3]\n",
-        "output": "b\n"
+        "input": "['a', 1]\n",
+        "output": "a\n"
       },
       {
         "input": "['leet2code3', 10]\n",
         "output": "o\n"
       },
       {
-        "input": "['leet2code3', 36]\n",
-        "output": "e\n"
+        "input": "['ha22', 4]\n",
+        "output": "a\n"
       },
       {
-        "input": "['leet2code3', 1]\n",
-        "output": "l\n"
+        "input": "['abcd', 1]\n",
+        "output": "a\n"
       },
       {
-        "input": "['3abc', 2]\n",
-        "output": "b\n"
-      },
-      {
-        "input": "['a1b', 2]\n",
-        "output": "b\n"
+        "input": "['abcd', 4]\n",
+        "output": "d\n"
       },
       {
         "input": "['x2y3', 9]\n",
         "output": "y\n"
       },
       {
-        "input": "['abc2', 6]\n",
+        "input": "['abc3', 9]\n",
         "output": "c\n"
       },
       {
-        "input": "['a2b2c2', 21]\n",
-        "output": "c\n"
+        "input": "['3abc', 2]\n",
+        "output": "b\n"
       },
       {
-        "input": "['a', 1]\n",
+        "input": "['a2b3c', 5]\n",
         "output": "a\n"
+      },
+      {
+        "input": "['ab2c', 5]\n",
+        "output": "c\n"
+      },
+      {
+        "input": "['abcd2', 7]\n",
+        "output": "c\n"
       },
       {
         "input": "['a9', 9]\n",
         "output": "a\n"
       },
       {
-        "input": "['a2b3c', 7]\n",
+        "input": "['a2b3c4', 28]\n",
         "output": "c\n"
       },
       {
-        "input": "['2abc3', 9]\n",
-        "output": "c\n"
-      },
-      {
-        "input": "['a9b', 10]\n",
-        "output": "b\n"
+        "input": "['a2b3c4', 1]\n",
+        "output": "a\n"
       }
     ],
     "parsed_tests": [
-      "('decodeAtIndex', ('abc', 2), 'b\\n')",
-      "('decodeAtIndex', ('a2b', 3), 'b\\n')",
-      "('decodeAtIndex', ('leet2code3', 10), 'o\\n')",
-      "('decodeAtIndex', ('leet2code3', 36), 'e\\n')",
-      "('decodeAtIndex', ('leet2code3', 1), 'l\\n')",
-      "('decodeAtIndex', ('3abc', 2), 'b\\n')",
-      "('decodeAtIndex', ('a1b', 2), 'b\\n')",
-      "('decodeAtIndex', ('x2y3', 9), 'y\\n')",
-      "('decodeAtIndex', ('abc2', 6), 'c\\n')",
-      "('decodeAtIndex', ('a2b2c2', 21), 'c\\n')",
       "('decodeAtIndex', ('a', 1), 'a\\n')",
+      "('decodeAtIndex', ('leet2code3', 10), 'o\\n')",
+      "('decodeAtIndex', ('ha22', 4), 'a\\n')",
+      "('decodeAtIndex', ('abcd', 1), 'a\\n')",
+      "('decodeAtIndex', ('abcd', 4), 'd\\n')",
+      "('decodeAtIndex', ('x2y3', 9), 'y\\n')",
+      "('decodeAtIndex', ('abc3', 9), 'c\\n')",
+      "('decodeAtIndex', ('3abc', 2), 'b\\n')",
+      "('decodeAtIndex', ('a2b3c', 5), 'a\\n')",
+      "('decodeAtIndex', ('ab2c', 5), 'c\\n')",
+      "('decodeAtIndex', ('abcd2', 7), 'c\\n')",
       "('decodeAtIndex', ('a9', 9), 'a\\n')",
-      "('decodeAtIndex', ('a2b3c', 7), 'c\\n')",
-      "('decodeAtIndex', ('2abc3', 9), 'c\\n')",
-      "('decodeAtIndex', ('a9b', 10), 'b\\n')"
+      "('decodeAtIndex', ('a2b3c4', 28), 'c\\n')",
+      "('decodeAtIndex', ('a2b3c4', 1), 'a\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: decodeAtIndex('abc', 2)\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n[測試#2] ❌ 失敗\n  標準輸入: decodeAtIndex('a2b', 3)\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n[測試#3] ❌ 失敗\n  標準輸入: decodeAtIndex('leet2code3', 10)\n  標準輸出: 'o\\n'\n  你的輸出: 'o'\n\n[測試#4] ❌ 失敗\n  標準輸入: decodeAtIndex('leet2code3', 36)\n  標準輸出: 'e\\n'\n  你的輸出: 'e'\n\n[測試#5] ❌ 失敗\n  標準輸入: decodeAtIndex('leet2code3', 1)\n  標準輸出: 'l\\n'\n  你的輸出: 'l'\n\n[測試#6] ❌ 失敗\n  標準輸入: decodeAtIndex('3abc', 2)\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n[測試#7] ❌ 失敗\n  標準輸入: decodeAtIndex('a1b', 2)\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n[測試#8] ❌ 失敗\n  標準輸入: decodeAtIndex('x2y3', 9)\n  標準輸出: 'y\\n'\n  你的輸出: 'y'\n\n[測試#9] ❌ 失敗\n  標準輸入: decodeAtIndex('abc2', 6)\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#10] ❌ 失敗\n  標準輸入: decodeAtIndex('a2b2c2', 21)\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#11] ❌ 失敗\n  標準輸入: decodeAtIndex('a', 1)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#12] ❌ 失敗\n  標準輸入: decodeAtIndex('a9', 9)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#13] ❌ 失敗\n  標準輸入: decodeAtIndex('a2b3c', 7)\n  標準輸出: 'c\\n'\n  你的輸出: 'a'\n\n[測試#14] ❌ 失敗\n  標準輸入: decodeAtIndex('2abc3', 9)\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#15] ❌ 失敗\n  標準輸入: decodeAtIndex('a9b', 10)\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n=== 測試完成 (0/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: decodeAtIndex('a', 1)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#2] ❌ 失敗\n  標準輸入: decodeAtIndex('leet2code3', 10)\n  標準輸出: 'o\\n'\n  你的輸出: 'o'\n\n[測試#3] ❌ 失敗\n  標準輸入: decodeAtIndex('ha22', 4)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#4] ❌ 失敗\n  標準輸入: decodeAtIndex('abcd', 1)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#5] ❌ 失敗\n  標準輸入: decodeAtIndex('abcd', 4)\n  標準輸出: 'd\\n'\n  你的輸出: 'd'\n\n[測試#6] ❌ 失敗\n  標準輸入: decodeAtIndex('x2y3', 9)\n  標準輸出: 'y\\n'\n  你的輸出: 'y'\n\n[測試#7] ❌ 失敗\n  標準輸入: decodeAtIndex('abc3', 9)\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#8] ❌ 失敗\n  標準輸入: decodeAtIndex('3abc', 2)\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n[測試#9] ❌ 失敗\n  標準輸入: decodeAtIndex('a2b3c', 5)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#10] ❌ 失敗\n  標準輸入: decodeAtIndex('ab2c', 5)\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#11] ❌ 失敗\n  標準輸入: decodeAtIndex('abcd2', 7)\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#12] ❌ 失敗\n  標準輸入: decodeAtIndex('a9', 9)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#13] ❌ 失敗\n  標準輸入: decodeAtIndex('a2b3c4', 28)\n  標準輸出: 'c\\n'\n  你的輸出: 'a'\n\n[測試#14] ❌ 失敗\n  標準輸入: decodeAtIndex('a2b3c4', 1)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n=== 測試完成 (0/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 15,
+    "total_tests": 14,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

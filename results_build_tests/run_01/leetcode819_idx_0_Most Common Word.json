@@ -23,39 +23,39 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['Bob hit a ball, the hit was good. Bob hit again.', 'hit']\n",
-        "output": "bob\n"
+        "input": "['Bob hit a ball, the ball was good.', 'hit']\n",
+        "output": "ball\n"
       },
       {
-        "input": "['Hello, hello! HELLO? HeLLo.', '']\n",
+        "input": "['Hello, world! Hello.', '']\n",
         "output": "hello\n"
       },
       {
-        "input": "['a, a, a, b, b, c', '']\n",
-        "output": "a\n"
+        "input": "['Bob, bob, BOB.', '']\n",
+        "output": "bob\n"
       },
       {
-        "input": "['one two three four two one', 'one', 'two', 'three']\n",
-        "output": "four\n"
-      },
-      {
-        "input": "[\"It's a test-case, test case.\", 'test']\n",
-        "output": "case\n"
-      },
-      {
-        "input": "['123 123 456 123', '456']\n",
+        "input": "['123 123 456', '']\n",
         "output": "123\n"
+      },
+      {
+        "input": "['a_b a_b c', 'c']\n",
+        "output": "a_b\n"
+      },
+      {
+        "input": "['a, b, c, a, b, a', 'a']\n",
+        "output": "b\n"
       }
     ],
     "parsed_tests": [
-      "('mostCommonWord', ('Bob hit a ball, the hit was good. Bob hit again.', 'hit'), 'bob\\n')",
-      "('mostCommonWord', ('Hello, hello! HELLO? HeLLo.', ''), 'hello\\n')",
-      "('mostCommonWord', ('a, a, a, b, b, c', ''), 'a\\n')",
-      "('mostCommonWord', (\"['one two three four two one', 'one', 'two', 'three']\\n\",), 'four\\n')",
-      "('mostCommonWord', (\"It's a test-case, test case.\", 'test'), 'case\\n')",
-      "('mostCommonWord', ('123 123 456 123', '456'), 123)"
+      "('mostCommonWord', ('Bob hit a ball, the ball was good.', 'hit'), 'ball\\n')",
+      "('mostCommonWord', ('Hello, world! Hello.', ''), 'hello\\n')",
+      "('mostCommonWord', ('Bob, bob, BOB.', ''), 'bob\\n')",
+      "('mostCommonWord', ('123 123 456', ''), 123)",
+      "('mostCommonWord', ('a_b a_b c', 'c'), 'a_b\\n')",
+      "('mostCommonWord', ('a, b, c, a, b, a', 'a'), 'b\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: mostCommonWord('Bob hit a ball, the hit was good. Bob hit again.', 'hit')\n  標準輸出: 'bob\\n'\n  你的輸出: 'hit'\n\n[測試#2] ❌ 失敗\n  標準輸入: mostCommonWord('Hello, hello! HELLO? HeLLo.', '')\n  標準輸出: 'hello\\n'\n  你的輸出: 'hello'\n\n[測試#3] ❌ 失敗\n  標準輸入: mostCommonWord('a, a, a, b, b, c', '')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#4] ❌ 執行例外: Solution.mostCommonWord() missing 1 required positional argument: 'banned'\n[測試#5] ❌ 失敗\n  標準輸入: mostCommonWord(\"It's a test-case, test case.\", 'test')\n  標準輸出: 'case\\n'\n  你的輸出: 'test'\n\n[測試#6] ❌ 失敗\n  標準輸入: mostCommonWord('123 123 456 123', '456')\n  標準輸出: 123\n  你的輸出: '123'\n\n=== 測試完成 (0/6) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: mostCommonWord('Bob hit a ball, the ball was good.', 'hit')\n  標準輸出: 'ball\\n'\n  你的輸出: 'ball'\n\n[測試#2] ❌ 失敗\n  標準輸入: mostCommonWord('Hello, world! Hello.', '')\n  標準輸出: 'hello\\n'\n  你的輸出: 'hello'\n\n[測試#3] ❌ 失敗\n  標準輸入: mostCommonWord('Bob, bob, BOB.', '')\n  標準輸出: 'bob\\n'\n  你的輸出: 'bob'\n\n[測試#4] ❌ 失敗\n  標準輸入: mostCommonWord('123 123 456', '')\n  標準輸出: 123\n  你的輸出: '123'\n\n[測試#5] ❌ 失敗\n  標準輸入: mostCommonWord('a_b a_b c', 'c')\n  標準輸出: 'a_b\\n'\n  你的輸出: 'a_b'\n\n[測試#6] ❌ 失敗\n  標準輸入: mostCommonWord('a, b, c, a, b, a', 'a')\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n=== 測試完成 (0/6) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
     "total_tests": 6,
     "passed_count": 0,

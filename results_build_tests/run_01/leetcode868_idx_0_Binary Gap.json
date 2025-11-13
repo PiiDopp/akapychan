@@ -37,24 +37,24 @@
         "output": "0\n"
       },
       {
-        "input": "3\n",
-        "output": "1\n"
-      },
-      {
         "input": "4\n",
         "output": "0\n"
       },
       {
-        "input": "5\n",
-        "output": "2\n"
+        "input": "3\n",
+        "output": "1\n"
       },
       {
         "input": "6\n",
         "output": "1\n"
       },
       {
-        "input": "7\n",
+        "input": "15\n",
         "output": "1\n"
+      },
+      {
+        "input": "5\n",
+        "output": "2\n"
       },
       {
         "input": "9\n",
@@ -65,56 +65,66 @@
         "output": "2\n"
       },
       {
-        "input": "12\n",
-        "output": "1\n"
-      },
-      {
         "input": "20\n",
         "output": "2\n"
       },
       {
-        "input": "65\n",
-        "output": "6\n"
+        "input": "21\n",
+        "output": "2\n"
       },
       {
-        "input": "51\n",
+        "input": "41\n",
         "output": "3\n"
       },
       {
-        "input": "1025\n",
-        "output": "10\n"
+        "input": "2147483648\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2147483649\n",
+        "output": "31\n"
+      },
+      {
+        "input": "2147483650\n",
+        "output": "30\n"
+      },
+      {
+        "input": "2147483651\n",
+        "output": "30\n"
       },
       {
         "input": "2147483647\n",
         "output": "1\n"
       },
       {
-        "input": "1073741825\n",
-        "output": "30\n"
+        "input": "2147483645\n",
+        "output": "2\n"
       }
     ],
     "parsed_tests": [
       "('binaryGap', (1,), 0)",
       "('binaryGap', (2,), 0)",
-      "('binaryGap', (3,), 1)",
       "('binaryGap', (4,), 0)",
-      "('binaryGap', (5,), 2)",
+      "('binaryGap', (3,), 1)",
       "('binaryGap', (6,), 1)",
-      "('binaryGap', (7,), 1)",
+      "('binaryGap', (15,), 1)",
+      "('binaryGap', (5,), 2)",
       "('binaryGap', (9,), 3)",
       "('binaryGap', (10,), 2)",
-      "('binaryGap', (12,), 1)",
       "('binaryGap', (20,), 2)",
-      "('binaryGap', (65,), 6)",
-      "('binaryGap', (51,), 3)",
-      "('binaryGap', (1025,), 10)",
+      "('binaryGap', (21,), 2)",
+      "('binaryGap', (41,), 3)",
+      "('binaryGap', (2147483648,), 0)",
+      "('binaryGap', (2147483649,), 31)",
+      "('binaryGap', (2147483650,), 30)",
+      "('binaryGap', (2147483651,), 30)",
       "('binaryGap', (2147483647,), 1)",
-      "('binaryGap', (1073741825,), 30)"
+      "('binaryGap', (2147483645,), 2)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: binaryGap(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: binaryGap(2,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: binaryGap(3,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: binaryGap(4,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: binaryGap(5,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: binaryGap(6,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: binaryGap(7,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: binaryGap(9,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#9] ✅ 通過\n  標準輸入: binaryGap(10,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ✅ 通過\n  標準輸入: binaryGap(12,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#11] ✅ 通過\n  標準輸入: binaryGap(20,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: binaryGap(65,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#13] ✅ 通過\n  標準輸入: binaryGap(51,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#14] ✅ 通過\n  標準輸入: binaryGap(1025,)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#15] ✅ 通過\n  標準輸入: binaryGap(2147483647,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#16] ✅ 通過\n  標準輸入: binaryGap(1073741825,)\n  標準輸出: 30\n  你的輸出: 30\n\n=== 測試完成 (16/16) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: binaryGap(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: binaryGap(2,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: binaryGap(4,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: binaryGap(3,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: binaryGap(6,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: binaryGap(15,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: binaryGap(5,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: binaryGap(9,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#9] ✅ 通過\n  標準輸入: binaryGap(10,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ✅ 通過\n  標準輸入: binaryGap(20,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#11] ✅ 通過\n  標準輸入: binaryGap(21,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: binaryGap(41,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#13] ✅ 通過\n  標準輸入: binaryGap(2147483648,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#14] ✅ 通過\n  標準輸入: binaryGap(2147483649,)\n  標準輸出: 31\n  你的輸出: 31\n\n[測試#15] ✅ 通過\n  標準輸入: binaryGap(2147483650,)\n  標準輸出: 30\n  你的輸出: 30\n\n[測試#16] ✅ 通過\n  標準輸入: binaryGap(2147483651,)\n  標準輸出: 30\n  你的輸出: 30\n\n[測試#17] ✅ 通過\n  標準輸入: binaryGap(2147483647,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#18] ✅ 通過\n  標準輸入: binaryGap(2147483645,)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (18/18) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
     "all_passed": true,
-    "total_tests": 16,
-    "passed_count": 16,
+    "total_tests": 18,
+    "passed_count": 18,
     "accuracy_rate": 1.0
   }
 }

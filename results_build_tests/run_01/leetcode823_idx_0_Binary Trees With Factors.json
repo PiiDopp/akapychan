@@ -1,0 +1,85 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode823.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Binary Trees With Factors",
+    "description": "Given an array of unique integers, arr, where each integer arr[i] is strictly greater than 1.\n\nWe make a binary tree using these integers, and each number may be used for any number of times. Each non-leaf node's value should be equal to the product of the values of its children.\n\nReturn the number of binary trees we can make. The answer may be too large so return the answer modulo 10^9 + 7.",
+    "examples": [
+      {
+        "input": "arr = [2,4]",
+        "output": "3",
+        "explanation": "We can make these trees: [2], [4], [4, 2, 2]"
+      },
+      {
+        "input": "arr = [2,4,5,10]",
+        "output": "7",
+        "explanation": "We can make these trees: [2], [4], [5], [10], [4, 2, 2], [10, 2, 5], [10, 5, 2]"
+      }
+    ],
+    "solution": "class Solution:\n    def numFactoredBinaryTrees(self, arr):\n        MOD = 10**9 + 7\n        arr.sort()\n        dp = {}\n        for x in arr:\n            dp[x] = 1\n        index = {x: i for i, x in enumerate(arr)}\n        for i, x in enumerate(arr):\n            for j in range(i):\n                if x % arr[j] == 0:\n                    right = x // arr[j]\n                    if right in dp:\n                        dp[x] += dp[arr[j]] * dp[right]\n                        dp[x] %= MOD\n        return sum(dp.values()) % MOD"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n9\n",
+        "output": "2\n"
+      },
+      {
+        "input": "2\n4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "2\n3\n6\n",
+        "output": "5\n"
+      },
+      {
+        "input": "4\n2\n8\n",
+        "output": "8\n"
+      },
+      {
+        "input": "2\n3\n5\n7\n11\n",
+        "output": "5\n"
+      },
+      {
+        "input": "2\n4\n8\n16\n32\n",
+        "output": "74\n"
+      },
+      {
+        "input": "2\n3\n4\n6\n12\n",
+        "output": "18\n"
+      },
+      {
+        "input": "2\n4\n8\n16\n32\n64\n",
+        "output": "262\n"
+      },
+      {
+        "input": "2\n3\n4\n6\n12\n24\n48\n96\n",
+        "output": "649\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numFactoredBinaryTrees', (2,), 1)",
+      "('numFactoredBinaryTrees', ((2, 9),), 2)",
+      "('numFactoredBinaryTrees', ((2, 4),), 3)",
+      "('numFactoredBinaryTrees', ((2, 3, 6),), 5)",
+      "('numFactoredBinaryTrees', ((4, 2, 8),), 8)",
+      "('numFactoredBinaryTrees', ((2, 3, 5, 7, 11),), 5)",
+      "('numFactoredBinaryTrees', ((2, 4, 8, 16, 32),), 74)",
+      "('numFactoredBinaryTrees', ((2, 3, 4, 6, 12),), 18)",
+      "('numFactoredBinaryTrees', ((2, 4, 8, 16, 32, 64),), 262)",
+      "('numFactoredBinaryTrees', ((2, 3, 4, 6, 12, 24, 48, 96),), 649)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

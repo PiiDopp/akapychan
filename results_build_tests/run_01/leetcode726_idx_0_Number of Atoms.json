@@ -33,24 +33,12 @@
         "output": "H2O\n"
       },
       {
+        "input": "H2O2\n",
+        "output": "H2O2\n"
+      },
+      {
         "input": "NaCl\n",
         "output": "ClNa\n"
-      },
-      {
-        "input": "C\n",
-        "output": "C\n"
-      },
-      {
-        "input": "Mg(OH)2\n",
-        "output": "H2MgO2\n"
-      },
-      {
-        "input": "K4(ON(SO3)2)2\n",
-        "output": "K4N2O14S4\n"
-      },
-      {
-        "input": "((H)2)3\n",
-        "output": "H6\n"
       },
       {
         "input": "Uuo2\n",
@@ -58,47 +46,54 @@
       },
       {
         "input": "H2O2He3Mg4\n",
-        "output": "H2He3Mg4O2\n"
+        "output": "He3H2Mg4O2\n"
       },
       {
-        "input": "((H2O)3)2\n",
+        "input": "(H2O)\n",
+        "output": "H2O\n"
+      },
+      {
+        "input": "(H2O)3\n",
+        "output": "H6O3\n"
+      },
+      {
+        "input": "((H2O)2)3\n",
         "output": "H12O6\n"
       },
       {
-        "input": "K4(ON(SO3)2)1\n",
-        "output": "K4O7S2\n"
+        "input": "K4(ON(SO3)2)2\n",
+        "output": "K4N2O14S4\n"
       },
       {
-        "input": "(NaCl)\n",
-        "output": "ClNa\n"
+        "input": "Mg(OH)2\n",
+        "output": "H2MgO2\n"
       },
       {
-        "input": "C1000000H2000000O3000000\n",
-        "output": "C1000000H2000000O3000000\n"
+        "input": "C6H12O6\n",
+        "output": "C6H12O6\n"
       },
       {
-        "input": "Fe2O3\n",
-        "output": "Fe2O3\n"
+        "input": "(H)\n",
+        "output": "H\n"
       }
     ],
     "parsed_tests": [
       "('countOfAtoms', ('H2O\\n',), 'H2O\\n')",
+      "('countOfAtoms', ('H2O2\\n',), 'H2O2\\n')",
       "('countOfAtoms', ('NaCl\\n',), 'ClNa\\n')",
-      "('countOfAtoms', ('C\\n',), 'C\\n')",
-      "('countOfAtoms', ('Mg(OH)2\\n',), 'H2MgO2\\n')",
-      "('countOfAtoms', ('K4(ON(SO3)2)2\\n',), 'K4N2O14S4\\n')",
-      "('countOfAtoms', ('((H)2)3\\n',), 'H6\\n')",
       "('countOfAtoms', ('Uuo2\\n',), 'Uuo2\\n')",
-      "('countOfAtoms', ('H2O2He3Mg4\\n',), 'H2He3Mg4O2\\n')",
-      "('countOfAtoms', ('((H2O)3)2\\n',), 'H12O6\\n')",
-      "('countOfAtoms', ('K4(ON(SO3)2)1\\n',), 'K4O7S2\\n')",
-      "('countOfAtoms', ('(NaCl)\\n',), 'ClNa\\n')",
-      "('countOfAtoms', ('C1000000H2000000O3000000\\n',), 'C1000000H2000000O3000000\\n')",
-      "('countOfAtoms', ('Fe2O3\\n',), 'Fe2O3\\n')"
+      "('countOfAtoms', ('H2O2He3Mg4\\n',), 'He3H2Mg4O2\\n')",
+      "('countOfAtoms', ('(H2O)\\n',), 'H2O\\n')",
+      "('countOfAtoms', ('(H2O)3\\n',), 'H6O3\\n')",
+      "('countOfAtoms', ('((H2O)2)3\\n',), 'H12O6\\n')",
+      "('countOfAtoms', ('K4(ON(SO3)2)2\\n',), 'K4N2O14S4\\n')",
+      "('countOfAtoms', ('Mg(OH)2\\n',), 'H2MgO2\\n')",
+      "('countOfAtoms', ('C6H12O6\\n',), 'C6H12O6\\n')",
+      "('countOfAtoms', ('(H)\\n',), 'H\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: countOfAtoms('H2O\\n',)\n  標準輸出: 'H2O\\n'\n  你的輸出: '\\nH2O'\n\n[測試#2] ❌ 失敗\n  標準輸入: countOfAtoms('NaCl\\n',)\n  標準輸出: 'ClNa\\n'\n  你的輸出: '\\nClNa'\n\n[測試#3] ❌ 失敗\n  標準輸入: countOfAtoms('C\\n',)\n  標準輸出: 'C\\n'\n  你的輸出: '\\nC'\n\n[測試#4] ❌ 失敗\n  標準輸入: countOfAtoms('Mg(OH)2\\n',)\n  標準輸出: 'H2MgO2\\n'\n  你的輸出: '\\nH2MgO2'\n\n[測試#5] ❌ 失敗\n  標準輸入: countOfAtoms('K4(ON(SO3)2)2\\n',)\n  標準輸出: 'K4N2O14S4\\n'\n  你的輸出: '\\nK4N2O14S4'\n\n[測試#6] ❌ 失敗\n  標準輸入: countOfAtoms('((H)2)3\\n',)\n  標準輸出: 'H6\\n'\n  你的輸出: '\\nH6'\n\n[測試#7] ❌ 失敗\n  標準輸入: countOfAtoms('Uuo2\\n',)\n  標準輸出: 'Uuo2\\n'\n  你的輸出: '\\nUuo2'\n\n[測試#8] ❌ 失敗\n  標準輸入: countOfAtoms('H2O2He3Mg4\\n',)\n  標準輸出: 'H2He3Mg4O2\\n'\n  你的輸出: '\\nH2He3Mg4O2'\n\n[測試#9] ❌ 失敗\n  標準輸入: countOfAtoms('((H2O)3)2\\n',)\n  標準輸出: 'H12O6\\n'\n  你的輸出: '\\nH12O6'\n\n[測試#10] ❌ 失敗\n  標準輸入: countOfAtoms('K4(ON(SO3)2)1\\n',)\n  標準輸出: 'K4O7S2\\n'\n  你的輸出: '\\nK4NO7S2'\n\n[測試#11] ❌ 失敗\n  標準輸入: countOfAtoms('(NaCl)\\n',)\n  標準輸出: 'ClNa\\n'\n  你的輸出: '\\nClNa'\n\n[測試#12] ❌ 失敗\n  標準輸入: countOfAtoms('C1000000H2000000O3000000\\n',)\n  標準輸出: 'C1000000H2000000O3000000\\n'\n  你的輸出: '\\nC1000000H2000000O3000000'\n\n[測試#13] ❌ 失敗\n  標準輸入: countOfAtoms('Fe2O3\\n',)\n  標準輸出: 'Fe2O3\\n'\n  你的輸出: '\\nFe2O3'\n\n=== 測試完成 (0/13) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: countOfAtoms('H2O\\n',)\n  標準輸出: 'H2O\\n'\n  你的輸出: '\\nH2O'\n\n[測試#2] ❌ 失敗\n  標準輸入: countOfAtoms('H2O2\\n',)\n  標準輸出: 'H2O2\\n'\n  你的輸出: '\\nH2O2'\n\n[測試#3] ❌ 失敗\n  標準輸入: countOfAtoms('NaCl\\n',)\n  標準輸出: 'ClNa\\n'\n  你的輸出: '\\nClNa'\n\n[測試#4] ❌ 失敗\n  標準輸入: countOfAtoms('Uuo2\\n',)\n  標準輸出: 'Uuo2\\n'\n  你的輸出: '\\nUuo2'\n\n[測試#5] ❌ 失敗\n  標準輸入: countOfAtoms('H2O2He3Mg4\\n',)\n  標準輸出: 'He3H2Mg4O2\\n'\n  你的輸出: '\\nH2He3Mg4O2'\n\n[測試#6] ❌ 失敗\n  標準輸入: countOfAtoms('(H2O)\\n',)\n  標準輸出: 'H2O\\n'\n  你的輸出: '\\nH2O'\n\n[測試#7] ❌ 失敗\n  標準輸入: countOfAtoms('(H2O)3\\n',)\n  標準輸出: 'H6O3\\n'\n  你的輸出: '\\nH6O3'\n\n[測試#8] ❌ 失敗\n  標準輸入: countOfAtoms('((H2O)2)3\\n',)\n  標準輸出: 'H12O6\\n'\n  你的輸出: '\\nH12O6'\n\n[測試#9] ❌ 失敗\n  標準輸入: countOfAtoms('K4(ON(SO3)2)2\\n',)\n  標準輸出: 'K4N2O14S4\\n'\n  你的輸出: '\\nK4N2O14S4'\n\n[測試#10] ❌ 失敗\n  標準輸入: countOfAtoms('Mg(OH)2\\n',)\n  標準輸出: 'H2MgO2\\n'\n  你的輸出: '\\nH2MgO2'\n\n[測試#11] ❌ 失敗\n  標準輸入: countOfAtoms('C6H12O6\\n',)\n  標準輸出: 'C6H12O6\\n'\n  你的輸出: '\\nC6H12O6'\n\n[測試#12] ❌ 失敗\n  標準輸入: countOfAtoms('(H)\\n',)\n  標準輸出: 'H\\n'\n  你的輸出: '\\nH'\n\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 13,
+    "total_tests": 12,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

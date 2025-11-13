@@ -22,76 +22,51 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "ab\n",
-        "output": "ab\n"
-      },
-      {
-        "input": "a\n",
-        "output": "a\n"
-      },
-      {
-        "input": "aa\n",
-        "output": "\n"
-      },
-      {
-        "input": "aabb\n",
-        "output": "\n"
-      },
-      {
-        "input": "aaabc\n",
-        "output": "abaca\n"
+        "input": "aab\n",
+        "output": "aba\n"
       },
       {
         "input": "aaab\n",
         "output": "\n"
       },
       {
-        "input": "aaabbc\n",
+        "input": "aa\n",
         "output": "\n"
       },
       {
-        "input": "abcabc\n",
-        "output": "abcaca\n"
+        "input": "a\n",
+        "output": "a\n"
       },
       {
-        "input": "aaabbbccc\n",
-        "output": "\n"
+        "input": "abcd\n",
+        "output": "abcd\n"
       },
       {
-        "input": "aab\n",
-        "output": "aba\n"
+        "input": "aaabc\n",
+        "output": "abaca\n"
       },
       {
-        "input": "abcc\n",
-        "output": "cabc\n"
+        "input": "vvvlo\n",
+        "output": "vlvov\n"
       },
       {
-        "input": "aabbcc\n",
-        "output": "abcaca\n"
-      },
-      {
-        "input": "aaa\n",
+        "input": "\n",
         "output": "\n"
       }
     ],
     "parsed_tests": [
-      "('reorganizeString', ('ab\\n',), 'ab\\n')",
-      "('reorganizeString', ('a\\n',), 'a\\n')",
-      "('reorganizeString', ('aa\\n',), '\\n')",
-      "('reorganizeString', ('aabb\\n',), '\\n')",
-      "('reorganizeString', ('aaabc\\n',), 'abaca\\n')",
-      "('reorganizeString', ('aaab\\n',), '\\n')",
-      "('reorganizeString', ('aaabbc\\n',), '\\n')",
-      "('reorganizeString', ('abcabc\\n',), 'abcaca\\n')",
-      "('reorganizeString', ('aaabbbccc\\n',), '\\n')",
       "('reorganizeString', ('aab\\n',), 'aba\\n')",
-      "('reorganizeString', ('abcc\\n',), 'cabc\\n')",
-      "('reorganizeString', ('aabbcc\\n',), 'abcaca\\n')",
-      "('reorganizeString', ('aaa\\n',), '\\n')"
+      "('reorganizeString', ('aaab\\n',), '\\n')",
+      "('reorganizeString', ('aa\\n',), '\\n')",
+      "('reorganizeString', ('a\\n',), 'a\\n')",
+      "('reorganizeString', ('abcd\\n',), 'abcd\\n')",
+      "('reorganizeString', ('aaabc\\n',), 'abaca\\n')",
+      "('reorganizeString', ('vvvlo\\n',), 'vlvov\\n')",
+      "('reorganizeString', ((),), '\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reorganizeString('ab\\n',)\n  標準輸出: 'ab\\n'\n  你的輸出: '\\nab'\n\n[測試#2] ❌ 失敗\n  標準輸入: reorganizeString('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: '\\na'\n\n[測試#3] ❌ 失敗\n  標準輸入: reorganizeString('aa\\n',)\n  標準輸出: '\\n'\n  你的輸出: 'a\\na'\n\n[測試#4] ❌ 失敗\n  標準輸入: reorganizeString('aabb\\n',)\n  標準輸出: '\\n'\n  你的輸出: 'ab\\nab'\n\n[測試#5] ❌ 失敗\n  標準輸入: reorganizeString('aaabc\\n',)\n  標準輸出: 'abaca\\n'\n  你的輸出: 'a\\nabac'\n\n[測試#6] ❌ 失敗\n  標準輸入: reorganizeString('aaab\\n',)\n  標準輸出: '\\n'\n  你的輸出: 'a\\naba'\n\n[測試#7] ❌ 失敗\n  標準輸入: reorganizeString('aaabbc\\n',)\n  標準輸出: '\\n'\n  你的輸出: 'aba\\nabc'\n\n[測試#8] ❌ 失敗\n  標準輸入: reorganizeString('abcabc\\n',)\n  標準輸出: 'abcaca\\n'\n  你的輸出: 'abc\\nabc'\n\n[測試#9] ❌ 失敗\n  標準輸入: reorganizeString('aaabbbccc\\n',)\n  標準輸出: '\\n'\n  你的輸出: 'abcabc\\nabc'\n\n[測試#10] ❌ 失敗\n  標準輸入: reorganizeString('aab\\n',)\n  標準輸出: 'aba\\n'\n  你的輸出: 'a\\nab'\n\n[測試#11] ❌ 失敗\n  標準輸入: reorganizeString('abcc\\n',)\n  標準輸出: 'cabc\\n'\n  你的輸出: 'c\\nabc'\n\n[測試#12] ❌ 失敗\n  標準輸入: reorganizeString('aabbcc\\n',)\n  標準輸出: 'abcaca\\n'\n  你的輸出: 'abc\\nabc'\n\n[測試#13] ❌ 失敗\n  標準輸入: reorganizeString('aaa\\n',)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n=== 測試完成 (0/13) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reorganizeString('aab\\n',)\n  標準輸出: 'aba\\n'\n  你的輸出: 'a\\nab'\n\n[測試#2] ❌ 失敗\n  標準輸入: reorganizeString('aaab\\n',)\n  標準輸出: '\\n'\n  你的輸出: 'a\\naba'\n\n[測試#3] ❌ 失敗\n  標準輸入: reorganizeString('aa\\n',)\n  標準輸出: '\\n'\n  你的輸出: 'a\\na'\n\n[測試#4] ❌ 失敗\n  標準輸入: reorganizeString('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: '\\na'\n\n[測試#5] ❌ 失敗\n  標準輸入: reorganizeString('abcd\\n',)\n  標準輸出: 'abcd\\n'\n  你的輸出: '\\nabcd'\n\n[測試#6] ❌ 失敗\n  標準輸入: reorganizeString('aaabc\\n',)\n  標準輸出: 'abaca\\n'\n  你的輸出: 'a\\nabac'\n\n[測試#7] ❌ 失敗\n  標準輸入: reorganizeString('vvvlo\\n',)\n  標準輸出: 'vlvov\\n'\n  你的輸出: 'v\\nvlov'\n\n[測試#8] ❌ 失敗\n  標準輸入: reorganizeString((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 13,
+    "total_tests": 8,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

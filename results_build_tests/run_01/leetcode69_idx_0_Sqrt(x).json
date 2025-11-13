@@ -20,14 +20,126 @@
     "solution": "class Solution(object):\n    def mySqrt(self, x):\n        \"\"\"\n        :type x: int\n        :rtype: int\n        \"\"\"\n        if x < 2:\n            return x\n        \n        left, right = 1, x // 2\n        while left <= right:\n            mid = (left + right) // 2\n            if mid * mid == x:\n                return mid\n            elif mid * mid < x:\n                left = mid + 1\n            else:\n                right = mid - 1\n        \n        return right"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
-    "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n",
+        "output": "1\n"
+      },
+      {
+        "input": "4\n",
+        "output": "2\n"
+      },
+      {
+        "input": "5\n",
+        "output": "2\n"
+      },
+      {
+        "input": "10\n",
+        "output": "3\n"
+      },
+      {
+        "input": "15\n",
+        "output": "3\n"
+      },
+      {
+        "input": "16\n",
+        "output": "4\n"
+      },
+      {
+        "input": "17\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1000000\n",
+        "output": "1000\n"
+      },
+      {
+        "input": "999999\n",
+        "output": "999\n"
+      },
+      {
+        "input": "99980001\n",
+        "output": "9999\n"
+      },
+      {
+        "input": "99980002\n",
+        "output": "9999\n"
+      },
+      {
+        "input": "2147395600\n",
+        "output": "46340\n"
+      },
+      {
+        "input": "2147395601\n",
+        "output": "46340\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "46340\n"
+      },
+      {
+        "input": "2147483648\n",
+        "output": "46340\n"
+      },
+      {
+        "input": "1073741824\n",
+        "output": "32768\n"
+      },
+      {
+        "input": "1073741825\n",
+        "output": "32768\n"
+      },
+      {
+        "input": "1000000000000\n",
+        "output": "1000000\n"
+      },
+      {
+        "input": "999999999999999999\n",
+        "output": "999999999\n"
+      }
+    ],
+    "parsed_tests": [
+      "('mySqrt', (0,), 0)",
+      "('mySqrt', (1,), 1)",
+      "('mySqrt', (2,), 1)",
+      "('mySqrt', (3,), 1)",
+      "('mySqrt', (4,), 2)",
+      "('mySqrt', (5,), 2)",
+      "('mySqrt', (10,), 3)",
+      "('mySqrt', (15,), 3)",
+      "('mySqrt', (16,), 4)",
+      "('mySqrt', (17,), 4)",
+      "('mySqrt', (1000000,), 1000)",
+      "('mySqrt', (999999,), 999)",
+      "('mySqrt', (99980001,), 9999)",
+      "('mySqrt', (99980002,), 9999)",
+      "('mySqrt', (2147395600,), 46340)",
+      "('mySqrt', (2147395601,), 46340)",
+      "('mySqrt', (2147483647,), 46340)",
+      "('mySqrt', (2147483648,), 46340)",
+      "('mySqrt', (1073741824,), 32768)",
+      "('mySqrt', (1073741825,), 32768)",
+      "('mySqrt', (1000000000000,), 1000000)",
+      "('mySqrt', (999999999999999999,), 999999999)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: mySqrt(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: mySqrt(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: mySqrt(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: mySqrt(3,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: mySqrt(4,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: mySqrt(5,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: mySqrt(10,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#8] ✅ 通過\n  標準輸入: mySqrt(15,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#9] ✅ 通過\n  標準輸入: mySqrt(16,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: mySqrt(17,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#11] ✅ 通過\n  標準輸入: mySqrt(1000000,)\n  標準輸出: 1000\n  你的輸出: 1000\n\n[測試#12] ✅ 通過\n  標準輸入: mySqrt(999999,)\n  標準輸出: 999\n  你的輸出: 999\n\n[測試#13] ✅ 通過\n  標準輸入: mySqrt(99980001,)\n  標準輸出: 9999\n  你的輸出: 9999\n\n[測試#14] ✅ 通過\n  標準輸入: mySqrt(99980002,)\n  標準輸出: 9999\n  你的輸出: 9999\n\n[測試#15] ✅ 通過\n  標準輸入: mySqrt(2147395600,)\n  標準輸出: 46340\n  你的輸出: 46340\n\n[測試#16] ✅ 通過\n  標準輸入: mySqrt(2147395601,)\n  標準輸出: 46340\n  你的輸出: 46340\n\n[測試#17] ✅ 通過\n  標準輸入: mySqrt(2147483647,)\n  標準輸出: 46340\n  你的輸出: 46340\n\n[測試#18] ✅ 通過\n  標準輸入: mySqrt(2147483648,)\n  標準輸出: 46340\n  你的輸出: 46340\n\n[測試#19] ✅ 通過\n  標準輸入: mySqrt(1073741824,)\n  標準輸出: 32768\n  你的輸出: 32768\n\n[測試#20] ✅ 通過\n  標準輸入: mySqrt(1073741825,)\n  標準輸出: 32768\n  你的輸出: 32768\n\n[測試#21] ✅ 通過\n  標準輸入: mySqrt(1000000000000,)\n  標準輸出: 1000000\n  你的輸出: 1000000\n\n[測試#22] ✅ 通過\n  標準輸入: mySqrt(999999999999999999,)\n  標準輸出: 999999999\n  你的輸出: 999999999\n\n=== 測試完成 (22/22) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 22,
+    "passed_count": 22,
+    "accuracy_rate": 1.0
   }
 }

@@ -35,79 +35,69 @@
         "output": "2\n"
       },
       {
-        "input": "[1, 1, 1]\n1\n",
+        "input": "[1, 3, 1]\n3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[1, 1, 1]\n2\n",
         "output": "0\n"
       },
       {
-        "input": "[1, 1, 1]\n3\n",
+        "input": "[-1, -3, -1]\n1\n",
         "output": "0\n"
       },
       {
-        "input": "[1, 2, 3, 4]\n3\n",
-        "output": "1\n"
-      },
-      {
-        "input": "[1, 2, 3, 4]\n6\n",
+        "input": "[10, 1, 4, 7]\n2\n",
         "output": "3\n"
       },
       {
-        "input": "[4, 1, 3, 2]\n3\n",
-        "output": "1\n"
-      },
-      {
-        "input": "[-1, 2, 4]\n2\n",
-        "output": "3\n"
-      },
-      {
-        "input": "[-5, -4, -3]\n2\n",
-        "output": "1\n"
-      },
-      {
-        "input": "[5, 5]\n1\n",
+        "input": "[0, 0, 0]\n1\n",
         "output": "0\n"
+      },
+      {
+        "input": "[-1000000, 1000000]\n1\n",
+        "output": "2000000\n"
       },
       {
         "input": "[5, 10]\n1\n",
         "output": "5\n"
       },
       {
-        "input": "[1000000, 1000001]\n1\n",
-        "output": "1\n"
+        "input": "[-5, 0, 5]\n2\n",
+        "output": "5\n"
       },
       {
-        "input": "[0, 0, 0]\n2\n",
+        "input": "[2, 2, 2, 2]\n5\n",
         "output": "0\n"
       },
       {
-        "input": "[0, 1]\n1\n",
-        "output": "1\n"
+        "input": "[-2, 0, 2, 4]\n3\n",
+        "output": "2\n"
       },
       {
-        "input": "[1, 100, 200]\n2\n",
-        "output": "100\n"
+        "input": "[1, 2, 3, 4, 5]\n10\n",
+        "output": "4\n"
       }
     ],
     "parsed_tests": [
       "('smallestDistancePair', ([1, 1, 3], 1), 0)",
       "('smallestDistancePair', ([1, 1, 3], 2), 2)",
-      "('smallestDistancePair', ([1, 1, 1], 1), 0)",
-      "('smallestDistancePair', ([1, 1, 1], 3), 0)",
-      "('smallestDistancePair', ([1, 2, 3, 4], 3), 1)",
-      "('smallestDistancePair', ([1, 2, 3, 4], 6), 3)",
-      "('smallestDistancePair', ([1, 2, 3, 4], 3), 1)",
-      "('smallestDistancePair', ([-1, 2, 4], 2), 3)",
-      "('smallestDistancePair', ([-5, -4, -3], 2), 1)",
-      "('smallestDistancePair', ([5, 5], 1), 0)",
+      "('smallestDistancePair', ([1, 1, 3], 3), 2)",
+      "('smallestDistancePair', ([1, 1, 1], 2), 0)",
+      "('smallestDistancePair', ([-3, -1, -1], 1), 0)",
+      "('smallestDistancePair', ([1, 4, 7, 10], 2), 3)",
+      "('smallestDistancePair', ([0, 0, 0], 1), 0)",
+      "('smallestDistancePair', ([-1000000, 1000000], 1), 2000000)",
       "('smallestDistancePair', ([5, 10], 1), 5)",
-      "('smallestDistancePair', ([1000000, 1000001], 1), 1)",
-      "('smallestDistancePair', ([0, 0, 0], 2), 0)",
-      "('smallestDistancePair', ([0, 1], 1), 1)",
-      "('smallestDistancePair', ([1, 100, 200], 2), 100)"
+      "('smallestDistancePair', ([-5, 0, 5], 2), 5)",
+      "('smallestDistancePair', ([2, 2, 2, 2], 5), 0)",
+      "('smallestDistancePair', ([-2, 0, 2, 4], 3), 2)",
+      "('smallestDistancePair', ([1, 2, 3, 4, 5], 10), 4)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: smallestDistancePair([1, 1, 3], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: smallestDistancePair([1, 1, 3], 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: smallestDistancePair([1, 1, 1], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: smallestDistancePair([1, 1, 1], 3)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: smallestDistancePair([1, 2, 3, 4], 3)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: smallestDistancePair([1, 2, 3, 4], 6)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: smallestDistancePair([1, 2, 3, 4], 3)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: smallestDistancePair([-1, 2, 4], 2)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#9] ✅ 通過\n  標準輸入: smallestDistancePair([-5, -4, -3], 2)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: smallestDistancePair([5, 5], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#11] ✅ 通過\n  標準輸入: smallestDistancePair([5, 10], 1)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#12] ✅ 通過\n  標準輸入: smallestDistancePair([1000000, 1000001], 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#13] ✅ 通過\n  標準輸入: smallestDistancePair([0, 0, 0], 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#14] ✅ 通過\n  標準輸入: smallestDistancePair([0, 1], 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#15] ✅ 通過\n  標準輸入: smallestDistancePair([1, 100, 200], 2)\n  標準輸出: 100\n  你的輸出: 100\n\n=== 測試完成 (15/15) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: smallestDistancePair([1, 1, 3], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: smallestDistancePair([1, 1, 3], 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: smallestDistancePair([1, 1, 3], 3)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: smallestDistancePair([1, 1, 1], 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: smallestDistancePair([-3, -1, -1], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: smallestDistancePair([1, 4, 7, 10], 2)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: smallestDistancePair([0, 0, 0], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: smallestDistancePair([-1000000, 1000000], 1)\n  標準輸出: 2000000\n  你的輸出: 2000000\n\n[測試#9] ✅ 通過\n  標準輸入: smallestDistancePair([5, 10], 1)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#10] ✅ 通過\n  標準輸入: smallestDistancePair([-5, 0, 5], 2)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#11] ✅ 通過\n  標準輸入: smallestDistancePair([2, 2, 2, 2], 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: smallestDistancePair([-2, 0, 2, 4], 3)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#13] ✅ 通過\n  標準輸入: smallestDistancePair([1, 2, 3, 4, 5], 10)\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (13/13) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
     "all_passed": true,
-    "total_tests": 15,
-    "passed_count": 15,
+    "total_tests": 13,
+    "passed_count": 13,
     "accuracy_rate": 1.0
   }
 }

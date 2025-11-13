@@ -22,56 +22,14 @@
     "solution": "import collections\n\nclass Solution:\n    def canConstruct(self, ransomNote, magazine):\n        ransom_count = collections.Counter(ransomNote)\n        magazine_count = collections.Counter(magazine)\n        \n        for char in ransom_count:\n            if ransom_count[char] > magazine_count.get(char, 0):\n                return False\n        return True"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "['hello', 'hello world']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['hello', 'helo']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['aaa', 'aa']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['', 'anymagazine']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['note', '']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['aA', 'aa']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['!@#', '#@!']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abcabc', 'aabbcc']\n",
-        "output": "True\n"
-      }
-    ],
-    "parsed_tests": [
-      "('canConstruct', ('hello', 'hello world'), True)",
-      "('canConstruct', ('hello', 'helo'), False)",
-      "('canConstruct', ('aaa', 'aa'), False)",
-      "('canConstruct', ('', 'anymagazine'), True)",
-      "('canConstruct', ('note', ''), False)",
-      "('canConstruct', ('aA', 'aa'), False)",
-      "('canConstruct', ('!@#', '#@!'), True)",
-      "('canConstruct', ('abcabc', 'aabbcc'), True)"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: canConstruct('hello', 'hello world')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: canConstruct('hello', 'helo')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: canConstruct('aaa', 'aa')\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: canConstruct('', 'anymagazine')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: canConstruct('note', '')\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: canConstruct('aA', 'aa')\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: canConstruct('!@#', '#@!')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: canConstruct('abcabc', 'aabbcc')\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
-    "all_passed": true,
-    "total_tests": 8,
-    "passed_count": 8,
-    "accuracy_rate": 1.0
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
   }
 }

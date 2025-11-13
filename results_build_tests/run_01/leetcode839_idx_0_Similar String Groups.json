@@ -34,45 +34,60 @@
         "output": "1\n"
       },
       {
+        "input": "['abcd', 'badc', 'cdab', 'dcba']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['abcd', 'abcd', 'badc', 'badc']\n",
+        "output": "2\n"
+      },
+      {
         "input": "['tars', 'rats', 'arts', 'star']\n",
         "output": "2\n"
       },
       {
         "input": "['abc', 'acb', 'bac', 'bca', 'cab', 'cba']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['a', 'a', 'a']\n",
-        "output": "1\n"
+        "output": "2\n"
       },
       {
         "input": "['ab', 'ba', 'ab']\n",
         "output": "1\n"
       },
       {
-        "input": "['abcd', 'abdc', 'acbd', 'bacd']\n",
+        "input": "['aabb', 'abab', 'bbaa', 'baba']\n",
         "output": "1\n"
       },
       {
-        "input": "['abcd', 'badc', 'cdab', 'dcba']\n",
-        "output": "4\n"
+        "input": "['abcd', 'abcd', 'abcd', 'badc', 'badc']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['abc', 'acb', 'bac', 'bca', 'cab', 'cba', 'abc', 'acb', 'bac', 'bca']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['a', 'a', 'a']\n",
+        "output": "1\n"
       }
     ],
     "parsed_tests": [
       "('numSimilarGroups', ((),), 0)",
       "('numSimilarGroups', (['abc'],), 1)",
       "('numSimilarGroups', (['abc', 'abc', 'abc'],), 1)",
+      "('numSimilarGroups', (['abcd', 'badc', 'cdab', 'dcba'],), 4)",
+      "('numSimilarGroups', (['abcd', 'abcd', 'badc', 'badc'],), 2)",
       "('numSimilarGroups', (['tars', 'rats', 'arts', 'star'],), 2)",
-      "('numSimilarGroups', (['abc', 'acb', 'bac', 'bca', 'cab', 'cba'],), 1)",
-      "('numSimilarGroups', (['a', 'a', 'a'],), 1)",
+      "('numSimilarGroups', (['abc', 'acb', 'bac', 'bca', 'cab', 'cba'],), 2)",
       "('numSimilarGroups', (['ab', 'ba', 'ab'],), 1)",
-      "('numSimilarGroups', (['abcd', 'abdc', 'acbd', 'bacd'],), 1)",
-      "('numSimilarGroups', (['abcd', 'badc', 'cdab', 'dcba'],), 4)"
+      "('numSimilarGroups', (['aabb', 'abab', 'bbaa', 'baba'],), 1)",
+      "('numSimilarGroups', (['abcd', 'abcd', 'abcd', 'badc', 'badc'],), 2)",
+      "('numSimilarGroups', (['abc', 'acb', 'bac', 'bca', 'cab', 'cba', 'abc', 'acb', 'bac', 'bca'],), 1)",
+      "('numSimilarGroups', (['a', 'a', 'a'],), 1)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numSimilarGroups((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: numSimilarGroups(['abc'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numSimilarGroups(['abc', 'abc', 'abc'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: numSimilarGroups(['tars', 'rats', 'arts', 'star'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: numSimilarGroups(['abc', 'acb', 'bac', 'bca', 'cab', 'cba'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: numSimilarGroups(['a', 'a', 'a'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: numSimilarGroups(['ab', 'ba', 'ab'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: numSimilarGroups(['abcd', 'abdc', 'acbd', 'bacd'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: numSimilarGroups(['abcd', 'badc', 'cdab', 'dcba'],)\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (9/9) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
-    "all_passed": true,
-    "total_tests": 9,
-    "passed_count": 9,
-    "accuracy_rate": 1.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numSimilarGroups((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: numSimilarGroups(['abc'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numSimilarGroups(['abc', 'abc', 'abc'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: numSimilarGroups(['abcd', 'badc', 'cdab', 'dcba'],)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#5] ✅ 通過\n  標準輸入: numSimilarGroups(['abcd', 'abcd', 'badc', 'badc'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: numSimilarGroups(['tars', 'rats', 'arts', 'star'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ❌ 失敗\n  標準輸入: numSimilarGroups(['abc', 'acb', 'bac', 'bca', 'cab', 'cba'],)\n  標準輸出: 2\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: numSimilarGroups(['ab', 'ba', 'ab'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: numSimilarGroups(['aabb', 'abab', 'bbaa', 'baba'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: numSimilarGroups(['abcd', 'abcd', 'abcd', 'badc', 'badc'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#11] ✅ 通過\n  標準輸入: numSimilarGroups(['abc', 'acb', 'bac', 'bca', 'cab', 'cba', 'abc', 'acb', 'bac', 'bca'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#12] ✅ 通過\n  標準輸入: numSimilarGroups(['a', 'a', 'a'],)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (11/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 11,
+    "accuracy_rate": 0.9166666666666666
   }
 }

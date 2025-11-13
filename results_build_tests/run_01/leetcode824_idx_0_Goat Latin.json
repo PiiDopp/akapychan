@@ -18,13 +18,65 @@
     "solution": "class Solution:\n    def toGoatLatin(self, sentence):\n        vowels = set('aeiouAEIOU')\n        words = sentence.split()\n        res = []\n        for i, word in enumerate(words, 1):\n            if word[0] in vowels:\n                word = word + 'ma'\n            else:\n                word = word[1:] + word[0] + 'ma'\n            word += 'a' * i\n            res.append(word)\n        return ' '.join(res)"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "I speak Goat Latin\n",
+        "output": "Imaa peaksmaaa oatGmaaaa atinLmaaaaa\n"
+      },
+      {
+        "input": "apple\n",
+        "output": "applemaa\n"
+      },
+      {
+        "input": "banana\n",
+        "output": "ananabmaa\n"
+      },
+      {
+        "input": "A\n",
+        "output": "Amaa\n"
+      },
+      {
+        "input": "b\n",
+        "output": "bmaa\n"
+      },
+      {
+        "input": "I am an AI\n",
+        "output": "Imaa ammaaa anmaaaa AImaaaaa\n"
+      },
+      {
+        "input": "Hello World\n",
+        "output": "elloHmaa orldWmaaa\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "Go  to  school\n",
+        "output": "oGmaa otmaaa hoolscmaaaa\n"
+      },
+      {
+        "input": "Umbrella Python\n",
+        "output": "Umbrellamaa ythonPmaa\n"
+      }
+    ],
+    "parsed_tests": [
+      "('toGoatLatin', ('I speak Goat Latin\\n',), 'Imaa peaksmaaa oatGmaaaa atinLmaaaaa\\n')",
+      "('toGoatLatin', ('apple\\n',), 'applemaa\\n')",
+      "('toGoatLatin', ('banana\\n',), 'ananabmaa\\n')",
+      "('toGoatLatin', ('A\\n',), 'Amaa\\n')",
+      "('toGoatLatin', ('b\\n',), 'bmaa\\n')",
+      "('toGoatLatin', ('I am an AI\\n',), 'Imaa ammaaa anmaaaa AImaaaaa\\n')",
+      "('toGoatLatin', ('Hello World\\n',), 'elloHmaa orldWmaaa\\n')",
+      "('toGoatLatin', ((),), '\\n')",
+      "('toGoatLatin', ('Go  to  school\\n',), 'oGmaa otmaaa hoolscmaaaa\\n')",
+      "('toGoatLatin', ('Umbrella Python\\n',), 'Umbrellamaa ythonPmaa\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: toGoatLatin('I speak Goat Latin\\n',)\n  標準輸出: 'Imaa peaksmaaa oatGmaaaa atinLmaaaaa\\n'\n  你的輸出: 'Imaa peaksmaaa oatGmaaaa atinLmaaaaa'\n\n[測試#2] ❌ 失敗\n  標準輸入: toGoatLatin('apple\\n',)\n  標準輸出: 'applemaa\\n'\n  你的輸出: 'applemaa'\n\n[測試#3] ❌ 失敗\n  標準輸入: toGoatLatin('banana\\n',)\n  標準輸出: 'ananabmaa\\n'\n  你的輸出: 'ananabmaa'\n\n[測試#4] ❌ 失敗\n  標準輸入: toGoatLatin('A\\n',)\n  標準輸出: 'Amaa\\n'\n  你的輸出: 'Amaa'\n\n[測試#5] ❌ 失敗\n  標準輸入: toGoatLatin('b\\n',)\n  標準輸出: 'bmaa\\n'\n  你的輸出: 'bmaa'\n\n[測試#6] ❌ 失敗\n  標準輸入: toGoatLatin('I am an AI\\n',)\n  標準輸出: 'Imaa ammaaa anmaaaa AImaaaaa\\n'\n  你的輸出: 'Imaa ammaaa anmaaaa AImaaaaa'\n\n[測試#7] ❌ 失敗\n  標準輸入: toGoatLatin('Hello World\\n',)\n  標準輸出: 'elloHmaa orldWmaaa\\n'\n  你的輸出: 'elloHmaa orldWmaaa'\n\n[測試#8] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#9] ❌ 失敗\n  標準輸入: toGoatLatin('Go  to  school\\n',)\n  標準輸出: 'oGmaa otmaaa hoolscmaaaa\\n'\n  你的輸出: 'oGmaa otmaaa choolsmaaaa'\n\n[測試#10] ❌ 失敗\n  標準輸入: toGoatLatin('Umbrella Python\\n',)\n  標準輸出: 'Umbrellamaa ythonPmaa\\n'\n  你的輸出: 'Umbrellamaa ythonPmaaa'\n\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 0,
+    "total_tests": 10,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

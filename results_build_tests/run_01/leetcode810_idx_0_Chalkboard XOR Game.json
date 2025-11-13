@@ -31,15 +31,23 @@
         "output": "True\n"
       },
       {
-        "input": "1\n",
+        "input": "5\n",
         "output": "False\n"
       },
       {
-        "input": "1\n1\n",
+        "input": "0\n0\n",
         "output": "True\n"
       },
       {
-        "input": "1\n2\n",
+        "input": "5\n5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n6\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n5\n",
         "output": "True\n"
       },
       {
@@ -47,7 +55,15 @@
         "output": "True\n"
       },
       {
+        "input": "1\n2\n4\n",
+        "output": "False\n"
+      },
+      {
         "input": "1\n2\n3\n4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n2\n3\n0\n",
         "output": "True\n"
       },
       {
@@ -55,7 +71,7 @@
         "output": "False\n"
       },
       {
-        "input": "1\n2\n3\n4\n5\n6\n",
+        "input": "1\n2\n3\n4\n5\n0\n",
         "output": "True\n"
       },
       {
@@ -63,76 +79,95 @@
         "output": "True\n"
       },
       {
-        "input": "1\n2\n3\n4\n5\n6\n7\n8\n",
-        "output": "True\n"
-      },
-      {
-        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n",
+        "input": "1\n2\n3\n4\n5\n6\n8\n",
         "output": "False\n"
       },
       {
-        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+        "input": "-5\n-5\n",
         "output": "True\n"
       },
       {
-        "input": "123456789\n987654321\n",
-        "output": "True\n"
-      },
-      {
-        "input": "-1\n-1\n",
-        "output": "True\n"
-      },
-      {
-        "input": "-1\n-2\n-3\n",
+        "input": "-5\n-5\n-5\n",
         "output": "False\n"
       },
       {
-        "input": "0\n0\n0\n",
+        "input": "-5\n-5\n-5\n-5\n",
         "output": "True\n"
       },
       {
-        "input": "0\n0\n0\n0\n",
+        "input": "1073741824\n1073741824\n",
         "output": "True\n"
       },
       {
-        "input": "0\n1\n2\n",
+        "input": "1073741824\n1073741824\n1073741824\n",
         "output": "False\n"
       },
       {
-        "input": "0\n1\n2\n3\n",
+        "input": "0\n1073741824\n",
         "output": "True\n"
       },
       {
-        "input": "0\n0\n1\n1\n2\n",
+        "input": "0\n1073741824\n1073741824\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n-5\n-5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n-5\n-5\n-5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n-1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n-1\n1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-2147483648\n-2147483648\n",
+        "output": "True\n"
+      },
+      {
+        "input": "-2147483648\n-2147483648\n-2147483648\n",
         "output": "False\n"
       }
     ],
     "parsed_tests": [
       "('xorGame', (0,), True)",
-      "('xorGame', (1,), False)",
-      "('xorGame', ((1, 1),), True)",
-      "('xorGame', ((1, 2),), True)",
+      "('xorGame', (5,), False)",
+      "('xorGame', ((0, 0),), True)",
+      "('xorGame', ((5, 5),), True)",
+      "('xorGame', ((5, 6),), True)",
+      "('xorGame', ((0, 5),), True)",
       "('xorGame', ((1, 2, 3),), True)",
+      "('xorGame', ((1, 2, 4),), False)",
       "('xorGame', ((1, 2, 3, 4),), True)",
+      "('xorGame', ((1, 2, 3, 0),), True)",
       "('xorGame', ((1, 2, 3, 4, 5),), False)",
-      "('xorGame', ((1, 2, 3, 4, 5, 6),), True)",
+      "('xorGame', ((1, 2, 3, 4, 5, 0),), True)",
       "('xorGame', ((1, 2, 3, 4, 5, 6, 7),), True)",
-      "('xorGame', ((1, 2, 3, 4, 5, 6, 7, 8),), True)",
-      "('xorGame', ((1, 2, 3, 4, 5, 6, 7, 8, 9),), False)",
-      "('xorGame', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),), True)",
-      "('xorGame', ((123456789, 987654321),), True)",
-      "('xorGame', ((-1, -1),), True)",
-      "('xorGame', ((-1, -2, -3),), False)",
-      "('xorGame', ((0, 0, 0),), True)",
-      "('xorGame', ((0, 0, 0, 0),), True)",
-      "('xorGame', ((0, 1, 2),), False)",
-      "('xorGame', ((0, 1, 2, 3),), True)",
-      "('xorGame', ((0, 0, 1, 1, 2),), False)"
+      "('xorGame', ((1, 2, 3, 4, 5, 6, 8),), False)",
+      "('xorGame', ((-5, -5),), True)",
+      "('xorGame', ((-5, -5, -5),), False)",
+      "('xorGame', ((-5, -5, -5, -5),), True)",
+      "('xorGame', ((1073741824, 1073741824),), True)",
+      "('xorGame', ((1073741824, 1073741824, 1073741824),), False)",
+      "('xorGame', ((0, 1073741824),), True)",
+      "('xorGame', ((0, 1073741824, 1073741824),), True)",
+      "('xorGame', ((0, -5, -5),), True)",
+      "('xorGame', ((0, -5, -5, -5),), True)",
+      "('xorGame', ((1, -1),), True)",
+      "('xorGame', ((1, -1, 1),), False)",
+      "('xorGame', ((-2147483648, -2147483648),), True)",
+      "('xorGame', ((-2147483648, -2147483648, -2147483648),), False)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: reduce() arg 2 must support iteration\n[測試#2] ❌ 執行例外: reduce() arg 2 must support iteration\n[測試#3] ✅ 通過\n  標準輸入: xorGame((1, 1),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: xorGame((1, 2),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: xorGame((1, 2, 3),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5, 6),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5, 6, 7),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5, 6, 7, 8),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5, 6, 7, 8, 9),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: xorGame((123456789, 987654321),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: xorGame((-1, -1),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: xorGame((-1, -2, -3),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: xorGame((0, 0, 0),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: xorGame((0, 0, 0, 0),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: xorGame((0, 1, 2),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: xorGame((0, 1, 2, 3),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: xorGame((0, 0, 1, 1, 2),)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (18/20) ===\n[警告] 部分測資未通過 ❌（0.0018s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: reduce() arg 2 must support iteration\n[測試#2] ❌ 執行例外: reduce() arg 2 must support iteration\n[測試#3] ✅ 通過\n  標準輸入: xorGame((0, 0),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: xorGame((5, 5),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: xorGame((5, 6),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: xorGame((0, 5),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: xorGame((1, 2, 3),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: xorGame((1, 2, 4),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 0),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5, 0),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5, 6, 7),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: xorGame((1, 2, 3, 4, 5, 6, 8),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: xorGame((-5, -5),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: xorGame((-5, -5, -5),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: xorGame((-5, -5, -5, -5),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: xorGame((1073741824, 1073741824),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: xorGame((1073741824, 1073741824, 1073741824),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#20] ✅ 通過\n  標準輸入: xorGame((0, 1073741824),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: xorGame((0, 1073741824, 1073741824),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#22] ✅ 通過\n  標準輸入: xorGame((0, -5, -5),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#23] ✅ 通過\n  標準輸入: xorGame((0, -5, -5, -5),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#24] ✅ 通過\n  標準輸入: xorGame((1, -1),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#25] ✅ 通過\n  標準輸入: xorGame((1, -1, 1),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#26] ✅ 通過\n  標準輸入: xorGame((-2147483648, -2147483648),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#27] ✅ 通過\n  標準輸入: xorGame((-2147483648, -2147483648, -2147483648),)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (25/27) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 20,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 27,
+    "passed_count": 25,
+    "accuracy_rate": 0.9259259259259259
   }
 }

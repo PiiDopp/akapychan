@@ -1,0 +1,84 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode151.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reverse Words in a String",
+    "description": "Given an input string s, reverse the order of the words.\n\nA word is defined as a sequence of non-space characters. The words in s will be separated by at least one space.\n\nReturn a string of the words in reverse order concatenated by a single space.\n\nNote that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.",
+    "examples": [
+      {
+        "input": "s = \"the sky is blue\"",
+        "output": "\"blue is sky the\""
+      },
+      {
+        "input": "s = \"  hello world  \"",
+        "output": "\"world hello\"",
+        "explanation": "Your reversed string should not contain leading or trailing spaces."
+      },
+      {
+        "input": "s = \"a good   example\"",
+        "output": "\"example good a\"",
+        "explanation": "You need to reduce multiple spaces between two words to a single space in the reversed string."
+      }
+    ],
+    "solution": "class Solution:\n    def reverseWords(self, s):\n        # 先去除前後多餘空格，再以空格分割，過濾掉多餘空格\n        words = s.strip().split()\n        words = [word for word in words if word]\n        # 反轉單詞順序後以單空格連接\n        return ' '.join(words[::-1])"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "the sky is blue\n",
+        "output": "blue is sky the\n"
+      },
+      {
+        "input": "hello world\n",
+        "output": "world hello\n"
+      },
+      {
+        "input": "a   b c\n",
+        "output": "c b a\n"
+      },
+      {
+        "input": "single\n",
+        "output": "single\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "Hello, world!  This is test.\n",
+        "output": "test. is This world! Hello,\n"
+      },
+      {
+        "input": "你好 世界\n",
+        "output": "世界 你好\n"
+      },
+      {
+        "input": "123 456 789\n",
+        "output": "789 456 123\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reverseWords', ('the sky is blue\\n',), 'blue is sky the\\n')",
+      "('reverseWords', ('hello world\\n',), 'world hello\\n')",
+      "('reverseWords', ('a   b c\\n',), 'c b a\\n')",
+      "('reverseWords', ('single\\n',), 'single\\n')",
+      "('reverseWords', ((),), '\\n')",
+      "('reverseWords', ((),), '\\n')",
+      "('reverseWords', ('Hello, world!  This is test.\\n',), 'test. is This world! Hello,\\n')",
+      "('reverseWords', ('你好 世界\\n',), '世界 你好\\n')",
+      "('reverseWords', ('123 456 789\\n',), '789 456 123\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reverseWords('the sky is blue\\n',)\n  標準輸出: 'blue is sky the\\n'\n  你的輸出: 'blue is sky the'\n\n[測試#2] ❌ 失敗\n  標準輸入: reverseWords('hello world\\n',)\n  標準輸出: 'world hello\\n'\n  你的輸出: 'world hello'\n\n[測試#3] ❌ 失敗\n  標準輸入: reverseWords('a   b c\\n',)\n  標準輸出: 'c b a\\n'\n  你的輸出: 'c b a'\n\n[測試#4] ❌ 失敗\n  標準輸入: reverseWords('single\\n',)\n  標準輸出: 'single\\n'\n  你的輸出: 'single'\n\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'strip'\n[測試#6] ❌ 執行例外: 'tuple' object has no attribute 'strip'\n[測試#7] ❌ 失敗\n  標準輸入: reverseWords('Hello, world!  This is test.\\n',)\n  標準輸出: 'test. is This world! Hello,\\n'\n  你的輸出: 'test. is This world! Hello,'\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseWords('你好 世界\\n',)\n  標準輸出: '世界 你好\\n'\n  你的輸出: '世界 你好'\n\n[測試#9] ❌ 失敗\n  標準輸入: reverseWords('123 456 789\\n',)\n  標準輸出: '789 456 123\\n'\n  你的輸出: '789 456 123'\n\n=== 測試完成 (0/9) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 9,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -28,61 +28,81 @@
     "generated_tests": [
       {
         "input": "['catsanddog', ['cat', 'cats', 'and', 'sand', 'dog']]\n",
-        "output": "['cats and dog', 'cat sand dog']\n"
-      },
-      {
-        "input": "['apple', ['apple']]\n",
-        "output": "['apple']\n"
+        "output": "['cat sand dog', 'cats and dog']\n"
       },
       {
         "input": "['catsandog', ['cat', 'cats', 'and', 'sand', 'dog']]\n",
         "output": "[]\n"
       },
       {
+        "input": "['', ['a', 'b']]\n",
+        "output": "['']\n"
+      },
+      {
+        "input": "['apple', ['apple']]\n",
+        "output": "['apple']\n"
+      },
+      {
+        "input": "['aaaa', ['a', 'aa']]\n",
+        "output": "['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa']\n"
+      },
+      {
         "input": "['pineapplepenapple', ['apple', 'pen', 'applepen', 'pine', 'pineapple']]\n",
         "output": "['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple']\n"
       },
       {
-        "input": "['', ['a']]\n",
-        "output": "['']\n"
+        "input": "['catsanddog', ['cat', 'cats', 'and', 'sand', 'dog', 'cat']]\n",
+        "output": "['cat sand dog', 'cats and dog']\n"
       },
       {
-        "input": "['aaaa', ['a', 'aa', 'aaa']]\n",
-        "output": "['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa', 'aaa a', 'a aaa']\n"
-      },
-      {
-        "input": "['abcd', ['a', 'ab', 'abc', 'abcd']]\n",
-        "output": "['abcd']\n"
-      },
-      {
-        "input": "['catcat', ['cat']]\n",
-        "output": "['cat cat']\n"
-      },
-      {
-        "input": "['Catsanddog', ['cat', 'cats', 'and', 'sand', 'dog']]\n",
-        "output": "[]\n"
+        "input": "['abc', ['a', 'b', 'c', 'ab', 'bc', 'abc']]\n",
+        "output": "['a b c', 'a bc', 'ab c', 'abc']\n"
       },
       {
         "input": "['a', ['a']]\n",
         "output": "['a']\n"
+      },
+      {
+        "input": "['a', []]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['ab', ['abc']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['ab', ['ab']]\n",
+        "output": "['ab']\n"
+      },
+      {
+        "input": "['ab', ['a', 'b', 'ab', 'c']]\n",
+        "output": "['a b', 'ab']\n"
+      },
+      {
+        "input": "['ab', []]\n",
+        "output": "[]\n"
       }
     ],
     "parsed_tests": [
-      "('wordBreak', ('catsanddog', ['cat', 'cats', 'and', 'sand', 'dog']), ['cats and dog', 'cat sand dog'])",
-      "('wordBreak', ('apple', ['apple']), ['apple'])",
+      "('wordBreak', ('catsanddog', ['cat', 'cats', 'and', 'sand', 'dog']), ['cat sand dog', 'cats and dog'])",
       "('wordBreak', ('catsandog', ['cat', 'cats', 'and', 'sand', 'dog']), [])",
+      "('wordBreak', ('', ['a', 'b']), [''])",
+      "('wordBreak', ('apple', ['apple']), ['apple'])",
+      "('wordBreak', ('aaaa', ['a', 'aa']), ['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa'])",
       "('wordBreak', ('pineapplepenapple', ['apple', 'pen', 'applepen', 'pine', 'pineapple']), ['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple'])",
-      "('wordBreak', ('', ['a']), [''])",
-      "('wordBreak', ('aaaa', ['a', 'aa', 'aaa']), ['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa', 'aaa a', 'a aaa'])",
-      "('wordBreak', ('abcd', ['a', 'ab', 'abc', 'abcd']), ['abcd'])",
-      "('wordBreak', ('catcat', ['cat']), ['cat cat'])",
-      "('wordBreak', ('Catsanddog', ['cat', 'cats', 'and', 'sand', 'dog']), [])",
-      "('wordBreak', ('a', ['a']), ['a'])"
+      "('wordBreak', ('catsanddog', ['cat', 'cats', 'and', 'sand', 'dog', 'cat']), ['cat sand dog', 'cats and dog'])",
+      "('wordBreak', ('abc', ['a', 'b', 'c', 'ab', 'bc', 'abc']), ['a b c', 'a bc', 'ab c', 'abc'])",
+      "('wordBreak', ('a', ['a']), ['a'])",
+      "('wordBreak', ('a', []), [])",
+      "('wordBreak', ('ab', ['abc']), [])",
+      "('wordBreak', ('ab', ['ab']), ['ab'])",
+      "('wordBreak', ('ab', ['a', 'b', 'ab', 'c']), ['a b', 'ab'])",
+      "('wordBreak', ('ab', []), [])"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: wordBreak('catsanddog', ['cat', 'cats', 'and', 'sand', 'dog'])\n  標準輸出: ['cats and dog', 'cat sand dog']\n  你的輸出: ['cat sand dog', 'cats and dog']\n\n[測試#2] ✅ 通過\n  標準輸入: wordBreak('apple', ['apple'])\n  標準輸出: ['apple']\n  你的輸出: ['apple']\n\n[測試#3] ✅ 通過\n  標準輸入: wordBreak('catsandog', ['cat', 'cats', 'and', 'sand', 'dog'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: wordBreak('pineapplepenapple', ['apple', 'pen', 'applepen', 'pine', 'pineapple'])\n  標準輸出: ['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple']\n  你的輸出: ['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple']\n\n[測試#5] ✅ 通過\n  標準輸入: wordBreak('', ['a'])\n  標準輸出: ['']\n  你的輸出: ['']\n\n[測試#6] ❌ 失敗\n  標準輸入: wordBreak('aaaa', ['a', 'aa', 'aaa'])\n  標準輸出: ['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa', 'aaa a', 'a aaa']\n  你的輸出: ['a a a a', 'a a aa', 'a aa a', 'a aaa', 'aa a a', 'aa aa', 'aaa a']\n\n[測試#7] ✅ 通過\n  標準輸入: wordBreak('abcd', ['a', 'ab', 'abc', 'abcd'])\n  標準輸出: ['abcd']\n  你的輸出: ['abcd']\n\n[測試#8] ✅ 通過\n  標準輸入: wordBreak('catcat', ['cat'])\n  標準輸出: ['cat cat']\n  你的輸出: ['cat cat']\n\n[測試#9] ✅ 通過\n  標準輸入: wordBreak('Catsanddog', ['cat', 'cats', 'and', 'sand', 'dog'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#10] ✅ 通過\n  標準輸入: wordBreak('a', ['a'])\n  標準輸出: ['a']\n  你的輸出: ['a']\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
-    "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: wordBreak('catsanddog', ['cat', 'cats', 'and', 'sand', 'dog'])\n  標準輸出: ['cat sand dog', 'cats and dog']\n  你的輸出: ['cat sand dog', 'cats and dog']\n\n[測試#2] ✅ 通過\n  標準輸入: wordBreak('catsandog', ['cat', 'cats', 'and', 'sand', 'dog'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#3] ✅ 通過\n  標準輸入: wordBreak('', ['a', 'b'])\n  標準輸出: ['']\n  你的輸出: ['']\n\n[測試#4] ✅ 通過\n  標準輸入: wordBreak('apple', ['apple'])\n  標準輸出: ['apple']\n  你的輸出: ['apple']\n\n[測試#5] ✅ 通過\n  標準輸入: wordBreak('aaaa', ['a', 'aa'])\n  標準輸出: ['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa']\n  你的輸出: ['a a a a', 'a a aa', 'a aa a', 'aa a a', 'aa aa']\n\n[測試#6] ✅ 通過\n  標準輸入: wordBreak('pineapplepenapple', ['apple', 'pen', 'applepen', 'pine', 'pineapple'])\n  標準輸出: ['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple']\n  你的輸出: ['pine apple pen apple', 'pine applepen apple', 'pineapple pen apple']\n\n[測試#7] ✅ 通過\n  標準輸入: wordBreak('catsanddog', ['cat', 'cats', 'and', 'sand', 'dog', 'cat'])\n  標準輸出: ['cat sand dog', 'cats and dog']\n  你的輸出: ['cat sand dog', 'cats and dog']\n\n[測試#8] ✅ 通過\n  標準輸入: wordBreak('abc', ['a', 'b', 'c', 'ab', 'bc', 'abc'])\n  標準輸出: ['a b c', 'a bc', 'ab c', 'abc']\n  你的輸出: ['a b c', 'a bc', 'ab c', 'abc']\n\n[測試#9] ✅ 通過\n  標準輸入: wordBreak('a', ['a'])\n  標準輸出: ['a']\n  你的輸出: ['a']\n\n[測試#10] ✅ 通過\n  標準輸入: wordBreak('a', [])\n  標準輸出: []\n  你的輸出: []\n\n[測試#11] ✅ 通過\n  標準輸入: wordBreak('ab', ['abc'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#12] ✅ 通過\n  標準輸入: wordBreak('ab', ['ab'])\n  標準輸出: ['ab']\n  你的輸出: ['ab']\n\n[測試#13] ✅ 通過\n  標準輸入: wordBreak('ab', ['a', 'b', 'ab', 'c'])\n  標準輸出: ['a b', 'ab']\n  你的輸出: ['a b', 'ab']\n\n[測試#14] ✅ 通過\n  標準輸入: wordBreak('ab', [])\n  標準輸出: []\n  你的輸出: []\n\n=== 測試完成 (14/14) ===\n[成功] 所有測資通過 ✅（0.0002s）\n",
+    "all_passed": true,
+    "total_tests": 14,
+    "passed_count": 14,
+    "accuracy_rate": 1.0
   }
 }

@@ -16,81 +16,91 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['PAYPALISHIRING', 3]\n",
-        "output": "PAHNAPLSIIGYIR\n"
-      },
-      {
-        "input": "['PAYPALISHIRING', 4]\n",
-        "output": "PINALSIGYAHRPI\n"
-      },
-      {
-        "input": "['HELLO', 1]\n",
-        "output": "HELLO\n"
-      },
-      {
-        "input": "['ABC', 5]\n",
-        "output": "ABC\n"
-      },
-      {
         "input": "['', 3]\n",
         "output": "\n"
       },
       {
-        "input": "['A', 2]\n",
-        "output": "A\n"
+        "input": "['X', 1]\n",
+        "output": "X\n"
+      },
+      {
+        "input": "['X', 5]\n",
+        "output": "X\n"
+      },
+      {
+        "input": "['any', 1]\n",
+        "output": "any\n"
+      },
+      {
+        "input": "['short', 10]\n",
+        "output": "short\n"
       },
       {
         "input": "['ABCD', 2]\n",
         "output": "ACBD\n"
       },
       {
-        "input": "['ABCDE', 2]\n",
-        "output": "ACEBD\n"
+        "input": "['ABC', 2]\n",
+        "output": "ACB\n"
       },
       {
-        "input": "['abcd', 3]\n",
-        "output": "acbd\n"
+        "input": "['AB', 2]\n",
+        "output": "AB\n"
       },
       {
-        "input": "['abc', 3]\n",
-        "output": "acb\n"
+        "input": "['A', 2]\n",
+        "output": "A\n"
       },
       {
-        "input": "['你好世界', 3]\n",
+        "input": "['PAYPALISHIRING', 3]\n",
+        "output": "PAHNAPLSIIGYIR\n"
+      },
+      {
+        "input": "['ABCDEF', 3]\n",
+        "output": "AEBDFC\n"
+      },
+      {
+        "input": "['ABCDE', 4]\n",
+        "output": "ABCED\n"
+      },
+      {
+        "input": "['ABCDEFGHIJK', 5]\n",
+        "output": "AIBHJCGKDFE\n"
+      },
+      {
+        "input": "['HELLO WORLD', 3]\n",
+        "output": "HOR EL O LLWD\n"
+      },
+      {
+        "input": "['你好世界', 2]\n",
         "output": "你世好界\n"
       },
       {
-        "input": "['ABC DEF', 2]\n",
-        "output": "ACDFB E\n"
-      },
-      {
-        "input": "['Hello, World!', 4]\n",
-        "output": "H !e,Wdloolr\n"
-      },
-      {
-        "input": "['abcd', 4]\n",
-        "output": "abcd\n"
+        "input": "['你好世界', 3]\n",
+        "output": "你好界世\n"
       }
     ],
     "parsed_tests": [
-      "('convert', ('PAYPALISHIRING', 3), 'PAHNAPLSIIGYIR\\n')",
-      "('convert', ('PAYPALISHIRING', 4), 'PINALSIGYAHRPI\\n')",
-      "('convert', ('HELLO', 1), 'HELLO\\n')",
-      "('convert', ('ABC', 5), 'ABC\\n')",
       "('convert', ('', 3), '\\n')",
-      "('convert', ('A', 2), 'A\\n')",
+      "('convert', ('X', 1), 'X\\n')",
+      "('convert', ('X', 5), 'X\\n')",
+      "('convert', ('any', 1), 'any\\n')",
+      "('convert', ('short', 10), 'short\\n')",
       "('convert', ('ABCD', 2), 'ACBD\\n')",
-      "('convert', ('ABCDE', 2), 'ACEBD\\n')",
-      "('convert', ('abcd', 3), 'acbd\\n')",
-      "('convert', ('abc', 3), 'acb\\n')",
-      "('convert', ('你好世界', 3), '你世好界\\n')",
-      "('convert', ('ABC DEF', 2), 'ACDFB E\\n')",
-      "('convert', ('Hello, World!', 4), 'H !e,Wdloolr\\n')",
-      "('convert', ('abcd', 4), 'abcd\\n')"
+      "('convert', ('ABC', 2), 'ACB\\n')",
+      "('convert', ('AB', 2), 'AB\\n')",
+      "('convert', ('A', 2), 'A\\n')",
+      "('convert', ('PAYPALISHIRING', 3), 'PAHNAPLSIIGYIR\\n')",
+      "('convert', ('ABCDEF', 3), 'AEBDFC\\n')",
+      "('convert', ('ABCDE', 4), 'ABCED\\n')",
+      "('convert', ('ABCDEFGHIJK', 5), 'AIBHJCGKDFE\\n')",
+      "('convert', ('HELLO WORLD', 3), 'HOR EL O LLWD\\n')",
+      "('convert', ('你好世界', 2), '你世好界\\n')",
+      "('convert', ('你好世界', 3), '你好界世\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: convert('PAYPALISHIRING', 3)\n  標準輸出: 'PAHNAPLSIIGYIR\\n'\n  你的輸出: 'PAHNAPLSIIGYIR'\n\n[測試#2] ❌ 失敗\n  標準輸入: convert('PAYPALISHIRING', 4)\n  標準輸出: 'PINALSIGYAHRPI\\n'\n  你的輸出: 'PINALSIGYAHRPI'\n\n[測試#3] ❌ 失敗\n  標準輸入: convert('HELLO', 1)\n  標準輸出: 'HELLO\\n'\n  你的輸出: 'HELLO'\n\n[測試#4] ❌ 失敗\n  標準輸入: convert('ABC', 5)\n  標準輸出: 'ABC\\n'\n  你的輸出: 'ABC'\n\n[測試#5] ❌ 失敗\n  標準輸入: convert('', 3)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: convert('A', 2)\n  標準輸出: 'A\\n'\n  你的輸出: 'A'\n\n[測試#7] ❌ 失敗\n  標準輸入: convert('ABCD', 2)\n  標準輸出: 'ACBD\\n'\n  你的輸出: 'ACBD'\n\n[測試#8] ❌ 失敗\n  標準輸入: convert('ABCDE', 2)\n  標準輸出: 'ACEBD\\n'\n  你的輸出: 'ACEBD'\n\n[測試#9] ❌ 失敗\n  標準輸入: convert('abcd', 3)\n  標準輸出: 'acbd\\n'\n  你的輸出: 'abdc'\n\n[測試#10] ❌ 失敗\n  標準輸入: convert('abc', 3)\n  標準輸出: 'acb\\n'\n  你的輸出: 'abc'\n\n[測試#11] ❌ 失敗\n  標準輸入: convert('你好世界', 3)\n  標準輸出: '你世好界\\n'\n  你的輸出: '你好界世'\n\n[測試#12] ❌ 失敗\n  標準輸入: convert('ABC DEF', 2)\n  標準輸出: 'ACDFB E\\n'\n  你的輸出: 'ACDFB E'\n\n[測試#13] ❌ 失敗\n  標準輸入: convert('Hello, World!', 4)\n  標準輸出: 'H !e,Wdloolr\\n'\n  你的輸出: 'H !e,Wdloollr'\n\n[測試#14] ❌ 失敗\n  標準輸入: convert('abcd', 4)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n=== 測試完成 (0/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: convert('', 3)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#2] ❌ 失敗\n  標準輸入: convert('X', 1)\n  標準輸出: 'X\\n'\n  你的輸出: 'X'\n\n[測試#3] ❌ 失敗\n  標準輸入: convert('X', 5)\n  標準輸出: 'X\\n'\n  你的輸出: 'X'\n\n[測試#4] ❌ 失敗\n  標準輸入: convert('any', 1)\n  標準輸出: 'any\\n'\n  你的輸出: 'any'\n\n[測試#5] ❌ 失敗\n  標準輸入: convert('short', 10)\n  標準輸出: 'short\\n'\n  你的輸出: 'short'\n\n[測試#6] ❌ 失敗\n  標準輸入: convert('ABCD', 2)\n  標準輸出: 'ACBD\\n'\n  你的輸出: 'ACBD'\n\n[測試#7] ❌ 失敗\n  標準輸入: convert('ABC', 2)\n  標準輸出: 'ACB\\n'\n  你的輸出: 'ACB'\n\n[測試#8] ❌ 失敗\n  標準輸入: convert('AB', 2)\n  標準輸出: 'AB\\n'\n  你的輸出: 'AB'\n\n[測試#9] ❌ 失敗\n  標準輸入: convert('A', 2)\n  標準輸出: 'A\\n'\n  你的輸出: 'A'\n\n[測試#10] ❌ 失敗\n  標準輸入: convert('PAYPALISHIRING', 3)\n  標準輸出: 'PAHNAPLSIIGYIR\\n'\n  你的輸出: 'PAHNAPLSIIGYIR'\n\n[測試#11] ❌ 失敗\n  標準輸入: convert('ABCDEF', 3)\n  標準輸出: 'AEBDFC\\n'\n  你的輸出: 'AEBDFC'\n\n[測試#12] ❌ 失敗\n  標準輸入: convert('ABCDE', 4)\n  標準輸出: 'ABCED\\n'\n  你的輸出: 'ABCED'\n\n[測試#13] ❌ 失敗\n  標準輸入: convert('ABCDEFGHIJK', 5)\n  標準輸出: 'AIBHJCGKDFE\\n'\n  你的輸出: 'AIBHJCGKDFE'\n\n[測試#14] ❌ 失敗\n  標準輸入: convert('HELLO WORLD', 3)\n  標準輸出: 'HOR EL O LLWD\\n'\n  你的輸出: 'HOREL OLLWD'\n\n[測試#15] ❌ 失敗\n  標準輸入: convert('你好世界', 2)\n  標準輸出: '你世好界\\n'\n  你的輸出: '你世好界'\n\n[測試#16] ❌ 失敗\n  標準輸入: convert('你好世界', 3)\n  標準輸出: '你好界世\\n'\n  你的輸出: '你好界世'\n\n=== 測試完成 (0/16) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 14,
+    "total_tests": 16,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

@@ -32,87 +32,67 @@
         "output": "1\n"
       },
       {
-        "input": "1 5\n2 4\n",
+        "input": "1 2 3\n2 4\n",
         "output": "1\n"
       },
       {
-        "input": "1 2 3\n1 2 3\n",
-        "output": "0\n"
-      },
-      {
-        "input": "1 2 3\n10\n",
-        "output": "9\n"
+        "input": "5 1 3\n2 4\n",
+        "output": "1\n"
       },
       {
         "input": "-5 -2 0\n-3\n",
-        "output": "6\n"
-      },
-      {
-        "input": "0 5 10\n0 10\n",
-        "output": "5\n"
-      },
-      {
-        "input": "0 5 10\n5\n",
-        "output": "5\n"
-      },
-      {
-        "input": "0 5 10\n2 8\n",
         "output": "3\n"
       },
       {
-        "input": "0 5 10\n2 7\n",
-        "output": "3\n"
-      },
-      {
-        "input": "10 0 5\n5 0\n",
-        "output": "5\n"
-      },
-      {
-        "input": "1000000\n0\n",
-        "output": "1000000\n"
-      },
-      {
-        "input": "1 1 2\n1\n",
+        "input": "10\n10\n",
         "output": "0\n"
       },
       {
-        "input": "-10 0 10\n-5 5\n",
-        "output": "5\n"
+        "input": "10\n12\n",
+        "output": "2\n"
       },
       {
-        "input": "-10 0 10\n5\n",
-        "output": "15\n"
+        "input": "1 2 3 4 5\n1 3 5\n",
+        "output": "1\n"
       },
       {
-        "input": "-10 0 10\n-5\n",
-        "output": "15\n"
-      },
-      {
-        "input": "-10 0 10\n-10 10\n",
+        "input": "1 10\n0 20\n",
         "output": "10\n"
+      },
+      {
+        "input": "1 2 3\n2 2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 2 3\n5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1 2 3\n4 2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 2 3\n-5\n",
+        "output": "8\n"
       }
     ],
     "parsed_tests": [
       "('findRadius', ('1 2 3\\n2\\n',), 1)",
-      "('findRadius', ('1 5\\n2 4\\n',), 1)",
-      "('findRadius', ('1 2 3\\n1 2 3\\n',), 0)",
-      "('findRadius', ('1 2 3\\n10\\n',), 9)",
-      "('findRadius', ('-5 -2 0\\n-3\\n',), 6)",
-      "('findRadius', ('0 5 10\\n0 10\\n',), 5)",
-      "('findRadius', ('0 5 10\\n5\\n',), 5)",
-      "('findRadius', ('0 5 10\\n2 8\\n',), 3)",
-      "('findRadius', ('0 5 10\\n2 7\\n',), 3)",
-      "('findRadius', ('10 0 5\\n5 0\\n',), 5)",
-      "('findRadius', (1000000, 0), 1000000)",
-      "('findRadius', ('1 1 2\\n1\\n',), 0)",
-      "('findRadius', ('-10 0 10\\n-5 5\\n',), 5)",
-      "('findRadius', ('-10 0 10\\n5\\n',), 15)",
-      "('findRadius', ('-10 0 10\\n-5\\n',), 15)",
-      "('findRadius', ('-10 0 10\\n-10 10\\n',), 10)"
+      "('findRadius', ('1 2 3\\n2 4\\n',), 1)",
+      "('findRadius', ('5 1 3\\n2 4\\n',), 1)",
+      "('findRadius', ('-5 -2 0\\n-3\\n',), 3)",
+      "('findRadius', (10, 10), 0)",
+      "('findRadius', (10, 12), 2)",
+      "('findRadius', ('1 2 3 4 5\\n1 3 5\\n',), 1)",
+      "('findRadius', ('1 10\\n0 20\\n',), 10)",
+      "('findRadius', ('1 2 3\\n2 2\\n',), 1)",
+      "('findRadius', ('1 2 3\\n5\\n',), 4)",
+      "('findRadius', ('1 2 3\\n4 2\\n',), 1)",
+      "('findRadius', ('1 2 3\\n-5\\n',), 8)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#2] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#3] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#4] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#5] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#6] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#7] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#8] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#9] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#10] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#11] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#12] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#13] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#14] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#15] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#16] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n=== 測試完成 (0/16) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#2] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#3] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#4] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#5] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#8] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#9] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#10] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#11] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#12] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 16,
+    "total_tests": 12,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

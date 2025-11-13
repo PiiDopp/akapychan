@@ -1,0 +1,110 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode2410.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum Matching of Players With Trainers",
+    "description": "You are given a 0-indexed integer array players, where players[i] represents the ability of the i^th player. You are also given a 0-indexed integer array trainers, where trainers[j] represents the training capacity of the j^th trainer.\n\nThe ith player can match with the j^th trainer if the player's ability is less than or equal to the trainer's training capacity. Additionally, the ith player can be matched with at most one trainer, and the j^th trainer can be matched with at most one player.\n\nReturn the maximum number of matchings between players and trainers that satisfy these conditions.",
+    "examples": [
+      {
+        "input": "players = [4,7,9], trainers = [8,2,5,8]",
+        "output": "2",
+        "explanation": "One of the ways we can form two matchings is as follows:\n- players[0] can be matched with trainers[0] since 4 <= 8.\n- players[1] can be matched with trainers[3] since 7 <= 8. \nIt can be proven that 2 is the maximum number of matchings that can be formed."
+      },
+      {
+        "input": "players = [1,1,1], trainers = [10]",
+        "output": "1",
+        "explanation": "The trainer can be matched with any of the 3 players.\nEach player can only be matched with one trainer, so the maximum answer is 1."
+      }
+    ],
+    "solution": "class Solution:\n    def matchPlayersAndTrainers(self, players, trainers):\n        players.sort()\n        trainers.sort()\n        i = j = matches = 0\n        while i < len(players) and j < len(trainers):\n            if players[i] <= trainers[j]:\n                matches += 1\n                i += 1\n            j += 1\n        return matches"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3\n2 3 4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "5 6\n1 2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 2 3\n10 10 10\n",
+        "output": "3\n"
+      },
+      {
+        "input": "2 2 2\n2 2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "\n1 2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-5 -3\n-4 -2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "-1 0 1\n-1 0 1\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1000000\n1000000\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5 6\n5 5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 2 3\n1 2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 2 3\n1 2 3 4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1 2 3\n1 2 3 4 5\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('matchPlayersAndTrainers', ('1 2 3\\n2 3 4\\n',), 3)",
+      "('matchPlayersAndTrainers', ('5 6\\n1 2\\n',), 0)",
+      "('matchPlayersAndTrainers', ('1 2 3\\n10 10 10\\n',), 3)",
+      "('matchPlayersAndTrainers', ('2 2 2\\n2 2\\n',), 2)",
+      "('matchPlayersAndTrainers', ('\\n1 2\\n',), 0)",
+      "('matchPlayersAndTrainers', ('1 2\\n',), 0)",
+      "('matchPlayersAndTrainers', ('-5 -3\\n-4 -2\\n',), 2)",
+      "('matchPlayersAndTrainers', ('-1 0 1\\n-1 0 1\\n',), 3)",
+      "('matchPlayersAndTrainers', (1000000, 1000000), 1)",
+      "('matchPlayersAndTrainers', ('5 6\\n5 5\\n',), 1)",
+      "('matchPlayersAndTrainers', (1, 1), 1)",
+      "('matchPlayersAndTrainers', (2, 1), 0)",
+      "('matchPlayersAndTrainers', ('1 2 3\\n1 2\\n',), 2)",
+      "('matchPlayersAndTrainers', ('1 2 3\\n1 2 3 4\\n',), 3)",
+      "('matchPlayersAndTrainers', ('1 2 3\\n1 2 3 4 5\\n',), 3)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#2] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#3] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#4] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#5] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#6] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#7] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#8] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#9] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#11] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#12] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#13] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#14] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n[測試#15] ❌ 執行例外: Solution.matchPlayersAndTrainers() missing 1 required positional argument: 'trainers'\n=== 測試完成 (0/15) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

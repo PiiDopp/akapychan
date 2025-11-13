@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode648.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Replace Words",
+    "description": "In English, we have a concept called root, which can be followed by some other word to form another longer word - let's call this word derivative. For example, when the root \"help\" is followed by the word \"ful\", we can form a derivative \"helpful\".\n\nGiven a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the derivatives in the sentence with the root forming it. If a derivative can be replaced by more than one root, replace it with the root that has the shortest length.\n\nReturn the sentence after the replacement.",
+    "examples": [
+      {
+        "input": "dictionary = [\"cat\",\"bat\",\"rat\"], sentence = \"the cattle was rattled by the battery\"",
+        "output": "\"the cat was rat by the bat\""
+      },
+      {
+        "input": "dictionary = [\"a\",\"b\",\"c\"], sentence = \"aadsfasf absbs bbab cadsfafs\"",
+        "output": "\"a a b c\""
+      }
+    ],
+    "solution": "class Solution:\n    def replaceWords(self, dictionary, sentence):\n        trie = {}\n        END = True\n\n        # 建立 Trie\n        for root in dictionary:\n            node = trie\n            for char in root:\n                node = node.setdefault(char, {})\n            node[END] = root\n\n        def replace(word):\n            node = trie\n            for char in word:\n                if char not in node:\n                    break\n                node = node[char]\n                if END in node:\n                    return node[END]\n            return word\n\n        return ' '.join(map(replace, sentence.split()))"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -31,7 +31,15 @@
         "output": "[]\n"
       },
       {
-        "input": "\n1 2\n",
+        "input": "4 9 5\n9 4 9 8 4\n",
+        "output": "[4, 9]\n"
+      },
+      {
+        "input": "-1 0 1\n0 -1 2\n",
+        "output": "[-1, 0]\n"
+      },
+      {
+        "input": "\n1 2 3\n",
         "output": "[]\n"
       },
       {
@@ -39,45 +47,52 @@
         "output": "[]\n"
       },
       {
-        "input": "-1 -2 -2 -3\n-2 -2 -4\n",
-        "output": "[-2, -2]\n"
-      },
-      {
         "input": "5 5 5\n5 5\n",
         "output": "[5, 5]\n"
       },
       {
-        "input": "1000000 2000000\n2000000 3000000\n",
-        "output": "[2000000]\n"
+        "input": "1 2 3 4\n4 3 2 1\n",
+        "output": "[1, 2, 3, 4]\n"
       },
       {
-        "input": "3 1 2 3\n3 3 1\n",
-        "output": "[3, 1]\n"
+        "input": "1 1 2\n1 1 1 2 2\n",
+        "output": "[1, 1, 2]\n"
       },
       {
-        "input": "1 2\n1 1 1 2 2\n",
+        "input": "1 1 1 2\n1 2 2\n",
         "output": "[1, 2]\n"
       },
       {
-        "input": "0 0 1\n0 1 1\n",
-        "output": "[0, 1]\n"
+        "input": "-2 -2 -3\n-2 -3 -3\n",
+        "output": "[-2, -3]\n"
+      },
+      {
+        "input": "0 0 1\n0 2 0\n",
+        "output": "[0, 0]\n"
+      },
+      {
+        "input": "1000000\n1000000\n",
+        "output": "[1000000]\n"
       }
     ],
     "parsed_tests": [
       "('intersect', ('1 2 2 1\\n2 2\\n',), [2, 2])",
       "('intersect', ('1 2 3\\n4 5 6\\n',), [])",
-      "('intersect', ('\\n1 2\\n',), [])",
+      "('intersect', ('4 9 5\\n9 4 9 8 4\\n',), [4, 9])",
+      "('intersect', ('-1 0 1\\n0 -1 2\\n',), [-1, 0])",
+      "('intersect', ('\\n1 2 3\\n',), [])",
       "('intersect', ('\\n',), [])",
-      "('intersect', ('-1 -2 -2 -3\\n-2 -2 -4\\n',), [-2, -2])",
       "('intersect', ('5 5 5\\n5 5\\n',), [5, 5])",
-      "('intersect', ('1000000 2000000\\n2000000 3000000\\n',), [2000000])",
-      "('intersect', ('3 1 2 3\\n3 3 1\\n',), [3, 1])",
-      "('intersect', ('1 2\\n1 1 1 2 2\\n',), [1, 2])",
-      "('intersect', ('0 0 1\\n0 1 1\\n',), [0, 1])"
+      "('intersect', ('1 2 3 4\\n4 3 2 1\\n',), [1, 2, 3, 4])",
+      "('intersect', ('1 1 2\\n1 1 1 2 2\\n',), [1, 1, 2])",
+      "('intersect', ('1 1 1 2\\n1 2 2\\n',), [1, 2])",
+      "('intersect', ('-2 -2 -3\\n-2 -3 -3\\n',), [-2, -3])",
+      "('intersect', ('0 0 1\\n0 2 0\\n',), [0, 0])",
+      "('intersect', (1000000, 1000000), [1000000])"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#2] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#3] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#4] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#5] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#6] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#7] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#8] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#9] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#10] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#2] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#3] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#4] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#5] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#6] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#7] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#8] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#9] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#10] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#11] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#12] ❌ 執行例外: Solution.intersect() missing 1 required positional argument: 'nums2'\n[測試#13] ❌ 執行例外: 'int' object is not iterable\n=== 測試完成 (0/13) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 10,
+    "total_tests": 13,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

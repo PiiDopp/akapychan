@@ -54,12 +54,24 @@
         "output": "AAA\n"
       },
       {
+        "input": "100\n",
+        "output": "CV\n"
+      },
+      {
+        "input": "701\n",
+        "output": "ZY\n"
+      },
+      {
         "input": "1000\n",
         "output": "ALL\n"
       },
       {
-        "input": "0\n",
-        "output": "\n"
+        "input": "1000000\n",
+        "output": "CEXHN\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "GYTISYW\n"
       }
     ],
     "parsed_tests": [
@@ -70,12 +82,15 @@
       "('convertToTitle', (53,), 'BA\\n')",
       "('convertToTitle', (702,), 'ZZ\\n')",
       "('convertToTitle', (703,), 'AAA\\n')",
+      "('convertToTitle', (100,), 'CV\\n')",
+      "('convertToTitle', (701,), 'ZY\\n')",
       "('convertToTitle', (1000,), 'ALL\\n')",
-      "('convertToTitle', (0,), '\\n')"
+      "('convertToTitle', (1000000,), 'CEXHN\\n')",
+      "('convertToTitle', (2147483647,), 'GYTISYW\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: convertToTitle(1,)\n  標準輸出: 'A\\n'\n  你的輸出: 'A'\n\n[測試#2] ❌ 失敗\n  標準輸入: convertToTitle(26,)\n  標準輸出: 'Z\\n'\n  你的輸出: 'Z'\n\n[測試#3] ❌ 失敗\n  標準輸入: convertToTitle(27,)\n  標準輸出: 'AA\\n'\n  你的輸出: 'AA'\n\n[測試#4] ❌ 失敗\n  標準輸入: convertToTitle(52,)\n  標準輸出: 'AZ\\n'\n  你的輸出: 'AZ'\n\n[測試#5] ❌ 失敗\n  標準輸入: convertToTitle(53,)\n  標準輸出: 'BA\\n'\n  你的輸出: 'BA'\n\n[測試#6] ❌ 失敗\n  標準輸入: convertToTitle(702,)\n  標準輸出: 'ZZ\\n'\n  你的輸出: 'ZZ'\n\n[測試#7] ❌ 失敗\n  標準輸入: convertToTitle(703,)\n  標準輸出: 'AAA\\n'\n  你的輸出: 'AAA'\n\n[測試#8] ❌ 失敗\n  標準輸入: convertToTitle(1000,)\n  標準輸出: 'ALL\\n'\n  你的輸出: 'ALL'\n\n[測試#9] ❌ 失敗\n  標準輸入: convertToTitle(0,)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n=== 測試完成 (0/9) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: convertToTitle(1,)\n  標準輸出: 'A\\n'\n  你的輸出: 'A'\n\n[測試#2] ❌ 失敗\n  標準輸入: convertToTitle(26,)\n  標準輸出: 'Z\\n'\n  你的輸出: 'Z'\n\n[測試#3] ❌ 失敗\n  標準輸入: convertToTitle(27,)\n  標準輸出: 'AA\\n'\n  你的輸出: 'AA'\n\n[測試#4] ❌ 失敗\n  標準輸入: convertToTitle(52,)\n  標準輸出: 'AZ\\n'\n  你的輸出: 'AZ'\n\n[測試#5] ❌ 失敗\n  標準輸入: convertToTitle(53,)\n  標準輸出: 'BA\\n'\n  你的輸出: 'BA'\n\n[測試#6] ❌ 失敗\n  標準輸入: convertToTitle(702,)\n  標準輸出: 'ZZ\\n'\n  你的輸出: 'ZZ'\n\n[測試#7] ❌ 失敗\n  標準輸入: convertToTitle(703,)\n  標準輸出: 'AAA\\n'\n  你的輸出: 'AAA'\n\n[測試#8] ❌ 失敗\n  標準輸入: convertToTitle(100,)\n  標準輸出: 'CV\\n'\n  你的輸出: 'CV'\n\n[測試#9] ❌ 失敗\n  標準輸入: convertToTitle(701,)\n  標準輸出: 'ZY\\n'\n  你的輸出: 'ZY'\n\n[測試#10] ❌ 失敗\n  標準輸入: convertToTitle(1000,)\n  標準輸出: 'ALL\\n'\n  你的輸出: 'ALL'\n\n[測試#11] ❌ 失敗\n  標準輸入: convertToTitle(1000000,)\n  標準輸出: 'CEXHN\\n'\n  你的輸出: 'BDWGN'\n\n[測試#12] ❌ 失敗\n  標準輸入: convertToTitle(2147483647,)\n  標準輸出: 'GYTISYW\\n'\n  你的輸出: 'FXSHRXW'\n\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 9,
+    "total_tests": 12,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

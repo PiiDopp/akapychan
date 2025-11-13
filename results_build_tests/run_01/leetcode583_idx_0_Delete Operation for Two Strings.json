@@ -23,14 +23,6 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['sea', 'eat']\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['leetcode', 'etco']\n",
-        "output": "4\n"
-      },
-      {
         "input": "['', '']\n",
         "output": "0\n"
       },
@@ -43,77 +35,60 @@
         "output": "0\n"
       },
       {
+        "input": "['a', 'a']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['a', 'b']\n",
+        "output": "2\n"
+      },
+      {
         "input": "['abc', 'def']\n",
         "output": "6\n"
+      },
+      {
+        "input": "['abcde', 'ace']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['abc', 'cba']\n",
+        "output": "4\n"
       },
       {
         "input": "['aaaa', 'aa']\n",
         "output": "2\n"
       },
       {
-        "input": "['abcd', 'acbd']\n",
+        "input": "['你好', '好你']\n",
         "output": "2\n"
       },
       {
-        "input": "['你好', '世界']\n",
-        "output": "4\n"
+        "input": "['abcd', 'abcde']\n",
+        "output": "1\n"
       },
       {
-        "input": "['你好世界', '世界你好']\n",
-        "output": "4\n"
-      },
-      {
-        "input": "['aA', 'Aa']\n",
+        "input": "['abcd', 'abdc']\n",
         "output": "2\n"
-      },
-      {
-        "input": "['aaaaa', 'aaa']\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['longstring', '']\n",
-        "output": "9\n"
-      },
-      {
-        "input": "['longstring', 'longstring']\n",
-        "output": "0\n"
-      },
-      {
-        "input": "['abcde', 'abc']\n",
-        "output": "2\n"
-      },
-      {
-        "input": "['aabbcc', 'abc']\n",
-        "output": "3\n"
-      },
-      {
-        "input": "['😀😃😄', '😃😀']\n",
-        "output": "3\n"
       }
     ],
     "parsed_tests": [
-      "('minDistance', ('sea', 'eat'), 2)",
-      "('minDistance', ('leetcode', 'etco'), 4)",
       "('minDistance', ('', ''), 0)",
       "('minDistance', ('abc', ''), 3)",
       "('minDistance', ('abc', 'abc'), 0)",
+      "('minDistance', ('a', 'a'), 0)",
+      "('minDistance', ('a', 'b'), 2)",
       "('minDistance', ('abc', 'def'), 6)",
+      "('minDistance', ('abcde', 'ace'), 2)",
+      "('minDistance', ('abc', 'cba'), 4)",
       "('minDistance', ('aaaa', 'aa'), 2)",
-      "('minDistance', ('abcd', 'acbd'), 2)",
-      "('minDistance', ('你好', '世界'), 4)",
-      "('minDistance', ('你好世界', '世界你好'), 4)",
-      "('minDistance', ('aA', 'Aa'), 2)",
-      "('minDistance', ('aaaaa', 'aaa'), 2)",
-      "('minDistance', ('longstring', ''), 9)",
-      "('minDistance', ('longstring', 'longstring'), 0)",
-      "('minDistance', ('abcde', 'abc'), 2)",
-      "('minDistance', ('aabbcc', 'abc'), 3)",
-      "('minDistance', ('😀😃😄', '😃😀'), 3)"
+      "('minDistance', ('你好', '好你'), 2)",
+      "('minDistance', ('abcd', 'abcde'), 1)",
+      "('minDistance', ('abcd', 'abdc'), 2)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minDistance('sea', 'eat')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: minDistance('leetcode', 'etco')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: minDistance('', '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: minDistance('abc', '')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: minDistance('abc', 'abc')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: minDistance('abc', 'def')\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#7] ✅ 通過\n  標準輸入: minDistance('aaaa', 'aa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: minDistance('abcd', 'acbd')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: minDistance('你好', '世界')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: minDistance('你好世界', '世界你好')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#11] ✅ 通過\n  標準輸入: minDistance('aA', 'Aa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: minDistance('aaaaa', 'aaa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#13] ❌ 失敗\n  標準輸入: minDistance('longstring', '')\n  標準輸出: 9\n  你的輸出: 10\n\n[測試#14] ✅ 通過\n  標準輸入: minDistance('longstring', 'longstring')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: minDistance('abcde', 'abc')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#16] ✅ 通過\n  標準輸入: minDistance('aabbcc', 'abc')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#17] ✅ 通過\n  標準輸入: minDistance('😀😃😄', '😃😀')\n  標準輸出: 3\n  你的輸出: 3\n\n=== 測試完成 (16/17) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
-    "all_passed": false,
-    "total_tests": 17,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minDistance('', '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: minDistance('abc', '')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#3] ✅ 通過\n  標準輸入: minDistance('abc', 'abc')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: minDistance('a', 'a')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: minDistance('a', 'b')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: minDistance('abc', 'def')\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#7] ✅ 通過\n  標準輸入: minDistance('abcde', 'ace')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: minDistance('abc', 'cba')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#9] ✅ 通過\n  標準輸入: minDistance('aaaa', 'aa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ✅ 通過\n  標準輸入: minDistance('你好', '好你')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#11] ✅ 通過\n  標準輸入: minDistance('abcd', 'abcde')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#12] ✅ 通過\n  標準輸入: minDistance('abcd', 'abdc')\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (12/12) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 12,
+    "passed_count": 12,
+    "accuracy_rate": 1.0
   }
 }

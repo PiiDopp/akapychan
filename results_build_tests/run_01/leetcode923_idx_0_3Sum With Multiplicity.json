@@ -25,55 +25,13 @@
     "solution": "from collections import Counter\n\nclass Solution(object):\n    def threeSumMulti(self, A, target):\n        MOD = 10**9 + 7\n        count = Counter(A)\n        keys = sorted(count)\n        ans = 0\n\n        for i, x in enumerate(keys):\n            for j, y in enumerate(keys[i:]):\n                y = keys[i + j]\n                z = target - x - y\n                if z < y:\n                    continue\n                if z not in count:\n                    continue\n                if x == y == z:\n                    ans += count[x] * (count[x]-1) * (count[x]-2) // 6\n                elif x == y != z:\n                    ans += count[x] * (count[x]-1) // 2 * count[z]\n                elif x < y == z:\n                    ans += count[x] * count[y] * (count[y]-1) // 2\n                elif x < y < z:\n                    ans += count[x] * count[y] * count[z]\n        return ans % MOD"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "[1, 1, 2, 2, 3, 3]\n6\n",
-        "output": "8\n"
-      },
-      {
-        "input": "[2, 2, 2, 2]\n6\n",
-        "output": "4\n"
-      },
-      {
-        "input": "[1, 2, 3]\n10\n",
-        "output": "0\n"
-      },
-      {
-        "input": "[-1, -2, -3, 4, 5]\n0\n",
-        "output": "2\n"
-      },
-      {
-        "input": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]\n3\n",
-        "output": "8880\n"
-      },
-      {
-        "input": "[0, 0, 0, 0]\n0\n",
-        "output": "4\n"
-      },
-      {
-        "input": "[1, 1, 1, 2, 2, 3]\n6\n",
-        "output": "6\n"
-      },
-      {
-        "input": "[1, 2, 3]\n6\n",
-        "output": "1\n"
-      }
-    ],
-    "parsed_tests": [
-      "('threeSumMulti', ([1, 1, 2, 2, 3, 3], 6), 8)",
-      "('threeSumMulti', ([2, 2, 2, 2], 6), 4)",
-      "('threeSumMulti', ([1, 2, 3], 10), 0)",
-      "('threeSumMulti', ([-1, -2, -3, 4, 5], 0), 2)",
-      "('threeSumMulti', ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 3), 8880)",
-      "('threeSumMulti', ([0, 0, 0, 0], 0), 4)",
-      "('threeSumMulti', ([1, 1, 1, 2, 2, 3], 6), 6)",
-      "('threeSumMulti', ([1, 2, 3], 6), 1)"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: threeSumMulti([1, 1, 2, 2, 3, 3], 6)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#2] ✅ 通過\n  標準輸入: threeSumMulti([2, 2, 2, 2], 6)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: threeSumMulti([1, 2, 3], 10)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: threeSumMulti([-1, -2, -3, 4, 5], 0)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ❌ 失敗\n  標準輸入: threeSumMulti([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 3)\n  標準輸出: 8880\n  你的輸出: 1140\n\n[測試#6] ✅ 通過\n  標準輸入: threeSumMulti([0, 0, 0, 0], 0)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: threeSumMulti([1, 1, 1, 2, 2, 3], 6)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#8] ✅ 通過\n  標準輸入: threeSumMulti([1, 2, 3], 6)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
     "all_passed": false,
-    "total_tests": 8,
+    "total_tests": 0,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

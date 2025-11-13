@@ -1,0 +1,125 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode367.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Valid Perfect Square",
+    "description": "Given a positive integer num, return true if num is a perfect square or false otherwise.\nA perfect square is an integer that is the square of an integer. In other words, it is the product of some integer with itself.\nYou must not use any built-in library function, such as sqrt.",
+    "examples": [
+      {
+        "input": "num = 16",
+        "output": "true",
+        "explanation": "We return true because 4 * 4 = 16 and 4 is an integer."
+      },
+      {
+        "input": "num = 14",
+        "output": "false",
+        "explanation": "We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer."
+      }
+    ],
+    "solution": "class Solution:\n    def isPerfectSquare(self, num):\n        if num < 2:\n            return True\n        left, right = 2, num // 2\n        while left <= right:\n            mid = (left + right) // 2\n            guess = mid * mid\n            if guess == num:\n                return True\n            elif guess > num:\n                right = mid - 1\n            else:\n                left = mid + 1\n        return False"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n",
+        "output": "False\n"
+      },
+      {
+        "input": "9\n",
+        "output": "True\n"
+      },
+      {
+        "input": "10\n",
+        "output": "False\n"
+      },
+      {
+        "input": "16\n",
+        "output": "True\n"
+      },
+      {
+        "input": "25\n",
+        "output": "True\n"
+      },
+      {
+        "input": "26\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2147395600\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2147395601\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "False\n"
+      },
+      {
+        "input": "9223372030926249001\n",
+        "output": "True\n"
+      },
+      {
+        "input": "9223372030926249002\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1000000000000000000\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1000000000000000001\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isPerfectSquare', (0,), True)",
+      "('isPerfectSquare', (1,), True)",
+      "('isPerfectSquare', (2,), False)",
+      "('isPerfectSquare', (3,), False)",
+      "('isPerfectSquare', (4,), True)",
+      "('isPerfectSquare', (5,), False)",
+      "('isPerfectSquare', (9,), True)",
+      "('isPerfectSquare', (10,), False)",
+      "('isPerfectSquare', (16,), True)",
+      "('isPerfectSquare', (25,), True)",
+      "('isPerfectSquare', (26,), False)",
+      "('isPerfectSquare', (2147395600,), True)",
+      "('isPerfectSquare', (2147395601,), False)",
+      "('isPerfectSquare', (2147483647,), False)",
+      "('isPerfectSquare', (9223372030926249001,), True)",
+      "('isPerfectSquare', (9223372030926249002,), False)",
+      "('isPerfectSquare', (1000000000000000000,), True)",
+      "('isPerfectSquare', (1000000000000000001,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPerfectSquare(0,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isPerfectSquare(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isPerfectSquare(2,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isPerfectSquare(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isPerfectSquare(4,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isPerfectSquare(5,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isPerfectSquare(9,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isPerfectSquare(10,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: isPerfectSquare(16,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isPerfectSquare(25,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isPerfectSquare(26,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: isPerfectSquare(2147395600,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: isPerfectSquare(2147395601,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: isPerfectSquare(2147483647,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: isPerfectSquare(9223372030926249001,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: isPerfectSquare(9223372030926249002,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: isPerfectSquare(1000000000000000000,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: isPerfectSquare(1000000000000000001,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (18/18) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 18,
+    "passed_count": 18,
+    "accuracy_rate": 1.0
+  }
+}

@@ -18,14 +18,71 @@
     "solution": "class Solution:\n    def isAnagram(self, s, t):\n        from collections import Counter\n        return Counter(s) == Counter(t)"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
-    "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['anagram', 'nagaram']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['rat', 'car']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', '']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['a', 'A']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['你好', '好你']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'abcd']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aabbcc', 'abcabc']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'cba ']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['123', '321']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['!@#', '#@!']\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isAnagram', ('anagram', 'nagaram'), True)",
+      "('isAnagram', ('rat', 'car'), False)",
+      "('isAnagram', ('', ''), True)",
+      "('isAnagram', ('a', ''), False)",
+      "('isAnagram', ('a', 'A'), False)",
+      "('isAnagram', ('你好', '好你'), True)",
+      "('isAnagram', ('abc', 'abcd'), False)",
+      "('isAnagram', ('aabbcc', 'abcabc'), True)",
+      "('isAnagram', ('abc', 'cba '), False)",
+      "('isAnagram', ('123', '321'), True)",
+      "('isAnagram', ('!@#', '#@!'), True)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isAnagram('anagram', 'nagaram')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isAnagram('rat', 'car')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isAnagram('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isAnagram('a', '')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isAnagram('a', 'A')\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isAnagram('你好', '好你')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isAnagram('abc', 'abcd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isAnagram('aabbcc', 'abcabc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isAnagram('abc', 'cba ')\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: isAnagram('123', '321')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isAnagram('!@#', '#@!')\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (11/11) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 11,
+    "passed_count": 11,
+    "accuracy_rate": 1.0
   }
 }

@@ -22,19 +22,31 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['abpcplea', ['ale', 'apple', 'monkey', 'plea']]\n",
-        "output": "apple\n"
+        "input": "['abcd', ['ab', 'abc', 'abcd']]\n",
+        "output": "abcd\n"
       },
       {
-        "input": "['abcd', ['ab', 'ac', 'aa', 'ad']]\n",
-        "output": "ab\n"
+        "input": "['abcd', ['abce', 'abcd']]\n",
+        "output": "abcd\n"
       },
       {
-        "input": "['abc', ['d', 'e', 'f']]\n",
+        "input": "['abcd', ['abcd', 'abce']]\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "['abcd', ['abcde', 'abce']]\n",
         "output": "\n"
       },
       {
-        "input": "['abc', []]\n",
+        "input": "['abcd', []]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['', ['a', 'b']]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['', ['']]\n",
         "output": "\n"
       },
       {
@@ -42,61 +54,104 @@
         "output": "\n"
       },
       {
-        "input": "['abc', ['']]\n",
-        "output": "\n"
+        "input": "['abcd', ['abcd', 'abcd']]\n",
+        "output": "abcd\n"
       },
       {
-        "input": "['abc', ['abcd', 'abcde', 'ab']]\n",
-        "output": "ab\n"
+        "input": "['abcd', ['abc', 'abc', 'ab']]\n",
+        "output": "abc\n"
       },
       {
-        "input": "['aabbcc', ['abc', 'aabb', 'aabbcc', 'abcc', 'aabc']]\n",
+        "input": "['abcd', ['ab', 'ac', 'aa']]\n",
+        "output": "aa\n"
+      },
+      {
+        "input": "['aabbcc', ['aabbcc', 'aabbccd']]\n",
         "output": "aabbcc\n"
       },
       {
-        "input": "['你好世界', ['你', '好世', '世界', '你好世界', '世界你']]\n",
-        "output": "你好世界\n"
+        "input": "['aabbcc', ['aabbc', 'aabbcc', 'aabbccd']]\n",
+        "output": "aabbcc\n"
       },
       {
-        "input": "['Abc', ['abc', 'Abc']]\n",
+        "input": "['AbcD', ['abc', 'Abc']]\n",
         "output": "Abc\n"
       },
       {
-        "input": "['a b c', ['a b', 'a c', 'b c']]\n",
+        "input": "['a', ['a', 'aa']]\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['a', ['', 'a']]\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['abcd', ['bcd', 'acd', 'bcd']]\n",
+        "output": "acd\n"
+      },
+      {
+        "input": "['abc', ['abcd']]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a', ['aa']]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a b c', ['abc', 'a b']]\n",
         "output": "a b\n"
       },
       {
-        "input": "['abc', ['ca', 'ab', 'bc']]\n",
-        "output": "ab\n"
+        "input": "['你好世界', ['你好', '世界', '你好世']]\n",
+        "output": "你好世\n"
       },
       {
-        "input": "['abc', ['a', 'a', 'ab']]\n",
-        "output": "ab\n"
+        "input": "['你好世界', ['你好世界', '你好世']]\n",
+        "output": "你好世界\n"
       },
       {
-        "input": "['abac', ['aac', 'aba']]\n",
-        "output": "aac\n"
+        "input": "['你好世界', ['世界你']]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['你好你好', ['你好你', '你好你好']]\n",
+        "output": "你好你好\n"
+      },
+      {
+        "input": "['你好你', ['你好你好']]\n",
+        "output": "\n"
       }
     ],
     "parsed_tests": [
-      "('findLongestWord', ('abpcplea', ['monkey', 'apple', 'plea', 'ale']), 'apple\\n')",
-      "('findLongestWord', ('abcd', ['aa', 'ab', 'ac', 'ad']), 'ab\\n')",
-      "('findLongestWord', ('abc', ['d', 'e', 'f']), '\\n')",
-      "('findLongestWord', ('abc', []), '\\n')",
+      "('findLongestWord', ('abcd', ['abcd', 'abc', 'ab']), 'abcd\\n')",
+      "('findLongestWord', ('abcd', ['abcd', 'abce']), 'abcd\\n')",
+      "('findLongestWord', ('abcd', ['abcd', 'abce']), 'abcd\\n')",
+      "('findLongestWord', ('abcd', ['abcde', 'abce']), '\\n')",
+      "('findLongestWord', ('abcd', []), '\\n')",
+      "('findLongestWord', ('', ['a', 'b']), '\\n')",
+      "('findLongestWord', ('', ['']), '\\n')",
       "('findLongestWord', ('', ['a', '']), '\\n')",
-      "('findLongestWord', ('abc', ['']), '\\n')",
-      "('findLongestWord', ('abc', ['abcde', 'abcd', 'ab']), 'ab\\n')",
-      "('findLongestWord', ('aabbcc', ['aabbcc', 'aabb', 'aabc', 'abcc', 'abc']), 'aabbcc\\n')",
-      "('findLongestWord', ('你好世界', ['你好世界', '世界你', '世界', '好世', '你']), '你好世界\\n')",
-      "('findLongestWord', ('Abc', ['Abc', 'abc']), 'Abc\\n')",
-      "('findLongestWord', ('a b c', ['a b', 'a c', 'b c']), 'a b\\n')",
-      "('findLongestWord', ('abc', ['ab', 'bc', 'ca']), 'ab\\n')",
-      "('findLongestWord', ('abc', ['ab', 'a', 'a']), 'ab\\n')",
-      "('findLongestWord', ('abac', ['aac', 'aba']), 'aac\\n')"
+      "('findLongestWord', ('abcd', ['abcd', 'abcd']), 'abcd\\n')",
+      "('findLongestWord', ('abcd', ['abc', 'abc', 'ab']), 'abc\\n')",
+      "('findLongestWord', ('abcd', ['aa', 'ab', 'ac']), 'aa\\n')",
+      "('findLongestWord', ('aabbcc', ['aabbccd', 'aabbcc']), 'aabbcc\\n')",
+      "('findLongestWord', ('aabbcc', ['aabbccd', 'aabbcc', 'aabbc']), 'aabbcc\\n')",
+      "('findLongestWord', ('AbcD', ['Abc', 'abc']), 'Abc\\n')",
+      "('findLongestWord', ('a', ['aa', 'a']), 'a\\n')",
+      "('findLongestWord', ('a', ['a', '']), 'a\\n')",
+      "('findLongestWord', ('abcd', ['acd', 'bcd', 'bcd']), 'acd\\n')",
+      "('findLongestWord', ('abc', ['abcd']), '\\n')",
+      "('findLongestWord', ('a', ['aa']), '\\n')",
+      "('findLongestWord', ('a b c', ['a b', 'abc']), 'a b\\n')",
+      "('findLongestWord', ('你好世界', ['你好世', '世界', '你好']), '你好世\\n')",
+      "('findLongestWord', ('你好世界', ['你好世界', '你好世']), '你好世界\\n')",
+      "('findLongestWord', ('你好世界', ['世界你']), '\\n')",
+      "('findLongestWord', ('你好你好', ['你好你好', '你好你']), '你好你好\\n')",
+      "('findLongestWord', ('你好你', ['你好你好']), '\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: findLongestWord('abpcplea', ['monkey', 'apple', 'plea', 'ale'])\n  標準輸出: 'apple\\n'\n  你的輸出: 'apple'\n\n[測試#2] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['aa', 'ab', 'ac', 'ad'])\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#3] ❌ 失敗\n  標準輸入: findLongestWord('abc', ['d', 'e', 'f'])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#4] ❌ 失敗\n  標準輸入: findLongestWord('abc', [])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ❌ 失敗\n  標準輸入: findLongestWord('', ['a', ''])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: findLongestWord('abc', [''])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#7] ❌ 失敗\n  標準輸入: findLongestWord('abc', ['abcde', 'abcd', 'ab'])\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#8] ❌ 失敗\n  標準輸入: findLongestWord('aabbcc', ['aabbcc', 'aabb', 'aabc', 'abcc', 'abc'])\n  標準輸出: 'aabbcc\\n'\n  你的輸出: 'aabbcc'\n\n[測試#9] ❌ 失敗\n  標準輸入: findLongestWord('你好世界', ['你好世界', '世界你', '世界', '好世', '你'])\n  標準輸出: '你好世界\\n'\n  你的輸出: '你好世界'\n\n[測試#10] ❌ 失敗\n  標準輸入: findLongestWord('Abc', ['Abc', 'abc'])\n  標準輸出: 'Abc\\n'\n  你的輸出: 'Abc'\n\n[測試#11] ❌ 失敗\n  標準輸入: findLongestWord('a b c', ['a b', 'a c', 'b c'])\n  標準輸出: 'a b\\n'\n  你的輸出: 'a b'\n\n[測試#12] ❌ 失敗\n  標準輸入: findLongestWord('abc', ['ab', 'bc', 'ca'])\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#13] ❌ 失敗\n  標準輸入: findLongestWord('abc', ['ab', 'a', 'a'])\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab'\n\n[測試#14] ❌ 失敗\n  標準輸入: findLongestWord('abac', ['aac', 'aba'])\n  標準輸出: 'aac\\n'\n  你的輸出: 'aac'\n\n=== 測試完成 (0/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['abcd', 'abc', 'ab'])\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#2] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['abcd', 'abce'])\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#3] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['abcd', 'abce'])\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#4] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['abcde', 'abce'])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ❌ 失敗\n  標準輸入: findLongestWord('abcd', [])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: findLongestWord('', ['a', 'b'])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#7] ❌ 失敗\n  標準輸入: findLongestWord('', [''])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#8] ❌ 失敗\n  標準輸入: findLongestWord('', ['a', ''])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#9] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['abcd', 'abcd'])\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#10] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['abc', 'abc', 'ab'])\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#11] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['aa', 'ab', 'ac'])\n  標準輸出: 'aa\\n'\n  你的輸出: 'ab'\n\n[測試#12] ❌ 失敗\n  標準輸入: findLongestWord('aabbcc', ['aabbccd', 'aabbcc'])\n  標準輸出: 'aabbcc\\n'\n  你的輸出: 'aabbcc'\n\n[測試#13] ❌ 失敗\n  標準輸入: findLongestWord('aabbcc', ['aabbccd', 'aabbcc', 'aabbc'])\n  標準輸出: 'aabbcc\\n'\n  你的輸出: 'aabbcc'\n\n[測試#14] ❌ 失敗\n  標準輸入: findLongestWord('AbcD', ['Abc', 'abc'])\n  標準輸出: 'Abc\\n'\n  你的輸出: 'Abc'\n\n[測試#15] ❌ 失敗\n  標準輸入: findLongestWord('a', ['aa', 'a'])\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#16] ❌ 失敗\n  標準輸入: findLongestWord('a', ['a', ''])\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#17] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['acd', 'bcd', 'bcd'])\n  標準輸出: 'acd\\n'\n  你的輸出: 'acd'\n\n[測試#18] ❌ 失敗\n  標準輸入: findLongestWord('abc', ['abcd'])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#19] ❌ 失敗\n  標準輸入: findLongestWord('a', ['aa'])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#20] ❌ 失敗\n  標準輸入: findLongestWord('a b c', ['a b', 'abc'])\n  標準輸出: 'a b\\n'\n  你的輸出: 'a b'\n\n[測試#21] ❌ 失敗\n  標準輸入: findLongestWord('你好世界', ['你好世', '世界', '你好'])\n  標準輸出: '你好世\\n'\n  你的輸出: '你好世'\n\n[測試#22] ❌ 失敗\n  標準輸入: findLongestWord('你好世界', ['你好世界', '你好世'])\n  標準輸出: '你好世界\\n'\n  你的輸出: '你好世界'\n\n[測試#23] ❌ 失敗\n  標準輸入: findLongestWord('你好世界', ['世界你'])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#24] ❌ 失敗\n  標準輸入: findLongestWord('你好你好', ['你好你好', '你好你'])\n  標準輸出: '你好你好\\n'\n  你的輸出: '你好你好'\n\n[測試#25] ❌ 失敗\n  標準輸入: findLongestWord('你好你', ['你好你好'])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n=== 測試完成 (0/25) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 14,
+    "total_tests": 25,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

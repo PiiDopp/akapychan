@@ -18,70 +18,13 @@
     "solution": "class Solution(object):\n    def selfDividingNumbers(self, left, right):\n        res = []\n        for num in range(left, right + 1):\n            temp = num\n            divisible = True\n            while temp > 0:\n                digit = temp % 10\n                if digit == 0 or num % digit != 0:\n                    divisible = False\n                    break\n                temp //= 10\n            if divisible:\n                res.append(num)\n        return res"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "1\n22\n",
-        "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]\n"
-      },
-      {
-        "input": "1\n100\n",
-        "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99]\n"
-      },
-      {
-        "input": "0\n0\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "10\n5\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "128\n128\n",
-        "output": "[128]\n"
-      },
-      {
-        "input": "128\n130\n",
-        "output": "[128]\n"
-      },
-      {
-        "input": "100\n110\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "1\n1\n",
-        "output": "[1]\n"
-      },
-      {
-        "input": "11\n11\n",
-        "output": "[11]\n"
-      },
-      {
-        "input": "20\n20\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "22\n22\n",
-        "output": "[22]\n"
-      }
-    ],
-    "parsed_tests": [
-      "('selfDividingNumbers', (1, 22), [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22])",
-      "('selfDividingNumbers', (1, 100), [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99])",
-      "('selfDividingNumbers', (0, 0), [])",
-      "('selfDividingNumbers', (10, 5), [])",
-      "('selfDividingNumbers', (128, 128), [128])",
-      "('selfDividingNumbers', (128, 130), [128])",
-      "('selfDividingNumbers', (100, 110), [])",
-      "('selfDividingNumbers', (1, 1), [1])",
-      "('selfDividingNumbers', (11, 11), [11])",
-      "('selfDividingNumbers', (20, 20), [])",
-      "('selfDividingNumbers', (22, 22), [22])"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: selfDividingNumbers(1, 22)\n  標準輸出: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]\n  你的輸出: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]\n\n[測試#2] ✅ 通過\n  標準輸入: selfDividingNumbers(1, 100)\n  標準輸出: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99]\n  你的輸出: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22, 24, 33, 36, 44, 48, 55, 66, 77, 88, 99]\n\n[測試#3] ❌ 失敗\n  標準輸入: selfDividingNumbers(0, 0)\n  標準輸出: []\n  你的輸出: [0]\n\n[測試#4] ✅ 通過\n  標準輸入: selfDividingNumbers(10, 5)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: selfDividingNumbers(128, 128)\n  標準輸出: [128]\n  你的輸出: [128]\n\n[測試#6] ✅ 通過\n  標準輸入: selfDividingNumbers(128, 130)\n  標準輸出: [128]\n  你的輸出: [128]\n\n[測試#7] ✅ 通過\n  標準輸入: selfDividingNumbers(100, 110)\n  標準輸出: []\n  你的輸出: []\n\n[測試#8] ✅ 通過\n  標準輸入: selfDividingNumbers(1, 1)\n  標準輸出: [1]\n  你的輸出: [1]\n\n[測試#9] ✅ 通過\n  標準輸入: selfDividingNumbers(11, 11)\n  標準輸出: [11]\n  你的輸出: [11]\n\n[測試#10] ✅ 通過\n  標準輸入: selfDividingNumbers(20, 20)\n  標準輸出: []\n  你的輸出: []\n\n[測試#11] ✅ 通過\n  標準輸入: selfDividingNumbers(22, 22)\n  標準輸出: [22]\n  你的輸出: [22]\n\n=== 測試完成 (10/11) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
     "all_passed": false,
-    "total_tests": 11,
+    "total_tests": 0,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

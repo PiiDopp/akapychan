@@ -27,62 +27,62 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "leetcode\n",
-        "output": "0\n"
+        "input": "abacabad\n",
+        "output": "1\n"
       },
       {
-        "input": "loveleetcode\n",
-        "output": "2\n"
-      },
-      {
-        "input": "aabb\n",
+        "input": "aabbcc\n",
         "output": "-1\n"
+      },
+      {
+        "input": "abcabcde\n",
+        "output": "6\n"
+      },
+      {
+        "input": "abcd\n",
+        "output": "0\n"
       },
       {
         "input": "\n",
         "output": "-1\n"
       },
       {
-        "input": "a\n",
+        "input": "a  b  c\n",
+        "output": "2\n"
+      },
+      {
+        "input": "!@#$%^&*()\n",
         "output": "0\n"
       },
       {
-        "input": "aaabbbcccddde\n",
-        "output": "12\n"
+        "input": "你好世界你好\n",
+        "output": "2\n"
       },
       {
         "input": "AaBbCc\n",
         "output": "0\n"
       },
       {
-        "input": "abcabc\n",
-        "output": "-1\n"
-      },
-      {
-        "input": "abacabad\n",
-        "output": "3\n"
-      },
-      {
-        "input": "你好世界你好\n",
-        "output": "2\n"
+        "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab\n",
+        "output": "100\n"
       }
     ],
     "parsed_tests": [
-      "('firstUniqChar', ('leetcode\\n',), 0)",
-      "('firstUniqChar', ('loveleetcode\\n',), 2)",
-      "('firstUniqChar', ('aabb\\n',), -1)",
+      "('firstUniqChar', ('abacabad\\n',), 1)",
+      "('firstUniqChar', ('aabbcc\\n',), -1)",
+      "('firstUniqChar', ('abcabcde\\n',), 6)",
+      "('firstUniqChar', ('abcd\\n',), 0)",
       "('firstUniqChar', ((),), -1)",
-      "('firstUniqChar', ('a\\n',), 0)",
-      "('firstUniqChar', ('aaabbbcccddde\\n',), 12)",
+      "('firstUniqChar', ('a  b  c\\n',), 2)",
+      "('firstUniqChar', ('!@#$%^&*()\\n',), 0)",
+      "('firstUniqChar', ('你好世界你好\\n',), 2)",
       "('firstUniqChar', ('AaBbCc\\n',), 0)",
-      "('firstUniqChar', ('abcabc\\n',), -1)",
-      "('firstUniqChar', ('abacabad\\n',), 3)",
-      "('firstUniqChar', ('你好世界你好\\n',), 2)"
+      "('firstUniqChar', ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab\\n',), 100)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: firstUniqChar('leetcode\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: firstUniqChar('loveleetcode\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ❌ 失敗\n  標準輸入: firstUniqChar('aabb\\n',)\n  標準輸出: -1\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: firstUniqChar((),)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: firstUniqChar('a\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: firstUniqChar('aaabbbcccddde\\n',)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#7] ✅ 通過\n  標準輸入: firstUniqChar('AaBbCc\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ❌ 失敗\n  標準輸入: firstUniqChar('abcabc\\n',)\n  標準輸出: -1\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: firstUniqChar('abacabad\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#10] ✅ 通過\n  標準輸入: firstUniqChar('你好世界你好\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: firstUniqChar('abacabad\\n',)\n  標準輸出: 1\n  你的輸出: 3\n\n[測試#2] ❌ 失敗\n  標準輸入: firstUniqChar('aabbcc\\n',)\n  標準輸出: -1\n  你的輸出: 6\n\n[測試#3] ✅ 通過\n  標準輸入: firstUniqChar('abcabcde\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#4] ✅ 通過\n  標準輸入: firstUniqChar('abcd\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: firstUniqChar((),)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#6] ❌ 失敗\n  標準輸入: firstUniqChar('a  b  c\\n',)\n  標準輸出: 2\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: firstUniqChar('!@#$%^&*()\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: firstUniqChar('你好世界你好\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: firstUniqChar('AaBbCc\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ❌ 失敗\n  標準輸入: firstUniqChar('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab\\n',)\n  標準輸出: 100\n  你的輸出: 102\n\n=== 測試完成 (6/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
     "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 6,
+    "accuracy_rate": 0.6
   }
 }

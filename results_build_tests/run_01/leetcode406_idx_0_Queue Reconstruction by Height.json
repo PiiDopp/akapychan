@@ -31,43 +31,38 @@
         "output": "[]\n"
       },
       {
-        "input": "5 0\n",
-        "output": "[[5, 0]]\n"
+        "input": "1 0\n",
+        "output": "[[1, 0]]\n"
       },
       {
-        "input": "5 0\n5 1\n5 2\n",
-        "output": "[[5, 0], [5, 1], [5, 2]]\n"
+        "input": "3 0\n3 1\n3 2\n",
+        "output": "[[3, 0], [3, 1], [3, 2]]\n"
       },
       {
-        "input": "6 5\n5 0\n4 4\n3 3\n2 2\n1 1\n",
-        "output": "[[5, 0], [1, 1], [2, 2], [6, 5], [3, 3], [4, 4]]\n"
+        "input": "6 0\n5 0\n4 0\n3 0\n",
+        "output": "[[6, 0], [5, 0], [4, 0], [3, 0]]\n"
       },
       {
-        "input": "7 0\n7 0\n7 1\n",
-        "output": "[[7, 0], [7, 1], [7, 0]]\n"
+        "input": "2 1\n3 0\n4 2\n1 3\n",
+        "output": "[[3, 0], [2, 1], [4, 2], [1, 3]]\n"
       },
       {
-        "input": "5 0\n5 1\n5 2\n5 3\n",
-        "output": "[[5, 0], [5, 1], [5, 2], [5, 3]]\n"
-      },
-      {
-        "input": "4 1\n2 0\n3 1\n1 3\n",
-        "output": "[[2, 0], [3, 1], [1, 3], [4, 1]]\n"
+        "input": "5 0\n5 1\n5 2\n5 3\n5 4\n",
+        "output": "[[5, 0], [5, 1], [5, 2], [5, 3], [5, 4]]\n"
       }
     ],
     "parsed_tests": [
       "('reconstructQueue', ('7 0\\n4 4\\n7 1\\n5 0\\n6 1\\n5 2\\n',), [[5, 0], [7, 0], [5, 2], [6, 1], [4, 4], [7, 1]])",
       "('reconstructQueue', ((),), [])",
-      "('reconstructQueue', ('5 0\\n',), [[5, 0]])",
-      "('reconstructQueue', ('5 0\\n5 1\\n5 2\\n',), [[5, 0], [5, 1], [5, 2]])",
-      "('reconstructQueue', ('6 5\\n5 0\\n4 4\\n3 3\\n2 2\\n1 1\\n',), [[5, 0], [1, 1], [2, 2], [6, 5], [3, 3], [4, 4]])",
-      "('reconstructQueue', ('7 0\\n7 0\\n7 1\\n',), [[7, 0], [7, 1], [7, 0]])",
-      "('reconstructQueue', ('5 0\\n5 1\\n5 2\\n5 3\\n',), [[5, 0], [5, 1], [5, 2], [5, 3]])",
-      "('reconstructQueue', ('4 1\\n2 0\\n3 1\\n1 3\\n',), [[2, 0], [3, 1], [1, 3], [4, 1]])"
+      "('reconstructQueue', ('1 0\\n',), [[1, 0]])",
+      "('reconstructQueue', ('3 0\\n3 1\\n3 2\\n',), [[3, 0], [3, 1], [3, 2]])",
+      "('reconstructQueue', ('6 0\\n5 0\\n4 0\\n3 0\\n',), [[6, 0], [5, 0], [4, 0], [3, 0]])",
+      "('reconstructQueue', ('2 1\\n3 0\\n4 2\\n1 3\\n',), [[3, 0], [2, 1], [4, 2], [1, 3]])",
+      "('reconstructQueue', ('5 0\\n5 1\\n5 2\\n5 3\\n5 4\\n',), [[5, 0], [5, 1], [5, 2], [5, 3], [5, 4]])"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 8,
+    "total_tests": 7,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

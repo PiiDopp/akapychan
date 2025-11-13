@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode454.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "4Sum II",
+    "description": "Given four integer arrays A, B, C, and D all of length n, return the number of tuples (i, j, k, l) such that:\n\n0 <= i, j, k, l < n\nA[i] + B[j] + C[k] + D[l] == 0",
+    "examples": [
+      {
+        "input": "A = [1,2], B = [-2,-1], C = [-1,2], D = [0,2]",
+        "output": "2",
+        "explanation": "The two tuples are:\n1. (0, 0, 0, 1) -> nums1[0] + nums2[0] + nums3[0] + nums4[1] = 1 + (-2) + (-1) + 2 = 0\n2. (1, 1, 0, 0) -> nums1[1] + nums2[1] + nums3[0] + nums4[0] = 2 + (-1) + (-1) + 0 = 0"
+      },
+      {
+        "input": "A = [0], B = [0], C = [0], D = [0]",
+        "output": "1"
+      }
+    ],
+    "solution": "from collections import Counter\n\nclass Solution:\n    def fourSumCount(self, A, B, C, D):\n        AB = Counter(a + b for a in A for b in B)\n        count = 0\n        for c in C:\n            for d in D:\n                count += AB.get(-(c + d), 0)\n        return count"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n0\n0\n0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 2\n-1 -2\n1 2\n-1 -2\n",
+        "output": "6\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1 0 1\n-1 0 1\n-1 0 1\n-1 0 1\n",
+        "output": "19\n"
+      },
+      {
+        "input": "1000000\n-1000000\n0\n0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 1\n-1 -1\n1 1\n-1 -1\n",
+        "output": "16\n"
+      }
+    ],
+    "parsed_tests": [
+      "('fourSumCount', ('\\n',), 0)",
+      "('fourSumCount', (0, 0, 0, 0), 1)",
+      "('fourSumCount', ('1 2\\n-1 -2\\n1 2\\n-1 -2\\n',), 6)",
+      "('fourSumCount', (1, 2, 3, 4), 0)",
+      "('fourSumCount', ('-1 0 1\\n-1 0 1\\n-1 0 1\\n-1 0 1\\n',), 19)",
+      "('fourSumCount', (1000000, -1000000, 0, 0), 1)",
+      "('fourSumCount', ('1 1\\n-1 -1\\n1 1\\n-1 -1\\n',), 16)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.fourSumCount() missing 3 required positional arguments: 'B', 'C', and 'D'\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ❌ 執行例外: Solution.fourSumCount() missing 3 required positional arguments: 'B', 'C', and 'D'\n[測試#4] ❌ 執行例外: 'int' object is not iterable\n[測試#5] ❌ 執行例外: Solution.fourSumCount() missing 3 required positional arguments: 'B', 'C', and 'D'\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ❌ 執行例外: Solution.fourSumCount() missing 3 required positional arguments: 'B', 'C', and 'D'\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

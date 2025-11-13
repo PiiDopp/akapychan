@@ -18,14 +18,51 @@
     "solution": "class Solution:\n    def findRepeatedDnaSequences(self, s):\n        seen = set()\n        repeated = set()\n        for i in range(len(s) - 9):\n            seq = s[i:i+10]\n            if seq in seen:\n                repeated.add(seq)\n            else:\n                seen.add(seq)\n        return list(repeated)"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT\n",
+        "output": "['AAAAACCCCC', 'CCCCCAAAAA']\n"
+      },
+      {
+        "input": "ACGTACGTAC\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "ACGTACG\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "AAAAAAAAAAAAAAAAAAAA\n",
+        "output": "['AAAAAAAAAA']\n"
+      },
+      {
+        "input": "ACGTACGTACGTACGTACGT\n",
+        "output": "['ACGTACGTAC']\n"
+      },
+      {
+        "input": "ACGTACGTACGTACGTACGTACGTACGTACGT\n",
+        "output": "['ACGTACGTAC', 'CGTACGTACG', 'GTACGTACGT', 'TACGTACGTA']\n"
+      },
+      {
+        "input": "ACGTACGTAGC\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findRepeatedDnaSequences', ('AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT\\n',), ['AAAAACCCCC', 'CCCCCAAAAA'])",
+      "('findRepeatedDnaSequences', ('ACGTACGTAC\\n',), [])",
+      "('findRepeatedDnaSequences', ('ACGTACG\\n',), [])",
+      "('findRepeatedDnaSequences', ('AAAAAAAAAAAAAAAAAAAA\\n',), ['AAAAAAAAAA'])",
+      "('findRepeatedDnaSequences', ('ACGTACGTACGTACGTACGT\\n',), ['ACGTACGTAC'])",
+      "('findRepeatedDnaSequences', ('ACGTACGTACGTACGTACGTACGTACGTACGT\\n',), ['ACGTACGTAC', 'CGTACGTACG', 'GTACGTACGT', 'TACGTACGTA'])",
+      "('findRepeatedDnaSequences', ('ACGTACGTAGC\\n',), [])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: findRepeatedDnaSequences('AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT\\n',)\n  標準輸出: ['AAAAACCCCC', 'CCCCCAAAAA']\n  你的輸出: ['CCCCCAAAAA', 'AAAAACCCCC']\n\n[測試#2] ✅ 通過\n  標準輸入: findRepeatedDnaSequences('ACGTACGTAC\\n',)\n  標準輸出: []\n  你的輸出: []\n\n[測試#3] ✅ 通過\n  標準輸入: findRepeatedDnaSequences('ACGTACG\\n',)\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: findRepeatedDnaSequences('AAAAAAAAAAAAAAAAAAAA\\n',)\n  標準輸出: ['AAAAAAAAAA']\n  你的輸出: ['AAAAAAAAAA']\n\n[測試#5] ❌ 失敗\n  標準輸入: findRepeatedDnaSequences('ACGTACGTACGTACGTACGT\\n',)\n  標準輸出: ['ACGTACGTAC']\n  你的輸出: ['GTACGTACGT', 'TACGTACGTA', 'CGTACGTACG', 'ACGTACGTAC']\n\n[測試#6] ❌ 失敗\n  標準輸入: findRepeatedDnaSequences('ACGTACGTACGTACGTACGTACGTACGTACGT\\n',)\n  標準輸出: ['ACGTACGTAC', 'CGTACGTACG', 'GTACGTACGT', 'TACGTACGTA']\n  你的輸出: ['GTACGTACGT', 'TACGTACGTA', 'CGTACGTACG', 'ACGTACGTAC']\n\n[測試#7] ✅ 通過\n  標準輸入: findRepeatedDnaSequences('ACGTACGTAGC\\n',)\n  標準輸出: []\n  你的輸出: []\n\n=== 測試完成 (4/7) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 7,
+    "passed_count": 4,
+    "accuracy_rate": 0.5714285714285714
   }
 }

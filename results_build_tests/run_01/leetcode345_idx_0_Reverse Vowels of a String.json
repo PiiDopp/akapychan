@@ -28,7 +28,7 @@
       },
       {
         "input": "leetcode\n",
-        "output": "leotcede\n"
+        "output": "loetcede\n"
       },
       {
         "input": "bcdfg\n",
@@ -39,12 +39,8 @@
         "output": "uoiea\n"
       },
       {
-        "input": "aAeEiIoOuU\n",
-        "output": "UoOoiIeAa\n"
-      },
-      {
-        "input": "b\n",
-        "output": "b\n"
+        "input": "AbcE\n",
+        "output": "Ebca\n"
       },
       {
         "input": "a\n",
@@ -55,30 +51,34 @@
         "output": "\n"
       },
       {
-        "input": "h!e@l#l$o%\n",
-        "output": "h!o@l#l$e%\n"
+        "input": "aeiouaeiou\n",
+        "output": "uoieauoiea\n"
       },
       {
-        "input": "你好世界\n",
-        "output": "你好世界\n"
+        "input": "hëllö\n",
+        "output": "hëllö\n"
+      },
+      {
+        "input": "a!e?i\n",
+        "output": "i!e?a\n"
       }
     ],
     "parsed_tests": [
       "('reverseVowels', ('hello\\n',), 'holle\\n')",
-      "('reverseVowels', ('leetcode\\n',), 'leotcede\\n')",
+      "('reverseVowels', ('leetcode\\n',), 'loetcede\\n')",
       "('reverseVowels', ('bcdfg\\n',), 'bcdfg\\n')",
       "('reverseVowels', ('aeiou\\n',), 'uoiea\\n')",
-      "('reverseVowels', ('aAeEiIoOuU\\n',), 'UoOoiIeAa\\n')",
-      "('reverseVowels', ('b\\n',), 'b\\n')",
+      "('reverseVowels', ('AbcE\\n',), 'Ebca\\n')",
       "('reverseVowels', ('a\\n',), 'a\\n')",
       "('reverseVowels', ((),), '\\n')",
-      "('reverseVowels', ('h!e@l#l$o%\\n',), 'h!o@l#l$e%\\n')",
-      "('reverseVowels', ('你好世界\\n',), '你好世界\\n')"
+      "('reverseVowels', ('aeiouaeiou\\n',), 'uoieauoiea\\n')",
+      "('reverseVowels', ('hëllö\\n',), 'hëllö\\n')",
+      "('reverseVowels', ('a!e?i\\n',), 'i!e?a\\n')"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: reverseVowels('hello\\n',)\n  標準輸出: 'holle\\n'\n  你的輸出: 'holle\\n'\n\n[測試#2] ✅ 通過\n  標準輸入: reverseVowels('leetcode\\n',)\n  標準輸出: 'leotcede\\n'\n  你的輸出: 'leotcede\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: reverseVowels('bcdfg\\n',)\n  標準輸出: 'bcdfg\\n'\n  你的輸出: 'bcdfg\\n'\n\n[測試#4] ✅ 通過\n  標準輸入: reverseVowels('aeiou\\n',)\n  標準輸出: 'uoiea\\n'\n  你的輸出: 'uoiea\\n'\n\n[測試#5] ❌ 失敗\n  標準輸入: reverseVowels('aAeEiIoOuU\\n',)\n  標準輸出: 'UoOoiIeAa\\n'\n  你的輸出: 'UuOoIiEeAa\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: reverseVowels('b\\n',)\n  標準輸出: 'b\\n'\n  你的輸出: 'b\\n'\n\n[測試#7] ✅ 通過\n  標準輸入: reverseVowels('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: 'a\\n'\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseVowels((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#9] ✅ 通過\n  標準輸入: reverseVowels('h!e@l#l$o%\\n',)\n  標準輸出: 'h!o@l#l$e%\\n'\n  你的輸出: 'h!o@l#l$e%\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: reverseVowels('你好世界\\n',)\n  標準輸出: '你好世界\\n'\n  你的輸出: '你好世界\\n'\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: reverseVowels('hello\\n',)\n  標準輸出: 'holle\\n'\n  你的輸出: 'holle\\n'\n\n[測試#2] ❌ 失敗\n  標準輸入: reverseVowels('leetcode\\n',)\n  標準輸出: 'loetcede\\n'\n  你的輸出: 'leotcede\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: reverseVowels('bcdfg\\n',)\n  標準輸出: 'bcdfg\\n'\n  你的輸出: 'bcdfg\\n'\n\n[測試#4] ✅ 通過\n  標準輸入: reverseVowels('aeiou\\n',)\n  標準輸出: 'uoiea\\n'\n  你的輸出: 'uoiea\\n'\n\n[測試#5] ❌ 失敗\n  標準輸入: reverseVowels('AbcE\\n',)\n  標準輸出: 'Ebca\\n'\n  你的輸出: 'EbcA\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: reverseVowels('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: 'a\\n'\n\n[測試#7] ❌ 失敗\n  標準輸入: reverseVowels((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#8] ✅ 通過\n  標準輸入: reverseVowels('aeiouaeiou\\n',)\n  標準輸出: 'uoieauoiea\\n'\n  你的輸出: 'uoieauoiea\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: reverseVowels('hëllö\\n',)\n  標準輸出: 'hëllö\\n'\n  你的輸出: 'hëllö\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: reverseVowels('a!e?i\\n',)\n  標準輸出: 'i!e?a\\n'\n  你的輸出: 'i!e?a\\n'\n\n=== 測試完成 (7/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
     "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 7,
+    "accuracy_rate": 0.7
   }
 }

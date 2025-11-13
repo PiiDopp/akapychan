@@ -35,34 +35,44 @@
         "output": "['Hello']\n"
       },
       {
-        "input": "[['Hi'], 5]\n",
-        "output": "['Hi   ']\n"
-      },
-      {
-        "input": "[['a', 'b', 'c', 'd'], 7]\n",
-        "output": "['a b c d']\n"
-      },
-      {
         "input": "[['This', 'is', 'the', 'last', 'line'], 10]\n",
         "output": "['This    is', 'the   last', 'line      ']\n"
       },
       {
-        "input": "[['ab', 'cd', 'ef'], 8]\n",
-        "output": "['ab cd ef']\n"
+        "input": "[['a', 'b', 'c', 'd', 'e'], 7]\n",
+        "output": "['a b c d', 'e      ']\n"
+      },
+      {
+        "input": "[['longword'], 8]\n",
+        "output": "['longword']\n"
+      },
+      {
+        "input": "[['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'], 10]\n",
+        "output": "['The  quick', 'brown  fox', 'jumps over', 'the   lazy', 'dog     ']\n"
+      },
+      {
+        "input": "[['a', 'b', 'c'], 1]\n",
+        "output": "['a', 'b', 'c']\n"
+      },
+      {
+        "input": "[['aa', 'bb', 'cc', 'dd'], 9]\n",
+        "output": "['aa  bb cc', 'dd     ']\n"
       }
     ],
     "parsed_tests": [
       "('fullJustify', (['This', 'is', 'an', 'example', 'of', 'text', 'justification.'], 16), ['This    is    an', 'example  of text', 'justification.  '])",
       "('fullJustify', (['Hello'], 5), ['Hello'])",
-      "('fullJustify', (['Hi'], 5), ['Hi   '])",
-      "('fullJustify', (['a', 'b', 'c', 'd'], 7), ['a b c d'])",
       "('fullJustify', (['This', 'is', 'the', 'last', 'line'], 10), ['This    is', 'the   last', 'line      '])",
-      "('fullJustify', (['ab', 'cd', 'ef'], 8), ['ab cd ef'])"
+      "('fullJustify', (['a', 'b', 'c', 'd', 'e'], 7), ['a b c d', 'e      '])",
+      "('fullJustify', (['longword'], 8), ['longword'])",
+      "('fullJustify', (['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'], 10), ['The  quick', 'brown  fox', 'jumps over', 'the   lazy', 'dog     '])",
+      "('fullJustify', (['a', 'b', 'c'], 1), ['a', 'b', 'c'])",
+      "('fullJustify', (['aa', 'bb', 'cc', 'dd'], 9), ['aa  bb cc', 'dd     '])"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: fullJustify(['This', 'is', 'an', 'example', 'of', 'text', 'justification.'], 16)\n  標準輸出: ['This    is    an', 'example  of text', 'justification.  ']\n  你的輸出: ['This    is    an', 'example  of text', 'justification.  ']\n\n[測試#2] ✅ 通過\n  標準輸入: fullJustify(['Hello'], 5)\n  標準輸出: ['Hello']\n  你的輸出: ['Hello']\n\n[測試#3] ✅ 通過\n  標準輸入: fullJustify(['Hi'], 5)\n  標準輸出: ['Hi   ']\n  你的輸出: ['Hi   ']\n\n[測試#4] ✅ 通過\n  標準輸入: fullJustify(['a', 'b', 'c', 'd'], 7)\n  標準輸出: ['a b c d']\n  你的輸出: ['a b c d']\n\n[測試#5] ✅ 通過\n  標準輸入: fullJustify(['This', 'is', 'the', 'last', 'line'], 10)\n  標準輸出: ['This    is', 'the   last', 'line      ']\n  你的輸出: ['This    is', 'the   last', 'line      ']\n\n[測試#6] ✅ 通過\n  標準輸入: fullJustify(['ab', 'cd', 'ef'], 8)\n  標準輸出: ['ab cd ef']\n  你的輸出: ['ab cd ef']\n\n=== 測試完成 (6/6) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
-    "all_passed": true,
-    "total_tests": 6,
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: fullJustify(['This', 'is', 'an', 'example', 'of', 'text', 'justification.'], 16)\n  標準輸出: ['This    is    an', 'example  of text', 'justification.  ']\n  你的輸出: ['This    is    an', 'example  of text', 'justification.  ']\n\n[測試#2] ✅ 通過\n  標準輸入: fullJustify(['Hello'], 5)\n  標準輸出: ['Hello']\n  你的輸出: ['Hello']\n\n[測試#3] ✅ 通過\n  標準輸入: fullJustify(['This', 'is', 'the', 'last', 'line'], 10)\n  標準輸出: ['This    is', 'the   last', 'line      ']\n  你的輸出: ['This    is', 'the   last', 'line      ']\n\n[測試#4] ✅ 通過\n  標準輸入: fullJustify(['a', 'b', 'c', 'd', 'e'], 7)\n  標準輸出: ['a b c d', 'e      ']\n  你的輸出: ['a b c d', 'e      ']\n\n[測試#5] ✅ 通過\n  標準輸入: fullJustify(['longword'], 8)\n  標準輸出: ['longword']\n  你的輸出: ['longword']\n\n[測試#6] ❌ 失敗\n  標準輸入: fullJustify(['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'], 10)\n  標準輸出: ['The  quick', 'brown  fox', 'jumps over', 'the   lazy', 'dog     ']\n  你的輸出: ['The  quick', 'brown  fox', 'jumps over', 'the   lazy', 'dog       ']\n\n[測試#7] ✅ 通過\n  標準輸入: fullJustify(['a', 'b', 'c'], 1)\n  標準輸出: ['a', 'b', 'c']\n  你的輸出: ['a', 'b', 'c']\n\n[測試#8] ❌ 失敗\n  標準輸入: fullJustify(['aa', 'bb', 'cc', 'dd'], 9)\n  標準輸出: ['aa  bb cc', 'dd     ']\n  你的輸出: ['aa  bb cc', 'dd       ']\n\n=== 測試完成 (6/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
     "passed_count": 6,
-    "accuracy_rate": 1.0
+    "accuracy_rate": 0.75
   }
 }

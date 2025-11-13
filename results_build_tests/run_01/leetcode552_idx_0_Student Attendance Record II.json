@@ -23,14 +23,71 @@
     "solution": "class Solution:\n    def checkRecord(self, n):\n        MOD = 10**9 + 7\n        # dp[a][l] = count of sequences with a 'A's and ending with l consecutive 'L's\n        dp = [[0]*3 for _ in range(2)]\n        dp[0][0] = 1\n\n        for _ in range(n):\n            new_dp = [[0]*3 for _ in range(2)]\n            for a in range(2):\n                for l in range(3):\n                    val = dp[a][l]\n                    if val == 0:\n                        continue\n                    # Add 'P'\n                    new_dp[a][0] = (new_dp[a][0] + val) % MOD\n                    # Add 'A'\n                    if a == 0:\n                        new_dp[1][0] = (new_dp[1][0] + val) % MOD\n                    # Add 'L'\n                    if l < 2:\n                        new_dp[a][l+1] = (new_dp[a][l+1] + val) % MOD\n            dp = new_dp\n\n        return sum(dp[a][l] for a in range(2) for l in range(3)) % MOD"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n",
+        "output": "3\n"
+      },
+      {
+        "input": "2\n",
+        "output": "8\n"
+      },
+      {
+        "input": "3\n",
+        "output": "19\n"
+      },
+      {
+        "input": "4\n",
+        "output": "43\n"
+      },
+      {
+        "input": "5\n",
+        "output": "94\n"
+      },
+      {
+        "input": "6\n",
+        "output": "200\n"
+      },
+      {
+        "input": "7\n",
+        "output": "418\n"
+      },
+      {
+        "input": "8\n",
+        "output": "861\n"
+      },
+      {
+        "input": "9\n",
+        "output": "2003\n"
+      },
+      {
+        "input": "10\n",
+        "output": "3536\n"
+      }
+    ],
+    "parsed_tests": [
+      "('checkRecord', (0,), 1)",
+      "('checkRecord', (1,), 3)",
+      "('checkRecord', (2,), 8)",
+      "('checkRecord', (3,), 19)",
+      "('checkRecord', (4,), 43)",
+      "('checkRecord', (5,), 94)",
+      "('checkRecord', (6,), 200)",
+      "('checkRecord', (7,), 418)",
+      "('checkRecord', (8,), 861)",
+      "('checkRecord', (9,), 2003)",
+      "('checkRecord', (10,), 3536)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: checkRecord(0,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: checkRecord(1,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#3] ✅ 通過\n  標準輸入: checkRecord(2,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#4] ✅ 通過\n  標準輸入: checkRecord(3,)\n  標準輸出: 19\n  你的輸出: 19\n\n[測試#5] ✅ 通過\n  標準輸入: checkRecord(4,)\n  標準輸出: 43\n  你的輸出: 43\n\n[測試#6] ✅ 通過\n  標準輸入: checkRecord(5,)\n  標準輸出: 94\n  你的輸出: 94\n\n[測試#7] ✅ 通過\n  標準輸入: checkRecord(6,)\n  標準輸出: 200\n  你的輸出: 200\n\n[測試#8] ✅ 通過\n  標準輸入: checkRecord(7,)\n  標準輸出: 418\n  你的輸出: 418\n\n[測試#9] ✅ 通過\n  標準輸入: checkRecord(8,)\n  標準輸出: 861\n  你的輸出: 861\n\n[測試#10] ❌ 失敗\n  標準輸入: checkRecord(9,)\n  標準輸出: 2003\n  你的輸出: 1753\n\n[測試#11] ✅ 通過\n  標準輸入: checkRecord(10,)\n  標準輸出: 3536\n  你的輸出: 3536\n\n=== 測試完成 (10/11) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 11,
+    "passed_count": 10,
+    "accuracy_rate": 0.9090909090909091
   }
 }

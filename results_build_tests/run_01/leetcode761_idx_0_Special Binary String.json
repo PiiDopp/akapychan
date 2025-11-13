@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode761.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Special Binary String",
+    "description": "Special binary strings are binary strings with the following two properties:\n\nThe number of 0's is equal to the number of 1's.\nEvery prefix of the binary string has at least as many 1's as 0's.\nYou are given a special binary string s.\n\nA move consists of choosing two consecutive, non-empty, special substrings of s, and swapping them. Two strings are consecutive if the last character of the first string is exactly one index before the first character of the second string.\n\nReturn the lexicographically largest resulting string possible after applying the mentioned operations on the string.",
+    "examples": [
+      {
+        "input": "s = \"11011000\"",
+        "output": "\"11100100\"",
+        "explanation": "The strings \"10\" [occurring at s[1]] and \"1100\" [at s[3]] are swapped.\nThis is the lexicographically largest string possible after some number of swaps."
+      },
+      {
+        "input": "s = \"10\"",
+        "output": "\"10\""
+      }
+    ],
+    "solution": "class Solution:\n    def makeLargestSpecial(self, s):\n        count = 0\n        i = 0\n        res = []\n        for j, c in enumerate(s):\n            if c == '1':\n                count += 1\n            else:\n                count -= 1\n            if count == 0:\n                inner = self.makeLargestSpecial(s[i+1:j])\n                res.append('1' + inner + '0')\n                i = j + 1\n        res.sort(reverse=True)\n        return ''.join(res)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "10\n",
+        "output": "10\n"
+      },
+      {
+        "input": "1100\n",
+        "output": "1100\n"
+      },
+      {
+        "input": "11011000\n",
+        "output": "11100100\n"
+      },
+      {
+        "input": "110110001100\n",
+        "output": "111001001100\n"
+      },
+      {
+        "input": "1101101100001100\n",
+        "output": "1111001001001100\n"
+      },
+      {
+        "input": "110011001100\n",
+        "output": "110011001100\n"
+      },
+      {
+        "input": "1101100011001100\n",
+        "output": "1110010011001100\n"
+      }
+    ],
+    "parsed_tests": [
+      "('makeLargestSpecial', (10,), 10)",
+      "('makeLargestSpecial', (1100,), 1100)",
+      "('makeLargestSpecial', (11011000,), 11100100)",
+      "('makeLargestSpecial', (110110001100,), 111001001100)",
+      "('makeLargestSpecial', (1101101100001100,), 1111001001001100)",
+      "('makeLargestSpecial', (110011001100,), 110011001100)",
+      "('makeLargestSpecial', (1101100011001100,), 1110010011001100)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'int' object is not iterable\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ❌ 執行例外: 'int' object is not iterable\n[測試#4] ❌ 執行例外: 'int' object is not iterable\n[測試#5] ❌ 執行例外: 'int' object is not iterable\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ❌ 執行例外: 'int' object is not iterable\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

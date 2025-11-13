@@ -24,62 +24,72 @@
     "error": null,
     "generated_tests": [
       {
+        "input": "\n",
+        "output": "True\n"
+      },
+      {
+        "input": "U\n",
+        "output": "False\n"
+      },
+      {
         "input": "UD\n",
         "output": "True\n"
       },
       {
-        "input": "LLRR\n",
+        "input": "LR\n",
         "output": "True\n"
       },
       {
-        "input": "L\n",
+        "input": "RLRL\n",
+        "output": "True\n"
+      },
+      {
+        "input": "RLRLR\n",
         "output": "False\n"
-      },
-      {
-        "input": "\n",
-        "output": "True\n"
       },
       {
         "input": "UUDDLRLR\n",
         "output": "True\n"
       },
       {
-        "input": "UUUU\n",
+        "input": "UU\n",
         "output": "False\n"
       },
       {
-        "input": "RURD\n",
+        "input": "UDUDU\n",
         "output": "False\n"
       },
       {
-        "input": "UAXD\n",
+        "input": "RUDL\n",
         "output": "True\n"
       },
       {
-        "input": "RLRLRLRL\n",
-        "output": "True\n"
+        "input": "RUDLR\n",
+        "output": "False\n"
       },
       {
-        "input": "RRLLUU\n",
-        "output": "False\n"
+        "input": "LRLRLRLR\n",
+        "output": "True\n"
       }
     ],
     "parsed_tests": [
-      "('judgeCircle', ('UD\\n',), True)",
-      "('judgeCircle', ('LLRR\\n',), True)",
-      "('judgeCircle', ('L\\n',), False)",
       "('judgeCircle', ((),), True)",
+      "('judgeCircle', ('U\\n',), False)",
+      "('judgeCircle', ('UD\\n',), True)",
+      "('judgeCircle', ('LR\\n',), True)",
+      "('judgeCircle', ('RLRL\\n',), True)",
+      "('judgeCircle', ('RLRLR\\n',), False)",
       "('judgeCircle', ('UUDDLRLR\\n',), True)",
-      "('judgeCircle', ('UUUU\\n',), False)",
-      "('judgeCircle', ('RURD\\n',), False)",
-      "('judgeCircle', ('UAXD\\n',), True)",
-      "('judgeCircle', ('RLRLRLRL\\n',), True)",
-      "('judgeCircle', ('RRLLUU\\n',), False)"
+      "('judgeCircle', ('UU\\n',), False)",
+      "('judgeCircle', ('UDUDU\\n',), False)",
+      "('judgeCircle', ('RUDL\\n',), True)",
+      "('judgeCircle', ('RUDLR\\n',), False)",
+      "('judgeCircle', ('LRLRLRLR\\n',), True)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: judgeCircle('UD\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: judgeCircle('LLRR\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: judgeCircle('L\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: judgeCircle((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: judgeCircle('UUDDLRLR\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: judgeCircle('UUUU\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: judgeCircle('RURD\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: judgeCircle('UAXD\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: judgeCircle('RLRLRLRL\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: judgeCircle('RRLLUU\\n',)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: judgeCircle((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: judgeCircle('U\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: judgeCircle('UD\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: judgeCircle('LR\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: judgeCircle('RLRL\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: judgeCircle('RLRLR\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: judgeCircle('UUDDLRLR\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: judgeCircle('UU\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: judgeCircle('UDUDU\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: judgeCircle('RUDL\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: judgeCircle('RUDLR\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: judgeCircle('LRLRLRLR\\n',)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (12/12) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
     "all_passed": true,
-    "total_tests": 10,
-    "passed_count": 10,
+    "total_tests": 12,
+    "passed_count": 12,
     "accuracy_rate": 1.0
   }
 }

@@ -32,88 +32,53 @@
         "output": "0\n"
       },
       {
-        "input": "a\n",
+        "input": "A\n",
         "output": "1\n"
       },
       {
-        "input": "aa\n",
-        "output": "2\n"
+        "input": "AAA\n",
+        "output": "3\n"
       },
       {
-        "input": "ab\n",
-        "output": "4\n"
-      },
-      {
-        "input": "aba\n",
-        "output": "8\n"
-      },
-      {
-        "input": "abc\n",
+        "input": "ABC\n",
         "output": "10\n"
       },
       {
-        "input": "abcd\n",
-        "output": "20\n"
+        "input": "ABAB\n",
+        "output": "12\n"
       },
       {
-        "input": "aaaa\n",
-        "output": "4\n"
-      },
-      {
-        "input": "aabb\n",
+        "input": "ABA\n",
         "output": "8\n"
       },
       {
-        "input": "ababa\n",
-        "output": "16\n"
+        "input": "ABCD\n",
+        "output": "20\n"
       },
       {
-        "input": "abcde\n",
-        "output": "35\n"
-      },
-      {
-        "input": "abcabc\n",
-        "output": "36\n"
+        "input": "ABCA\n",
+        "output": "17\n"
       },
       {
         "input": "LEETCODE\n",
         "output": "92\n"
-      },
-      {
-        "input": "abab\n",
-        "output": "12\n"
-      },
-      {
-        "input": "abcdef\n",
-        "output": "56\n"
-      },
-      {
-        "input": "ababab\n",
-        "output": "20\n"
       }
     ],
     "parsed_tests": [
       "('uniqueLetterString', ((),), 0)",
-      "('uniqueLetterString', ('a\\n',), 1)",
-      "('uniqueLetterString', ('aa\\n',), 2)",
-      "('uniqueLetterString', ('ab\\n',), 4)",
-      "('uniqueLetterString', ('aba\\n',), 8)",
-      "('uniqueLetterString', ('abc\\n',), 10)",
-      "('uniqueLetterString', ('abcd\\n',), 20)",
-      "('uniqueLetterString', ('aaaa\\n',), 4)",
-      "('uniqueLetterString', ('aabb\\n',), 8)",
-      "('uniqueLetterString', ('ababa\\n',), 16)",
-      "('uniqueLetterString', ('abcde\\n',), 35)",
-      "('uniqueLetterString', ('abcabc\\n',), 36)",
-      "('uniqueLetterString', ('LEETCODE\\n',), 92)",
-      "('uniqueLetterString', ('abab\\n',), 12)",
-      "('uniqueLetterString', ('abcdef\\n',), 56)",
-      "('uniqueLetterString', ('ababab\\n',), 20)"
+      "('uniqueLetterString', ('A\\n',), 1)",
+      "('uniqueLetterString', ('AAA\\n',), 3)",
+      "('uniqueLetterString', ('ABC\\n',), 10)",
+      "('uniqueLetterString', ('ABAB\\n',), 12)",
+      "('uniqueLetterString', ('ABA\\n',), 8)",
+      "('uniqueLetterString', ('ABCD\\n',), 20)",
+      "('uniqueLetterString', ('ABCA\\n',), 17)",
+      "('uniqueLetterString', ('LEETCODE\\n',), 92)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: uniqueLetterString((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: uniqueLetterString('a\\n',)\n  標準輸出: 1\n  你的輸出: 4\n\n[測試#3] ❌ 失敗\n  標準輸入: uniqueLetterString('aa\\n',)\n  標準輸出: 2\n  你的輸出: 6\n\n[測試#4] ❌ 失敗\n  標準輸入: uniqueLetterString('ab\\n',)\n  標準輸出: 4\n  你的輸出: 10\n\n[測試#5] ❌ 失敗\n  標準輸入: uniqueLetterString('aba\\n',)\n  標準輸出: 8\n  你的輸出: 16\n\n[測試#6] ❌ 失敗\n  標準輸入: uniqueLetterString('abc\\n',)\n  標準輸出: 10\n  你的輸出: 20\n\n[測試#7] ❌ 失敗\n  標準輸入: uniqueLetterString('abcd\\n',)\n  標準輸出: 20\n  你的輸出: 35\n\n[測試#8] ❌ 失敗\n  標準輸入: uniqueLetterString('aaaa\\n',)\n  標準輸出: 4\n  你的輸出: 10\n\n[測試#9] ❌ 失敗\n  標準輸入: uniqueLetterString('aabb\\n',)\n  標準輸出: 8\n  你的輸出: 15\n\n[測試#10] ❌ 失敗\n  標準輸入: uniqueLetterString('ababa\\n',)\n  標準輸出: 16\n  你的輸出: 26\n\n[測試#11] ❌ 失敗\n  標準輸入: uniqueLetterString('abcde\\n',)\n  標準輸出: 35\n  你的輸出: 56\n\n[測試#12] ❌ 失敗\n  標準輸入: uniqueLetterString('abcabc\\n',)\n  標準輸出: 36\n  你的輸出: 52\n\n[測試#13] ❌ 失敗\n  標準輸入: uniqueLetterString('LEETCODE\\n',)\n  標準輸出: 92\n  你的輸出: 129\n\n[測試#14] ❌ 失敗\n  標準輸入: uniqueLetterString('abab\\n',)\n  標準輸出: 12\n  你的輸出: 21\n\n[測試#15] ❌ 失敗\n  標準輸入: uniqueLetterString('abcdef\\n',)\n  標準輸出: 56\n  你的輸出: 84\n\n[測試#16] ❌ 失敗\n  標準輸入: uniqueLetterString('ababab\\n',)\n  標準輸出: 20\n  你的輸出: 31\n\n=== 測試完成 (1/16) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: uniqueLetterString((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: uniqueLetterString('A\\n',)\n  標準輸出: 1\n  你的輸出: 4\n\n[測試#3] ❌ 失敗\n  標準輸入: uniqueLetterString('AAA\\n',)\n  標準輸出: 3\n  你的輸出: 8\n\n[測試#4] ❌ 失敗\n  標準輸入: uniqueLetterString('ABC\\n',)\n  標準輸出: 10\n  你的輸出: 20\n\n[測試#5] ❌ 失敗\n  標準輸入: uniqueLetterString('ABAB\\n',)\n  標準輸出: 12\n  你的輸出: 21\n\n[測試#6] ❌ 失敗\n  標準輸入: uniqueLetterString('ABA\\n',)\n  標準輸出: 8\n  你的輸出: 16\n\n[測試#7] ❌ 失敗\n  標準輸入: uniqueLetterString('ABCD\\n',)\n  標準輸出: 20\n  你的輸出: 35\n\n[測試#8] ❌ 失敗\n  標準輸入: uniqueLetterString('ABCA\\n',)\n  標準輸出: 17\n  你的輸出: 31\n\n[測試#9] ❌ 失敗\n  標準輸入: uniqueLetterString('LEETCODE\\n',)\n  標準輸出: 92\n  你的輸出: 129\n\n=== 測試完成 (1/9) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 16,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 9,
+    "passed_count": 1,
+    "accuracy_rate": 0.1111111111111111
   }
 }

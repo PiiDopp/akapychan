@@ -43,23 +43,23 @@
         "output": "1\n"
       },
       {
-        "input": "Hello   world  test\n",
-        "output": "3\n"
+        "input": "Hello, world!\n",
+        "output": "2\n"
       },
       {
-        "input": "Hello\tworld\n",
+        "input": "Hello\\nworld\n",
         "output": "1\n"
       },
       {
-        "input": "Hello\nworld\n",
+        "input": "Hello\\tworld\n",
         "output": "1\n"
       },
       {
-        "input": "Hello world! This is a test.\n",
-        "output": "6\n"
+        "input": "你好 世界\n",
+        "output": "2\n"
       },
       {
-        "input": "Hello world! 123\n",
+        "input": "Hello  world  test\n",
         "output": "3\n"
       }
     ],
@@ -69,16 +69,16 @@
       "('countSegments', ((),), 0)",
       "('countSegments', ((),), 0)",
       "('countSegments', ('Hello\\n',), 1)",
-      "('countSegments', ('Hello   world  test\\n',), 3)",
-      "('countSegments', ('Hello\\tworld\\n',), 1)",
-      "('countSegments', ('Hello\\nworld\\n',), 1)",
-      "('countSegments', ('Hello world! This is a test.\\n',), 6)",
-      "('countSegments', ('Hello world! 123\\n',), 3)"
+      "('countSegments', ('Hello, world!\\n',), 2)",
+      "('countSegments', ('Hello\\\\nworld\\n',), 1)",
+      "('countSegments', ('Hello\\\\tworld\\n',), 1)",
+      "('countSegments', ('你好 世界\\n',), 2)",
+      "('countSegments', ('Hello  world  test\\n',), 3)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countSegments('Hello world\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: countSegments('Hello   world\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#5] ✅ 通過\n  標準輸入: countSegments('Hello\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: countSegments('Hello   world  test\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#7] ✅ 通過\n  標準輸入: countSegments('Hello\\tworld\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: countSegments('Hello\\nworld\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: countSegments('Hello world! This is a test.\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#10] ✅ 通過\n  標準輸入: countSegments('Hello world! 123\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countSegments('Hello world\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: countSegments('Hello   world\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#5] ✅ 通過\n  標準輸入: countSegments('Hello\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: countSegments('Hello, world!\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: countSegments('Hello\\\\nworld\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: countSegments('Hello\\\\tworld\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: countSegments('你好 世界\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ✅ 通過\n  標準輸入: countSegments('Hello  world  test\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
     "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 8,
+    "accuracy_rate": 0.8
   }
 }

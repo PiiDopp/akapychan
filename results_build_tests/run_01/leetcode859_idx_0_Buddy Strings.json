@@ -41,27 +41,27 @@
         "output": "True\n"
       },
       {
+        "input": "['ab', 'cd']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abc', 'abc']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abc', 'acb']\n",
+        "output": "True\n"
+      },
+      {
         "input": "['abcd', 'abdc']\n",
         "output": "True\n"
       },
       {
-        "input": "['abcd', 'abcd']\n",
+        "input": "['abcd', 'abdcx']\n",
         "output": "False\n"
       },
       {
-        "input": "['abca', 'abca']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abca', 'abac']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['abc', 'abd']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['a', 'a']\n",
+        "input": "['abcd', 'abcc']\n",
         "output": "False\n"
       },
       {
@@ -69,7 +69,15 @@
         "output": "True\n"
       },
       {
-        "input": "['ab', 'abc']\n",
+        "input": "['你好', '你好']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['你好', '你你']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['你好', '好好']\n",
         "output": "False\n"
       }
     ],
@@ -77,19 +85,21 @@
       "('buddyStrings', ('ab', 'ba'), True)",
       "('buddyStrings', ('ab', 'ab'), False)",
       "('buddyStrings', ('aa', 'aa'), True)",
+      "('buddyStrings', ('ab', 'cd'), False)",
+      "('buddyStrings', ('abc', 'abc'), False)",
+      "('buddyStrings', ('abc', 'acb'), True)",
       "('buddyStrings', ('abcd', 'abdc'), True)",
-      "('buddyStrings', ('abcd', 'abcd'), False)",
-      "('buddyStrings', ('abca', 'abca'), True)",
-      "('buddyStrings', ('abca', 'abac'), True)",
-      "('buddyStrings', ('abc', 'abd'), False)",
-      "('buddyStrings', ('a', 'a'), False)",
+      "('buddyStrings', ('abcd', 'abdcx'), False)",
+      "('buddyStrings', ('abcd', 'abcc'), False)",
       "('buddyStrings', ('你好', '好你'), True)",
-      "('buddyStrings', ('ab', 'abc'), False)"
+      "('buddyStrings', ('你好', '你好'), False)",
+      "('buddyStrings', ('你好', '你你'), False)",
+      "('buddyStrings', ('你好', '好好'), False)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: buddyStrings('ab', 'ba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: buddyStrings('ab', 'ab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: buddyStrings('aa', 'aa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: buddyStrings('abcd', 'abdc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: buddyStrings('abcd', 'abcd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: buddyStrings('abca', 'abca')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: buddyStrings('abca', 'abac')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: buddyStrings('abc', 'abd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: buddyStrings('a', 'a')\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: buddyStrings('你好', '好你')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: buddyStrings('ab', 'abc')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (11/11) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: buddyStrings('ab', 'ba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: buddyStrings('ab', 'ab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: buddyStrings('aa', 'aa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: buddyStrings('ab', 'cd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: buddyStrings('abc', 'abc')\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: buddyStrings('abc', 'acb')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: buddyStrings('abcd', 'abdc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: buddyStrings('abcd', 'abdcx')\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: buddyStrings('abcd', 'abcc')\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: buddyStrings('你好', '好你')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: buddyStrings('你好', '你好')\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: buddyStrings('你好', '你你')\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: buddyStrings('你好', '好好')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (13/13) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
     "all_passed": true,
-    "total_tests": 11,
-    "passed_count": 11,
+    "total_tests": 13,
+    "passed_count": 13,
     "accuracy_rate": 1.0
   }
 }

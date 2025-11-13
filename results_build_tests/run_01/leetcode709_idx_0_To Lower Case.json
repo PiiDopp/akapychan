@@ -26,77 +26,67 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "HelloWorld\n",
-        "output": "helloworld\n"
+        "input": "Hello World\n",
+        "output": "hello world\n"
       },
       {
-        "input": "HELLO\n",
-        "output": "hello\n"
+        "input": "ABCabc123!@#\n",
+        "output": "abcabc123!@#\n"
       },
       {
-        "input": "hello\n",
-        "output": "hello\n"
+        "input": "HELLO WORLD\n",
+        "output": "hello world\n"
       },
       {
-        "input": "\n",
-        "output": "\n"
-      },
-      {
-        "input": "123ABC!@#\n",
-        "output": "123abc!@#\n"
-      },
-      {
-        "input": "aB1cD\n",
-        "output": "ab1cd\n"
-      },
-      {
-        "input": "ABC\n",
-        "output": "  abc  \n"
-      },
-      {
-        "input": "你好WORLD\n",
-        "output": "你好world\n"
+        "input": "你好HELLO\n",
+        "output": "你好hello\n"
       },
       {
         "input": "ÄÖÜ\n",
         "output": "ÄÖÜ\n"
       },
       {
-        "input": "a\n",
-        "output": "a\n"
+        "input": "ÄBC\n",
+        "output": "Äbc\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
       },
       {
         "input": "Z\n",
         "output": "z\n"
       },
       {
-        "input": "AaBbCc\n",
-        "output": "aabbcc\n"
+        "input": "z\n",
+        "output": "z\n"
       },
       {
-        "input": "MixedCASEwith123\n",
-        "output": "mixedcasewith123\n"
+        "input": "12345\n",
+        "output": "12345\n"
+      },
+      {
+        "input": "!@#$%\n",
+        "output": "!@#$%\n"
       }
     ],
     "parsed_tests": [
-      "('toLowerCase', ('HelloWorld\\n',), 'helloworld\\n')",
-      "('toLowerCase', ('HELLO\\n',), 'hello\\n')",
-      "('toLowerCase', ('hello\\n',), 'hello\\n')",
-      "('toLowerCase', ((),), '\\n')",
-      "('toLowerCase', ('123ABC!@#\\n',), '123abc!@#\\n')",
-      "('toLowerCase', ('aB1cD\\n',), 'ab1cd\\n')",
-      "('toLowerCase', ('ABC\\n',), '  abc  \\n')",
-      "('toLowerCase', ('你好WORLD\\n',), '你好world\\n')",
+      "('toLowerCase', ('Hello World\\n',), 'hello world\\n')",
+      "('toLowerCase', ('ABCabc123!@#\\n',), 'abcabc123!@#\\n')",
+      "('toLowerCase', ('HELLO WORLD\\n',), 'hello world\\n')",
+      "('toLowerCase', ('你好HELLO\\n',), '你好hello\\n')",
       "('toLowerCase', ('ÄÖÜ\\n',), 'ÄÖÜ\\n')",
-      "('toLowerCase', ('a\\n',), 'a\\n')",
+      "('toLowerCase', ('ÄBC\\n',), 'Äbc\\n')",
+      "('toLowerCase', ((),), '\\n')",
       "('toLowerCase', ('Z\\n',), 'z\\n')",
-      "('toLowerCase', ('AaBbCc\\n',), 'aabbcc\\n')",
-      "('toLowerCase', ('MixedCASEwith123\\n',), 'mixedcasewith123\\n')"
+      "('toLowerCase', ('z\\n',), 'z\\n')",
+      "('toLowerCase', (12345,), 12345)",
+      "('toLowerCase', ('!@#$%\\n',), '!@#$%\\n')"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: toLowerCase('HelloWorld\\n',)\n  標準輸出: 'helloworld\\n'\n  你的輸出: 'helloworld\\n'\n\n[測試#2] ✅ 通過\n  標準輸入: toLowerCase('HELLO\\n',)\n  標準輸出: 'hello\\n'\n  你的輸出: 'hello\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: toLowerCase('hello\\n',)\n  標準輸出: 'hello\\n'\n  你的輸出: 'hello\\n'\n\n[測試#4] ❌ 失敗\n  標準輸入: toLowerCase((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ✅ 通過\n  標準輸入: toLowerCase('123ABC!@#\\n',)\n  標準輸出: '123abc!@#\\n'\n  你的輸出: '123abc!@#\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: toLowerCase('aB1cD\\n',)\n  標準輸出: 'ab1cd\\n'\n  你的輸出: 'ab1cd\\n'\n\n[測試#7] ❌ 失敗\n  標準輸入: toLowerCase('ABC\\n',)\n  標準輸出: '  abc  \\n'\n  你的輸出: 'abc\\n'\n\n[測試#8] ✅ 通過\n  標準輸入: toLowerCase('你好WORLD\\n',)\n  標準輸出: '你好world\\n'\n  你的輸出: '你好world\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: toLowerCase('ÄÖÜ\\n',)\n  標準輸出: 'ÄÖÜ\\n'\n  你的輸出: 'ÄÖÜ\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: toLowerCase('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: 'a\\n'\n\n[測試#11] ✅ 通過\n  標準輸入: toLowerCase('Z\\n',)\n  標準輸出: 'z\\n'\n  你的輸出: 'z\\n'\n\n[測試#12] ✅ 通過\n  標準輸入: toLowerCase('AaBbCc\\n',)\n  標準輸出: 'aabbcc\\n'\n  你的輸出: 'aabbcc\\n'\n\n[測試#13] ✅ 通過\n  標準輸入: toLowerCase('MixedCASEwith123\\n',)\n  標準輸出: 'mixedcasewith123\\n'\n  你的輸出: 'mixedcasewith123\\n'\n\n=== 測試完成 (11/13) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: toLowerCase('Hello World\\n',)\n  標準輸出: 'hello world\\n'\n  你的輸出: 'hello world\\n'\n\n[測試#2] ✅ 通過\n  標準輸入: toLowerCase('ABCabc123!@#\\n',)\n  標準輸出: 'abcabc123!@#\\n'\n  你的輸出: 'abcabc123!@#\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: toLowerCase('HELLO WORLD\\n',)\n  標準輸出: 'hello world\\n'\n  你的輸出: 'hello world\\n'\n\n[測試#4] ✅ 通過\n  標準輸入: toLowerCase('你好HELLO\\n',)\n  標準輸出: '你好hello\\n'\n  你的輸出: '你好hello\\n'\n\n[測試#5] ✅ 通過\n  標準輸入: toLowerCase('ÄÖÜ\\n',)\n  標準輸出: 'ÄÖÜ\\n'\n  你的輸出: 'ÄÖÜ\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: toLowerCase('ÄBC\\n',)\n  標準輸出: 'Äbc\\n'\n  你的輸出: 'Äbc\\n'\n\n[測試#7] ❌ 失敗\n  標準輸入: toLowerCase((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#8] ✅ 通過\n  標準輸入: toLowerCase('Z\\n',)\n  標準輸出: 'z\\n'\n  你的輸出: 'z\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: toLowerCase('z\\n',)\n  標準輸出: 'z\\n'\n  你的輸出: 'z\\n'\n\n[測試#10] ❌ 執行例外: 'int' object is not iterable\n[測試#11] ✅ 通過\n  標準輸入: toLowerCase('!@#$%\\n',)\n  標準輸出: '!@#$%\\n'\n  你的輸出: '!@#$%\\n'\n\n=== 測試完成 (9/11) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 13,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 11,
+    "passed_count": 9,
+    "accuracy_rate": 0.8181818181818182
   }
 }

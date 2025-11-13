@@ -27,37 +27,47 @@
         "output": "-10\n"
       },
       {
-        "input": "1\n2 3\n",
-        "output": "3\n"
+        "input": "-10\n1 2\n",
+        "output": "-9\n"
       },
       {
-        "input": "2\n3 4\n6 5 7\n4 1 8 3\n",
-        "output": "11\n"
-      },
-      {
-        "input": "-1\n-2 -3\n-4 -5 -6\n",
-        "output": "-10\n"
+        "input": "1\n2 3\n4 5 6\n",
+        "output": "7\n"
       },
       {
         "input": "0\n0 0\n0 0 0\n",
         "output": "0\n"
       },
       {
-        "input": "1000\n1000 1000\n1000 1000 1000\n",
-        "output": "3000\n"
+        "input": "-1\n2 3\n1 -5 4\n",
+        "output": "-4\n"
+      },
+      {
+        "input": "1\n2 3\n4 5 6\n7 8 9 10\n11 12 13 14 15\n",
+        "output": "25\n"
+      },
+      {
+        "input": "5\n9 6\n4 6 8\n0 7 1 5\n",
+        "output": "18\n"
+      },
+      {
+        "input": "-5\n-10 -1\n-3 -2 -4\n",
+        "output": "-18\n"
       }
     ],
     "parsed_tests": [
       "('minimumTotal', (-10,), -10)",
-      "('minimumTotal', ('1\\n2 3\\n',), 3)",
-      "('minimumTotal', ('2\\n3 4\\n6 5 7\\n4 1 8 3\\n',), 11)",
-      "('minimumTotal', ('-1\\n-2 -3\\n-4 -5 -6\\n',), -10)",
+      "('minimumTotal', ('-10\\n1 2\\n',), -9)",
+      "('minimumTotal', ('1\\n2 3\\n4 5 6\\n',), 7)",
       "('minimumTotal', ('0\\n0 0\\n0 0 0\\n',), 0)",
-      "('minimumTotal', ('1000\\n1000 1000\\n1000 1000 1000\\n',), 3000)"
+      "('minimumTotal', ('-1\\n2 3\\n1 -5 4\\n',), -4)",
+      "('minimumTotal', ('1\\n2 3\\n4 5 6\\n7 8 9 10\\n11 12 13 14 15\\n',), 25)",
+      "('minimumTotal', ('5\\n9 6\\n4 6 8\\n0 7 1 5\\n',), 18)",
+      "('minimumTotal', ('-5\\n-10 -1\\n-3 -2 -4\\n',), -18)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ❌ 執行例外: string index out of range\n[測試#4] ❌ 執行例外: string index out of range\n[測試#5] ❌ 執行例外: string index out of range\n[測試#6] ❌ 執行例外: string index out of range\n=== 測試完成 (0/6) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ❌ 執行例外: string index out of range\n[測試#4] ❌ 執行例外: string index out of range\n[測試#5] ❌ 執行例外: string index out of range\n[測試#6] ❌ 執行例外: string index out of range\n[測試#7] ❌ 執行例外: string index out of range\n[測試#8] ❌ 執行例外: string index out of range\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 6,
+    "total_tests": 8,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

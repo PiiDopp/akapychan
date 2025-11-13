@@ -21,17 +21,30 @@
       {
         "operations": [
           {
-            "op": "put",
-            "key": 1,
-            "value": 1
+            "method": "put",
+            "args": [
+              1,
+              1
+            ]
           },
           {
-            "op": "get",
-            "key": 1
+            "method": "put",
+            "args": [
+              2,
+              2
+            ]
           },
           {
-            "op": "get",
-            "key": 2
+            "method": "get",
+            "args": [
+              1
+            ]
+          },
+          {
+            "method": "get",
+            "args": [
+              3
+            ]
           }
         ],
         "expected": [
@@ -42,38 +55,50 @@
       {
         "operations": [
           {
-            "op": "put",
-            "key": 2,
-            "value": 2
+            "method": "put",
+            "args": [
+              1,
+              1
+            ]
           },
           {
-            "op": "put",
-            "key": 2,
-            "value": 3
+            "method": "put",
+            "args": [
+              1,
+              10
+            ]
           },
           {
-            "op": "get",
-            "key": 2
+            "method": "get",
+            "args": [
+              1
+            ]
           }
         ],
         "expected": [
-          3
+          10
         ]
       },
       {
         "operations": [
           {
-            "op": "put",
-            "key": 3,
-            "value": 3
+            "method": "put",
+            "args": [
+              1,
+              1
+            ]
           },
           {
-            "op": "remove",
-            "key": 3
+            "method": "remove",
+            "args": [
+              1
+            ]
           },
           {
-            "op": "get",
-            "key": 3
+            "method": "get",
+            "args": [
+              1
+            ]
           }
         ],
         "expected": [
@@ -83,92 +108,234 @@
       {
         "operations": [
           {
-            "op": "put",
-            "key": 1,
-            "value": 10
+            "method": "put",
+            "args": [
+              1,
+              1
+            ]
           },
           {
-            "op": "put",
-            "key": 10001,
-            "value": 20
+            "method": "remove",
+            "args": [
+              2
+            ]
           },
           {
-            "op": "get",
-            "key": 1
+            "method": "get",
+            "args": [
+              1
+            ]
+          }
+        ],
+        "expected": [
+          1
+        ]
+      },
+      {
+        "operations": [
+          {
+            "method": "put",
+            "args": [
+              1,
+              10
+            ]
           },
           {
-            "op": "get",
-            "key": 10001
+            "method": "put",
+            "args": [
+              10001,
+              20
+            ]
           },
           {
-            "op": "remove",
-            "key": 1
+            "method": "get",
+            "args": [
+              1
+            ]
           },
           {
-            "op": "get",
-            "key": 1
-          },
-          {
-            "op": "get",
-            "key": 10001
+            "method": "get",
+            "args": [
+              10001
+            ]
           }
         ],
         "expected": [
           10,
-          20,
-          -1,
           20
         ]
       },
       {
         "operations": [
           {
-            "op": "put",
-            "key": 0,
-            "value": 0
+            "method": "put",
+            "args": [
+              -1,
+              5
+            ]
           },
           {
-            "op": "put",
-            "key": -1,
-            "value": -1
+            "method": "get",
+            "args": [
+              -1
+            ]
           },
           {
-            "op": "get",
-            "key": 0
+            "method": "remove",
+            "args": [
+              -1
+            ]
           },
           {
-            "op": "get",
-            "key": -1
-          },
-          {
-            "op": "remove",
-            "key": -1
-          },
-          {
-            "op": "get",
-            "key": -1
+            "method": "get",
+            "args": [
+              -1
+            ]
           }
         ],
         "expected": [
-          0,
-          -1,
+          5,
           -1
         ]
       },
       {
         "operations": [
           {
-            "op": "put",
-            "key": 123456789,
-            "value": 987654321
+            "method": "put",
+            "args": [
+              123456789,
+              99
+            ]
           },
           {
-            "op": "get",
-            "key": 123456789
+            "method": "get",
+            "args": [
+              123456789
+            ]
           }
         ],
         "expected": [
-          987654321
+          99
+        ]
+      },
+      {
+        "operations": [
+          {
+            "method": "put",
+            "args": [
+              5,
+              5
+            ]
+          },
+          {
+            "method": "put",
+            "args": [
+              15,
+              15
+            ]
+          },
+          {
+            "method": "put",
+            "args": [
+              25,
+              25
+            ]
+          },
+          {
+            "method": "remove",
+            "args": [
+              15
+            ]
+          },
+          {
+            "method": "get",
+            "args": [
+              5
+            ]
+          },
+          {
+            "method": "get",
+            "args": [
+              15
+            ]
+          },
+          {
+            "method": "get",
+            "args": [
+              25
+            ]
+          }
+        ],
+        "expected": [
+          5,
+          -1,
+          25
+        ]
+      },
+      {
+        "operations": [
+          {
+            "method": "put",
+            "args": [
+              0,
+              0
+            ]
+          },
+          {
+            "method": "get",
+            "args": [
+              0
+            ]
+          },
+          {
+            "method": "remove",
+            "args": [
+              0
+            ]
+          },
+          {
+            "method": "get",
+            "args": [
+              0
+            ]
+          }
+        ],
+        "expected": [
+          0,
+          -1
+        ]
+      },
+      {
+        "operations": [
+          {
+            "method": "put",
+            "args": [
+              10,
+              10
+            ]
+          },
+          {
+            "method": "put",
+            "args": [
+              10,
+              20
+            ]
+          },
+          {
+            "method": "remove",
+            "args": [
+              10
+            ]
+          },
+          {
+            "method": "get",
+            "args": [
+              10
+            ]
+          }
+        ],
+        "expected": [
+          -1
         ]
       }
     ],

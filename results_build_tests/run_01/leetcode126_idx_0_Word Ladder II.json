@@ -20,14 +20,46 @@
     "solution": "from collections import defaultdict, deque\n\nclass Solution:\n    def findLadders(self, beginWord, endWord, wordList):\n        wordSet = set(wordList)\n        if endWord not in wordSet:\n            return []\n\n        # BFS 找最短距離，紀錄每個單詞的前驅節點\n        layer = {}\n        layer[beginWord] = 0\n        parents = defaultdict(list)\n\n        queue = deque([beginWord])\n        while queue:\n            word = queue.popleft()\n            step = layer[word]\n            for i in range(len(word)):\n                for c in 'abcdefghijklmnopqrstuvwxyz':\n                    new_word = word[:i] + c + word[i+1:]\n                    if new_word in wordSet:\n                        if new_word not in layer:\n                            layer[new_word] = step + 1\n                            queue.append(new_word)\n                            parents[new_word].append(word)\n                        elif layer[new_word] == step + 1:\n                            parents[new_word].append(word)\n\n        res = []\n\n        def dfs(path, word):\n            if word == beginWord:\n                res.append(path[::-1])\n                return\n            for prev in parents[word]:\n                dfs(path + [prev], prev)\n\n        if endWord in parents:\n            dfs([endWord], endWord)\n\n        return res"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog']]\n",
+        "output": "[['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]\n"
+      },
+      {
+        "input": "['hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['hit', 'hit', ['hit', 'hot']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog', 'cog']]\n",
+        "output": "[['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]\n"
+      },
+      {
+        "input": "['hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog', 'cogs']]\n",
+        "output": "[['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]\n"
+      },
+      {
+        "input": "['a', 'c', ['a', 'b', 'c']]\n",
+        "output": "[['a', 'b', 'c']]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findLadders', ('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog']), [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']])",
+      "('findLadders', ('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']), [])",
+      "('findLadders', ('hit', 'hit', ['hit', 'hot']), [])",
+      "('findLadders', ('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog', 'cog']), [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']])",
+      "('findLadders', ('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog', 'cogs']), [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']])",
+      "('findLadders', ('a', 'c', ['a', 'b', 'c']), [['a', 'b', 'c']])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findLadders('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog'])\n  標準輸出: [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]\n  你的輸出: [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]\n\n[測試#2] ✅ 通過\n  標準輸入: findLadders('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#3] ✅ 通過\n  標準輸入: findLadders('hit', 'hit', ['hit', 'hot'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: findLadders('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog', 'cog'])\n  標準輸出: [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]\n  你的輸出: [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]\n\n[測試#5] ✅ 通過\n  標準輸入: findLadders('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog', 'cogs'])\n  標準輸出: [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]\n  你的輸出: [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]\n\n[測試#6] ❌ 失敗\n  標準輸入: findLadders('a', 'c', ['a', 'b', 'c'])\n  標準輸出: [['a', 'b', 'c']]\n  你的輸出: [['a', 'c']]\n\n=== 測試完成 (5/6) ===\n[警告] 部分測資未通過 ❌（0.0003s）\n",
     "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 6,
+    "passed_count": 5,
+    "accuracy_rate": 0.8333333333333334
   }
 }

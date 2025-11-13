@@ -37,66 +37,66 @@
         "output": "f\n"
       },
       {
-        "input": "[['c', 'f', 'j'], 'd']\n",
-        "output": "f\n"
-      },
-      {
         "input": "[['c', 'f', 'j'], 'j']\n",
         "output": "c\n"
       },
       {
-        "input": "[['c', 'c', 'f', 'f', 'j', 'j'], 'f']\n",
-        "output": "j\n"
+        "input": "[['c', 'f', 'j'], 'e']\n",
+        "output": "f\n"
       },
       {
-        "input": "[['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'], 'z']\n",
-        "output": "a\n"
-      },
-      {
-        "input": "[['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], 'b']\n",
+        "input": "[['a', 'a', 'c', 'c', 'f', 'f'], 'a']\n",
         "output": "c\n"
       },
       {
-        "input": "[['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], 'c']\n",
+        "input": "[['a', 'a', 'c', 'c', 'f', 'f'], 'f']\n",
         "output": "a\n"
       },
       {
-        "input": "[['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], '@']\n",
-        "output": "a\n"
-      },
-      {
-        "input": "[['a', 'b', 'b', 'c'], 'b']\n",
+        "input": "[['a', 'b', 'b', 'c', 'c', 'd'], 'b']\n",
         "output": "c\n"
       },
       {
-        "input": "[['a', 'b', 'c', 'c', 'c'], 'c']\n",
-        "output": "a\n"
-      },
-      {
-        "input": "[['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'], 'g']\n",
-        "output": "h\n"
-      },
-      {
-        "input": "[['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], 'a']\n",
+        "input": "[['b', 'b', 'c', 'd'], 'a']\n",
         "output": "b\n"
+      },
+      {
+        "input": "[['a', 'b', 'c', 'c'], 'c']\n",
+        "output": "a\n"
+      },
+      {
+        "input": "[['a', 'b', 'c', 'c', 'd'], 'c']\n",
+        "output": "d\n"
+      },
+      {
+        "input": "[['a', 'c', 'z'], 'z']\n",
+        "output": "a\n"
+      },
+      {
+        "input": "[['a', 'a', 'a', 'b', 'b', 'c'], 'a']\n",
+        "output": "b\n"
+      },
+      {
+        "input": "[['A', 'B', 'C', 'D'], 'C']\n",
+        "output": "D\n"
       }
     ],
     "parsed_tests": [
       "('nextGreatestLetter', (['c', 'f', 'j'], 'a'), 'c\\n')",
       "('nextGreatestLetter', (['c', 'f', 'j'], 'c'), 'f\\n')",
-      "('nextGreatestLetter', (['c', 'f', 'j'], 'd'), 'f\\n')",
       "('nextGreatestLetter', (['c', 'f', 'j'], 'j'), 'c\\n')",
-      "('nextGreatestLetter', (['c', 'c', 'f', 'f', 'j', 'j'], 'f'), 'j\\n')",
-      "('nextGreatestLetter', (['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'], 'z'), 'a\\n')",
-      "('nextGreatestLetter', (['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], 'b'), 'c\\n')",
-      "('nextGreatestLetter', (['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], 'c'), 'a\\n')",
-      "('nextGreatestLetter', (['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], '@'), 'a\\n')",
-      "('nextGreatestLetter', (['a', 'b', 'b', 'c'], 'b'), 'c\\n')",
-      "('nextGreatestLetter', (['a', 'b', 'c', 'c', 'c'], 'c'), 'a\\n')",
-      "('nextGreatestLetter', (['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'], 'g'), 'h\\n')",
-      "('nextGreatestLetter', (['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], 'a'), 'b\\n')"
+      "('nextGreatestLetter', (['c', 'f', 'j'], 'e'), 'f\\n')",
+      "('nextGreatestLetter', (['a', 'a', 'c', 'c', 'f', 'f'], 'a'), 'c\\n')",
+      "('nextGreatestLetter', (['a', 'a', 'c', 'c', 'f', 'f'], 'f'), 'a\\n')",
+      "('nextGreatestLetter', (['a', 'b', 'b', 'c', 'c', 'd'], 'b'), 'c\\n')",
+      "('nextGreatestLetter', (['b', 'b', 'c', 'd'], 'a'), 'b\\n')",
+      "('nextGreatestLetter', (['a', 'b', 'c', 'c'], 'c'), 'a\\n')",
+      "('nextGreatestLetter', (['a', 'b', 'c', 'c', 'd'], 'c'), 'd\\n')",
+      "('nextGreatestLetter', (['a', 'c', 'z'], 'z'), 'a\\n')",
+      "('nextGreatestLetter', (['a', 'a', 'a', 'b', 'b', 'c'], 'a'), 'b\\n')",
+      "('nextGreatestLetter', (['A', 'B', 'C', 'D'], 'C'), 'D\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: nextGreatestLetter(['c', 'f', 'j'], 'a')\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#2] ❌ 失敗\n  標準輸入: nextGreatestLetter(['c', 'f', 'j'], 'c')\n  標準輸出: 'f\\n'\n  你的輸出: 'f'\n\n[測試#3] ❌ 失敗\n  標準輸入: nextGreatestLetter(['c', 'f', 'j'], 'd')\n  標準輸出: 'f\\n'\n  你的輸出: 'f'\n\n[測試#4] ❌ 失敗\n  標準輸入: nextGreatestLetter(['c', 'f', 'j'], 'j')\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#5] ❌ 失敗\n  標準輸入: nextGreatestLetter(['c', 'c', 'f', 'f', 'j', 'j'], 'f')\n  標準輸出: 'j\\n'\n  你的輸出: 'j'\n\n[測試#6] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'], 'z')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#7] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], 'b')\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#8] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], 'c')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#9] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], '@')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#10] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'b', 'b', 'c'], 'b')\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#11] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'b', 'c', 'c', 'c'], 'c')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#12] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'], 'g')\n  標準輸出: 'h\\n'\n  你的輸出: 'h'\n\n[測試#13] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c'], 'a')\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n=== 測試完成 (0/13) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: nextGreatestLetter(['c', 'f', 'j'], 'a')\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#2] ❌ 失敗\n  標準輸入: nextGreatestLetter(['c', 'f', 'j'], 'c')\n  標準輸出: 'f\\n'\n  你的輸出: 'f'\n\n[測試#3] ❌ 失敗\n  標準輸入: nextGreatestLetter(['c', 'f', 'j'], 'j')\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#4] ❌ 失敗\n  標準輸入: nextGreatestLetter(['c', 'f', 'j'], 'e')\n  標準輸出: 'f\\n'\n  你的輸出: 'f'\n\n[測試#5] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'a', 'c', 'c', 'f', 'f'], 'a')\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#6] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'a', 'c', 'c', 'f', 'f'], 'f')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#7] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'b', 'b', 'c', 'c', 'd'], 'b')\n  標準輸出: 'c\\n'\n  你的輸出: 'c'\n\n[測試#8] ❌ 失敗\n  標準輸入: nextGreatestLetter(['b', 'b', 'c', 'd'], 'a')\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n[測試#9] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'b', 'c', 'c'], 'c')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#10] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'b', 'c', 'c', 'd'], 'c')\n  標準輸出: 'd\\n'\n  你的輸出: 'd'\n\n[測試#11] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'c', 'z'], 'z')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#12] ❌ 失敗\n  標準輸入: nextGreatestLetter(['a', 'a', 'a', 'b', 'b', 'c'], 'a')\n  標準輸出: 'b\\n'\n  你的輸出: 'b'\n\n[測試#13] ❌ 失敗\n  標準輸入: nextGreatestLetter(['A', 'B', 'C', 'D'], 'C')\n  標準輸出: 'D\\n'\n  你的輸出: 'D'\n\n=== 測試完成 (0/13) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
     "total_tests": 13,
     "passed_count": 0,

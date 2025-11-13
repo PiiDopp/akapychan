@@ -24,71 +24,111 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "42\n",
-        "output": "42\n"
+        "input": "5\n",
+        "output": "5\n"
       },
       {
-        "input": "10\n5\n",
-        "output": "10/5\n"
+        "input": "2\n3\n",
+        "output": "2/3\n"
       },
       {
         "input": "2\n3\n4\n",
         "output": "2/(3/4)\n"
       },
       {
-        "input": "1\n2\n3\n4\n",
-        "output": "1/(2/3/4)\n"
+        "input": "2\n3\n4\n5\n",
+        "output": "2/(3/4/5)\n"
       },
       {
-        "input": "1\n2\n3\n4\n5\n",
-        "output": "1/(2/3/4/5)\n"
+        "input": "2\n3\n4\n5\n6\n",
+        "output": "2/(3/4/5/6)\n"
       },
       {
-        "input": "100\n1\n1\n1\n",
-        "output": "100/(1/1/1)\n"
+        "input": "1\n2\n3\n",
+        "output": "1/(2/3)\n"
+      },
+      {
+        "input": "2\n1\n3\n",
+        "output": "2/(1/3)\n"
+      },
+      {
+        "input": "2\n3\n1\n",
+        "output": "2/(3/1)\n"
+      },
+      {
+        "input": "1\n1\n1\n",
+        "output": "1/(1/1)\n"
+      },
+      {
+        "input": "5\n5\n5\n",
+        "output": "5/(5/5)\n"
+      },
+      {
+        "input": "0\n1\n2\n",
+        "output": "0/(1/2)\n"
+      },
+      {
+        "input": "1000\n1\n2\n",
+        "output": "1000/(1/2)\n"
+      },
+      {
+        "input": "1\n1000\n2\n",
+        "output": "1/(1000/2)\n"
+      },
+      {
+        "input": "2\n1000\n1\n",
+        "output": "2/(1000/1)\n"
+      },
+      {
+        "input": "2\n3\n4\n1\n5\n",
+        "output": "2/(3/4/1/5)\n"
+      },
+      {
+        "input": "2\n3\n4\n5\n1\n",
+        "output": "2/(3/4/5/1)\n"
+      },
+      {
+        "input": "-5\n-2\n",
+        "output": "-5/-2\n"
+      },
+      {
+        "input": "-5\n-2\n-1\n",
+        "output": "-5/(-2/-1)\n"
+      },
+      {
+        "input": "5\n5\n",
+        "output": "5/5\n"
       },
       {
         "input": "5\n5\n5\n5\n",
         "output": "5/(5/5/5)\n"
-      },
-      {
-        "input": "1\n1\n",
-        "output": "1/1\n"
-      },
-      {
-        "input": "1\n2\n",
-        "output": "1/2\n"
-      },
-      {
-        "input": "999\n1\n2\n",
-        "output": "999/(1/2)\n"
-      },
-      {
-        "input": "3\n3\n3\n",
-        "output": "3/(3/3)\n"
-      },
-      {
-        "input": "1\n2\n3\n4\n5\n6\n",
-        "output": "1/(2/3/4/5/6)\n"
       }
     ],
     "parsed_tests": [
-      "('optimalDivision', (42,), 42)",
-      "('optimalDivision', ((10, 5),), '10/5\\n')",
+      "('optimalDivision', (5,), 5)",
+      "('optimalDivision', ((2, 3),), '2/3\\n')",
       "('optimalDivision', ((2, 3, 4),), '2/(3/4)\\n')",
-      "('optimalDivision', ((1, 2, 3, 4),), '1/(2/3/4)\\n')",
-      "('optimalDivision', ((1, 2, 3, 4, 5),), '1/(2/3/4/5)\\n')",
-      "('optimalDivision', ((100, 1, 1, 1),), '100/(1/1/1)\\n')",
-      "('optimalDivision', ((5, 5, 5, 5),), '5/(5/5/5)\\n')",
-      "('optimalDivision', ((1, 1),), '1/1\\n')",
-      "('optimalDivision', ((1, 2),), '1/2\\n')",
-      "('optimalDivision', ((999, 1, 2),), '999/(1/2)\\n')",
-      "('optimalDivision', ((3, 3, 3),), '3/(3/3)\\n')",
-      "('optimalDivision', ((1, 2, 3, 4, 5, 6),), '1/(2/3/4/5/6)\\n')"
+      "('optimalDivision', ((2, 3, 4, 5),), '2/(3/4/5)\\n')",
+      "('optimalDivision', ((2, 3, 4, 5, 6),), '2/(3/4/5/6)\\n')",
+      "('optimalDivision', ((1, 2, 3),), '1/(2/3)\\n')",
+      "('optimalDivision', ((2, 1, 3),), '2/(1/3)\\n')",
+      "('optimalDivision', ((2, 3, 1),), '2/(3/1)\\n')",
+      "('optimalDivision', ((1, 1, 1),), '1/(1/1)\\n')",
+      "('optimalDivision', ((5, 5, 5),), '5/(5/5)\\n')",
+      "('optimalDivision', ((0, 1, 2),), '0/(1/2)\\n')",
+      "('optimalDivision', ((1000, 1, 2),), '1000/(1/2)\\n')",
+      "('optimalDivision', ((1, 1000, 2),), '1/(1000/2)\\n')",
+      "('optimalDivision', ((2, 1000, 1),), '2/(1000/1)\\n')",
+      "('optimalDivision', ((2, 3, 4, 1, 5),), '2/(3/4/1/5)\\n')",
+      "('optimalDivision', ((2, 3, 4, 5, 1),), '2/(3/4/5/1)\\n')",
+      "('optimalDivision', ((-5, -2),), '-5/-2\\n')",
+      "('optimalDivision', ((-5, -2, -1),), '-5/(-2/-1)\\n')",
+      "('optimalDivision', ((5, 5),), '5/5\\n')",
+      "('optimalDivision', ((5, 5, 5, 5),), '5/(5/5/5)\\n')"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 失敗\n  標準輸入: optimalDivision((10, 5),)\n  標準輸出: '10/5\\n'\n  你的輸出: '10/5'\n\n[測試#3] ❌ 失敗\n  標準輸入: optimalDivision((2, 3, 4),)\n  標準輸出: '2/(3/4)\\n'\n  你的輸出: '2/(3/4)'\n\n[測試#4] ❌ 失敗\n  標準輸入: optimalDivision((1, 2, 3, 4),)\n  標準輸出: '1/(2/3/4)\\n'\n  你的輸出: '1/(2/3/4)'\n\n[測試#5] ❌ 失敗\n  標準輸入: optimalDivision((1, 2, 3, 4, 5),)\n  標準輸出: '1/(2/3/4/5)\\n'\n  你的輸出: '1/(2/3/4/5)'\n\n[測試#6] ❌ 失敗\n  標準輸入: optimalDivision((100, 1, 1, 1),)\n  標準輸出: '100/(1/1/1)\\n'\n  你的輸出: '100/(1/1/1)'\n\n[測試#7] ❌ 失敗\n  標準輸入: optimalDivision((5, 5, 5, 5),)\n  標準輸出: '5/(5/5/5)\\n'\n  你的輸出: '5/(5/5/5)'\n\n[測試#8] ❌ 失敗\n  標準輸入: optimalDivision((1, 1),)\n  標準輸出: '1/1\\n'\n  你的輸出: '1/1'\n\n[測試#9] ❌ 失敗\n  標準輸入: optimalDivision((1, 2),)\n  標準輸出: '1/2\\n'\n  你的輸出: '1/2'\n\n[測試#10] ❌ 失敗\n  標準輸入: optimalDivision((999, 1, 2),)\n  標準輸出: '999/(1/2)\\n'\n  你的輸出: '999/(1/2)'\n\n[測試#11] ❌ 失敗\n  標準輸入: optimalDivision((3, 3, 3),)\n  標準輸出: '3/(3/3)\\n'\n  你的輸出: '3/(3/3)'\n\n[測試#12] ❌ 失敗\n  標準輸入: optimalDivision((1, 2, 3, 4, 5, 6),)\n  標準輸出: '1/(2/3/4/5/6)\\n'\n  你的輸出: '1/(2/3/4/5/6)'\n\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 失敗\n  標準輸入: optimalDivision((2, 3),)\n  標準輸出: '2/3\\n'\n  你的輸出: '2/3'\n\n[測試#3] ❌ 失敗\n  標準輸入: optimalDivision((2, 3, 4),)\n  標準輸出: '2/(3/4)\\n'\n  你的輸出: '2/(3/4)'\n\n[測試#4] ❌ 失敗\n  標準輸入: optimalDivision((2, 3, 4, 5),)\n  標準輸出: '2/(3/4/5)\\n'\n  你的輸出: '2/(3/4/5)'\n\n[測試#5] ❌ 失敗\n  標準輸入: optimalDivision((2, 3, 4, 5, 6),)\n  標準輸出: '2/(3/4/5/6)\\n'\n  你的輸出: '2/(3/4/5/6)'\n\n[測試#6] ❌ 失敗\n  標準輸入: optimalDivision((1, 2, 3),)\n  標準輸出: '1/(2/3)\\n'\n  你的輸出: '1/(2/3)'\n\n[測試#7] ❌ 失敗\n  標準輸入: optimalDivision((2, 1, 3),)\n  標準輸出: '2/(1/3)\\n'\n  你的輸出: '2/(1/3)'\n\n[測試#8] ❌ 失敗\n  標準輸入: optimalDivision((2, 3, 1),)\n  標準輸出: '2/(3/1)\\n'\n  你的輸出: '2/(3/1)'\n\n[測試#9] ❌ 失敗\n  標準輸入: optimalDivision((1, 1, 1),)\n  標準輸出: '1/(1/1)\\n'\n  你的輸出: '1/(1/1)'\n\n[測試#10] ❌ 失敗\n  標準輸入: optimalDivision((5, 5, 5),)\n  標準輸出: '5/(5/5)\\n'\n  你的輸出: '5/(5/5)'\n\n[測試#11] ❌ 失敗\n  標準輸入: optimalDivision((0, 1, 2),)\n  標準輸出: '0/(1/2)\\n'\n  你的輸出: '0/(1/2)'\n\n[測試#12] ❌ 失敗\n  標準輸入: optimalDivision((1000, 1, 2),)\n  標準輸出: '1000/(1/2)\\n'\n  你的輸出: '1000/(1/2)'\n\n[測試#13] ❌ 失敗\n  標準輸入: optimalDivision((1, 1000, 2),)\n  標準輸出: '1/(1000/2)\\n'\n  你的輸出: '1/(1000/2)'\n\n[測試#14] ❌ 失敗\n  標準輸入: optimalDivision((2, 1000, 1),)\n  標準輸出: '2/(1000/1)\\n'\n  你的輸出: '2/(1000/1)'\n\n[測試#15] ❌ 失敗\n  標準輸入: optimalDivision((2, 3, 4, 1, 5),)\n  標準輸出: '2/(3/4/1/5)\\n'\n  你的輸出: '2/(3/4/1/5)'\n\n[測試#16] ❌ 失敗\n  標準輸入: optimalDivision((2, 3, 4, 5, 1),)\n  標準輸出: '2/(3/4/5/1)\\n'\n  你的輸出: '2/(3/4/5/1)'\n\n[測試#17] ❌ 失敗\n  標準輸入: optimalDivision((-5, -2),)\n  標準輸出: '-5/-2\\n'\n  你的輸出: '-5/-2'\n\n[測試#18] ❌ 失敗\n  標準輸入: optimalDivision((-5, -2, -1),)\n  標準輸出: '-5/(-2/-1)\\n'\n  你的輸出: '-5/(-2/-1)'\n\n[測試#19] ❌ 失敗\n  標準輸入: optimalDivision((5, 5),)\n  標準輸出: '5/5\\n'\n  你的輸出: '5/5'\n\n[測試#20] ❌ 失敗\n  標準輸入: optimalDivision((5, 5, 5, 5),)\n  標準輸出: '5/(5/5/5)\\n'\n  你的輸出: '5/(5/5/5)'\n\n=== 測試完成 (0/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 12,
+    "total_tests": 20,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

@@ -33,35 +33,35 @@
         "output": "IPv4\n"
       },
       {
-        "input": "0.0.0.0\n",
-        "output": "IPv4\n"
-      },
-      {
         "input": "255.255.255.255\n",
         "output": "IPv4\n"
       },
       {
-        "input": "01.2.3.4\n",
-        "output": "Neither\n"
+        "input": "0.0.0.0\n",
+        "output": "IPv4\n"
       },
       {
         "input": "256.100.100.100\n",
         "output": "Neither\n"
       },
       {
-        "input": "1.2.3.4.5\n",
+        "input": "01.1.1.1\n",
         "output": "Neither\n"
       },
       {
-        "input": "1.2.3\n",
+        "input": "1.1.1\n",
         "output": "Neither\n"
       },
       {
-        "input": "1.2.3.a\n",
+        "input": "1.1.1.1.1\n",
         "output": "Neither\n"
       },
       {
-        "input": "1..3.4\n",
+        "input": "1.1.1.1a\n",
+        "output": "Neither\n"
+      },
+      {
+        "input": "\n",
         "output": "Neither\n"
       },
       {
@@ -73,80 +73,80 @@
         "output": "IPv6\n"
       },
       {
-        "input": "0:0:0:0:0:0:0:0\n",
+        "input": "2001:db8:85a3:0:0:8a2e:0370:733g\n",
+        "output": "Neither\n"
+      },
+      {
+        "input": "2001:db8:85a3:0:0:8a2e:0370:73345\n",
+        "output": "Neither\n"
+      },
+      {
+        "input": "2001:db8:85a3:0:0:8a2e:0370:7334:1\n",
+        "output": "Neither\n"
+      },
+      {
+        "input": "2001:db8:85a3:0:0:8a2e:0370\n",
+        "output": "Neither\n"
+      },
+      {
+        "input": "2001:db8:85a3::0:0:8a2e:0370:7334\n",
+        "output": "Neither\n"
+      },
+      {
+        "input": ":2001:db8:85a3:0:0:8a2e:0370:7334\n",
+        "output": "Neither\n"
+      },
+      {
+        "input": "2001:db8:85a3:0:0:8a2e:0370:7334:\n",
+        "output": "Neither\n"
+      },
+      {
+        "input": "abcd:abcd:abcd:abcd:abcd:abcd:abcd:abcd\n",
         "output": "IPv6\n"
       },
       {
-        "input": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff\n",
+        "input": "a:b:c:d:e:f:1:2\n",
         "output": "IPv6\n"
       },
       {
-        "input": "1:2:3:4:5:6:7:8:9\n",
-        "output": "Neither\n"
+        "input": "0000:0000:0000:0000:0000:0000:0000:0000\n",
+        "output": "IPv6\n"
       },
       {
-        "input": "1:2:3:4:5:6:7\n",
-        "output": "Neither\n"
-      },
-      {
-        "input": "2001:0db8:85a3:0000:0000:8a2e:0370:733g\n",
-        "output": "Neither\n"
-      },
-      {
-        "input": "12345:abcd:abcd:abcd:abcd:abcd:abcd:abcd\n",
-        "output": "Neither\n"
-      },
-      {
-        "input": "abcd:abcd:abcd:abcd:abcd:abcd:abcd:\n",
-        "output": "Neither\n"
-      },
-      {
-        "input": "1.2.3.4:5:6:7:8\n",
-        "output": "Neither\n"
-      },
-      {
-        "input": "\n",
+        "input": "2001:db8:85a3:0:0:8a2e:0370:7334\n",
         "output": "Neither\n"
       },
       {
         "input": "192.168.1.1\n",
         "output": "Neither\n"
-      },
-      {
-        "input": "192.168.1. 1\n",
-        "output": "Neither\n"
-      },
-      {
-        "input": "2001:0db8:85a3:0000:0000:8a2e:0370: 7334\n",
-        "output": "Neither\n"
       }
     ],
     "parsed_tests": [
       "('validIPAddress', ('192.168.1.1\\n',), 'IPv4\\n')",
-      "('validIPAddress', ('0.0.0.0\\n',), 'IPv4\\n')",
       "('validIPAddress', ('255.255.255.255\\n',), 'IPv4\\n')",
-      "('validIPAddress', ('01.2.3.4\\n',), 'Neither\\n')",
+      "('validIPAddress', ('0.0.0.0\\n',), 'IPv4\\n')",
       "('validIPAddress', ('256.100.100.100\\n',), 'Neither\\n')",
-      "('validIPAddress', ('1.2.3.4.5\\n',), 'Neither\\n')",
-      "('validIPAddress', ('1.2.3\\n',), 'Neither\\n')",
-      "('validIPAddress', ('1.2.3.a\\n',), 'Neither\\n')",
-      "('validIPAddress', ('1..3.4\\n',), 'Neither\\n')",
+      "('validIPAddress', ('01.1.1.1\\n',), 'Neither\\n')",
+      "('validIPAddress', ('1.1.1\\n',), 'Neither\\n')",
+      "('validIPAddress', ('1.1.1.1.1\\n',), 'Neither\\n')",
+      "('validIPAddress', ('1.1.1.1a\\n',), 'Neither\\n')",
+      "('validIPAddress', ((),), 'Neither\\n')",
       "('validIPAddress', ('2001:0db8:85a3:0000:0000:8a2e:0370:7334\\n',), 'IPv6\\n')",
       "('validIPAddress', ('2001:db8:85a3:0:0:8A2E:0370:7334\\n',), 'IPv6\\n')",
-      "('validIPAddress', ('0:0:0:0:0:0:0:0\\n',), 'IPv6\\n')",
-      "('validIPAddress', ('ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff\\n',), 'IPv6\\n')",
-      "('validIPAddress', ('1:2:3:4:5:6:7:8:9\\n',), 'Neither\\n')",
-      "('validIPAddress', ('1:2:3:4:5:6:7\\n',), 'Neither\\n')",
-      "('validIPAddress', ('2001:0db8:85a3:0000:0000:8a2e:0370:733g\\n',), 'Neither\\n')",
-      "('validIPAddress', ('12345:abcd:abcd:abcd:abcd:abcd:abcd:abcd\\n',), 'Neither\\n')",
-      "('validIPAddress', ('abcd:abcd:abcd:abcd:abcd:abcd:abcd:\\n',), 'Neither\\n')",
-      "('validIPAddress', ('1.2.3.4:5:6:7:8\\n',), 'Neither\\n')",
-      "('validIPAddress', ((),), 'Neither\\n')",
-      "('validIPAddress', ('192.168.1.1\\n',), 'Neither\\n')",
-      "('validIPAddress', ('192.168.1. 1\\n',), 'Neither\\n')",
-      "('validIPAddress', ('2001:0db8:85a3:0000:0000:8a2e:0370: 7334\\n',), 'Neither\\n')"
+      "('validIPAddress', ('2001:db8:85a3:0:0:8a2e:0370:733g\\n',), 'Neither\\n')",
+      "('validIPAddress', ('2001:db8:85a3:0:0:8a2e:0370:73345\\n',), 'Neither\\n')",
+      "('validIPAddress', ('2001:db8:85a3:0:0:8a2e:0370:7334:1\\n',), 'Neither\\n')",
+      "('validIPAddress', ('2001:db8:85a3:0:0:8a2e:0370\\n',), 'Neither\\n')",
+      "('validIPAddress', ('2001:db8:85a3::0:0:8a2e:0370:7334\\n',), 'Neither\\n')",
+      "('validIPAddress', (':2001:db8:85a3:0:0:8a2e:0370:7334\\n',), 'Neither\\n')",
+      "('validIPAddress', ('2001:db8:85a3:0:0:8a2e:0370:7334:\\n',), 'Neither\\n')",
+      "('validIPAddress', ('abcd:abcd:abcd:abcd:abcd:abcd:abcd:abcd\\n',), 'IPv6\\n')",
+      "('validIPAddress', ('a:b:c:d:e:f:1:2\\n',), 'IPv6\\n')",
+      "('validIPAddress', ('0000:0000:0000:0000:0000:0000:0000:0000\\n',), 'IPv6\\n')",
+      "('validIPAddress', ('2001:db8:85a3:0:0:8a2e:0370:7334\\n',), 'Neither\\n')",
+      "('validIPAddress', ('192.168.1.1\\n',), 'Neither\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: validIPAddress('192.168.1.1\\n',)\n  標準輸出: 'IPv4\\n'\n  你的輸出: 'Neither'\n\n[測試#2] ❌ 失敗\n  標準輸入: validIPAddress('0.0.0.0\\n',)\n  標準輸出: 'IPv4\\n'\n  你的輸出: 'Neither'\n\n[測試#3] ❌ 失敗\n  標準輸入: validIPAddress('255.255.255.255\\n',)\n  標準輸出: 'IPv4\\n'\n  你的輸出: 'Neither'\n\n[測試#4] ❌ 失敗\n  標準輸入: validIPAddress('01.2.3.4\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#5] ❌ 失敗\n  標準輸入: validIPAddress('256.100.100.100\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#6] ❌ 失敗\n  標準輸入: validIPAddress('1.2.3.4.5\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#7] ❌ 失敗\n  標準輸入: validIPAddress('1.2.3\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#8] ❌ 失敗\n  標準輸入: validIPAddress('1.2.3.a\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#9] ❌ 失敗\n  標準輸入: validIPAddress('1..3.4\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#10] ❌ 失敗\n  標準輸入: validIPAddress('2001:0db8:85a3:0000:0000:8a2e:0370:7334\\n',)\n  標準輸出: 'IPv6\\n'\n  你的輸出: 'Neither'\n\n[測試#11] ❌ 失敗\n  標準輸入: validIPAddress('2001:db8:85a3:0:0:8A2E:0370:7334\\n',)\n  標準輸出: 'IPv6\\n'\n  你的輸出: 'Neither'\n\n[測試#12] ❌ 失敗\n  標準輸入: validIPAddress('0:0:0:0:0:0:0:0\\n',)\n  標準輸出: 'IPv6\\n'\n  你的輸出: 'Neither'\n\n[測試#13] ❌ 失敗\n  標準輸入: validIPAddress('ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff\\n',)\n  標準輸出: 'IPv6\\n'\n  你的輸出: 'Neither'\n\n[測試#14] ❌ 失敗\n  標準輸入: validIPAddress('1:2:3:4:5:6:7:8:9\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#15] ❌ 失敗\n  標準輸入: validIPAddress('1:2:3:4:5:6:7\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#16] ❌ 失敗\n  標準輸入: validIPAddress('2001:0db8:85a3:0000:0000:8a2e:0370:733g\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#17] ❌ 失敗\n  標準輸入: validIPAddress('12345:abcd:abcd:abcd:abcd:abcd:abcd:abcd\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#18] ❌ 失敗\n  標準輸入: validIPAddress('abcd:abcd:abcd:abcd:abcd:abcd:abcd:\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#19] ❌ 失敗\n  標準輸入: validIPAddress('1.2.3.4:5:6:7:8\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#20] ❌ 失敗\n  標準輸入: validIPAddress((),)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#21] ❌ 失敗\n  標準輸入: validIPAddress('192.168.1.1\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#22] ❌ 失敗\n  標準輸入: validIPAddress('192.168.1. 1\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#23] ❌ 失敗\n  標準輸入: validIPAddress('2001:0db8:85a3:0000:0000:8a2e:0370: 7334\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n=== 測試完成 (0/23) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: validIPAddress('192.168.1.1\\n',)\n  標準輸出: 'IPv4\\n'\n  你的輸出: 'Neither'\n\n[測試#2] ❌ 失敗\n  標準輸入: validIPAddress('255.255.255.255\\n',)\n  標準輸出: 'IPv4\\n'\n  你的輸出: 'Neither'\n\n[測試#3] ❌ 失敗\n  標準輸入: validIPAddress('0.0.0.0\\n',)\n  標準輸出: 'IPv4\\n'\n  你的輸出: 'Neither'\n\n[測試#4] ❌ 失敗\n  標準輸入: validIPAddress('256.100.100.100\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#5] ❌ 失敗\n  標準輸入: validIPAddress('01.1.1.1\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#6] ❌ 失敗\n  標準輸入: validIPAddress('1.1.1\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#7] ❌ 失敗\n  標準輸入: validIPAddress('1.1.1.1.1\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#8] ❌ 失敗\n  標準輸入: validIPAddress('1.1.1.1a\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#9] ❌ 失敗\n  標準輸入: validIPAddress((),)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#10] ❌ 失敗\n  標準輸入: validIPAddress('2001:0db8:85a3:0000:0000:8a2e:0370:7334\\n',)\n  標準輸出: 'IPv6\\n'\n  你的輸出: 'Neither'\n\n[測試#11] ❌ 失敗\n  標準輸入: validIPAddress('2001:db8:85a3:0:0:8A2E:0370:7334\\n',)\n  標準輸出: 'IPv6\\n'\n  你的輸出: 'Neither'\n\n[測試#12] ❌ 失敗\n  標準輸入: validIPAddress('2001:db8:85a3:0:0:8a2e:0370:733g\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#13] ❌ 失敗\n  標準輸入: validIPAddress('2001:db8:85a3:0:0:8a2e:0370:73345\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#14] ❌ 失敗\n  標準輸入: validIPAddress('2001:db8:85a3:0:0:8a2e:0370:7334:1\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#15] ❌ 失敗\n  標準輸入: validIPAddress('2001:db8:85a3:0:0:8a2e:0370\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#16] ❌ 失敗\n  標準輸入: validIPAddress('2001:db8:85a3::0:0:8a2e:0370:7334\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#17] ❌ 失敗\n  標準輸入: validIPAddress(':2001:db8:85a3:0:0:8a2e:0370:7334\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#18] ❌ 失敗\n  標準輸入: validIPAddress('2001:db8:85a3:0:0:8a2e:0370:7334:\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#19] ❌ 失敗\n  標準輸入: validIPAddress('abcd:abcd:abcd:abcd:abcd:abcd:abcd:abcd\\n',)\n  標準輸出: 'IPv6\\n'\n  你的輸出: 'Neither'\n\n[測試#20] ❌ 失敗\n  標準輸入: validIPAddress('a:b:c:d:e:f:1:2\\n',)\n  標準輸出: 'IPv6\\n'\n  你的輸出: 'Neither'\n\n[測試#21] ❌ 失敗\n  標準輸入: validIPAddress('0000:0000:0000:0000:0000:0000:0000:0000\\n',)\n  標準輸出: 'IPv6\\n'\n  你的輸出: 'Neither'\n\n[測試#22] ❌ 失敗\n  標準輸入: validIPAddress('2001:db8:85a3:0:0:8a2e:0370:7334\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n[測試#23] ❌ 失敗\n  標準輸入: validIPAddress('192.168.1.1\\n',)\n  標準輸出: 'Neither\\n'\n  你的輸出: 'Neither'\n\n=== 測試完成 (0/23) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
     "total_tests": 23,
     "passed_count": 0,

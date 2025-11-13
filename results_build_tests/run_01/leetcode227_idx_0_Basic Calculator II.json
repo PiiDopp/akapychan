@@ -1,0 +1,192 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode227.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Basic Calculator II",
+    "description": "Given a string s which represents an expression, evaluate this expression and return its value.\n\nThe integer division should truncate toward zero.\n\nYou may assume that the given expression is always valid. All intermediate results will be in the range of [-2^31, 2^31 - 1].\n\nNote: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().",
+    "examples": [
+      {
+        "input": "s = \"3+2*2\"",
+        "output": "7"
+      },
+      {
+        "input": "s = \" 3/2 \"",
+        "output": "1"
+      },
+      {
+        "input": "s = \" 3+5 / 2 \"",
+        "output": "5"
+      }
+    ],
+    "solution": "class Solution:\n    def calculate(self, s):\n        stack = []\n        num = 0\n        sign = '+'\n        s += '+'  # 方便最後處理最後一個數字\n        \n        for c in s:\n            if c.isdigit():\n                num = num * 10 + int(c)\n            elif c in '+-*/':\n                if sign == '+':\n                    stack.append(num)\n                elif sign == '-':\n                    stack.append(-num)\n                elif sign == '*':\n                    stack.append(stack.pop() * num)\n                elif sign == '/':\n                    top = stack.pop()\n                    if top < 0:\n                        stack.append(-(-top // num))\n                    else:\n                        stack.append(top // num)\n                sign = c\n                num = 0\n        \n        return sum(stack)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1+2\n",
+        "output": "3\n"
+      },
+      {
+        "input": "5-3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "4*3\n",
+        "output": "12\n"
+      },
+      {
+        "input": "10/3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "2+3*4\n",
+        "output": "14\n"
+      },
+      {
+        "input": "2*3+4\n",
+        "output": "10\n"
+      },
+      {
+        "input": "2+3*4/2\n",
+        "output": "8\n"
+      },
+      {
+        "input": "3 + 5 * 2\n",
+        "output": "13\n"
+      },
+      {
+        "input": "3+5*2\n",
+        "output": "13\n"
+      },
+      {
+        "input": "001+002\n",
+        "output": "3\n"
+      },
+      {
+        "input": "001 + 002\n",
+        "output": "3\n"
+      },
+      {
+        "input": "0*123+456\n",
+        "output": "456\n"
+      },
+      {
+        "input": "0+0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5-5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5*0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1+2+3+4+5+6+7+8+9+10\n",
+        "output": "55\n"
+      },
+      {
+        "input": "2*3*4\n",
+        "output": "24\n"
+      },
+      {
+        "input": "100/10/2\n",
+        "output": "5\n"
+      },
+      {
+        "input": "5-10*2/3\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "5-10*2/3+4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "5-10*2/3-4\n",
+        "output": "-5\n"
+      },
+      {
+        "input": "5-10*2/3*2\n",
+        "output": "-7\n"
+      },
+      {
+        "input": "5-10*2/3/2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "5-10*2/3*2/2\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "1000*2000\n",
+        "output": "2000000\n"
+      },
+      {
+        "input": "1000-2000*3/4\n",
+        "output": "-500\n"
+      },
+      {
+        "input": "5-12*2/3\n",
+        "output": "-3\n"
+      },
+      {
+        "input": "5-12*2/3+4\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5-12*2/3-4\n",
+        "output": "-7\n"
+      },
+      {
+        "input": "5-12*2/3*2\n",
+        "output": "-11\n"
+      },
+      {
+        "input": "5-12*2/3/2\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('calculate', ('1+2\\n',), 3)",
+      "('calculate', ('5-3\\n',), 2)",
+      "('calculate', ('4*3\\n',), 12)",
+      "('calculate', ('10/3\\n',), 3)",
+      "('calculate', ('2+3*4\\n',), 14)",
+      "('calculate', ('2*3+4\\n',), 10)",
+      "('calculate', ('2+3*4/2\\n',), 8)",
+      "('calculate', ('3 + 5 * 2\\n',), 13)",
+      "('calculate', ('3+5*2\\n',), 13)",
+      "('calculate', ('001+002\\n',), 3)",
+      "('calculate', ('001 + 002\\n',), 3)",
+      "('calculate', ('0*123+456\\n',), 456)",
+      "('calculate', ('0+0\\n',), 0)",
+      "('calculate', ('5-5\\n',), 0)",
+      "('calculate', ('5*0\\n',), 0)",
+      "('calculate', ('1+2+3+4+5+6+7+8+9+10\\n',), 55)",
+      "('calculate', ('2*3*4\\n',), 24)",
+      "('calculate', ('100/10/2\\n',), 5)",
+      "('calculate', ('5-10*2/3\\n',), -1)",
+      "('calculate', ('5-10*2/3+4\\n',), 3)",
+      "('calculate', ('5-10*2/3-4\\n',), -5)",
+      "('calculate', ('5-10*2/3*2\\n',), -7)",
+      "('calculate', ('5-10*2/3/2\\n',), 2)",
+      "('calculate', ('5-10*2/3*2/2\\n',), -1)",
+      "('calculate', ('1000*2000\\n',), 2000000)",
+      "('calculate', ('1000-2000*3/4\\n',), -500)",
+      "('calculate', ('5-12*2/3\\n',), -3)",
+      "('calculate', ('5-12*2/3+4\\n',), 1)",
+      "('calculate', ('5-12*2/3-4\\n',), -7)",
+      "('calculate', ('5-12*2/3*2\\n',), -11)",
+      "('calculate', ('5-12*2/3/2\\n',), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: calculate('1+2\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: calculate('5-3\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: calculate('4*3\\n',)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#4] ✅ 通過\n  標準輸入: calculate('10/3\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: calculate('2+3*4\\n',)\n  標準輸出: 14\n  你的輸出: 14\n\n[測試#6] ✅ 通過\n  標準輸入: calculate('2*3+4\\n',)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#7] ✅ 通過\n  標準輸入: calculate('2+3*4/2\\n',)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#8] ✅ 通過\n  標準輸入: calculate('3 + 5 * 2\\n',)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#9] ✅ 通過\n  標準輸入: calculate('3+5*2\\n',)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#10] ✅ 通過\n  標準輸入: calculate('001+002\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#11] ✅ 通過\n  標準輸入: calculate('001 + 002\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#12] ✅ 通過\n  標準輸入: calculate('0*123+456\\n',)\n  標準輸出: 456\n  你的輸出: 456\n\n[測試#13] ✅ 通過\n  標準輸入: calculate('0+0\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#14] ✅ 通過\n  標準輸入: calculate('5-5\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: calculate('5*0\\n',)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#16] ✅ 通過\n  標準輸入: calculate('1+2+3+4+5+6+7+8+9+10\\n',)\n  標準輸出: 55\n  你的輸出: 55\n\n[測試#17] ✅ 通過\n  標準輸入: calculate('2*3*4\\n',)\n  標準輸出: 24\n  你的輸出: 24\n\n[測試#18] ✅ 通過\n  標準輸入: calculate('100/10/2\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#19] ✅ 通過\n  標準輸入: calculate('5-10*2/3\\n',)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#20] ✅ 通過\n  標準輸入: calculate('5-10*2/3+4\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#21] ✅ 通過\n  標準輸入: calculate('5-10*2/3-4\\n',)\n  標準輸出: -5\n  你的輸出: -5\n\n[測試#22] ✅ 通過\n  標準輸入: calculate('5-10*2/3*2\\n',)\n  標準輸出: -7\n  你的輸出: -7\n\n[測試#23] ✅ 通過\n  標準輸入: calculate('5-10*2/3/2\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#24] ✅ 通過\n  標準輸入: calculate('5-10*2/3*2/2\\n',)\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#25] ✅ 通過\n  標準輸入: calculate('1000*2000\\n',)\n  標準輸出: 2000000\n  你的輸出: 2000000\n\n[測試#26] ✅ 通過\n  標準輸入: calculate('1000-2000*3/4\\n',)\n  標準輸出: -500\n  你的輸出: -500\n\n[測試#27] ✅ 通過\n  標準輸入: calculate('5-12*2/3\\n',)\n  標準輸出: -3\n  你的輸出: -3\n\n[測試#28] ✅ 通過\n  標準輸入: calculate('5-12*2/3+4\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#29] ✅ 通過\n  標準輸入: calculate('5-12*2/3-4\\n',)\n  標準輸出: -7\n  你的輸出: -7\n\n[測試#30] ✅ 通過\n  標準輸入: calculate('5-12*2/3*2\\n',)\n  標準輸出: -11\n  你的輸出: -11\n\n[測試#31] ✅ 通過\n  標準輸入: calculate('5-12*2/3/2\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (31/31) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 31,
+    "passed_count": 31,
+    "accuracy_rate": 1.0
+  }
+}

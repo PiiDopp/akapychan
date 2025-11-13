@@ -29,40 +29,40 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['abc', 'abc']\n",
-        "output": "-1\n"
-      },
-      {
-        "input": "['abc', 'abcd']\n",
-        "output": "4\n"
-      },
-      {
         "input": "['', '']\n",
         "output": "-1\n"
       },
       {
-        "input": "['', 'abc']\n",
+        "input": "['', 'a']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['a', '']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abc', 'abc']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abc', 'abd']\n",
         "output": "3\n"
       },
       {
-        "input": "['abc', 'def']\n",
-        "output": "3\n"
+        "input": "['a', 'a']\n",
+        "output": "-1\n"
       },
       {
         "input": "['a', 'b']\n",
         "output": "1\n"
       },
       {
-        "input": "['hello world', 'hello']\n",
-        "output": "11\n"
+        "input": "['ab', 'ba']\n",
+        "output": "2\n"
       },
       {
-        "input": "['12345', '12345']\n",
-        "output": "-1\n"
-      },
-      {
-        "input": "['!@#$%', '!@#$%']\n",
-        "output": "-1\n"
+        "input": "['aaaa', 'aa']\n",
+        "output": "4\n"
       },
       {
         "input": "['你好', '世界']\n",
@@ -70,18 +70,18 @@
       }
     ],
     "parsed_tests": [
-      "('findLUSlength', ('abc', 'abc'), -1)",
-      "('findLUSlength', ('abc', 'abcd'), 4)",
       "('findLUSlength', ('', ''), -1)",
-      "('findLUSlength', ('', 'abc'), 3)",
-      "('findLUSlength', ('abc', 'def'), 3)",
+      "('findLUSlength', ('', 'a'), 1)",
+      "('findLUSlength', ('a', ''), 1)",
+      "('findLUSlength', ('abc', 'abc'), -1)",
+      "('findLUSlength', ('abc', 'abd'), 3)",
+      "('findLUSlength', ('a', 'a'), -1)",
       "('findLUSlength', ('a', 'b'), 1)",
-      "('findLUSlength', ('hello world', 'hello'), 11)",
-      "('findLUSlength', ('12345', '12345'), -1)",
-      "('findLUSlength', ('!@#$%', '!@#$%'), -1)",
+      "('findLUSlength', ('ab', 'ba'), 2)",
+      "('findLUSlength', ('aaaa', 'aa'), 4)",
       "('findLUSlength', ('你好', '世界'), 2)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findLUSlength('abc', 'abc')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#2] ✅ 通過\n  標準輸入: findLUSlength('abc', 'abcd')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: findLUSlength('', '')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#4] ✅ 通過\n  標準輸入: findLUSlength('', 'abc')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: findLUSlength('abc', 'def')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: findLUSlength('a', 'b')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: findLUSlength('hello world', 'hello')\n  標準輸出: 11\n  你的輸出: 11\n\n[測試#8] ✅ 通過\n  標準輸入: findLUSlength('12345', '12345')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#9] ✅ 通過\n  標準輸入: findLUSlength('!@#$%', '!@#$%')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#10] ✅ 通過\n  標準輸入: findLUSlength('你好', '世界')\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findLUSlength('', '')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#2] ✅ 通過\n  標準輸入: findLUSlength('', 'a')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: findLUSlength('a', '')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: findLUSlength('abc', 'abc')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: findLUSlength('abc', 'abd')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: findLUSlength('a', 'a')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#7] ✅ 通過\n  標準輸入: findLUSlength('a', 'b')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: findLUSlength('ab', 'ba')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: findLUSlength('aaaa', 'aa')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: findLUSlength('你好', '世界')\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
     "all_passed": true,
     "total_tests": 10,
     "passed_count": 10,

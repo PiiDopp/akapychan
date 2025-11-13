@@ -27,8 +27,8 @@
         "output": "['catsdog']\n"
       },
       {
-        "input": "['a', 'b', 'c', 'ab', 'bc', 'abc', 'abcd']\n",
-        "output": "['ab', 'bc', 'abc']\n"
+        "input": "['cat', 'cats', 'dog', 'catsdog', 'dogcat', 'catdogcats']\n",
+        "output": "['catsdog', 'dogcat', 'catdogcats']\n"
       },
       {
         "input": "['a', 'aa', 'aaa', 'aaaa']\n",
@@ -39,36 +39,46 @@
         "output": "['aa']\n"
       },
       {
-        "input": "['x', 'y', 'z']\n",
+        "input": "['hello', 'world']\n",
         "output": "[]\n"
       },
       {
-        "input": "['cat', 'cats', 'dog', 'catsdog', 'dogcat']\n",
-        "output": "['catsdog', 'dogcat']\n"
+        "input": "['ab', 'abc', 'abcd']\n",
+        "output": "[]\n"
       },
       {
-        "input": "['a', 'b', 'c', 'd', 'ab', 'cd', 'abcd']\n",
-        "output": "['ab', 'cd', 'abcd']\n"
+        "input": "['a', 'b', 'ab', 'abc', 'abcd']\n",
+        "output": "['ab']\n"
       },
       {
-        "input": "['a', 'aa', 'aaa', 'aaaa', 'aaaaa']\n",
-        "output": "['aa', 'aaa', 'aaaa', 'aaaaa']\n"
+        "input": "['a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']\n",
+        "output": "['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']\n"
+      },
+      {
+        "input": "['cat', 'cats', 'dog', 'catdog', 'dogcat', 'catdogcat']\n",
+        "output": "['catdog', 'dogcat', 'catdogcat']\n"
+      },
+      {
+        "input": "['!', '!!', '!!!', '!!!!']\n",
+        "output": "['!!', '!!!', '!!!!']\n"
       }
     ],
     "parsed_tests": [
       "('findAllConcatenatedWordsInADict', (['cat', 'cats', 'dog', 'catsdog'],), ['catsdog'])",
-      "('findAllConcatenatedWordsInADict', (['a', 'b', 'c', 'ab', 'bc', 'abc', 'abcd'],), ['ab', 'bc', 'abc'])",
+      "('findAllConcatenatedWordsInADict', (['cat', 'cats', 'dog', 'catsdog', 'dogcat', 'catdogcats'],), ['catsdog', 'dogcat', 'catdogcats'])",
       "('findAllConcatenatedWordsInADict', (['a', 'aa', 'aaa', 'aaaa'],), ['aa', 'aaa', 'aaaa'])",
       "('findAllConcatenatedWordsInADict', (['', 'a', 'aa'],), ['aa'])",
-      "('findAllConcatenatedWordsInADict', (['x', 'y', 'z'],), [])",
-      "('findAllConcatenatedWordsInADict', (['cat', 'cats', 'dog', 'catsdog', 'dogcat'],), ['catsdog', 'dogcat'])",
-      "('findAllConcatenatedWordsInADict', (['a', 'b', 'c', 'd', 'ab', 'cd', 'abcd'],), ['ab', 'cd', 'abcd'])",
-      "('findAllConcatenatedWordsInADict', (['a', 'aa', 'aaa', 'aaaa', 'aaaaa'],), ['aa', 'aaa', 'aaaa', 'aaaaa'])"
+      "('findAllConcatenatedWordsInADict', (['hello', 'world'],), [])",
+      "('findAllConcatenatedWordsInADict', (['ab', 'abc', 'abcd'],), [])",
+      "('findAllConcatenatedWordsInADict', (['a', 'b', 'ab', 'abc', 'abcd'],), ['ab'])",
+      "('findAllConcatenatedWordsInADict', (['a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa'],), ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa'])",
+      "('findAllConcatenatedWordsInADict', (['cat', 'cats', 'dog', 'catdog', 'dogcat', 'catdogcat'],), ['catdog', 'dogcat', 'catdogcat'])",
+      "('findAllConcatenatedWordsInADict', (['!', '!!', '!!!', '!!!!'],), ['!!', '!!!', '!!!!'])"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['cat', 'cats', 'dog', 'catsdog'],)\n  標準輸出: ['catsdog']\n  你的輸出: ['catsdog']\n\n[測試#2] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['a', 'b', 'c', 'ab', 'bc', 'abc', 'abcd'],)\n  標準輸出: ['ab', 'bc', 'abc']\n  你的輸出: ['ab', 'bc', 'abc']\n\n[測試#3] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['a', 'aa', 'aaa', 'aaaa'],)\n  標準輸出: ['aa', 'aaa', 'aaaa']\n  你的輸出: ['aa', 'aaa', 'aaaa']\n\n[測試#4] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['', 'a', 'aa'],)\n  標準輸出: ['aa']\n  你的輸出: ['aa']\n\n[測試#5] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['x', 'y', 'z'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['cat', 'cats', 'dog', 'catsdog', 'dogcat'],)\n  標準輸出: ['catsdog', 'dogcat']\n  你的輸出: ['catsdog', 'dogcat']\n\n[測試#7] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['a', 'b', 'c', 'd', 'ab', 'cd', 'abcd'],)\n  標準輸出: ['ab', 'cd', 'abcd']\n  你的輸出: ['ab', 'cd', 'abcd']\n\n[測試#8] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['a', 'aa', 'aaa', 'aaaa', 'aaaaa'],)\n  標準輸出: ['aa', 'aaa', 'aaaa', 'aaaaa']\n  你的輸出: ['aa', 'aaa', 'aaaa', 'aaaaa']\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['cat', 'cats', 'dog', 'catsdog'],)\n  標準輸出: ['catsdog']\n  你的輸出: ['catsdog']\n\n[測試#2] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['cat', 'cats', 'dog', 'catsdog', 'dogcat', 'catdogcats'],)\n  標準輸出: ['catsdog', 'dogcat', 'catdogcats']\n  你的輸出: ['catsdog', 'dogcat', 'catdogcats']\n\n[測試#3] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['a', 'aa', 'aaa', 'aaaa'],)\n  標準輸出: ['aa', 'aaa', 'aaaa']\n  你的輸出: ['aa', 'aaa', 'aaaa']\n\n[測試#4] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['', 'a', 'aa'],)\n  標準輸出: ['aa']\n  你的輸出: ['aa']\n\n[測試#5] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['hello', 'world'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['ab', 'abc', 'abcd'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#7] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['a', 'b', 'ab', 'abc', 'abcd'],)\n  標準輸出: ['ab']\n  你的輸出: ['ab']\n\n[測試#8] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa'],)\n  標準輸出: ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']\n  你的輸出: ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']\n\n[測試#9] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['cat', 'cats', 'dog', 'catdog', 'dogcat', 'catdogcat'],)\n  標準輸出: ['catdog', 'dogcat', 'catdogcat']\n  你的輸出: ['catdog', 'dogcat', 'catdogcat']\n\n[測試#10] ✅ 通過\n  標準輸入: findAllConcatenatedWordsInADict(['!', '!!', '!!!', '!!!!'],)\n  標準輸出: ['!!', '!!!', '!!!!']\n  你的輸出: ['!!', '!!!', '!!!!']\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
     "all_passed": true,
-    "total_tests": 8,
-    "passed_count": 8,
+    "total_tests": 10,
+    "passed_count": 10,
     "accuracy_rate": 1.0
   }
 }

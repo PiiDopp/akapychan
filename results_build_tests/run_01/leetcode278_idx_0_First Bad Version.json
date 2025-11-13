@@ -23,97 +23,37 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "{'n': 1, 'bad_version': 1}\n",
+        "input": "1\n",
         "output": "1\n"
       },
       {
-        "input": "{'n': 2, 'bad_version': 1}\n",
-        "output": "1\n"
-      },
-      {
-        "input": "{'n': 2, 'bad_version': 2}\n",
-        "output": "2\n"
-      },
-      {
-        "input": "{'n': 3, 'bad_version': 1}\n",
-        "output": "1\n"
-      },
-      {
-        "input": "{'n': 3, 'bad_version': 2}\n",
-        "output": "2\n"
-      },
-      {
-        "input": "{'n': 3, 'bad_version': 3}\n",
+        "input": "5\n",
         "output": "3\n"
       },
       {
-        "input": "{'n': 5, 'bad_version': 1}\n",
-        "output": "1\n"
-      },
-      {
-        "input": "{'n': 5, 'bad_version': 3}\n",
-        "output": "3\n"
-      },
-      {
-        "input": "{'n': 5, 'bad_version': 5}\n",
-        "output": "5\n"
-      },
-      {
-        "input": "{'n': 10, 'bad_version': 1}\n",
-        "output": "1\n"
-      },
-      {
-        "input": "{'n': 10, 'bad_version': 5}\n",
-        "output": "5\n"
-      },
-      {
-        "input": "{'n': 10, 'bad_version': 10}\n",
+        "input": "10\n",
         "output": "10\n"
       },
       {
-        "input": "{'n': 100, 'bad_version': 50}\n",
-        "output": "50\n"
-      },
-      {
-        "input": "{'n': 1000000, 'bad_version': 1}\n",
+        "input": "10\n",
         "output": "1\n"
       },
       {
-        "input": "{'n': 1000000, 'bad_version': 500000}\n",
+        "input": "1000000\n",
         "output": "500000\n"
-      },
-      {
-        "input": "{'n': 1000000, 'bad_version': 999999}\n",
-        "output": "999999\n"
-      },
-      {
-        "input": "{'n': 1000000, 'bad_version': 1000000}\n",
-        "output": "1000000\n"
       }
     ],
     "parsed_tests": [
-      "('firstBadVersion', ({'n': 1, 'bad_version': 1},), 1)",
-      "('firstBadVersion', ({'n': 2, 'bad_version': 1},), 1)",
-      "('firstBadVersion', ({'n': 2, 'bad_version': 2},), 2)",
-      "('firstBadVersion', ({'n': 3, 'bad_version': 1},), 1)",
-      "('firstBadVersion', ({'n': 3, 'bad_version': 2},), 2)",
-      "('firstBadVersion', ({'n': 3, 'bad_version': 3},), 3)",
-      "('firstBadVersion', ({'n': 5, 'bad_version': 1},), 1)",
-      "('firstBadVersion', ({'n': 5, 'bad_version': 3},), 3)",
-      "('firstBadVersion', ({'n': 5, 'bad_version': 5},), 5)",
-      "('firstBadVersion', ({'n': 10, 'bad_version': 1},), 1)",
-      "('firstBadVersion', ({'n': 10, 'bad_version': 5},), 5)",
-      "('firstBadVersion', ({'n': 10, 'bad_version': 10},), 10)",
-      "('firstBadVersion', ({'n': 100, 'bad_version': 50},), 50)",
-      "('firstBadVersion', ({'n': 1000000, 'bad_version': 1},), 1)",
-      "('firstBadVersion', ({'n': 1000000, 'bad_version': 500000},), 500000)",
-      "('firstBadVersion', ({'n': 1000000, 'bad_version': 999999},), 999999)",
-      "('firstBadVersion', ({'n': 1000000, 'bad_version': 1000000},), 1000000)"
+      "('firstBadVersion', (1,), 1)",
+      "('firstBadVersion', (5,), 3)",
+      "('firstBadVersion', (10,), 10)",
+      "('firstBadVersion', (10,), 1)",
+      "('firstBadVersion', (1000000,), 500000)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#2] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#3] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#4] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#5] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#6] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#7] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#8] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#9] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#10] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#11] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#12] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#13] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#14] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#15] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#16] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n[測試#17] ❌ 執行例外: '<' not supported between instances of 'int' and 'dict'\n=== 測試完成 (0/17) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: firstBadVersion(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ❌ 執行例外: name 'isBadVersion' is not defined\n[測試#3] ❌ 執行例外: name 'isBadVersion' is not defined\n[測試#4] ❌ 執行例外: name 'isBadVersion' is not defined\n[測試#5] ❌ 執行例外: name 'isBadVersion' is not defined\n=== 測試完成 (1/5) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 17,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 5,
+    "passed_count": 1,
+    "accuracy_rate": 0.2
   }
 }

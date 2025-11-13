@@ -26,123 +26,38 @@
         "output": "2\n"
       },
       {
-        "input": "5\n2\n3\n",
-        "output": "8\n"
-      },
-      {
-        "input": "10\n2\n4\n",
+        "input": "5\n4\n4\n",
         "output": "20\n"
       },
       {
-        "input": "1000000000\n1\n1\n",
-        "output": "1000000000\n"
+        "input": "10\n1\n7\n",
+        "output": "10\n"
+      },
+      {
+        "input": "1000000000\n2\n3\n",
+        "output": "499999993\n"
       },
       {
         "input": "1000000000\n1000000000\n1000000000\n",
         "output": "49\n"
       },
       {
-        "input": "1\n1000000000\n1000000000\n",
-        "output": "1000000000\n"
-      },
-      {
-        "input": "2\n2\n4\n",
-        "output": "4\n"
-      },
-      {
-        "input": "3\n6\n10\n",
-        "output": "12\n"
-      },
-      {
-        "input": "7\n3\n5\n",
-        "output": "15\n"
-      },
-      {
-        "input": "100\n1\n1000000000\n",
-        "output": "100\n"
-      },
-      {
-        "input": "1\n999999937\n999999929\n",
-        "output": "999999929\n"
-      },
-      {
-        "input": "2\n999999937\n999999929\n",
-        "output": "999999937\n"
-      },
-      {
-        "input": "3\n2\n4\n",
-        "output": "6\n"
-      },
-      {
-        "input": "1\n1\n1000000000\n",
-        "output": "1\n"
-      },
-      {
-        "input": "1\n1000000000\n1\n",
-        "output": "1\n"
-      },
-      {
-        "input": "5\n7\n7\n",
-        "output": "35\n"
-      },
-      {
-        "input": "10\n2\n3\n",
-        "output": "15\n"
-      },
-      {
-        "input": "10\n3\n5\n",
-        "output": "21\n"
-      },
-      {
-        "input": "10\n4\n6\n",
-        "output": "30\n"
-      },
-      {
-        "input": "10\n5\n10\n",
-        "output": "50\n"
-      },
-      {
-        "input": "10\n7\n13\n",
-        "output": "49\n"
-      },
-      {
-        "input": "10\n1000000000\n999999937\n",
-        "output": "999999972\n"
-      },
-      {
-        "input": "1000000000\n2\n3\n",
-        "output": "499999993\n"
+        "input": "3\n1000000000\n999999937\n",
+        "output": "999999867\n"
       }
     ],
     "parsed_tests": [
       "('nthMagicalNumber', (1, 2, 3), 2)",
-      "('nthMagicalNumber', (5, 2, 3), 8)",
-      "('nthMagicalNumber', (10, 2, 4), 20)",
-      "('nthMagicalNumber', (1000000000, 1, 1), 1000000000)",
+      "('nthMagicalNumber', (5, 4, 4), 20)",
+      "('nthMagicalNumber', (10, 1, 7), 10)",
+      "('nthMagicalNumber', (1000000000, 2, 3), 499999993)",
       "('nthMagicalNumber', (1000000000, 1000000000, 1000000000), 49)",
-      "('nthMagicalNumber', (1, 1000000000, 1000000000), 1000000000)",
-      "('nthMagicalNumber', (2, 2, 4), 4)",
-      "('nthMagicalNumber', (3, 6, 10), 12)",
-      "('nthMagicalNumber', (7, 3, 5), 15)",
-      "('nthMagicalNumber', (100, 1, 1000000000), 100)",
-      "('nthMagicalNumber', (1, 999999937, 999999929), 999999929)",
-      "('nthMagicalNumber', (2, 999999937, 999999929), 999999937)",
-      "('nthMagicalNumber', (3, 2, 4), 6)",
-      "('nthMagicalNumber', (1, 1, 1000000000), 1)",
-      "('nthMagicalNumber', (1, 1000000000, 1), 1)",
-      "('nthMagicalNumber', (5, 7, 7), 35)",
-      "('nthMagicalNumber', (10, 2, 3), 15)",
-      "('nthMagicalNumber', (10, 3, 5), 21)",
-      "('nthMagicalNumber', (10, 4, 6), 30)",
-      "('nthMagicalNumber', (10, 5, 10), 50)",
-      "('nthMagicalNumber', (10, 7, 13), 49)",
-      "('nthMagicalNumber', (10, 1000000000, 999999937), 999999972)",
-      "('nthMagicalNumber', (1000000000, 2, 3), 499999993)"
+      "('nthMagicalNumber', (3, 1000000000, 999999937), 999999867)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: nthMagicalNumber(1, 2, 3)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: nthMagicalNumber(5, 2, 3)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#3] ✅ 通過\n  標準輸入: nthMagicalNumber(10, 2, 4)\n  標準輸出: 20\n  你的輸出: 20\n\n[測試#4] ✅ 通過\n  標準輸入: nthMagicalNumber(1000000000, 1, 1)\n  標準輸出: 1000000000\n  你的輸出: 1000000000\n\n[測試#5] ✅ 通過\n  標準輸入: nthMagicalNumber(1000000000, 1000000000, 1000000000)\n  標準輸出: 49\n  你的輸出: 49\n\n[測試#6] ✅ 通過\n  標準輸入: nthMagicalNumber(1, 1000000000, 1000000000)\n  標準輸出: 1000000000\n  你的輸出: 1000000000\n\n[測試#7] ✅ 通過\n  標準輸入: nthMagicalNumber(2, 2, 4)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: nthMagicalNumber(3, 6, 10)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#9] ✅ 通過\n  標準輸入: nthMagicalNumber(7, 3, 5)\n  標準輸出: 15\n  你的輸出: 15\n\n[測試#10] ✅ 通過\n  標準輸入: nthMagicalNumber(100, 1, 1000000000)\n  標準輸出: 100\n  你的輸出: 100\n\n[測試#11] ✅ 通過\n  標準輸入: nthMagicalNumber(1, 999999937, 999999929)\n  標準輸出: 999999929\n  你的輸出: 999999929\n\n[測試#12] ✅ 通過\n  標準輸入: nthMagicalNumber(2, 999999937, 999999929)\n  標準輸出: 999999937\n  你的輸出: 999999937\n\n[測試#13] ✅ 通過\n  標準輸入: nthMagicalNumber(3, 2, 4)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#14] ✅ 通過\n  標準輸入: nthMagicalNumber(1, 1, 1000000000)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#15] ✅ 通過\n  標準輸入: nthMagicalNumber(1, 1000000000, 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#16] ✅ 通過\n  標準輸入: nthMagicalNumber(5, 7, 7)\n  標準輸出: 35\n  你的輸出: 35\n\n[測試#17] ✅ 通過\n  標準輸入: nthMagicalNumber(10, 2, 3)\n  標準輸出: 15\n  你的輸出: 15\n\n[測試#18] ✅ 通過\n  標準輸入: nthMagicalNumber(10, 3, 5)\n  標準輸出: 21\n  你的輸出: 21\n\n[測試#19] ✅ 通過\n  標準輸入: nthMagicalNumber(10, 4, 6)\n  標準輸出: 30\n  你的輸出: 30\n\n[測試#20] ✅ 通過\n  標準輸入: nthMagicalNumber(10, 5, 10)\n  標準輸出: 50\n  你的輸出: 50\n\n[測試#21] ✅ 通過\n  標準輸入: nthMagicalNumber(10, 7, 13)\n  標準輸出: 49\n  你的輸出: 49\n\n[測試#22] ✅ 通過\n  標準輸入: nthMagicalNumber(10, 1000000000, 999999937)\n  標準輸出: 999999972\n  你的輸出: 999999972\n\n[測試#23] ✅ 通過\n  標準輸入: nthMagicalNumber(1000000000, 2, 3)\n  標準輸出: 499999993\n  你的輸出: 499999993\n\n=== 測試完成 (23/23) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: nthMagicalNumber(1, 2, 3)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: nthMagicalNumber(5, 4, 4)\n  標準輸出: 20\n  你的輸出: 20\n\n[測試#3] ✅ 通過\n  標準輸入: nthMagicalNumber(10, 1, 7)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#4] ✅ 通過\n  標準輸入: nthMagicalNumber(1000000000, 2, 3)\n  標準輸出: 499999993\n  你的輸出: 499999993\n\n[測試#5] ✅ 通過\n  標準輸入: nthMagicalNumber(1000000000, 1000000000, 1000000000)\n  標準輸出: 49\n  你的輸出: 49\n\n[測試#6] ✅ 通過\n  標準輸入: nthMagicalNumber(3, 1000000000, 999999937)\n  標準輸出: 999999867\n  你的輸出: 999999867\n\n=== 測試完成 (6/6) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
     "all_passed": true,
-    "total_tests": 23,
-    "passed_count": 23,
+    "total_tests": 6,
+    "passed_count": 6,
     "accuracy_rate": 1.0
   }
 }

@@ -1,0 +1,95 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode474.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Ones and Zeroes",
+    "description": "You are given an array of binary strings strs and two integers m and n.\n\nReturn the size of the largest subset of strs such that there are at most m 0's and n 1's in the subset.\n\nA set x is a subset of a set y if all elements of x are also elements of y.",
+    "examples": [
+      {
+        "input": "strs = [\"10\",\"0001\",\"111001\",\"1\",\"0\"], m = 5, n = 3",
+        "output": "4",
+        "explanation": "The largest subset with at most 5 0's and 3 1's is {\"10\", \"0001\", \"1\", \"0\"}, so the answer is 4.\nOther valid but smaller subsets include {\"0001\", \"1\"} and {\"10\", \"1\", \"0\"}.\n{\"111001\"} is an invalid subset because it contains 4 1's, greater than the maximum of 3."
+      },
+      {
+        "input": "strs = [\"10\",\"0\",\"1\"], m = 1, n = 1",
+        "output": "2",
+        "explanation": "The largest subset is {\"0\", \"1\"}, so the answer is 2."
+      }
+    ],
+    "solution": "class Solution:\n    def findMaxForm(self, strs, m, n):\n        # dp[i][j] 表示使用 i 個 0 和 j 個 1 能形成的最大字串數\n        dp = [[0] * (n + 1) for _ in range(m + 1)]\n        \n        for s in strs:\n            zeros = s.count('0')\n            ones = s.count('1')\n            # 逆序遍歷，避免重複使用同一個字串\n            for i in range(m, zeros - 1, -1):\n                for j in range(n, ones - 1, -1):\n                    dp[i][j] = max(dp[i][j], dp[i - zeros][j - ones] + 1)\n        return dp[m][n]"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['10', '0001', '111001', '1', '0'], 5, 3]\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[]\n5\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[['10', '01'], 0, 0]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[['000', '00'], 3, 0]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['1', '11', '111'], 0, 3]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['1111', '0000'], 3, 3]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[['10', '01', '10'], 2, 2]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['10', '10', '10'], 2, 2]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['10', '01', '10', '01'], 4, 4]\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[['0', '1', '01'], 1, 1]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['1100', '0011'], 4, 4]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['0', '1', '0'], 2, 1]\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findMaxForm', (['10', '0001', '111001', '1', '0'], 5, 3), 4)",
+      "('findMaxForm', ([], 5, 3), 0)",
+      "('findMaxForm', (['10', '01'], 0, 0), 0)",
+      "('findMaxForm', (['000', '00'], 3, 0), 1)",
+      "('findMaxForm', (['1', '11', '111'], 0, 3), 1)",
+      "('findMaxForm', (['1111', '0000'], 3, 3), 0)",
+      "('findMaxForm', (['10', '01', '10'], 2, 2), 2)",
+      "('findMaxForm', (['10', '10', '10'], 2, 2), 2)",
+      "('findMaxForm', (['10', '01', '10', '01'], 4, 4), 4)",
+      "('findMaxForm', (['0', '1', '01'], 1, 1), 2)",
+      "('findMaxForm', (['1100', '0011'], 4, 4), 2)",
+      "('findMaxForm', (['0', '1', '0'], 2, 1), 2)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findMaxForm(['10', '0001', '111001', '1', '0'], 5, 3)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#2] ✅ 通過\n  標準輸入: findMaxForm([], 5, 3)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: findMaxForm(['10', '01'], 0, 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: findMaxForm(['000', '00'], 3, 0)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ❌ 失敗\n  標準輸入: findMaxForm(['1', '11', '111'], 0, 3)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: findMaxForm(['1111', '0000'], 3, 3)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: findMaxForm(['10', '01', '10'], 2, 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: findMaxForm(['10', '10', '10'], 2, 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: findMaxForm(['10', '01', '10', '01'], 4, 4)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#10] ✅ 通過\n  標準輸入: findMaxForm(['0', '1', '01'], 1, 1)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#11] ✅ 通過\n  標準輸入: findMaxForm(['1100', '0011'], 4, 4)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ❌ 失敗\n  標準輸入: findMaxForm(['0', '1', '0'], 2, 1)\n  標準輸出: 2\n  你的輸出: 3\n\n=== 測試完成 (10/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 10,
+    "accuracy_rate": 0.8333333333333334
+  }
+}

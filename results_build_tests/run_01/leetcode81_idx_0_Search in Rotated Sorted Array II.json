@@ -1,0 +1,133 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode81.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Search in Rotated Sorted Array II",
+    "description": "There is an integer array nums sorted in non-decreasing order (not necessarily with distinct values).\n\nBefore being passed to your function, nums is rotated at an unknown pivot index k (0 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,4,4,5,6,6,7] might be rotated at pivot index 5 and become [4,5,6,6,7,0,1,2,4,4].\n\nGiven the array nums after the rotation and an integer target, return true if target is in nums, or false if it is not in nums.\n\nYou must decrease the overall operation steps as much as possible.",
+    "examples": [
+      {
+        "input": "nums = [2,5,6,0,0,1,2], target = 0",
+        "output": "true"
+      },
+      {
+        "input": "nums = [2,5,6,0,0,1,2], target = 3",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution(object):\n    def search(self, nums, target):\n        left, right = 0, len(nums) - 1\n        \n        while left <= right:\n            mid = (left + right) // 2\n            if nums[mid] == target:\n                return True\n            \n            if nums[left] == nums[mid] == nums[right]:\n                left += 1\n                right -= 1\n            elif nums[left] <= nums[mid]:\n                if nums[left] <= target < nums[mid]:\n                    right = mid - 1\n                else:\n                    left = mid + 1\n            else:\n                if nums[mid] < target <= nums[right]:\n                    left = mid + 1\n                else:\n                    right = mid - 1\n        return False"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[4, 5, 6, 7, 0, 1, 2]\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[4, 5, 6, 7, 0, 1, 2]\n3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[2, 5, 6, 0, 0, 1, 2]\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[2, 5, 6, 0, 0, 1, 2]\n3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[1, 1, 1, 1, 1]\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 1, 1, 1, 1]\n2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[]\n1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[1]\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1]\n0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[5, 1, 2, 3, 4]\n5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[10, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1, 2, 3, 4, 5, 6, 7, 8]\n14\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[10, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1, 2, 3, 4, 5, 6, 7, 8]\n9\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[1, 1, 1, 1, 1, 2, 1]\n2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 1, 1, 1, 1, 2, 1]\n3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[2, 2, 2, 3, 4, 2]\n2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[2, 2, 2, 3, 4, 2]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[2, 2, 2, 3, 4, 2]\n5\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[4, 5, 6, 7, 0, 1, 2]\n4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[4, 5, 6, 7, 0, 1, 2]\n2\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('search', ([4, 5, 6, 7, 0, 1, 2], 0), True)",
+      "('search', ([4, 5, 6, 7, 0, 1, 2], 3), False)",
+      "('search', ([2, 5, 6, 0, 0, 1, 2], 0), True)",
+      "('search', ([2, 5, 6, 0, 0, 1, 2], 3), False)",
+      "('search', ([1, 1, 1, 1, 1], 1), True)",
+      "('search', ([1, 1, 1, 1, 1], 2), False)",
+      "('search', ([], 1), False)",
+      "('search', ([1], 1), True)",
+      "('search', ([1], 0), False)",
+      "('search', ([1, 2, 3, 4, 5], 3), True)",
+      "('search', ([5, 1, 2, 3, 4], 5), True)",
+      "('search', ([10, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1, 2, 3, 4, 5, 6, 7, 8], 14), True)",
+      "('search', ([10, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1, 2, 3, 4, 5, 6, 7, 8], 9), False)",
+      "('search', ([1, 1, 1, 1, 1, 2, 1], 2), True)",
+      "('search', ([1, 1, 1, 1, 1, 2, 1], 3), False)",
+      "('search', ([2, 2, 2, 3, 4, 2], 2), True)",
+      "('search', ([2, 2, 2, 3, 4, 2], 3), True)",
+      "('search', ([2, 2, 2, 3, 4, 2], 5), False)",
+      "('search', ([4, 5, 6, 7, 0, 1, 2], 4), True)",
+      "('search', ([4, 5, 6, 7, 0, 1, 2], 2), True)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: search([4, 5, 6, 7, 0, 1, 2], 0)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: search([4, 5, 6, 7, 0, 1, 2], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: search([2, 5, 6, 0, 0, 1, 2], 0)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: search([2, 5, 6, 0, 0, 1, 2], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: search([1, 1, 1, 1, 1], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: search([1, 1, 1, 1, 1], 2)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: search([], 1)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: search([1], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: search([1], 0)\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: search([1, 2, 3, 4, 5], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: search([5, 1, 2, 3, 4], 5)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: search([10, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1, 2, 3, 4, 5, 6, 7, 8], 14)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: search([10, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1, 2, 3, 4, 5, 6, 7, 8], 9)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: search([1, 1, 1, 1, 1, 2, 1], 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: search([1, 1, 1, 1, 1, 2, 1], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#16] ✅ 通過\n  標準輸入: search([2, 2, 2, 3, 4, 2], 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: search([2, 2, 2, 3, 4, 2], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: search([2, 2, 2, 3, 4, 2], 5)\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: search([4, 5, 6, 7, 0, 1, 2], 4)\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: search([4, 5, 6, 7, 0, 1, 2], 2)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (20/20) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 20,
+    "passed_count": 20,
+    "accuracy_rate": 1.0
+  }
+}

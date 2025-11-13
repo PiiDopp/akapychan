@@ -53,20 +53,16 @@
         "output": "bbbaaa\n"
       },
       {
-        "input": "a!a@b#b\n",
-        "output": "aabb!@#\n"
+        "input": "a!a?b b\n",
+        "output": "aabb!? \n"
       },
       {
-        "input": "你好你好世界\n",
+        "input": "你好世界你好\n",
         "output": "你你好好世界\n"
       },
       {
-        "input": "abababababaaa\n",
-        "output": "aaaaaaaaabbbbb\n"
-      },
-      {
-        "input": "112233\n",
-        "output": "112233\n"
+        "input": "baaa\n",
+        "output": "aaab\n"
       }
     ],
     "parsed_tests": [
@@ -76,15 +72,14 @@
       "('frequencySort', ('aaaa\\n',), 'aaaa\\n')",
       "('frequencySort', ('abcd\\n',), 'abcd\\n')",
       "('frequencySort', ('bbbaaa\\n',), 'bbbaaa\\n')",
-      "('frequencySort', ('a!a@b#b\\n',), 'aabb!@#\\n')",
-      "('frequencySort', ('你好你好世界\\n',), '你你好好世界\\n')",
-      "('frequencySort', ('abababababaaa\\n',), 'aaaaaaaaabbbbb\\n')",
-      "('frequencySort', (112233,), 112233)"
+      "('frequencySort', ('a!a?b b\\n',), 'aabb!? \\n')",
+      "('frequencySort', ('你好世界你好\\n',), '你你好好世界\\n')",
+      "('frequencySort', ('baaa\\n',), 'aaab\\n')"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: frequencySort('tree\\n',)\n  標準輸出: 'eetr\\n'\n  你的輸出: 'eetr\\n'\n\n[測試#2] ❌ 失敗\n  標準輸入: frequencySort((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#3] ✅ 通過\n  標準輸入: frequencySort('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: 'a\\n'\n\n[測試#4] ✅ 通過\n  標準輸入: frequencySort('aaaa\\n',)\n  標準輸出: 'aaaa\\n'\n  你的輸出: 'aaaa\\n'\n\n[測試#5] ✅ 通過\n  標準輸入: frequencySort('abcd\\n',)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: frequencySort('bbbaaa\\n',)\n  標準輸出: 'bbbaaa\\n'\n  你的輸出: 'bbbaaa\\n'\n\n[測試#7] ✅ 通過\n  標準輸入: frequencySort('a!a@b#b\\n',)\n  標準輸出: 'aabb!@#\\n'\n  你的輸出: 'aabb!@#\\n'\n\n[測試#8] ✅ 通過\n  標準輸入: frequencySort('你好你好世界\\n',)\n  標準輸出: '你你好好世界\\n'\n  你的輸出: '你你好好世界\\n'\n\n[測試#9] ❌ 失敗\n  標準輸入: frequencySort('abababababaaa\\n',)\n  標準輸出: 'aaaaaaaaabbbbb\\n'\n  你的輸出: 'aaaaaaaabbbbb\\n'\n\n[測試#10] ❌ 執行例外: 'int' object is not iterable\n=== 測試完成 (7/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: frequencySort('tree\\n',)\n  標準輸出: 'eetr\\n'\n  你的輸出: 'eetr\\n'\n\n[測試#2] ❌ 失敗\n  標準輸入: frequencySort((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#3] ✅ 通過\n  標準輸入: frequencySort('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: 'a\\n'\n\n[測試#4] ✅ 通過\n  標準輸入: frequencySort('aaaa\\n',)\n  標準輸出: 'aaaa\\n'\n  你的輸出: 'aaaa\\n'\n\n[測試#5] ✅ 通過\n  標準輸入: frequencySort('abcd\\n',)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: frequencySort('bbbaaa\\n',)\n  標準輸出: 'bbbaaa\\n'\n  你的輸出: 'bbbaaa\\n'\n\n[測試#7] ✅ 通過\n  標準輸入: frequencySort('a!a?b b\\n',)\n  標準輸出: 'aabb!? \\n'\n  你的輸出: 'aabb!? \\n'\n\n[測試#8] ✅ 通過\n  標準輸入: frequencySort('你好世界你好\\n',)\n  標準輸出: '你你好好世界\\n'\n  你的輸出: '你你好好世界\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: frequencySort('baaa\\n',)\n  標準輸出: 'aaab\\n'\n  你的輸出: 'aaab\\n'\n\n=== 測試完成 (8/9) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 9,
+    "passed_count": 8,
+    "accuracy_rate": 0.8888888888888888
   }
 }

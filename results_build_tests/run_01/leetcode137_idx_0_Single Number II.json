@@ -1,0 +1,93 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode137.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Single Number II",
+    "description": "Given an integer array nums where every element appears three times except for one, which appears exactly once. Find the single element and return it.\n\nYou must implement a solution with a linear runtime complexity and use only constant extra space.",
+    "examples": [
+      {
+        "input": "nums = [2,2,3,2]",
+        "output": "3"
+      },
+      {
+        "input": "nums = [0,1,0,1,0,1,99]",
+        "output": "99"
+      }
+    ],
+    "solution": "class Solution:\n    def singleNumber(self, nums):\n        ones, twos = 0, 0\n        for num in nums:\n            ones = (ones ^ num) & ~twos\n            twos = (twos ^ num) & ~ones\n        return ones"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2\n2\n3\n2\n",
+        "output": "3\n"
+      },
+      {
+        "input": "5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "-2\n-2\n-3\n-2\n",
+        "output": "-3\n"
+      },
+      {
+        "input": "0\n1\n1\n1\n2\n2\n2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000000\n1000000000\n1000000000\n123456789\n",
+        "output": "123456789\n"
+      },
+      {
+        "input": "7\n1\n1\n1\n2\n2\n2\n",
+        "output": "7\n"
+      },
+      {
+        "input": "1\n1\n1\n2\n2\n2\n9\n",
+        "output": "9\n"
+      },
+      {
+        "input": "1\n1\n1\n3\n2\n2\n2\n",
+        "output": "3\n"
+      },
+      {
+        "input": "4\n4\n4\n5\n4\n4\n4\n",
+        "output": "5\n"
+      },
+      {
+        "input": "-1\n-1\n-1\n2\n2\n2\n-3\n",
+        "output": "-3\n"
+      },
+      {
+        "input": "-2147483648\n-2147483648\n-2147483648\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n0\n0\n5\n",
+        "output": "5\n"
+      }
+    ],
+    "parsed_tests": [
+      "('singleNumber', ((2, 2, 3, 2),), 3)",
+      "('singleNumber', (5,), 5)",
+      "('singleNumber', ((-2, -2, -3, -2),), -3)",
+      "('singleNumber', ((0, 1, 1, 1, 2, 2, 2),), 0)",
+      "('singleNumber', ((1000000000, 1000000000, 1000000000, 123456789),), 123456789)",
+      "('singleNumber', ((7, 1, 1, 1, 2, 2, 2),), 7)",
+      "('singleNumber', ((1, 1, 1, 2, 2, 2, 9),), 9)",
+      "('singleNumber', ((1, 1, 1, 3, 2, 2, 2),), 3)",
+      "('singleNumber', ((4, 4, 4, 5, 4, 4, 4),), 5)",
+      "('singleNumber', ((-1, -1, -1, 2, 2, 2, -3),), -3)",
+      "('singleNumber', ((-2147483648, -2147483648, -2147483648, 0),), 0)",
+      "('singleNumber', ((0, 0, 0, 5),), 5)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: singleNumber((2, 2, 3, 2),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ❌ 執行例外: 'int' object is not iterable\n[測試#3] ✅ 通過\n  標準輸入: singleNumber((-2, -2, -3, -2),)\n  標準輸出: -3\n  你的輸出: -3\n\n[測試#4] ✅ 通過\n  標準輸入: singleNumber((0, 1, 1, 1, 2, 2, 2),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: singleNumber((1000000000, 1000000000, 1000000000, 123456789),)\n  標準輸出: 123456789\n  你的輸出: 123456789\n\n[測試#6] ✅ 通過\n  標準輸入: singleNumber((7, 1, 1, 1, 2, 2, 2),)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#7] ✅ 通過\n  標準輸入: singleNumber((1, 1, 1, 2, 2, 2, 9),)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#8] ✅ 通過\n  標準輸入: singleNumber((1, 1, 1, 3, 2, 2, 2),)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#9] ✅ 通過\n  標準輸入: singleNumber((4, 4, 4, 5, 4, 4, 4),)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#10] ✅ 通過\n  標準輸入: singleNumber((-1, -1, -1, 2, 2, 2, -3),)\n  標準輸出: -3\n  你的輸出: -3\n\n[測試#11] ✅ 通過\n  標準輸入: singleNumber((-2147483648, -2147483648, -2147483648, 0),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#12] ✅ 通過\n  標準輸入: singleNumber((0, 0, 0, 5),)\n  標準輸出: 5\n  你的輸出: 5\n\n=== 測試完成 (11/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 11,
+    "accuracy_rate": 0.9166666666666666
+  }
+}

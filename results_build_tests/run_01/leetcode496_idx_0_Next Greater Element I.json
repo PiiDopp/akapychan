@@ -20,13 +20,100 @@
     "solution": "class Solution:\n    def nextGreaterElement(self, nums1, nums2):\n        stack = []\n        next_greater = {}\n        \n        for num in nums2:\n            while stack and num > stack[-1]:\n                next_greater[stack.pop()] = num\n            stack.append(num)\n        \n        return [next_greater.get(x, -1) for x in nums1]"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3\n1 2 3 4 5\n",
+        "output": "[2, 3, 4]\n"
+      },
+      {
+        "input": "5 4 3\n5 4 3 2 1\n",
+        "output": "[-1, -1, -1]\n"
+      },
+      {
+        "input": "4 1 2\n4 1 2 3 5\n",
+        "output": "[5, 2, 3]\n"
+      },
+      {
+        "input": "10\n10\n",
+        "output": "[-1]\n"
+      },
+      {
+        "input": "10\n5 10 15\n",
+        "output": "[15]\n"
+      },
+      {
+        "input": "\n1 2 3\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1\n",
+        "output": "[-1]\n"
+      },
+      {
+        "input": "-3 -1\n-5 -3 -2 -1 0\n",
+        "output": "[-2, 0]\n"
+      },
+      {
+        "input": "0 1\n-1 0 1 2\n",
+        "output": "[1, 2]\n"
+      },
+      {
+        "input": "1000000 999999\n999999 1000000 1000001\n",
+        "output": "[1000001, 1000000]\n"
+      },
+      {
+        "input": "4 1 2 3 5\n4 1 2 3 5\n",
+        "output": "[-1, -1, -1, -1, -1]\n"
+      },
+      {
+        "input": "5\n4 1 2 3 5\n",
+        "output": "[-1]\n"
+      },
+      {
+        "input": "4\n4 1 2 3 5\n",
+        "output": "[5]\n"
+      },
+      {
+        "input": "1\n4 1 2 3 5\n",
+        "output": "[2]\n"
+      },
+      {
+        "input": "2\n4 1 2 3 5\n",
+        "output": "[3]\n"
+      },
+      {
+        "input": "7 3\n10 7 5 3 8 6\n",
+        "output": "[8, 8]\n"
+      },
+      {
+        "input": "10\n5 10 9\n",
+        "output": "[-1]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('nextGreaterElement', ('1 2 3\\n1 2 3 4 5\\n',), [2, 3, 4])",
+      "('nextGreaterElement', ('5 4 3\\n5 4 3 2 1\\n',), [-1, -1, -1])",
+      "('nextGreaterElement', ('4 1 2\\n4 1 2 3 5\\n',), [5, 2, 3])",
+      "('nextGreaterElement', (10, 10), [-1])",
+      "('nextGreaterElement', ('10\\n5 10 15\\n',), [15])",
+      "('nextGreaterElement', ('\\n1 2 3\\n',), [])",
+      "('nextGreaterElement', ('1\\n',), [-1])",
+      "('nextGreaterElement', ('-3 -1\\n-5 -3 -2 -1 0\\n',), [-2, 0])",
+      "('nextGreaterElement', ('0 1\\n-1 0 1 2\\n',), [1, 2])",
+      "('nextGreaterElement', ('1000000 999999\\n999999 1000000 1000001\\n',), [1000001, 1000000])",
+      "('nextGreaterElement', ('4 1 2 3 5\\n4 1 2 3 5\\n',), [-1, -1, -1, -1, -1])",
+      "('nextGreaterElement', ('5\\n4 1 2 3 5\\n',), [-1])",
+      "('nextGreaterElement', ('4\\n4 1 2 3 5\\n',), [5])",
+      "('nextGreaterElement', ('1\\n4 1 2 3 5\\n',), [2])",
+      "('nextGreaterElement', ('2\\n4 1 2 3 5\\n',), [3])",
+      "('nextGreaterElement', ('7 3\\n10 7 5 3 8 6\\n',), [8, 8])",
+      "('nextGreaterElement', ('10\\n5 10 9\\n',), [-1])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#2] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#3] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#4] ❌ 執行例外: 'int' object is not iterable\n[測試#5] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#6] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#7] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#8] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#9] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#10] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#11] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#12] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#13] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#14] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#15] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#16] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#17] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n=== 測試完成 (0/17) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 0,
+    "total_tests": 17,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

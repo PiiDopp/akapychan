@@ -16,8 +16,131 @@
   },
   "experiment_result": {
     "success": false,
-    "error": "非 LeetCode 格式程式碼",
-    "generated_tests": [],
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "operations": [
+          {
+            "op": "insert",
+            "val": 1
+          },
+          {
+            "op": "insert",
+            "val": 1
+          },
+          {
+            "op": "remove",
+            "val": 1
+          },
+          {
+            "op": "getRandom"
+          }
+        ],
+        "expected": [
+          true,
+          false,
+          true,
+          1
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "insert",
+            "val": 2
+          },
+          {
+            "op": "insert",
+            "val": 3
+          },
+          {
+            "op": "insert",
+            "val": 4
+          },
+          {
+            "op": "remove",
+            "val": 3
+          },
+          {
+            "op": "remove",
+            "val": 4
+          },
+          {
+            "op": "getRandom"
+          }
+        ],
+        "expected": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          2
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "insert",
+            "val": 5
+          },
+          {
+            "op": "remove",
+            "val": 5
+          },
+          {
+            "op": "remove",
+            "val": 5
+          }
+        ],
+        "expected": [
+          true,
+          true,
+          false
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "insert",
+            "val": 10
+          },
+          {
+            "op": "insert",
+            "val": 10
+          },
+          {
+            "op": "insert",
+            "val": 10
+          },
+          {
+            "op": "remove",
+            "val": 10
+          },
+          {
+            "op": "remove",
+            "val": 10
+          },
+          {
+            "op": "remove",
+            "val": 10
+          },
+          {
+            "op": "remove",
+            "val": 10
+          }
+        ],
+        "expected": [
+          true,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false
+        ]
+      }
+    ],
     "parsed_tests": [],
     "runlog": "",
     "all_passed": false,

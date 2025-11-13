@@ -16,7 +16,7 @@
   },
   "experiment_result": {
     "success": false,
-    "error": "AI 未生成任何有效測資",
+    "error": "非 LeetCode 格式程式碼",
     "generated_tests": [],
     "parsed_tests": [],
     "runlog": "",

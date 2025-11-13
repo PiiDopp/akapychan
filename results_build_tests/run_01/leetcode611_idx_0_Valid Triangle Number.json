@@ -19,13 +19,140 @@
     "solution": "class Solution:\n    def triangleNumber(self, nums):\n        nums.sort()\n        count = 0\n        n = len(nums)\n        for k in range(n-1, 1, -1):\n            i, j = 0, k-1\n            while i < j:\n                if nums[i] + nums[j] > nums[k]:\n                    count += j - i\n                    j -= 1\n                else:\n                    i += 1\n        return count"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "3\n4\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5\n5\n5\n5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1\n1\n1\n1\n1\n",
+        "output": "10\n"
+      },
+      {
+        "input": "2\n2\n3\n4\n5\n",
+        "output": "6\n"
+      },
+      {
+        "input": "1\n1\n2\n2\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1\n2\n2\n3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1\n1\n1\n2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n1\n1\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1\n-2\n-3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1\n2\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n1\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n2\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n1\n1\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1000000000\n1000000000\n1000000000\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1000000000\n1000000000\n1000000000\n1000000000\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+        "output": "50\n"
+      },
+      {
+        "input": "1000000000\n1\n2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000000\n1\n1000000000\n",
+        "output": "1\n"
+      },
+      {
+        "input": "0\n1000000000\n1000000000\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n0\n0\n0\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('triangleNumber', ((),), 0)",
+      "('triangleNumber', (1,), 0)",
+      "('triangleNumber', ((1, 2),), 0)",
+      "('triangleNumber', ((1, 2, 3),), 0)",
+      "('triangleNumber', ((3, 4, 5),), 1)",
+      "('triangleNumber', ((5, 5, 5, 5),), 4)",
+      "('triangleNumber', ((1, 1, 1, 1, 1),), 10)",
+      "('triangleNumber', ((2, 2, 3, 4, 5),), 6)",
+      "('triangleNumber', ((1, 1, 2, 2, 3),), 3)",
+      "('triangleNumber', ((1, 2, 2, 3),), 2)",
+      "('triangleNumber', ((1, 2, 3, 4),), 1)",
+      "('triangleNumber', ((1, 1, 1, 2),), 0)",
+      "('triangleNumber', ((1, 1, 1, 3),), 0)",
+      "('triangleNumber', ((-1, -2, -3),), 0)",
+      "('triangleNumber', ((-1, 2, 3),), 0)",
+      "('triangleNumber', ((0, 1, 1),), 0)",
+      "('triangleNumber', ((0, 2, 3),), 0)",
+      "('triangleNumber', ((0, 1, 1, 1),), 1)",
+      "('triangleNumber', ((1000000000, 1000000000, 1000000000),), 1)",
+      "('triangleNumber', ((1000000000, 1000000000, 1000000000, 1000000000),), 4)",
+      "('triangleNumber', ((1, 2, 3, 4, 5, 6, 7, 8, 9, 10),), 50)",
+      "('triangleNumber', ((1000000000, 1, 2),), 0)",
+      "('triangleNumber', ((1000000000, 1, 1000000000),), 1)",
+      "('triangleNumber', ((0, 1000000000, 1000000000),), 0)",
+      "('triangleNumber', ((0, 0, 0, 0),), 0)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#11] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#12] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#13] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#14] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#15] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#16] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#17] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#18] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#19] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#20] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#21] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#22] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#23] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#24] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#25] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n=== 測試完成 (0/25) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 0,
+    "total_tests": 25,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

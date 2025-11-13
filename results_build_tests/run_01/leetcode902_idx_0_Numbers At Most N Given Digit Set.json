@@ -24,85 +24,13 @@
     "solution": "class Solution(object):\n    def atMostNGivenDigitSet(self, digits, n):\n        s = str(n)\n        k = len(s)\n        d = len(digits)\n        ans = sum(d**i for i in range(1, k))\n        for i in range(k):\n            smaller = sum(int(d) < int(s[i]) for d in digits)\n            ans += smaller * (d ** (k - i - 1))\n            if s[i] not in digits:\n                return ans\n        return ans + 1"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "['1', 0]\n",
-        "output": "0\n"
-      },
-      {
-        "input": "['1', 1]\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['1', 9]\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['1', '2']\n",
-        "output": "4\n"
-      },
-      {
-        "input": "['1', '2']\n",
-        "output": "4\n"
-      },
-      {
-        "input": "['1', '2', '3']\n",
-        "output": "12\n"
-      },
-      {
-        "input": "['1', '2', '3']\n",
-        "output": "34\n"
-      },
-      {
-        "input": "['1', '3', '5']\n",
-        "output": "39\n"
-      },
-      {
-        "input": "['1', '3', '5']\n",
-        "output": "39\n"
-      },
-      {
-        "input": "['1', '4', '7']\n",
-        "output": "9\n"
-      },
-      {
-        "input": "['1', '2', '3', '4', '5', '6', '7', '8', '9']\n",
-        "output": "435848049\n"
-      },
-      {
-        "input": "['1', '2', '3']\n",
-        "output": "4\n"
-      },
-      {
-        "input": "['1', '2', '3']\n",
-        "output": "7\n"
-      },
-      {
-        "input": "['1', '2', '3']\n",
-        "output": "52\n"
-      }
-    ],
-    "parsed_tests": [
-      "('atMostNGivenDigitSet', ('1', 0), 0)",
-      "('atMostNGivenDigitSet', ('1', 1), 1)",
-      "('atMostNGivenDigitSet', ('1', 9), 1)",
-      "('atMostNGivenDigitSet', ('1', '2'), 4)",
-      "('atMostNGivenDigitSet', ('1', '2'), 4)",
-      "('atMostNGivenDigitSet', (\"['1', '2', '3']\\n\",), 12)",
-      "('atMostNGivenDigitSet', (\"['1', '2', '3']\\n\",), 34)",
-      "('atMostNGivenDigitSet', (\"['1', '3', '5']\\n\",), 39)",
-      "('atMostNGivenDigitSet', (\"['1', '3', '5']\\n\",), 39)",
-      "('atMostNGivenDigitSet', (\"['1', '4', '7']\\n\",), 9)",
-      "('atMostNGivenDigitSet', (\"['1', '2', '3', '4', '5', '6', '7', '8', '9']\\n\",), 435848049)",
-      "('atMostNGivenDigitSet', (\"['1', '2', '3']\\n\",), 4)",
-      "('atMostNGivenDigitSet', (\"['1', '2', '3']\\n\",), 7)",
-      "('atMostNGivenDigitSet', (\"['1', '2', '3']\\n\",), 52)"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: atMostNGivenDigitSet('1', 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: atMostNGivenDigitSet('1', 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: atMostNGivenDigitSet('1', 9)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ❌ 失敗\n  標準輸入: atMostNGivenDigitSet('1', '2')\n  標準輸出: 4\n  你的輸出: 1\n\n[測試#5] ❌ 失敗\n  標準輸入: atMostNGivenDigitSet('1', '2')\n  標準輸出: 4\n  你的輸出: 1\n\n[測試#6] ❌ 執行例外: Solution.atMostNGivenDigitSet() missing 1 required positional argument: 'n'\n[測試#7] ❌ 執行例外: Solution.atMostNGivenDigitSet() missing 1 required positional argument: 'n'\n[測試#8] ❌ 執行例外: Solution.atMostNGivenDigitSet() missing 1 required positional argument: 'n'\n[測試#9] ❌ 執行例外: Solution.atMostNGivenDigitSet() missing 1 required positional argument: 'n'\n[測試#10] ❌ 執行例外: Solution.atMostNGivenDigitSet() missing 1 required positional argument: 'n'\n[測試#11] ❌ 執行例外: Solution.atMostNGivenDigitSet() missing 1 required positional argument: 'n'\n[測試#12] ❌ 執行例外: Solution.atMostNGivenDigitSet() missing 1 required positional argument: 'n'\n[測試#13] ❌ 執行例外: Solution.atMostNGivenDigitSet() missing 1 required positional argument: 'n'\n[測試#14] ❌ 執行例外: Solution.atMostNGivenDigitSet() missing 1 required positional argument: 'n'\n=== 測試完成 (3/14) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
     "all_passed": false,
-    "total_tests": 14,
+    "total_tests": 0,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

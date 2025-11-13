@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode793.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Preimage Size of Factorial Zeroes Function",
+    "description": "Let f(x) be the number of zeroes at the end of x!. Recall that x! = 1 * 2 * 3 * ... * x and by convention, 0! = 1.\n\nFor example, f(3) = 0 because 3! = 6 has no zeroes at the end, while f(11) = 2 because 11! = 39916800 has two zeroes at the end.\nGiven an integer k, return the number of non-negative integers x have the property that f(x) = k.",
+    "examples": [
+      {
+        "input": "k = 0",
+        "output": "5",
+        "explanation": "0!, 1!, 2!, 3!, and 4! end with k = 0 zeroes."
+      },
+      {
+        "input": "k = 5",
+        "output": "0",
+        "explanation": "There is no x such that x! ends in k = 5 zeroes."
+      },
+      {
+        "input": "k = 3",
+        "output": "5"
+      }
+    ],
+    "solution": "class Solution:\n    def preimageSizeFZF(self, K):\n        def trailingZeroes(n):\n            count = 0\n            while n:\n                n //= 5\n                count += n\n            return count\n\n        left, right = 0, 5 * K\n        while left <= right:\n            mid = (left + right) // 2\n            z = trailingZeroes(mid)\n            if z < K:\n                left = mid + 1\n            else:\n                right = mid - 1\n\n        return 5 if trailingZeroes(left) == K else 0"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1\n",
+        "output": "5\n"
+      },
+      {
+        "input": "5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "6\n",
+        "output": "5\n"
+      },
+      {
+        "input": "11\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1000001\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('preimageSizeFZF', (0,), 5)",
+      "('preimageSizeFZF', (1,), 5)",
+      "('preimageSizeFZF', (5,), 0)",
+      "('preimageSizeFZF', (6,), 5)",
+      "('preimageSizeFZF', (11,), 0)",
+      "('preimageSizeFZF', (-1,), 0)",
+      "('preimageSizeFZF', (1000000,), 5)",
+      "('preimageSizeFZF', (1000001,), 0)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: preimageSizeFZF(0,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#2] ✅ 通過\n  標準輸入: preimageSizeFZF(1,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#3] ✅ 通過\n  標準輸入: preimageSizeFZF(5,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: preimageSizeFZF(6,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#5] ✅ 通過\n  標準輸入: preimageSizeFZF(11,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: preimageSizeFZF(-1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: preimageSizeFZF(1000000,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#8] ❌ 失敗\n  標準輸入: preimageSizeFZF(1000001,)\n  標準輸出: 0\n  你的輸出: 5\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 7,
+    "accuracy_rate": 0.875
+  }
+}

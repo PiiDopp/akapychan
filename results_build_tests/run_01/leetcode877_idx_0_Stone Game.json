@@ -27,30 +27,30 @@
         "output": "True\n"
       },
       {
-        "input": "2\n3\n4\n5\n",
+        "input": "3\n5\n2\n4\n",
         "output": "True\n"
       },
       {
-        "input": "1000000000\n999999999\n",
+        "input": "1\n1\n1\n1\n1\n1\n",
         "output": "True\n"
       },
       {
-        "input": "1\n1\n1\n1\n1\n2\n",
+        "input": "10\n20\n30\n40\n50\n60\n70\n80\n90\n100\n",
         "output": "True\n"
       },
       {
-        "input": "1\n2\n1\n2\n1\n2\n1\n2\n1\n2\n",
+        "input": "7\n7\n7\n7\n7\n7\n7\n7\n",
         "output": "True\n"
       }
     ],
     "parsed_tests": [
       "('stoneGame', ((1, 2),), True)",
-      "('stoneGame', ((2, 3, 4, 5),), True)",
-      "('stoneGame', ((1000000000, 999999999),), True)",
-      "('stoneGame', ((1, 1, 1, 1, 1, 2),), True)",
-      "('stoneGame', ((1, 2, 1, 2, 1, 2, 1, 2, 1, 2),), True)"
+      "('stoneGame', ((3, 5, 2, 4),), True)",
+      "('stoneGame', ((1, 1, 1, 1, 1, 1),), True)",
+      "('stoneGame', ((10, 20, 30, 40, 50, 60, 70, 80, 90, 100),), True)",
+      "('stoneGame', ((7, 7, 7, 7, 7, 7, 7, 7),), True)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: stoneGame((1, 2),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: stoneGame((2, 3, 4, 5),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: stoneGame((1000000000, 999999999),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: stoneGame((1, 1, 1, 1, 1, 2),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: stoneGame((1, 2, 1, 2, 1, 2, 1, 2, 1, 2),)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (5/5) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: stoneGame((1, 2),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: stoneGame((3, 5, 2, 4),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: stoneGame((1, 1, 1, 1, 1, 1),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: stoneGame((10, 20, 30, 40, 50, 60, 70, 80, 90, 100),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: stoneGame((7, 7, 7, 7, 7, 7, 7, 7),)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (5/5) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
     "all_passed": true,
     "total_tests": 5,
     "passed_count": 5,

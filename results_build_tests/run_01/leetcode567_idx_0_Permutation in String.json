@@ -19,14 +19,181 @@
     "solution": "class Solution:\n    def checkInclusion(self, s1, s2):\n        from collections import Counter\n\n        len1, len2 = len(s1), len(s2)\n        if len1 > len2:\n            return False\n\n        s1_count = Counter(s1)\n        window_count = Counter(s2[:len1])\n\n        if s1_count == window_count:\n            return True\n\n        for i in range(len1, len2):\n            start_char = s2[i - len1]\n            end_char = s2[i]\n            window_count[end_char] += 1\n            window_count[start_char] -= 1\n            if window_count[start_char] == 0:\n                del window_count[start_char]\n            if window_count == s1_count:\n                return True\n\n        return False"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
-    "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['ab', 'eidbaooo']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', 'eidboaoo']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abc', 'cbaebabacd']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'cbaa']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'acb']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'ac']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aa', 'aab']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aa', 'aba']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', 'b']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['ab', 'ab']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', 'ba']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', 'a']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['ab', '']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['', 'abc']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', '']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abc', 'def']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abc', 'abcabc']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'abccba']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'abccbaa']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcd', 'abc']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abcd', 'abcd']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab c', 'cba ']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a,b', 'b,a']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['😀😃', '😃😀']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['😀😀', '😀😃😀']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['😀😀', '😀😀😃']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['你好', '世界你好']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['你好', '好你世界']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['你好', '世界好你']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aab', 'ababa']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aab', 'abbaa']\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('checkInclusion', ('ab', 'eidbaooo'), True)",
+      "('checkInclusion', ('ab', 'eidboaoo'), False)",
+      "('checkInclusion', ('abc', 'cbaebabacd'), True)",
+      "('checkInclusion', ('abc', 'cbaa'), True)",
+      "('checkInclusion', ('abc', 'acb'), True)",
+      "('checkInclusion', ('abc', 'ac'), False)",
+      "('checkInclusion', ('aa', 'aab'), True)",
+      "('checkInclusion', ('aa', 'aba'), False)",
+      "('checkInclusion', ('a', 'a'), True)",
+      "('checkInclusion', ('a', 'b'), False)",
+      "('checkInclusion', ('ab', 'ab'), True)",
+      "('checkInclusion', ('ab', 'ba'), True)",
+      "('checkInclusion', ('ab', 'a'), False)",
+      "('checkInclusion', ('ab', ''), False)",
+      "('checkInclusion', ('', ''), True)",
+      "('checkInclusion', ('', 'abc'), True)",
+      "('checkInclusion', ('a', ''), False)",
+      "('checkInclusion', ('abc', 'def'), False)",
+      "('checkInclusion', ('abc', 'abcabc'), True)",
+      "('checkInclusion', ('abc', 'abccba'), True)",
+      "('checkInclusion', ('abc', 'abccbaa'), True)",
+      "('checkInclusion', ('abcd', 'abc'), False)",
+      "('checkInclusion', ('abcd', 'abcd'), True)",
+      "('checkInclusion', ('ab c', 'cba '), True)",
+      "('checkInclusion', ('a,b', 'b,a'), True)",
+      "('checkInclusion', ('😀😃', '😃😀'), True)",
+      "('checkInclusion', ('😀😀', '😀😃😀'), False)",
+      "('checkInclusion', ('😀😀', '😀😀😃'), True)",
+      "('checkInclusion', ('你好', '世界你好'), True)",
+      "('checkInclusion', ('你好', '好你世界'), True)",
+      "('checkInclusion', ('你好', '世界好你'), True)",
+      "('checkInclusion', ('aab', 'ababa'), True)",
+      "('checkInclusion', ('aab', 'abbaa'), True)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: checkInclusion('ab', 'eidbaooo')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: checkInclusion('ab', 'eidboaoo')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: checkInclusion('abc', 'cbaebabacd')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: checkInclusion('abc', 'cbaa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: checkInclusion('abc', 'acb')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: checkInclusion('abc', 'ac')\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: checkInclusion('aa', 'aab')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: checkInclusion('aa', 'aba')\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: checkInclusion('a', 'a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: checkInclusion('a', 'b')\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: checkInclusion('ab', 'ab')\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: checkInclusion('ab', 'ba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: checkInclusion('ab', 'a')\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: checkInclusion('ab', '')\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: checkInclusion('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: checkInclusion('', 'abc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: checkInclusion('a', '')\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: checkInclusion('abc', 'def')\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: checkInclusion('abc', 'abcabc')\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: checkInclusion('abc', 'abccba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#21] ✅ 通過\n  標準輸入: checkInclusion('abc', 'abccbaa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#22] ✅ 通過\n  標準輸入: checkInclusion('abcd', 'abc')\n  標準輸出: False\n  你的輸出: False\n\n[測試#23] ✅ 通過\n  標準輸入: checkInclusion('abcd', 'abcd')\n  標準輸出: True\n  你的輸出: True\n\n[測試#24] ✅ 通過\n  標準輸入: checkInclusion('ab c', 'cba ')\n  標準輸出: True\n  你的輸出: True\n\n[測試#25] ✅ 通過\n  標準輸入: checkInclusion('a,b', 'b,a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#26] ✅ 通過\n  標準輸入: checkInclusion('😀😃', '😃😀')\n  標準輸出: True\n  你的輸出: True\n\n[測試#27] ✅ 通過\n  標準輸入: checkInclusion('😀😀', '😀😃😀')\n  標準輸出: False\n  你的輸出: False\n\n[測試#28] ✅ 通過\n  標準輸入: checkInclusion('😀😀', '😀😀😃')\n  標準輸出: True\n  你的輸出: True\n\n[測試#29] ✅ 通過\n  標準輸入: checkInclusion('你好', '世界你好')\n  標準輸出: True\n  你的輸出: True\n\n[測試#30] ✅ 通過\n  標準輸入: checkInclusion('你好', '好你世界')\n  標準輸出: True\n  你的輸出: True\n\n[測試#31] ✅ 通過\n  標準輸入: checkInclusion('你好', '世界好你')\n  標準輸出: True\n  你的輸出: True\n\n[測試#32] ✅ 通過\n  標準輸入: checkInclusion('aab', 'ababa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#33] ✅ 通過\n  標準輸入: checkInclusion('aab', 'abbaa')\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (33/33) ===\n[成功] 所有測資通過 ✅（0.0002s）\n",
+    "all_passed": true,
+    "total_tests": 33,
+    "passed_count": 33,
+    "accuracy_rate": 1.0
   }
 }

@@ -1,0 +1,123 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode796.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Rotate String",
+    "description": "Given two strings s and goal, return true if and only if s can become goal after some number of shifts on s.\n\nA shift on s consists of moving the leftmost character of s to the rightmost position.\n\nFor example, if s = \"abcde\", then it will be \"bcdea\" after one shift.",
+    "examples": [
+      {
+        "input": "s = \"abcde\", goal = \"cdeab\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"abcde\", goal = \"abced\"",
+        "output": "false"
+      }
+    ],
+    "solution": "class Solution:\n    def rotateString(self, s, goal):\n        return len(s) == len(goal) and goal in (s + s)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abcde', 'cdeab']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcde', 'abcde']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcde', 'eabcd']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcde', 'bcdea']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcde', 'abced']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abcde', 'abcd']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['a', 'b']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['aaaa', 'aaaa']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aaaa', 'aaab']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['ababab', 'bababa']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ababab', 'ababab']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ababab', 'ababa']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['abcdefghij', 'hijabcdefg']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abcdefghij', 'jihgfedcba']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['longstringwithmanycharacters', 'withmanycharacterslongstring']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['longstringwithmanycharacters', 'differentstring']\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('rotateString', ('abcde', 'cdeab'), True)",
+      "('rotateString', ('abcde', 'abcde'), True)",
+      "('rotateString', ('abcde', 'eabcd'), True)",
+      "('rotateString', ('abcde', 'bcdea'), True)",
+      "('rotateString', ('abcde', 'abced'), False)",
+      "('rotateString', ('abcde', 'abcd'), False)",
+      "('rotateString', ('', ''), True)",
+      "('rotateString', ('a', 'a'), True)",
+      "('rotateString', ('a', 'b'), False)",
+      "('rotateString', ('aaaa', 'aaaa'), True)",
+      "('rotateString', ('aaaa', 'aaab'), False)",
+      "('rotateString', ('ababab', 'bababa'), True)",
+      "('rotateString', ('ababab', 'ababab'), True)",
+      "('rotateString', ('ababab', 'ababa'), False)",
+      "('rotateString', ('abcdefghij', 'hijabcdefg'), True)",
+      "('rotateString', ('abcdefghij', 'jihgfedcba'), False)",
+      "('rotateString', ('longstringwithmanycharacters', 'withmanycharacterslongstring'), True)",
+      "('rotateString', ('longstringwithmanycharacters', 'differentstring'), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: rotateString('abcde', 'cdeab')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: rotateString('abcde', 'abcde')\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: rotateString('abcde', 'eabcd')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: rotateString('abcde', 'bcdea')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: rotateString('abcde', 'abced')\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: rotateString('abcde', 'abcd')\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: rotateString('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: rotateString('a', 'a')\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: rotateString('a', 'b')\n  標準輸出: False\n  你的輸出: False\n\n[測試#10] ✅ 通過\n  標準輸入: rotateString('aaaa', 'aaaa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: rotateString('aaaa', 'aaab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: rotateString('ababab', 'bababa')\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: rotateString('ababab', 'ababab')\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: rotateString('ababab', 'ababa')\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: rotateString('abcdefghij', 'hijabcdefg')\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: rotateString('abcdefghij', 'jihgfedcba')\n  標準輸出: False\n  你的輸出: False\n\n[測試#17] ✅ 通過\n  標準輸入: rotateString('longstringwithmanycharacters', 'withmanycharacterslongstring')\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: rotateString('longstringwithmanycharacters', 'differentstring')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (18/18) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 18,
+    "passed_count": 18,
+    "accuracy_rate": 1.0
+  }
+}

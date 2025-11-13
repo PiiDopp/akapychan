@@ -32,43 +32,53 @@
         "output": "-1\n"
       },
       {
-        "input": "3 1 1 5\n2 2 2 2\n",
+        "input": "5\n4\n",
         "output": "0\n"
       },
       {
-        "input": "4 5 1 2 3\n5 4 3 2 1\n",
+        "input": "3\n4\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "4 5 2 6 7\n6 5 3 4 5\n",
+        "output": "3\n"
+      },
+      {
+        "input": "5 1 2 3 4\n4 4 1 5 1\n",
         "output": "4\n"
       },
       {
-        "input": "5\n5\n",
-        "output": "0\n"
-      },
-      {
-        "input": "2 2 2\n2 2 2\n",
-        "output": "0\n"
-      },
-      {
-        "input": "10 20 30 40 50\n30 20 10 40 50\n",
-        "output": "2\n"
-      },
-      {
         "input": "0 0 0\n0 0 0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0 1 2\n1 1 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1000000 1000000\n999999 1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5 5 5\n5 5 5\n",
         "output": "0\n"
       }
     ],
     "parsed_tests": [
       "('canCompleteCircuit', ('1 2 3 4 5\\n3 4 5 1 2\\n',), 3)",
       "('canCompleteCircuit', ('2 3 4\\n3 4 3\\n',), -1)",
-      "('canCompleteCircuit', ('3 1 1 5\\n2 2 2 2\\n',), 0)",
-      "('canCompleteCircuit', ('4 5 1 2 3\\n5 4 3 2 1\\n',), 4)",
-      "('canCompleteCircuit', (5, 5), 0)",
-      "('canCompleteCircuit', ('2 2 2\\n2 2 2\\n',), 0)",
-      "('canCompleteCircuit', ('10 20 30 40 50\\n30 20 10 40 50\\n',), 2)",
-      "('canCompleteCircuit', ('0 0 0\\n0 0 0\\n',), 0)"
+      "('canCompleteCircuit', (5, 4), 0)",
+      "('canCompleteCircuit', (3, 4), -1)",
+      "('canCompleteCircuit', ('4 5 2 6 7\\n6 5 3 4 5\\n',), 3)",
+      "('canCompleteCircuit', ('5 1 2 3 4\\n4 4 1 5 1\\n',), 4)",
+      "('canCompleteCircuit', ('0 0 0\\n0 0 0\\n',), 0)",
+      "('canCompleteCircuit', ('0 1 2\\n1 1 1\\n',), 1)",
+      "('canCompleteCircuit', ('1000000 1000000\\n999999 1\\n',), 0)",
+      "('canCompleteCircuit', ('5 5 5\\n5 5 5\\n',), 0)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#2] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#3] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#4] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#5] ❌ 執行例外: 'int' object is not iterable\n[測試#6] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#7] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#8] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#2] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#3] ❌ 執行例外: 'int' object is not iterable\n[測試#4] ❌ 執行例外: 'int' object is not iterable\n[測試#5] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#6] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#7] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#8] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#9] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n[測試#10] ❌ 執行例外: Solution.canCompleteCircuit() missing 1 required positional argument: 'cost'\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 8,
+    "total_tests": 10,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

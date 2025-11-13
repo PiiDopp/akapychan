@@ -45,26 +45,6 @@
         "output": "0\n"
       },
       {
-        "input": "4\n",
-        "output": "3\n"
-      },
-      {
-        "input": "5\n",
-        "output": "2\n"
-      },
-      {
-        "input": "6\n",
-        "output": "1\n"
-      },
-      {
-        "input": "7\n",
-        "output": "0\n"
-      },
-      {
-        "input": "8\n",
-        "output": "7\n"
-      },
-      {
         "input": "9\n",
         "output": "6\n"
       },
@@ -81,16 +61,44 @@
         "output": "15\n"
       },
       {
-        "input": "31\n",
-        "output": "0\n"
+        "input": "17\n",
+        "output": "14\n"
       },
       {
-        "input": "32\n",
-        "output": "31\n"
+        "input": "18\n",
+        "output": "13\n"
       },
       {
-        "input": "123456\n",
-        "output": "7615\n"
+        "input": "20\n",
+        "output": "11\n"
+      },
+      {
+        "input": "21\n",
+        "output": "10\n"
+      },
+      {
+        "input": "22\n",
+        "output": "9\n"
+      },
+      {
+        "input": "23\n",
+        "output": "8\n"
+      },
+      {
+        "input": "24\n",
+        "output": "7\n"
+      },
+      {
+        "input": "25\n",
+        "output": "6\n"
+      },
+      {
+        "input": "12345\n",
+        "output": "4038\n"
+      },
+      {
+        "input": "123456789\n",
+        "output": "10760838\n"
       },
       {
         "input": "2147483647\n",
@@ -106,25 +114,27 @@
       "('bitwiseComplement', (1,), 0)",
       "('bitwiseComplement', (2,), 1)",
       "('bitwiseComplement', (3,), 0)",
-      "('bitwiseComplement', (4,), 3)",
-      "('bitwiseComplement', (5,), 2)",
-      "('bitwiseComplement', (6,), 1)",
-      "('bitwiseComplement', (7,), 0)",
-      "('bitwiseComplement', (8,), 7)",
       "('bitwiseComplement', (9,), 6)",
       "('bitwiseComplement', (10,), 5)",
       "('bitwiseComplement', (15,), 0)",
       "('bitwiseComplement', (16,), 15)",
-      "('bitwiseComplement', (31,), 0)",
-      "('bitwiseComplement', (32,), 31)",
-      "('bitwiseComplement', (123456,), 7615)",
+      "('bitwiseComplement', (17,), 14)",
+      "('bitwiseComplement', (18,), 13)",
+      "('bitwiseComplement', (20,), 11)",
+      "('bitwiseComplement', (21,), 10)",
+      "('bitwiseComplement', (22,), 9)",
+      "('bitwiseComplement', (23,), 8)",
+      "('bitwiseComplement', (24,), 7)",
+      "('bitwiseComplement', (25,), 6)",
+      "('bitwiseComplement', (12345,), 4038)",
+      "('bitwiseComplement', (123456789,), 10760838)",
       "('bitwiseComplement', (2147483647,), 0)",
       "('bitwiseComplement', (2147483648,), 2147483647)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: bitwiseComplement(0,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: bitwiseComplement(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: bitwiseComplement(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: bitwiseComplement(3,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: bitwiseComplement(4,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: bitwiseComplement(5,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: bitwiseComplement(6,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: bitwiseComplement(7,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: bitwiseComplement(8,)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#10] ✅ 通過\n  標準輸入: bitwiseComplement(9,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#11] ✅ 通過\n  標準輸入: bitwiseComplement(10,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#12] ✅ 通過\n  標準輸入: bitwiseComplement(15,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#13] ✅ 通過\n  標準輸入: bitwiseComplement(16,)\n  標準輸出: 15\n  你的輸出: 15\n\n[測試#14] ✅ 通過\n  標準輸入: bitwiseComplement(31,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#15] ✅ 通過\n  標準輸入: bitwiseComplement(32,)\n  標準輸出: 31\n  你的輸出: 31\n\n[測試#16] ✅ 通過\n  標準輸入: bitwiseComplement(123456,)\n  標準輸出: 7615\n  你的輸出: 7615\n\n[測試#17] ✅ 通過\n  標準輸入: bitwiseComplement(2147483647,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#18] ✅ 通過\n  標準輸入: bitwiseComplement(2147483648,)\n  標準輸出: 2147483647\n  你的輸出: 2147483647\n\n=== 測試完成 (18/18) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
-    "all_passed": true,
-    "total_tests": 18,
-    "passed_count": 18,
-    "accuracy_rate": 1.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: bitwiseComplement(0,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: bitwiseComplement(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: bitwiseComplement(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: bitwiseComplement(3,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: bitwiseComplement(9,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#6] ✅ 通過\n  標準輸入: bitwiseComplement(10,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#7] ✅ 通過\n  標準輸入: bitwiseComplement(15,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: bitwiseComplement(16,)\n  標準輸出: 15\n  你的輸出: 15\n\n[測試#9] ✅ 通過\n  標準輸入: bitwiseComplement(17,)\n  標準輸出: 14\n  你的輸出: 14\n\n[測試#10] ✅ 通過\n  標準輸入: bitwiseComplement(18,)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#11] ✅ 通過\n  標準輸入: bitwiseComplement(20,)\n  標準輸出: 11\n  你的輸出: 11\n\n[測試#12] ✅ 通過\n  標準輸入: bitwiseComplement(21,)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#13] ✅ 通過\n  標準輸入: bitwiseComplement(22,)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#14] ✅ 通過\n  標準輸入: bitwiseComplement(23,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#15] ✅ 通過\n  標準輸入: bitwiseComplement(24,)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#16] ✅ 通過\n  標準輸入: bitwiseComplement(25,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#17] ✅ 通過\n  標準輸入: bitwiseComplement(12345,)\n  標準輸出: 4038\n  你的輸出: 4038\n\n[測試#18] ❌ 失敗\n  標準輸入: bitwiseComplement(123456789,)\n  標準輸出: 10760838\n  你的輸出: 10760938\n\n[測試#19] ✅ 通過\n  標準輸入: bitwiseComplement(2147483647,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#20] ✅ 通過\n  標準輸入: bitwiseComplement(2147483648,)\n  標準輸出: 2147483647\n  你的輸出: 2147483647\n\n=== 測試完成 (19/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 20,
+    "passed_count": 19,
+    "accuracy_rate": 0.95
   }
 }

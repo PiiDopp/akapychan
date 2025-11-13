@@ -19,13 +19,75 @@
     "solution": "class Solution:\n    def hIndex(self, citations):\n        citations.sort(reverse=True)\n        h = 0\n        for i, c in enumerate(citations):\n            if c >= i + 1:\n                h = i + 1\n            else:\n                break\n        return h"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "3\n0\n6\n1\n5\n",
+        "output": "3\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "10\n8\n5\n4\n3\n",
+        "output": "4\n"
+      },
+      {
+        "input": "25\n8\n5\n3\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "100\n",
+        "output": "1\n"
+      },
+      {
+        "input": "0\n1\n2\n3\n4\n5\n",
+        "output": "3\n"
+      },
+      {
+        "input": "4\n4\n4\n4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1000\n1000\n1000\n",
+        "output": "3\n"
+      },
+      {
+        "input": "0\n100\n200\n300\n",
+        "output": "3\n"
+      },
+      {
+        "input": "-1\n-2\n3\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('hIndex', ((3, 0, 6, 1, 5),), 3)",
+      "('hIndex', ((),), 0)",
+      "('hIndex', ((0, 0, 0),), 0)",
+      "('hIndex', ((10, 8, 5, 4, 3),), 4)",
+      "('hIndex', ((25, 8, 5, 3, 3),), 3)",
+      "('hIndex', (1,), 1)",
+      "('hIndex', (100,), 1)",
+      "('hIndex', ((0, 1, 2, 3, 4, 5),), 3)",
+      "('hIndex', ((4, 4, 4, 4),), 4)",
+      "('hIndex', ((1000, 1000, 1000),), 3)",
+      "('hIndex', ((0, 100, 200, 300),), 3)",
+      "('hIndex', ((-1, -2, 3),), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#9] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#10] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#11] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#12] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 0,
+    "total_tests": 12,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

@@ -27,19 +27,19 @@
         "output": "True\n"
       },
       {
-        "input": "[1, 2, 3]\n2\n",
+        "input": "[1, 2, 3, 4]\n3\n",
         "output": "False\n"
       },
       {
-        "input": "[1, 2, 3]\n1\n",
+        "input": "[2, 2, 2, 2, 3, 4, 5]\n4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[1]\n1\n",
         "output": "True\n"
       },
       {
-        "input": "[2, 2, 2]\n3\n",
-        "output": "True\n"
-      },
-      {
-        "input": "[1, 2, 3]\n3\n",
+        "input": "[1]\n2\n",
         "output": "False\n"
       },
       {
@@ -47,58 +47,63 @@
         "output": "True\n"
       },
       {
-        "input": "[10, 10, 10, 10, 10, 10]\n3\n",
+        "input": "[2, 2, 2, 2]\n4\n",
         "output": "True\n"
       },
       {
-        "input": "[1, 2, 3]\n5\n",
-        "output": "False\n"
-      },
-      {
-        "input": "[5]\n1\n",
+        "input": "[3, 3, 3, 3, 3, 3]\n3\n",
         "output": "True\n"
-      },
-      {
-        "input": "[5]\n2\n",
-        "output": "False\n"
-      },
-      {
-        "input": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n3\n",
-        "output": "False\n"
-      },
-      {
-        "input": "[1, 2, 5, 5, 5]\n3\n",
-        "output": "False\n"
       },
       {
         "input": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n5\n",
         "output": "True\n"
       },
       {
-        "input": "[2, 2, 2, 2, 2, 2]\n3\n",
+        "input": "[5, 5, 5, 5, 5, 5]\n4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[10, 10, 10, 10, 10, 10]\n6\n",
         "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5, 6]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5, 6]\n4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 3]\n5\n",
+        "output": "False\n"
       }
     ],
     "parsed_tests": [
       "('canPartitionKSubsets', ([5, 4, 3, 3, 2, 2, 1], 4), True)",
-      "('canPartitionKSubsets', ([3, 2, 1], 2), False)",
-      "('canPartitionKSubsets', ([3, 2, 1], 1), True)",
-      "('canPartitionKSubsets', ([2, 2, 2], 3), True)",
-      "('canPartitionKSubsets', ([3, 2, 1], 3), False)",
+      "('canPartitionKSubsets', ([1, 2, 3, 4], 3), False)",
+      "('canPartitionKSubsets', ([5, 4, 3, 2, 2, 2, 2], 4), False)",
+      "('canPartitionKSubsets', ([1], 1), True)",
+      "('canPartitionKSubsets', ([1], 2), False)",
       "('canPartitionKSubsets', ([0, 0, 0, 0], 2), True)",
-      "('canPartitionKSubsets', ([10, 10, 10, 10, 10, 10], 3), True)",
-      "('canPartitionKSubsets', ([1, 2, 3], 5), False)",
-      "('canPartitionKSubsets', ([5], 1), True)",
-      "('canPartitionKSubsets', ([5], 2), False)",
-      "('canPartitionKSubsets', ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 3), False)",
-      "('canPartitionKSubsets', ([5, 5, 5, 2, 1], 3), False)",
+      "('canPartitionKSubsets', ([2, 2, 2, 2], 4), True)",
+      "('canPartitionKSubsets', ([3, 3, 3, 3, 3, 3], 3), True)",
       "('canPartitionKSubsets', ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 5), True)",
-      "('canPartitionKSubsets', ([2, 2, 2, 2, 2, 2], 3), True)"
+      "('canPartitionKSubsets', ([5, 5, 5, 5, 5, 5], 4), False)",
+      "('canPartitionKSubsets', ([10, 10, 10, 10, 10, 10], 6), True)",
+      "('canPartitionKSubsets', ([6, 5, 4, 3, 2, 1], 3), True)",
+      "('canPartitionKSubsets', ([1, 2, 3, 4, 5, 6], 4), False)",
+      "('canPartitionKSubsets', ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 1), True)",
+      "('canPartitionKSubsets', ([1, 2, 3], 5), False)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: canPartitionKSubsets([5, 4, 3, 3, 2, 2, 1], 4)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ❌ 失敗\n  標準輸入: canPartitionKSubsets([3, 2, 1], 2)\n  標準輸出: False\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: canPartitionKSubsets([3, 2, 1], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: canPartitionKSubsets([2, 2, 2], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: canPartitionKSubsets([3, 2, 1], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ❌ 執行例外: integer modulo by zero\n[測試#7] ✅ 通過\n  標準輸入: canPartitionKSubsets([10, 10, 10, 10, 10, 10], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: canPartitionKSubsets([1, 2, 3], 5)\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: canPartitionKSubsets([5], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: canPartitionKSubsets([5], 2)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: canPartitionKSubsets([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: canPartitionKSubsets([5, 5, 5, 2, 1], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: canPartitionKSubsets([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 5)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: canPartitionKSubsets([2, 2, 2, 2, 2, 2], 3)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (12/14) ===\n[警告] 部分測資未通過 ❌（0.0020s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: canPartitionKSubsets([5, 4, 3, 3, 2, 2, 1], 4)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: canPartitionKSubsets([1, 2, 3, 4], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: canPartitionKSubsets([5, 4, 3, 2, 2, 2, 2], 4)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: canPartitionKSubsets([1], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: canPartitionKSubsets([1], 2)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ❌ 執行例外: integer modulo by zero\n[測試#7] ✅ 通過\n  標準輸入: canPartitionKSubsets([2, 2, 2, 2], 4)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: canPartitionKSubsets([3, 3, 3, 3, 3, 3], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: canPartitionKSubsets([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 5)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: canPartitionKSubsets([5, 5, 5, 5, 5, 5], 4)\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: canPartitionKSubsets([10, 10, 10, 10, 10, 10], 6)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: canPartitionKSubsets([6, 5, 4, 3, 2, 1], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: canPartitionKSubsets([1, 2, 3, 4, 5, 6], 4)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: canPartitionKSubsets([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: canPartitionKSubsets([1, 2, 3], 5)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (14/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 14,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 15,
+    "passed_count": 14,
+    "accuracy_rate": 0.9333333333333333
   }
 }

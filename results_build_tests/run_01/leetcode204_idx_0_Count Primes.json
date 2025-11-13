@@ -43,12 +43,12 @@
         "output": "1\n"
       },
       {
-        "input": "10\n",
-        "output": "4\n"
+        "input": "4\n",
+        "output": "2\n"
       },
       {
-        "input": "20\n",
-        "output": "8\n"
+        "input": "10\n",
+        "output": "4\n"
       },
       {
         "input": "100\n",
@@ -57,6 +57,18 @@
       {
         "input": "1000\n",
         "output": "168\n"
+      },
+      {
+        "input": "100000\n",
+        "output": "9592\n"
+      },
+      {
+        "input": "1000000\n",
+        "output": "78498\n"
+      },
+      {
+        "input": "1000001\n",
+        "output": "78498\n"
       }
     ],
     "parsed_tests": [
@@ -64,15 +76,18 @@
       "('countPrimes', (1,), 0)",
       "('countPrimes', (2,), 0)",
       "('countPrimes', (3,), 1)",
+      "('countPrimes', (4,), 2)",
       "('countPrimes', (10,), 4)",
-      "('countPrimes', (20,), 8)",
       "('countPrimes', (100,), 25)",
-      "('countPrimes', (1000,), 168)"
+      "('countPrimes', (1000,), 168)",
+      "('countPrimes', (100000,), 9592)",
+      "('countPrimes', (1000000,), 78498)",
+      "('countPrimes', (1000001,), 78498)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countPrimes(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: countPrimes(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: countPrimes(2,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: countPrimes(3,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: countPrimes(10,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#6] ✅ 通過\n  標準輸入: countPrimes(20,)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#7] ✅ 通過\n  標準輸入: countPrimes(100,)\n  標準輸出: 25\n  你的輸出: 25\n\n[測試#8] ✅ 通過\n  標準輸入: countPrimes(1000,)\n  標準輸出: 168\n  你的輸出: 168\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countPrimes(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: countPrimes(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: countPrimes(2,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: countPrimes(3,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: countPrimes(4,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: countPrimes(10,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: countPrimes(100,)\n  標準輸出: 25\n  你的輸出: 25\n\n[測試#8] ✅ 通過\n  標準輸入: countPrimes(1000,)\n  標準輸出: 168\n  你的輸出: 168\n\n[測試#9] ✅ 通過\n  標準輸入: countPrimes(100000,)\n  標準輸出: 9592\n  你的輸出: 9592\n\n[測試#10] ✅ 通過\n  標準輸入: countPrimes(1000000,)\n  標準輸出: 78498\n  你的輸出: 78498\n\n[測試#11] ✅ 通過\n  標準輸入: countPrimes(1000001,)\n  標準輸出: 78498\n  你的輸出: 78498\n\n=== 測試完成 (11/11) ===\n[成功] 所有測資通過 ✅（0.0753s）\n",
     "all_passed": true,
-    "total_tests": 8,
-    "passed_count": 8,
+    "total_tests": 11,
+    "passed_count": 11,
     "accuracy_rate": 1.0
   }
 }

@@ -1,0 +1,35 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode866.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Prime Palindrome",
+    "description": "Given an integer n, return the smallest prime palindrome greater than or equal to n.\n\nAn integer is prime if it has exactly two divisors: 1 and itself. Note that 1 is not a prime number.\n\nFor example, 2, 3, 5, 7, 11, and 13 are all primes.\nAn integer is a palindrome if it reads the same from left to right as it does from right to left.\n\nFor example, 101 and 12321 are palindromes.\nThe test cases are generated so that the answer always exists and is in the range [2, 2 * 10^8].",
+    "examples": [
+      {
+        "input": "n = 6",
+        "output": "7"
+      },
+      {
+        "input": "n = 8",
+        "output": "11"
+      },
+      {
+        "input": "n = 13",
+        "output": "101"
+      }
+    ],
+    "solution": "import math\n\nclass Solution(object):\n    def primePalindrome(self, N):\n        if 8 <= N <= 11:\n            return 11\n\n        for length in range(1, 6):\n            for half in range(10**(length-1), 10**length):\n                s = str(half)\n                pal = int(s + s[-2::-1])\n                if pal >= N and self.isPrime(pal):\n                    return pal\n\n        for pal in [100030001, 100050001, 100080001, 100110001]:\n            if pal >= N and self.isPrime(pal):\n                return pal\n\n    def isPrime(self, n):\n        if n < 2:\n            return False\n        if n == 2:\n            return True\n        if n % 2 == 0:\n            return False\n        for i in range(3, int(math.sqrt(n)) + 1, 2):\n            if n % i == 0:\n                return False\n        return True"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

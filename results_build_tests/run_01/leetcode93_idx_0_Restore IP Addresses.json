@@ -46,24 +46,28 @@
         "output": "[]\n"
       },
       {
-        "input": "255255255255\n",
-        "output": "['255.255.255.255']\n"
+        "input": "256256256256\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "111111111111\n",
+        "output": "['111.111.111.111']\n"
       },
       {
         "input": "101023\n",
         "output": "['1.0.10.23', '1.0.102.3', '10.1.0.23', '10.10.2.3', '101.0.2.3']\n"
       },
       {
-        "input": "001001\n",
-        "output": "['0.0.100.1']\n"
+        "input": "255255255255\n",
+        "output": "['255.255.255.255']\n"
       },
       {
-        "input": "256256256256\n",
+        "input": "255255255256\n",
         "output": "[]\n"
       },
       {
-        "input": "255025425\n",
-        "output": "['255.0.254.25']\n"
+        "input": "000256\n",
+        "output": "['0.0.25.6', '0.0.2.56']\n"
       }
     ],
     "parsed_tests": [
@@ -72,15 +76,16 @@
       "('restoreIpAddresses', (0,), ['0.0.0.0'])",
       "('restoreIpAddresses', (123,), [])",
       "('restoreIpAddresses', (1234567890123,), [])",
-      "('restoreIpAddresses', (255255255255,), ['255.255.255.255'])",
-      "('restoreIpAddresses', (101023,), ['1.0.10.23', '1.0.102.3', '10.1.0.23', '10.10.2.3', '101.0.2.3'])",
-      "('restoreIpAddresses', ('001001\\n',), ['0.0.100.1'])",
       "('restoreIpAddresses', (256256256256,), [])",
-      "('restoreIpAddresses', (255025425,), ['255.0.254.25'])"
+      "('restoreIpAddresses', (111111111111,), ['111.111.111.111'])",
+      "('restoreIpAddresses', (101023,), ['1.0.10.23', '1.0.102.3', '10.1.0.23', '10.10.2.3', '101.0.2.3'])",
+      "('restoreIpAddresses', (255255255255,), ['255.255.255.255'])",
+      "('restoreIpAddresses', (255255255256,), [])",
+      "('restoreIpAddresses', ('000256\\n',), ['0.0.25.6', '0.0.2.56'])"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: invalid literal for int() with base 10: '\\n'\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 失敗\n  標準輸入: restoreIpAddresses('001001\\n',)\n  標準輸出: ['0.0.100.1']\n  你的輸出: ['0.0.100.1\\n']\n\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 執行例外: object of type 'int' has no len()\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: invalid literal for int() with base 10: '\\n'\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: object of type 'int' has no len()\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 執行例外: object of type 'int' has no len()\n[測試#11] ❌ 失敗\n  標準輸入: restoreIpAddresses('000256\\n',)\n  標準輸出: ['0.0.25.6', '0.0.2.56']\n  你的輸出: []\n\n=== 測試完成 (0/11) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 10,
+    "total_tests": 11,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

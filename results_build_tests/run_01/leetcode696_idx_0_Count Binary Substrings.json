@@ -32,7 +32,23 @@
         "output": "0\n"
       },
       {
+        "input": "1\n",
+        "output": "0\n"
+      },
+      {
         "input": "01\n",
+        "output": "1\n"
+      },
+      {
+        "input": "10\n",
+        "output": "1\n"
+      },
+      {
+        "input": "001\n",
+        "output": "1\n"
+      },
+      {
+        "input": "011\n",
         "output": "1\n"
       },
       {
@@ -40,56 +56,75 @@
         "output": "2\n"
       },
       {
+        "input": "1100\n",
+        "output": "2\n"
+      },
+      {
+        "input": "001100\n",
+        "output": "4\n"
+      },
+      {
+        "input": "0101010\n",
+        "output": "6\n"
+      },
+      {
         "input": "000111\n",
         "output": "3\n"
       },
       {
-        "input": "0001111\n",
-        "output": "3\n"
-      },
-      {
-        "input": "00110011\n",
-        "output": "6\n"
-      },
-      {
-        "input": "010101\n",
+        "input": "0001111100\n",
         "output": "5\n"
+      },
+      {
+        "input": "0001111100111\n",
+        "output": "7\n"
       },
       {
         "input": "000111000111\n",
         "output": "9\n"
       },
       {
-        "input": "000111000\n",
+        "input": "111000111\n",
         "output": "6\n"
       },
       {
-        "input": "0011100\n",
-        "output": "4\n"
+        "input": "1100110011\n",
+        "output": "8\n"
       },
       {
-        "input": "001011\n",
+        "input": "000111111000\n",
+        "output": "6\n"
+      },
+      {
+        "input": "000111111\n",
         "output": "3\n"
       }
     ],
     "parsed_tests": [
       "('countBinarySubstrings', ((),), 0)",
       "('countBinarySubstrings', (0,), 0)",
+      "('countBinarySubstrings', (1,), 0)",
       "('countBinarySubstrings', ('01\\n',), 1)",
+      "('countBinarySubstrings', (10,), 1)",
+      "('countBinarySubstrings', ('001\\n',), 1)",
+      "('countBinarySubstrings', ('011\\n',), 1)",
       "('countBinarySubstrings', ('0011\\n',), 2)",
+      "('countBinarySubstrings', (1100,), 2)",
+      "('countBinarySubstrings', ('001100\\n',), 4)",
+      "('countBinarySubstrings', ('0101010\\n',), 6)",
       "('countBinarySubstrings', ('000111\\n',), 3)",
-      "('countBinarySubstrings', ('0001111\\n',), 3)",
-      "('countBinarySubstrings', ('00110011\\n',), 6)",
-      "('countBinarySubstrings', ('010101\\n',), 5)",
+      "('countBinarySubstrings', ('0001111100\\n',), 5)",
+      "('countBinarySubstrings', ('0001111100111\\n',), 7)",
       "('countBinarySubstrings', ('000111000111\\n',), 9)",
-      "('countBinarySubstrings', ('000111000\\n',), 6)",
-      "('countBinarySubstrings', ('0011100\\n',), 4)",
-      "('countBinarySubstrings', ('001011\\n',), 3)"
+      "('countBinarySubstrings', (111000111,), 6)",
+      "('countBinarySubstrings', (1100110011,), 8)",
+      "('countBinarySubstrings', ('000111111000\\n',), 6)",
+      "('countBinarySubstrings', ('000111111\\n',), 3)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countBinarySubstrings((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 失敗\n  標準輸入: countBinarySubstrings('01\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#4] ❌ 失敗\n  標準輸入: countBinarySubstrings('0011\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#5] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#6] ❌ 失敗\n  標準輸入: countBinarySubstrings('0001111\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: countBinarySubstrings('00110011\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#8] ❌ 失敗\n  標準輸入: countBinarySubstrings('010101\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#9] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111000111\\n',)\n  標準輸出: 9\n  你的輸出: 10\n\n[測試#10] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111000\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#11] ❌ 失敗\n  標準輸入: countBinarySubstrings('0011100\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#12] ❌ 失敗\n  標準輸入: countBinarySubstrings('001011\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n=== 測試完成 (1/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countBinarySubstrings((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 失敗\n  標準輸入: countBinarySubstrings('01\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 失敗\n  標準輸入: countBinarySubstrings('001\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#7] ❌ 失敗\n  標準輸入: countBinarySubstrings('011\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#8] ❌ 失敗\n  標準輸入: countBinarySubstrings('0011\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 失敗\n  標準輸入: countBinarySubstrings('001100\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#11] ❌ 失敗\n  標準輸入: countBinarySubstrings('0101010\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#12] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#13] ❌ 失敗\n  標準輸入: countBinarySubstrings('0001111100\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#14] ❌ 失敗\n  標準輸入: countBinarySubstrings('0001111100111\\n',)\n  標準輸出: 7\n  你的輸出: 8\n\n[測試#15] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111000111\\n',)\n  標準輸出: 9\n  你的輸出: 10\n\n[測試#16] ❌ 執行例外: object of type 'int' has no len()\n[測試#17] ❌ 執行例外: object of type 'int' has no len()\n[測試#18] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111111000\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#19] ❌ 失敗\n  標準輸入: countBinarySubstrings('000111111\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n=== 測試完成 (1/19) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 12,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 19,
+    "passed_count": 1,
+    "accuracy_rate": 0.05263157894736842
   }
 }

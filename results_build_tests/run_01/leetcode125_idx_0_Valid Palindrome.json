@@ -33,7 +33,15 @@
         "output": "True\n"
       },
       {
-        "input": "race a car\n",
+        "input": "racecar\n",
+        "output": "True\n"
+      },
+      {
+        "input": "No lemon, no melon\n",
+        "output": "True\n"
+      },
+      {
+        "input": "Hello, World!\n",
         "output": "False\n"
       },
       {
@@ -41,27 +49,15 @@
         "output": "True\n"
       },
       {
-        "input": "0P\n",
-        "output": "False\n"
-      },
-      {
-        "input": "Madam\n",
-        "output": "True\n"
-      },
-      {
-        "input": "12321\n",
-        "output": "True\n"
-      },
-      {
-        "input": "12345\n",
-        "output": "False\n"
-      },
-      {
         "input": "!!!\n",
         "output": "True\n"
       },
       {
-        "input": "Able was I ere I saw Elba\n",
+        "input": "0P\n",
+        "output": "False\n"
+      },
+      {
+        "input": "MadamInEdenImAdam\n",
         "output": "True\n"
       },
       {
@@ -69,32 +65,26 @@
         "output": "True\n"
       },
       {
-        "input": "No 'x' in Nixon\n",
+        "input": "12321\n",
         "output": "True\n"
-      },
-      {
-        "input": "This is not a palindrome\n",
-        "output": "False\n"
       }
     ],
     "parsed_tests": [
       "('isPalindrome', ('A man, a plan, a canal: Panama\\n',), True)",
-      "('isPalindrome', ('race a car\\n',), False)",
+      "('isPalindrome', ('racecar\\n',), True)",
+      "('isPalindrome', ('No lemon, no melon\\n',), True)",
+      "('isPalindrome', ('Hello, World!\\n',), False)",
       "('isPalindrome', ((),), True)",
-      "('isPalindrome', ('0P\\n',), False)",
-      "('isPalindrome', ('Madam\\n',), True)",
-      "('isPalindrome', (12321,), True)",
-      "('isPalindrome', (12345,), False)",
       "('isPalindrome', ('!!!\\n',), True)",
-      "('isPalindrome', ('Able was I ere I saw Elba\\n',), True)",
+      "('isPalindrome', ('0P\\n',), False)",
+      "('isPalindrome', ('MadamInEdenImAdam\\n',), True)",
       "('isPalindrome', ('Was it a car or a cat I saw?\\n',), True)",
-      "('isPalindrome', (\"No 'x' in Nixon\\n\",), True)",
-      "('isPalindrome', ('This is not a palindrome\\n',), False)"
+      "('isPalindrome', (12321,), True)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPalindrome('A man, a plan, a canal: Panama\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isPalindrome('race a car\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isPalindrome((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isPalindrome('0P\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isPalindrome('Madam\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ❌ 執行例外: 'int' object is not iterable\n[測試#8] ✅ 通過\n  標準輸入: isPalindrome('!!!\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isPalindrome('Able was I ere I saw Elba\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: isPalindrome('Was it a car or a cat I saw?\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: isPalindrome(\"No 'x' in Nixon\\n\",)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: isPalindrome('This is not a palindrome\\n',)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (10/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPalindrome('A man, a plan, a canal: Panama\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isPalindrome('racecar\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isPalindrome('No lemon, no melon\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isPalindrome('Hello, World!\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isPalindrome((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isPalindrome('!!!\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isPalindrome('0P\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isPalindrome('MadamInEdenImAdam\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: isPalindrome('Was it a car or a cat I saw?\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ❌ 執行例外: 'int' object is not iterable\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 12,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 10,
+    "passed_count": 9,
+    "accuracy_rate": 0.9
   }
 }

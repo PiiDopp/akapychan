@@ -24,23 +24,11 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "bbbab\n",
-        "output": "4\n"
-      },
-      {
-        "input": "cbbd\n",
-        "output": "2\n"
+        "input": "\n",
+        "output": "0\n"
       },
       {
         "input": "a\n",
-        "output": "1\n"
-      },
-      {
-        "input": "abca\n",
-        "output": "3\n"
-      },
-      {
-        "input": "abcd\n",
         "output": "1\n"
       },
       {
@@ -48,53 +36,40 @@
         "output": "4\n"
       },
       {
-        "input": "abacdfgdcaba\n",
-        "output": "7\n"
+        "input": "abcd\n",
+        "output": "1\n"
       },
       {
-        "input": "character\n",
+        "input": "cbbd\n",
+        "output": "2\n"
+      },
+      {
+        "input": "bbbab\n",
+        "output": "4\n"
+      },
+      {
+        "input": "agbdba\n",
         "output": "5\n"
       },
       {
-        "input": "abccba\n",
-        "output": "6\n"
-      },
-      {
-        "input": "abacabadabacaba\n",
-        "output": "15\n"
-      },
-      {
-        "input": "a b a\n",
-        "output": "3\n"
-      },
-      {
-        "input": "a!a\n",
-        "output": "3\n"
-      },
-      {
-        "input": "abcabc\n",
-        "output": "3\n"
+        "input": "あいいあ\n",
+        "output": "4\n"
       }
     ],
     "parsed_tests": [
-      "('longestPalindromeSubseq', ('bbbab\\n',), 4)",
-      "('longestPalindromeSubseq', ('cbbd\\n',), 2)",
+      "('longestPalindromeSubseq', ((),), 0)",
       "('longestPalindromeSubseq', ('a\\n',), 1)",
-      "('longestPalindromeSubseq', ('abca\\n',), 3)",
-      "('longestPalindromeSubseq', ('abcd\\n',), 1)",
       "('longestPalindromeSubseq', ('aaaa\\n',), 4)",
-      "('longestPalindromeSubseq', ('abacdfgdcaba\\n',), 7)",
-      "('longestPalindromeSubseq', ('character\\n',), 5)",
-      "('longestPalindromeSubseq', ('abccba\\n',), 6)",
-      "('longestPalindromeSubseq', ('abacabadabacaba\\n',), 15)",
-      "('longestPalindromeSubseq', ('a b a\\n',), 3)",
-      "('longestPalindromeSubseq', ('a!a\\n',), 3)",
-      "('longestPalindromeSubseq', ('abcabc\\n',), 3)"
+      "('longestPalindromeSubseq', ('abcd\\n',), 1)",
+      "('longestPalindromeSubseq', ('cbbd\\n',), 2)",
+      "('longestPalindromeSubseq', ('bbbab\\n',), 4)",
+      "('longestPalindromeSubseq', ('agbdba\\n',), 5)",
+      "('longestPalindromeSubseq', ('あいいあ\\n',), 4)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: longestPalindromeSubseq('bbbab\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#2] ✅ 通過\n  標準輸入: longestPalindromeSubseq('cbbd\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: longestPalindromeSubseq('a\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abca\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abcd\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: longestPalindromeSubseq('aaaa\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: longestPalindromeSubseq('abacdfgdcaba\\n',)\n  標準輸出: 7\n  你的輸出: 11\n\n[測試#8] ✅ 通過\n  標準輸入: longestPalindromeSubseq('character\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#9] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abccba\\n',)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#10] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abacabadabacaba\\n',)\n  標準輸出: 15\n  你的輸出: 15\n\n[測試#11] ❌ 失敗\n  標準輸入: longestPalindromeSubseq('a b a\\n',)\n  標準輸出: 3\n  你的輸出: 5\n\n[測試#12] ✅ 通過\n  標準輸入: longestPalindromeSubseq('a!a\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#13] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abcabc\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n=== 測試完成 (11/13) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: list index out of range\n[測試#2] ✅ 通過\n  標準輸入: longestPalindromeSubseq('a\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: longestPalindromeSubseq('aaaa\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: longestPalindromeSubseq('abcd\\n',)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: longestPalindromeSubseq('cbbd\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: longestPalindromeSubseq('bbbab\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: longestPalindromeSubseq('agbdba\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#8] ✅ 通過\n  標準輸入: longestPalindromeSubseq('あいいあ\\n',)\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 13,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 8,
+    "passed_count": 7,
+    "accuracy_rate": 0.875
   }
 }

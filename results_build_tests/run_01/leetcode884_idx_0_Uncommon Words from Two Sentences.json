@@ -27,53 +27,63 @@
         "output": "['banana', 'orange']\n"
       },
       {
-        "input": "['', '']\n",
+        "input": "['apple apple', 'apple']\n",
         "output": "[]\n"
+      },
+      {
+        "input": "['', 'apple']\n",
+        "output": "['apple']\n"
       },
       {
         "input": "['apple', '']\n",
         "output": "['apple']\n"
       },
       {
-        "input": "['apple orange', 'orange apple']\n",
+        "input": "['', '']\n",
         "output": "[]\n"
       },
       {
-        "input": "['apple apple orange', 'banana']\n",
-        "output": "['banana', 'orange']\n"
+        "input": "['a b c', 'd e f']\n",
+        "output": "['a', 'b', 'c', 'd', 'e', 'f']\n"
       },
       {
-        "input": "['apple', 'apple']\n",
+        "input": "['a a b', 'b c']\n",
+        "output": "['c']\n"
+      },
+      {
+        "input": "['a b c', 'a b c']\n",
         "output": "[]\n"
       },
       {
-        "input": "['a b c d e f g h i j', 'k l m n o p q r s t']\n",
-        "output": "['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't']\n"
-      },
-      {
-        "input": "['abc abc', 'abc']\n",
+        "input": "['a', 'a']\n",
         "output": "[]\n"
       },
       {
-        "input": "['xyz', '']\n",
-        "output": "['xyz']\n"
+        "input": "['a', 'b']\n",
+        "output": "['a', 'b']\n"
+      },
+      {
+        "input": "['hello world', 'world hello']\n",
+        "output": "[]\n"
       }
     ],
     "parsed_tests": [
       "('uncommonFromSentences', ('apple orange', 'banana apple'), ['banana', 'orange'])",
-      "('uncommonFromSentences', ('', ''), [])",
+      "('uncommonFromSentences', ('apple apple', 'apple'), [])",
+      "('uncommonFromSentences', ('', 'apple'), ['apple'])",
       "('uncommonFromSentences', ('apple', ''), ['apple'])",
-      "('uncommonFromSentences', ('apple orange', 'orange apple'), [])",
-      "('uncommonFromSentences', ('apple apple orange', 'banana'), ['banana', 'orange'])",
-      "('uncommonFromSentences', ('apple', 'apple'), [])",
-      "('uncommonFromSentences', ('a b c d e f g h i j', 'k l m n o p q r s t'), ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'])",
-      "('uncommonFromSentences', ('abc abc', 'abc'), [])",
-      "('uncommonFromSentences', ('xyz', ''), ['xyz'])"
+      "('uncommonFromSentences', ('', ''), [])",
+      "('uncommonFromSentences', ('a b c', 'd e f'), ['a', 'b', 'c', 'd', 'e', 'f'])",
+      "('uncommonFromSentences', ('a a b', 'b c'), ['c'])",
+      "('uncommonFromSentences', ('a b c', 'a b c'), [])",
+      "('uncommonFromSentences', ('a', 'a'), [])",
+      "('uncommonFromSentences', ('a', 'b'), ['a', 'b'])",
+      "('uncommonFromSentences', ('hello world', 'world hello'), [])"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: uncommonFromSentences('apple orange', 'banana apple')\n  標準輸出: ['banana', 'orange']\n  你的輸出: ['orange', 'banana']\n\n[測試#2] ✅ 通過\n  標準輸入: uncommonFromSentences('', '')\n  標準輸出: []\n  你的輸出: []\n\n[測試#3] ✅ 通過\n  標準輸入: uncommonFromSentences('apple', '')\n  標準輸出: ['apple']\n  你的輸出: ['apple']\n\n[測試#4] ✅ 通過\n  標準輸入: uncommonFromSentences('apple orange', 'orange apple')\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ❌ 失敗\n  標準輸入: uncommonFromSentences('apple apple orange', 'banana')\n  標準輸出: ['banana', 'orange']\n  你的輸出: ['orange', 'banana']\n\n[測試#6] ✅ 通過\n  標準輸入: uncommonFromSentences('apple', 'apple')\n  標準輸出: []\n  你的輸出: []\n\n[測試#7] ✅ 通過\n  標準輸入: uncommonFromSentences('a b c d e f g h i j', 'k l m n o p q r s t')\n  標準輸出: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't']\n  你的輸出: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't']\n\n[測試#8] ✅ 通過\n  標準輸入: uncommonFromSentences('abc abc', 'abc')\n  標準輸出: []\n  你的輸出: []\n\n[測試#9] ✅ 通過\n  標準輸入: uncommonFromSentences('xyz', '')\n  標準輸出: ['xyz']\n  你的輸出: ['xyz']\n\n=== 測試完成 (7/9) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: uncommonFromSentences('apple orange', 'banana apple')\n  標準輸出: ['banana', 'orange']\n  你的輸出: ['orange', 'banana']\n\n[測試#2] ✅ 通過\n  標準輸入: uncommonFromSentences('apple apple', 'apple')\n  標準輸出: []\n  你的輸出: []\n\n[測試#3] ✅ 通過\n  標準輸入: uncommonFromSentences('', 'apple')\n  標準輸出: ['apple']\n  你的輸出: ['apple']\n\n[測試#4] ✅ 通過\n  標準輸入: uncommonFromSentences('apple', '')\n  標準輸出: ['apple']\n  你的輸出: ['apple']\n\n[測試#5] ✅ 通過\n  標準輸入: uncommonFromSentences('', '')\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: uncommonFromSentences('a b c', 'd e f')\n  標準輸出: ['a', 'b', 'c', 'd', 'e', 'f']\n  你的輸出: ['a', 'b', 'c', 'd', 'e', 'f']\n\n[測試#7] ✅ 通過\n  標準輸入: uncommonFromSentences('a a b', 'b c')\n  標準輸出: ['c']\n  你的輸出: ['c']\n\n[測試#8] ✅ 通過\n  標準輸入: uncommonFromSentences('a b c', 'a b c')\n  標準輸出: []\n  你的輸出: []\n\n[測試#9] ✅ 通過\n  標準輸入: uncommonFromSentences('a', 'a')\n  標準輸出: []\n  你的輸出: []\n\n[測試#10] ✅ 通過\n  標準輸入: uncommonFromSentences('a', 'b')\n  標準輸出: ['a', 'b']\n  你的輸出: ['a', 'b']\n\n[測試#11] ✅ 通過\n  標準輸入: uncommonFromSentences('hello world', 'world hello')\n  標準輸出: []\n  你的輸出: []\n\n=== 測試完成 (10/11) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 9,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 11,
+    "passed_count": 10,
+    "accuracy_rate": 0.9090909090909091
   }
 }

@@ -24,66 +24,14 @@
     "solution": "class Solution:\n    def change(self, amount, coins):\n        dp = [0] * (amount + 1)\n        dp[0] = 1\n        for coin in coins:\n            for i in range(coin, amount + 1):\n                dp[i] += dp[i - coin]\n        return dp[amount]"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "5\n[1, 2, 5]\n",
-        "output": "4\n"
-      },
-      {
-        "input": "0\n[1, 2, 3]\n",
-        "output": "1\n"
-      },
-      {
-        "input": "3\n[]\n",
-        "output": "0\n"
-      },
-      {
-        "input": "10\n[2]\n",
-        "output": "1\n"
-      },
-      {
-        "input": "10\n[1]\n",
-        "output": "1\n"
-      },
-      {
-        "input": "10\n[1, 2, 5]\n",
-        "output": "10\n"
-      },
-      {
-        "input": "7\n[2, 3, 6, 7]\n",
-        "output": "2\n"
-      },
-      {
-        "input": "100\n[1, 5, 10, 25, 50]\n",
-        "output": "292\n"
-      },
-      {
-        "input": "1\n[2]\n",
-        "output": "0\n"
-      },
-      {
-        "input": "2\n[1, 2]\n",
-        "output": "2\n"
-      }
-    ],
-    "parsed_tests": [
-      "('change', (5, [1, 2, 5]), 4)",
-      "('change', (0, [1, 2, 3]), 1)",
-      "('change', (3, []), 0)",
-      "('change', (10, [2]), 1)",
-      "('change', (10, [1]), 1)",
-      "('change', (10, [1, 2, 5]), 10)",
-      "('change', (7, [2, 3, 6, 7]), 2)",
-      "('change', (100, [1, 5, 10, 25, 50]), 292)",
-      "('change', (1, [2]), 0)",
-      "('change', (2, [1, 2]), 2)"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: change(5, [1, 2, 5])\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#2] ✅ 通過\n  標準輸入: change(0, [1, 2, 3])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: change(3, [])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: change(10, [2])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: change(10, [1])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: change(10, [1, 2, 5])\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#7] ✅ 通過\n  標準輸入: change(7, [2, 3, 6, 7])\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: change(100, [1, 5, 10, 25, 50])\n  標準輸出: 292\n  你的輸出: 292\n\n[測試#9] ✅ 通過\n  標準輸入: change(1, [2])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#10] ✅ 通過\n  標準輸入: change(2, [1, 2])\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
-    "all_passed": true,
-    "total_tests": 10,
-    "passed_count": 10,
-    "accuracy_rate": 1.0
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
   }
 }

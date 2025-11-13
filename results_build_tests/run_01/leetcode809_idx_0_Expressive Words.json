@@ -23,11 +23,15 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['heeellooo', ['hello', 'hi']]\n",
+        "input": "['heeellooo', ['hello', 'hi', 'helo']]\n",
         "output": "1\n"
       },
       {
-        "input": "['abcd', ['abcd', 'abc', 'ab']]\n",
+        "input": "['abcd', ['abcd', 'abc', 'ab', 'a']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['aabbcc', ['abc', 'aabbcc', 'aaabbbccc']]\n",
         "output": "1\n"
       },
       {
@@ -35,7 +39,7 @@
         "output": "3\n"
       },
       {
-        "input": "['aabbcc', ['abc', 'aabbcc', 'aaabbbccc']]\n",
+        "input": "['a', ['a', 'aa', '']]\n",
         "output": "1\n"
       },
       {
@@ -43,22 +47,38 @@
         "output": "1\n"
       },
       {
-        "input": "['a', ['a', 'aa', '']]\n",
+        "input": "['abcde', []]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aaabbbcccddd', ['abc', 'aabbccddd', 'aaabbbcccddd']]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['aabb', ['aa', 'bb', 'aabb', 'ab']]\n",
         "output": "1\n"
+      },
+      {
+        "input": "['aaaabbbb', ['aaabbb', 'aaaabbbb', 'aabbbb', 'aaaabbb']]\n",
+        "output": "4\n"
       }
     ],
     "parsed_tests": [
-      "('expressiveWords', ('heeellooo', ['hello', 'hi']), 1)",
-      "('expressiveWords', ('abcd', ['abcd', 'abc', 'ab']), 1)",
-      "('expressiveWords', ('aaa', ['a', 'aa', 'aaa', 'aaaa']), 3)",
+      "('expressiveWords', ('heeellooo', ['hello', 'hi', 'helo']), 1)",
+      "('expressiveWords', ('abcd', ['abcd', 'abc', 'ab', 'a']), 1)",
       "('expressiveWords', ('aabbcc', ['abc', 'aabbcc', 'aaabbbccc']), 1)",
+      "('expressiveWords', ('aaa', ['a', 'aa', 'aaa', 'aaaa']), 3)",
+      "('expressiveWords', ('a', ['a', 'aa', '']), 1)",
       "('expressiveWords', ('', ['', 'a']), 1)",
-      "('expressiveWords', ('a', ['a', 'aa', '']), 1)"
+      "('expressiveWords', ('abcde', []), 0)",
+      "('expressiveWords', ('aaabbbcccddd', ['abc', 'aabbccddd', 'aaabbbcccddd']), 2)",
+      "('expressiveWords', ('aabb', ['aa', 'bb', 'aabb', 'ab']), 1)",
+      "('expressiveWords', ('aaaabbbb', ['aaabbb', 'aaaabbbb', 'aabbbb', 'aaaabbb']), 4)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: expressiveWords('heeellooo', ['hello', 'hi'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: expressiveWords('abcd', ['abcd', 'abc', 'ab'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: expressiveWords('aaa', ['a', 'aa', 'aaa', 'aaaa'])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: expressiveWords('aabbcc', ['abc', 'aabbcc', 'aaabbbccc'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: expressiveWords('', ['', 'a'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: expressiveWords('a', ['a', 'aa', ''])\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (6/6) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: expressiveWords('heeellooo', ['hello', 'hi', 'helo'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: expressiveWords('abcd', ['abcd', 'abc', 'ab', 'a'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: expressiveWords('aabbcc', ['abc', 'aabbcc', 'aaabbbccc'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: expressiveWords('aaa', ['a', 'aa', 'aaa', 'aaaa'])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#5] ✅ 通過\n  標準輸入: expressiveWords('a', ['a', 'aa', ''])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: expressiveWords('', ['', 'a'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: expressiveWords('abcde', [])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: expressiveWords('aaabbbcccddd', ['abc', 'aabbccddd', 'aaabbbcccddd'])\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: expressiveWords('aabb', ['aa', 'bb', 'aabb', 'ab'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: expressiveWords('aaaabbbb', ['aaabbb', 'aaaabbbb', 'aabbbb', 'aaaabbb'])\n  標準輸出: 4\n  你的輸出: 4\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
     "all_passed": true,
-    "total_tests": 6,
-    "passed_count": 6,
+    "total_tests": 10,
+    "passed_count": 10,
     "accuracy_rate": 1.0
   }
 }

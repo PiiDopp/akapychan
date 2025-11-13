@@ -29,86 +29,71 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "[10, 10]\n1 1\n",
+        "input": "{'ghosts': [], 'target': [5, 5]}\n",
         "output": "True\n"
       },
       {
-        "input": "[1, 0]\n1 0\n",
-        "output": "False\n"
-      },
-      {
-        "input": "[0, 2]\n1 1\n",
-        "output": "False\n"
-      },
-      {
-        "input": "[0, 1]\n1 1\n",
-        "output": "False\n"
-      },
-      {
-        "input": "[0, 1] [10, 10]\n1 1\n",
-        "output": "False\n"
-      },
-      {
-        "input": "[10, 10] [20, 20]\n1 1\n",
+        "input": "{'ghosts': [[20, 20]], 'target': [5, 5]}\n",
         "output": "True\n"
       },
       {
-        "input": "[0, 0]\n1 1\n",
+        "input": "{'ghosts': [[10, 10]], 'target': [5, 5]}\n",
         "output": "False\n"
       },
       {
-        "input": "[1, 0]\n0 0\n",
+        "input": "{'ghosts': [[0, 0]], 'target': [5, 5]}\n",
+        "output": "False\n"
+      },
+      {
+        "input": "{'ghosts': [[5, 0]], 'target': [5, 0]}\n",
+        "output": "False\n"
+      },
+      {
+        "input": "{'ghosts': [[1, 0]], 'target': [0, 0]}\n",
         "output": "True\n"
       },
       {
-        "input": "[0, 0]\n0 0\n",
+        "input": "{'ghosts': [[0, 0]], 'target': [0, 0]}\n",
         "output": "False\n"
       },
       {
-        "input": "[-1, -1]\n-2 -2\n",
+        "input": "{'ghosts': [[-5, -5]], 'target': [-3, -3]}\n",
         "output": "False\n"
       },
       {
-        "input": "[5, 5]\n2 2\n",
+        "input": "{'ghosts': [[2000000, 2000000]], 'target': [500000, 500000]}\n",
         "output": "True\n"
       },
       {
-        "input": "[4, 0]\n2 0\n",
+        "input": "{'ghosts': [[1000000, 1000000]], 'target': [500000, 500000]}\n",
         "output": "False\n"
       },
       {
-        "input": "[2, 2]\n2 2\n",
+        "input": "{'ghosts': [[10, 10], [20, 20]], 'target': [5, 5]}\n",
         "output": "False\n"
       },
       {
-        "input": "[0, 0] [5, 5]\n2 2\n",
-        "output": "False\n"
-      },
-      {
-        "input": "[20, 20] [30, 30]\n5 5\n",
+        "input": "{'ghosts': [[20, 20], [30, 30]], 'target': [5, 5]}\n",
         "output": "True\n"
       }
     ],
     "parsed_tests": [
-      "('escapeGhosts', ('[10, 10]\\n1 1\\n',), True)",
-      "('escapeGhosts', ('[1, 0]\\n1 0\\n',), False)",
-      "('escapeGhosts', ('[0, 2]\\n1 1\\n',), False)",
-      "('escapeGhosts', ('[0, 1]\\n1 1\\n',), False)",
-      "('escapeGhosts', ('[0, 1] [10, 10]\\n1 1\\n',), False)",
-      "('escapeGhosts', ('[10, 10] [20, 20]\\n1 1\\n',), True)",
-      "('escapeGhosts', ('[0, 0]\\n1 1\\n',), False)",
-      "('escapeGhosts', ('[1, 0]\\n0 0\\n',), True)",
-      "('escapeGhosts', ('[0, 0]\\n0 0\\n',), False)",
-      "('escapeGhosts', ('[-1, -1]\\n-2 -2\\n',), False)",
-      "('escapeGhosts', ('[5, 5]\\n2 2\\n',), True)",
-      "('escapeGhosts', ('[4, 0]\\n2 0\\n',), False)",
-      "('escapeGhosts', ('[2, 2]\\n2 2\\n',), False)",
-      "('escapeGhosts', ('[0, 0] [5, 5]\\n2 2\\n',), False)",
-      "('escapeGhosts', ('[20, 20] [30, 30]\\n5 5\\n',), True)"
+      "('escapeGhosts', (\"{'ghosts': [], 'target': [5, 5]}\\n\",), True)",
+      "('escapeGhosts', (\"{'ghosts': [[20, 20]], 'target': [5, 5]}\\n\",), True)",
+      "('escapeGhosts', (\"{'ghosts': [[10, 10]], 'target': [5, 5]}\\n\",), False)",
+      "('escapeGhosts', (\"{'ghosts': [[0, 0]], 'target': [5, 5]}\\n\",), False)",
+      "('escapeGhosts', (\"{'ghosts': [[5, 0]], 'target': [5, 0]}\\n\",), False)",
+      "('escapeGhosts', (\"{'ghosts': [[1, 0]], 'target': [0, 0]}\\n\",), True)",
+      "('escapeGhosts', (\"{'ghosts': [[0, 0]], 'target': [0, 0]}\\n\",), False)",
+      "('escapeGhosts', (\"{'ghosts': [[-5, -5]], 'target': [-3, -3]}\\n\",), False)",
+      "('escapeGhosts', (\"{'ghosts': [[2000000, 2000000]], 'target': [500000, 500000]}\\n\",), True)",
+      "('escapeGhosts', (\"{'ghosts': [[1000000, 1000000]], 'target': [500000, 500000]}\\n\",), False)",
+      "('escapeGhosts', (\"{'ghosts': [[10, 10], [20, 20]], 'target': [5, 5]}\\n\",), False)",
+      "('escapeGhosts', (\"{'ghosts': [[20, 20], [30, 30]], 'target': [5, 5]}\\n\",), True)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#2] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#3] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#4] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#5] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#6] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#7] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#8] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#9] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#10] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#11] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#12] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#13] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#14] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#15] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n=== 測試完成 (0/15) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#2] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#3] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#4] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#5] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#6] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#7] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#8] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#9] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#10] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#11] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n[測試#12] ❌ 執行例外: Solution.escapeGhosts() missing 1 required positional argument: 'target'\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 15,
+    "total_tests": 12,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

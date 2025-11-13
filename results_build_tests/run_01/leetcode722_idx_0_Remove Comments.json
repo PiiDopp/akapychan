@@ -1,0 +1,105 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode722.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Remove Comments",
+    "description": "Given a C++ program, remove comments from it. The program source is an array of strings source where source[i] is the ith line of the source code. This represents the result of splitting the original source code string by the newline character '\\n'.\n\nIn C++, there are two types of comments, line comments, and block comments.\n\nThe string \"//\" denotes a line comment, which represents that it and the rest of the characters to the right of it in the same line should be ignored.\nThe string \"/*\" denotes a block comment, which represents that all characters until the next (non-overlapping) occurrence of \"*/\" should be ignored. (Here, occurrences happen in reading order: line by line from left to right.) To be clear, the string \"/*/\" does not yet end the block comment, as the ending would be overlapping the beginning.\nThe first effective comment takes precedence over others.\n\nFor example, if the string \"//\" occurs in a block comment, it is ignored.\nSimilarly, if the string \"/*\" occurs in a line or block comment, it is also ignored.\nIf a certain line of code is empty after removing comments, you must not output that line: each string in the answer list will be non-empty.\n\nThere will be no control characters, single quote, or double quote characters.\n\nFor example, source = \"string s = \\\"/* Not a comment. */\\\";\" will not be a test case.\nAlso, nothing else such as defines or macros will interfere with the comments.\n\nIt is guaranteed that every open block comment will eventually be closed, so \"/*\" outside of a line or block comment always starts a new comment.\n\nFinally, implicit newline characters can be deleted by block comments. Please see the examples below for details.\n\nAfter removing the comments from the source code, return the source code in the same format.",
+    "examples": [
+      {
+        "input": "source = [\"/*Test program */\", \"int main()\", \"{ \", \"  // variable declaration \", \"int a, b, c;\", \"/* This is a test\", \"   multiline  \", \"   comment for \", \"   testing */\", \"a = b + c;\", \"}\"]",
+        "output": "[\"int main()\",\"{ \",\"  \",\"int a, b, c;\",\"a = b + c;\",\"}\"]",
+        "explanation": "The line by line code is visualized as below: \n/*Test program */ \nint main() \n{  \n  // variable declaration  \nint a, b, c; \n/* This is a test \n   multiline   \n   comment for  \n   testing */ \na = b + c; \n} \nThe string /* denotes a block comment, including line 1 and lines 6-9. The string //\ndenotes line 4 as comments. \nThe line by line output code is visualized as below: \nint main() \n{ \n\n  int a, b, c;\na = b + c;\n}"
+      },
+      {
+        "input": "source = [\"a/*comment\", \"line\", \"more_comment*/b\"]",
+        "output": "[\"ab\"]",
+        "explanation": "The original source string is \"a/*comment\nline\nmore_comment*/b\", where we have bolded the newline characters.  After deletion, the implicit newline characters are deleted, leaving the string \"ab\", which when delimited by newline characters becomes [\"ab\"]."
+      }
+    ],
+    "solution": "class Solution:\n    def removeComments(self, source):\n        res = []\n        in_block = False\n        new_line = []\n        \n        for line in source:\n            i = 0\n            if not in_block:\n                new_line = []\n            while i < len(line):\n                if not in_block and i+1 < len(line) and line[i] == '/' and line[i+1] == '*':\n                    in_block = True\n                    i += 1\n                elif in_block and i+1 < len(line) and line[i] == '*' and line[i+1] == '/':\n                    in_block = False\n                    i += 1\n                elif not in_block and i+1 < len(line) and line[i] == '/' and line[i+1] == '/':\n                    break\n                elif not in_block:\n                    new_line.append(line[i])\n                i += 1\n            if new_line and not in_block:\n                res.append(\"\".join(new_line))\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['int a=5;//init']\n",
+        "output": "['int a=5;']\n"
+      },
+      {
+        "input": "['int a=5; /* comment', 'continues', 'ends */ int b=10;']\n",
+        "output": "['int a=5;  int b=10;']\n"
+      },
+      {
+        "input": "['int a=5; /* comment */ int b=10;']\n",
+        "output": "['int a=5;  int b=10;']\n"
+      },
+      {
+        "input": "['/* comment */']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['int a=5; /* comment */ // line']\n",
+        "output": "['int a=5;  ']\n"
+      },
+      {
+        "input": "['int a=5; // /* not a comment */']\n",
+        "output": "['int a=5; ']\n"
+      },
+      {
+        "input": "['/* comment // not a line comment', 'still in block', 'end */ int a=5;']\n",
+        "output": "[' int a=5;']\n"
+      },
+      {
+        "input": "['int a=5; /*/ not end */ int b=10;']\n",
+        "output": "['int a=5;  int b=10;']\n"
+      },
+      {
+        "input": "['int a=5; /* comment']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['// comment', 'int a=5;']\n",
+        "output": "['int a=5;']\n"
+      },
+      {
+        "input": "['int a=5;/*comment*/int b=10;']\n",
+        "output": "['int a=5;int b=10;']\n"
+      },
+      {
+        "input": "['int a=5; /* comment', 'int b=10;']\n",
+        "output": "['int a=5; int b=10;']\n"
+      },
+      {
+        "input": "['/* comment */int a=5;']\n",
+        "output": "['int a=5;']\n"
+      },
+      {
+        "input": "['int a=5;/* comment */']\n",
+        "output": "['int a=5;']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('removeComments', (['int a=5;//init'],), ['int a=5;'])",
+      "('removeComments', (['int a=5; /* comment', 'continues', 'ends */ int b=10;'],), ['int a=5;  int b=10;'])",
+      "('removeComments', (['int a=5; /* comment */ int b=10;'],), ['int a=5;  int b=10;'])",
+      "('removeComments', (['/* comment */'],), [])",
+      "('removeComments', (['int a=5; /* comment */ // line'],), ['int a=5;  '])",
+      "('removeComments', (['int a=5; // /* not a comment */'],), ['int a=5; '])",
+      "('removeComments', (['/* comment // not a line comment', 'still in block', 'end */ int a=5;'],), [' int a=5;'])",
+      "('removeComments', (['int a=5; /*/ not end */ int b=10;'],), ['int a=5;  int b=10;'])",
+      "('removeComments', (['int a=5; /* comment'],), [])",
+      "('removeComments', (['// comment', 'int a=5;'],), ['int a=5;'])",
+      "('removeComments', (['int a=5;/*comment*/int b=10;'],), ['int a=5;int b=10;'])",
+      "('removeComments', (['int a=5; /* comment', 'int b=10;'],), ['int a=5; int b=10;'])",
+      "('removeComments', (['/* comment */int a=5;'],), ['int a=5;'])",
+      "('removeComments', (['int a=5;/* comment */'],), ['int a=5;'])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: removeComments(['int a=5;//init'],)\n  標準輸出: ['int a=5;']\n  你的輸出: ['int a=5;']\n\n[測試#2] ✅ 通過\n  標準輸入: removeComments(['int a=5; /* comment', 'continues', 'ends */ int b=10;'],)\n  標準輸出: ['int a=5;  int b=10;']\n  你的輸出: ['int a=5;  int b=10;']\n\n[測試#3] ✅ 通過\n  標準輸入: removeComments(['int a=5; /* comment */ int b=10;'],)\n  標準輸出: ['int a=5;  int b=10;']\n  你的輸出: ['int a=5;  int b=10;']\n\n[測試#4] ✅ 通過\n  標準輸入: removeComments(['/* comment */'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: removeComments(['int a=5; /* comment */ // line'],)\n  標準輸出: ['int a=5;  ']\n  你的輸出: ['int a=5;  ']\n\n[測試#6] ✅ 通過\n  標準輸入: removeComments(['int a=5; // /* not a comment */'],)\n  標準輸出: ['int a=5; ']\n  你的輸出: ['int a=5; ']\n\n[測試#7] ✅ 通過\n  標準輸入: removeComments(['/* comment // not a line comment', 'still in block', 'end */ int a=5;'],)\n  標準輸出: [' int a=5;']\n  你的輸出: [' int a=5;']\n\n[測試#8] ✅ 通過\n  標準輸入: removeComments(['int a=5; /*/ not end */ int b=10;'],)\n  標準輸出: ['int a=5;  int b=10;']\n  你的輸出: ['int a=5;  int b=10;']\n\n[測試#9] ✅ 通過\n  標準輸入: removeComments(['int a=5; /* comment'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#10] ✅ 通過\n  標準輸入: removeComments(['// comment', 'int a=5;'],)\n  標準輸出: ['int a=5;']\n  你的輸出: ['int a=5;']\n\n[測試#11] ✅ 通過\n  標準輸入: removeComments(['int a=5;/*comment*/int b=10;'],)\n  標準輸出: ['int a=5;int b=10;']\n  你的輸出: ['int a=5;int b=10;']\n\n[測試#12] ❌ 失敗\n  標準輸入: removeComments(['int a=5; /* comment', 'int b=10;'],)\n  標準輸出: ['int a=5; int b=10;']\n  你的輸出: []\n\n[測試#13] ✅ 通過\n  標準輸入: removeComments(['/* comment */int a=5;'],)\n  標準輸出: ['int a=5;']\n  你的輸出: ['int a=5;']\n\n[測試#14] ✅ 通過\n  標準輸入: removeComments(['int a=5;/* comment */'],)\n  標準輸出: ['int a=5;']\n  你的輸出: ['int a=5;']\n\n=== 測試完成 (13/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 14,
+    "passed_count": 13,
+    "accuracy_rate": 0.9285714285714286
+  }
+}

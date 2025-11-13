@@ -28,67 +28,107 @@
         "output": "0+2i\n"
       },
       {
-        "input": "['5+0i', '3+0i']\n",
-        "output": "15+0i\n"
+        "input": "['1+1i', '1-1i']\n",
+        "output": "2+0i\n"
       },
       {
-        "input": "['0+3i', '0+4i']\n",
-        "output": "-12+0i\n"
+        "input": "['1-1i', '1-1i']\n",
+        "output": "0-2i\n"
       },
       {
         "input": "['0+0i', '5+5i']\n",
         "output": "0+0i\n"
       },
       {
-        "input": "['1+-1i', '1+1i']\n",
-        "output": "2+0i\n"
+        "input": "['5+5i', '0+0i']\n",
+        "output": "0+0i\n"
       },
       {
-        "input": "['-3+4i', '2+5i']\n",
-        "output": "-26+-7i\n"
+        "input": "['0+5i', '0+5i']\n",
+        "output": "-25+0i\n"
+      },
+      {
+        "input": "['5+0i', '5+0i']\n",
+        "output": "25+0i\n"
       },
       {
         "input": "['100+100i', '100+100i']\n",
         "output": "0+20000i\n"
       },
       {
-        "input": "['-100+-100i', '-100+-100i']\n",
+        "input": "['-100-100i', '-100-100i']\n",
         "output": "0+20000i\n"
       },
       {
-        "input": "['100+-100i', '-100+100i']\n",
-        "output": "0+20000i\n"
+        "input": "['100+100i', '-100-100i']\n",
+        "output": "0-20000i\n"
       },
       {
-        "input": "['-1+0i', '1+0i']\n",
-        "output": "-1+0i\n"
+        "input": "['100-100i', '100+100i']\n",
+        "output": "20000+0i\n"
       },
       {
-        "input": "['0+1i', '0+-1i']\n",
+        "input": "['-100+100i', '-100-100i']\n",
+        "output": "20000+0i\n"
+      },
+      {
+        "input": "['0+1i', '0-1i']\n",
         "output": "1+0i\n"
       },
       {
-        "input": "['1+1i', '-1-1i']\n",
-        "output": "0+-2i\n"
+        "input": "['0-1i', '0-1i']\n",
+        "output": "-1+0i\n"
+      },
+      {
+        "input": "['1+0i', '0+1i']\n",
+        "output": "0+1i\n"
+      },
+      {
+        "input": "['2+3i', '4+5i']\n",
+        "output": "-7+22i\n"
+      },
+      {
+        "input": "['2-3i', '4+5i']\n",
+        "output": "23-2i\n"
+      },
+      {
+        "input": "['2+3i', '4-5i']\n",
+        "output": "23+2i\n"
+      },
+      {
+        "input": "['2-3i', '4-5i']\n",
+        "output": "-7-22i\n"
+      },
+      {
+        "input": "['-2+3i', '-4-5i']\n",
+        "output": "23-2i\n"
       }
     ],
     "parsed_tests": [
       "('complexNumberMultiply', ('1+1i', '1+1i'), '0+2i\\n')",
-      "('complexNumberMultiply', ('5+0i', '3+0i'), '15+0i\\n')",
-      "('complexNumberMultiply', ('0+3i', '0+4i'), '-12+0i\\n')",
+      "('complexNumberMultiply', ('1+1i', '1-1i'), '2+0i\\n')",
+      "('complexNumberMultiply', ('1-1i', '1-1i'), '0-2i\\n')",
       "('complexNumberMultiply', ('0+0i', '5+5i'), '0+0i\\n')",
-      "('complexNumberMultiply', ('1+-1i', '1+1i'), '2+0i\\n')",
-      "('complexNumberMultiply', ('-3+4i', '2+5i'), '-26+-7i\\n')",
+      "('complexNumberMultiply', ('5+5i', '0+0i'), '0+0i\\n')",
+      "('complexNumberMultiply', ('0+5i', '0+5i'), '-25+0i\\n')",
+      "('complexNumberMultiply', ('5+0i', '5+0i'), '25+0i\\n')",
       "('complexNumberMultiply', ('100+100i', '100+100i'), '0+20000i\\n')",
-      "('complexNumberMultiply', ('-100+-100i', '-100+-100i'), '0+20000i\\n')",
-      "('complexNumberMultiply', ('100+-100i', '-100+100i'), '0+20000i\\n')",
-      "('complexNumberMultiply', ('-1+0i', '1+0i'), '-1+0i\\n')",
-      "('complexNumberMultiply', ('0+1i', '0+-1i'), '1+0i\\n')",
-      "('complexNumberMultiply', ('1+1i', '-1-1i'), '0+-2i\\n')"
+      "('complexNumberMultiply', ('-100-100i', '-100-100i'), '0+20000i\\n')",
+      "('complexNumberMultiply', ('100+100i', '-100-100i'), '0-20000i\\n')",
+      "('complexNumberMultiply', ('100-100i', '100+100i'), '20000+0i\\n')",
+      "('complexNumberMultiply', ('-100+100i', '-100-100i'), '20000+0i\\n')",
+      "('complexNumberMultiply', ('0+1i', '0-1i'), '1+0i\\n')",
+      "('complexNumberMultiply', ('0-1i', '0-1i'), '-1+0i\\n')",
+      "('complexNumberMultiply', ('1+0i', '0+1i'), '0+1i\\n')",
+      "('complexNumberMultiply', ('2+3i', '4+5i'), '-7+22i\\n')",
+      "('complexNumberMultiply', ('2-3i', '4+5i'), '23-2i\\n')",
+      "('complexNumberMultiply', ('2+3i', '4-5i'), '23+2i\\n')",
+      "('complexNumberMultiply', ('2-3i', '4-5i'), '-7-22i\\n')",
+      "('complexNumberMultiply', ('-2+3i', '-4-5i'), '23-2i\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: complexNumberMultiply('1+1i', '1+1i')\n  標準輸出: '0+2i\\n'\n  你的輸出: '0+2i'\n\n[測試#2] ❌ 失敗\n  標準輸入: complexNumberMultiply('5+0i', '3+0i')\n  標準輸出: '15+0i\\n'\n  你的輸出: '15+0i'\n\n[測試#3] ❌ 失敗\n  標準輸入: complexNumberMultiply('0+3i', '0+4i')\n  標準輸出: '-12+0i\\n'\n  你的輸出: '-12+0i'\n\n[測試#4] ❌ 失敗\n  標準輸入: complexNumberMultiply('0+0i', '5+5i')\n  標準輸出: '0+0i\\n'\n  你的輸出: '0+0i'\n\n[測試#5] ❌ 失敗\n  標準輸入: complexNumberMultiply('1+-1i', '1+1i')\n  標準輸出: '2+0i\\n'\n  你的輸出: '2+0i'\n\n[測試#6] ❌ 失敗\n  標準輸入: complexNumberMultiply('-3+4i', '2+5i')\n  標準輸出: '-26+-7i\\n'\n  你的輸出: '-26+-7i'\n\n[測試#7] ❌ 失敗\n  標準輸入: complexNumberMultiply('100+100i', '100+100i')\n  標準輸出: '0+20000i\\n'\n  你的輸出: '0+20000i'\n\n[測試#8] ❌ 失敗\n  標準輸入: complexNumberMultiply('-100+-100i', '-100+-100i')\n  標準輸出: '0+20000i\\n'\n  你的輸出: '0+20000i'\n\n[測試#9] ❌ 失敗\n  標準輸入: complexNumberMultiply('100+-100i', '-100+100i')\n  標準輸出: '0+20000i\\n'\n  你的輸出: '0+20000i'\n\n[測試#10] ❌ 失敗\n  標準輸入: complexNumberMultiply('-1+0i', '1+0i')\n  標準輸出: '-1+0i\\n'\n  你的輸出: '-1+0i'\n\n[測試#11] ❌ 失敗\n  標準輸入: complexNumberMultiply('0+1i', '0+-1i')\n  標準輸出: '1+0i\\n'\n  你的輸出: '1+0i'\n\n[測試#12] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: complexNumberMultiply('1+1i', '1+1i')\n  標準輸出: '0+2i\\n'\n  你的輸出: '0+2i'\n\n[測試#2] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#3] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#4] ❌ 失敗\n  標準輸入: complexNumberMultiply('0+0i', '5+5i')\n  標準輸出: '0+0i\\n'\n  你的輸出: '0+0i'\n\n[測試#5] ❌ 失敗\n  標準輸入: complexNumberMultiply('5+5i', '0+0i')\n  標準輸出: '0+0i\\n'\n  你的輸出: '0+0i'\n\n[測試#6] ❌ 失敗\n  標準輸入: complexNumberMultiply('0+5i', '0+5i')\n  標準輸出: '-25+0i\\n'\n  你的輸出: '-25+0i'\n\n[測試#7] ❌ 失敗\n  標準輸入: complexNumberMultiply('5+0i', '5+0i')\n  標準輸出: '25+0i\\n'\n  你的輸出: '25+0i'\n\n[測試#8] ❌ 失敗\n  標準輸入: complexNumberMultiply('100+100i', '100+100i')\n  標準輸出: '0+20000i\\n'\n  你的輸出: '0+20000i'\n\n[測試#9] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#10] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#11] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#12] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#13] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#14] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#15] ❌ 失敗\n  標準輸入: complexNumberMultiply('1+0i', '0+1i')\n  標準輸出: '0+1i\\n'\n  你的輸出: '0+1i'\n\n[測試#16] ❌ 失敗\n  標準輸入: complexNumberMultiply('2+3i', '4+5i')\n  標準輸出: '-7+22i\\n'\n  你的輸出: '-7+22i'\n\n[測試#17] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#18] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#19] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n[測試#20] ❌ 執行例外: not enough values to unpack (expected 2, got 1)\n=== 測試完成 (0/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 12,
+    "total_tests": 20,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

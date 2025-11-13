@@ -16,8 +16,108 @@
   },
   "experiment_result": {
     "success": false,
-    "error": "非 LeetCode 格式程式碼",
-    "generated_tests": [],
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "operations": [
+          "push 1",
+          "push 2",
+          "top",
+          "pop",
+          "empty",
+          "pop",
+          "empty"
+        ],
+        "expected": [
+          2,
+          2,
+          false,
+          1,
+          true
+        ]
+      },
+      {
+        "operations": [
+          "push 5",
+          "top",
+          "pop",
+          "empty"
+        ],
+        "expected": [
+          5,
+          5,
+          true
+        ]
+      },
+      {
+        "operations": [
+          "empty"
+        ],
+        "expected": [
+          true
+        ]
+      },
+      {
+        "operations": [
+          "push -1",
+          "push 0",
+          "push -2",
+          "top",
+          "pop",
+          "top",
+          "pop",
+          "top",
+          "pop",
+          "empty"
+        ],
+        "expected": [
+          -2,
+          -2,
+          0,
+          0,
+          -1,
+          -1,
+          true
+        ]
+      },
+      {
+        "operations": [
+          "push 1",
+          "push 2",
+          "push 3",
+          "push 4",
+          "push 5",
+          "top",
+          "pop",
+          "top",
+          "pop",
+          "empty"
+        ],
+        "expected": [
+          5,
+          5,
+          4,
+          4,
+          false
+        ]
+      },
+      {
+        "operations": [
+          "push 10",
+          "pop",
+          "empty",
+          "push 20",
+          "top",
+          "empty"
+        ],
+        "expected": [
+          10,
+          true,
+          20,
+          false
+        ]
+      }
+    ],
     "parsed_tests": [],
     "runlog": "",
     "all_passed": false,

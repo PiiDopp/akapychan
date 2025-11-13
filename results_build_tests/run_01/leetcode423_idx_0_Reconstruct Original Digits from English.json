@@ -1,0 +1,93 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode423.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reconstruct Original Digits from English",
+    "description": "Given a string s containing an out-of-order English representation of digits 0-9, return the digits in ascending order.",
+    "examples": [
+      {
+        "input": "s = \"owoztneoer\"",
+        "output": "\"012\""
+      },
+      {
+        "input": "s = \"fviefuro\"",
+        "output": "\"45\""
+      }
+    ],
+    "solution": "class Solution:\n    def originalDigits(self, s):\n        from collections import Counter\n        count = Counter(s)\n        out = {}\n        \n        out['0'] = count['z']\n        out['2'] = count['w']\n        out['4'] = count['u']\n        out['6'] = count['x']\n        out['8'] = count['g']\n        \n        out['3'] = count['h'] - out['8']\n        out['5'] = count['f'] - out['4']\n        out['7'] = count['s'] - out['6']\n        \n        out['1'] = count['o'] - out['0'] - out['2'] - out['4']\n        out['9'] = count['i'] - out['5'] - out['6'] - out['8']\n        \n        res = [k * out[k] for k in sorted(out.keys())]\n        return ''.join(res)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "owoztneoer\n",
+        "output": "012\n"
+      },
+      {
+        "input": "fviefuro\n",
+        "output": "45\n"
+      },
+      {
+        "input": "zerozerozero\n",
+        "output": "000\n"
+      },
+      {
+        "input": "nineninenine\n",
+        "output": "999\n"
+      },
+      {
+        "input": "oneoneone\n",
+        "output": "111\n"
+      },
+      {
+        "input": "zeroonetwo\n",
+        "output": "012\n"
+      },
+      {
+        "input": "eight\n",
+        "output": "8\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "zeroonezeroone\n",
+        "output": "0011\n"
+      },
+      {
+        "input": "sevensevenseven\n",
+        "output": "777\n"
+      },
+      {
+        "input": "zeroonetwothreefourfivesixseveneightnine\n",
+        "output": "0123456789\n"
+      },
+      {
+        "input": "niesevehrtfeev\n",
+        "output": "357\n"
+      }
+    ],
+    "parsed_tests": [
+      "('originalDigits', ('owoztneoer\\n',), '012\\n')",
+      "('originalDigits', ('fviefuro\\n',), 45)",
+      "('originalDigits', ('zerozerozero\\n',), 0)",
+      "('originalDigits', ('nineninenine\\n',), 999)",
+      "('originalDigits', ('oneoneone\\n',), 111)",
+      "('originalDigits', ('zeroonetwo\\n',), '012\\n')",
+      "('originalDigits', ('eight\\n',), 8)",
+      "('originalDigits', ((),), '\\n')",
+      "('originalDigits', ('zeroonezeroone\\n',), '0011\\n')",
+      "('originalDigits', ('sevensevenseven\\n',), 777)",
+      "('originalDigits', ('zeroonetwothreefourfivesixseveneightnine\\n',), '0123456789\\n')",
+      "('originalDigits', ('niesevehrtfeev\\n',), 357)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: originalDigits('owoztneoer\\n',)\n  標準輸出: '012\\n'\n  你的輸出: '012'\n\n[測試#2] ❌ 失敗\n  標準輸入: originalDigits('fviefuro\\n',)\n  標準輸出: 45\n  你的輸出: '45'\n\n[測試#3] ❌ 失敗\n  標準輸入: originalDigits('zerozerozero\\n',)\n  標準輸出: 0\n  你的輸出: '000'\n\n[測試#4] ❌ 失敗\n  標準輸入: originalDigits('nineninenine\\n',)\n  標準輸出: 999\n  你的輸出: '999'\n\n[測試#5] ❌ 失敗\n  標準輸入: originalDigits('oneoneone\\n',)\n  標準輸出: 111\n  你的輸出: '111'\n\n[測試#6] ❌ 失敗\n  標準輸入: originalDigits('zeroonetwo\\n',)\n  標準輸出: '012\\n'\n  你的輸出: '012'\n\n[測試#7] ❌ 失敗\n  標準輸入: originalDigits('eight\\n',)\n  標準輸出: 8\n  你的輸出: '8'\n\n[測試#8] ❌ 失敗\n  標準輸入: originalDigits((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#9] ❌ 失敗\n  標準輸入: originalDigits('zeroonezeroone\\n',)\n  標準輸出: '0011\\n'\n  你的輸出: '0011'\n\n[測試#10] ❌ 失敗\n  標準輸入: originalDigits('sevensevenseven\\n',)\n  標準輸出: 777\n  你的輸出: '777'\n\n[測試#11] ❌ 失敗\n  標準輸入: originalDigits('zeroonetwothreefourfivesixseveneightnine\\n',)\n  標準輸出: '0123456789\\n'\n  你的輸出: '0123456789'\n\n[測試#12] ❌ 失敗\n  標準輸入: originalDigits('niesevehrtfeev\\n',)\n  標準輸出: 357\n  你的輸出: '357'\n\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

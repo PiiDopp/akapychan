@@ -47,11 +47,11 @@
         "output": "True\n"
       },
       {
-        "input": "7\n",
-        "output": "False\n"
+        "input": "10\n",
+        "output": "True\n"
       },
       {
-        "input": "10\n",
+        "input": "13\n",
         "output": "True\n"
       },
       {
@@ -67,11 +67,15 @@
         "output": "True\n"
       },
       {
-        "input": "1000000000\n",
+        "input": "2147483647\n",
         "output": "False\n"
       },
       {
-        "input": "2147483647\n",
+        "input": "2147483648\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2147483649\n",
         "output": "False\n"
       },
       {
@@ -79,8 +83,20 @@
         "output": "True\n"
       },
       {
-        "input": "999999999999\n",
+        "input": "1000000000001\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1000000000002\n",
         "output": "False\n"
+      },
+      {
+        "input": "1000000000003\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1000000000004\n",
+        "output": "True\n"
       }
     ],
     "parsed_tests": [
@@ -90,20 +106,24 @@
       "('judgeSquareSum', (3,), False)",
       "('judgeSquareSum', (4,), True)",
       "('judgeSquareSum', (5,), True)",
-      "('judgeSquareSum', (7,), False)",
       "('judgeSquareSum', (10,), True)",
+      "('judgeSquareSum', (13,), True)",
       "('judgeSquareSum', (25,), True)",
       "('judgeSquareSum', (50,), True)",
       "('judgeSquareSum', (65,), True)",
-      "('judgeSquareSum', (1000000000,), False)",
       "('judgeSquareSum', (2147483647,), False)",
+      "('judgeSquareSum', (2147483648,), False)",
+      "('judgeSquareSum', (2147483649,), False)",
       "('judgeSquareSum', (1000000000000,), True)",
-      "('judgeSquareSum', (999999999999,), False)"
+      "('judgeSquareSum', (1000000000001,), True)",
+      "('judgeSquareSum', (1000000000002,), False)",
+      "('judgeSquareSum', (1000000000003,), False)",
+      "('judgeSquareSum', (1000000000004,), True)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: judgeSquareSum(0,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: judgeSquareSum(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: judgeSquareSum(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: judgeSquareSum(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: judgeSquareSum(4,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: judgeSquareSum(5,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: judgeSquareSum(7,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: judgeSquareSum(10,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: judgeSquareSum(25,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: judgeSquareSum(50,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: judgeSquareSum(65,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ❌ 失敗\n  標準輸入: judgeSquareSum(1000000000,)\n  標準輸出: False\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: judgeSquareSum(2147483647,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: judgeSquareSum(1000000000000,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: judgeSquareSum(999999999999,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (14/15) ===\n[警告] 部分測資未通過 ❌（0.0693s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: judgeSquareSum(0,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: judgeSquareSum(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: judgeSquareSum(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: judgeSquareSum(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: judgeSquareSum(4,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: judgeSquareSum(5,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: judgeSquareSum(10,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: judgeSquareSum(13,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: judgeSquareSum(25,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: judgeSquareSum(50,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: judgeSquareSum(65,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: judgeSquareSum(2147483647,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ❌ 失敗\n  標準輸入: judgeSquareSum(2147483648,)\n  標準輸出: False\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: judgeSquareSum(2147483649,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: judgeSquareSum(1000000000000,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: judgeSquareSum(1000000000001,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: judgeSquareSum(1000000000002,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ✅ 通過\n  標準輸入: judgeSquareSum(1000000000003,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#19] ✅ 通過\n  標準輸入: judgeSquareSum(1000000000004,)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (18/19) ===\n[警告] 部分測資未通過 ❌（0.1440s）\n",
     "all_passed": false,
-    "total_tests": 15,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 19,
+    "passed_count": 18,
+    "accuracy_rate": 0.9473684210526315
   }
 }

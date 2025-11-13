@@ -27,58 +27,108 @@
         "output": "['mee', 'aqq']\n"
       },
       {
-        "input": "[['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'xyz']\n",
+        "input": "[['abc', 'def'], 'xyz']\n",
         "output": "[]\n"
       },
       {
-        "input": "[['a', 'ab', 'abc'], 'a']\n",
-        "output": "['a']\n"
+        "input": "[['ab', 'abc', 'a'], 'ab']\n",
+        "output": "['ab']\n"
       },
       {
-        "input": "[['bb', 'cc', 'dd'], 'aa']\n",
-        "output": "['bb', 'cc', 'dd']\n"
+        "input": "[['foo', 'bar', 'paper', 'title'], 'abb']\n",
+        "output": "['foo']\n"
       },
       {
-        "input": "[['aa', 'bb'], 'ab']\n",
+        "input": "[['abc', 'aba'], 'abc']\n",
+        "output": "['abc']\n"
+      },
+      {
+        "input": "[['', 'a', ''], '']\n",
+        "output": "['', '']\n"
+      },
+      {
+        "input": "[['a', 'b'], '']\n",
         "output": "[]\n"
       },
       {
-        "input": "[['def', 'ghi', 'xyz'], 'abc']\n",
-        "output": "['def', 'ghi', 'xyz']\n"
-      },
-      {
-        "input": "[[], 'a']\n",
+        "input": "[['a', 'ab'], 'abc']\n",
         "output": "[]\n"
       },
       {
-        "input": "[['a', 'b', 'c'], '']\n",
+        "input": "[['aba', 'baa'], 'abb']\n",
+        "output": "['baa']\n"
+      },
+      {
+        "input": "[['bbb', 'abc', 'aaa', 'aab'], 'aaa']\n",
+        "output": "['bbb', 'aaa']\n"
+      },
+      {
+        "input": "[[], 'abc']\n",
         "output": "[]\n"
       },
       {
-        "input": "[['', 'a', 'b'], '']\n",
-        "output": "['']\n"
+        "input": "[['b', 'c', 'a', 'aa'], 'a']\n",
+        "output": "['b', 'c', 'a']\n"
       },
       {
-        "input": "[['ab', 'cd'], 'abc']\n",
+        "input": "[['aa', 'bb', 'ab', 'ba'], 'ab']\n",
+        "output": "['ab', 'ba']\n"
+      },
+      {
+        "input": "[['aa', 'bb', 'ab', 'ba'], 'aa']\n",
+        "output": "['aa', 'bb']\n"
+      },
+      {
+        "input": "[['abc', 'acb', 'bac', 'bca', 'cab', 'cba'], 'abc']\n",
+        "output": "['abc', 'acb', 'bac', 'bca', 'cab', 'cba']\n"
+      },
+      {
+        "input": "[['abc', 'aba', 'baa', 'aab', 'abb', 'bab'], 'aba']\n",
+        "output": "['aba', 'baa']\n"
+      },
+      {
+        "input": "[['abc', 'aaa', 'bbb', 'aba'], 'aaa']\n",
+        "output": "['aaa', 'bbb']\n"
+      },
+      {
+        "input": "[['abc', 'abc', 'def'], 'abc']\n",
+        "output": "['abc', 'abc', 'def']\n"
+      },
+      {
+        "input": "[['abc', 'def', 'abc', 'def'], 'abc']\n",
+        "output": "['abc', 'def', 'abc', 'def']\n"
+      },
+      {
+        "input": "[['abc', 'def', 'abc', 'def'], 'xyz']\n",
         "output": "[]\n"
       }
     ],
     "parsed_tests": [
       "('findAndReplacePattern', (['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'abb'), ['mee', 'aqq'])",
-      "('findAndReplacePattern', (['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'xyz'), [])",
-      "('findAndReplacePattern', (['a', 'ab', 'abc'], 'a'), ['a'])",
-      "('findAndReplacePattern', (['bb', 'cc', 'dd'], 'aa'), ['bb', 'cc', 'dd'])",
-      "('findAndReplacePattern', (['aa', 'bb'], 'ab'), [])",
-      "('findAndReplacePattern', (['def', 'ghi', 'xyz'], 'abc'), ['def', 'ghi', 'xyz'])",
-      "('findAndReplacePattern', ([], 'a'), [])",
-      "('findAndReplacePattern', (['a', 'b', 'c'], ''), [])",
-      "('findAndReplacePattern', (['', 'a', 'b'], ''), [''])",
-      "('findAndReplacePattern', (['ab', 'cd'], 'abc'), [])"
+      "('findAndReplacePattern', (['abc', 'def'], 'xyz'), [])",
+      "('findAndReplacePattern', (['ab', 'abc', 'a'], 'ab'), ['ab'])",
+      "('findAndReplacePattern', (['foo', 'bar', 'paper', 'title'], 'abb'), ['foo'])",
+      "('findAndReplacePattern', (['abc', 'aba'], 'abc'), ['abc'])",
+      "('findAndReplacePattern', (['', 'a', ''], ''), ['', ''])",
+      "('findAndReplacePattern', (['a', 'b'], ''), [])",
+      "('findAndReplacePattern', (['a', 'ab'], 'abc'), [])",
+      "('findAndReplacePattern', (['aba', 'baa'], 'abb'), ['baa'])",
+      "('findAndReplacePattern', (['bbb', 'abc', 'aaa', 'aab'], 'aaa'), ['bbb', 'aaa'])",
+      "('findAndReplacePattern', ([], 'abc'), [])",
+      "('findAndReplacePattern', (['b', 'c', 'a', 'aa'], 'a'), ['b', 'c', 'a'])",
+      "('findAndReplacePattern', (['aa', 'bb', 'ab', 'ba'], 'ab'), ['ab', 'ba'])",
+      "('findAndReplacePattern', (['aa', 'bb', 'ab', 'ba'], 'aa'), ['aa', 'bb'])",
+      "('findAndReplacePattern', (['abc', 'acb', 'bac', 'bca', 'cab', 'cba'], 'abc'), ['abc', 'acb', 'bac', 'bca', 'cab', 'cba'])",
+      "('findAndReplacePattern', (['abc', 'aba', 'baa', 'aab', 'abb', 'bab'], 'aba'), ['aba', 'baa'])",
+      "('findAndReplacePattern', (['abc', 'aaa', 'bbb', 'aba'], 'aaa'), ['aaa', 'bbb'])",
+      "('findAndReplacePattern', (['abc', 'abc', 'def'], 'abc'), ['abc', 'abc', 'def'])",
+      "('findAndReplacePattern', (['abc', 'def', 'abc', 'def'], 'abc'), ['abc', 'def', 'abc', 'def'])",
+      "('findAndReplacePattern', (['abc', 'def', 'abc', 'def'], 'xyz'), [])"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findAndReplacePattern(['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'abb')\n  標準輸出: ['mee', 'aqq']\n  你的輸出: ['mee', 'aqq']\n\n[測試#2] ❌ 失敗\n  標準輸入: findAndReplacePattern(['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'xyz')\n  標準輸出: []\n  你的輸出: ['abc', 'deq']\n\n[測試#3] ✅ 通過\n  標準輸入: findAndReplacePattern(['a', 'ab', 'abc'], 'a')\n  標準輸出: ['a']\n  你的輸出: ['a']\n\n[測試#4] ✅ 通過\n  標準輸入: findAndReplacePattern(['bb', 'cc', 'dd'], 'aa')\n  標準輸出: ['bb', 'cc', 'dd']\n  你的輸出: ['bb', 'cc', 'dd']\n\n[測試#5] ✅ 通過\n  標準輸入: findAndReplacePattern(['aa', 'bb'], 'ab')\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: findAndReplacePattern(['def', 'ghi', 'xyz'], 'abc')\n  標準輸出: ['def', 'ghi', 'xyz']\n  你的輸出: ['def', 'ghi', 'xyz']\n\n[測試#7] ✅ 通過\n  標準輸入: findAndReplacePattern([], 'a')\n  標準輸出: []\n  你的輸出: []\n\n[測試#8] ✅ 通過\n  標準輸入: findAndReplacePattern(['a', 'b', 'c'], '')\n  標準輸出: []\n  你的輸出: []\n\n[測試#9] ✅ 通過\n  標準輸入: findAndReplacePattern(['', 'a', 'b'], '')\n  標準輸出: ['']\n  你的輸出: ['']\n\n[測試#10] ✅ 通過\n  標準輸入: findAndReplacePattern(['ab', 'cd'], 'abc')\n  標準輸出: []\n  你的輸出: []\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findAndReplacePattern(['abc', 'deq', 'mee', 'aqq', 'dkd', 'ccc'], 'abb')\n  標準輸出: ['mee', 'aqq']\n  你的輸出: ['mee', 'aqq']\n\n[測試#2] ❌ 失敗\n  標準輸入: findAndReplacePattern(['abc', 'def'], 'xyz')\n  標準輸出: []\n  你的輸出: ['abc', 'def']\n\n[測試#3] ✅ 通過\n  標準輸入: findAndReplacePattern(['ab', 'abc', 'a'], 'ab')\n  標準輸出: ['ab']\n  你的輸出: ['ab']\n\n[測試#4] ✅ 通過\n  標準輸入: findAndReplacePattern(['foo', 'bar', 'paper', 'title'], 'abb')\n  標準輸出: ['foo']\n  你的輸出: ['foo']\n\n[測試#5] ✅ 通過\n  標準輸入: findAndReplacePattern(['abc', 'aba'], 'abc')\n  標準輸出: ['abc']\n  你的輸出: ['abc']\n\n[測試#6] ✅ 通過\n  標準輸入: findAndReplacePattern(['', 'a', ''], '')\n  標準輸出: ['', '']\n  你的輸出: ['', '']\n\n[測試#7] ✅ 通過\n  標準輸入: findAndReplacePattern(['a', 'b'], '')\n  標準輸出: []\n  你的輸出: []\n\n[測試#8] ✅ 通過\n  標準輸入: findAndReplacePattern(['a', 'ab'], 'abc')\n  標準輸出: []\n  你的輸出: []\n\n[測試#9] ✅ 通過\n  標準輸入: findAndReplacePattern(['aba', 'baa'], 'abb')\n  標準輸出: ['baa']\n  你的輸出: ['baa']\n\n[測試#10] ✅ 通過\n  標準輸入: findAndReplacePattern(['bbb', 'abc', 'aaa', 'aab'], 'aaa')\n  標準輸出: ['bbb', 'aaa']\n  你的輸出: ['bbb', 'aaa']\n\n[測試#11] ✅ 通過\n  標準輸入: findAndReplacePattern([], 'abc')\n  標準輸出: []\n  你的輸出: []\n\n[測試#12] ✅ 通過\n  標準輸入: findAndReplacePattern(['b', 'c', 'a', 'aa'], 'a')\n  標準輸出: ['b', 'c', 'a']\n  你的輸出: ['b', 'c', 'a']\n\n[測試#13] ✅ 通過\n  標準輸入: findAndReplacePattern(['aa', 'bb', 'ab', 'ba'], 'ab')\n  標準輸出: ['ab', 'ba']\n  你的輸出: ['ab', 'ba']\n\n[測試#14] ✅ 通過\n  標準輸入: findAndReplacePattern(['aa', 'bb', 'ab', 'ba'], 'aa')\n  標準輸出: ['aa', 'bb']\n  你的輸出: ['aa', 'bb']\n\n[測試#15] ✅ 通過\n  標準輸入: findAndReplacePattern(['abc', 'acb', 'bac', 'bca', 'cab', 'cba'], 'abc')\n  標準輸出: ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']\n  你的輸出: ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']\n\n[測試#16] ❌ 失敗\n  標準輸入: findAndReplacePattern(['abc', 'aba', 'baa', 'aab', 'abb', 'bab'], 'aba')\n  標準輸出: ['aba', 'baa']\n  你的輸出: ['aba', 'bab']\n\n[測試#17] ✅ 通過\n  標準輸入: findAndReplacePattern(['abc', 'aaa', 'bbb', 'aba'], 'aaa')\n  標準輸出: ['aaa', 'bbb']\n  你的輸出: ['aaa', 'bbb']\n\n[測試#18] ✅ 通過\n  標準輸入: findAndReplacePattern(['abc', 'abc', 'def'], 'abc')\n  標準輸出: ['abc', 'abc', 'def']\n  你的輸出: ['abc', 'abc', 'def']\n\n[測試#19] ✅ 通過\n  標準輸入: findAndReplacePattern(['abc', 'def', 'abc', 'def'], 'abc')\n  標準輸出: ['abc', 'def', 'abc', 'def']\n  你的輸出: ['abc', 'def', 'abc', 'def']\n\n[測試#20] ❌ 失敗\n  標準輸入: findAndReplacePattern(['abc', 'def', 'abc', 'def'], 'xyz')\n  標準輸出: []\n  你的輸出: ['abc', 'def', 'abc', 'def']\n\n=== 測試完成 (17/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 20,
+    "passed_count": 17,
+    "accuracy_rate": 0.85
   }
 }

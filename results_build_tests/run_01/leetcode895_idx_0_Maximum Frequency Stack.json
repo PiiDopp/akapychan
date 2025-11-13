@@ -16,8 +16,154 @@
   },
   "experiment_result": {
     "success": false,
-    "error": "非 LeetCode 格式程式碼",
-    "generated_tests": [],
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "operations": [
+          "push",
+          "push",
+          "push",
+          "pop"
+        ],
+        "args": [
+          1,
+          2,
+          1
+        ],
+        "expected": [
+          1
+        ]
+      },
+      {
+        "operations": [
+          "push",
+          "push",
+          "push",
+          "push",
+          "pop",
+          "pop"
+        ],
+        "args": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "expected": [
+          2,
+          1
+        ]
+      },
+      {
+        "operations": [
+          "push",
+          "push",
+          "push",
+          "push",
+          "push",
+          "pop",
+          "pop",
+          "pop",
+          "pop"
+        ],
+        "args": [
+          3,
+          3,
+          4,
+          4,
+          4
+        ],
+        "expected": [
+          4,
+          4,
+          3,
+          3
+        ]
+      },
+      {
+        "operations": [
+          "push",
+          "push",
+          "push",
+          "push",
+          "pop",
+          "push",
+          "pop",
+          "pop"
+        ],
+        "args": [
+          -1,
+          -1,
+          0,
+          0
+        ],
+        "expected": [
+          0,
+          -1,
+          0
+        ]
+      },
+      {
+        "operations": [
+          "push",
+          "push",
+          "push",
+          "push",
+          "push",
+          "push",
+          "pop",
+          "pop",
+          "pop",
+          "pop",
+          "pop",
+          "pop"
+        ],
+        "args": [
+          5,
+          5,
+          5,
+          6,
+          6,
+          6
+        ],
+        "expected": [
+          6,
+          6,
+          5,
+          5,
+          6,
+          5
+        ]
+      },
+      {
+        "operations": [
+          "push",
+          "push",
+          "push",
+          "push",
+          "push",
+          "pop",
+          "pop",
+          "pop",
+          "pop",
+          "pop"
+        ],
+        "args": [
+          10,
+          20,
+          10,
+          20,
+          10
+        ],
+        "expected": [
+          10,
+          20,
+          10,
+          20,
+          10
+        ]
+      }
+    ],
     "parsed_tests": [],
     "runlog": "",
     "all_passed": false,

@@ -25,65 +25,13 @@
     "solution": "class Solution(object):\n    def splitIntoFibonacci(self, num):\n        res = []\n        \n        def backtrack(index):\n            if index == len(num) and len(res) >= 3:\n                return True\n            curr_num = 0\n            for i in range(index, len(num)):\n                if i > index and num[index] == '0':\n                    break\n                curr_num = curr_num * 10 + int(num[i])\n                if curr_num > 2**31 - 1:\n                    break\n                if len(res) >= 2 and curr_num != res[-1] + res[-2]:\n                    if curr_num > res[-1] + res[-2]:\n                        break\n                    else:\n                        continue\n                res.append(curr_num)\n                if backtrack(i + 1):\n                    return True\n                res.pop()\n            return False\n        \n        if backtrack(0):\n            return res\n        return []"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "123456579\n",
-        "output": "[123, 456, 579]\n"
-      },
-      {
-        "input": "011235\n",
-        "output": "[0, 1, 1, 2, 3, 5]\n"
-      },
-      {
-        "input": "21474836472147483647\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "123\n",
-        "output": "[1, 2, 3]\n"
-      },
-      {
-        "input": "123456\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "0000\n",
-        "output": "[0, 0, 0, 0]\n"
-      },
-      {
-        "input": "11235813\n",
-        "output": "[1, 1, 2, 3, 5, 8, 13]\n"
-      },
-      {
-        "input": "101\n",
-        "output": "[1, 0, 1]\n"
-      },
-      {
-        "input": "0\n",
-        "output": "[]\n"
-      },
-      {
-        "input": "010203\n",
-        "output": "[]\n"
-      }
-    ],
-    "parsed_tests": [
-      "('splitIntoFibonacci', (123456579,), [123, 456, 579])",
-      "('splitIntoFibonacci', ('011235\\n',), [0, 1, 1, 2, 3, 5])",
-      "('splitIntoFibonacci', (21474836472147483647,), [])",
-      "('splitIntoFibonacci', (123,), [1, 2, 3])",
-      "('splitIntoFibonacci', (123456,), [])",
-      "('splitIntoFibonacci', (0,), [0, 0, 0, 0])",
-      "('splitIntoFibonacci', (11235813,), [1, 1, 2, 3, 5, 8, 13])",
-      "('splitIntoFibonacci', (101,), [1, 0, 1])",
-      "('splitIntoFibonacci', (0,), [])",
-      "('splitIntoFibonacci', ('010203\\n',), [])"
-    ],
-    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: invalid literal for int() with base 10: '\\n'\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: object of type 'int' has no len()\n[測試#9] ❌ 執行例外: object of type 'int' has no len()\n[測試#10] ❌ 執行例外: invalid literal for int() with base 10: '\\n'\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
     "all_passed": false,
-    "total_tests": 10,
+    "total_tests": 0,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

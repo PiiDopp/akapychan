@@ -33,58 +33,58 @@
         "output": "[1, 2, -1]\n"
       },
       {
-        "input": "3 4\n2 3\n1 2\n",
-        "output": "[-1, 0, 1]\n"
+        "input": "-5 0\n",
+        "output": "[-1]\n"
       },
       {
-        "input": "-10 -5\n0 1\n5 10\n",
-        "output": "[1, 2, -1]\n"
+        "input": "1 1\n2 3\n",
+        "output": "[0, -1]\n"
+      },
+      {
+        "input": "-10 -5\n-3 0\n1 2\n",
+        "output": "[1, -1, -1]\n"
       },
       {
         "input": "1 4\n2 3\n3 5\n",
         "output": "[-1, 2, -1]\n"
       },
       {
-        "input": "1 2\n",
-        "output": "[-1]\n"
-      },
-      {
-        "input": "1 3\n2 4\n3 5\n4 6\n",
-        "output": "[2, 3, -1, -1]\n"
-      },
-      {
-        "input": "1 10\n2 3\n4 5\n6 7\n8 9\n",
-        "output": "[-1, 2, 3, 4, -1]\n"
-      },
-      {
         "input": "1000000 2000000\n1500000 2500000\n3000000 4000000\n",
-        "output": "[2, 2, -1]\n"
+        "output": "[2, -1, -1]\n"
       },
       {
-        "input": "-5 0\n0 5\n5 10\n",
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1 2\n2 3\n3 4\n",
         "output": "[1, 2, -1]\n"
       },
       {
-        "input": "1 5\n2 6\n3 7\n",
-        "output": "[-1, -1, -1]\n"
+        "input": "5 6\n1 2\n3 4\n",
+        "output": "[-1, 2, -1]\n"
+      },
+      {
+        "input": "1 2\n4 5\n3 4\n",
+        "output": "[2, -1, 1]\n"
       }
     ],
     "parsed_tests": [
       "('findRightInterval', ('1 2\\n3 4\\n5 6\\n',), [1, 2, -1])",
-      "('findRightInterval', ('3 4\\n2 3\\n1 2\\n',), [-1, 0, 1])",
-      "('findRightInterval', ('-10 -5\\n0 1\\n5 10\\n',), [1, 2, -1])",
+      "('findRightInterval', ('-5 0\\n',), [-1])",
+      "('findRightInterval', ('1 1\\n2 3\\n',), [0, -1])",
+      "('findRightInterval', ('-10 -5\\n-3 0\\n1 2\\n',), [1, -1, -1])",
       "('findRightInterval', ('1 4\\n2 3\\n3 5\\n',), [-1, 2, -1])",
-      "('findRightInterval', ('1 2\\n',), [-1])",
-      "('findRightInterval', ('1 3\\n2 4\\n3 5\\n4 6\\n',), [2, 3, -1, -1])",
-      "('findRightInterval', ('1 10\\n2 3\\n4 5\\n6 7\\n8 9\\n',), [-1, 2, 3, 4, -1])",
-      "('findRightInterval', ('1000000 2000000\\n1500000 2500000\\n3000000 4000000\\n',), [2, 2, -1])",
-      "('findRightInterval', ('-5 0\\n0 5\\n5 10\\n',), [1, 2, -1])",
-      "('findRightInterval', ('1 5\\n2 6\\n3 7\\n',), [-1, -1, -1])"
+      "('findRightInterval', ('1000000 2000000\\n1500000 2500000\\n3000000 4000000\\n',), [2, -1, -1])",
+      "('findRightInterval', ((),), [])",
+      "('findRightInterval', ('1 2\\n2 3\\n3 4\\n',), [1, 2, -1])",
+      "('findRightInterval', ('5 6\\n1 2\\n3 4\\n',), [-1, 2, -1])",
+      "('findRightInterval', ('1 2\\n4 5\\n3 4\\n',), [2, -1, 1])"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: string index out of range\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ❌ 執行例外: string index out of range\n[測試#4] ❌ 執行例外: string index out of range\n[測試#5] ❌ 執行例外: string index out of range\n[測試#6] ❌ 執行例外: string index out of range\n[測試#7] ❌ 執行例外: string index out of range\n[測試#8] ❌ 執行例外: string index out of range\n[測試#9] ❌ 執行例外: string index out of range\n[測試#10] ❌ 執行例外: string index out of range\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 執行例外: string index out of range\n[測試#2] ❌ 執行例外: string index out of range\n[測試#3] ❌ 執行例外: string index out of range\n[測試#4] ❌ 執行例外: string index out of range\n[測試#5] ❌ 執行例外: string index out of range\n[測試#6] ❌ 執行例外: string index out of range\n[測試#7] ✅ 通過\n  標準輸入: findRightInterval((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#8] ❌ 執行例外: string index out of range\n[測試#9] ❌ 執行例外: string index out of range\n[測試#10] ❌ 執行例外: string index out of range\n=== 測試完成 (1/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
     "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 1,
+    "accuracy_rate": 0.1
   }
 }

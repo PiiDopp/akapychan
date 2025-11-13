@@ -28,93 +28,158 @@
         "output": "1\n"
       },
       {
-        "input": "10\n[2, 7, 13, 19]\n",
-        "output": "26\n"
-      },
-      {
-        "input": "12\n[2, 7, 13, 19]\n",
-        "output": "32\n"
-      },
-      {
-        "input": "15\n[3, 5, 7]\n",
-        "output": "81\n"
-      },
-      {
-        "input": "5\n[2]\n",
-        "output": "16\n"
-      },
-      {
-        "input": "7\n[2, 3]\n",
-        "output": "9\n"
-      },
-      {
-        "input": "100\n[2, 3, 5]\n",
-        "output": "1536\n"
-      },
-      {
-        "input": "150\n[2, 3, 5]\n",
-        "output": "859963392\n"
-      },
-      {
-        "input": "10\n[5, 2, 3]\n",
-        "output": "26\n"
-      },
-      {
-        "input": "5\n[2, 2, 3]\n",
-        "output": "6\n"
-      },
-      {
-        "input": "4\n[3, 5, 3]\n",
-        "output": "9\n"
-      },
-      {
-        "input": "5\n[13, 17, 19]\n",
-        "output": "169\n"
-      },
-      {
-        "input": "1\n[2]\n",
-        "output": "1\n"
-      },
-      {
-        "input": "1\n[3]\n",
-        "output": "1\n"
+        "input": "2\n[2, 3, 5]\n",
+        "output": "2\n"
       },
       {
         "input": "3\n[2, 3, 5]\n",
         "output": "3\n"
       },
       {
-        "input": "5\n[9973]\n",
-        "output": "99460729\n"
+        "input": "4\n[2, 3, 5]\n",
+        "output": "4\n"
       },
       {
-        "input": "5\n[2, 9973]\n",
+        "input": "5\n[2, 3, 5]\n",
+        "output": "5\n"
+      },
+      {
+        "input": "6\n[2, 3, 5]\n",
+        "output": "6\n"
+      },
+      {
+        "input": "7\n[2, 3, 5]\n",
         "output": "8\n"
+      },
+      {
+        "input": "8\n[2, 3, 5]\n",
+        "output": "9\n"
+      },
+      {
+        "input": "9\n[2, 3, 5]\n",
+        "output": "10\n"
+      },
+      {
+        "input": "10\n[2, 3, 5]\n",
+        "output": "12\n"
+      },
+      {
+        "input": "10\n[2, 3]\n",
+        "output": "18\n"
+      },
+      {
+        "input": "10\n[2]\n",
+        "output": "512\n"
+      },
+      {
+        "input": "10\n[3]\n",
+        "output": "19683\n"
+      },
+      {
+        "input": "10\n[5]\n",
+        "output": "1953125\n"
+      },
+      {
+        "input": "10\n[5, 2, 3]\n",
+        "output": "12\n"
+      },
+      {
+        "input": "10\n[2, 2, 3]\n",
+        "output": "18\n"
+      },
+      {
+        "input": "10\n[3, 3, 5]\n",
+        "output": "81\n"
+      },
+      {
+        "input": "10\n[2, 3, 5, 5]\n",
+        "output": "12\n"
+      },
+      {
+        "input": "100\n[2, 3, 5]\n",
+        "output": "1536\n"
+      },
+      {
+        "input": "1000\n[2, 3, 5]\n",
+        "output": "512000\n"
+      },
+      {
+        "input": "1\n[13, 17]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n[13, 17]\n",
+        "output": "13\n"
+      },
+      {
+        "input": "3\n[13, 17]\n",
+        "output": "17\n"
+      },
+      {
+        "input": "4\n[13, 17]\n",
+        "output": "169\n"
+      },
+      {
+        "input": "5\n[13, 17]\n",
+        "output": "221\n"
+      },
+      {
+        "input": "6\n[13, 17]\n",
+        "output": "289\n"
+      },
+      {
+        "input": "7\n[13, 17]\n",
+        "output": "2197\n"
+      },
+      {
+        "input": "8\n[13, 17]\n",
+        "output": "2851\n"
+      },
+      {
+        "input": "9\n[13, 17]\n",
+        "output": "3713\n"
+      },
+      {
+        "input": "10\n[13, 17]\n",
+        "output": "28561\n"
       }
     ],
     "parsed_tests": [
       "('nthSuperUglyNumber', (1, [2, 3, 5]), 1)",
-      "('nthSuperUglyNumber', (10, [2, 7, 13, 19]), 26)",
-      "('nthSuperUglyNumber', (12, [2, 7, 13, 19]), 32)",
-      "('nthSuperUglyNumber', (15, [3, 5, 7]), 81)",
-      "('nthSuperUglyNumber', (5, [2]), 16)",
-      "('nthSuperUglyNumber', (7, [2, 3]), 9)",
-      "('nthSuperUglyNumber', (100, [2, 3, 5]), 1536)",
-      "('nthSuperUglyNumber', (150, [2, 3, 5]), 859963392)",
-      "('nthSuperUglyNumber', (10, [5, 2, 3]), 26)",
-      "('nthSuperUglyNumber', (5, [2, 2, 3]), 6)",
-      "('nthSuperUglyNumber', (4, [3, 5, 3]), 9)",
-      "('nthSuperUglyNumber', (5, [13, 17, 19]), 169)",
-      "('nthSuperUglyNumber', (1, [2]), 1)",
-      "('nthSuperUglyNumber', (1, [3]), 1)",
+      "('nthSuperUglyNumber', (2, [2, 3, 5]), 2)",
       "('nthSuperUglyNumber', (3, [2, 3, 5]), 3)",
-      "('nthSuperUglyNumber', (5, [9973]), 99460729)",
-      "('nthSuperUglyNumber', (5, [2, 9973]), 8)"
+      "('nthSuperUglyNumber', (4, [2, 3, 5]), 4)",
+      "('nthSuperUglyNumber', (5, [2, 3, 5]), 5)",
+      "('nthSuperUglyNumber', (6, [2, 3, 5]), 6)",
+      "('nthSuperUglyNumber', (7, [2, 3, 5]), 8)",
+      "('nthSuperUglyNumber', (8, [2, 3, 5]), 9)",
+      "('nthSuperUglyNumber', (9, [2, 3, 5]), 10)",
+      "('nthSuperUglyNumber', (10, [2, 3, 5]), 12)",
+      "('nthSuperUglyNumber', (10, [2, 3]), 18)",
+      "('nthSuperUglyNumber', (10, [2]), 512)",
+      "('nthSuperUglyNumber', (10, [3]), 19683)",
+      "('nthSuperUglyNumber', (10, [5]), 1953125)",
+      "('nthSuperUglyNumber', (10, [5, 2, 3]), 12)",
+      "('nthSuperUglyNumber', (10, [2, 2, 3]), 18)",
+      "('nthSuperUglyNumber', (10, [3, 3, 5]), 81)",
+      "('nthSuperUglyNumber', (10, [2, 3, 5, 5]), 12)",
+      "('nthSuperUglyNumber', (100, [2, 3, 5]), 1536)",
+      "('nthSuperUglyNumber', (1000, [2, 3, 5]), 512000)",
+      "('nthSuperUglyNumber', (1, [13, 17]), 1)",
+      "('nthSuperUglyNumber', (2, [13, 17]), 13)",
+      "('nthSuperUglyNumber', (3, [13, 17]), 17)",
+      "('nthSuperUglyNumber', (4, [13, 17]), 169)",
+      "('nthSuperUglyNumber', (5, [13, 17]), 221)",
+      "('nthSuperUglyNumber', (6, [13, 17]), 289)",
+      "('nthSuperUglyNumber', (7, [13, 17]), 2197)",
+      "('nthSuperUglyNumber', (8, [13, 17]), 2851)",
+      "('nthSuperUglyNumber', (9, [13, 17]), 3713)",
+      "('nthSuperUglyNumber', (10, [13, 17]), 28561)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: nthSuperUglyNumber(1, [2, 3, 5])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [2, 7, 13, 19])\n  標準輸出: 26\n  你的輸出: 26\n\n[測試#3] ✅ 通過\n  標準輸入: nthSuperUglyNumber(12, [2, 7, 13, 19])\n  標準輸出: 32\n  你的輸出: 32\n\n[測試#4] ✅ 通過\n  標準輸入: nthSuperUglyNumber(15, [3, 5, 7])\n  標準輸出: 81\n  你的輸出: 81\n\n[測試#5] ✅ 通過\n  標準輸入: nthSuperUglyNumber(5, [2])\n  標準輸出: 16\n  你的輸出: 16\n\n[測試#6] ✅ 通過\n  標準輸入: nthSuperUglyNumber(7, [2, 3])\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#7] ✅ 通過\n  標準輸入: nthSuperUglyNumber(100, [2, 3, 5])\n  標準輸出: 1536\n  你的輸出: 1536\n\n[測試#8] ❌ 失敗\n  標準輸入: nthSuperUglyNumber(150, [2, 3, 5])\n  標準輸出: 859963392\n  你的輸出: 5832\n\n[測試#9] ❌ 失敗\n  標準輸入: nthSuperUglyNumber(10, [5, 2, 3])\n  標準輸出: 26\n  你的輸出: 12\n\n[測試#10] ✅ 通過\n  標準輸入: nthSuperUglyNumber(5, [2, 2, 3])\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#11] ✅ 通過\n  標準輸入: nthSuperUglyNumber(4, [3, 5, 3])\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#12] ✅ 通過\n  標準輸入: nthSuperUglyNumber(5, [13, 17, 19])\n  標準輸出: 169\n  你的輸出: 169\n\n[測試#13] ✅ 通過\n  標準輸入: nthSuperUglyNumber(1, [2])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#14] ✅ 通過\n  標準輸入: nthSuperUglyNumber(1, [3])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#15] ✅ 通過\n  標準輸入: nthSuperUglyNumber(3, [2, 3, 5])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#16] ❌ 失敗\n  標準輸入: nthSuperUglyNumber(5, [9973])\n  標準輸出: 99460729\n  你的輸出: 9892436613211441\n\n[測試#17] ❌ 失敗\n  標準輸入: nthSuperUglyNumber(5, [2, 9973])\n  標準輸出: 8\n  你的輸出: 16\n\n=== 測試完成 (13/17) ===\n[警告] 部分測資未通過 ❌（0.0002s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: nthSuperUglyNumber(1, [2, 3, 5])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: nthSuperUglyNumber(2, [2, 3, 5])\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: nthSuperUglyNumber(3, [2, 3, 5])\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: nthSuperUglyNumber(4, [2, 3, 5])\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#5] ✅ 通過\n  標準輸入: nthSuperUglyNumber(5, [2, 3, 5])\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#6] ✅ 通過\n  標準輸入: nthSuperUglyNumber(6, [2, 3, 5])\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#7] ✅ 通過\n  標準輸入: nthSuperUglyNumber(7, [2, 3, 5])\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#8] ✅ 通過\n  標準輸入: nthSuperUglyNumber(8, [2, 3, 5])\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#9] ✅ 通過\n  標準輸入: nthSuperUglyNumber(9, [2, 3, 5])\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#10] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [2, 3, 5])\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#11] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [2, 3])\n  標準輸出: 18\n  你的輸出: 18\n\n[測試#12] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [2])\n  標準輸出: 512\n  你的輸出: 512\n\n[測試#13] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [3])\n  標準輸出: 19683\n  你的輸出: 19683\n\n[測試#14] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [5])\n  標準輸出: 1953125\n  你的輸出: 1953125\n\n[測試#15] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [5, 2, 3])\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#16] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [2, 2, 3])\n  標準輸出: 18\n  你的輸出: 18\n\n[測試#17] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [3, 3, 5])\n  標準輸出: 81\n  你的輸出: 81\n\n[測試#18] ✅ 通過\n  標準輸入: nthSuperUglyNumber(10, [2, 3, 5, 5])\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#19] ✅ 通過\n  標準輸入: nthSuperUglyNumber(100, [2, 3, 5])\n  標準輸出: 1536\n  你的輸出: 1536\n\n[測試#20] ❌ 失敗\n  標準輸入: nthSuperUglyNumber(1000, [2, 3, 5])\n  標準輸出: 512000\n  你的輸出: 51200000\n\n[測試#21] ✅ 通過\n  標準輸入: nthSuperUglyNumber(1, [13, 17])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#22] ✅ 通過\n  標準輸入: nthSuperUglyNumber(2, [13, 17])\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#23] ✅ 通過\n  標準輸入: nthSuperUglyNumber(3, [13, 17])\n  標準輸出: 17\n  你的輸出: 17\n\n[測試#24] ✅ 通過\n  標準輸入: nthSuperUglyNumber(4, [13, 17])\n  標準輸出: 169\n  你的輸出: 169\n\n[測試#25] ✅ 通過\n  標準輸入: nthSuperUglyNumber(5, [13, 17])\n  標準輸出: 221\n  你的輸出: 221\n\n[測試#26] ✅ 通過\n  標準輸入: nthSuperUglyNumber(6, [13, 17])\n  標準輸出: 289\n  你的輸出: 289\n\n[測試#27] ✅ 通過\n  標準輸入: nthSuperUglyNumber(7, [13, 17])\n  標準輸出: 2197\n  你的輸出: 2197\n\n[測試#28] ❌ 失敗\n  標準輸入: nthSuperUglyNumber(8, [13, 17])\n  標準輸出: 2851\n  你的輸出: 2873\n\n[測試#29] ❌ 失敗\n  標準輸入: nthSuperUglyNumber(9, [13, 17])\n  標準輸出: 3713\n  你的輸出: 3757\n\n[測試#30] ❌ 失敗\n  標準輸入: nthSuperUglyNumber(10, [13, 17])\n  標準輸出: 28561\n  你的輸出: 4913\n\n=== 測試完成 (26/30) ===\n[警告] 部分測資未通過 ❌（0.0005s）\n",
     "all_passed": false,
-    "total_tests": 17,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 30,
+    "passed_count": 26,
+    "accuracy_rate": 0.8666666666666667
   }
 }

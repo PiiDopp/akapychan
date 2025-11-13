@@ -1,0 +1,109 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode848.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Shifting Letters",
+    "description": "You are given a string s of lowercase English letters and an integer array shifts of the same length.\n\nCall the shift() of a letter, the next letter in the alphabet, (wrapping around so that 'z' becomes 'a').\n\nFor example, shift('a') = 'b', shift('t') = 'u', and shift('z') = 'a'.\nNow for each shifts[i] = x, we want to shift the first i + 1 letters of s, x times.\n\nReturn the final string after all such shifts to s are applied.",
+    "examples": [
+      {
+        "input": "s = \"abc\", shifts = [3,5,9]",
+        "output": "\"rpl\"",
+        "explanation": "We start with \"abc\".\nAfter shifting the first 1 letters of s by 3, we have \"dbc\".\nAfter shifting the first 2 letters of s by 5, we have \"igc\".\nAfter shifting the first 3 letters of s by 9, we have \"rpl\", the answer."
+      },
+      {
+        "input": "s = \"aaa\", shifts = [1,2,3]",
+        "output": "\"gfd\""
+      }
+    ],
+    "solution": "class Solution(object):\n    def shiftingLetters(self, s, shifts):\n        \"\"\"\n        :type s: str\n        :type shifts: List[int]\n        :rtype: str\n        \"\"\"\n        n = len(s)\n        total_shift = 0\n        res = [''] * n\n        \n        for i in range(n-1, -1, -1):\n            total_shift = (total_shift + shifts[i]) % 26\n            res[i] = chr((ord(s[i]) - ord('a') + total_shift) % 26 + ord('a'))\n        \n        return ''.join(res)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abc', [3, 5, 9]]\n",
+        "output": "rpl\n"
+      },
+      {
+        "input": "['abcd', [0, 0, 0, 0]]\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "['z', [1]]\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['a', [26]]\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['abc', [27, 28, 29]]\n",
+        "output": "ggf\n"
+      },
+      {
+        "input": "['abc', [-1, -2, -3]]\n",
+        "output": "uxb\n"
+      },
+      {
+        "input": "['', []]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['abcde', [25, 25, 25, 25, 25]]\n",
+        "output": "vxzbd\n"
+      },
+      {
+        "input": "['abc', [0, 0, 1]]\n",
+        "output": "bcd\n"
+      },
+      {
+        "input": "['abc', [1, 0, 0]]\n",
+        "output": "bbc\n"
+      },
+      {
+        "input": "['abc', [1, 1, 1]]\n",
+        "output": "ddd\n"
+      },
+      {
+        "input": "['abc', [25, 25, 25]]\n",
+        "output": "xab\n"
+      },
+      {
+        "input": "['a', [100]]\n",
+        "output": "w\n"
+      },
+      {
+        "input": "['ab', [0, 100]]\n",
+        "output": "wx\n"
+      },
+      {
+        "input": "['ab', [100, 0]]\n",
+        "output": "wb\n"
+      }
+    ],
+    "parsed_tests": [
+      "('shiftingLetters', ('abc', [3, 5, 9]), 'rpl\\n')",
+      "('shiftingLetters', ('abcd', [0, 0, 0, 0]), 'abcd\\n')",
+      "('shiftingLetters', ('z', [1]), 'a\\n')",
+      "('shiftingLetters', ('a', [26]), 'a\\n')",
+      "('shiftingLetters', ('abc', [27, 28, 29]), 'ggf\\n')",
+      "('shiftingLetters', ('abc', [-1, -2, -3]), 'uxb\\n')",
+      "('shiftingLetters', ('', []), '\\n')",
+      "('shiftingLetters', ('abcde', [25, 25, 25, 25, 25]), 'vxzbd\\n')",
+      "('shiftingLetters', ('abc', [0, 0, 1]), 'bcd\\n')",
+      "('shiftingLetters', ('abc', [1, 0, 0]), 'bbc\\n')",
+      "('shiftingLetters', ('abc', [1, 1, 1]), 'ddd\\n')",
+      "('shiftingLetters', ('abc', [25, 25, 25]), 'xab\\n')",
+      "('shiftingLetters', ('a', [100]), 'w\\n')",
+      "('shiftingLetters', ('ab', [0, 100]), 'wx\\n')",
+      "('shiftingLetters', ('ab', [100, 0]), 'wb\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: shiftingLetters('abc', [3, 5, 9])\n  標準輸出: 'rpl\\n'\n  你的輸出: 'rpl'\n\n[測試#2] ❌ 失敗\n  標準輸入: shiftingLetters('abcd', [0, 0, 0, 0])\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#3] ❌ 失敗\n  標準輸入: shiftingLetters('z', [1])\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#4] ❌ 失敗\n  標準輸入: shiftingLetters('a', [26])\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#5] ❌ 失敗\n  標準輸入: shiftingLetters('abc', [27, 28, 29])\n  標準輸出: 'ggf\\n'\n  你的輸出: 'ggf'\n\n[測試#6] ❌ 失敗\n  標準輸入: shiftingLetters('abc', [-1, -2, -3])\n  標準輸出: 'uxb\\n'\n  你的輸出: 'uwz'\n\n[測試#7] ❌ 失敗\n  標準輸入: shiftingLetters('', [])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#8] ❌ 失敗\n  標準輸入: shiftingLetters('abcde', [25, 25, 25, 25, 25])\n  標準輸出: 'vxzbd\\n'\n  你的輸出: 'vxzbd'\n\n[測試#9] ❌ 失敗\n  標準輸入: shiftingLetters('abc', [0, 0, 1])\n  標準輸出: 'bcd\\n'\n  你的輸出: 'bcd'\n\n[測試#10] ❌ 失敗\n  標準輸入: shiftingLetters('abc', [1, 0, 0])\n  標準輸出: 'bbc\\n'\n  你的輸出: 'bbc'\n\n[測試#11] ❌ 失敗\n  標準輸入: shiftingLetters('abc', [1, 1, 1])\n  標準輸出: 'ddd\\n'\n  你的輸出: 'ddd'\n\n[測試#12] ❌ 失敗\n  標準輸入: shiftingLetters('abc', [25, 25, 25])\n  標準輸出: 'xab\\n'\n  你的輸出: 'xzb'\n\n[測試#13] ❌ 失敗\n  標準輸入: shiftingLetters('a', [100])\n  標準輸出: 'w\\n'\n  你的輸出: 'w'\n\n[測試#14] ❌ 失敗\n  標準輸入: shiftingLetters('ab', [0, 100])\n  標準輸出: 'wx\\n'\n  你的輸出: 'wx'\n\n[測試#15] ❌ 失敗\n  標準輸入: shiftingLetters('ab', [100, 0])\n  標準輸出: 'wb\\n'\n  你的輸出: 'wb'\n\n=== 測試完成 (0/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 15,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

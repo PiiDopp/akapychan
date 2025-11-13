@@ -27,78 +27,83 @@
         "output": "True\n"
       },
       {
-        "input": "['LLR', 'RLL']\n",
+        "input": "['RXXLRXRXL', 'XRLXXRRL']\n",
         "output": "False\n"
-      },
-      {
-        "input": "['RRL', 'LRR']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['RXL', 'RLX']\n",
-        "output": "False\n"
-      },
-      {
-        "input": "['XXX', 'XXX']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['L', 'L']\n",
-        "output": "True\n"
-      },
-      {
-        "input": "['R', 'R']\n",
-        "output": "True\n"
       },
       {
         "input": "['XL', 'LX']\n",
         "output": "True\n"
       },
       {
+        "input": "['LX', 'XL']\n",
+        "output": "False\n"
+      },
+      {
         "input": "['RX', 'XR']\n",
         "output": "True\n"
       },
       {
-        "input": "['LLX', 'LXL']\n",
+        "input": "['XR', 'RX']\n",
         "output": "False\n"
+      },
+      {
+        "input": "['LLR', 'LLR']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['L', 'R']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['RXL', 'XRL']\n",
+        "output": "True\n"
       },
       {
         "input": "['XRL', 'RXL']\n",
         "output": "False\n"
       },
       {
-        "input": "['RXXL', 'RXLX']\n",
+        "input": "['RXLX', 'XRLX']\n",
         "output": "True\n"
       },
       {
-        "input": "['XRX', 'RXX']\n",
+        "input": "['RXL', 'XLR']\n",
         "output": "False\n"
       },
       {
-        "input": "['LXX', 'XXL']\n",
+        "input": "['LXL', 'XLL']\n",
         "output": "False\n"
+      },
+      {
+        "input": "['RXXL', 'XXLR']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['RXLX', 'RXLX']\n",
+        "output": "True\n"
       }
     ],
     "parsed_tests": [
       "('canTransform', ('RXXLRXRXL', 'XRLXXRRLX'), True)",
-      "('canTransform', ('LLR', 'RLL'), False)",
-      "('canTransform', ('RRL', 'LRR'), False)",
-      "('canTransform', ('RXL', 'RLX'), False)",
-      "('canTransform', ('XXX', 'XXX'), True)",
-      "('canTransform', ('L', 'L'), True)",
-      "('canTransform', ('R', 'R'), True)",
+      "('canTransform', ('RXXLRXRXL', 'XRLXXRRL'), False)",
       "('canTransform', ('XL', 'LX'), True)",
+      "('canTransform', ('LX', 'XL'), False)",
       "('canTransform', ('RX', 'XR'), True)",
-      "('canTransform', ('LLX', 'LXL'), False)",
+      "('canTransform', ('XR', 'RX'), False)",
+      "('canTransform', ('LLR', 'LLR'), True)",
+      "('canTransform', ('L', 'R'), False)",
+      "('canTransform', ('RXL', 'XRL'), True)",
       "('canTransform', ('XRL', 'RXL'), False)",
-      "('canTransform', ('RXXL', 'RXLX'), True)",
-      "('canTransform', ('XRX', 'RXX'), False)",
-      "('canTransform', ('LXX', 'XXL'), False)"
+      "('canTransform', ('RXLX', 'XRLX'), True)",
+      "('canTransform', ('RXL', 'XLR'), False)",
+      "('canTransform', ('LXL', 'XLL'), False)",
+      "('canTransform', ('RXXL', 'XXLR'), False)",
+      "('canTransform', ('RXLX', 'RXLX'), True)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: canTransform('RXXLRXRXL', 'XRLXXRRLX')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: canTransform('LLR', 'RLL')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: canTransform('RRL', 'LRR')\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ❌ 失敗\n  標準輸入: canTransform('RXL', 'RLX')\n  標準輸出: False\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: canTransform('XXX', 'XXX')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: canTransform('L', 'L')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: canTransform('R', 'R')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: canTransform('XL', 'LX')\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: canTransform('RX', 'XR')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: canTransform('LLX', 'LXL')\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: canTransform('XRL', 'RXL')\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ✅ 通過\n  標準輸入: canTransform('RXXL', 'RXLX')\n  標準輸出: True\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: canTransform('XRX', 'RXX')\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: canTransform('LXX', 'XXL')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (13/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: canTransform('RXXLRXRXL', 'XRLXXRRLX')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ❌ 失敗\n  標準輸入: canTransform('RXXLRXRXL', 'XRLXXRRL')\n  標準輸出: False\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: canTransform('XL', 'LX')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: canTransform('LX', 'XL')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: canTransform('RX', 'XR')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: canTransform('XR', 'RX')\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: canTransform('LLR', 'LLR')\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: canTransform('L', 'R')\n  標準輸出: False\n  你的輸出: False\n\n[測試#9] ✅ 通過\n  標準輸入: canTransform('RXL', 'XRL')\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: canTransform('XRL', 'RXL')\n  標準輸出: False\n  你的輸出: False\n\n[測試#11] ✅ 通過\n  標準輸入: canTransform('RXLX', 'XRLX')\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ✅ 通過\n  標準輸入: canTransform('RXL', 'XLR')\n  標準輸出: False\n  你的輸出: False\n\n[測試#13] ✅ 通過\n  標準輸入: canTransform('LXL', 'XLL')\n  標準輸出: False\n  你的輸出: False\n\n[測試#14] ✅ 通過\n  標準輸入: canTransform('RXXL', 'XXLR')\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ✅ 通過\n  標準輸入: canTransform('RXLX', 'RXLX')\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (14/15) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 14,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 15,
+    "passed_count": 14,
+    "accuracy_rate": 0.9333333333333333
   }
 }

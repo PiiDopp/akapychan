@@ -1,0 +1,90 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode27.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Remove Element",
+    "description": "Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.\n\nConsider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:\n\nChange the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.\nReturn k.\nCustom Judge:\n\nThe judge will test your solution with the following code:\n\nint[] nums = [...]; // Input array\nint val = ...; // Value to remove\nint[] expectedNums = [...]; // The expected answer with correct length.\n                            // It is sorted with no values equaling val.\n\nint k = removeElement(nums, val); // Calls your implementation\n\nassert k == expectedNums.length;\nsort(nums, 0, k); // Sort the first k elements of nums\nfor (int i = 0; i < actualLength; i++) {\n    assert nums[i] == expectedNums[i];\n}\nIf all assertions pass, then your solution will be accepted.",
+    "examples": [
+      {
+        "input": "nums = [3,2,2,3], val = 3",
+        "output": "2, nums = [2,2,_,_]",
+        "explanation": "Your function should return k = 2, with the first two elements of nums being 2.\nIt does not matter what you leave beyond the returned k (hence they are underscores)."
+      },
+      {
+        "input": "nums = [0,1,2,2,3,0,4,2], val = 2",
+        "output": "5, nums = [0,1,4,0,3,_,_,_]",
+        "explanation": "Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.\nNote that the five elements can be returned in any order.\nIt does not matter what you leave beyond the returned k (hence they are underscores)."
+      }
+    ],
+    "solution": "class Solution(object):\n    def removeElement(self, nums, val):\n        \"\"\"\n        :type nums: List[int]\n        :type val: int\n        :rtype: int\n        \"\"\"\n        slow = 0\n        for fast in range(len(nums)):\n            if nums[fast] != val:\n                nums[slow] = nums[fast]\n                slow += 1\n        return slow"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[3, 2, 2, 3]\n3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[0, 1, 2, 2, 3, 0, 4, 2]\n2\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[1, 1, 1, 1]\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1, 2, 3, 4]\n5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[]\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[-1, -2, -3]\n-2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[1000000, 999999]\n1000000\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1]\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1]\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[2, 3, 2, 4, 2]\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[2, 2, 3, 2, 4, 2]\n2\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('removeElement', ([2, 2, 2, 3], 3), 2)",
+      "('removeElement', ([0, 1, 3, 0, 4, 0, 4, 2], 2), 5)",
+      "('removeElement', ([1, 1, 1, 1], 1), 0)",
+      "('removeElement', ([1, 2, 3, 4], 5), 4)",
+      "('removeElement', ([], 1), 0)",
+      "('removeElement', ([-1, -3, -3], -2), 2)",
+      "('removeElement', ([999999, 999999], 1000000), 1)",
+      "('removeElement', ([1], 1), 0)",
+      "('removeElement', ([1], 2), 1)",
+      "('removeElement', ([3, 4, 2, 4, 2], 2), 2)",
+      "('removeElement', ([3, 4, 3, 2, 4, 2], 2), 2)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: removeElement([2, 2, 2, 3], 3)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: removeElement([0, 1, 3, 0, 4, 0, 4, 2], 2)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#3] ✅ 通過\n  標準輸入: removeElement([1, 1, 1, 1], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: removeElement([1, 2, 3, 4], 5)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#5] ✅ 通過\n  標準輸入: removeElement([], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: removeElement([-1, -3, -3], -2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: removeElement([999999, 999999], 1000000)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: removeElement([1], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#9] ✅ 通過\n  標準輸入: removeElement([1], 2)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: removeElement([3, 4, 2, 4, 2], 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#11] ✅ 通過\n  標準輸入: removeElement([3, 4, 3, 2, 4, 2], 2)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (11/11) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 11,
+    "passed_count": 11,
+    "accuracy_rate": 1.0
+  }
+}

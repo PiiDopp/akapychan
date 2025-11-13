@@ -22,14 +22,221 @@
     "solution": "class Solution:\n    def rangeBitwiseAnd(self, left, right):\n        shift = 0\n        while left < right:\n            left >>= 1\n            right >>= 1\n            shift += 1\n        return left << shift"
   },
   "experiment_result": {
-    "success": false,
-    "error": "AI 未生成任何有效測資",
-    "generated_tests": [],
-    "parsed_tests": [],
-    "runlog": "",
-    "all_passed": false,
-    "total_tests": 0,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "3\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "4\n4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5\n5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "6\n6\n",
+        "output": "6\n"
+      },
+      {
+        "input": "7\n7\n",
+        "output": "7\n"
+      },
+      {
+        "input": "8\n8\n",
+        "output": "8\n"
+      },
+      {
+        "input": "9\n9\n",
+        "output": "9\n"
+      },
+      {
+        "input": "10\n10\n",
+        "output": "10\n"
+      },
+      {
+        "input": "11\n11\n",
+        "output": "11\n"
+      },
+      {
+        "input": "12\n12\n",
+        "output": "12\n"
+      },
+      {
+        "input": "13\n13\n",
+        "output": "13\n"
+      },
+      {
+        "input": "14\n14\n",
+        "output": "14\n"
+      },
+      {
+        "input": "15\n15\n",
+        "output": "15\n"
+      },
+      {
+        "input": "0\n2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "3\n4\n",
+        "output": "0\n"
+      },
+      {
+        "input": "4\n5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5\n6\n",
+        "output": "4\n"
+      },
+      {
+        "input": "6\n7\n",
+        "output": "6\n"
+      },
+      {
+        "input": "7\n8\n",
+        "output": "0\n"
+      },
+      {
+        "input": "8\n9\n",
+        "output": "8\n"
+      },
+      {
+        "input": "9\n10\n",
+        "output": "8\n"
+      },
+      {
+        "input": "10\n11\n",
+        "output": "10\n"
+      },
+      {
+        "input": "11\n12\n",
+        "output": "8\n"
+      },
+      {
+        "input": "12\n13\n",
+        "output": "12\n"
+      },
+      {
+        "input": "13\n14\n",
+        "output": "12\n"
+      },
+      {
+        "input": "14\n15\n",
+        "output": "14\n"
+      },
+      {
+        "input": "15\n16\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n7\n",
+        "output": "4\n"
+      },
+      {
+        "input": "8\n13\n",
+        "output": "8\n"
+      },
+      {
+        "input": "10\n15\n",
+        "output": "8\n"
+      },
+      {
+        "input": "12\n15\n",
+        "output": "12\n"
+      },
+      {
+        "input": "0\n2147483647\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1\n2147483647\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2147483646\n2147483647\n",
+        "output": "2147483646\n"
+      },
+      {
+        "input": "2147483645\n2147483647\n",
+        "output": "2147483644\n"
+      }
+    ],
+    "parsed_tests": [
+      "('rangeBitwiseAnd', (0, 0), 0)",
+      "('rangeBitwiseAnd', (0, 1), 0)",
+      "('rangeBitwiseAnd', (1, 1), 1)",
+      "('rangeBitwiseAnd', (2, 2), 2)",
+      "('rangeBitwiseAnd', (3, 3), 3)",
+      "('rangeBitwiseAnd', (4, 4), 4)",
+      "('rangeBitwiseAnd', (5, 5), 5)",
+      "('rangeBitwiseAnd', (6, 6), 6)",
+      "('rangeBitwiseAnd', (7, 7), 7)",
+      "('rangeBitwiseAnd', (8, 8), 8)",
+      "('rangeBitwiseAnd', (9, 9), 9)",
+      "('rangeBitwiseAnd', (10, 10), 10)",
+      "('rangeBitwiseAnd', (11, 11), 11)",
+      "('rangeBitwiseAnd', (12, 12), 12)",
+      "('rangeBitwiseAnd', (13, 13), 13)",
+      "('rangeBitwiseAnd', (14, 14), 14)",
+      "('rangeBitwiseAnd', (15, 15), 15)",
+      "('rangeBitwiseAnd', (0, 2), 0)",
+      "('rangeBitwiseAnd', (1, 2), 0)",
+      "('rangeBitwiseAnd', (2, 3), 2)",
+      "('rangeBitwiseAnd', (3, 4), 0)",
+      "('rangeBitwiseAnd', (4, 5), 4)",
+      "('rangeBitwiseAnd', (5, 6), 4)",
+      "('rangeBitwiseAnd', (6, 7), 6)",
+      "('rangeBitwiseAnd', (7, 8), 0)",
+      "('rangeBitwiseAnd', (8, 9), 8)",
+      "('rangeBitwiseAnd', (9, 10), 8)",
+      "('rangeBitwiseAnd', (10, 11), 10)",
+      "('rangeBitwiseAnd', (11, 12), 8)",
+      "('rangeBitwiseAnd', (12, 13), 12)",
+      "('rangeBitwiseAnd', (13, 14), 12)",
+      "('rangeBitwiseAnd', (14, 15), 14)",
+      "('rangeBitwiseAnd', (15, 16), 0)",
+      "('rangeBitwiseAnd', (5, 7), 4)",
+      "('rangeBitwiseAnd', (8, 13), 8)",
+      "('rangeBitwiseAnd', (10, 15), 8)",
+      "('rangeBitwiseAnd', (12, 15), 12)",
+      "('rangeBitwiseAnd', (0, 2147483647), 0)",
+      "('rangeBitwiseAnd', (1, 2147483647), 0)",
+      "('rangeBitwiseAnd', (2147483646, 2147483647), 2147483646)",
+      "('rangeBitwiseAnd', (2147483645, 2147483647), 2147483644)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: rangeBitwiseAnd(0, 0)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: rangeBitwiseAnd(0, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: rangeBitwiseAnd(1, 1)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: rangeBitwiseAnd(2, 2)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#5] ✅ 通過\n  標準輸入: rangeBitwiseAnd(3, 3)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: rangeBitwiseAnd(4, 4)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: rangeBitwiseAnd(5, 5)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#8] ✅ 通過\n  標準輸入: rangeBitwiseAnd(6, 6)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: rangeBitwiseAnd(7, 7)\n  標準輸出: 7\n  你的輸出: 7\n\n[測試#10] ✅ 通過\n  標準輸入: rangeBitwiseAnd(8, 8)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#11] ✅ 通過\n  標準輸入: rangeBitwiseAnd(9, 9)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#12] ✅ 通過\n  標準輸入: rangeBitwiseAnd(10, 10)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#13] ✅ 通過\n  標準輸入: rangeBitwiseAnd(11, 11)\n  標準輸出: 11\n  你的輸出: 11\n\n[測試#14] ✅ 通過\n  標準輸入: rangeBitwiseAnd(12, 12)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#15] ✅ 通過\n  標準輸入: rangeBitwiseAnd(13, 13)\n  標準輸出: 13\n  你的輸出: 13\n\n[測試#16] ✅ 通過\n  標準輸入: rangeBitwiseAnd(14, 14)\n  標準輸出: 14\n  你的輸出: 14\n\n[測試#17] ✅ 通過\n  標準輸入: rangeBitwiseAnd(15, 15)\n  標準輸出: 15\n  你的輸出: 15\n\n[測試#18] ✅ 通過\n  標準輸入: rangeBitwiseAnd(0, 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#19] ✅ 通過\n  標準輸入: rangeBitwiseAnd(1, 2)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#20] ✅ 通過\n  標準輸入: rangeBitwiseAnd(2, 3)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#21] ✅ 通過\n  標準輸入: rangeBitwiseAnd(3, 4)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#22] ✅ 通過\n  標準輸入: rangeBitwiseAnd(4, 5)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#23] ✅ 通過\n  標準輸入: rangeBitwiseAnd(5, 6)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#24] ✅ 通過\n  標準輸入: rangeBitwiseAnd(6, 7)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#25] ✅ 通過\n  標準輸入: rangeBitwiseAnd(7, 8)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#26] ✅ 通過\n  標準輸入: rangeBitwiseAnd(8, 9)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#27] ✅ 通過\n  標準輸入: rangeBitwiseAnd(9, 10)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#28] ✅ 通過\n  標準輸入: rangeBitwiseAnd(10, 11)\n  標準輸出: 10\n  你的輸出: 10\n\n[測試#29] ✅ 通過\n  標準輸入: rangeBitwiseAnd(11, 12)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#30] ✅ 通過\n  標準輸入: rangeBitwiseAnd(12, 13)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#31] ✅ 通過\n  標準輸入: rangeBitwiseAnd(13, 14)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#32] ✅ 通過\n  標準輸入: rangeBitwiseAnd(14, 15)\n  標準輸出: 14\n  你的輸出: 14\n\n[測試#33] ✅ 通過\n  標準輸入: rangeBitwiseAnd(15, 16)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#34] ✅ 通過\n  標準輸入: rangeBitwiseAnd(5, 7)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#35] ✅ 通過\n  標準輸入: rangeBitwiseAnd(8, 13)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#36] ✅ 通過\n  標準輸入: rangeBitwiseAnd(10, 15)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#37] ✅ 通過\n  標準輸入: rangeBitwiseAnd(12, 15)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#38] ✅ 通過\n  標準輸入: rangeBitwiseAnd(0, 2147483647)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#39] ✅ 通過\n  標準輸入: rangeBitwiseAnd(1, 2147483647)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#40] ✅ 通過\n  標準輸入: rangeBitwiseAnd(2147483646, 2147483647)\n  標準輸出: 2147483646\n  你的輸出: 2147483646\n\n[測試#41] ✅ 通過\n  標準輸入: rangeBitwiseAnd(2147483645, 2147483647)\n  標準輸出: 2147483644\n  你的輸出: 2147483644\n\n=== 測試完成 (41/41) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 41,
+    "passed_count": 41,
+    "accuracy_rate": 1.0
   }
 }

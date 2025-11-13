@@ -30,58 +30,43 @@
         "output": "\n"
       },
       {
-        "input": "test\n",
-        "output": "tset\n"
+        "input": "Python\n",
+        "output": "nohtyP\n"
       },
       {
-        "input": "hello   world\n",
-        "output": "  olleh   dlrow  \n"
+        "input": "leading and trailing\n",
+        "output": "  gnidael dna gniliart  \n"
+      },
+      {
+        "input": "ab  cd   ef\n",
+        "output": "ba  dc   fe\n"
       },
       {
         "input": "Hello, world!\n",
-        "output": ",olleH !dlrow\n"
+        "output": "olleH, !dlrow\n"
       },
       {
         "input": "你好 世界\n",
         "output": "好你 界世\n"
       },
       {
-        "input": "ab  cd\n",
-        "output": "ba  dc\n"
-      },
-      {
-        "input": "123 456\n",
-        "output": "321 654\n"
-      },
-      {
-        "input": "Hello, world! 123\n",
-        "output": ",olleH !dlrow 321\n"
-      },
-      {
-        "input": "\n",
-        "output": "   \n"
-      },
-      {
-        "input": "!@#\n",
-        "output": "#@!\n"
+        "input": "word1\tword2\n",
+        "output": "2drow1\ttord\n"
       }
     ],
     "parsed_tests": [
       "('reverseWords', ('Hello world\\n',), 'olleH dlrow\\n')",
       "('reverseWords', ((),), '\\n')",
-      "('reverseWords', ('test\\n',), 'tset\\n')",
-      "('reverseWords', ('hello   world\\n',), '  olleh   dlrow  \\n')",
-      "('reverseWords', ('Hello, world!\\n',), ',olleH !dlrow\\n')",
+      "('reverseWords', ('Python\\n',), 'nohtyP\\n')",
+      "('reverseWords', ('leading and trailing\\n',), '  gnidael dna gniliart  \\n')",
+      "('reverseWords', ('ab  cd   ef\\n',), 'ba  dc   fe\\n')",
+      "('reverseWords', ('Hello, world!\\n',), 'olleH, !dlrow\\n')",
       "('reverseWords', ('你好 世界\\n',), '好你 界世\\n')",
-      "('reverseWords', ('ab  cd\\n',), 'ba  dc\\n')",
-      "('reverseWords', ('123 456\\n',), '321 654\\n')",
-      "('reverseWords', ('Hello, world! 123\\n',), ',olleH !dlrow 321\\n')",
-      "('reverseWords', ((),), '   \\n')",
-      "('reverseWords', ('!@#\\n',), '#@!\\n')"
+      "('reverseWords', ('word1\\tword2\\n',), '2drow1\\ttord\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reverseWords('Hello world\\n',)\n  標準輸出: 'olleH dlrow\\n'\n  你的輸出: 'olleH \\ndlrow'\n\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#3] ❌ 失敗\n  標準輸入: reverseWords('test\\n',)\n  標準輸出: 'tset\\n'\n  你的輸出: '\\ntset'\n\n[測試#4] ❌ 失敗\n  標準輸入: reverseWords('hello   world\\n',)\n  標準輸出: '  olleh   dlrow  \\n'\n  你的輸出: 'olleh   \\ndlrow'\n\n[測試#5] ❌ 失敗\n  標準輸入: reverseWords('Hello, world!\\n',)\n  標準輸出: ',olleH !dlrow\\n'\n  你的輸出: ',olleH \\n!dlrow'\n\n[測試#6] ❌ 失敗\n  標準輸入: reverseWords('你好 世界\\n',)\n  標準輸出: '好你 界世\\n'\n  你的輸出: '好你 \\n界世'\n\n[測試#7] ❌ 失敗\n  標準輸入: reverseWords('ab  cd\\n',)\n  標準輸出: 'ba  dc\\n'\n  你的輸出: 'ba  \\ndc'\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseWords('123 456\\n',)\n  標準輸出: '321 654\\n'\n  你的輸出: '321 \\n654'\n\n[測試#9] ❌ 失敗\n  標準輸入: reverseWords('Hello, world! 123\\n',)\n  標準輸出: ',olleH !dlrow 321\\n'\n  你的輸出: ',olleH !dlrow \\n321'\n\n[測試#10] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#11] ❌ 失敗\n  標準輸入: reverseWords('!@#\\n',)\n  標準輸出: '#@!\\n'\n  你的輸出: '\\n#@!'\n\n=== 測試完成 (0/11) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reverseWords('Hello world\\n',)\n  標準輸出: 'olleH dlrow\\n'\n  你的輸出: 'olleH \\ndlrow'\n\n[測試#2] ❌ 執行例外: 'tuple' object has no attribute 'split'\n[測試#3] ❌ 失敗\n  標準輸入: reverseWords('Python\\n',)\n  標準輸出: 'nohtyP\\n'\n  你的輸出: '\\nnohtyP'\n\n[測試#4] ❌ 失敗\n  標準輸入: reverseWords('leading and trailing\\n',)\n  標準輸出: '  gnidael dna gniliart  \\n'\n  你的輸出: 'gnidael dna \\ngniliart'\n\n[測試#5] ❌ 失敗\n  標準輸入: reverseWords('ab  cd   ef\\n',)\n  標準輸出: 'ba  dc   fe\\n'\n  你的輸出: 'ba  dc   \\nfe'\n\n[測試#6] ❌ 失敗\n  標準輸入: reverseWords('Hello, world!\\n',)\n  標準輸出: 'olleH, !dlrow\\n'\n  你的輸出: ',olleH \\n!dlrow'\n\n[測試#7] ❌ 失敗\n  標準輸入: reverseWords('你好 世界\\n',)\n  標準輸出: '好你 界世\\n'\n  你的輸出: '好你 \\n界世'\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseWords('word1\\tword2\\n',)\n  標準輸出: '2drow1\\ttord\\n'\n  你的輸出: '\\n2drow\\t1drow'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
     "all_passed": false,
-    "total_tests": 11,
+    "total_tests": 8,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }

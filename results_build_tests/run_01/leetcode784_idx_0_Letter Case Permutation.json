@@ -22,24 +22,32 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "\n",
-        "output": "[]\n"
-      },
-      {
         "input": "a\n",
         "output": "['a', 'A']\n"
+      },
+      {
+        "input": "\n",
+        "output": "['']\n"
       },
       {
         "input": "ab\n",
         "output": "['ab', 'aB', 'Ab', 'AB']\n"
       },
       {
-        "input": "a1b\n",
-        "output": "['a1b', 'a1B', 'A1b', 'A1B']\n"
+        "input": "1a2\n",
+        "output": "['1a2', '1A2']\n"
       },
       {
-        "input": "aa\n",
-        "output": "['aa', 'aA', 'Aa', 'AA']\n"
+        "input": "Aa\n",
+        "output": "['aa', 'aA', 'AA', 'Aa']\n"
+      },
+      {
+        "input": "123\n",
+        "output": "['123']\n"
+      },
+      {
+        "input": "a1b\n",
+        "output": "['a1b', 'a1B', 'A1b', 'A1B']\n"
       },
       {
         "input": "abc\n",
@@ -47,17 +55,19 @@
       }
     ],
     "parsed_tests": [
-      "('letterCasePermutation', ((),), [])",
       "('letterCasePermutation', ('a\\n',), ['a', 'A'])",
+      "('letterCasePermutation', ((),), [''])",
       "('letterCasePermutation', ('ab\\n',), ['ab', 'aB', 'Ab', 'AB'])",
+      "('letterCasePermutation', ('1a2\\n',), ['1a2', '1A2'])",
+      "('letterCasePermutation', ('Aa\\n',), ['aa', 'aA', 'AA', 'Aa'])",
+      "('letterCasePermutation', (123,), ['123'])",
       "('letterCasePermutation', ('a1b\\n',), ['a1b', 'a1B', 'A1b', 'A1B'])",
-      "('letterCasePermutation', ('aa\\n',), ['aa', 'aA', 'Aa', 'AA'])",
       "('letterCasePermutation', ('abc\\n',), ['abc', 'abC', 'aBc', 'aBC', 'Abc', 'AbC', 'ABc', 'ABC'])"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: letterCasePermutation((),)\n  標準輸出: []\n  你的輸出: ['']\n\n[測試#2] ❌ 失敗\n  標準輸入: letterCasePermutation('a\\n',)\n  標準輸出: ['a', 'A']\n  你的輸出: ['a\\n', 'A\\n']\n\n[測試#3] ❌ 失敗\n  標準輸入: letterCasePermutation('ab\\n',)\n  標準輸出: ['ab', 'aB', 'Ab', 'AB']\n  你的輸出: ['ab\\n', 'aB\\n', 'Ab\\n', 'AB\\n']\n\n[測試#4] ❌ 失敗\n  標準輸入: letterCasePermutation('a1b\\n',)\n  標準輸出: ['a1b', 'a1B', 'A1b', 'A1B']\n  你的輸出: ['a1b\\n', 'a1B\\n', 'A1b\\n', 'A1B\\n']\n\n[測試#5] ❌ 失敗\n  標準輸入: letterCasePermutation('aa\\n',)\n  標準輸出: ['aa', 'aA', 'Aa', 'AA']\n  你的輸出: ['aa\\n', 'aA\\n', 'Aa\\n', 'AA\\n']\n\n[測試#6] ❌ 失敗\n  標準輸入: letterCasePermutation('abc\\n',)\n  標準輸出: ['abc', 'abC', 'aBc', 'aBC', 'Abc', 'AbC', 'ABc', 'ABC']\n  你的輸出: ['abc\\n', 'abC\\n', 'aBc\\n', 'aBC\\n', 'Abc\\n', 'AbC\\n', 'ABc\\n', 'ABC\\n']\n\n=== 測試完成 (0/6) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: letterCasePermutation('a\\n',)\n  標準輸出: ['a', 'A']\n  你的輸出: ['a\\n', 'A\\n']\n\n[測試#2] ✅ 通過\n  標準輸入: letterCasePermutation((),)\n  標準輸出: ['']\n  你的輸出: ['']\n\n[測試#3] ❌ 失敗\n  標準輸入: letterCasePermutation('ab\\n',)\n  標準輸出: ['ab', 'aB', 'Ab', 'AB']\n  你的輸出: ['ab\\n', 'aB\\n', 'Ab\\n', 'AB\\n']\n\n[測試#4] ❌ 失敗\n  標準輸入: letterCasePermutation('1a2\\n',)\n  標準輸出: ['1a2', '1A2']\n  你的輸出: ['1a2\\n', '1A2\\n']\n\n[測試#5] ❌ 失敗\n  標準輸入: letterCasePermutation('Aa\\n',)\n  標準輸出: ['aa', 'aA', 'AA', 'Aa']\n  你的輸出: ['aa\\n', 'aA\\n', 'Aa\\n', 'AA\\n']\n\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ❌ 失敗\n  標準輸入: letterCasePermutation('a1b\\n',)\n  標準輸出: ['a1b', 'a1B', 'A1b', 'A1B']\n  你的輸出: ['a1b\\n', 'a1B\\n', 'A1b\\n', 'A1B\\n']\n\n[測試#8] ❌ 失敗\n  標準輸入: letterCasePermutation('abc\\n',)\n  標準輸出: ['abc', 'abC', 'aBc', 'aBC', 'Abc', 'AbC', 'ABc', 'ABC']\n  你的輸出: ['abc\\n', 'abC\\n', 'aBc\\n', 'aBC\\n', 'Abc\\n', 'AbC\\n', 'ABc\\n', 'ABC\\n']\n\n=== 測試完成 (1/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 6,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 8,
+    "passed_count": 1,
+    "accuracy_rate": 0.125
   }
 }

@@ -22,62 +22,82 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "bcabc\n",
-        "output": "abc\n"
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "x\n",
+        "output": "x\n"
+      },
+      {
+        "input": "abcde\n",
+        "output": "abcde\n"
+      },
+      {
+        "input": "aaaaa\n",
+        "output": "a\n"
       },
       {
         "input": "cbacdcbc\n",
         "output": "acdb\n"
       },
       {
-        "input": "a\n",
-        "output": "a\n"
-      },
-      {
-        "input": "\n",
-        "output": "\n"
-      },
-      {
-        "input": "aaabbb\n",
-        "output": "ab\n"
+        "input": "bcabc\n",
+        "output": "abc\n"
       },
       {
         "input": "abacb\n",
         "output": "abc\n"
       },
       {
-        "input": "abcd\n",
-        "output": "abcd\n"
+        "input": "123321\n",
+        "output": "123\n"
       },
       {
-        "input": "cbacdcbc\n",
-        "output": "acdb\n"
+        "input": "a1b2a1c3\n",
+        "output": "1b2ac3\n"
       },
       {
-        "input": "AaBb\n",
-        "output": "AaBb\n"
+        "input": "AaBbAa\n",
+        "output": "ABba\n"
       },
       {
-        "input": "a!a\n",
-        "output": "!a\n"
+        "input": "zzxyzzxyzz\n",
+        "output": "xyz\n"
+      },
+      {
+        "input": "cba\n",
+        "output": "cba\n"
+      },
+      {
+        "input": "abcbac\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "zzzzzz\n",
+        "output": "z\n"
       }
     ],
     "parsed_tests": [
-      "('removeDuplicateLetters', ('bcabc\\n',), 'abc\\n')",
-      "('removeDuplicateLetters', ('cbacdcbc\\n',), 'acdb\\n')",
-      "('removeDuplicateLetters', ('a\\n',), 'a\\n')",
       "('removeDuplicateLetters', ((),), '\\n')",
-      "('removeDuplicateLetters', ('aaabbb\\n',), 'ab\\n')",
-      "('removeDuplicateLetters', ('abacb\\n',), 'abc\\n')",
-      "('removeDuplicateLetters', ('abcd\\n',), 'abcd\\n')",
+      "('removeDuplicateLetters', ('x\\n',), 'x\\n')",
+      "('removeDuplicateLetters', ('abcde\\n',), 'abcde\\n')",
+      "('removeDuplicateLetters', ('aaaaa\\n',), 'a\\n')",
       "('removeDuplicateLetters', ('cbacdcbc\\n',), 'acdb\\n')",
-      "('removeDuplicateLetters', ('AaBb\\n',), 'AaBb\\n')",
-      "('removeDuplicateLetters', ('a!a\\n',), '!a\\n')"
+      "('removeDuplicateLetters', ('bcabc\\n',), 'abc\\n')",
+      "('removeDuplicateLetters', ('abacb\\n',), 'abc\\n')",
+      "('removeDuplicateLetters', (123321,), 123)",
+      "('removeDuplicateLetters', ('a1b2a1c3\\n',), '1b2ac3\\n')",
+      "('removeDuplicateLetters', ('AaBbAa\\n',), 'ABba\\n')",
+      "('removeDuplicateLetters', ('zzxyzzxyzz\\n',), 'xyz\\n')",
+      "('removeDuplicateLetters', ('cba\\n',), 'cba\\n')",
+      "('removeDuplicateLetters', ('abcbac\\n',), 'abc\\n')",
+      "('removeDuplicateLetters', ('zzzzzz\\n',), 'z\\n')"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: removeDuplicateLetters('bcabc\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#2] ✅ 通過\n  標準輸入: removeDuplicateLetters('cbacdcbc\\n',)\n  標準輸出: 'acdb\\n'\n  你的輸出: 'acdb\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: removeDuplicateLetters('a\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: 'a\\n'\n\n[測試#4] ❌ 失敗\n  標準輸入: removeDuplicateLetters((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ✅ 通過\n  標準輸入: removeDuplicateLetters('aaabbb\\n',)\n  標準輸出: 'ab\\n'\n  你的輸出: 'ab\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: removeDuplicateLetters('abacb\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#7] ✅ 通過\n  標準輸入: removeDuplicateLetters('abcd\\n',)\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd\\n'\n\n[測試#8] ✅ 通過\n  標準輸入: removeDuplicateLetters('cbacdcbc\\n',)\n  標準輸出: 'acdb\\n'\n  你的輸出: 'acdb\\n'\n\n[測試#9] ✅ 通過\n  標準輸入: removeDuplicateLetters('AaBb\\n',)\n  標準輸出: 'AaBb\\n'\n  你的輸出: 'AaBb\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: removeDuplicateLetters('a!a\\n',)\n  標準輸出: '!a\\n'\n  你的輸出: '!a\\n'\n\n=== 測試完成 (9/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: removeDuplicateLetters((),)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#2] ✅ 通過\n  標準輸入: removeDuplicateLetters('x\\n',)\n  標準輸出: 'x\\n'\n  你的輸出: 'x\\n'\n\n[測試#3] ✅ 通過\n  標準輸入: removeDuplicateLetters('abcde\\n',)\n  標準輸出: 'abcde\\n'\n  你的輸出: 'abcde\\n'\n\n[測試#4] ✅ 通過\n  標準輸入: removeDuplicateLetters('aaaaa\\n',)\n  標準輸出: 'a\\n'\n  你的輸出: 'a\\n'\n\n[測試#5] ✅ 通過\n  標準輸入: removeDuplicateLetters('cbacdcbc\\n',)\n  標準輸出: 'acdb\\n'\n  你的輸出: 'acdb\\n'\n\n[測試#6] ✅ 通過\n  標準輸入: removeDuplicateLetters('bcabc\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#7] ✅ 通過\n  標準輸入: removeDuplicateLetters('abacb\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#8] ❌ 執行例外: 'int' object is not iterable\n[測試#9] ✅ 通過\n  標準輸入: removeDuplicateLetters('a1b2a1c3\\n',)\n  標準輸出: '1b2ac3\\n'\n  你的輸出: '1b2ac3\\n'\n\n[測試#10] ✅ 通過\n  標準輸入: removeDuplicateLetters('AaBbAa\\n',)\n  標準輸出: 'ABba\\n'\n  你的輸出: 'ABba\\n'\n\n[測試#11] ✅ 通過\n  標準輸入: removeDuplicateLetters('zzxyzzxyzz\\n',)\n  標準輸出: 'xyz\\n'\n  你的輸出: 'xyz\\n'\n\n[測試#12] ✅ 通過\n  標準輸入: removeDuplicateLetters('cba\\n',)\n  標準輸出: 'cba\\n'\n  你的輸出: 'cba\\n'\n\n[測試#13] ✅ 通過\n  標準輸入: removeDuplicateLetters('abcbac\\n',)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc\\n'\n\n[測試#14] ✅ 通過\n  標準輸入: removeDuplicateLetters('zzzzzz\\n',)\n  標準輸出: 'z\\n'\n  你的輸出: 'z\\n'\n\n=== 測試完成 (12/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 14,
+    "passed_count": 12,
+    "accuracy_rate": 0.8571428571428571
   }
 }

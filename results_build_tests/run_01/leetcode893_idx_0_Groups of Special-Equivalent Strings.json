@@ -23,15 +23,23 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "['abcd', 'adcb', 'bcda', 'cbda']\n",
-        "output": "3\n"
-      },
-      {
-        "input": "['a', 'a', 'a']\n",
+        "input": "['abcd', 'cdab', 'adcb', 'cbad']\n",
         "output": "1\n"
       },
       {
-        "input": "['a', 'b', 'c']\n",
+        "input": "['abcd', 'abdc']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['abcd', 'abcd']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abcd', 'abcd', 'abcd']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abcd', 'abdc', 'acbd', 'adbc']\n",
         "output": "3\n"
       },
       {
@@ -39,46 +47,38 @@
         "output": "0\n"
       },
       {
-        "input": "['aabb', 'bbaa', 'abab']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['abcd', 'adcb', 'aabb', 'bbaa', 'abab', 'xyz']\n",
-        "output": "3\n"
-      },
-      {
-        "input": "['abcde', 'acbde', 'abcde']\n",
+        "input": "['a', 'b', 'a']\n",
         "output": "2\n"
       },
       {
-        "input": "['', '']\n",
-        "output": "1\n"
-      },
-      {
-        "input": "['abc']\n",
+        "input": "['aa', 'aa']\n",
         "output": "1\n"
       },
       {
         "input": "['ab', 'ba']\n",
         "output": "2\n"
+      },
+      {
+        "input": "['你好', '好你']\n",
+        "output": "2\n"
       }
     ],
     "parsed_tests": [
-      "('numSpecialEquivGroups', (['abcd', 'adcb', 'bcda', 'cbda'],), 3)",
-      "('numSpecialEquivGroups', (['a', 'a', 'a'],), 1)",
-      "('numSpecialEquivGroups', (['a', 'b', 'c'],), 3)",
+      "('numSpecialEquivGroups', (['abcd', 'cdab', 'adcb', 'cbad'],), 1)",
+      "('numSpecialEquivGroups', (['abcd', 'abdc'],), 2)",
+      "('numSpecialEquivGroups', (['abcd', 'abcd'],), 1)",
+      "('numSpecialEquivGroups', (['abcd', 'abcd', 'abcd'],), 1)",
+      "('numSpecialEquivGroups', (['abcd', 'abdc', 'acbd', 'adbc'],), 3)",
       "('numSpecialEquivGroups', ((),), 0)",
-      "('numSpecialEquivGroups', (['aabb', 'bbaa', 'abab'],), 1)",
-      "('numSpecialEquivGroups', (['abcd', 'adcb', 'aabb', 'bbaa', 'abab', 'xyz'],), 3)",
-      "('numSpecialEquivGroups', (['abcde', 'acbde', 'abcde'],), 2)",
-      "('numSpecialEquivGroups', (['', ''],), 1)",
-      "('numSpecialEquivGroups', (['abc'],), 1)",
-      "('numSpecialEquivGroups', (['ab', 'ba'],), 2)"
+      "('numSpecialEquivGroups', (['a', 'b', 'a'],), 2)",
+      "('numSpecialEquivGroups', (['aa', 'aa'],), 1)",
+      "('numSpecialEquivGroups', (['ab', 'ba'],), 2)",
+      "('numSpecialEquivGroups', (['你好', '好你'],), 2)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abcd', 'adcb', 'bcda', 'cbda'],)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['a', 'a', 'a'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['a', 'b', 'c'],)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: numSpecialEquivGroups((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ❌ 失敗\n  標準輸入: numSpecialEquivGroups(['aabb', 'bbaa', 'abab'],)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#6] ❌ 失敗\n  標準輸入: numSpecialEquivGroups(['abcd', 'adcb', 'aabb', 'bbaa', 'abab', 'xyz'],)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#7] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abcde', 'acbde', 'abcde'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['', ''],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abc'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#10] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['ab', 'ba'],)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (8/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
-    "all_passed": false,
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abcd', 'cdab', 'adcb', 'cbad'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abcd', 'abdc'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abcd', 'abcd'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abcd', 'abcd', 'abcd'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['abcd', 'abdc', 'acbd', 'adbc'],)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: numSpecialEquivGroups((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['a', 'b', 'a'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#8] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['aa', 'aa'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#9] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['ab', 'ba'],)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ✅ 通過\n  標準輸入: numSpecialEquivGroups(['你好', '好你'],)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
     "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 10,
+    "accuracy_rate": 1.0
   }
 }

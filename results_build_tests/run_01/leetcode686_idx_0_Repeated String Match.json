@@ -1,0 +1,94 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode686.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Repeated String Match",
+    "description": "Given two strings a and b, return the minimum number of times you should repeat string a so that string b is a substring of it. If it is impossible for b to be a substring of a after repeating it, return -1.\n\nNotice: string \"abc\" repeated 0 times is \"\", repeated 1 time is \"abc\" and repeated 2 times is \"abcabc\".",
+    "examples": [
+      {
+        "input": "a = \"abcd\", b = \"cdabcdab\"",
+        "output": "3",
+        "explanation": "We return 3 because by repeating a three times \"abcdabcdabcd\", b is a substring of it."
+      },
+      {
+        "input": "a = \"a\", b = \"aa\"",
+        "output": "2"
+      }
+    ],
+    "solution": "class Solution:\n    def repeatedStringMatch(self, A, B):\n        repeat = (len(B) + len(A) - 1) // len(A)\n        s = A * repeat\n        if B in s:\n            return repeat\n        s += A\n        if B in s:\n            return repeat + 1\n        return -1"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abcd', 'cdabcdab']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['abc', 'abc']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abc', 'cba']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abc', '']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aa', 'aaa']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['!@#', '#!@']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['ab', 'baba']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['ab', 'bababa']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['ab', 'babaab']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['ab', 'baa']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['abc', 'cabcabcabc']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['abc', 'cabcabca']\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('repeatedStringMatch', ('abcd', 'cdabcdab'), 3)",
+      "('repeatedStringMatch', ('abc', 'abc'), 1)",
+      "('repeatedStringMatch', ('abc', 'cba'), -1)",
+      "('repeatedStringMatch', ('abc', ''), 0)",
+      "('repeatedStringMatch', ('aa', 'aaa'), 2)",
+      "('repeatedStringMatch', ('!@#', '#!@'), 2)",
+      "('repeatedStringMatch', ('ab', 'baba'), 2)",
+      "('repeatedStringMatch', ('ab', 'bababa'), 3)",
+      "('repeatedStringMatch', ('ab', 'babaab'), -1)",
+      "('repeatedStringMatch', ('ab', 'baa'), -1)",
+      "('repeatedStringMatch', ('abc', 'cabcabcabc'), 4)",
+      "('repeatedStringMatch', ('abc', 'cabcabca'), 3)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: repeatedStringMatch('abcd', 'cdabcdab')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: repeatedStringMatch('abc', 'abc')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: repeatedStringMatch('abc', 'cba')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#4] ✅ 通過\n  標準輸入: repeatedStringMatch('abc', '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: repeatedStringMatch('aa', 'aaa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: repeatedStringMatch('!@#', '#!@')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ❌ 失敗\n  標準輸入: repeatedStringMatch('ab', 'baba')\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#8] ❌ 失敗\n  標準輸入: repeatedStringMatch('ab', 'bababa')\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#9] ✅ 通過\n  標準輸入: repeatedStringMatch('ab', 'babaab')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#10] ✅ 通過\n  標準輸入: repeatedStringMatch('ab', 'baa')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#11] ✅ 通過\n  標準輸入: repeatedStringMatch('abc', 'cabcabcabc')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#12] ❌ 失敗\n  標準輸入: repeatedStringMatch('abc', 'cabcabca')\n  標準輸出: 3\n  你的輸出: 4\n\n=== 測試完成 (9/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 12,
+    "passed_count": 9,
+    "accuracy_rate": 0.75
+  }
+}

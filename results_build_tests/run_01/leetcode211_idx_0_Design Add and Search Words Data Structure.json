@@ -16,8 +16,213 @@
   },
   "experiment_result": {
     "success": false,
-    "error": "非 LeetCode 格式程式碼",
-    "generated_tests": [],
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "hello"
+          },
+          {
+            "op": "search",
+            "arg": "hello"
+          }
+        ],
+        "expected": [
+          true
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "hello"
+          },
+          {
+            "op": "search",
+            "arg": "h.llo"
+          }
+        ],
+        "expected": [
+          true
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "hello"
+          },
+          {
+            "op": "search",
+            "arg": "h.llo."
+          }
+        ],
+        "expected": [
+          false
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "hello"
+          },
+          {
+            "op": "search",
+            "arg": "....."
+          }
+        ],
+        "expected": [
+          true
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "hello"
+          },
+          {
+            "op": "search",
+            "arg": "world"
+          }
+        ],
+        "expected": [
+          false
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "hello"
+          },
+          {
+            "op": "search",
+            "arg": "hell"
+          }
+        ],
+        "expected": [
+          false
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": ""
+          },
+          {
+            "op": "search",
+            "arg": ""
+          }
+        ],
+        "expected": [
+          true
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "search",
+            "arg": ""
+          }
+        ],
+        "expected": [
+          false
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "foo"
+          },
+          {
+            "op": "addWord",
+            "arg": "foo"
+          },
+          {
+            "op": "search",
+            "arg": "foo"
+          }
+        ],
+        "expected": [
+          true
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "foo"
+          },
+          {
+            "op": "addWord",
+            "arg": "bar"
+          },
+          {
+            "op": "search",
+            "arg": "f.o"
+          },
+          {
+            "op": "search",
+            "arg": "b.r"
+          }
+        ],
+        "expected": [
+          true,
+          true
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "abcd"
+          },
+          {
+            "op": "search",
+            "arg": "abcde"
+          }
+        ],
+        "expected": [
+          false
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "abcd"
+          },
+          {
+            "op": "search",
+            "arg": "ab.."
+          }
+        ],
+        "expected": [
+          true
+        ]
+      },
+      {
+        "operations": [
+          {
+            "op": "addWord",
+            "arg": "abcd"
+          },
+          {
+            "op": "search",
+            "arg": "ab..f"
+          }
+        ],
+        "expected": [
+          false
+        ]
+      }
+    ],
     "parsed_tests": [],
     "runlog": "",
     "all_passed": false,

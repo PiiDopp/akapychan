@@ -29,14 +29,6 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "\n",
-        "output": "0\n"
-      },
-      {
-        "input": "a\n",
-        "output": "1\n"
-      },
-      {
         "input": "abcabcbb\n",
         "output": "3\n"
       },
@@ -53,38 +45,121 @@
         "output": "3\n"
       },
       {
+        "input": "anviaj\n",
+        "output": "5\n"
+      },
+      {
         "input": "abba\n",
         "output": "2\n"
       },
       {
-        "input": "abcde\n",
+        "input": "abcadef\n",
+        "output": "6\n"
+      },
+      {
+        "input": "abcdabc\n",
+        "output": "4\n"
+      },
+      {
+        "input": "abcdeff\n",
         "output": "5\n"
       },
       {
-        "input": "aabbccddeeff\n",
+        "input": "aaabcdeff\n",
+        "output": "5\n"
+      },
+      {
+        "input": "aaabbbccc\n",
+        "output": "2\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "a\n",
+        "output": "1\n"
+      },
+      {
+        "input": "\n",
+        "output": "1\n"
+      },
+      {
+        "input": "\n",
+        "output": "1\n"
+      },
+      {
+        "input": "a\n",
+        "output": "2\n"
+      },
+      {
+        "input": "a  b\n",
+        "output": "2\n"
+      },
+      {
+        "input": "a b c d\n",
+        "output": "3\n"
+      },
+      {
+        "input": "你好世界\n",
+        "output": "4\n"
+      },
+      {
+        "input": "你好你\n",
         "output": "2\n"
       },
       {
         "input": "😀😃😄😁😆😅😂🤣☺️😊\n",
         "output": "10\n"
+      },
+      {
+        "input": "😀😃😄😁😆😅😂🤣☺️😊😀\n",
+        "output": "10\n"
+      },
+      {
+        "input": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n",
+        "output": "52\n"
+      },
+      {
+        "input": "0123456789\n",
+        "output": "10\n"
+      },
+      {
+        "input": "a1b2c3d4e5f6g7h8i9j0\n",
+        "output": "20\n"
       }
     ],
     "parsed_tests": [
-      "('lengthOfLongestSubstring', ((),), 0)",
-      "('lengthOfLongestSubstring', ('a\\n',), 1)",
       "('lengthOfLongestSubstring', ('abcabcbb\\n',), 3)",
       "('lengthOfLongestSubstring', ('bbbbb\\n',), 1)",
       "('lengthOfLongestSubstring', ('pwwkew\\n',), 3)",
       "('lengthOfLongestSubstring', ('dvdf\\n',), 3)",
+      "('lengthOfLongestSubstring', ('anviaj\\n',), 5)",
       "('lengthOfLongestSubstring', ('abba\\n',), 2)",
-      "('lengthOfLongestSubstring', ('abcde\\n',), 5)",
-      "('lengthOfLongestSubstring', ('aabbccddeeff\\n',), 2)",
-      "('lengthOfLongestSubstring', ('😀😃😄😁😆😅😂🤣☺️😊\\n',), 10)"
+      "('lengthOfLongestSubstring', ('abcadef\\n',), 6)",
+      "('lengthOfLongestSubstring', ('abcdabc\\n',), 4)",
+      "('lengthOfLongestSubstring', ('abcdeff\\n',), 5)",
+      "('lengthOfLongestSubstring', ('aaabcdeff\\n',), 5)",
+      "('lengthOfLongestSubstring', ('aaabbbccc\\n',), 2)",
+      "('lengthOfLongestSubstring', ((),), 0)",
+      "('lengthOfLongestSubstring', ('a\\n',), 1)",
+      "('lengthOfLongestSubstring', ((),), 1)",
+      "('lengthOfLongestSubstring', ((),), 1)",
+      "('lengthOfLongestSubstring', ('a\\n',), 2)",
+      "('lengthOfLongestSubstring', ('a  b\\n',), 2)",
+      "('lengthOfLongestSubstring', ('a b c d\\n',), 3)",
+      "('lengthOfLongestSubstring', ('你好世界\\n',), 4)",
+      "('lengthOfLongestSubstring', ('你好你\\n',), 2)",
+      "('lengthOfLongestSubstring', ('😀😃😄😁😆😅😂🤣☺️😊\\n',), 10)",
+      "('lengthOfLongestSubstring', ('😀😃😄😁😆😅😂🤣☺️😊😀\\n',), 10)",
+      "('lengthOfLongestSubstring', ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\\n',), 52)",
+      "('lengthOfLongestSubstring', ('0123456789\\n',), 10)",
+      "('lengthOfLongestSubstring', ('a1b2c3d4e5f6g7h8i9j0\\n',), 20)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: lengthOfLongestSubstring((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('a\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: lengthOfLongestSubstring('abcabcbb\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('bbbbb\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#5] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('pwwkew\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#6] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('dvdf\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#7] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('abba\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#8] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('abcde\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#9] ✅ 通過\n  標準輸入: lengthOfLongestSubstring('aabbccddeeff\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('😀😃😄😁😆😅😂🤣☺️😊\\n',)\n  標準輸出: 10\n  你的輸出: 12\n\n=== 測試完成 (3/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: lengthOfLongestSubstring('abcabcbb\\n',)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('bbbbb\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#3] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('pwwkew\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#4] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('dvdf\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#5] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('anviaj\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#6] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('abba\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#7] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('abcadef\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#8] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('abcdabc\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#9] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('abcdeff\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#10] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('aaabcdeff\\n',)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#11] ✅ 通過\n  標準輸入: lengthOfLongestSubstring('aaabbbccc\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: lengthOfLongestSubstring((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#13] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('a\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#14] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring((),)\n  標準輸出: 1\n  你的輸出: 0\n\n[測試#15] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring((),)\n  標準輸出: 1\n  你的輸出: 0\n\n[測試#16] ✅ 通過\n  標準輸入: lengthOfLongestSubstring('a\\n',)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#17] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('a  b\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#18] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('a b c d\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#19] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('你好世界\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#20] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('你好你\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#21] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('😀😃😄😁😆😅😂🤣☺️😊\\n',)\n  標準輸出: 10\n  你的輸出: 12\n\n[測試#22] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('😀😃😄😁😆😅😂🤣☺️😊😀\\n',)\n  標準輸出: 10\n  你的輸出: 12\n\n[測試#23] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\\n',)\n  標準輸出: 52\n  你的輸出: 53\n\n[測試#24] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('0123456789\\n',)\n  標準輸出: 10\n  你的輸出: 11\n\n[測試#25] ❌ 失敗\n  標準輸入: lengthOfLongestSubstring('a1b2c3d4e5f6g7h8i9j0\\n',)\n  標準輸出: 20\n  你的輸出: 21\n\n=== 測試完成 (4/25) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 10,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 25,
+    "passed_count": 4,
+    "accuracy_rate": 0.16
   }
 }

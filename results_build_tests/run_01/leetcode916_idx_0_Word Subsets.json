@@ -1,0 +1,87 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode916.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Word Subsets",
+    "description": "You are given two string arrays words1 and words2.\nA string b is a subset of string a if every letter in b occurs in a including multiplicity.\nFor example, \"wrr\" is a subset of \"warrior\" but is not a subset of \"world\".\nA string a from words1 is universal if for every string b in words2, b is a subset of a.\nReturn an array of all the universal strings in words1. You may return the answer in any order.",
+    "examples": [
+      {
+        "input": "words1 = [\"amazon\",\"apple\",\"facebook\",\"google\",\"leetcode\"], words2 = [\"e\",\"o\"]",
+        "output": "[\"facebook\",\"google\",\"leetcode\"]"
+      },
+      {
+        "input": "words1 = [\"amazon\",\"apple\",\"facebook\",\"google\",\"leetcode\"], words2 = [\"lc\",\"eo\"]",
+        "output": "[\"leetcode\"]"
+      },
+      {
+        "input": "words1 = [\"acaac\",\"cccbb\",\"aacbb\",\"caacc\",\"bcbbb\"], words2 = [\"c\",\"cc\",\"b\"]",
+        "output": "[\"cccbb\"]"
+      }
+    ],
+    "solution": "from collections import Counter\n\nclass Solution(object):\n    def wordSubsets(self, words1, words2):\n        max_b = Counter()\n        for b in words2:\n            max_b |= Counter(b)\n        res = []\n        for a in words1:\n            if not max_b - Counter(a):\n                res.append(a)\n        return res"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['amazon', 'apple', 'facebook', 'google', 'leetcode'], ['e', 'o']]\n",
+        "output": "['facebook', 'google', 'leetcode']\n"
+      },
+      {
+        "input": "[['a', 'b', 'c'], []]\n",
+        "output": "['a', 'b', 'c']\n"
+      },
+      {
+        "input": "[[], ['a']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['abc', 'def'], ['']]\n",
+        "output": "['abc', 'def']\n"
+      },
+      {
+        "input": "[['aabb', 'ab', 'aaabbb', 'aab'], ['aa', 'bb']]\n",
+        "output": "['aabb', 'aaabbb']\n"
+      },
+      {
+        "input": "[['abc', 'ab', 'aabbc', 'aabbcc'], ['ab', 'ba']]\n",
+        "output": "['abc', 'ab', 'aabbc', 'aabbcc']\n"
+      },
+      {
+        "input": "[['aabbc', 'aab', 'aaabbb', 'ab'], ['aab', 'b']]\n",
+        "output": "['aabbc', 'aab', 'aaabbb']\n"
+      },
+      {
+        "input": "[['abc', 'def'], ['g']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['aaa', 'aa', 'aaaa'], ['aa', 'aaa']]\n",
+        "output": "['aaa', 'aaaa']\n"
+      },
+      {
+        "input": "[['abc', 'abc', 'ab'], ['a', 'b']]\n",
+        "output": "['abc', 'abc', 'ab']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('wordSubsets', (['amazon', 'apple', 'facebook', 'google', 'leetcode'], ['e', 'o']), ['facebook', 'google', 'leetcode'])",
+      "('wordSubsets', (['a', 'b', 'c'], []), ['a', 'b', 'c'])",
+      "('wordSubsets', ([], ['a']), [])",
+      "('wordSubsets', (['abc', 'def'], ['']), ['abc', 'def'])",
+      "('wordSubsets', (['aabb', 'ab', 'aaabbb', 'aab'], ['aa', 'bb']), ['aabb', 'aaabbb'])",
+      "('wordSubsets', (['abc', 'ab', 'aabbc', 'aabbcc'], ['ab', 'ba']), ['abc', 'ab', 'aabbc', 'aabbcc'])",
+      "('wordSubsets', (['aabbc', 'aab', 'aaabbb', 'ab'], ['aab', 'b']), ['aabbc', 'aab', 'aaabbb'])",
+      "('wordSubsets', (['abc', 'def'], ['g']), [])",
+      "('wordSubsets', (['aaa', 'aa', 'aaaa'], ['aa', 'aaa']), ['aaa', 'aaaa'])",
+      "('wordSubsets', (['abc', 'abc', 'ab'], ['a', 'b']), ['abc', 'abc', 'ab'])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: wordSubsets(['amazon', 'apple', 'facebook', 'google', 'leetcode'], ['e', 'o'])\n  標準輸出: ['facebook', 'google', 'leetcode']\n  你的輸出: ['facebook', 'google', 'leetcode']\n\n[測試#2] ✅ 通過\n  標準輸入: wordSubsets(['a', 'b', 'c'], [])\n  標準輸出: ['a', 'b', 'c']\n  你的輸出: ['a', 'b', 'c']\n\n[測試#3] ✅ 通過\n  標準輸入: wordSubsets([], ['a'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: wordSubsets(['abc', 'def'], [''])\n  標準輸出: ['abc', 'def']\n  你的輸出: ['abc', 'def']\n\n[測試#5] ✅ 通過\n  標準輸入: wordSubsets(['aabb', 'ab', 'aaabbb', 'aab'], ['aa', 'bb'])\n  標準輸出: ['aabb', 'aaabbb']\n  你的輸出: ['aabb', 'aaabbb']\n\n[測試#6] ✅ 通過\n  標準輸入: wordSubsets(['abc', 'ab', 'aabbc', 'aabbcc'], ['ab', 'ba'])\n  標準輸出: ['abc', 'ab', 'aabbc', 'aabbcc']\n  你的輸出: ['abc', 'ab', 'aabbc', 'aabbcc']\n\n[測試#7] ✅ 通過\n  標準輸入: wordSubsets(['aabbc', 'aab', 'aaabbb', 'ab'], ['aab', 'b'])\n  標準輸出: ['aabbc', 'aab', 'aaabbb']\n  你的輸出: ['aabbc', 'aab', 'aaabbb']\n\n[測試#8] ✅ 通過\n  標準輸入: wordSubsets(['abc', 'def'], ['g'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#9] ✅ 通過\n  標準輸入: wordSubsets(['aaa', 'aa', 'aaaa'], ['aa', 'aaa'])\n  標準輸出: ['aaa', 'aaaa']\n  你的輸出: ['aaa', 'aaaa']\n\n[測試#10] ✅ 通過\n  標準輸入: wordSubsets(['abc', 'abc', 'ab'], ['a', 'b'])\n  標準輸出: ['abc', 'abc', 'ab']\n  你的輸出: ['abc', 'abc', 'ab']\n\n=== 測試完成 (10/10) ===\n[成功] 所有測資通過 ✅（0.0002s）\n",
+    "all_passed": true,
+    "total_tests": 10,
+    "passed_count": 10,
+    "accuracy_rate": 1.0
+  }
+}

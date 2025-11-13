@@ -24,72 +24,87 @@
     "error": null,
     "generated_tests": [
       {
-        "input": "{'stickers': ['abc'], 'target': 'ab'}\n",
-        "output": "1\n"
-      },
-      {
-        "input": "{'stickers': ['ab', 'bc'], 'target': 'abc'}\n",
+        "input": "[['ab', 'bc'], 'abc']\n",
         "output": "2\n"
       },
       {
-        "input": "{'stickers': ['ab', 'bc'], 'target': 'abcd'}\n",
+        "input": "[['abc'], 'abc']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['ab', 'c'], 'abc']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['ab'], 'abc']\n",
         "output": "-1\n"
       },
       {
-        "input": "{'stickers': ['ab', 'bc'], 'target': ''}\n",
+        "input": "[['a', 'b'], '']\n",
         "output": "0\n"
       },
       {
-        "input": "{'stickers': [], 'target': 'a'}\n",
+        "input": "[[], 'a']\n",
         "output": "-1\n"
       },
       {
-        "input": "{'stickers': ['aa'], 'target': 'aaaaa'}\n",
-        "output": "3\n"
-      },
-      {
-        "input": "{'stickers': ['abcd'], 'target': 'abcd'}\n",
-        "output": "1\n"
-      },
-      {
-        "input": "{'stickers': ['ab'], 'target': 'abab'}\n",
-        "output": "2\n"
-      },
-      {
-        "input": "{'stickers': ['ab', 'cd'], 'target': 'ac'}\n",
-        "output": "2\n"
-      },
-      {
-        "input": "{'stickers': ['ab', 'bc'], 'target': 'aabbcc'}\n",
+        "input": "[['a'], 'aaaa']\n",
         "output": "4\n"
       },
       {
-        "input": "{'stickers': ['ab'], 'target': 'aba'}\n",
+        "input": "[['aa'], 'aaaa']\n",
         "output": "2\n"
       },
       {
-        "input": "{'stickers': ['ab'], 'target': 'ababa'}\n",
-        "output": "3\n"
+        "input": "[['a', 'aa'], 'aaaa']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['a', 'b'], 'c']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[['ab'], 'aabb']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['ab', 'bc', 'cd'], 'abcd']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['abc'], 'abcabc']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['a', 'aa', 'aaa', 'aaaa'], 'aaaa']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['a', 'aa', 'aaa'], 'aaaa']\n",
+        "output": "2\n"
       }
     ],
     "parsed_tests": [
-      "('minStickers', (\"{'stickers': ['abc'], 'target': 'ab'}\\n\",), 1)",
-      "('minStickers', (\"{'stickers': ['ab', 'bc'], 'target': 'abc'}\\n\",), 2)",
-      "('minStickers', (\"{'stickers': ['ab', 'bc'], 'target': 'abcd'}\\n\",), -1)",
-      "('minStickers', (\"{'stickers': ['ab', 'bc'], 'target': ''}\\n\",), 0)",
-      "('minStickers', (\"{'stickers': [], 'target': 'a'}\\n\",), -1)",
-      "('minStickers', (\"{'stickers': ['aa'], 'target': 'aaaaa'}\\n\",), 3)",
-      "('minStickers', (\"{'stickers': ['abcd'], 'target': 'abcd'}\\n\",), 1)",
-      "('minStickers', (\"{'stickers': ['ab'], 'target': 'abab'}\\n\",), 2)",
-      "('minStickers', (\"{'stickers': ['ab', 'cd'], 'target': 'ac'}\\n\",), 2)",
-      "('minStickers', (\"{'stickers': ['ab', 'bc'], 'target': 'aabbcc'}\\n\",), 4)",
-      "('minStickers', (\"{'stickers': ['ab'], 'target': 'aba'}\\n\",), 2)",
-      "('minStickers', (\"{'stickers': ['ab'], 'target': 'ababa'}\\n\",), 3)"
+      "('minStickers', (['ab', 'bc'], 'abc'), 2)",
+      "('minStickers', (['abc'], 'abc'), 1)",
+      "('minStickers', (['ab', 'c'], 'abc'), 2)",
+      "('minStickers', (['ab'], 'abc'), -1)",
+      "('minStickers', (['a', 'b'], ''), 0)",
+      "('minStickers', ([], 'a'), -1)",
+      "('minStickers', (['a'], 'aaaa'), 4)",
+      "('minStickers', (['aa'], 'aaaa'), 2)",
+      "('minStickers', (['a', 'aa'], 'aaaa'), 2)",
+      "('minStickers', (['a', 'b'], 'c'), -1)",
+      "('minStickers', (['ab'], 'aabb'), 2)",
+      "('minStickers', (['ab', 'bc', 'cd'], 'abcd'), 2)",
+      "('minStickers', (['abc'], 'abcabc'), 2)",
+      "('minStickers', (['a', 'aa', 'aaa', 'aaaa'], 'aaaa'), 1)",
+      "('minStickers', (['a', 'aa', 'aaa'], 'aaaa'), 2)"
     ],
-    "runlog": "[測試#1] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#2] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#3] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#4] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#5] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#6] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#7] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#8] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#9] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#10] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#11] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n[測試#12] ❌ 執行例外: Solution.minStickers() missing 1 required positional argument: 'target'\n=== 測試完成 (0/12) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
-    "all_passed": false,
-    "total_tests": 12,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minStickers(['ab', 'bc'], 'abc')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#2] ✅ 通過\n  標準輸入: minStickers(['abc'], 'abc')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: minStickers(['ab', 'c'], 'abc')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: minStickers(['ab'], 'abc')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: minStickers(['a', 'b'], '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: minStickers([], 'a')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#7] ✅ 通過\n  標準輸入: minStickers(['a'], 'aaaa')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: minStickers(['aa'], 'aaaa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#9] ✅ 通過\n  標準輸入: minStickers(['a', 'aa'], 'aaaa')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#10] ✅ 通過\n  標準輸入: minStickers(['a', 'b'], 'c')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#11] ✅ 通過\n  標準輸入: minStickers(['ab'], 'aabb')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#12] ✅ 通過\n  標準輸入: minStickers(['ab', 'bc', 'cd'], 'abcd')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#13] ✅ 通過\n  標準輸入: minStickers(['abc'], 'abcabc')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#14] ✅ 通過\n  標準輸入: minStickers(['a', 'aa', 'aaa', 'aaaa'], 'aaaa')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#15] ✅ 通過\n  標準輸入: minStickers(['a', 'aa', 'aaa'], 'aaaa')\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (15/15) ===\n[成功] 所有測資通過 ✅（0.0002s）\n",
+    "all_passed": true,
+    "total_tests": 15,
+    "passed_count": 15,
+    "accuracy_rate": 1.0
   }
 }

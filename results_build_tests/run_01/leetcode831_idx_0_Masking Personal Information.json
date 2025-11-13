@@ -1,0 +1,150 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode831.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Masking Personal Information",
+    "description": "You are given a personal information string s, representing either an email address or a phone number. Return the masked personal information using the below rules.\n\nEmail address:\n\nAn email address is:\n\nA name consisting of uppercase and lowercase English letters, followed by\nThe '@' symbol, followed by\nThe domain consisting of uppercase and lowercase English letters with a dot '.' somewhere in the middle (not the first or last character).\nTo mask an email:\n\nThe uppercase letters in the name and domain must be converted to lowercase letters.\nThe middle letters of the name (i.e., all but the first and last letters) must be replaced by 5 asterisks \"*****\".\nPhone number:\n\nA phone number is formatted as follows:\n\nThe phone number contains 10-13 digits.\nThe last 10 digits make up the local number.\nThe remaining 0-3 digits, in the beginning, make up the country code.\nSeparation characters from the set {'+', '-', '(', ')', ' '} separate the above digits in some way.\nTo mask a phone number:\n\nRemove all separation characters.\nThe masked phone number should have the form:\n\"***-***-XXXX\" if the country code has 0 digits.\n\"+*-***-***-XXXX\" if the country code has 1 digit.\n\"+**-***-***-XXXX\" if the country code has 2 digits.\n\"+***-***-***-XXXX\" if the country code has 3 digits.\n\"XXXX\" is the last 4 digits of the local number.",
+    "examples": [
+      {
+        "input": "s = \"LeetCode@LeetCode.com\"",
+        "output": "\"l*****e@leetcode.com\"",
+        "explanation": "s is an email address.\nThe name and domain are converted to lowercase, and the middle of the name is replaced by 5 asterisks."
+      },
+      {
+        "input": "s = \"AB@qq.com\"",
+        "output": "\"a*****b@qq.com\"",
+        "explanation": "s is an email address.\nThe name and domain are converted to lowercase, and the middle of the name is replaced by 5 asterisks.\nNote that even though \"ab\" is 2 characters, it still must have 5 asterisks in the middle."
+      },
+      {
+        "input": "s = \"1(234)567-890\"",
+        "output": "\"***-***-7890\"",
+        "explanation": "s is a phone number.\nThere are 10 digits, so the local number is 10 digits and the country code is 0 digits.\nThus, the resulting masked number is \"***-***-7890\"."
+      }
+    ],
+    "solution": "class Solution(object):\n    def maskPII(self, S):\n        S = S.strip()\n        if '@' in S:\n            name, domain = S.split('@')\n            return name[0].lower() + '*****' + name[-1].lower() + '@' + domain.lower()\n        else:\n            digits = [c for c in S if c.isdigit()]\n            local = digits[-4:]\n            country_len = len(digits) - 10\n            if country_len == 0:\n                return '***-***-' + ''.join(local)\n            else:\n                return '+' + '*'*country_len + '-***-***-' + ''.join(local)"
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "John.Doe@Example.COM\n",
+        "output": "j*****e@example.com\n"
+      },
+      {
+        "input": "a@b.com\n",
+        "output": "a*****a@b.com\n"
+      },
+      {
+        "input": "ab@cd.com\n",
+        "output": "a*****b@cd.com\n"
+      },
+      {
+        "input": "abc@cd.com\n",
+        "output": "a*****c@cd.com\n"
+      },
+      {
+        "input": "abcd@cd.com\n",
+        "output": "a*****d@cd.com\n"
+      },
+      {
+        "input": "JOHN@EXAMPLE.COM\n",
+        "output": "j*****n@example.com\n"
+      },
+      {
+        "input": "john@Sub.EXAMPLE.com\n",
+        "output": "j*****n@sub.example.com\n"
+      },
+      {
+        "input": "John@Sub.EXAMPLE.com\n",
+        "output": "j*****n@sub.example.com\n"
+      },
+      {
+        "input": "1234567890\n",
+        "output": "***-***-7890\n"
+      },
+      {
+        "input": "123-456-7890\n",
+        "output": "***-***-7890\n"
+      },
+      {
+        "input": "(123)456-7890\n",
+        "output": "***-***-7890\n"
+      },
+      {
+        "input": "123 456 7890\n",
+        "output": "***-***-7890\n"
+      },
+      {
+        "input": "+1234567890\n",
+        "output": "***-***-7890\n"
+      },
+      {
+        "input": "1-234-567-8901\n",
+        "output": "+*-***-***-8901\n"
+      },
+      {
+        "input": "12-345-678-9012\n",
+        "output": "+**-***-***-9012\n"
+      },
+      {
+        "input": "123-456-789-0123\n",
+        "output": "+***-***-***-0123\n"
+      },
+      {
+        "input": "+123-456-789-0123\n",
+        "output": "+***-***-***-0123\n"
+      },
+      {
+        "input": "(123)456-789-0123\n",
+        "output": "+***-***-***-0123\n"
+      },
+      {
+        "input": "123 456 789 0123\n",
+        "output": "+***-***-***-0123\n"
+      },
+      {
+        "input": "1234567890123\n",
+        "output": "+***-***-***-0123\n"
+      },
+      {
+        "input": "+ (123)456-789-0123\n",
+        "output": "+***-***-***-0123\n"
+      },
+      {
+        "input": "+123 456 789 0123\n",
+        "output": "+***-***-***-0123\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maskPII', ('John.Doe@Example.COM\\n',), 'j*****e@example.com\\n')",
+      "('maskPII', ('a@b.com\\n',), 'a*****a@b.com\\n')",
+      "('maskPII', ('ab@cd.com\\n',), 'a*****b@cd.com\\n')",
+      "('maskPII', ('abc@cd.com\\n',), 'a*****c@cd.com\\n')",
+      "('maskPII', ('abcd@cd.com\\n',), 'a*****d@cd.com\\n')",
+      "('maskPII', ('JOHN@EXAMPLE.COM\\n',), 'j*****n@example.com\\n')",
+      "('maskPII', ('john@Sub.EXAMPLE.com\\n',), 'j*****n@sub.example.com\\n')",
+      "('maskPII', ('John@Sub.EXAMPLE.com\\n',), 'j*****n@sub.example.com\\n')",
+      "('maskPII', (1234567890,), '***-***-7890\\n')",
+      "('maskPII', ('123-456-7890\\n',), '***-***-7890\\n')",
+      "('maskPII', ('(123)456-7890\\n',), '***-***-7890\\n')",
+      "('maskPII', ('123 456 7890\\n',), '***-***-7890\\n')",
+      "('maskPII', (1234567890,), '***-***-7890\\n')",
+      "('maskPII', ('1-234-567-8901\\n',), '+*-***-***-8901\\n')",
+      "('maskPII', ('12-345-678-9012\\n',), '+**-***-***-9012\\n')",
+      "('maskPII', ('123-456-789-0123\\n',), '+***-***-***-0123\\n')",
+      "('maskPII', ('+123-456-789-0123\\n',), '+***-***-***-0123\\n')",
+      "('maskPII', ('(123)456-789-0123\\n',), '+***-***-***-0123\\n')",
+      "('maskPII', ('123 456 789 0123\\n',), '+***-***-***-0123\\n')",
+      "('maskPII', (1234567890123,), '+***-***-***-0123\\n')",
+      "('maskPII', ('+ (123)456-789-0123\\n',), '+***-***-***-0123\\n')",
+      "('maskPII', ('+123 456 789 0123\\n',), '+***-***-***-0123\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: maskPII('John.Doe@Example.COM\\n',)\n  標準輸出: 'j*****e@example.com\\n'\n  你的輸出: 'j*****e@example.com'\n\n[測試#2] ❌ 失敗\n  標準輸入: maskPII('a@b.com\\n',)\n  標準輸出: 'a*****a@b.com\\n'\n  你的輸出: 'a*****a@b.com'\n\n[測試#3] ❌ 失敗\n  標準輸入: maskPII('ab@cd.com\\n',)\n  標準輸出: 'a*****b@cd.com\\n'\n  你的輸出: 'a*****b@cd.com'\n\n[測試#4] ❌ 失敗\n  標準輸入: maskPII('abc@cd.com\\n',)\n  標準輸出: 'a*****c@cd.com\\n'\n  你的輸出: 'a*****c@cd.com'\n\n[測試#5] ❌ 失敗\n  標準輸入: maskPII('abcd@cd.com\\n',)\n  標準輸出: 'a*****d@cd.com\\n'\n  你的輸出: 'a*****d@cd.com'\n\n[測試#6] ❌ 失敗\n  標準輸入: maskPII('JOHN@EXAMPLE.COM\\n',)\n  標準輸出: 'j*****n@example.com\\n'\n  你的輸出: 'j*****n@example.com'\n\n[測試#7] ❌ 失敗\n  標準輸入: maskPII('john@Sub.EXAMPLE.com\\n',)\n  標準輸出: 'j*****n@sub.example.com\\n'\n  你的輸出: 'j*****n@sub.example.com'\n\n[測試#8] ❌ 失敗\n  標準輸入: maskPII('John@Sub.EXAMPLE.com\\n',)\n  標準輸出: 'j*****n@sub.example.com\\n'\n  你的輸出: 'j*****n@sub.example.com'\n\n[測試#9] ❌ 執行例外: 'int' object has no attribute 'strip'\n[測試#10] ❌ 失敗\n  標準輸入: maskPII('123-456-7890\\n',)\n  標準輸出: '***-***-7890\\n'\n  你的輸出: '***-***-7890'\n\n[測試#11] ❌ 失敗\n  標準輸入: maskPII('(123)456-7890\\n',)\n  標準輸出: '***-***-7890\\n'\n  你的輸出: '***-***-7890'\n\n[測試#12] ❌ 失敗\n  標準輸入: maskPII('123 456 7890\\n',)\n  標準輸出: '***-***-7890\\n'\n  你的輸出: '***-***-7890'\n\n[測試#13] ❌ 執行例外: 'int' object has no attribute 'strip'\n[測試#14] ❌ 失敗\n  標準輸入: maskPII('1-234-567-8901\\n',)\n  標準輸出: '+*-***-***-8901\\n'\n  你的輸出: '+*-***-***-8901'\n\n[測試#15] ❌ 失敗\n  標準輸入: maskPII('12-345-678-9012\\n',)\n  標準輸出: '+**-***-***-9012\\n'\n  你的輸出: '+**-***-***-9012'\n\n[測試#16] ❌ 失敗\n  標準輸入: maskPII('123-456-789-0123\\n',)\n  標準輸出: '+***-***-***-0123\\n'\n  你的輸出: '+***-***-***-0123'\n\n[測試#17] ❌ 失敗\n  標準輸入: maskPII('+123-456-789-0123\\n',)\n  標準輸出: '+***-***-***-0123\\n'\n  你的輸出: '+***-***-***-0123'\n\n[測試#18] ❌ 失敗\n  標準輸入: maskPII('(123)456-789-0123\\n',)\n  標準輸出: '+***-***-***-0123\\n'\n  你的輸出: '+***-***-***-0123'\n\n[測試#19] ❌ 失敗\n  標準輸入: maskPII('123 456 789 0123\\n',)\n  標準輸出: '+***-***-***-0123\\n'\n  你的輸出: '+***-***-***-0123'\n\n[測試#20] ❌ 執行例外: 'int' object has no attribute 'strip'\n[測試#21] ❌ 失敗\n  標準輸入: maskPII('+ (123)456-789-0123\\n',)\n  標準輸出: '+***-***-***-0123\\n'\n  你的輸出: '+***-***-***-0123'\n\n[測試#22] ❌ 失敗\n  標準輸入: maskPII('+123 456 789 0123\\n',)\n  標準輸出: '+***-***-***-0123\\n'\n  你的輸出: '+***-***-***-0123'\n\n=== 測試完成 (0/22) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 22,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -18,41 +18,14 @@
     "solution": "class Solution(object):\n    def generateParenthesis(self, n):\n        \"\"\"\n        :type n: int\n        :rtype: List[str]\n        \"\"\"\n        res = []\n\n        def backtrack(s=\"\", left=0, right=0):\n            if len(s) == 2 * n:\n                res.append(s)\n                return\n            if left < n:\n                backtrack(s + \"(\", left + 1, right)\n            if right < left:\n                backtrack(s + \")\", left, right + 1)\n\n        backtrack()\n        return res"
   },
   "experiment_result": {
-    "success": true,
-    "error": null,
-    "generated_tests": [
-      {
-        "input": "0\n",
-        "output": "['']\n"
-      },
-      {
-        "input": "1\n",
-        "output": "['()']\n"
-      },
-      {
-        "input": "2\n",
-        "output": "['(())', '()()']\n"
-      },
-      {
-        "input": "3\n",
-        "output": "['((()))', '(()())', '(())()', '()(())', '()()()']\n"
-      },
-      {
-        "input": "4\n",
-        "output": "['(((())))', '((()()))', '((())())', '((()))()', '(()(()))', '(()()())', '(()())()', '(())(())', '(())()()', '()((()))', '()(()())', '()(())()', '()()(())', '()()()()']\n"
-      }
-    ],
-    "parsed_tests": [
-      "('generateParenthesis', (0,), [''])",
-      "('generateParenthesis', (1,), ['()'])",
-      "('generateParenthesis', (2,), ['(())', '()()'])",
-      "('generateParenthesis', (3,), ['((()))', '(()())', '(())()', '()(())', '()()()'])",
-      "('generateParenthesis', (4,), ['(((())))', '((()()))', '((())())', '((()))()', '(()(()))', '(()()())', '(()())()', '(())(())', '(())()()', '()((()))', '()(()())', '()(())()', '()()(())', '()()()()'])"
-    ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: generateParenthesis(0,)\n  標準輸出: ['']\n  你的輸出: ['']\n\n[測試#2] ✅ 通過\n  標準輸入: generateParenthesis(1,)\n  標準輸出: ['()']\n  你的輸出: ['()']\n\n[測試#3] ✅ 通過\n  標準輸入: generateParenthesis(2,)\n  標準輸出: ['(())', '()()']\n  你的輸出: ['(())', '()()']\n\n[測試#4] ✅ 通過\n  標準輸入: generateParenthesis(3,)\n  標準輸出: ['((()))', '(()())', '(())()', '()(())', '()()()']\n  你的輸出: ['((()))', '(()())', '(())()', '()(())', '()()()']\n\n[測試#5] ✅ 通過\n  標準輸入: generateParenthesis(4,)\n  標準輸出: ['(((())))', '((()()))', '((())())', '((()))()', '(()(()))', '(()()())', '(()())()', '(())(())', '(())()()', '()((()))', '()(()())', '()(())()', '()()(())', '()()()()']\n  你的輸出: ['(((())))', '((()()))', '((())())', '((()))()', '(()(()))', '(()()())', '(()())()', '(())(())', '(())()()', '()((()))', '()(()())', '()(())()', '()()(())', '()()()()']\n\n=== 測試完成 (5/5) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
-    "all_passed": true,
-    "total_tests": 5,
-    "passed_count": 5,
-    "accuracy_rate": 1.0
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
   }
 }

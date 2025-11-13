@@ -28,78 +28,58 @@
         "output": "0\n"
       },
       {
-        "input": "x\n",
+        "input": "a\n",
         "output": "1\n"
-      },
-      {
-        "input": "aa\n",
-        "output": "3\n"
-      },
-      {
-        "input": "ab\n",
-        "output": "2\n"
-      },
-      {
-        "input": "aaa\n",
-        "output": "6\n"
-      },
-      {
-        "input": "aba\n",
-        "output": "4\n"
       },
       {
         "input": "aaaa\n",
         "output": "10\n"
       },
       {
-        "input": "abca\n",
-        "output": "4\n"
-      },
-      {
-        "input": "abcba\n",
-        "output": "7\n"
+        "input": "abc\n",
+        "output": "3\n"
       },
       {
         "input": "ababa\n",
         "output": "9\n"
       },
       {
-        "input": "abba\n",
-        "output": "6\n"
+        "input": "aabbaa\n",
+        "output": "12\n"
       },
       {
-        "input": "あいあ\n",
-        "output": "4\n"
+        "input": "abccba\n",
+        "output": "9\n"
       },
       {
-        "input": "a a\n",
-        "output": "4\n"
+        "input": "racecar\n",
+        "output": "13\n"
       },
       {
-        "input": "😊a😊\n",
-        "output": "4\n"
+        "input": "a b a\n",
+        "output": "7\n"
+      },
+      {
+        "input": "你好世界\n",
+        "output": "9\n"
       }
     ],
     "parsed_tests": [
       "('countSubstrings', ((),), 0)",
-      "('countSubstrings', ('x\\n',), 1)",
-      "('countSubstrings', ('aa\\n',), 3)",
-      "('countSubstrings', ('ab\\n',), 2)",
-      "('countSubstrings', ('aaa\\n',), 6)",
-      "('countSubstrings', ('aba\\n',), 4)",
+      "('countSubstrings', ('a\\n',), 1)",
       "('countSubstrings', ('aaaa\\n',), 10)",
-      "('countSubstrings', ('abca\\n',), 4)",
-      "('countSubstrings', ('abcba\\n',), 7)",
+      "('countSubstrings', ('abc\\n',), 3)",
       "('countSubstrings', ('ababa\\n',), 9)",
-      "('countSubstrings', ('abba\\n',), 6)",
-      "('countSubstrings', ('あいあ\\n',), 4)",
-      "('countSubstrings', ('a a\\n',), 4)",
-      "('countSubstrings', ('😊a😊\\n',), 4)"
+      "('countSubstrings', ('aabbaa\\n',), 12)",
+      "('countSubstrings', ('abccba\\n',), 9)",
+      "('countSubstrings', ('racecar\\n',), 13)",
+      "('countSubstrings', ('a b a\\n',), 7)",
+      "('countSubstrings', ('你好世界\\n',), 9)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countSubstrings((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: countSubstrings('x\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#3] ❌ 失敗\n  標準輸入: countSubstrings('aa\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#4] ❌ 失敗\n  標準輸入: countSubstrings('ab\\n',)\n  標準輸出: 2\n  你的輸出: 3\n\n[測試#5] ❌ 失敗\n  標準輸入: countSubstrings('aaa\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#6] ❌ 失敗\n  標準輸入: countSubstrings('aba\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#7] ❌ 失敗\n  標準輸入: countSubstrings('aaaa\\n',)\n  標準輸出: 10\n  你的輸出: 11\n\n[測試#8] ❌ 失敗\n  標準輸入: countSubstrings('abca\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#9] ❌ 失敗\n  標準輸入: countSubstrings('abcba\\n',)\n  標準輸出: 7\n  你的輸出: 8\n\n[測試#10] ❌ 失敗\n  標準輸入: countSubstrings('ababa\\n',)\n  標準輸出: 9\n  你的輸出: 10\n\n[測試#11] ❌ 失敗\n  標準輸入: countSubstrings('abba\\n',)\n  標準輸出: 6\n  你的輸出: 7\n\n[測試#12] ❌ 失敗\n  標準輸入: countSubstrings('あいあ\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#13] ❌ 失敗\n  標準輸入: countSubstrings('a a\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#14] ❌ 失敗\n  標準輸入: countSubstrings('😊a😊\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n=== 測試完成 (1/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: countSubstrings((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: countSubstrings('a\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#3] ❌ 失敗\n  標準輸入: countSubstrings('aaaa\\n',)\n  標準輸出: 10\n  你的輸出: 11\n\n[測試#4] ❌ 失敗\n  標準輸入: countSubstrings('abc\\n',)\n  標準輸出: 3\n  你的輸出: 4\n\n[測試#5] ❌ 失敗\n  標準輸入: countSubstrings('ababa\\n',)\n  標準輸出: 9\n  你的輸出: 10\n\n[測試#6] ✅ 通過\n  標準輸入: countSubstrings('aabbaa\\n',)\n  標準輸出: 12\n  你的輸出: 12\n\n[測試#7] ❌ 失敗\n  標準輸入: countSubstrings('abccba\\n',)\n  標準輸出: 9\n  你的輸出: 10\n\n[測試#8] ❌ 失敗\n  標準輸入: countSubstrings('racecar\\n',)\n  標準輸出: 13\n  你的輸出: 11\n\n[測試#9] ❌ 失敗\n  標準輸入: countSubstrings('a b a\\n',)\n  標準輸出: 7\n  你的輸出: 8\n\n[測試#10] ❌ 失敗\n  標準輸入: countSubstrings('你好世界\\n',)\n  標準輸出: 9\n  你的輸出: 5\n\n=== 測試完成 (2/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 14,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "total_tests": 10,
+    "passed_count": 2,
+    "accuracy_rate": 0.2
   }
 }

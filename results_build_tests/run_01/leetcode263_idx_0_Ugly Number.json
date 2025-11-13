@@ -1,0 +1,38 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode263.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Ugly Number",
+    "description": "An ugly number is a positive integer which does not have a prime factor other than 2, 3, and 5.\n\nGiven an integer n, return true if n is an ugly number.",
+    "examples": [
+      {
+        "input": "n = 6",
+        "output": "true",
+        "explanation": "6 = 2 × 3"
+      },
+      {
+        "input": "n = 1",
+        "output": "true",
+        "explanation": "1 has no prime factors."
+      },
+      {
+        "input": "n = 14",
+        "output": "false",
+        "explanation": "14 is not ugly since it includes the prime factor 7."
+      }
+    ],
+    "solution": "class Solution:\n    def isUgly(self, n):\n        if n <= 0:\n            return False\n        for p in [2, 3, 5]:\n            while n % p == 0:\n                n //= p\n        return n == 1"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

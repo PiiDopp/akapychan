@@ -34,27 +34,15 @@
         "output": "True\n"
       },
       {
-        "input": "****\n",
-        "output": "True\n"
-      },
-      {
-        "input": "(\n",
-        "output": "False\n"
-      },
-      {
-        "input": ")\n",
-        "output": "False\n"
-      },
-      {
-        "input": "(*\n",
-        "output": "True\n"
-      },
-      {
-        "input": ")*\n",
+        "input": "**\n",
         "output": "True\n"
       },
       {
         "input": "(*))\n",
+        "output": "True\n"
+      },
+      {
+        "input": "(*)))\n",
         "output": "False\n"
       },
       {
@@ -62,15 +50,15 @@
         "output": "True\n"
       },
       {
-        "input": "(()\n",
+        "input": ")*(\n",
         "output": "False\n"
       },
       {
-        "input": "())\n",
-        "output": "False\n"
+        "input": "((()))\n",
+        "output": "True\n"
       },
       {
-        "input": "(*()\n",
+        "input": "(()*(\n",
         "output": "False\n"
       },
       {
@@ -78,60 +66,72 @@
         "output": "True\n"
       },
       {
-        "input": "((()))\n",
+        "input": "((**))\n",
         "output": "True\n"
       },
       {
-        "input": "((*)())\n",
+        "input": "((**))))\n",
+        "output": "False\n"
+      },
+      {
+        "input": "(((((*))))\n",
         "output": "True\n"
       },
       {
-        "input": "((*)())*\n",
-        "output": "True\n"
+        "input": "())\n",
+        "output": "False\n"
       },
       {
-        "input": "((*)())**\n",
-        "output": "True\n"
+        "input": "(()\n",
+        "output": "False\n"
       },
       {
-        "input": "((*)())***\n",
-        "output": "True\n"
+        "input": "(*(\n",
+        "output": "False\n"
       },
       {
-        "input": "((*)())****\n",
-        "output": "True\n"
+        "input": ")*\n",
+        "output": "False\n"
       },
       {
-        "input": "((*)())*****\n",
+        "input": "(*))(\n",
+        "output": "False\n"
+      },
+      {
+        "input": "(*()(\n",
+        "output": "False\n"
+      },
+      {
+        "input": "********\n",
         "output": "True\n"
       }
     ],
     "parsed_tests": [
       "('checkValidString', ((),), True)",
       "('checkValidString', ('*\\n',), True)",
-      "('checkValidString', ('****\\n',), True)",
-      "('checkValidString', ('(\\n',), False)",
-      "('checkValidString', (')\\n',), False)",
-      "('checkValidString', ('(*\\n',), True)",
-      "('checkValidString', (')*\\n',), True)",
-      "('checkValidString', ('(*))\\n',), False)",
+      "('checkValidString', ('**\\n',), True)",
+      "('checkValidString', ('(*))\\n',), True)",
+      "('checkValidString', ('(*)))\\n',), False)",
       "('checkValidString', ('((*)\\n',), True)",
-      "('checkValidString', ('(()\\n',), False)",
-      "('checkValidString', ('())\\n',), False)",
-      "('checkValidString', ('(*()\\n',), False)",
-      "('checkValidString', ('(*()*)\\n',), True)",
+      "('checkValidString', (')*(\\n',), False)",
       "('checkValidString', ((),), True)",
-      "('checkValidString', ('((*)())\\n',), True)",
-      "('checkValidString', ('((*)())*\\n',), True)",
-      "('checkValidString', ('((*)())**\\n',), True)",
-      "('checkValidString', ('((*)())***\\n',), True)",
-      "('checkValidString', ('((*)())****\\n',), True)",
-      "('checkValidString', ('((*)())*****\\n',), True)"
+      "('checkValidString', ('(()*(\\n',), False)",
+      "('checkValidString', ('(*()*)\\n',), True)",
+      "('checkValidString', ('((**))\\n',), True)",
+      "('checkValidString', ('((**))))\\n',), False)",
+      "('checkValidString', ('(((((*))))\\n',), True)",
+      "('checkValidString', ('())\\n',), False)",
+      "('checkValidString', ('(()\\n',), False)",
+      "('checkValidString', ('(*(\\n',), False)",
+      "('checkValidString', (')*\\n',), False)",
+      "('checkValidString', ('(*))(\\n',), False)",
+      "('checkValidString', ('(*()(\\n',), False)",
+      "('checkValidString', ('********\\n',), True)"
     ],
-    "runlog": "[測試#1] ✅ 通過\n  標準輸入: checkValidString((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: checkValidString('*\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: checkValidString('****\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ❌ 失敗\n  標準輸入: checkValidString('(\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: checkValidString(')\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: checkValidString('(*\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ❌ 失敗\n  標準輸入: checkValidString(')*\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#8] ❌ 失敗\n  標準輸入: checkValidString('(*))\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#9] ✅ 通過\n  標準輸入: checkValidString('((*)\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#10] ❌ 失敗\n  標準輸入: checkValidString('(()\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: checkValidString('())\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#12] ❌ 失敗\n  標準輸入: checkValidString('(*()\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: checkValidString('(*()*)\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: checkValidString((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#15] ✅ 通過\n  標準輸入: checkValidString('((*)())\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#16] ✅ 通過\n  標準輸入: checkValidString('((*)())*\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: checkValidString('((*)())**\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#18] ✅ 通過\n  標準輸入: checkValidString('((*)())***\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#19] ✅ 通過\n  標準輸入: checkValidString('((*)())****\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: checkValidString('((*)())*****\\n',)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (15/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: checkValidString((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: checkValidString('*\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: checkValidString('**\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: checkValidString('(*))\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: checkValidString('(*)))\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: checkValidString('((*)\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: checkValidString(')*(\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: checkValidString((),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#9] ❌ 失敗\n  標準輸入: checkValidString('(()*(\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#10] ✅ 通過\n  標準輸入: checkValidString('(*()*)\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#11] ✅ 通過\n  標準輸入: checkValidString('((**))\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#12] ❌ 失敗\n  標準輸入: checkValidString('((**))))\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#13] ✅ 通過\n  標準輸入: checkValidString('(((((*))))\\n',)\n  標準輸出: True\n  你的輸出: True\n\n[測試#14] ✅ 通過\n  標準輸入: checkValidString('())\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#15] ❌ 失敗\n  標準輸入: checkValidString('(()\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#16] ❌ 失敗\n  標準輸入: checkValidString('(*(\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#17] ✅ 通過\n  標準輸入: checkValidString(')*\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#18] ❌ 失敗\n  標準輸入: checkValidString('(*))(\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#19] ❌ 失敗\n  標準輸入: checkValidString('(*()(\\n',)\n  標準輸出: False\n  你的輸出: True\n\n[測試#20] ✅ 通過\n  標準輸入: checkValidString('********\\n',)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (14/20) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
     "total_tests": 20,
-    "passed_count": 0,
-    "accuracy_rate": 0.0
+    "passed_count": 14,
+    "accuracy_rate": 0.7
   }
 }

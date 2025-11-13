@@ -1,0 +1,209 @@
+{
+  "run_index": 1,
+  "source_file": "leetcode26.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Remove Duplicates from Sorted Array",
+    "description": "Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.\n\nConsider the number of unique elements of nums to be k, to get accepted, you need to do the following things:\n\nChange the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.\nReturn k.\nCustom Judge:\n\nThe judge will test your solution with the following code:\n\nint[] nums = [...]; // Input array\nint[] expectedNums = [...]; // The expected answer with correct length\n\nint k = removeDuplicates(nums); // Calls your implementation\n\nassert k == expectedNums.length;\nfor (int i = 0; i < k; i++) {\n    assert nums[i] == expectedNums[i];\n}\nIf all assertions pass, then your solution will be accepted.",
+    "examples": [
+      {
+        "input": "nums = [1,1,2]",
+        "output": "2, nums = [1,2,_]",
+        "explanation": "Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.\nIt does not matter what you leave beyond the returned k (hence they are underscores)."
+      },
+      {
+        "input": "nums = [0,0,1,1,1,2,2,3,3,4]",
+        "output": "5, nums = [0,1,2,3,4,_,_,_,_,_]",
+        "explanation": "Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.\nIt does not matter what you leave beyond the returned k (hence they are underscores)."
+      }
+    ],
+    "solution": "class Solution(object):\n    def removeDuplicates(self, nums):\n        \"\"\"\n        :type nums: List[int]\n        :rtype: int\n        \"\"\"\n        if not nums:\n            return 0\n        \n        slow = 0\n        for fast in range(1, len(nums)):\n            if nums[fast] != nums[slow]:\n                slow += 1\n                nums[slow] = nums[fast]\n        return slow + 1"
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "AI 未生成任何有效測資",
+    "generated_tests": [
+      {
+        "input": [],
+        "expected_k": 0,
+        "expected_nums": []
+      },
+      {
+        "input": [
+          1
+        ],
+        "expected_k": 1,
+        "expected_nums": [
+          1
+        ]
+      },
+      {
+        "input": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "expected_k": 1,
+        "expected_nums": [
+          1
+        ]
+      },
+      {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "expected_k": 4,
+        "expected_nums": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "input": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ],
+        "expected_k": 3,
+        "expected_nums": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "input": [
+          1,
+          2,
+          2,
+          3,
+          4,
+          4,
+          5
+        ],
+        "expected_k": 5,
+        "expected_nums": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "input": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          3,
+          3,
+          4,
+          4,
+          5
+        ],
+        "expected_k": 6,
+        "expected_nums": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "input": [
+          -3,
+          -3,
+          -2,
+          -1,
+          0,
+          0,
+          1,
+          1,
+          2,
+          3
+        ],
+        "expected_k": 7,
+        "expected_nums": [
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "input": [
+          1,
+          1,
+          1,
+          2,
+          3,
+          3,
+          4,
+          5,
+          5,
+          5,
+          6
+        ],
+        "expected_k": 6,
+        "expected_nums": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "input": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "expected_k": 10,
+        "expected_nums": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

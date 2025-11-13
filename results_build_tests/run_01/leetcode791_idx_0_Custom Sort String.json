@@ -24,11 +24,15 @@
     "error": null,
     "generated_tests": [
       {
+        "input": "['abc', 'cba']\n",
+        "output": "abc\n"
+      },
+      {
         "input": "['cba', 'abcd']\n",
         "output": "cbad\n"
       },
       {
-        "input": "['abc', 'cba']\n",
+        "input": "['abcdef', 'abc']\n",
         "output": "abc\n"
       },
       {
@@ -40,45 +44,61 @@
         "output": "\n"
       },
       {
-        "input": "['ab', 'cba']\n",
+        "input": "['', '']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['abc', 'defabc']\n",
+        "output": "abcdef\n"
+      },
+      {
+        "input": "['xyz', 'abc']\n",
         "output": "abc\n"
       },
       {
-        "input": "['abcd', 'a']\n",
-        "output": "a\n"
+        "input": "['abc', 'aabbcc']\n",
+        "output": "aabbcc\n"
       },
       {
-        "input": "['abcd', 'a']\n",
-        "output": "a\n"
+        "input": "['abc', 'dddeee']\n",
+        "output": "dddeee\n"
       },
       {
-        "input": "['abc', 'bbbaaac']\n",
-        "output": "aaabbbc\n"
+        "input": "['cba', 'abc']\n",
+        "output": "cba\n"
       },
       {
-        "input": "['你好', '好你好你']\n",
-        "output": "你你好好\n"
+        "input": "['ab', 'cbaabc']\n",
+        "output": "aabbcc\n"
       },
       {
-        "input": "['!@#', '#!@']\n",
-        "output": "!@#\n"
+        "input": "['abx', 'cbaabc']\n",
+        "output": "aabbcc\n"
+      },
+      {
+        "input": "['cba', 'defabc']\n",
+        "output": "cbadef\n"
       }
     ],
     "parsed_tests": [
-      "('customSortString', ('cba', 'abcd'), 'cbad\\n')",
       "('customSortString', ('abc', 'cba'), 'abc\\n')",
+      "('customSortString', ('cba', 'abcd'), 'cbad\\n')",
+      "('customSortString', ('abcdef', 'abc'), 'abc\\n')",
       "('customSortString', ('', 'abc'), 'abc\\n')",
       "('customSortString', ('abc', ''), '\\n')",
-      "('customSortString', ('ab', 'cba'), 'abc\\n')",
-      "('customSortString', ('abcd', 'a'), 'a\\n')",
-      "('customSortString', ('abcd', 'a'), 'a\\n')",
-      "('customSortString', ('abc', 'bbbaaac'), 'aaabbbc\\n')",
-      "('customSortString', ('你好', '好你好你'), '你你好好\\n')",
-      "('customSortString', ('!@#', '#!@'), '!@#\\n')"
+      "('customSortString', ('', ''), '\\n')",
+      "('customSortString', ('abc', 'defabc'), 'abcdef\\n')",
+      "('customSortString', ('xyz', 'abc'), 'abc\\n')",
+      "('customSortString', ('abc', 'aabbcc'), 'aabbcc\\n')",
+      "('customSortString', ('abc', 'dddeee'), 'dddeee\\n')",
+      "('customSortString', ('cba', 'abc'), 'cba\\n')",
+      "('customSortString', ('ab', 'cbaabc'), 'aabbcc\\n')",
+      "('customSortString', ('abx', 'cbaabc'), 'aabbcc\\n')",
+      "('customSortString', ('cba', 'defabc'), 'cbadef\\n')"
     ],
-    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: customSortString('cba', 'abcd')\n  標準輸出: 'cbad\\n'\n  你的輸出: 'cbad'\n\n[測試#2] ❌ 失敗\n  標準輸入: customSortString('abc', 'cba')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#3] ❌ 失敗\n  標準輸入: customSortString('', 'abc')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#4] ❌ 失敗\n  標準輸入: customSortString('abc', '')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ❌ 失敗\n  標準輸入: customSortString('ab', 'cba')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#6] ❌ 失敗\n  標準輸入: customSortString('abcd', 'a')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#7] ❌ 失敗\n  標準輸入: customSortString('abcd', 'a')\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#8] ❌ 失敗\n  標準輸入: customSortString('abc', 'bbbaaac')\n  標準輸出: 'aaabbbc\\n'\n  你的輸出: 'aaabbbc'\n\n[測試#9] ❌ 失敗\n  標準輸入: customSortString('你好', '好你好你')\n  標準輸出: '你你好好\\n'\n  你的輸出: '你你好好'\n\n[測試#10] ❌ 失敗\n  標準輸入: customSortString('!@#', '#!@')\n  標準輸出: '!@#\\n'\n  你的輸出: '!@#'\n\n=== 測試完成 (0/10) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: customSortString('abc', 'cba')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#2] ❌ 失敗\n  標準輸入: customSortString('cba', 'abcd')\n  標準輸出: 'cbad\\n'\n  你的輸出: 'cbad'\n\n[測試#3] ❌ 失敗\n  標準輸入: customSortString('abcdef', 'abc')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#4] ❌ 失敗\n  標準輸入: customSortString('', 'abc')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#5] ❌ 失敗\n  標準輸入: customSortString('abc', '')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: customSortString('', '')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#7] ❌ 失敗\n  標準輸入: customSortString('abc', 'defabc')\n  標準輸出: 'abcdef\\n'\n  你的輸出: 'abcdef'\n\n[測試#8] ❌ 失敗\n  標準輸入: customSortString('xyz', 'abc')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#9] ❌ 失敗\n  標準輸入: customSortString('abc', 'aabbcc')\n  標準輸出: 'aabbcc\\n'\n  你的輸出: 'aabbcc'\n\n[測試#10] ❌ 失敗\n  標準輸入: customSortString('abc', 'dddeee')\n  標準輸出: 'dddeee\\n'\n  你的輸出: 'dddeee'\n\n[測試#11] ❌ 失敗\n  標準輸入: customSortString('cba', 'abc')\n  標準輸出: 'cba\\n'\n  你的輸出: 'cba'\n\n[測試#12] ❌ 失敗\n  標準輸入: customSortString('ab', 'cbaabc')\n  標準輸出: 'aabbcc\\n'\n  你的輸出: 'aabbcc'\n\n[測試#13] ❌ 失敗\n  標準輸入: customSortString('abx', 'cbaabc')\n  標準輸出: 'aabbcc\\n'\n  你的輸出: 'aabbcc'\n\n[測試#14] ❌ 失敗\n  標準輸入: customSortString('cba', 'defabc')\n  標準輸出: 'cbadef\\n'\n  你的輸出: 'cbadef'\n\n=== 測試完成 (0/14) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
     "all_passed": false,
-    "total_tests": 10,
+    "total_tests": 14,
     "passed_count": 0,
     "accuracy_rate": 0.0
   }
