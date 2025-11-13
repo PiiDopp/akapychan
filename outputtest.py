@@ -166,14 +166,13 @@ def run_experiment(problem: Dict[str, Any]) -> Dict[str, Any]:
 
         # ⭐️ [修正]：
         # 1. 優先使用 all_passed 布林值。如果全對，passed_count 直接等於 total_tests。
-        #    (這解決了 "全對時 acc 為 0" 的問題)
         if all_passed:
             passed_count = total_tests
         else:
         # 2. 如果並非全對 (有部分失敗)，才去解析 runlog 計算部分通過的 '✅' 數量。
-            # 逐行計算 runlog，只計算以 "✅" (測資通過) 開頭的行
+            # ⭐️ [修正]：檢查 "✅ 通過" 是否在該行中，而不是檢查開頭。
             for line in runlog.splitlines():
-                if line.strip().startswith("✅"):
+                if "✅ 通過" in line:
                     passed_count += 1
         
         # 確保 total_tests 不為 0 (雖然前面已檢查過 json_tests)
