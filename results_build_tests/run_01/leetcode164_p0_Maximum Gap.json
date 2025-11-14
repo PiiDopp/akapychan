@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode164.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum Gap",
+    "description": "Given an integer array nums, return the maximum difference between two successive elements in its sorted form. If the array contains less than two elements, return 0.\n\nYou must write an algorithm that runs in linear time and uses linear extra space.",
+    "examples": [
+      {
+        "input": "nums = [3,6,9,1]",
+        "output": "3",
+        "explanation": "The sorted form of the array is [1,3,6,9], either (3,6) or (6,9) has the maximum difference 3."
+      },
+      {
+        "input": "nums = [10]",
+        "output": "0",
+        "explanation": "The array contains less than 2 elements, therefore return 0."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 3 3 7 7 10\n",
+        "output": "4\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "42\n",
+        "output": "0\n"
+      },
+      {
+        "input": "7 7 7 7\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-10 0 5 20\n",
+        "output": "15\n"
+      },
+      {
+        "input": "0 2147483647\n",
+        "output": "2147483647\n"
+      },
+      {
+        "input": "5 4 3 2 1\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maximumGap', ('1 3 3 7 7 10\\n',), 4)",
+      "('maximumGap', ((),), 0)",
+      "('maximumGap', (42,), 0)",
+      "('maximumGap', ('7 7 7 7\\n',), 0)",
+      "('maximumGap', ('-10 0 5 20\\n',), 15)",
+      "('maximumGap', ('0 2147483647\\n',), 2147483647)",
+      "('maximumGap', ('5 4 3 2 1\\n',), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ✅ 通過\n  標準輸入: maximumGap((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (1/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 1,
+    "accuracy_rate": 0.14285714285714285
+  }
+}

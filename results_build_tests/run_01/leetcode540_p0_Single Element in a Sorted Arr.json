@@ -1,0 +1,67 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode540.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Single Element in a Sorted Array",
+    "description": "You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.\n\nReturn the single element that appears only once.\n\nYour solution must run in O(log n) time and O(1) space.",
+    "examples": [
+      {
+        "input": "[1,1,2,3,3,4,4,8,8]",
+        "output": "2"
+      },
+      {
+        "input": "[3,3,7,7,10,11,11]",
+        "output": "10"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 1 2 3 3 4 4\n",
+        "output": "2\n"
+      },
+      {
+        "input": "2 3 3 4 4 5 5\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 1 2 2 3 3 4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "42\n",
+        "output": "42\n"
+      },
+      {
+        "input": "-3 -3 -2 -2 0 0 5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "1000000000000 1000000000000 1000000000001\n",
+        "output": "1000000000001\n"
+      },
+      {
+        "input": "0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('singleNonDuplicate', ('1 1 2 3 3 4 4\\n',), 2)",
+      "('singleNonDuplicate', ('2 3 3 4 4 5 5\\n',), 2)",
+      "('singleNonDuplicate', ('1 1 2 2 3 3 4\\n',), 4)",
+      "('singleNonDuplicate', (42,), 42)",
+      "('singleNonDuplicate', ('-3 -3 -2 -2 0 0 5\\n',), 5)",
+      "('singleNonDuplicate', ('1000000000000 1000000000000 1000000000001\\n',), 1000000000001)",
+      "('singleNonDuplicate', ('0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10\\n',), 0)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: singleNonDuplicate('1 1 2 3 3 4 4\\n',)\n  標準輸出: 2\n  你的輸出: '1'\n\n[測試#2] ❌ 失敗\n  標準輸入: singleNonDuplicate('2 3 3 4 4 5 5\\n',)\n  標準輸出: 2\n  你的輸出: '2'\n\n[測試#3] ❌ 失敗\n  標準輸入: singleNonDuplicate('1 1 2 2 3 3 4\\n',)\n  標準輸出: 4\n  你的輸出: '1'\n\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 失敗\n  標準輸入: singleNonDuplicate('-3 -3 -2 -2 0 0 5\\n',)\n  標準輸出: 5\n  你的輸出: '-'\n\n[測試#6] ❌ 失敗\n  標準輸入: singleNonDuplicate('1000000000000 1000000000000 1000000000001\\n',)\n  標準輸出: 1000000000001\n  你的輸出: '1'\n\n[測試#7] ❌ 失敗\n  標準輸入: singleNonDuplicate('0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10\\n',)\n  標準輸出: 0\n  你的輸出: '0'\n\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

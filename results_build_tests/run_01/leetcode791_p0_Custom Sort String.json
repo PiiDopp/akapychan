@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode791.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Custom Sort String",
+    "description": "You are given two strings order and s. All the characters of order are unique and were sorted in some custom order previously.\n\nPermute the characters of s so that they match the order that order was sorted. More specifically, if a character x occurs before a character y in order, then x should occur before y in the permuted string.\n\nReturn any permutation of s that satisfies this property.",
+    "examples": [
+      {
+        "input": "order = \"cba\", s = \"abcd\"",
+        "output": "\"cbad\"",
+        "explanation": "\"a\", \"b\", \"c\" appear in order, so the order of \"a\", \"b\", \"c\" should be \"c\", \"b\", and \"a\". \nSince \"d\" does not appear in order, it can be at any position in the returned string. \"dcba\", \"cdba\", \"cbda\" are also valid outputs."
+      },
+      {
+        "input": "order = \"bcafg\", s = \"abcd\"",
+        "output": "\"bcad\"",
+        "explanation": "The characters \"b\", \"c\", and \"a\" from order dictate the order for the characters in s. The character \"d\" in s does not appear in order, so its position is flexible. \n\nFollowing the order of appearance in order, \"b\", \"c\", and \"a\" from s should be arranged as \"b\", \"c\", \"a\". \"d\" can be placed at any position since it's not in order. The output \"bcad\" correctly follows this rule. Other arrangements like \"dbca\" or \"bcda\" would also be valid, as long as \"b\", \"c\", \"a\" maintain their order. "
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['cba', 'abcd']\n",
+        "output": "cbad\n"
+      },
+      {
+        "input": "['abc', 'dabc']\n",
+        "output": "abcd\n"
+      },
+      {
+        "input": "['ab', 'bbaaa']\n",
+        "output": "aaabb\n"
+      },
+      {
+        "input": "['', 'abc']\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['abc', '']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a', 'aaaaa']\n",
+        "output": "aaaaa\n"
+      },
+      {
+        "input": "['xyz', 'zzxyyxx']\n",
+        "output": "xxxyyzz\n"
+      },
+      {
+        "input": "['你好', '好你你好你']\n",
+        "output": "你你你好好\n"
+      }
+    ],
+    "parsed_tests": [
+      "('customSortString', ('cba', 'abcd'), 'cbad\\n')",
+      "('customSortString', ('abc', 'dabc'), 'abcd\\n')",
+      "('customSortString', ('ab', 'bbaaa'), 'aaabb\\n')",
+      "('customSortString', ('', 'abc'), 'abc\\n')",
+      "('customSortString', ('abc', ''), '\\n')",
+      "('customSortString', ('a', 'aaaaa'), 'aaaaa\\n')",
+      "('customSortString', ('xyz', 'zzxyyxx'), 'xxxyyzz\\n')",
+      "('customSortString', ('你好', '好你你好你'), '你你你好好\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: customSortString('cba', 'abcd')\n  標準輸出: 'cbad\\n'\n  你的輸出: 'cbad'\n\n[測試#2] ❌ 失敗\n  標準輸入: customSortString('abc', 'dabc')\n  標準輸出: 'abcd\\n'\n  你的輸出: 'abcd'\n\n[測試#3] ❌ 失敗\n  標準輸入: customSortString('ab', 'bbaaa')\n  標準輸出: 'aaabb\\n'\n  你的輸出: 'aaabb'\n\n[測試#4] ❌ 失敗\n  標準輸入: customSortString('', 'abc')\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#5] ❌ 失敗\n  標準輸入: customSortString('abc', '')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: customSortString('a', 'aaaaa')\n  標準輸出: 'aaaaa\\n'\n  你的輸出: 'aaaaa'\n\n[測試#7] ❌ 失敗\n  標準輸入: customSortString('xyz', 'zzxyyxx')\n  標準輸出: 'xxxyyzz\\n'\n  你的輸出: 'xxxyyzz'\n\n[測試#8] ❌ 失敗\n  標準輸入: customSortString('你好', '好你你好你')\n  標準輸出: '你你你好好\\n'\n  你的輸出: '你你你好好'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

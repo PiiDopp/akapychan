@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode611.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Valid Triangle Number",
+    "description": "Given an integer array nums, return the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle.",
+    "examples": [
+      {
+        "input": "nums = [2,2,3,4]",
+        "output": "3",
+        "explanation": "Valid combinations are:\n2,3,4 (using the first 2)\n2,3,4 (using the second 2)\n2,2,3"
+      },
+      {
+        "input": "nums = [4,2,3,4]",
+        "output": "4"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2 2 3 4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "4 2 3 4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0 0 0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1 2 3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000000 1000000000 1000000000\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 1 1 1\n",
+        "output": "4\n"
+      }
+    ],
+    "parsed_tests": [
+      "('triangleNumber', ('2 2 3 4\\n',), 3)",
+      "('triangleNumber', ('4 2 3 4\\n',), 3)",
+      "('triangleNumber', ((),), 0)",
+      "('triangleNumber', ('1 2\\n',), 0)",
+      "('triangleNumber', ('0 0 0\\n',), 0)",
+      "('triangleNumber', ('-1 2 3\\n',), 0)",
+      "('triangleNumber', ('1000000000 1000000000 1000000000\\n',), 1)",
+      "('triangleNumber', ('1 1 1 1\\n',), 4)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

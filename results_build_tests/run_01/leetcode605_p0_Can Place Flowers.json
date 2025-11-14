@@ -1,0 +1,67 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode605.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Can Place Flowers",
+    "description": "You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.\n\nGiven an integer array flowerbed containing 0's and 1's, where 0 means empty and 1 means not empty, and an integer n, return true if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule and false otherwise.",
+    "examples": [
+      {
+        "input": "flowerbed = [1,0,0,0,1], n = 1",
+        "output": "true"
+      },
+      {
+        "input": "flowerbed = [1,0,0,0,1], n = 2",
+        "output": "false"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[0, 0, 1, 0, 0]\n2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 0, 0, 0, 1]\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 0, 0, 0, 1]\n2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[]\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[]\n1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[1, 1, 1]\n1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[0, 0, 0, 0, 0]\n2\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('canPlaceFlowers', ([1, 0, 1, 0, 1], 2), True)",
+      "('canPlaceFlowers', ([1, 0, 1, 0, 1], 1), True)",
+      "('canPlaceFlowers', ([1, 0, 1, 0, 1], 2), False)",
+      "('canPlaceFlowers', ([], 0), True)",
+      "('canPlaceFlowers', ([], 1), False)",
+      "('canPlaceFlowers', ([1, 1, 1], 1), False)",
+      "('canPlaceFlowers', ([1, 0, 1, 0, 0], 2), True)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: canPlaceFlowers([1, 0, 1, 0, 1], 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: canPlaceFlowers([1, 0, 1, 0, 1], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: canPlaceFlowers([1, 0, 1, 0, 1], 2)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: canPlaceFlowers([], 0)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: canPlaceFlowers([], 1)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: canPlaceFlowers([1, 1, 1], 1)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: canPlaceFlowers([1, 0, 1, 0, 0], 2)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

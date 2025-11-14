@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode691.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Stickers to Spell Word",
+    "description": "We are given n different types of stickers. Each sticker has a lowercase English word on it.\nYou would like to spell out the given string target by cutting individual letters from your collection of stickers and rearranging them. You can use each sticker more than once if you want, and you have infinite quantities of each sticker.\nReturn the minimum number of stickers that you need to spell out target. If the task is impossible, return -1.\n\nNote: In all test cases, all words were chosen randomly from the 1000 most common US English words, and target was chosen as a concatenation of two random words.",
+    "examples": [
+      {
+        "input": "stickers = [\"with\",\"example\",\"science\"], target = \"thehat\"",
+        "output": "3",
+        "explanation": "We can use 2 \"with\" stickers, and 1 \"example\" sticker. \nAfter cutting and rearrange the letters of those stickers, we can form the target \"thehat\". \nAlso, this is the minimum number of stickers necessary to form the target string."
+      },
+      {
+        "input": "stickers = [\"notice\",\"possible\"], target = \"basicbasic\"",
+        "output": "-1",
+        "explanation": "We cannot form the target \"basicbasic\" from cutting letters from the given stickers."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['with', 'example', 'science'], 'thehat']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[['a', 'b', 'c'], 'abc']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[['ab', 'bc'], 'abc']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[[], '']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[[], 'a']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[['abc'], 'def']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[['thehat'], 'thehat']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['a'], 'aaaaa']\n",
+        "output": "5\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minStickers', (['with', 'example', 'science'], 'thehat'), 3)",
+      "('minStickers', (['a', 'b', 'c'], 'abc'), 3)",
+      "('minStickers', (['ab', 'bc'], 'abc'), 2)",
+      "('minStickers', ([], ''), 0)",
+      "('minStickers', ([], 'a'), -1)",
+      "('minStickers', (['abc'], 'def'), -1)",
+      "('minStickers', (['thehat'], 'thehat'), 1)",
+      "('minStickers', (['a'], 'aaaaa'), 5)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minStickers(['with', 'example', 'science'], 'thehat')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: minStickers(['a', 'b', 'c'], 'abc')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#3] ✅ 通過\n  標準輸入: minStickers(['ab', 'bc'], 'abc')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: minStickers([], '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: minStickers([], 'a')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#6] ✅ 通過\n  標準輸入: minStickers(['abc'], 'def')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#7] ✅ 通過\n  標準輸入: minStickers(['thehat'], 'thehat')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: minStickers(['a'], 'aaaaa')\n  標準輸出: 5\n  你的輸出: 5\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

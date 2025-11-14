@@ -1,0 +1,27 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode211.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Design Add and Search Words Data Structure",
+    "description": "Design a data structure that supports adding new words and finding if a string matches any previously added string.\n\nImplement the WordDictionary class:\n\nWordDictionary() Initializes the object.\nvoid addWord(word) Adds word to the data structure, it can be matched later.\nbool search(word) Returns true if there is any string in the data structure that matches word or false otherwise. word may contain dots '.' where dots can be matched with any letter.",
+    "examples": [
+      {
+        "input": "[\"WordDictionary\",\"addWord\",\"addWord\",\"addWord\",\"search\",\"search\",\"search\",\"search\"],[[],[\"bad\"],[\"dad\"],[\"mad\"],[\"pad\"],[\"bad\"],[\".ad\"],[\"b..\"]]",
+        "output": "[null,null,null,null,false,true,true,true]",
+        "explanation": "WordDictionary wordDictionary = new WordDictionary(); wordDictionary.addWord(\"bad\"); wordDictionary.addWord(\"dad\"); wordDictionary.addWord(\"mad\"); wordDictionary.search(\"pad\"); // return False wordDictionary.search(\"bad\"); // return True wordDictionary.search(\".ad\"); // return True wordDictionary.search(\"b..\"); // return True"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "非 LeetCode 格式程式碼 (Skip non-class Solution)",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

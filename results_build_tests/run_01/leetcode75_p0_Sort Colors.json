@@ -1,0 +1,67 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode75.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Sort Colors",
+    "description": "Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.\n\nWe will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.\n\nYou must solve this problem without using the library's sort function.",
+    "examples": [
+      {
+        "input": "nums = [2,0,2,1,1,0]",
+        "output": "[0,0,1,1,2,2]"
+      },
+      {
+        "input": "nums = [2,0,1]",
+        "output": "[0,1,2]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2 0 2 1 1 0\n",
+        "output": "[0, 0, 1, 1, 2, 2]\n"
+      },
+      {
+        "input": "0 1 2\n",
+        "output": "[0, 1, 2]\n"
+      },
+      {
+        "input": "2 2 1 0 1 0 2\n",
+        "output": "[0, 0, 1, 1, 2, 2, 2]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1\n",
+        "output": "[1]\n"
+      },
+      {
+        "input": "0 0 0\n",
+        "output": "[0, 0, 0]\n"
+      },
+      {
+        "input": "1 0 2 1 0 2 0 1 2 1\n",
+        "output": "[0, 0, 0, 1, 1, 1, 1, 2, 2, 2]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('sortColors', ('2 0 2 1 1 0\\n',), [0, 0, 1, 1, 2, 2])",
+      "('sortColors', ('0 1 2\\n',), [0, 1, 2])",
+      "('sortColors', ('2 2 1 0 1 0 2\\n',), [0, 0, 1, 1, 2, 2, 2])",
+      "('sortColors', ((),), [])",
+      "('sortColors', (1,), [1])",
+      "('sortColors', ('0 0 0\\n',), [0, 0, 0])",
+      "('sortColors', ('1 0 2 1 0 2 0 1 2 1\\n',), [0, 0, 0, 1, 1, 1, 1, 2, 2, 2])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object does not support item assignment\n[測試#2] ❌ 執行例外: 'str' object does not support item assignment\n[測試#3] ❌ 執行例外: 'str' object does not support item assignment\n[測試#4] ❌ 失敗\n  標準輸入: sortColors((),)\n  標準輸出: []\n  你的輸出: None\n\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: 'str' object does not support item assignment\n[測試#7] ❌ 執行例外: 'str' object does not support item assignment\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

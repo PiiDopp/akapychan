@@ -1,0 +1,68 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode274.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "H-Index",
+    "description": "Given an array of integers citations where citations[i] is the number of citations a researcher received for their ith paper, return the researcher's h-index. \n\nAccording to the definition of h-index on Wikipedia: The h-index is defined as the maximum value of h such that the given researcher has published at least h papers that have each been cited at least h times.",
+    "examples": [
+      {
+        "input": "citations = [3,0,6,1,5]",
+        "output": "3",
+        "explanation": "[3,0,6,1,5] means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively.\nSince the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, their h-index is 3."
+      },
+      {
+        "input": "citations = [1,3,1]",
+        "output": "1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "3 0 6 1 5\n",
+        "output": "3\n"
+      },
+      {
+        "input": "1 3 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "10 8 5 4 3\n",
+        "output": "4\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0 0 0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000000 1000000000 1000000000\n",
+        "output": "3\n"
+      },
+      {
+        "input": "-1 2 3\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('hIndex', ('3 0 6 1 5\\n',), 3)",
+      "('hIndex', ('1 3 1\\n',), 1)",
+      "('hIndex', ('10 8 5 4 3\\n',), 4)",
+      "('hIndex', ((),), 0)",
+      "('hIndex', ('0 0 0\\n',), 0)",
+      "('hIndex', ('1000000000 1000000000 1000000000\\n',), 3)",
+      "('hIndex', ('-1 2 3\\n',), 2)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

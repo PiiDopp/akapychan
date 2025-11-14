@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode726.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Number of Atoms",
+    "description": "Given a string formula representing a chemical formula, return the count of each atom.\n\nThe atomic element always starts with an uppercase character, then zero or more lowercase letters, representing the name.\n\nOne or more digits representing that element's count may follow if the count is greater than 1. If the count is 1, no digits will follow.\n\nFor example, \"H2O\" and \"H2O2\" are possible, but \"H1O2\" is impossible.\nTwo formulas are concatenated together to produce another formula.\n\nFor example, \"H2O2He3Mg4\" is also a formula.\nA formula placed in parentheses, and a count (optionally added) is also a formula.\n\nFor example, \"(H2O2)\" and \"(H2O2)3\" are formulas.\nReturn the count of all elements as a string in the following form: the first name (in sorted order), followed by its count (if that count is more than 1), followed by the second name (in sorted order), followed by its count (if that count is more than 1), and so on.\n\nThe test cases are generated so that all the values in the output fit in a 32-bit integer.",
+    "examples": [
+      {
+        "input": "formula = \"H2O\"",
+        "output": "\"H2O\"",
+        "explanation": "The count of elements are {'H': 2, 'O': 1}."
+      },
+      {
+        "input": "formula = \"Mg(OH)2\"",
+        "output": "\"H2MgO2\"",
+        "explanation": "The count of elements are {'H': 2, 'Mg': 1, 'O': 2}."
+      },
+      {
+        "input": "formula = \"K4(ON(SO3)2)2\"",
+        "output": "\"K4N2O14S4\"",
+        "explanation": "The count of elements are {'K': 4, 'N': 2, 'O': 14, 'S': 4}."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['H2O']\n",
+        "output": "H2O\n"
+      },
+      {
+        "input": "['Mg(OH)2']\n",
+        "output": "H2MgO2\n"
+      },
+      {
+        "input": "['K4(ON(SO3)2)2']\n",
+        "output": "K4N2O14S4\n"
+      },
+      {
+        "input": "['C12H22O11']\n",
+        "output": "C12H22O11\n"
+      },
+      {
+        "input": "['NaCl']\n",
+        "output": "ClNa\n"
+      },
+      {
+        "input": "['O']\n",
+        "output": "O\n"
+      },
+      {
+        "input": "['(H2O)']\n",
+        "output": "H2O\n"
+      },
+      {
+        "input": "['Fe2(SO4)3']\n",
+        "output": "Fe2O12S3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('countOfAtoms', (['H2O'],), 'H2O\\n')",
+      "('countOfAtoms', (['Mg(OH)2'],), 'H2MgO2\\n')",
+      "('countOfAtoms', (['K4(ON(SO3)2)2'],), 'K4N2O14S4\\n')",
+      "('countOfAtoms', (['C12H22O11'],), 'C12H22O11\\n')",
+      "('countOfAtoms', (['NaCl'],), 'ClNa\\n')",
+      "('countOfAtoms', (['O'],), 'O\\n')",
+      "('countOfAtoms', (['(H2O)'],), 'H2O\\n')",
+      "('countOfAtoms', (['Fe2(SO4)3'],), 'Fe2O12S3\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: unhashable type: 'list'\n[測試#2] ❌ 執行例外: unhashable type: 'list'\n[測試#3] ❌ 執行例外: unhashable type: 'list'\n[測試#4] ❌ 執行例外: unhashable type: 'list'\n[測試#5] ❌ 執行例外: unhashable type: 'list'\n[測試#6] ❌ 執行例外: unhashable type: 'list'\n[測試#7] ❌ 執行例外: unhashable type: 'list'\n[測試#8] ❌ 執行例外: unhashable type: 'list'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

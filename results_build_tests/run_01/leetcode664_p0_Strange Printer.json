@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode664.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Strange Printer",
+    "description": "There is a strange printer with the following two special properties:\n\nThe printer can only print a sequence of the same character each time.\nAt each turn, the printer can print new characters starting from and ending at any place and will cover the original existing characters.\nGiven a string s, return the minimum number of turns the printer needed to print it.",
+    "examples": [
+      {
+        "input": "s = \"aaabbb\"",
+        "output": "2",
+        "explanation": "Print \"aaa\" first and then print \"bbb\"."
+      },
+      {
+        "input": "s = \"aba\"",
+        "output": "2",
+        "explanation": "Print \"aaa\" first and then print \"b\" from the second place of the string, which will cover the existing character 'a'."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abc']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['aba']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['aaabbb']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['abab']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['z']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['aaaaa']\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('strangePrinter', (['abc'],), 3)",
+      "('strangePrinter', (['aba'],), 2)",
+      "('strangePrinter', (['aaabbb'],), 2)",
+      "('strangePrinter', (['abab'],), 3)",
+      "('strangePrinter', ([''],), 0)",
+      "('strangePrinter', (['z'],), 1)",
+      "('strangePrinter', (['aaaaa'],), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: strangePrinter(['abc'],)\n  標準輸出: 3\n  你的輸出: 1\n\n[測試#2] ❌ 失敗\n  標準輸入: strangePrinter(['aba'],)\n  標準輸出: 2\n  你的輸出: 1\n\n[測試#3] ❌ 失敗\n  標準輸入: strangePrinter(['aaabbb'],)\n  標準輸出: 2\n  你的輸出: 1\n\n[測試#4] ❌ 失敗\n  標準輸入: strangePrinter(['abab'],)\n  標準輸出: 3\n  你的輸出: 1\n\n[測試#5] ❌ 失敗\n  標準輸入: strangePrinter([''],)\n  標準輸出: 0\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: strangePrinter(['z'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: strangePrinter(['aaaaa'],)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (2/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 2,
+    "accuracy_rate": 0.2857142857142857
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode633.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Sum of Square Numbers",
+    "description": "Given a non-negative integer c, decide whether there're two integers a and b such that a^2 + b^2 = c.",
+    "examples": [
+      {
+        "input": "c = 5",
+        "output": "true",
+        "explanation": "1 * 1 + 2 * 2 = 5"
+      },
+      {
+        "input": "c = 3",
+        "output": "false"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "50\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('judgeSquareSum', (0,), True)",
+      "('judgeSquareSum', (1,), True)",
+      "('judgeSquareSum', (2,), True)",
+      "('judgeSquareSum', (3,), False)",
+      "('judgeSquareSum', (5,), True)",
+      "('judgeSquareSum', (50,), True)",
+      "('judgeSquareSum', (2147483647,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: judgeSquareSum(0,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: judgeSquareSum(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: judgeSquareSum(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: judgeSquareSum(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: judgeSquareSum(5,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: judgeSquareSum(50,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: judgeSquareSum(2147483647,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0031s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

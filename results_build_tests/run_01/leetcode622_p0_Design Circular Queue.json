@@ -1,0 +1,27 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode622.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Design Circular Queue",
+    "description": "Design your implementation of the circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle, and the last position is connected back to the first position to make a circle. It is also called \"Ring Buffer\".\n\nOne of the benefits of the circular queue is that we can make use of the spaces in front of the queue. In a normal queue, once the queue becomes full, we cannot insert the next element even if there is a space in front of the queue. But using the circular queue, we can use the space to store new values.\n\nImplement the MyCircularQueue class:\n\nMyCircularQueue(k) Initializes the object with the size of the queue to be k.\nFront() Gets the front item from the queue. If the queue is empty, return -1.\nRear() Gets the last item from the queue. If the queue is empty, return -1.\nenQueue(value) Inserts an element into the circular queue. Return true if the operation is successful.\ndeQueue() Deletes an element from the circular queue. Return true if the operation is successful.\nisEmpty() Checks whether the circular queue is empty or not.\nisFull() Checks whether the circular queue is full or not.\nYou must solve the problem without using the built-in queue data structure in your programming language.",
+    "examples": [
+      {
+        "input": "[\"MyCircularQueue\", \"enQueue\", \"enQueue\", \"enQueue\", \"enQueue\", \"Rear\", \"isFull\", \"deQueue\", \"enQueue\", \"Rear\"]\n[[3], [1], [2], [3], [4], [], [], [], [4], []]",
+        "output": "[null, true, true, true, false, 3, true, true, true, 4]",
+        "explanation": "MyCircularQueue myCircularQueue = new MyCircularQueue(3);\nmyCircularQueue.enQueue(1); // return True\nmyCircularQueue.enQueue(2); // return True\nmyCircularQueue.enQueue(3); // return True\nmyCircularQueue.enQueue(4); // return False\nmyCircularQueue.Rear();     // return 3\nmyCircularQueue.isFull();   // return True\nmyCircularQueue.deQueue();  // return True\nmyCircularQueue.enQueue(4); // return True\nmyCircularQueue.Rear();     // return 4"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "非 LeetCode 格式程式碼 (Skip non-class Solution)",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

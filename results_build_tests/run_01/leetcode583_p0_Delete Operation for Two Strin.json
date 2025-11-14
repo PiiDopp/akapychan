@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode583.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Delete Operation for Two Strings",
+    "description": "Given two strings word1 and word2, return the minimum number of steps required to make word1 and word2 the same.\n\nIn one step, you can delete exactly one character in either string.",
+    "examples": [
+      {
+        "input": "word1 = \"sea\", word2 = \"eat\"",
+        "output": "2",
+        "explanation": "You need one step to make \"sea\" to \"ea\" and another step to make \"eat\" to \"ea\"."
+      },
+      {
+        "input": "word1 = \"leetcode\", word2 = \"etco\"",
+        "output": "4"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "Agent 未能生成有效測資 (normalize_tests returned empty)",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

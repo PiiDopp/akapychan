@@ -1,0 +1,77 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode209.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Size Subarray Sum",
+    "description": "Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.",
+    "examples": [
+      {
+        "input": "target = 7, nums = [2,3,1,2,4,3]",
+        "output": "2",
+        "explanation": "The subarray [4,3] has the minimal length under the problem constraint."
+      },
+      {
+        "input": "target = 4, nums = [1,4,4]",
+        "output": "1"
+      },
+      {
+        "input": "target = 11, nums = [1,1,1,1,1,1,1,1]",
+        "output": "0"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[2, 3, 1, 2, 4, 3]\n7\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n15\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n11\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[]\n5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1, 2, 3]\n100\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[5, 1, 2]\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1, 1, 1]\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[2, -1, 2]\n3\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minSubArrayLen', ([2, 3, 1, 2, 4, 3], 7), 2)",
+      "('minSubArrayLen', ([1, 2, 3, 4, 5], 15), 5)",
+      "('minSubArrayLen', ([1, 2, 3, 4, 5], 11), 3)",
+      "('minSubArrayLen', ([], 5), 0)",
+      "('minSubArrayLen', ([1, 2, 3], 100), 0)",
+      "('minSubArrayLen', ([5, 1, 2], 5), 1)",
+      "('minSubArrayLen', ([1, 1, 1], 1), 1)",
+      "('minSubArrayLen', ([2, -1, 2], 3), 2)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ❌ 執行例外: object of type 'int' has no len()\n[測試#3] ❌ 執行例外: object of type 'int' has no len()\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: object of type 'int' has no len()\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

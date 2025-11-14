@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode28.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Implement strStr()",
+    "description": "Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.",
+    "examples": [
+      {
+        "input": "haystack = \"sadbutsad\", needle = \"sad\"",
+        "output": "0",
+        "explanation": "\"sad\" occurs at index 0 and 6.\nThe first occurrence is at index 0, so we return 0."
+      },
+      {
+        "input": "haystack = \"leetcode\", needle = \"leeto\"",
+        "output": "-1",
+        "explanation": "\"leeto\" did not occur in \"leetcode\", so we return -1."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['hello world', 'world']\n",
+        "output": "6\n"
+      },
+      {
+        "input": "['abcabcabc', 'abc']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aaaaa', 'b']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['anything', '']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['', 'a']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['short', 'longer']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['same', 'same']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['prefixsuffix', 'suffix']\n",
+        "output": "6\n"
+      }
+    ],
+    "parsed_tests": [
+      "('strStr', ('hello world', 'world'), 6)",
+      "('strStr', ('abcabcabc', 'abc'), 0)",
+      "('strStr', ('aaaaa', 'b'), -1)",
+      "('strStr', ('anything', ''), 0)",
+      "('strStr', ('', 'a'), -1)",
+      "('strStr', ('short', 'longer'), -1)",
+      "('strStr', ('same', 'same'), 0)",
+      "('strStr', ('prefixsuffix', 'suffix'), 6)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: strStr('hello world', 'world')\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#2] ✅ 通過\n  標準輸入: strStr('abcabcabc', 'abc')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ✅ 通過\n  標準輸入: strStr('aaaaa', 'b')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#4] ✅ 通過\n  標準輸入: strStr('anything', '')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: strStr('', 'a')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#6] ✅ 通過\n  標準輸入: strStr('short', 'longer')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#7] ✅ 通過\n  標準輸入: strStr('same', 'same')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: strStr('prefixsuffix', 'suffix')\n  標準輸出: 6\n  你的輸出: 6\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

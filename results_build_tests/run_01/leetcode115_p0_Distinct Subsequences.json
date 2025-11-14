@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode115.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Distinct Subsequences",
+    "description": "Given two strings s and t, return the number of distinct subsequences of s which equals t.\n\nThe test cases are generated so that the answer fits on a 32-bit signed integer.",
+    "examples": [
+      {
+        "input": "s = \"rabbbit\", t = \"rabbit\"",
+        "output": 3,
+        "explanation": "There are 3 ways to generate \"rabbit\" from s:\n1. rabbbit (remove the first 'b')\n2. rabbbit (remove the second 'b')\n3. rabbbit (remove the third 'b')"
+      },
+      {
+        "input": "s = \"babgbag\", t = \"bag\"",
+        "output": 5,
+        "explanation": "There are 5 ways to generate \"bag\" from s:\n1. babgbag (use the first 'b', 'a', 'g')\n2. babgbag (use the first 'b', 'a', second 'g')\n3. babgbag (use the second 'b', 'a', 'g')\n4. babgbag (use the second 'b', 'a', second 'g')\n5. babgbag (use the third 'b', 'a', second 'g')"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['rabbbit', 'rabbit']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['babgbag', 'bag']\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['any', '']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['', 'a']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc', 'abc']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['ab', 'abc']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['aaa', 'aa']\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numDistinct', ('rabbbit', 'rabbit'), 3)",
+      "('numDistinct', ('babgbag', 'bag'), 5)",
+      "('numDistinct', ('any', ''), 1)",
+      "('numDistinct', ('', 'a'), 0)",
+      "('numDistinct', ('abc', 'abc'), 1)",
+      "('numDistinct', ('ab', 'abc'), 0)",
+      "('numDistinct', ('aaa', 'aa'), 3)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numDistinct('rabbbit', 'rabbit')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: numDistinct('babgbag', 'bag')\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#3] ✅ 通過\n  標準輸入: numDistinct('any', '')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: numDistinct('', 'a')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: numDistinct('abc', 'abc')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: numDistinct('ab', 'abc')\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: numDistinct('aaa', 'aa')\n  標準輸出: 3\n  你的輸出: 3\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}
