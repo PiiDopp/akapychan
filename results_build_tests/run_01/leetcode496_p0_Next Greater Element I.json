@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode496.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Next Greater Element I",
+    "description": "The next greater element of some element x in an array is the first greater element that is to the right of x in the same array.\n\nYou are given two distinct 0-indexed integer arrays nums1 and nums2, where nums1 is a subset of nums2.\n\nFor each 0 <= i < nums1.length, find the index j such that nums1[i] == nums2[j] and determine the next greater element of nums2[j] in nums2. If there is no next greater element, then the answer for this query is -1.\n\nReturn an array ans of length nums1.length such that ans[i] is the next greater element as described above.",
+    "examples": [
+      {
+        "input": "nums1 = [4,1,2], nums2 = [1,3,4,2]",
+        "output": "[-1,3,-1]",
+        "explanation": "The next greater element for each value of nums1 is as follows:\n- 4 is underlined in nums2 = [1,3,4,2]. There is no next greater element, so the answer is -1.\n- 1 is underlined in nums2 = [1,3,4,2]. The next greater element is 3.\n- 2 is underlined in nums2 = [1,3,4,2]. There is no next greater element, so the answer is -1."
+      },
+      {
+        "input": "nums1 = [2,4], nums2 = [1,2,3,4]",
+        "output": "[3,-1]",
+        "explanation": "The next greater element for each value of nums1 is as follows:\n- 2 is underlined in nums2 = [1,2,3,4]. The next greater element is 3.\n- 4 is underlined in nums2 = [1,2,3,4]. There is no next greater element, so the answer is -1."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "4 1 2\n1 3 4 2\n",
+        "output": "[-1, 3, -1]\n"
+      },
+      {
+        "input": "2 4\n1 2 3 4\n",
+        "output": "[3, -1]\n"
+      },
+      {
+        "input": "\n1 2 3\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1 2\n",
+        "output": "[-1, -1]\n"
+      },
+      {
+        "input": "5 4 3\n5 4 3 2 1\n",
+        "output": "[-1, -1, -1]\n"
+      },
+      {
+        "input": "-3 0\n-5 -3 -1 0 2\n",
+        "output": "[-1, 2]\n"
+      },
+      {
+        "input": "1\n5 4 3 1\n",
+        "output": "[-1]\n"
+      },
+      {
+        "input": "2\n1 2 2 3\n",
+        "output": "[3]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('nextGreaterElement', ('4 1 2\\n1 3 4 2\\n',), [-1, 3, -1])",
+      "('nextGreaterElement', ('2 4\\n1 2 3 4\\n',), [3, -1])",
+      "('nextGreaterElement', ('\\n1 2 3\\n',), [])",
+      "('nextGreaterElement', ('1 2\\n',), [-1, -1])",
+      "('nextGreaterElement', ('5 4 3\\n5 4 3 2 1\\n',), [-1, -1, -1])",
+      "('nextGreaterElement', ('-3 0\\n-5 -3 -1 0 2\\n',), [-1, 2])",
+      "('nextGreaterElement', ('1\\n5 4 3 1\\n',), [-1])",
+      "('nextGreaterElement', ('2\\n1 2 2 3\\n',), [3])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#2] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#3] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#4] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#5] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#6] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#7] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n[測試#8] ❌ 執行例外: Solution.nextGreaterElement() missing 1 required positional argument: 'nums2'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

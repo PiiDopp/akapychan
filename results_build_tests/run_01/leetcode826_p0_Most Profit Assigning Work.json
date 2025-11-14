@@ -1,0 +1,68 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode826.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Most Profit Assigning Work",
+    "description": "You have n jobs and m workers. You are given three arrays: difficulty, profit, and worker where:\n\ndifficulty[i] and profit[i] are the difficulty and the profit of the ith job, and\nworker[j] is the ability of jth worker (i.e., the jth worker can only complete a job with difficulty at most worker[j]).\nEvery worker can be assigned at most one job, but one job can be completed multiple times.\n\nFor example, if three workers attempt the same job that pays $1, then the total profit will be $3. If a worker cannot complete any job, their profit is $0.\nReturn the maximum profit we can achieve after assigning the workers to the jobs.",
+    "examples": [
+      {
+        "input": "difficulty = [2,4,6,8,10], profit = [10,20,30,40,50], worker = [4,5,6,7]",
+        "output": "100",
+        "explanation": "Workers are assigned jobs of difficulty [4,4,6,6] and they get a profit of [20,20,30,30] separately."
+      },
+      {
+        "input": "difficulty = [85,47,57], profit = [24,66,99], worker = [40,25,25]",
+        "output": "0"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3\n10 20 30\n1 2 3\n",
+        "output": "60\n"
+      },
+      {
+        "input": "5 10\n100 200\n1 2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "3 3 3\n10 20 15\n3\n",
+        "output": "20\n"
+      },
+      {
+        "input": "1 2\n-5 10\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n100\n5 5 5\n",
+        "output": "300\n"
+      },
+      {
+        "input": "10\n100\n5 6 7\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2 5 10\n10 20 30\n1 3 5 10\n",
+        "output": "60\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maxProfitAssignment', ('1 2 3\\n10 20 30\\n1 2 3\\n',), 60)",
+      "('maxProfitAssignment', ('5 10\\n100 200\\n1 2\\n',), 0)",
+      "('maxProfitAssignment', ('3 3 3\\n10 20 15\\n3\\n',), 20)",
+      "('maxProfitAssignment', ('1 2\\n-5 10\\n1\\n',), 0)",
+      "('maxProfitAssignment', ('5\\n100\\n5 5 5\\n',), 300)",
+      "('maxProfitAssignment', ('10\\n100\\n5 6 7\\n',), 0)",
+      "('maxProfitAssignment', ('2 5 10\\n10 20 30\\n1 3 5 10\\n',), 60)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.maxProfitAssignment() missing 2 required positional arguments: 'profit' and 'worker'\n[測試#2] ❌ 執行例外: Solution.maxProfitAssignment() missing 2 required positional arguments: 'profit' and 'worker'\n[測試#3] ❌ 執行例外: Solution.maxProfitAssignment() missing 2 required positional arguments: 'profit' and 'worker'\n[測試#4] ❌ 執行例外: Solution.maxProfitAssignment() missing 2 required positional arguments: 'profit' and 'worker'\n[測試#5] ❌ 執行例外: Solution.maxProfitAssignment() missing 2 required positional arguments: 'profit' and 'worker'\n[測試#6] ❌ 執行例外: Solution.maxProfitAssignment() missing 2 required positional arguments: 'profit' and 'worker'\n[測試#7] ❌ 執行例外: Solution.maxProfitAssignment() missing 2 required positional arguments: 'profit' and 'worker'\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

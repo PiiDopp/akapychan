@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode421.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum XOR of Two Numbers in an Array",
+    "description": "Given an integer array nums, return the maximum result of nums[i] XOR nums[j], where 0 <= i <= j < n.",
+    "examples": [
+      {
+        "input": "nums = [3,10,5,25,2,8]",
+        "output": "28",
+        "explanation": "The maximum result is 5 XOR 25 = 28."
+      },
+      {
+        "input": "nums = [14,70,53,83,49,91,36,80,92,51,66,70]",
+        "output": "127"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "3 10 5 25 2 8\n",
+        "output": "28\n"
+      },
+      {
+        "input": "0 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "12 5 7 9 3\n",
+        "output": "15\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "7\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0 0 0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1 2\n",
+        "output": "4294967293\n"
+      },
+      {
+        "input": "2147483647 0\n",
+        "output": "2147483647\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findMaximumXOR', ('3 10 5 25 2 8\\n',), 28)",
+      "('findMaximumXOR', ('0 1\\n',), 1)",
+      "('findMaximumXOR', ('12 5 7 9 3\\n',), 15)",
+      "('findMaximumXOR', ((),), 0)",
+      "('findMaximumXOR', (7,), 0)",
+      "('findMaximumXOR', ('0 0 0\\n',), 0)",
+      "('findMaximumXOR', ('-1 2\\n',), 4294967293)",
+      "('findMaximumXOR', ('2147483647 0\\n',), 2147483647)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for &: 'str' and 'int'\n[測試#2] ❌ 執行例外: unsupported operand type(s) for &: 'str' and 'int'\n[測試#3] ❌ 執行例外: unsupported operand type(s) for &: 'str' and 'int'\n[測試#4] ✅ 通過\n  標準輸入: findMaximumXOR((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ❌ 執行例外: 'int' object is not iterable\n[測試#6] ❌ 執行例外: unsupported operand type(s) for &: 'str' and 'int'\n[測試#7] ❌ 執行例外: unsupported operand type(s) for &: 'str' and 'int'\n[測試#8] ❌ 執行例外: unsupported operand type(s) for &: 'str' and 'int'\n=== 測試完成 (1/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 1,
+    "accuracy_rate": 0.125
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode127.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Word Ladder",
+    "description": "A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words beginWord -> s_1 -> s_2 -> ... -> s_k such that:\n\nEvery adjacent pair of words differs by a single letter.\nEvery s_i for 1 <= i <= k is in wordList. Note that beginWord does not need to be in wordList.\ns_k == endWord\n\nGiven two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists.",
+    "examples": [
+      {
+        "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]",
+        "output": "5",
+        "explanation": "One shortest transformation sequence is \"hit\" -> \"hot\" -> \"dot\" -> \"dog\" -> \"cog\", which is 5 words long."
+      },
+      {
+        "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\"]",
+        "output": "0",
+        "explanation": "The endWord \"cog\" is not in wordList, therefore there is no valid transformation sequence."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog']]\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['a', 'c', ['a', 'b', 'c']]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['hit', 'hit', ['hit', 'hot']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['hit', 'hit', ['hot', 'dot']]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['hit', 'cog', []]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['hit', 'cog', ['hot', 'hot', 'dot', 'dog', 'cog']]\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['a', 'c', ['b', 'c']]\n",
+        "output": "3\n"
+      }
+    ],
+    "parsed_tests": [
+      "('ladderLength', ('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog']), 5)",
+      "('ladderLength', ('a', 'c', ['a', 'b', 'c']), 3)",
+      "('ladderLength', ('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']), 0)",
+      "('ladderLength', ('hit', 'hit', ['hit', 'hot']), 1)",
+      "('ladderLength', ('hit', 'hit', ['hot', 'dot']), 0)",
+      "('ladderLength', ('hit', 'cog', []), 0)",
+      "('ladderLength', ('hit', 'cog', ['hot', 'hot', 'dot', 'dog', 'cog']), 5)",
+      "('ladderLength', ('a', 'c', ['b', 'c']), 3)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: ladderLength('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog'])\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#2] ❌ 失敗\n  標準輸入: ladderLength('a', 'c', ['a', 'b', 'c'])\n  標準輸出: 3\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: ladderLength('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log'])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: ladderLength('hit', 'hit', ['hit', 'hot'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: ladderLength('hit', 'hit', ['hot', 'dot'])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: ladderLength('hit', 'cog', [])\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: ladderLength('hit', 'cog', ['hot', 'hot', 'dot', 'dog', 'cog'])\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#8] ❌ 失敗\n  標準輸入: ladderLength('a', 'c', ['b', 'c'])\n  標準輸出: 3\n  你的輸出: 2\n\n=== 測試完成 (6/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 6,
+    "accuracy_rate": 0.75
+  }
+}

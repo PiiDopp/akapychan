@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode713.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Subarray Product Less Than K",
+    "description": "Given an array of integers nums and an integer k, return the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than k.",
+    "examples": [
+      {
+        "input": "nums = [10,5,2,6], k = 100",
+        "output": "8",
+        "explanation": "The 8 subarrays that have product less than 100 are: \n[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6] \nNote that [10, 5, 2] is not included as the product of 100 is not strictly less than k."
+      },
+      {
+        "input": "nums = [1,2,3], k = 0",
+        "output": "0"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 2, 3]\n10\n",
+        "output": "5\n"
+      },
+      {
+        "input": "[10, 5, 2, 6]\n100\n",
+        "output": "8\n"
+      },
+      {
+        "input": "[]\n10\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1, 2, 3]\n1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[0, 1, 2]\n5\n",
+        "output": "6\n"
+      },
+      {
+        "input": "[1000000, 1000000]\n1000000000000\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[1, 2, 3]\n-5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[4]\n5\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numSubarrayProductLessThanK', ([1, 2, 3], 10), 5)",
+      "('numSubarrayProductLessThanK', ([10, 5, 2, 6], 100), 8)",
+      "('numSubarrayProductLessThanK', ([], 10), 0)",
+      "('numSubarrayProductLessThanK', ([1, 2, 3], 1), 0)",
+      "('numSubarrayProductLessThanK', ([0, 1, 2], 5), 6)",
+      "('numSubarrayProductLessThanK', ([1000000, 1000000], 1000000000000), 2)",
+      "('numSubarrayProductLessThanK', ([1, 2, 3], -5), 0)",
+      "('numSubarrayProductLessThanK', ([4], 5), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: numSubarrayProductLessThanK([1, 2, 3], 10)\n  標準輸出: 5\n  你的輸出: 6\n\n[測試#2] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([10, 5, 2, 6], 100)\n  標準輸出: 8\n  你的輸出: 8\n\n[測試#3] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([], 10)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 2, 3], 1)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([0, 1, 2], 5)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#6] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1000000, 1000000], 1000000000000)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([1, 2, 3], -5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: numSubarrayProductLessThanK([4], 5)\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 7,
+    "accuracy_rate": 0.875
+  }
+}

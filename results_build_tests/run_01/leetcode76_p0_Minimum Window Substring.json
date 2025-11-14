@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode76.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Window Substring",
+    "description": "Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string \"\".\n\nThe testcases will be generated such that the answer is unique.",
+    "examples": [
+      {
+        "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+        "output": "\"BANC\"",
+        "explanation": "The minimum window substring \"BANC\" includes 'A', 'B', and 'C' from string t."
+      },
+      {
+        "input": "s = \"a\", t = \"a\"",
+        "output": "\"a\"",
+        "explanation": "The entire string s is the minimum window."
+      },
+      {
+        "input": "s = \"a\", t = \"aa\"",
+        "output": "\"\"",
+        "explanation": "Both 'a's from t must be included in the window. Since the largest window of s only has one 'a', return empty string."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['ADOBECODEBANC', 'ABC']\n",
+        "output": "BANC\n"
+      },
+      {
+        "input": "['aaabbb', 'aab']\n",
+        "output": "aab\n"
+      },
+      {
+        "input": "['', 'A']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['ABC', '']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['AB', 'ABC']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['A', 'A']\n",
+        "output": "A\n"
+      },
+      {
+        "input": "['你好世界你好', '你好世']\n",
+        "output": "你好世\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minWindow', ('ADOBECODEBANC', 'ABC'), 'BANC\\n')",
+      "('minWindow', ('aaabbb', 'aab'), 'aab\\n')",
+      "('minWindow', ('', 'A'), '\\n')",
+      "('minWindow', ('ABC', ''), '\\n')",
+      "('minWindow', ('AB', 'ABC'), '\\n')",
+      "('minWindow', ('A', 'A'), 'A\\n')",
+      "('minWindow', ('你好世界你好', '你好世'), '你好世\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: minWindow('ADOBECODEBANC', 'ABC')\n  標準輸出: 'BANC\\n'\n  你的輸出: 'BANC'\n\n[測試#2] ❌ 失敗\n  標準輸入: minWindow('aaabbb', 'aab')\n  標準輸出: 'aab\\n'\n  你的輸出: 'aab'\n\n[測試#3] ❌ 失敗\n  標準輸入: minWindow('', 'A')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#4] ❌ 失敗\n  標準輸入: minWindow('ABC', '')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ❌ 失敗\n  標準輸入: minWindow('AB', 'ABC')\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: minWindow('A', 'A')\n  標準輸出: 'A\\n'\n  你的輸出: 'A'\n\n[測試#7] ❌ 失敗\n  標準輸入: minWindow('你好世界你好', '你好世')\n  標準輸出: '你好世\\n'\n  你的輸出: '你好世'\n\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

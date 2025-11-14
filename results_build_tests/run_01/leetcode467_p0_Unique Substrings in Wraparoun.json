@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode467.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Unique Substrings in Wraparound String",
+    "description": "We define the string base to be the infinite wraparound string of \"abcdefghijklmnopqrstuvwxyz\", so base will look like this:\n\n\"...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....\".\nGiven a string s, return the number of unique non-empty substrings of s are present in base.",
+    "examples": [
+      {
+        "input": "s = \"a\"",
+        "output": "1",
+        "explanation": "Only the substring \"a\" of s is in base."
+      },
+      {
+        "input": "s = \"cac\"",
+        "output": "2",
+        "explanation": "There are two substrings (\"a\", \"c\") of s in base."
+      },
+      {
+        "input": "s = \"zab\"",
+        "output": "6",
+        "explanation": "There are six substrings (\"z\", \"a\", \"b\", \"za\", \"ab\", and \"zab\") of s in base."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['zabc']\n",
+        "output": "10\n"
+      },
+      {
+        "input": "['abcd']\n",
+        "output": "10\n"
+      },
+      {
+        "input": "['ac']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['aaa']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['z']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abcdefghijklmnopqrstuvwxyz']\n",
+        "output": "351\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findSubstringInWraproundString', (['zabc'],), 10)",
+      "('findSubstringInWraproundString', (['abcd'],), 10)",
+      "('findSubstringInWraproundString', (['ac'],), 2)",
+      "('findSubstringInWraproundString', (['aaa'],), 3)",
+      "('findSubstringInWraproundString', ([''],), 0)",
+      "('findSubstringInWraproundString', (['z'],), 1)",
+      "('findSubstringInWraproundString', (['abcdefghijklmnopqrstuvwxyz'],), 351)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: ord() expected a character, but string of length 4 found\n[測試#2] ❌ 執行例外: ord() expected a character, but string of length 4 found\n[測試#3] ❌ 執行例外: ord() expected a character, but string of length 2 found\n[測試#4] ❌ 執行例外: ord() expected a character, but string of length 3 found\n[測試#5] ❌ 執行例外: ord() expected a character, but string of length 0 found\n[測試#6] ✅ 通過\n  標準輸入: findSubstringInWraproundString(['z'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ❌ 執行例外: ord() expected a character, but string of length 26 found\n=== 測試完成 (1/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 1,
+    "accuracy_rate": 0.14285714285714285
+  }
+}

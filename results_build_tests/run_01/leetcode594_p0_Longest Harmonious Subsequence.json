@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode594.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Harmonious Subsequence",
+    "description": "We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1.\n\nGiven an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.",
+    "examples": [
+      {
+        "input": "nums = [1,3,2,2,5,2,3,7]",
+        "output": "5",
+        "explanation": "The longest harmonious subsequence is [3,2,2,2,3]."
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "2",
+        "explanation": "The longest harmonious subsequences are [1,2], [2,3], and [3,4], all of which have a length of 2."
+      },
+      {
+        "input": "nums = [1,1,1,1]",
+        "output": "0",
+        "explanation": "No harmonic subsequence exists."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 3 2 2 5 2 3 7\n",
+        "output": "5\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "3 3 3 3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1 0 1 2\n",
+        "output": "4\n"
+      },
+      {
+        "input": "2147483647 2147483646\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 1 1 2 2\n",
+        "output": "5\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findLHS', ('1 3 2 2 5 2 3 7\\n',), 5)",
+      "('findLHS', ((),), 0)",
+      "('findLHS', (5,), 0)",
+      "('findLHS', ('3 3 3 3\\n',), 0)",
+      "('findLHS', ('-1 0 1 2\\n',), 4)",
+      "('findLHS', ('2147483647 2147483646\\n',), 2)",
+      "('findLHS', ('1 1 1 2 2\\n',), 5)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: can only concatenate str (not \"int\") to str\n[測試#2] ✅ 通過\n  標準輸入: findLHS((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ❌ 執行例外: 'int' object is not iterable\n[測試#4] ❌ 執行例外: can only concatenate str (not \"int\") to str\n[測試#5] ❌ 執行例外: can only concatenate str (not \"int\") to str\n[測試#6] ❌ 執行例外: can only concatenate str (not \"int\") to str\n[測試#7] ❌ 執行例外: can only concatenate str (not \"int\") to str\n=== 測試完成 (1/7) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 1,
+    "accuracy_rate": 0.14285714285714285
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode728.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Self Dividing Numbers",
+    "description": "A self-dividing number is a number that is divisible by every digit it contains.\n\nFor example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0.\nA self-dividing number is not allowed to contain the digit zero.\n\nGiven two integers left and right, return a list of all the self-dividing numbers in the range [left, right] (both inclusive).",
+    "examples": [
+      {
+        "input": "left = 1, right = 22",
+        "output": "[1,2,3,4,5,6,7,8,9,11,12,15,22]"
+      },
+      {
+        "input": "left = 47, right = 85",
+        "output": "[48,55,66,77]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n22\n",
+        "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]\n"
+      },
+      {
+        "input": "13\n15\n",
+        "output": "[15]\n"
+      },
+      {
+        "input": "0\n0\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "10\n10\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "[1]\n"
+      },
+      {
+        "input": "20\n20\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "22\n22\n",
+        "output": "[22]\n"
+      },
+      {
+        "input": "5\n3\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('selfDividingNumbers', (1, 22), [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22])",
+      "('selfDividingNumbers', (13, 15), [15])",
+      "('selfDividingNumbers', (0, 0), [])",
+      "('selfDividingNumbers', (10, 10), [])",
+      "('selfDividingNumbers', (1, 1), [1])",
+      "('selfDividingNumbers', (20, 20), [])",
+      "('selfDividingNumbers', (22, 22), [22])",
+      "('selfDividingNumbers', (5, 3), [])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: selfDividingNumbers(1, 22)\n  標準輸出: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]\n  你的輸出: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]\n\n[測試#2] ✅ 通過\n  標準輸入: selfDividingNumbers(13, 15)\n  標準輸出: [15]\n  你的輸出: [15]\n\n[測試#3] ❌ 失敗\n  標準輸入: selfDividingNumbers(0, 0)\n  標準輸出: []\n  你的輸出: [0]\n\n[測試#4] ✅ 通過\n  標準輸入: selfDividingNumbers(10, 10)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: selfDividingNumbers(1, 1)\n  標準輸出: [1]\n  你的輸出: [1]\n\n[測試#6] ✅ 通過\n  標準輸入: selfDividingNumbers(20, 20)\n  標準輸出: []\n  你的輸出: []\n\n[測試#7] ✅ 通過\n  標準輸入: selfDividingNumbers(22, 22)\n  標準輸出: [22]\n  你的輸出: [22]\n\n[測試#8] ✅ 通過\n  標準輸入: selfDividingNumbers(5, 3)\n  標準輸出: []\n  你的輸出: []\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 7,
+    "accuracy_rate": 0.875
+  }
+}

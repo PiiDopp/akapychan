@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode599.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Index Sum of Two Lists",
+    "description": "Given two arrays of strings list1 and list2, find the common strings with the least index sum.\n\nA common string is a string that appeared in both list1 and list2.\n\nA common string with the least index sum is a common string such that if it appeared at list1[i] and list2[j] then i + j should be the minimum value among all the other common strings.\n\nReturn all the common strings with the least index sum. Return the answer in any order.",
+    "examples": [
+      {
+        "input": "list1 = [\"Shogun\",\"Tapioca Express\",\"Burger King\",\"KFC\"], list2 = [\"Piatti\",\"The Grill at Torrey Pines\",\"Hungry Hunter Steakhouse\",\"Shogun\"]",
+        "output": "[\"Shogun\"]",
+        "explanation": "The only common string is \"Shogun\"."
+      },
+      {
+        "input": "list1 = [\"Shogun\",\"Tapioca Express\",\"Burger King\",\"KFC\"], list2 = [\"KFC\",\"Shogun\",\"Burger King\"]",
+        "output": "[\"Shogun\"]",
+        "explanation": "The common string with the least index sum is \"Shogun\" with index sum = (0 + 1) = 1."
+      },
+      {
+        "input": "list1 = [\"happy\",\"sad\",\"good\"], list2 = [\"sad\",\"happy\",\"good\"]",
+        "output": "[\"sad\",\"happy\"]",
+        "explanation": "There are three common strings: \n\"happy\" with index sum = (0 + 1) = 1, \n\"sad\" with index sum = (1 + 0) = 1, \n\"good\" with index sum = (2 + 2) = 4. \nThe strings with the least index sum are \"sad\" and \"happy\"."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['Shogun', 'Tapioca Express', 'Burger King', 'KFC'], ['KFC', 'Shogun', 'Burger King']]\n",
+        "output": "['Shogun']\n"
+      },
+      {
+        "input": "[['A', 'B', 'C'], ['B', 'A']]\n",
+        "output": "['B', 'A']\n"
+      },
+      {
+        "input": "[['X', 'Y'], ['Z']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[[], ['A']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['A'], []]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['a', 'b', 'c'], ['c', 'b', 'a']]\n",
+        "output": "['c', 'b', 'a']\n"
+      },
+      {
+        "input": "[['a', 'a', 'b'], ['a', 'b']]\n",
+        "output": "['a']\n"
+      },
+      {
+        "input": "[['Hello World', 'Test!'], ['Test!', 'Hello World']]\n",
+        "output": "['Test!', 'Hello World']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findRestaurant', (['Shogun', 'Tapioca Express', 'Burger King', 'KFC'], ['KFC', 'Shogun', 'Burger King']), ['Shogun'])",
+      "('findRestaurant', (['A', 'B', 'C'], ['B', 'A']), ['B', 'A'])",
+      "('findRestaurant', (['X', 'Y'], ['Z']), [])",
+      "('findRestaurant', ([], ['A']), [])",
+      "('findRestaurant', (['A'], []), [])",
+      "('findRestaurant', (['a', 'b', 'c'], ['c', 'b', 'a']), ['c', 'b', 'a'])",
+      "('findRestaurant', (['a', 'a', 'b'], ['a', 'b']), ['a'])",
+      "('findRestaurant', (['Hello World', 'Test!'], ['Test!', 'Hello World']), ['Test!', 'Hello World'])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findRestaurant(['Shogun', 'Tapioca Express', 'Burger King', 'KFC'], ['KFC', 'Shogun', 'Burger King'])\n  標準輸出: ['Shogun']\n  你的輸出: ['Shogun']\n\n[測試#2] ✅ 通過\n  標準輸入: findRestaurant(['A', 'B', 'C'], ['B', 'A'])\n  標準輸出: ['B', 'A']\n  你的輸出: ['B', 'A']\n\n[測試#3] ✅ 通過\n  標準輸入: findRestaurant(['X', 'Y'], ['Z'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: findRestaurant([], ['A'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: findRestaurant(['A'], [])\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: findRestaurant(['a', 'b', 'c'], ['c', 'b', 'a'])\n  標準輸出: ['c', 'b', 'a']\n  你的輸出: ['c', 'b', 'a']\n\n[測試#7] ✅ 通過\n  標準輸入: findRestaurant(['a', 'a', 'b'], ['a', 'b'])\n  標準輸出: ['a']\n  你的輸出: ['a']\n\n[測試#8] ✅ 通過\n  標準輸入: findRestaurant(['Hello World', 'Test!'], ['Test!', 'Hello World'])\n  標準輸出: ['Test!', 'Hello World']\n  你的輸出: ['Test!', 'Hello World']\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

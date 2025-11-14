@@ -1,0 +1,77 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode23.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Merge k Sorted Lists",
+    "description": "You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.\n\nMerge all the linked-lists into one sorted linked-list and return it.",
+    "examples": [
+      {
+        "input": "lists = [[1,4,5],[1,3,4],[2,6]]",
+        "output": "[1,1,2,3,4,4,5,6]",
+        "explanation": "The linked-lists are:\n[\n  1->4->5,\n  1->3->4,\n  2->6\n]\nmerging them into one sorted linked list:\n1->1->2->3->4->4->5->6"
+      },
+      {
+        "input": "lists = []",
+        "output": "[]"
+      },
+      {
+        "input": "lists = [[]]",
+        "output": "[]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 4 5\n1 3 4\n2 6\n",
+        "output": "[1, 1, 2, 3, 4, 4, 5, 6]\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "1 2 3\n",
+        "output": "[1, 2, 3]\n"
+      },
+      {
+        "input": "\n1 3\n\n2 4\n",
+        "output": "[1, 2, 3, 4]\n"
+      },
+      {
+        "input": "-5 -3\n-4 -2\n",
+        "output": "[-5, -4, -3, -2]\n"
+      },
+      {
+        "input": "1 3\n1 4\n",
+        "output": "[1, 1, 3, 4]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('mergeKLists', ('1 4 5\\n1 3 4\\n2 6\\n',), [1, 1, 2, 3, 4, 4, 5, 6])",
+      "('mergeKLists', ((),), '\\n')",
+      "('mergeKLists', ((),), '\\n')",
+      "('mergeKLists', ((),), '\\n')",
+      "('mergeKLists', ('1 2 3\\n',), [1, 2, 3])",
+      "('mergeKLists', ('\\n1 3\\n\\n2 4\\n',), [1, 2, 3, 4])",
+      "('mergeKLists', ('-5 -3\\n-4 -2\\n',), [-5, -4, -3, -2])",
+      "('mergeKLists', ('1 3\\n1 4\\n',), [1, 1, 3, 4])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#2] ❌ 失敗\n  標準輸入: mergeKLists((),)\n  標準輸出: '\\n'\n  你的輸出: None\n\n[測試#3] ❌ 失敗\n  標準輸入: mergeKLists((),)\n  標準輸出: '\\n'\n  你的輸出: None\n\n[測試#4] ❌ 失敗\n  標準輸入: mergeKLists((),)\n  標準輸出: '\\n'\n  你的輸出: None\n\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'val'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'val'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

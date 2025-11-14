@@ -1,0 +1,63 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode922.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Sort Array By Parity II",
+    "description": "Given an array of integers nums, half of the integers in nums are odd, and the other half are even.\n\nSort the array so that whenever nums[i] is odd, i is odd, and whenever nums[i] is even, i is even.\n\nReturn any answer array that satisfies this condition.",
+    "examples": [
+      {
+        "input": "nums = [4,2,5,7]",
+        "output": "[4,5,2,7]",
+        "explanation": "[4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted."
+      },
+      {
+        "input": "nums = [2,3]",
+        "output": "[2,3]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2 1\n",
+        "output": "[2, 1]\n"
+      },
+      {
+        "input": "3 2 4 1\n",
+        "output": "[2, 3, 4, 1]\n"
+      },
+      {
+        "input": "5 2 3 4 1 6\n",
+        "output": "[2, 5, 4, 3, 6, 1]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "-2 -3 4 5\n",
+        "output": "[-2, -3, 4, 5]\n"
+      },
+      {
+        "input": "1 2 3 4 5 6 7 8\n",
+        "output": "[2, 1, 4, 3, 6, 5, 8, 7]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('sortArrayByParityII', ('2 1\\n',), [2, 1])",
+      "('sortArrayByParityII', ('3 2 4 1\\n',), [2, 3, 4, 1])",
+      "('sortArrayByParityII', ('5 2 3 4 1 6\\n',), [2, 5, 4, 3, 6, 1])",
+      "('sortArrayByParityII', ((),), [])",
+      "('sortArrayByParityII', ('-2 -3 4 5\\n',), [-2, -3, 4, 5])",
+      "('sortArrayByParityII', ('1 2 3 4 5 6 7 8\\n',), [2, 1, 4, 3, 6, 5, 8, 7])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: not all arguments converted during string formatting\n[測試#2] ❌ 執行例外: not all arguments converted during string formatting\n[測試#3] ❌ 執行例外: not all arguments converted during string formatting\n[測試#4] ✅ 通過\n  標準輸入: sortArrayByParityII((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ❌ 執行例外: not all arguments converted during string formatting\n[測試#6] ❌ 執行例外: not all arguments converted during string formatting\n=== 測試完成 (1/6) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 6,
+    "passed_count": 1,
+    "accuracy_rate": 0.16666666666666666
+  }
+}

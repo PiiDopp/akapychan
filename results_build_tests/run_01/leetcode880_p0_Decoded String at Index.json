@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode880.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Decoded String at Index",
+    "description": "You are given an encoded string s. To decode the string to a tape, the encoded string is read one character at a time and the following steps are taken:\nIf the character read is a letter, that letter is written onto the tape.\nIf the character read is a digit d, the entire current tape is repeatedly written d - 1 more times in total.\nGiven an integer k, return the kth letter (1-indexed) in the decoded string.",
+    "examples": [
+      {
+        "input": "s = \"leet2code3\", k = 10",
+        "output": "o",
+        "explanation": "The decoded string is \"leetleetcodeleetleetcodeleetleetcode\". The 10th letter in the string is \"o\"."
+      },
+      {
+        "input": "s = \"ha22\", k = 5",
+        "output": "h",
+        "explanation": "The decoded string is \"hahahaha\". The 5th letter is \"h\"."
+      },
+      {
+        "input": "s = \"a2345678999999999999999\", k = 1",
+        "output": "a",
+        "explanation": "The decoded string is \"a\" repeated 8301530446056247680 times. The 1st letter is \"a\"."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['leet2code3', 10]\n",
+        "output": "o\n"
+      },
+      {
+        "input": "['ha22', 5]\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['a2345678999999999999999', 1]\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['', 1]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['123', 1]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a2b3c4', 10]\n",
+        "output": "b\n"
+      },
+      {
+        "input": "['aaaaaaaaaaaaaaaaaaaa99999999999999999999', 1000000000000000000]\n",
+        "output": "a\n"
+      }
+    ],
+    "parsed_tests": [
+      "('decodeAtIndex', ('leet2code3', 10), 'o\\n')",
+      "('decodeAtIndex', ('ha22', 5), 'a\\n')",
+      "('decodeAtIndex', ('a2345678999999999999999', 1), 'a\\n')",
+      "('decodeAtIndex', ('', 1), '\\n')",
+      "('decodeAtIndex', ('123', 1), '\\n')",
+      "('decodeAtIndex', ('a2b3c4', 10), 'b\\n')",
+      "('decodeAtIndex', ('aaaaaaaaaaaaaaaaaaaa99999999999999999999', 1000000000000000000), 'a\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: decodeAtIndex('leet2code3', 10)\n  標準輸出: 'o\\n'\n  你的輸出: 'o'\n\n[測試#2] ❌ 失敗\n  標準輸入: decodeAtIndex('ha22', 5)\n  標準輸出: 'a\\n'\n  你的輸出: 'h'\n\n[測試#3] ❌ 失敗\n  標準輸入: decodeAtIndex('a2345678999999999999999', 1)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#4] ❌ 失敗\n  標準輸入: decodeAtIndex('', 1)\n  標準輸出: '\\n'\n  你的輸出: None\n\n[測試#5] ❌ 執行例外: integer modulo by zero\n[測試#6] ❌ 失敗\n  標準輸入: decodeAtIndex('a2b3c4', 10)\n  標準輸出: 'b\\n'\n  你的輸出: 'c'\n\n[測試#7] ❌ 失敗\n  標準輸入: decodeAtIndex('aaaaaaaaaaaaaaaaaaaa99999999999999999999', 1000000000000000000)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

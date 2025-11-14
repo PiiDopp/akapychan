@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode884.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Uncommon Words from Two Sentences",
+    "description": "A sentence is a string of single-space separated words where each word consists only of lowercase letters.\nA word is uncommon if it appears exactly once in one of the sentences, and does not appear in the other sentence.\n\nGiven two sentences s1 and s2, return a list of all the uncommon words. You may return the answer in any order.",
+    "examples": [
+      {
+        "input": "s1 = \"this apple is sweet\", s2 = \"this apple is sour\"",
+        "output": "[\"sweet\",\"sour\"]",
+        "explanation": "The word \"sweet\" appears only in s1, while the word \"sour\" appears only in s2."
+      },
+      {
+        "input": "s1 = \"apple apple\", s2 = \"banana\"",
+        "output": "[\"banana\"]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['apple orange', 'banana apple']\n",
+        "output": "['banana', 'orange']\n"
+      },
+      {
+        "input": "['hello world', 'world']\n",
+        "output": "['hello']\n"
+      },
+      {
+        "input": "['', 'hello']\n",
+        "output": "['hello']\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['a b', 'b c']\n",
+        "output": "['a', 'c']\n"
+      },
+      {
+        "input": "['a a', 'b']\n",
+        "output": "['b']\n"
+      },
+      {
+        "input": "['a', 'a']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['x y z', 'y z w']\n",
+        "output": "['x', 'w']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('uncommonFromSentences', ('apple orange', 'banana apple'), ['banana', 'orange'])",
+      "('uncommonFromSentences', ('hello world', 'world'), ['hello'])",
+      "('uncommonFromSentences', ('', 'hello'), ['hello'])",
+      "('uncommonFromSentences', ('', ''), [])",
+      "('uncommonFromSentences', ('a b', 'b c'), ['a', 'c'])",
+      "('uncommonFromSentences', ('a a', 'b'), ['b'])",
+      "('uncommonFromSentences', ('a', 'a'), [])",
+      "('uncommonFromSentences', ('x y z', 'y z w'), ['x', 'w'])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: uncommonFromSentences('apple orange', 'banana apple')\n  標準輸出: ['banana', 'orange']\n  你的輸出: ['orange', 'banana']\n\n[測試#2] ✅ 通過\n  標準輸入: uncommonFromSentences('hello world', 'world')\n  標準輸出: ['hello']\n  你的輸出: ['hello']\n\n[測試#3] ✅ 通過\n  標準輸入: uncommonFromSentences('', 'hello')\n  標準輸出: ['hello']\n  你的輸出: ['hello']\n\n[測試#4] ✅ 通過\n  標準輸入: uncommonFromSentences('', '')\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: uncommonFromSentences('a b', 'b c')\n  標準輸出: ['a', 'c']\n  你的輸出: ['a', 'c']\n\n[測試#6] ✅ 通過\n  標準輸入: uncommonFromSentences('a a', 'b')\n  標準輸出: ['b']\n  你的輸出: ['b']\n\n[測試#7] ✅ 通過\n  標準輸入: uncommonFromSentences('a', 'a')\n  標準輸出: []\n  你的輸出: []\n\n[測試#8] ✅ 通過\n  標準輸入: uncommonFromSentences('x y z', 'y z w')\n  標準輸出: ['x', 'w']\n  你的輸出: ['x', 'w']\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 7,
+    "accuracy_rate": 0.875
+  }
+}

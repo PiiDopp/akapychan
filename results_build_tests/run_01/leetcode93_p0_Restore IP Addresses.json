@@ -1,0 +1,76 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode93.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Restore IP Addresses",
+    "description": "A valid IP address consists of exactly four integers separated by single dots. Each integer is between 0 and 255 (inclusive) and cannot have leading zeros.\n\nFor example, \"0.1.2.201\" and \"192.168.1.1\" are valid IP addresses, but \"0.011.255.245\", \"192.168.1.312\" and \"192.168@1.1\" are invalid IP addresses.\nGiven a string s containing only digits, return all possible valid IP addresses that can be formed by inserting dots into s. You are not allowed to reorder or remove any digits in s. You may return the valid IP addresses in any order.",
+    "examples": [
+      {
+        "input": "s = \"25525511135\"",
+        "output": "[\"255.255.11.135\",\"255.255.111.35\"]"
+      },
+      {
+        "input": "s = \"0000\"",
+        "output": "[\"0.0.0.0\"]"
+      },
+      {
+        "input": "s = \"101023\"",
+        "output": "[\"1.0.10.23\",\"1.0.102.3\",\"10.1.0.23\",\"10.10.2.3\",\"101.0.2.3\"]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['25525511135']\n",
+        "output": "['255.255.11.135', '255.255.111.35']\n"
+      },
+      {
+        "input": "['010010']\n",
+        "output": "['0.10.0.10', '0.100.1.0']\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['0000']\n",
+        "output": "['0.0.0.0']\n"
+      },
+      {
+        "input": "['255255255255']\n",
+        "output": "['255.255.255.255']\n"
+      },
+      {
+        "input": "['256123456']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['111111111111']\n",
+        "output": "['111.111.111.111']\n"
+      },
+      {
+        "input": "['1234567890123']\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('restoreIpAddresses', (['25525511135'],), ['255.255.11.135', '255.255.111.35'])",
+      "('restoreIpAddresses', (['010010'],), ['0.10.0.10', '0.100.1.0'])",
+      "('restoreIpAddresses', ([''],), [])",
+      "('restoreIpAddresses', (['0000'],), ['0.0.0.0'])",
+      "('restoreIpAddresses', (['255255255255'],), ['255.255.255.255'])",
+      "('restoreIpAddresses', (['256123456'],), [])",
+      "('restoreIpAddresses', (['111111111111'],), ['111.111.111.111'])",
+      "('restoreIpAddresses', (['1234567890123'],), [])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'list' object has no attribute 'startswith'\n[測試#2] ❌ 執行例外: 'list' object has no attribute 'startswith'\n[測試#3] ❌ 執行例外: 'list' object has no attribute 'startswith'\n[測試#4] ❌ 執行例外: 'list' object has no attribute 'startswith'\n[測試#5] ❌ 執行例外: 'list' object has no attribute 'startswith'\n[測試#6] ❌ 執行例外: 'list' object has no attribute 'startswith'\n[測試#7] ❌ 執行例外: 'list' object has no attribute 'startswith'\n[測試#8] ❌ 執行例外: 'list' object has no attribute 'startswith'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode219.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Contains Duplicate II",
+    "description": "Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1], k = 3",
+        "output": "true"
+      },
+      {
+        "input": "nums = [1,0,1,1], k = 1",
+        "output": "true"
+      },
+      {
+        "input": "nums = [1,2,3,1,2,3], k = 2",
+        "output": "false"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 2, 3, 1]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 0, 1, 1]\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[]\n5\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[1, 2, 3]\n0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[-1, 2, -1, 3]\n2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1000000000000, 1000000000000]\n1\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('containsNearbyDuplicate', ([1, 2, 3, 1], 3), True)",
+      "('containsNearbyDuplicate', ([1, 0, 1, 1], 1), True)",
+      "('containsNearbyDuplicate', ([1, 2, 3, 4, 5], 2), False)",
+      "('containsNearbyDuplicate', ([], 5), False)",
+      "('containsNearbyDuplicate', ([1, 2, 3], 0), False)",
+      "('containsNearbyDuplicate', ([-1, 2, -1, 3], 2), True)",
+      "('containsNearbyDuplicate', ([1000000000000, 1000000000000], 1), True)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: containsNearbyDuplicate([1, 2, 3, 1], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: containsNearbyDuplicate([1, 0, 1, 1], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: containsNearbyDuplicate([1, 2, 3, 4, 5], 2)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: containsNearbyDuplicate([], 5)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: containsNearbyDuplicate([1, 2, 3], 0)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: containsNearbyDuplicate([-1, 2, -1, 3], 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: containsNearbyDuplicate([1000000000000, 1000000000000], 1)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

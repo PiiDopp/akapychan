@@ -1,0 +1,81 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode168.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Excel Sheet Column Title",
+    "description": "Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.\n\nFor example:\nA -> 1\nB -> 2\nC -> 3\n...\nZ -> 26\nAA -> 27\nAB -> 28\n...",
+    "examples": [
+      {
+        "input": "columnNumber = 1",
+        "output": "\"A\""
+      },
+      {
+        "input": "columnNumber = 28",
+        "output": "\"AB\""
+      },
+      {
+        "input": "columnNumber = 701",
+        "output": "\"ZY\""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "A\n"
+      },
+      {
+        "input": "26\n",
+        "output": "Z\n"
+      },
+      {
+        "input": "27\n",
+        "output": "AA\n"
+      },
+      {
+        "input": "52\n",
+        "output": "AZ\n"
+      },
+      {
+        "input": "1000\n",
+        "output": "ALL\n"
+      },
+      {
+        "input": "703\n",
+        "output": "AAA\n"
+      },
+      {
+        "input": "0\n",
+        "output": "\n"
+      },
+      {
+        "input": "-5\n",
+        "output": "\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "FXSHRXW\n"
+      }
+    ],
+    "parsed_tests": [
+      "('convertToTitle', (1,), 'A\\n')",
+      "('convertToTitle', (26,), 'Z\\n')",
+      "('convertToTitle', (27,), 'AA\\n')",
+      "('convertToTitle', (52,), 'AZ\\n')",
+      "('convertToTitle', (1000,), 'ALL\\n')",
+      "('convertToTitle', (703,), 'AAA\\n')",
+      "('convertToTitle', (0,), '\\n')",
+      "('convertToTitle', (-5,), '\\n')",
+      "('convertToTitle', (2147483647,), 'FXSHRXW\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: convertToTitle(1,)\n  標準輸出: 'A\\n'\n  你的輸出: 'A'\n\n[測試#2] ❌ 失敗\n  標準輸入: convertToTitle(26,)\n  標準輸出: 'Z\\n'\n  你的輸出: 'Z'\n\n[測試#3] ❌ 失敗\n  標準輸入: convertToTitle(27,)\n  標準輸出: 'AA\\n'\n  你的輸出: 'AA'\n\n[測試#4] ❌ 失敗\n  標準輸入: convertToTitle(52,)\n  標準輸出: 'AZ\\n'\n  你的輸出: 'AZ'\n\n[測試#5] ❌ 失敗\n  標準輸入: convertToTitle(1000,)\n  標準輸出: 'ALL\\n'\n  你的輸出: 'ALL'\n\n[測試#6] ❌ 失敗\n  標準輸入: convertToTitle(703,)\n  標準輸出: 'AAA\\n'\n  你的輸出: 'AAA'\n\n[測試#7] ❌ 失敗\n  標準輸入: convertToTitle(0,)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#8] ❌ 失敗\n  標準輸入: convertToTitle(-5,)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#9] ❌ 失敗\n  標準輸入: convertToTitle(2147483647,)\n  標準輸出: 'FXSHRXW\\n'\n  你的輸出: 'FXSHRXW'\n\n=== 測試完成 (0/9) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 9,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode402.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Remove K Digits",
+    "description": "Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.",
+    "examples": [
+      {
+        "input": "num = \"1432219\", k = 3",
+        "output": "\"1219\"",
+        "explanation": "Remove the three digits 4, 3, and 2 to form the new number 1219 which is the smallest."
+      },
+      {
+        "input": "num = \"10200\", k = 1",
+        "output": "\"200\"",
+        "explanation": "Remove the leading 1 and the number is 200. Note that the output must not contain leading zeroes."
+      },
+      {
+        "input": "num = \"10\", k = 2",
+        "output": "\"0\"",
+        "explanation": "Remove all the digits from the number and it is left with nothing which is 0."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['1432219', 3]\n",
+        "output": "1219\n"
+      },
+      {
+        "input": "['10200', 1]\n",
+        "output": "200\n"
+      },
+      {
+        "input": "['10', 1]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['12345', 0]\n",
+        "output": "12345\n"
+      },
+      {
+        "input": "['12345', 5]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['0000', 2]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['9876543210', 5]\n",
+        "output": "43210\n"
+      },
+      {
+        "input": "['123456', 3]\n",
+        "output": "123\n"
+      }
+    ],
+    "parsed_tests": [
+      "('removeKdigits', ('1432219', 3), 1219)",
+      "('removeKdigits', ('10200', 1), 200)",
+      "('removeKdigits', ('10', 1), 0)",
+      "('removeKdigits', ('12345', 0), 12345)",
+      "('removeKdigits', ('12345', 5), 0)",
+      "('removeKdigits', ('0000', 2), 0)",
+      "('removeKdigits', ('9876543210', 5), 43210)",
+      "('removeKdigits', ('123456', 3), 123)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: removeKdigits('1432219', 3)\n  標準輸出: 1219\n  你的輸出: '1219'\n\n[測試#2] ❌ 失敗\n  標準輸入: removeKdigits('10200', 1)\n  標準輸出: 200\n  你的輸出: '200'\n\n[測試#3] ❌ 失敗\n  標準輸入: removeKdigits('10', 1)\n  標準輸出: 0\n  你的輸出: '0'\n\n[測試#4] ❌ 失敗\n  標準輸入: removeKdigits('12345', 0)\n  標準輸出: 12345\n  你的輸出: '12345'\n\n[測試#5] ❌ 失敗\n  標準輸入: removeKdigits('12345', 5)\n  標準輸出: 0\n  你的輸出: '0'\n\n[測試#6] ❌ 失敗\n  標準輸入: removeKdigits('0000', 2)\n  標準輸出: 0\n  你的輸出: '0'\n\n[測試#7] ❌ 失敗\n  標準輸入: removeKdigits('9876543210', 5)\n  標準輸出: 43210\n  你的輸出: '43210'\n\n[測試#8] ❌ 失敗\n  標準輸入: removeKdigits('123456', 3)\n  標準輸出: 123\n  你的輸出: '123'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode120.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Triangle",
+    "description": "Given a triangle array, return the minimum path sum from top to bottom.\n\nFor each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.",
+    "examples": [
+      {
+        "input": "triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]",
+        "output": "11",
+        "explanation": "The triangle looks like:\n   2\n  3 4\n 6 5 7\n4 1 8 3\nThe minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above)."
+      },
+      {
+        "input": "triangle = [[-10]]",
+        "output": "-10"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[-1] [2, 3] [1, -1, 5]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[5]\n",
+        "output": "5\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[2] [-3, 4] [5, -6, 7]\n",
+        "output": "-7\n"
+      },
+      {
+        "input": "[1000000000] [1000000000, 1000000000] [1000000000, 1000000000, 1000000000]\n",
+        "output": "3000000000\n"
+      },
+      {
+        "input": "[0] [0, 0] [0, 0, 0]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[1] [2, 3] [4, 5, 6]\n",
+        "output": "7\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minimumTotal', ('[-1] [2, 3] [1, -1, 5]\\n',), 0)",
+      "('minimumTotal', ([5],), 5)",
+      "('minimumTotal', ((),), 0)",
+      "('minimumTotal', ('[2] [-3, 4] [5, -6, 7]\\n',), -7)",
+      "('minimumTotal', ('[1000000000] [1000000000, 1000000000] [1000000000, 1000000000, 1000000000]\\n',), 3000000000)",
+      "('minimumTotal', ('[0] [0, 0] [0, 0, 0]\\n',), 0)",
+      "('minimumTotal', ('[1] [2, 3] [4, 5, 6]\\n',), 7)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: string index out of range\n[測試#2] ❌ 執行例外: 'int' object is not subscriptable\n[測試#3] ❌ 執行例外: tuple index out of range\n[測試#4] ❌ 執行例外: string index out of range\n[測試#5] ❌ 執行例外: string index out of range\n[測試#6] ❌ 執行例外: string index out of range\n[測試#7] ❌ 執行例外: string index out of range\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode345.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reverse Vowels of a String",
+    "description": "Given a string s, reverse only all the vowels in the string and return it.\n\nThe vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.",
+    "examples": [
+      {
+        "input": "s = \"IceCreAm\"",
+        "output": "\"AceCreIm\"",
+        "explanation": "The vowels in s are ['I', 'e', 'e', 'A']. On reversing the vowels, s becomes \"AceCreIm\"."
+      },
+      {
+        "input": "s = \"leetcode\"",
+        "output": "\"leotcede\""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['hello']\n",
+        "output": "holle\n"
+      },
+      {
+        "input": "['leetcode']\n",
+        "output": "leotcede\n"
+      },
+      {
+        "input": "['AbcE']\n",
+        "output": "Ebca\n"
+      },
+      {
+        "input": "['h3ll0']\n",
+        "output": "h3ll0\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['bcdfg']\n",
+        "output": "bcdfg\n"
+      },
+      {
+        "input": "['aeiou']\n",
+        "output": "uoiea\n"
+      },
+      {
+        "input": "['a']\n",
+        "output": "a\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reverseVowels', (['hello'],), 'holle\\n')",
+      "('reverseVowels', (['leetcode'],), 'leotcede\\n')",
+      "('reverseVowels', (['AbcE'],), 'Ebca\\n')",
+      "('reverseVowels', (['h3ll0'],), 'h3ll0\\n')",
+      "('reverseVowels', ([''],), '\\n')",
+      "('reverseVowels', (['bcdfg'],), 'bcdfg\\n')",
+      "('reverseVowels', (['aeiou'],), 'uoiea\\n')",
+      "('reverseVowels', (['a'],), 'a\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reverseVowels(['hello'],)\n  標準輸出: 'holle\\n'\n  你的輸出: 'hello'\n\n[測試#2] ❌ 失敗\n  標準輸入: reverseVowels(['leetcode'],)\n  標準輸出: 'leotcede\\n'\n  你的輸出: 'leetcode'\n\n[測試#3] ❌ 失敗\n  標準輸入: reverseVowels(['AbcE'],)\n  標準輸出: 'Ebca\\n'\n  你的輸出: 'AbcE'\n\n[測試#4] ❌ 失敗\n  標準輸入: reverseVowels(['h3ll0'],)\n  標準輸出: 'h3ll0\\n'\n  你的輸出: 'h3ll0'\n\n[測試#5] ❌ 失敗\n  標準輸入: reverseVowels([''],)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: reverseVowels(['bcdfg'],)\n  標準輸出: 'bcdfg\\n'\n  你的輸出: 'bcdfg'\n\n[測試#7] ❌ 失敗\n  標準輸入: reverseVowels(['aeiou'],)\n  標準輸出: 'uoiea\\n'\n  你的輸出: 'aeiou'\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseVowels(['a'],)\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

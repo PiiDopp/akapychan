@@ -1,0 +1,67 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode524.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Word in Dictionary through Deleting",
+    "description": "Given a string s and a string array dictionary, return the longest string in the dictionary that can be formed by deleting some of the given string characters. If there is more than one possible result, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.",
+    "examples": [
+      {
+        "input": "\"abpcplea\", [\"ale\",\"apple\",\"monkey\",\"plea\"]",
+        "output": "\"apple\""
+      },
+      {
+        "input": "\"abpcplea\", [\"a\",\"b\",\"c\"]",
+        "output": "\"a\""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abpcplea', ['ale', 'apple', 'monkey', 'plea']]\n",
+        "output": "apple\n"
+      },
+      {
+        "input": "['abpcplea', ['a', 'b', 'c']]\n",
+        "output": "a\n"
+      },
+      {
+        "input": "['', ['a', 'b']]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['abcd', []]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['ab', ['abc', 'abcd']]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['abcd', ['abc', 'abd', 'acd']]\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['a1b2', ['a1b', '1b2']]\n",
+        "output": "1b2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findLongestWord', ('abpcplea', ['monkey', 'apple', 'plea', 'ale']), 'apple\\n')",
+      "('findLongestWord', ('abpcplea', ['a', 'b', 'c']), 'a\\n')",
+      "('findLongestWord', ('', ['a', 'b']), '\\n')",
+      "('findLongestWord', ('abcd', []), '\\n')",
+      "('findLongestWord', ('ab', ['abcd', 'abc']), '\\n')",
+      "('findLongestWord', ('abcd', ['abc', 'abd', 'acd']), 'abc\\n')",
+      "('findLongestWord', ('a1b2', ['1b2', 'a1b']), '1b2\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: findLongestWord('abpcplea', ['monkey', 'apple', 'plea', 'ale'])\n  標準輸出: 'apple\\n'\n  你的輸出: 'apple'\n\n[測試#2] ❌ 失敗\n  標準輸入: findLongestWord('abpcplea', ['a', 'b', 'c'])\n  標準輸出: 'a\\n'\n  你的輸出: 'a'\n\n[測試#3] ❌ 失敗\n  標準輸入: findLongestWord('', ['a', 'b'])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#4] ❌ 失敗\n  標準輸入: findLongestWord('abcd', [])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ❌ 失敗\n  標準輸入: findLongestWord('ab', ['abcd', 'abc'])\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: findLongestWord('abcd', ['abc', 'abd', 'acd'])\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#7] ❌ 失敗\n  標準輸入: findLongestWord('a1b2', ['1b2', 'a1b'])\n  標準輸出: '1b2\\n'\n  你的輸出: '1b2'\n\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

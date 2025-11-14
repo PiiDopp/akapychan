@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode169.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Majority Element",
+    "description": "Given an array nums of size n, return the majority element.\n\nThe majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.",
+    "examples": [
+      {
+        "input": "nums = [3,2,3]",
+        "output": "3"
+      },
+      {
+        "input": "nums = [2,2,1,1,1,2,2]",
+        "output": "2"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "3 2 3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "2 2 1 1 1 2 2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 1 1 2 3\n",
+        "output": "1\n"
+      },
+      {
+        "input": "4 4 4 4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "-1 -1 0 -1\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "7\n",
+        "output": "7\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "2147483647 2147483647 2147483647\n",
+        "output": "2147483647\n"
+      }
+    ],
+    "parsed_tests": [
+      "('majorityElement', ('3 2 3\\n',), 3)",
+      "('majorityElement', ('2 2 1 1 1 2 2\\n',), 2)",
+      "('majorityElement', ('1 1 1 2 3\\n',), 1)",
+      "('majorityElement', ('4 4 4 4\\n',), 4)",
+      "('majorityElement', ('-1 -1 0 -1\\n',), -1)",
+      "('majorityElement', (7,), 7)",
+      "('majorityElement', ((),), '\\n')",
+      "('majorityElement', ('2147483647 2147483647 2147483647\\n',), 2147483647)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: majorityElement('3 2 3\\n',)\n  標準輸出: 3\n  你的輸出: '3'\n\n[測試#2] ❌ 失敗\n  標準輸入: majorityElement('2 2 1 1 1 2 2\\n',)\n  標準輸出: 2\n  你的輸出: '2'\n\n[測試#3] ❌ 失敗\n  標準輸入: majorityElement('1 1 1 2 3\\n',)\n  標準輸出: 1\n  你的輸出: '3'\n\n[測試#4] ❌ 失敗\n  標準輸入: majorityElement('4 4 4 4\\n',)\n  標準輸出: 4\n  你的輸出: '4'\n\n[測試#5] ❌ 失敗\n  標準輸入: majorityElement('-1 -1 0 -1\\n',)\n  標準輸出: -1\n  你的輸出: '\\n'\n\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ❌ 失敗\n  標準輸入: majorityElement((),)\n  標準輸出: '\\n'\n  你的輸出: None\n\n[測試#8] ❌ 失敗\n  標準輸入: majorityElement('2147483647 2147483647 2147483647\\n',)\n  標準輸出: 2147483647\n  你的輸出: '\\n'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

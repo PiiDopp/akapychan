@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode903.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Valid Permutations for DI Sequence",
+    "description": "You are given a string s of length n where s[i] is either:\n\n'D' means decreasing, or\n'I' means increasing.\nA permutation perm of n + 1 integers of all the integers in the range [0, n] is called a valid permutation if for all valid i:\n\nIf s[i] == 'D', then perm[i] > perm[i + 1], and\nIf s[i] == 'I', then perm[i] < perm[i + 1].\nReturn the number of valid permutations perm. Since the answer may be large, return it modulo 10^9 + 7.",
+    "examples": [
+      {
+        "input": "s = \"DID\"",
+        "output": "5",
+        "explanation": "The 5 valid permutations of (0, 1, 2, 3) are: (1,0,3,2), (2,0,3,1), (2,1,3,0), (3,0,2,1), (3,1,2,0)"
+      },
+      {
+        "input": "s = \"D\"",
+        "output": "1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['IDID']\n",
+        "output": "5\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['I']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['D']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['IID']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['DDI']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['DI']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['ID']\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numPermsDISequence', (['IDID'],), 5)",
+      "('numPermsDISequence', ([''],), 1)",
+      "('numPermsDISequence', (['I'],), 1)",
+      "('numPermsDISequence', (['D'],), 1)",
+      "('numPermsDISequence', (['IID'],), 3)",
+      "('numPermsDISequence', (['DDI'],), 3)",
+      "('numPermsDISequence', (['DI'],), 2)",
+      "('numPermsDISequence', (['ID'],), 2)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: numPermsDISequence(['IDID'],)\n  標準輸出: 5\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: numPermsDISequence([''],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numPermsDISequence(['I'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: numPermsDISequence(['D'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ❌ 失敗\n  標準輸入: numPermsDISequence(['IID'],)\n  標準輸出: 3\n  你的輸出: 1\n\n[測試#6] ❌ 失敗\n  標準輸入: numPermsDISequence(['DDI'],)\n  標準輸出: 3\n  你的輸出: 1\n\n[測試#7] ❌ 失敗\n  標準輸入: numPermsDISequence(['DI'],)\n  標準輸出: 2\n  你的輸出: 1\n\n[測試#8] ❌ 失敗\n  標準輸入: numPermsDISequence(['ID'],)\n  標準輸出: 2\n  你的輸出: 1\n\n=== 測試完成 (3/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 3,
+    "accuracy_rate": 0.375
+  }
+}

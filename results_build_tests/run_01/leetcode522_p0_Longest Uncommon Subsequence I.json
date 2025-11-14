@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode522.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Uncommon Subsequence II",
+    "description": "Given an array of strings strs, return the length of the longest uncommon subsequence between them. If the longest uncommon subsequence does not exist, return -1.\n\nAn uncommon subsequence between an array of strings is a string that is a subsequence of one string but not the others.\n\nA subsequence of a string s is a string that can be obtained after deleting any number of characters from s.\n\nFor example, \"abc\" is a subsequence of \"aebdc\" because you can delete the underlined characters in \"aebdc\" to get \"abc\". Other subsequences of \"aebdc\" include \"aebdc\", \"aeb\", and \"\" (empty string).",
+    "examples": [
+      {
+        "input": "[\"aba\",\"cdc\",\"eae\"]",
+        "output": "3"
+      },
+      {
+        "input": "[\"aaa\",\"aaa\",\"aa\"]",
+        "output": "-1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['aba', 'cdc', 'eae']]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[['abc', 'abd', 'abe']]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[['a', 'b', 'c']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[['abc', 'abc', 'abc']]\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "[['xyz']]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[['', 'a', 'b']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']]\n",
+        "output": "100\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findLUSlength', ([['aba', 'cdc', 'eae']],), 3)",
+      "('findLUSlength', ([['abc', 'abd', 'abe']],), 3)",
+      "('findLUSlength', ([['a', 'b', 'c']],), 1)",
+      "('findLUSlength', ((),), -1)",
+      "('findLUSlength', ([['abc', 'abc', 'abc']],), -1)",
+      "('findLUSlength', ([['xyz']],), 3)",
+      "('findLUSlength', ([['', 'a', 'b']],), 1)",
+      "('findLUSlength', ([['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']],), 100)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findLUSlength([['aba', 'cdc', 'eae']],)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: findLUSlength([['abc', 'abd', 'abe']],)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#3] ❌ 失敗\n  標準輸入: findLUSlength([['a', 'b', 'c']],)\n  標準輸出: 1\n  你的輸出: 3\n\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 失敗\n  標準輸入: findLUSlength([['abc', 'abc', 'abc']],)\n  標準輸出: -1\n  你的輸出: 3\n\n[測試#6] ❌ 失敗\n  標準輸入: findLUSlength([['xyz']],)\n  標準輸出: 3\n  你的輸出: 1\n\n[測試#7] ❌ 失敗\n  標準輸入: findLUSlength([['', 'a', 'b']],)\n  標準輸出: 1\n  你的輸出: 3\n\n[測試#8] ❌ 失敗\n  標準輸入: findLUSlength([['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']],)\n  標準輸出: 100\n  你的輸出: 2\n\n=== 測試完成 (2/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 2,
+    "accuracy_rate": 0.25
+  }
+}

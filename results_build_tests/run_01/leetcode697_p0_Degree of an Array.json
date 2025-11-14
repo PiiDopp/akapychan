@@ -1,0 +1,64 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode697.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Degree of an Array",
+    "description": "Given a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements.\n\nYour task is to find the smallest possible length of a (contiguous) subarray of nums, that has the same degree as nums.",
+    "examples": [
+      {
+        "input": "nums = [1,2,2,3,1]",
+        "output": "2",
+        "explanation": "The input array has a degree of 2 because both elements 1 and 2 appear twice.\\nOf the subarrays that have the same degree: [1, 2, 2, 3, 1], [1, 2, 2, 3], [2, 2, 3, 1], [1, 2, 2], [2, 2, 3], [2, 2].\\nThe shortest length is 2. So return 2."
+      },
+      {
+        "input": "nums = [1,2,2,3,1,4,2]",
+        "output": "6",
+        "explanation": "The degree is 3 because the element 2 is repeated 3 times.\\nSo [2,2,3,1,4,2] is the shortest subarray, therefore returning 6."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 2 3 1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 2 2 3 1 4 2\n",
+        "output": "6\n"
+      },
+      {
+        "input": "5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2 2 2 2\n",
+        "output": "4\n"
+      },
+      {
+        "input": "0 1 0 2 1 2 0\n",
+        "output": "7\n"
+      },
+      {
+        "input": "1 2 3 4 5 6 7 8 9 10\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findShortestSubArray', ('1 2 2 3 1\\n',), 2)",
+      "('findShortestSubArray', ('1 2 2 3 1 4 2\\n',), 6)",
+      "('findShortestSubArray', (5,), 1)",
+      "('findShortestSubArray', ('2 2 2 2\\n',), 4)",
+      "('findShortestSubArray', ('0 1 0 2 1 2 0\\n',), 7)",
+      "('findShortestSubArray', ('1 2 3 4 5 6 7 8 9 10\\n',), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: findShortestSubArray('1 2 2 3 1\\n',)\n  標準輸出: 2\n  你的輸出: 7\n\n[測試#2] ❌ 失敗\n  標準輸入: findShortestSubArray('1 2 2 3 1 4 2\\n',)\n  標準輸出: 6\n  你的輸出: 11\n\n[測試#3] ❌ 執行例外: 'int' object is not iterable\n[測試#4] ❌ 失敗\n  標準輸入: findShortestSubArray('2 2 2 2\\n',)\n  標準輸出: 4\n  你的輸出: 7\n\n[測試#5] ❌ 失敗\n  標準輸入: findShortestSubArray('0 1 0 2 1 2 0\\n',)\n  標準輸出: 7\n  你的輸出: 11\n\n[測試#6] ❌ 失敗\n  標準輸入: findShortestSubArray('1 2 3 4 5 6 7 8 9 10\\n',)\n  標準輸出: 1\n  你的輸出: 17\n\n=== 測試完成 (0/6) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 6,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode30.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Substring with Concatenation of All Words",
+    "description": "You are given a string s and an array of strings words. All the strings of words are of the same length.\n\nA concatenated string is a string that exactly contains all the strings of any permutation of words concatenated.\n\nFor example, if words = [\"ab\",\"cd\",\"ef\"], then \"abcdef\", \"abefcd\", \"cdabef\", \"cdefab\", \"efabcd\", and \"efcdab\" are all concatenated strings. \"acdbef\" is not a concatenated string because it is not the concatenation of any permutation of words.\nReturn an array of the starting indices of all the concatenated substrings in s. You can return the answer in any order.",
+    "examples": [
+      {
+        "input": "s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]",
+        "output": "[0,9]",
+        "explanation": "The substring starting at 0 is \"barfoo\". It is the concatenation of [\"bar\",\"foo\"] which is a permutation of words.\nThe substring starting at 9 is \"foobar\". It is the concatenation of [\"foo\",\"bar\"] which is a permutation of words."
+      },
+      {
+        "input": "s = \"wordgoodgoodgoodbestword\", words = [\"word\",\"good\",\"best\",\"word\"]",
+        "output": "[]",
+        "explanation": "There is no concatenated substring."
+      },
+      {
+        "input": "s = \"barfoofoobarthefoobarman\", words = [\"bar\",\"foo\",\"the\"]",
+        "output": "[6,9,12]",
+        "explanation": "The substring starting at 6 is \"foobarthe\". It is the concatenation of [\"foo\",\"bar\",\"the\"].\nThe substring starting at 9 is \"barthefoo\". It is the concatenation of [\"bar\",\"the\",\"foo\"].\nThe substring starting at 12 is \"thefoobar\". It is the concatenation of [\"the\",\"foo\",\"bar\"]."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['barfoothefoobarman', ['foo', 'bar']]\n",
+        "output": "[0, 9]\n"
+      },
+      {
+        "input": "['wordgoodgoodgoodbestword', ['word', 'good', 'best', 'good']]\n",
+        "output": "[8]\n"
+      },
+      {
+        "input": "['barfoofoobarthefoobarman', ['bar', 'foo', 'the']]\n",
+        "output": "[6, 9, 12]\n"
+      },
+      {
+        "input": "['', ['foo']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['abc', ['ab', 'cd']]\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['abcdef', ['ab', 'cd', 'ef']]\n",
+        "output": "[0]\n"
+      },
+      {
+        "input": "['abcdab', ['ab', 'ab', 'cd']]\n",
+        "output": "[0]\n"
+      },
+      {
+        "input": "['abcdabcd', ['ab', 'cd']]\n",
+        "output": "[0, 2, 4]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findSubstring', ('barfoothefoobarman', ['foo', 'bar']), [0, 9])",
+      "('findSubstring', ('wordgoodgoodgoodbestword', ['word', 'good', 'best', 'good']), [8])",
+      "('findSubstring', ('barfoofoobarthefoobarman', ['bar', 'foo', 'the']), [6, 9, 12])",
+      "('findSubstring', ('', ['foo']), [])",
+      "('findSubstring', ('abc', ['ab', 'cd']), [])",
+      "('findSubstring', ('abcdef', ['ab', 'cd', 'ef']), [0])",
+      "('findSubstring', ('abcdab', ['ab', 'ab', 'cd']), [0])",
+      "('findSubstring', ('abcdabcd', ['ab', 'cd']), [0, 2, 4])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findSubstring('barfoothefoobarman', ['foo', 'bar'])\n  標準輸出: [0, 9]\n  你的輸出: [0, 9]\n\n[測試#2] ✅ 通過\n  標準輸入: findSubstring('wordgoodgoodgoodbestword', ['word', 'good', 'best', 'good'])\n  標準輸出: [8]\n  你的輸出: [8]\n\n[測試#3] ✅ 通過\n  標準輸入: findSubstring('barfoofoobarthefoobarman', ['bar', 'foo', 'the'])\n  標準輸出: [6, 9, 12]\n  你的輸出: [6, 9, 12]\n\n[測試#4] ✅ 通過\n  標準輸入: findSubstring('', ['foo'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: findSubstring('abc', ['ab', 'cd'])\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: findSubstring('abcdef', ['ab', 'cd', 'ef'])\n  標準輸出: [0]\n  你的輸出: [0]\n\n[測試#7] ✅ 通過\n  標準輸入: findSubstring('abcdab', ['ab', 'ab', 'cd'])\n  標準輸出: [0]\n  你的輸出: [0]\n\n[測試#8] ✅ 通過\n  標準輸入: findSubstring('abcdabcd', ['ab', 'cd'])\n  標準輸出: [0, 2, 4]\n  你的輸出: [0, 2, 4]\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

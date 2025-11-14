@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode692.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Top K Frequent Words",
+    "description": "Given an array of strings words and an integer k, return the k most frequent strings.\n\nReturn the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.",
+    "examples": [
+      {
+        "input": "words = [\"i\",\"love\",\"leetcode\",\"i\",\"love\",\"coding\"], k = 2",
+        "output": "[\"i\",\"love\"]",
+        "explanation": "\"i\" and \"love\" are the two most frequent words.\nNote that \"i\" comes before \"love\" due to a lower alphabetical order."
+      },
+      {
+        "input": "words = [\"the\",\"day\",\"is\",\"sunny\",\"the\",\"the\",\"the\",\"sunny\",\"is\",\"is\"], k = 4",
+        "output": "[\"the\",\"is\",\"sunny\",\"day\"]",
+        "explanation": "\"the\", \"is\", \"sunny\" and \"day\" are the four most frequent words, with the number of occurrence being 4, 3, 2 and 1 respectively."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['i', 'love', 'leetcode', 'i', 'love', 'coding'], 2]\n",
+        "output": "['i', 'love']\n"
+      },
+      {
+        "input": "[['the', 'day', 'is', 'sunny', 'the', 'the', 'the', 'sunny', 'is', 'is'], 4]\n",
+        "output": "['the', 'is', 'sunny', 'day']\n"
+      },
+      {
+        "input": "[]\n0\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['a', 'b', 'a'], 5]\n",
+        "output": "['a', 'b']\n"
+      },
+      {
+        "input": "[['c', 'a', 'b'], 2]\n",
+        "output": "['a', 'b']\n"
+      },
+      {
+        "input": "[['', ' ', 'a'], 2]\n",
+        "output": "['', ' ']\n"
+      },
+      {
+        "input": "[['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'y', 'y', 'y', 'y', 'y', 'y', 'z', 'z', 'z', 'z'], 2]\n",
+        "output": "['x', 'y']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('topKFrequent', (['i', 'love', 'leetcode', 'i', 'love', 'coding'], 2), ['i', 'love'])",
+      "('topKFrequent', (['the', 'day', 'is', 'sunny', 'the', 'the', 'the', 'sunny', 'is', 'is'], 4), ['the', 'is', 'sunny', 'day'])",
+      "('topKFrequent', ([], 0), [])",
+      "('topKFrequent', (['a', 'b', 'a'], 5), ['a', 'b'])",
+      "('topKFrequent', (['c', 'a', 'b'], 2), ['a', 'b'])",
+      "('topKFrequent', (['', ' ', 'a'], 2), ['', ' '])",
+      "('topKFrequent', (['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'y', 'y', 'y', 'y', 'y', 'y', 'z', 'z', 'z', 'z'], 2), ['x', 'y'])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: topKFrequent(['i', 'love', 'leetcode', 'i', 'love', 'coding'], 2)\n  標準輸出: ['i', 'love']\n  你的輸出: ['i', 'love']\n\n[測試#2] ✅ 通過\n  標準輸入: topKFrequent(['the', 'day', 'is', 'sunny', 'the', 'the', 'the', 'sunny', 'is', 'is'], 4)\n  標準輸出: ['the', 'is', 'sunny', 'day']\n  你的輸出: ['the', 'is', 'sunny', 'day']\n\n[測試#3] ✅ 通過\n  標準輸入: topKFrequent([], 0)\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: topKFrequent(['a', 'b', 'a'], 5)\n  標準輸出: ['a', 'b']\n  你的輸出: ['a', 'b']\n\n[測試#5] ✅ 通過\n  標準輸入: topKFrequent(['c', 'a', 'b'], 2)\n  標準輸出: ['a', 'b']\n  你的輸出: ['a', 'b']\n\n[測試#6] ✅ 通過\n  標準輸入: topKFrequent(['', ' ', 'a'], 2)\n  標準輸出: ['', ' ']\n  你的輸出: ['', ' ']\n\n[測試#7] ✅ 通過\n  標準輸入: topKFrequent(['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'y', 'y', 'y', 'y', 'y', 'y', 'z', 'z', 'z', 'z'], 2)\n  標準輸出: ['x', 'y']\n  你的輸出: ['x', 'y']\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

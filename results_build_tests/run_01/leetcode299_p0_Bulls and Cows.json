@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode299.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Bulls and Cows",
+    "description": "You are playing the Bulls and Cows game with your friend.\n\nYou write down a secret number and ask your friend to guess what the number is. When your friend makes a guess, you provide a hint with the following info:\n\nThe number of \"bulls\", which are digits in the guess that are in the correct position.\nThe number of \"cows\", which are digits in the guess that are in your secret number but are located in the wrong position. Specifically, the non-bull digits in the guess that could be rearranged such that they become bulls.\nGiven the secret number secret and your friend's guess guess, return the hint for your friend's guess.\n\nThe hint should be formatted as \"xAyB\", where x is the number of bulls and y is the number of cows. Note that both secret and guess may contain duplicate digits.",
+    "examples": [
+      {
+        "input": "secret = \"1807\", guess = \"7810\"",
+        "output": "\"1A3B\"",
+        "explanation": "Bulls are connected with a '|' and cows are underlined:\n\"1807\"\n  |\n\"7810\""
+      },
+      {
+        "input": "secret = \"1123\", guess = \"0111\"",
+        "output": "\"1A1B\"",
+        "explanation": "Bulls are connected with a '|' and cows are underlined:\n\"1123\"\n  |\n\"0111\"\nOnly one of the two unmatched 1s is counted as a cow."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['1807', '7810']\n",
+        "output": "1A3B\n"
+      },
+      {
+        "input": "['1122', '2211']\n",
+        "output": "0A4B\n"
+      },
+      {
+        "input": "['5678', '5678']\n",
+        "output": "4A0B\n"
+      },
+      {
+        "input": "['1122', '1221']\n",
+        "output": "2A2B\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "0A0B\n"
+      },
+      {
+        "input": "['5', '5']\n",
+        "output": "1A0B\n"
+      },
+      {
+        "input": "['0000000000', '0000000000']\n",
+        "output": "10A0B\n"
+      }
+    ],
+    "parsed_tests": [
+      "('getHint', ('1807', '7810'), '1A3B\\n')",
+      "('getHint', ('1122', '2211'), '0A4B\\n')",
+      "('getHint', ('5678', '5678'), '4A0B\\n')",
+      "('getHint', ('1122', '1221'), '2A2B\\n')",
+      "('getHint', ('', ''), '0A0B\\n')",
+      "('getHint', ('5', '5'), '1A0B\\n')",
+      "('getHint', ('0000000000', '0000000000'), '10A0B\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: getHint('1807', '7810')\n  標準輸出: '1A3B\\n'\n  你的輸出: '1A3B'\n\n[測試#2] ❌ 失敗\n  標準輸入: getHint('1122', '2211')\n  標準輸出: '0A4B\\n'\n  你的輸出: '0A4B'\n\n[測試#3] ❌ 失敗\n  標準輸入: getHint('5678', '5678')\n  標準輸出: '4A0B\\n'\n  你的輸出: '4A0B'\n\n[測試#4] ❌ 失敗\n  標準輸入: getHint('1122', '1221')\n  標準輸出: '2A2B\\n'\n  你的輸出: '2A2B'\n\n[測試#5] ❌ 失敗\n  標準輸入: getHint('', '')\n  標準輸出: '0A0B\\n'\n  你的輸出: '0A0B'\n\n[測試#6] ❌ 失敗\n  標準輸入: getHint('5', '5')\n  標準輸出: '1A0B\\n'\n  你的輸出: '1A0B'\n\n[測試#7] ❌ 失敗\n  標準輸入: getHint('0000000000', '0000000000')\n  標準輸出: '10A0B\\n'\n  你的輸出: '10A0B'\n\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

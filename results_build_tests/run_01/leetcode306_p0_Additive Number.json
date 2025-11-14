@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode306.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Additive Number",
+    "description": "An additive number is a string whose digits can form an additive sequence.\n\nA valid additive sequence should contain at least three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two.\n\nGiven a string containing only digits, return true if it is an additive number or false otherwise.\n\nNote: Numbers in the additive sequence cannot have leading zeros, so sequence 1, 2, 03 or 1, 02, 3 is invalid.",
+    "examples": [
+      {
+        "input": "\"112358\"",
+        "output": "true",
+        "explanation": "The digits can form an additive sequence: 1, 1, 2, 3, 5, 8.\n1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8"
+      },
+      {
+        "input": "\"199100199\"",
+        "output": "true",
+        "explanation": "The additive sequence is: 1, 99, 100, 199.\n1 + 99 = 100, 99 + 100 = 199"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['123']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['112358']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['11235813']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['12']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['010']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['12a34']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['000']\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isAdditiveNumber', (['123'],), True)",
+      "('isAdditiveNumber', (['112358'],), True)",
+      "('isAdditiveNumber', (['11235813'],), False)",
+      "('isAdditiveNumber', ([''],), False)",
+      "('isAdditiveNumber', (['12'],), False)",
+      "('isAdditiveNumber', (['010'],), False)",
+      "('isAdditiveNumber', (['12a34'],), False)",
+      "('isAdditiveNumber', (['000'],), True)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: isAdditiveNumber(['123'],)\n  標準輸出: True\n  你的輸出: False\n\n[測試#2] ❌ 失敗\n  標準輸入: isAdditiveNumber(['112358'],)\n  標準輸出: True\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isAdditiveNumber(['11235813'],)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isAdditiveNumber([''],)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isAdditiveNumber(['12'],)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isAdditiveNumber(['010'],)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isAdditiveNumber(['12a34'],)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ❌ 失敗\n  標準輸入: isAdditiveNumber(['000'],)\n  標準輸出: True\n  你的輸出: False\n\n=== 測試完成 (5/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 5,
+    "accuracy_rate": 0.625
+  }
+}

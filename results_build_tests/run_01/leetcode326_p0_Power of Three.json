@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode326.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Power of Three",
+    "description": "Given an integer n, return true if it is a power of three. Otherwise, return false.\n\nAn integer n is a power of three, if there exists an integer x such that n == 3^x.",
+    "examples": [
+      {
+        "input": "n = 27",
+        "output": "true",
+        "explanation": "27 = 3^3"
+      },
+      {
+        "input": "n = 0",
+        "output": "false",
+        "explanation": "There is no x where 3^x = 0."
+      },
+      {
+        "input": "n = -1",
+        "output": "false",
+        "explanation": "There is no x where 3^x = -1."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "9\n",
+        "output": "True\n"
+      },
+      {
+        "input": "10\n",
+        "output": "False\n"
+      },
+      {
+        "input": "0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-27\n",
+        "output": "False\n"
+      },
+      {
+        "input": "3486784401\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3486784402\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isPowerOfThree', (1,), True)",
+      "('isPowerOfThree', (3,), True)",
+      "('isPowerOfThree', (9,), True)",
+      "('isPowerOfThree', (10,), False)",
+      "('isPowerOfThree', (0,), False)",
+      "('isPowerOfThree', (-27,), False)",
+      "('isPowerOfThree', (3486784401,), True)",
+      "('isPowerOfThree', (3486784402,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPowerOfThree(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isPowerOfThree(3,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isPowerOfThree(9,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isPowerOfThree(10,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isPowerOfThree(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isPowerOfThree(-27,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isPowerOfThree(3486784401,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isPowerOfThree(3486784402,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

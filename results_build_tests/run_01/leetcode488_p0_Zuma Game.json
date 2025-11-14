@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode488.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Zuma Game",
+    "description": "You are playing a variation of the game Zuma. \nIn this variation of Zuma, there is a single row of colored balls on a board, where each ball can be colored red 'R', yellow 'Y', blue 'B', green 'G', or white 'W'. You also have several colored balls in your hand. \nYour goal is to clear all of the balls from the board. On each turn: \nPick any ball from your hand and insert it in between two balls in the row or on either end of the row. \nIf there is a group of three or more consecutive balls of the same color, remove the group of balls from the board. \nIf this removal causes more groups of three or more of the same color to form, then continue removing each group until there are none left. If there are no more balls on the board, then you win the game. \nRepeat this process until you either win or do not have any more balls in your hand. \nGiven a string board, representing the row of balls on the board, and a string hand, representing the balls in your hand, return the minimum number of balls you have to insert to clear all the balls from the board. If you cannot clear all the balls from the board using the balls in your hand, return -1",
+    "examples": [
+      {
+        "input": "board = \"WRRBBW\", hand = \"RB\"",
+        "output": "-1",
+        "explanation": "It is impossible to clear all the balls. The best you can do is: \n- Insert 'R' so the board becomes WRRRBBW. WRRRBBW -> WBBW. \n- Insert 'B' so the board becomes WBBBW. WBBBW -> WW. \nThere are still balls remaining on the board, and you are out of balls to insert."
+      },
+      {
+        "input": "board = \"WWRRBBWW\", hand = \"WRBRW\"",
+        "output": "2",
+        "explanation": "To make the board empty: \n- Insert 'R' so the board becomes WWRRRBBWW. WWRRRBBWW -> WWBBWW. \n- Insert 'B' so the board becomes WWBBBWW. WWBBBWW -> WWWW -> empty. \n2 balls from your hand were needed to clear the board."
+      },
+      {
+        "input": "board = \"G\", hand = \"GGGGG\"",
+        "output": "2",
+        "explanation": "To make the board empty: \n- Insert 'G' so the board becomes GG. \n- Insert 'G' so the board becomes GGG. GGG -> empty. \n2 balls from your hand were needed to clear the board."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['WRRBBW', 'RB']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['RRR', 'R']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['RRR', '']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['', 'R']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['R', 'RR']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['R', 'R']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['RRRRRRRRRRRRRRRRRRRR', 'RRRRR']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['RGB', 'Y']\n",
+        "output": "-1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findMinStep', ('WRRBBW', 'RB'), 2)",
+      "('findMinStep', ('RRR', 'R'), 1)",
+      "('findMinStep', ('RRR', ''), -1)",
+      "('findMinStep', ('', 'R'), 0)",
+      "('findMinStep', ('R', 'RR'), 2)",
+      "('findMinStep', ('R', 'R'), -1)",
+      "('findMinStep', ('RRRRRRRRRRRRRRRRRRRR', 'RRRRR'), 1)",
+      "('findMinStep', ('RGB', 'Y'), -1)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: findMinStep('WRRBBW', 'RB')\n  標準輸出: 2\n  你的輸出: -1\n\n[測試#2] ✅ 通過\n  標準輸入: findMinStep('RRR', 'R')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: findMinStep('RRR', '')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#4] ❌ 失敗\n  標準輸入: findMinStep('', 'R')\n  標準輸出: 0\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: findMinStep('R', 'RR')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#6] ✅ 通過\n  標準輸入: findMinStep('R', 'R')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#7] ✅ 通過\n  標準輸入: findMinStep('RRRRRRRRRRRRRRRRRRRR', 'RRRRR')\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ✅ 通過\n  標準輸入: findMinStep('RGB', 'Y')\n  標準輸出: -1\n  你的輸出: -1\n\n=== 測試完成 (6/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 6,
+    "accuracy_rate": 0.75
+  }
+}

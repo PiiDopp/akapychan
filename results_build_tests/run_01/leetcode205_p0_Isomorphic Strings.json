@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode205.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Isomorphic Strings",
+    "description": "Given two strings s and t, determine if they are isomorphic.\n\nTwo strings s and t are isomorphic if the characters in s can be replaced to get t.\n\nAll occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.",
+    "examples": [
+      {
+        "input": "s = \"egg\", t = \"add\"",
+        "output": "true",
+        "explanation": "The strings s and t can be made identical by: Mapping 'e' to 'a'; Mapping 'g' to 'd'."
+      },
+      {
+        "input": "s = \"foo\", t = \"bar\"",
+        "output": "false",
+        "explanation": "The strings s and t can not be made identical as 'o' needs to be mapped to both 'a' and 'r'."
+      },
+      {
+        "input": "s = \"paper\", t = \"title\"",
+        "output": "true"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['egg', 'add']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['foo', 'bar']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['paper', 'title']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['ab', 'ba']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['aa', 'ab']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['abc', 'aaa']\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isIsomorphic', ('egg', 'add'), True)",
+      "('isIsomorphic', ('foo', 'bar'), False)",
+      "('isIsomorphic', ('paper', 'title'), True)",
+      "('isIsomorphic', ('ab', 'ba'), True)",
+      "('isIsomorphic', ('aa', 'ab'), False)",
+      "('isIsomorphic', ('', ''), True)",
+      "('isIsomorphic', ('abc', 'aaa'), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isIsomorphic('egg', 'add')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isIsomorphic('foo', 'bar')\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isIsomorphic('paper', 'title')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isIsomorphic('ab', 'ba')\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isIsomorphic('aa', 'ab')\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isIsomorphic('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isIsomorphic('abc', 'aaa')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

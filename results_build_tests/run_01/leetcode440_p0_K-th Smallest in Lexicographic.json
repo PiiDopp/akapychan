@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode440.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "K-th Smallest in Lexicographical Order",
+    "description": "Given two integers n and k, return the kth lexicographically smallest integer in the range [1, n].",
+    "examples": [
+      {
+        "input": "n = 13, k = 2",
+        "output": "10",
+        "explanation": "The lexicographical order is [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9], so the second smallest number is 10."
+      },
+      {
+        "input": "n = 1, k = 1",
+        "output": "1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "Agent 未能生成有效測資 (normalize_tests returned empty)",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

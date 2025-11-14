@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode829.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Consecutive Numbers Sum",
+    "description": "Given an integer n, return the number of ways you can write n as the sum of consecutive positive integers.",
+    "examples": [
+      {
+        "input": "n = 5",
+        "output": "2",
+        "explanation": "5 = 2 + 3"
+      },
+      {
+        "input": "n = 9",
+        "output": "3",
+        "explanation": "9 = 4 + 5 = 2 + 3 + 4"
+      },
+      {
+        "input": "n = 15",
+        "output": "4",
+        "explanation": "15 = 8 + 7 = 4 + 5 + 6 = 1 + 2 + 3 + 4 + 5"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "15\n",
+        "output": "4\n"
+      },
+      {
+        "input": "3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1000000000000\n",
+        "output": "13\n"
+      }
+    ],
+    "parsed_tests": [
+      "('consecutiveNumbersSum', (15,), 4)",
+      "('consecutiveNumbersSum', (3,), 2)",
+      "('consecutiveNumbersSum', (1,), 1)",
+      "('consecutiveNumbersSum', (0,), 0)",
+      "('consecutiveNumbersSum', (-5,), 0)",
+      "('consecutiveNumbersSum', (2147483647,), 2)",
+      "('consecutiveNumbersSum', (1000000000000,), 13)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: consecutiveNumbersSum(15,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#2] ✅ 通過\n  標準輸入: consecutiveNumbersSum(3,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: consecutiveNumbersSum(1,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: consecutiveNumbersSum(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: consecutiveNumbersSum(-5,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: consecutiveNumbersSum(2147483647,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: consecutiveNumbersSum(1000000000000,)\n  標準輸出: 13\n  你的輸出: 13\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.1867s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

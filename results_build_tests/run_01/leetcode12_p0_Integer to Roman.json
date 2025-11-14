@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode12.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Integer to Roman",
+    "description": "Seven different symbols represent Roman numerals with the following values:\n\nSymbol\tValue\nI\t1\nV\t5\nX\t10\nL\t50\nC\t100\nD\t500\nM\t1000\n\nRoman numerals are formed by appending the conversions of decimal place values from highest to lowest. Converting a decimal place value into a Roman numeral has the following rules:\n\n1. If the value does not start with 4 or 9, select the symbol of the maximal value that can be subtracted from the input, append that symbol to the result, subtract its value, and convert the remainder to a Roman numeral.\n2. If the value starts with 4 or 9 use the subtractive form representing one symbol subtracted from the following symbol, for example, 4 is 1 (I) less than 5 (V): IV and 9 is 1 (I) less than 10 (X): IX. Only the following subtractive forms are used: 4 (IV), 9 (IX), 40 (XL), 90 (XC), 400 (CD) and 900 (CM).\n3. Only powers of 10 (I, X, C, M) can be appended consecutively at most 3 times to represent multiples of 10. You cannot append 5 (V), 50 (L), or 500 (D) multiple times. If you need to append a symbol 4 times use the subtractive form.\n\nGiven an integer, convert it to a Roman numeral.",
+    "examples": [
+      {
+        "input": "num = 3749",
+        "output": "\"MMMDCCXLIX\"",
+        "explanation": "3000 = MMM as 1000 (M) + 1000 (M) + 1000 (M)\n 700 = DCC as 500 (D) + 100 (C) + 100 (C)\n  40 = XL as 10 (X) less of 50 (L)\n   9 = IX as 1 (I) less of 10 (X)\nNote: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal places"
+      },
+      {
+        "input": "num = 58",
+        "output": "\"LVIII\"",
+        "explanation": "50 = L\n 8 = VIII"
+      },
+      {
+        "input": "num = 1994",
+        "output": "\"MCMXCIV\"",
+        "explanation": "1000 = M\n 900 = CM\n  90 = XC\n   4 = IV"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "3\n",
+        "output": "III\n"
+      },
+      {
+        "input": "4\n",
+        "output": "IV\n"
+      },
+      {
+        "input": "9\n",
+        "output": "IX\n"
+      },
+      {
+        "input": "58\n",
+        "output": "LVIII\n"
+      },
+      {
+        "input": "1994\n",
+        "output": "MCMXCIV\n"
+      },
+      {
+        "input": "0\n",
+        "output": "ValueError\n"
+      },
+      {
+        "input": "-5\n",
+        "output": "ValueError\n"
+      },
+      {
+        "input": "4000\n",
+        "output": "ValueError\n"
+      }
+    ],
+    "parsed_tests": [
+      "('intToRoman', (3,), 'III\\n')",
+      "('intToRoman', (4,), 'IV\\n')",
+      "('intToRoman', (9,), 'IX\\n')",
+      "('intToRoman', (58,), 'LVIII\\n')",
+      "('intToRoman', (1994,), 'MCMXCIV\\n')",
+      "('intToRoman', (0,), 'ValueError\\n')",
+      "('intToRoman', (-5,), 'ValueError\\n')",
+      "('intToRoman', (4000,), 'ValueError\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: intToRoman(3,)\n  標準輸出: 'III\\n'\n  你的輸出: 'III'\n\n[測試#2] ❌ 失敗\n  標準輸入: intToRoman(4,)\n  標準輸出: 'IV\\n'\n  你的輸出: 'IV'\n\n[測試#3] ❌ 失敗\n  標準輸入: intToRoman(9,)\n  標準輸出: 'IX\\n'\n  你的輸出: 'IX'\n\n[測試#4] ❌ 失敗\n  標準輸入: intToRoman(58,)\n  標準輸出: 'LVIII\\n'\n  你的輸出: 'LVIII'\n\n[測試#5] ❌ 失敗\n  標準輸入: intToRoman(1994,)\n  標準輸出: 'MCMXCIV\\n'\n  你的輸出: 'MCMXCIV'\n\n[測試#6] ❌ 失敗\n  標準輸入: intToRoman(0,)\n  標準輸出: 'ValueError\\n'\n  你的輸出: ''\n\n[測試#7] ❌ 失敗\n  標準輸入: intToRoman(-5,)\n  標準輸出: 'ValueError\\n'\n  你的輸出: 'CMXCV'\n\n[測試#8] ❌ 失敗\n  標準輸入: intToRoman(4000,)\n  標準輸出: 'ValueError\\n'\n  你的輸出: 'MMMM'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

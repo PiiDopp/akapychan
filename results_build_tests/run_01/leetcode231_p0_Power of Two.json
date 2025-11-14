@@ -1,0 +1,78 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode231.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Power of Two",
+    "description": "Given an integer n, return true if it is a power of two. Otherwise, return false.\n\nAn integer n is a power of two, if there exists an integer x such that n == 2^x.",
+    "examples": [
+      {
+        "input": "n = 1",
+        "output": "true",
+        "explanation": "2^0 = 1"
+      },
+      {
+        "input": "n = 16",
+        "output": "true",
+        "explanation": "2^4 = 16"
+      },
+      {
+        "input": "n = 3",
+        "output": "false"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-8\n",
+        "output": "False\n"
+      },
+      {
+        "input": "9223372036854775808\n",
+        "output": "True\n"
+      },
+      {
+        "input": "9223372036854775809\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isPowerOfTwo', (1,), True)",
+      "('isPowerOfTwo', (2,), True)",
+      "('isPowerOfTwo', (3,), False)",
+      "('isPowerOfTwo', (4,), True)",
+      "('isPowerOfTwo', (0,), False)",
+      "('isPowerOfTwo', (-8,), False)",
+      "('isPowerOfTwo', (9223372036854775808,), True)",
+      "('isPowerOfTwo', (9223372036854775809,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPowerOfTwo(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isPowerOfTwo(2,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isPowerOfTwo(3,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isPowerOfTwo(4,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isPowerOfTwo(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isPowerOfTwo(-8,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isPowerOfTwo(9223372036854775808,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: isPowerOfTwo(9223372036854775809,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

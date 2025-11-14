@@ -1,0 +1,67 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode132.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Palindrome Partitioning II",
+    "description": "Given a string s, partition s such that every substring of the partition is a palindrome. Return the minimum cuts needed for a palindrome partitioning of s.",
+    "examples": [
+      {
+        "input": "s = \"aab\"",
+        "output": "1",
+        "explanation": "The palindrome partitioning [\"aa\",\"b\"] could be produced using 1 cut."
+      },
+      {
+        "input": "s = \"a\"",
+        "output": "0"
+      },
+      {
+        "input": "s = \"ab\"",
+        "output": "1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['aab']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['ababa']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['leetcode']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['banana']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abc']\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minCut', (['aab'],), 1)",
+      "('minCut', (['ababa'],), 0)",
+      "('minCut', (['leetcode'],), 3)",
+      "('minCut', (['banana'],), 1)",
+      "('minCut', ([''],), 0)",
+      "('minCut', (['abc'],), 2)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: minCut(['aab'],)\n  標準輸出: 1\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: minCut(['ababa'],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ❌ 失敗\n  標準輸入: minCut(['leetcode'],)\n  標準輸出: 3\n  你的輸出: 0\n\n[測試#4] ❌ 失敗\n  標準輸入: minCut(['banana'],)\n  標準輸出: 1\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: minCut([''],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ❌ 失敗\n  標準輸入: minCut(['abc'],)\n  標準輸出: 2\n  你的輸出: 0\n\n=== 測試完成 (2/6) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 6,
+    "passed_count": 2,
+    "accuracy_rate": 0.3333333333333333
+  }
+}

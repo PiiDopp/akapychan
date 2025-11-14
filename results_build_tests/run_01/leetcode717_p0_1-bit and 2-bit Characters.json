@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode717.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "1-bit and 2-bit Characters",
+    "description": "We have two special characters:\\n- The first character can be represented by one bit 0.\\n- The second character can be represented by two bits (10 or 11).\\nGiven a binary array bits that ends with 0, return true if the last character must be a one-bit character.",
+    "examples": [
+      {
+        "input": "bits = [1,0,0]",
+        "output": "true",
+        "explanation": "The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character."
+      },
+      {
+        "input": "bits = [1,1,1,0]",
+        "output": "false",
+        "explanation": "The only way to decode it is two-bit character and two-bit character. So the last character is not one-bit character."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "0\n1\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n1\n0\n0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1\n0\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n0\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "0\n1\n1\n0\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isOneBitCharacter', (0,), True)",
+      "('isOneBitCharacter', ((1, 0),), False)",
+      "('isOneBitCharacter', ((0, 1, 0),), True)",
+      "('isOneBitCharacter', ((1, 1, 0, 0),), False)",
+      "('isOneBitCharacter', ((1, 0, 0),), True)",
+      "('isOneBitCharacter', ((0, 0, 0),), True)",
+      "('isOneBitCharacter', ((1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0),), False)",
+      "('isOneBitCharacter', ((0, 1, 1, 0),), True)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: object of type 'int' has no len()\n[測試#2] ✅ 通過\n  標準輸入: isOneBitCharacter((1, 0),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#3] ❌ 失敗\n  標準輸入: isOneBitCharacter((0, 1, 0),)\n  標準輸出: True\n  你的輸出: False\n\n[測試#4] ❌ 失敗\n  標準輸入: isOneBitCharacter((1, 1, 0, 0),)\n  標準輸出: False\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isOneBitCharacter((1, 0, 0),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isOneBitCharacter((0, 0, 0),)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isOneBitCharacter((1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0),)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isOneBitCharacter((0, 1, 1, 0),)\n  標準輸出: True\n  你的輸出: True\n\n=== 測試完成 (5/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 5,
+    "accuracy_rate": 0.625
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode842.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Split Array into Fibonacci Sequence",
+    "description": "You are given a string of digits num, such as \"123456579\". We can split it into a Fibonacci-like sequence [123, 456, 579].\n\nFormally, a Fibonacci-like sequence is a list f of non-negative integers such that:\n\n0 <= f[i] < 2^31, (that is, each integer fits in a 32-bit signed integer type),\nf.length >= 3, and\nf[i] + f[i + 1] == f[i + 2] for all 0 <= i < f.length - 2.\nNote that when splitting the string into pieces, each piece must not have extra leading zeroes, except if the piece is the number 0 itself.\n\nReturn any Fibonacci-like sequence split from num, or return [] if it cannot be done.",
+    "examples": [
+      {
+        "input": "num = \"1101111\"",
+        "output": "[11,0,11,11]",
+        "explanation": "The output [110, 1, 111] would also be accepted."
+      },
+      {
+        "input": "num = \"112358130\"",
+        "output": "[]",
+        "explanation": "The task is impossible."
+      },
+      {
+        "input": "num = \"0123\"",
+        "output": "[]",
+        "explanation": "Leading zeroes are not allowed, so \"01\", \"2\", \"3\" is not valid."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['123456579']\n",
+        "output": "[123, 456, 579]\n"
+      },
+      {
+        "input": "['1101111']\n",
+        "output": "[110, 1, 111]\n"
+      },
+      {
+        "input": "['000']\n",
+        "output": "[0, 0, 0]\n"
+      },
+      {
+        "input": "['001']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['2147483647']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['2147483648']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['123456']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('splitIntoFibonacci', (['123456579'],), [123, 456, 579])",
+      "('splitIntoFibonacci', (['1101111'],), [110, 1, 111])",
+      "('splitIntoFibonacci', (['000'],), [0, 0, 0])",
+      "('splitIntoFibonacci', (['001'],), [])",
+      "('splitIntoFibonacci', (['2147483647'],), [])",
+      "('splitIntoFibonacci', (['2147483648'],), [])",
+      "('splitIntoFibonacci', (['123456'],), [])",
+      "('splitIntoFibonacci', ([''],), [])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: splitIntoFibonacci(['123456579'],)\n  標準輸出: [123, 456, 579]\n  你的輸出: []\n\n[測試#2] ❌ 失敗\n  標準輸入: splitIntoFibonacci(['1101111'],)\n  標準輸出: [110, 1, 111]\n  你的輸出: []\n\n[測試#3] ❌ 失敗\n  標準輸入: splitIntoFibonacci(['000'],)\n  標準輸出: [0, 0, 0]\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: splitIntoFibonacci(['001'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: splitIntoFibonacci(['2147483647'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: splitIntoFibonacci(['2147483648'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#7] ✅ 通過\n  標準輸入: splitIntoFibonacci(['123456'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#8] ❌ 執行例外: invalid literal for int() with base 10: ''\n=== 測試完成 (4/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 4,
+    "accuracy_rate": 0.5
+  }
+}

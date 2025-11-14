@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode343.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Integer Break",
+    "description": "Given an integer n, break it into the sum of k positive integers, where k >= 2, and maximize the product of those integers.\n\nReturn the maximum product you can get.",
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "1",
+        "explanation": "2 = 1 + 1, 1 × 1 = 1."
+      },
+      {
+        "input": "n = 10",
+        "output": "36",
+        "explanation": "10 = 3 + 3 + 4, 3 × 3 × 4 = 36."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "4\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5\n",
+        "output": "6\n"
+      },
+      {
+        "input": "6\n",
+        "output": "9\n"
+      },
+      {
+        "input": "10\n",
+        "output": "36\n"
+      },
+      {
+        "input": "100\n",
+        "output": "22236242266222092\n"
+      }
+    ],
+    "parsed_tests": [
+      "('integerBreak', (2,), 1)",
+      "('integerBreak', (3,), 2)",
+      "('integerBreak', (4,), 4)",
+      "('integerBreak', (5,), 6)",
+      "('integerBreak', (6,), 9)",
+      "('integerBreak', (10,), 36)",
+      "('integerBreak', (100,), 22236242266222092)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: integerBreak(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: integerBreak(3,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: integerBreak(4,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: integerBreak(5,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#5] ✅ 通過\n  標準輸入: integerBreak(6,)\n  標準輸出: 9\n  你的輸出: 9\n\n[測試#6] ✅ 通過\n  標準輸入: integerBreak(10,)\n  標準輸出: 36\n  你的輸出: 36\n\n[測試#7] ❌ 失敗\n  標準輸入: integerBreak(100,)\n  標準輸出: 22236242266222092\n  你的輸出: 7412080755407364\n\n=== 測試完成 (6/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 6,
+    "accuracy_rate": 0.8571428571428571
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode451.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Sort Characters By Frequency",
+    "description": "Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.\n\nReturn the sorted string. If there are multiple answers, return any of them.",
+    "examples": [
+      {
+        "input": "s = \"tree\"",
+        "output": "\"eert\"",
+        "explanation": "'e' appears twice while 'r' and 't' both appear once. So 'e' must appear before both 'r' and 't'. Therefore \"eetr\" is also a valid answer."
+      },
+      {
+        "input": "s = \"cccaaa\"",
+        "output": "\"aaaccc\"",
+        "explanation": "Both 'c' and 'a' appear three times, so both \"cccaaa\" and \"aaaccc\" are valid answers.\nNote that \"cacaca\" is incorrect, as the same characters must be together."
+      },
+      {
+        "input": "s = \"Aabb\"",
+        "output": "\"bbAa\"",
+        "explanation": "\"bbaA\" is also a valid answer, but \"Aabb\" is incorrect. 'A' and 'a' are treated as two different characters."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['tree']\n",
+        "output": "eetr\n"
+      },
+      {
+        "input": "['cccaaa']\n",
+        "output": "cccaaa\n"
+      },
+      {
+        "input": "['aabbcc']\n",
+        "output": "aabbcc\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['aaaaa']\n",
+        "output": "aaaaa\n"
+      },
+      {
+        "input": "['abcde']\n",
+        "output": "abcde\n"
+      },
+      {
+        "input": "['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbb']\n",
+        "output": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbb\n"
+      },
+      {
+        "input": "['a b!c\\nc']\n",
+        "output": "ccab! \n"
+      }
+    ],
+    "parsed_tests": [
+      "('frequencySort', (['tree'],), 'eetr\\n')",
+      "('frequencySort', (['cccaaa'],), 'cccaaa\\n')",
+      "('frequencySort', (['aabbcc'],), 'aabbcc\\n')",
+      "('frequencySort', ([''],), '\\n')",
+      "('frequencySort', (['aaaaa'],), 'aaaaa\\n')",
+      "('frequencySort', (['abcde'],), 'abcde\\n')",
+      "('frequencySort', (['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbb'],), 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbb\\n')",
+      "('frequencySort', (['a b!c\\nc'],), 'ccab! \\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: frequencySort(['tree'],)\n  標準輸出: 'eetr\\n'\n  你的輸出: 'tree'\n\n[測試#2] ❌ 失敗\n  標準輸入: frequencySort(['cccaaa'],)\n  標準輸出: 'cccaaa\\n'\n  你的輸出: 'cccaaa'\n\n[測試#3] ❌ 失敗\n  標準輸入: frequencySort(['aabbcc'],)\n  標準輸出: 'aabbcc\\n'\n  你的輸出: 'aabbcc'\n\n[測試#4] ❌ 失敗\n  標準輸入: frequencySort([''],)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ❌ 失敗\n  標準輸入: frequencySort(['aaaaa'],)\n  標準輸出: 'aaaaa\\n'\n  你的輸出: 'aaaaa'\n\n[測試#6] ❌ 失敗\n  標準輸入: frequencySort(['abcde'],)\n  標準輸出: 'abcde\\n'\n  你的輸出: 'abcde'\n\n[測試#7] ❌ 失敗\n  標準輸入: frequencySort(['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbb'],)\n  標準輸出: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbb\\n'\n  你的輸出: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbb'\n\n[測試#8] ❌ 失敗\n  標準輸入: frequencySort(['a b!c\\nc'],)\n  標準輸出: 'ccab! \\n'\n  你的輸出: 'a b!c\\nc'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

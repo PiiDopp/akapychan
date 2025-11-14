@@ -1,0 +1,68 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode819.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Most Common Word",
+    "description": "Given a string paragraph and a string array of the banned words banned, return the most frequent word that is not banned. It is guaranteed there is at least one word that is not banned, and that the answer is unique.\n\nThe words in paragraph are case-insensitive and the answer should be returned in lowercase.\n\nNote that words can not contain punctuation symbols.",
+    "examples": [
+      {
+        "input": "paragraph = \"Bob hit a ball, the hit BALL flew far after it was hit.\", banned = [\"hit\"]",
+        "output": "ball",
+        "explanation": "\"hit\" occurs 3 times, but it is a banned word.\n\"ball\" occurs twice (and no other word does), so it is the most frequent non-banned word in the paragraph.\nNote that words in the paragraph are not case sensitive,\nthat punctuation is ignored (even if adjacent to words, such as \"ball,\"), \nand that \"hit\" isn't the answer even though it occurs more because it is banned."
+      },
+      {
+        "input": "paragraph = \"a.\", banned = []",
+        "output": "a"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['Bob hit a ball, the ball was good.', ['hit']]\n",
+        "output": "ball\n"
+      },
+      {
+        "input": "['Bob! Bob? Rob.', []]\n",
+        "output": "bob\n"
+      },
+      {
+        "input": "['Hello!!! World??', ['world']]\n",
+        "output": "hello\n"
+      },
+      {
+        "input": "['abc_123 abc_123 123abc', []]\n",
+        "output": "abc_123\n"
+      },
+      {
+        "input": "['Bob, bOb, BOB! Alice.', ['bob']]\n",
+        "output": "alice\n"
+      },
+      {
+        "input": "['Hello world world', ['foo', 'bar']]\n",
+        "output": "world\n"
+      },
+      {
+        "input": "Don't stop, stop\n[]\n",
+        "output": "stop\n"
+      }
+    ],
+    "parsed_tests": [
+      "('mostCommonWord', ('Bob hit a ball, the ball was good.', ['hit']), 'ball\\n')",
+      "('mostCommonWord', ('Bob! Bob? Rob.', []), 'bob\\n')",
+      "('mostCommonWord', ('Hello!!! World??', ['world']), 'hello\\n')",
+      "('mostCommonWord', ('abc_123 abc_123 123abc', []), 'abc_123\\n')",
+      "('mostCommonWord', ('Bob, bOb, BOB! Alice.', ['bob']), 'alice\\n')",
+      "('mostCommonWord', ('Hello world world', ['foo', 'bar']), 'world\\n')",
+      "('mostCommonWord', (\"Don't stop, stop\\n[]\\n\",), 'stop\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: mostCommonWord('Bob hit a ball, the ball was good.', ['hit'])\n  標準輸出: 'ball\\n'\n  你的輸出: 'ball'\n\n[測試#2] ❌ 失敗\n  標準輸入: mostCommonWord('Bob! Bob? Rob.', [])\n  標準輸出: 'bob\\n'\n  你的輸出: 'bob'\n\n[測試#3] ❌ 失敗\n  標準輸入: mostCommonWord('Hello!!! World??', ['world'])\n  標準輸出: 'hello\\n'\n  你的輸出: 'hello'\n\n[測試#4] ❌ 失敗\n  標準輸入: mostCommonWord('abc_123 abc_123 123abc', [])\n  標準輸出: 'abc_123\\n'\n  你的輸出: 'abc_123'\n\n[測試#5] ❌ 失敗\n  標準輸入: mostCommonWord('Bob, bOb, BOB! Alice.', ['bob'])\n  標準輸出: 'alice\\n'\n  你的輸出: 'alice'\n\n[測試#6] ❌ 失敗\n  標準輸入: mostCommonWord('Hello world world', ['foo', 'bar'])\n  標準輸出: 'world\\n'\n  你的輸出: 'world'\n\n[測試#7] ❌ 執行例外: Solution.mostCommonWord() missing 1 required positional argument: 'banned'\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode676.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Implement Magic Dictionary",
+    "description": "Design a data structure that is initialized with a list of different words. Provided a string, you should determine if you can change exactly one character in this string to match any word in the data structure.\n\nImplement the MagicDictionary class:\n\nMagicDictionary() Initializes the object.\nvoid buildDict(String[] dictionary) Sets the data structure with an array of distinct strings dictionary.\nbool search(String searchWord) Returns true if you can change exactly one character in searchWord to match any string in the data structure, otherwise returns false.",
+    "examples": [
+      {
+        "input": "[\"MagicDictionary\", \"buildDict\", \"search\", \"search\", \"search\", \"search\"], [[], [[\"hello\", \"leetcode\"]], [\"hello\"], [\"hhllo\"], [\"hell\"], [\"leetcoded\"]]",
+        "output": "[null, null, false, true, false, false]",
+        "explanation": "MagicDictionary magicDictionary = new MagicDictionary();\nmagicDictionary.buildDict([\"hello\", \"leetcode\"]);\nmagicDictionary.search(\"hello\"); // return False\nmagicDictionary.search(\"hhllo\"); // We can change the second 'h' to 'e' to match \"hello\" so we return True\nmagicDictionary.search(\"hell\"); // return False\nmagicDictionary.search(\"leetcoded\"); // return False"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "非 LeetCode 格式程式碼 (Skip non-class Solution)",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

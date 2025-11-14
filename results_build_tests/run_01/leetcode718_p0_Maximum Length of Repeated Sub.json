@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode718.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum Length of Repeated Subarray",
+    "description": "Given two integer arrays nums1 and nums2, return the maximum length of a subarray that appears in both arrays.",
+    "examples": [
+      {
+        "input": "nums1 = [1,2,3,2,1], nums2 = [3,2,1,4,7]",
+        "output": "3",
+        "explanation": "The repeated subarray with maximum length is [3,2,1]."
+      },
+      {
+        "input": "nums1 = [0,0,0,0,0], nums2 = [0,0,0,0,0]",
+        "output": "5",
+        "explanation": "The repeated subarray with maximum length is [0,0,0,0,0]."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3 2 1\n3 2 1 4 7\n",
+        "output": "3\n"
+      },
+      {
+        "input": "0 1 1 0 1\n1 1 0 1 0\n",
+        "output": "2\n"
+      },
+      {
+        "input": "\n1 2 3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5 6 7 8\n5 6 7 8\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1 2 3\n4 5 6\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-1 0 2\n0 -1 2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 1 1 1\n1 1\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findLength', ('1 2 3 2 1\\n3 2 1 4 7\\n',), 3)",
+      "('findLength', ('0 1 1 0 1\\n1 1 0 1 0\\n',), 2)",
+      "('findLength', ('\\n1 2 3\\n',), 0)",
+      "('findLength', ('\\n',), 0)",
+      "('findLength', ('5 6 7 8\\n5 6 7 8\\n',), 4)",
+      "('findLength', ('1 2 3\\n4 5 6\\n',), 0)",
+      "('findLength', ('-1 0 2\\n0 -1 2\\n',), 1)",
+      "('findLength', ('1 1 1 1\\n1 1\\n',), 2)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.findLength() missing 1 required positional argument: 'nums2'\n[測試#2] ❌ 執行例外: Solution.findLength() missing 1 required positional argument: 'nums2'\n[測試#3] ❌ 執行例外: Solution.findLength() missing 1 required positional argument: 'nums2'\n[測試#4] ❌ 執行例外: Solution.findLength() missing 1 required positional argument: 'nums2'\n[測試#5] ❌ 執行例外: Solution.findLength() missing 1 required positional argument: 'nums2'\n[測試#6] ❌ 執行例外: Solution.findLength() missing 1 required positional argument: 'nums2'\n[測試#7] ❌ 執行例外: Solution.findLength() missing 1 required positional argument: 'nums2'\n[測試#8] ❌ 執行例外: Solution.findLength() missing 1 required positional argument: 'nums2'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

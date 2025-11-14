@@ -1,0 +1,78 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode475.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Heaters",
+    "description": "Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.\n\nEvery house can be warmed, as long as the house is within the heater's warm radius range.\n\nGiven the positions of houses and heaters on a horizontal line, return the minimum radius standard of heaters so that those heaters could cover all houses.\n\nNotice that all the heaters follow your radius standard, and the warm radius will be the same.",
+    "examples": [
+      {
+        "input": "houses = [1,2,3], heaters = [2]",
+        "output": "1",
+        "explanation": "The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed."
+      },
+      {
+        "input": "houses = [1,2,3,4], heaters = [1,4]",
+        "output": "1",
+        "explanation": "The two heaters were placed at positions 1 and 4. We need to use a radius 1 standard, then all the houses can be warmed."
+      },
+      {
+        "input": "houses = [1,5], heaters = [2]",
+        "output": "3"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 5 10\n7\n",
+        "output": "6\n"
+      },
+      {
+        "input": "4\n1 10\n",
+        "output": "3\n"
+      },
+      {
+        "input": "\n1 2 3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-5 -2 0\n-3 1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 1 2\n1 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1000000000\n0\n",
+        "output": "1000000000\n"
+      },
+      {
+        "input": "-10 -5\n0 5\n",
+        "output": "10\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findRadius', ('1 2 3\\n2\\n',), 1)",
+      "('findRadius', ('1 5 10\\n7\\n',), 6)",
+      "('findRadius', ('4\\n1 10\\n',), 3)",
+      "('findRadius', ('\\n1 2 3\\n',), 0)",
+      "('findRadius', ('-5 -2 0\\n-3 1\\n',), 2)",
+      "('findRadius', ('1 1 2\\n1 1\\n',), 1)",
+      "('findRadius', (1000000000, 0), 1000000000)",
+      "('findRadius', ('-10 -5\\n0 5\\n',), 10)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#2] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#3] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#4] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#5] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#6] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n[測試#7] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: Solution.findRadius() missing 1 required positional argument: 'heaters'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

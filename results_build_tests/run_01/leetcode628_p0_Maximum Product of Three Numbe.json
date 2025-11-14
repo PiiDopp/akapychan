@@ -1,0 +1,71 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode628.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Maximum Product of Three Numbers",
+    "description": "Given an integer array nums, find three numbers whose product is maximum and return the maximum product.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "6"
+      },
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "24"
+      },
+      {
+        "input": "nums = [-1,-2,-3]",
+        "output": "-6"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3 4 5\n",
+        "output": "60\n"
+      },
+      {
+        "input": "-10 -10 5 2\n",
+        "output": "500\n"
+      },
+      {
+        "input": "-5 -4 -3 -2\n",
+        "output": "-40\n"
+      },
+      {
+        "input": "-1 0 2 3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 2 3\n",
+        "output": "6\n"
+      },
+      {
+        "input": "-1000000000 -1000000000 1000000000\n",
+        "output": "1000000000000000000000000000\n"
+      },
+      {
+        "input": "-100 -98 1 2\n",
+        "output": "19600\n"
+      }
+    ],
+    "parsed_tests": [
+      "('maximumProduct', ('1 2 3 4 5\\n',), 60)",
+      "('maximumProduct', ('-10 -10 5 2\\n',), 500)",
+      "('maximumProduct', ('-5 -4 -3 -2\\n',), -40)",
+      "('maximumProduct', ('-1 0 2 3\\n',), 0)",
+      "('maximumProduct', ('1 2 3\\n',), 6)",
+      "('maximumProduct', ('-1000000000 -1000000000 1000000000\\n',), 1000000000000000000000000000)",
+      "('maximumProduct', ('-100 -98 1 2\\n',), 19600)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

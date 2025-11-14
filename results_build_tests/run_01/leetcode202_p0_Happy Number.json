@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode202.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Happy Number",
+    "description": "Write an algorithm to determine if a number n is happy.\n\nA happy number is a number defined by the following process:\n\nStarting with any positive integer, replace the number by the sum of the squares of its digits.\nRepeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.\nThose numbers for which this process ends in 1 are happy.\nReturn true if n is a happy number, and false if not.",
+    "examples": [
+      {
+        "input": "n = 19",
+        "output": "true",
+        "explanation": "12 + 92 = 82\n82 + 22 = 68\n62 + 82 = 100\n12 + 02 + 02 = 1"
+      },
+      {
+        "input": "n = 2",
+        "output": "false"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "7\n",
+        "output": "True\n"
+      },
+      {
+        "input": "19\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "100\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-7\n",
+        "output": "False\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isHappy', (1,), True)",
+      "('isHappy', (7,), True)",
+      "('isHappy', (19,), True)",
+      "('isHappy', (2,), False)",
+      "('isHappy', (100,), True)",
+      "('isHappy', (0,), False)",
+      "('isHappy', (-7,), False)",
+      "('isHappy', (2147483647,), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isHappy(1,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isHappy(7,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isHappy(19,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isHappy(2,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isHappy(100,)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isHappy(0,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isHappy(-7,)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isHappy(2147483647,)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

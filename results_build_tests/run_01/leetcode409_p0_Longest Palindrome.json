@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode409.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Palindrome",
+    "description": "Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.\nLetters are case sensitive, for example, \"Aa\" is not considered a palindrome.",
+    "examples": [
+      {
+        "input": "s = \"abccccdd\"",
+        "output": "7",
+        "explanation": "One longest palindrome that can be built is \"dccaccd\", whose length is 7."
+      },
+      {
+        "input": "s = \"a\"",
+        "output": "1",
+        "explanation": "The longest palindrome that can be built is \"a\", whose length is 1."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['a']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['Aa']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['abccccdd']\n",
+        "output": "7\n"
+      },
+      {
+        "input": "['aaaa']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['abcde']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']\n",
+        "output": "100\n"
+      }
+    ],
+    "parsed_tests": [
+      "('longestPalindrome', ([''],), 0)",
+      "('longestPalindrome', (['a'],), 1)",
+      "('longestPalindrome', (['Aa'],), 1)",
+      "('longestPalindrome', (['abccccdd'],), 7)",
+      "('longestPalindrome', (['aaaa'],), 4)",
+      "('longestPalindrome', (['abcde'],), 1)",
+      "('longestPalindrome', (['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],), 100)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: longestPalindrome([''],)\n  標準輸出: 0\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: longestPalindrome(['a'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: longestPalindrome(['Aa'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ❌ 失敗\n  標準輸入: longestPalindrome(['abccccdd'],)\n  標準輸出: 7\n  你的輸出: 1\n\n[測試#5] ❌ 失敗\n  標準輸入: longestPalindrome(['aaaa'],)\n  標準輸出: 4\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: longestPalindrome(['abcde'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ❌ 失敗\n  標準輸入: longestPalindrome(['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],)\n  標準輸出: 100\n  你的輸出: 1\n\n=== 測試完成 (3/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 3,
+    "accuracy_rate": 0.42857142857142855
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode45.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Jump Game II",
+    "description": "You are given a 0-indexed array of integers nums of length n. You are initially positioned at index 0.\n\nEach element nums[i] represents the maximum length of a forward jump from index i. In other words, if you are at index i, you can jump to any index (i + j) where:\n\n0 <= j <= nums[i] and\ni + j < n\nReturn the minimum number of jumps to reach index n - 1. The test cases are generated such that you can reach index n - 1.",
+    "examples": [
+      {
+        "input": "nums = [2,3,1,1,4]",
+        "output": "2",
+        "explanation": "The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index."
+      },
+      {
+        "input": "nums = [2,3,0,1,4]",
+        "output": "2"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2 3 1 1 4\n",
+        "output": "2\n"
+      },
+      {
+        "input": "2 3 0 1 4\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1 2 3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1000000000 0 0 0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 0\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('jump', ('2 3 1 1 4\\n',), 2)",
+      "('jump', ('2 3 0 1 4\\n',), 2)",
+      "('jump', ('1 2 3\\n',), 2)",
+      "('jump', ('1000000000 0 0 0\\n',), 1)",
+      "('jump', ((),), 0)",
+      "('jump', (0,), 0)",
+      "('jump', (5,), 0)",
+      "('jump', ('1 0\\n',), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#2] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#3] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#4] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#5] ✅ 通過\n  標準輸入: jump((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: object of type 'int' has no len()\n[測試#8] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n=== 測試完成 (1/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 1,
+    "accuracy_rate": 0.125
+  }
+}

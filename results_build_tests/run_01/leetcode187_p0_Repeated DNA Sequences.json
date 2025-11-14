@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode187.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Repeated DNA Sequences",
+    "description": "The DNA sequence is composed of a series of nucleotides abbreviated as 'A', 'C', 'G', and 'T'. For example, 'ACGAATTCCG' is a DNA sequence. When studying DNA, it is useful to identify repeated sequences within the DNA. Given a string s that represents a DNA sequence, return all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule. You may return the answer in any order.",
+    "examples": [
+      {
+        "input": "s = 'AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT'",
+        "output": "[\"AAAAACCCCC\",\"CCCCCAAAAA\"]"
+      },
+      {
+        "input": "s = 'AAAAAAAAAAAAA'",
+        "output": "[\"AAAAAAAAAA\"]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT']\n",
+        "output": "['AAAAACCCCC', 'CCCCCAAAAA']\n"
+      },
+      {
+        "input": "['ACGTACGTACGTACGT']\n",
+        "output": "['ACGTACGTAC']\n"
+      },
+      {
+        "input": "['AAAAAAAAAA']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['ACGT']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['AA']\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "['AAAAAAAAAAA']\n",
+        "output": "['AAAAAAAAAA']\n"
+      },
+      {
+        "input": "['ACGTACGTACGTACGTACGT']\n",
+        "output": "['ACGTACGTAC', 'CGTACGTACG', 'GTACGTACGT', 'TACGTACGTA']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findRepeatedDnaSequences', (['AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT'],), ['AAAAACCCCC', 'CCCCCAAAAA'])",
+      "('findRepeatedDnaSequences', (['ACGTACGTACGTACGT'],), ['ACGTACGTAC'])",
+      "('findRepeatedDnaSequences', (['AAAAAAAAAA'],), [])",
+      "('findRepeatedDnaSequences', ([''],), [])",
+      "('findRepeatedDnaSequences', (['ACGT'],), [])",
+      "('findRepeatedDnaSequences', (['AA'],), [])",
+      "('findRepeatedDnaSequences', (['AAAAAAAAAAA'],), ['AAAAAAAAAA'])",
+      "('findRepeatedDnaSequences', (['ACGTACGTACGTACGTACGT'],), ['ACGTACGTAC', 'CGTACGTACG', 'GTACGTACGT', 'TACGTACGTA'])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: findRepeatedDnaSequences(['AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT'],)\n  標準輸出: ['AAAAACCCCC', 'CCCCCAAAAA']\n  你的輸出: []\n\n[測試#2] ❌ 失敗\n  標準輸入: findRepeatedDnaSequences(['ACGTACGTACGTACGT'],)\n  標準輸出: ['ACGTACGTAC']\n  你的輸出: []\n\n[測試#3] ✅ 通過\n  標準輸入: findRepeatedDnaSequences(['AAAAAAAAAA'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: findRepeatedDnaSequences([''],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ✅ 通過\n  標準輸入: findRepeatedDnaSequences(['ACGT'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#6] ✅ 通過\n  標準輸入: findRepeatedDnaSequences(['AA'],)\n  標準輸出: []\n  你的輸出: []\n\n[測試#7] ❌ 失敗\n  標準輸入: findRepeatedDnaSequences(['AAAAAAAAAAA'],)\n  標準輸出: ['AAAAAAAAAA']\n  你的輸出: []\n\n[測試#8] ❌ 失敗\n  標準輸入: findRepeatedDnaSequences(['ACGTACGTACGTACGTACGT'],)\n  標準輸出: ['ACGTACGTAC', 'CGTACGTACG', 'GTACGTACGT', 'TACGTACGTA']\n  你的輸出: []\n\n=== 測試完成 (4/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 4,
+    "accuracy_rate": 0.5
+  }
+}

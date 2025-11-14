@@ -1,0 +1,77 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode557.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reverse Words in a String III",
+    "description": "Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.",
+    "examples": [
+      {
+        "input": "s = \"Let's take LeetCode contest\"",
+        "output": "\"s'teL ekat edoCteeL tsetnoc\""
+      },
+      {
+        "input": "s = \"Mr Ding\"",
+        "output": "\"rM gniD\""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['hello world']\n",
+        "output": "olleh dlrow\n"
+      },
+      {
+        "input": "['a b c']\n",
+        "output": "a b c\n"
+      },
+      {
+        "input": "['hello, world!']\n",
+        "output": ",olleh !dlrow\n"
+      },
+      {
+        "input": "['你好 世界']\n",
+        "output": "好你 界世\n"
+      },
+      {
+        "input": "['  leading and trailing  ']\n",
+        "output": "  gnidael dna gniliart  \n"
+      },
+      {
+        "input": "['']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['   ']\n",
+        "output": "   \n"
+      },
+      {
+        "input": "['a  b']\n",
+        "output": "a  b\n"
+      },
+      {
+        "input": "['a\\\\tb']\n",
+        "output": "b\\ta\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reverseWords', (['hello world'],), 'olleh dlrow\\n')",
+      "('reverseWords', (['a b c'],), 'a b c\\n')",
+      "('reverseWords', (['hello, world!'],), ',olleh !dlrow\\n')",
+      "('reverseWords', (['你好 世界'],), '好你 界世\\n')",
+      "('reverseWords', (['  leading and trailing  '],), '  gnidael dna gniliart  \\n')",
+      "('reverseWords', ([''],), '\\n')",
+      "('reverseWords', (['   '],), '   \\n')",
+      "('reverseWords', (['a  b'],), 'a  b\\n')",
+      "('reverseWords', (['a\\\\tb'],), 'b\\\\ta\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'list' object has no attribute 'split'\n[測試#2] ❌ 執行例外: 'list' object has no attribute 'split'\n[測試#3] ❌ 執行例外: 'list' object has no attribute 'split'\n[測試#4] ❌ 執行例外: 'list' object has no attribute 'split'\n[測試#5] ❌ 執行例外: 'list' object has no attribute 'split'\n[測試#6] ❌ 執行例外: 'list' object has no attribute 'split'\n[測試#7] ❌ 執行例外: 'list' object has no attribute 'split'\n[測試#8] ❌ 執行例外: 'list' object has no attribute 'split'\n[測試#9] ❌ 執行例外: 'list' object has no attribute 'split'\n=== 測試完成 (0/9) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 9,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

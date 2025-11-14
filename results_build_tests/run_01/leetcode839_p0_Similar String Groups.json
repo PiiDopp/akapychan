@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode839.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Similar String Groups",
+    "description": "Two strings, X and Y, are considered similar if either they are identical or we can make them equivalent by swapping at most two letters (in distinct positions) within the string X.\n\nFor example, \"tars\" and \"rats\" are similar (swapping at positions 0 and 2), and \"rats\" and \"arts\" are similar, but \"star\" is not similar to \"tars\", \"rats\", or \"arts\".\n\nTogether, these form two connected groups by similarity: {\"tars\", \"rats\", \"arts\"} and {\"star\"}.  Notice that \"tars\" and \"arts\" are in the same group even though they are not similar. Formally, each group is such that a word is in the group if and only if it is similar to at least one other word in the group.\n\nWe are given a list strs of strings where every string in strs is an anagram of every other string in strs. How many groups are there?",
+    "examples": [
+      {
+        "input": "strs = [\"tars\",\"rats\",\"arts\",\"star\"]",
+        "output": "2"
+      },
+      {
+        "input": "strs = [\"omv\",\"ovm\"]",
+        "output": "1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['tars', 'rats', 'arts', 'star']]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['abc', 'acb', 'bac', 'bca', 'cab', 'cba']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[['abc']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['aaa', 'aaa', 'aaa']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['a', 'a', 'a']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['abcd', 'abdc', 'acbd', 'acdb', 'adbc', 'adcb', 'bacd', 'badc']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['abcd', 'badc']]\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numSimilarGroups', ([['tars', 'rats', 'arts', 'star']],), 2)",
+      "('numSimilarGroups', ([['abc', 'acb', 'bac', 'bca', 'cab', 'cba']],), 1)",
+      "('numSimilarGroups', ((),), 0)",
+      "('numSimilarGroups', ([['abc']],), 1)",
+      "('numSimilarGroups', ([['aaa', 'aaa', 'aaa']],), 1)",
+      "('numSimilarGroups', ([['a', 'a', 'a']],), 1)",
+      "('numSimilarGroups', ([['abcd', 'abdc', 'acbd', 'acdb', 'adbc', 'adcb', 'bacd', 'badc']],), 1)",
+      "('numSimilarGroups', ([['abcd', 'badc']],), 2)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: numSimilarGroups([['tars', 'rats', 'arts', 'star']],)\n  標準輸出: 2\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: numSimilarGroups([['abc', 'acb', 'bac', 'bca', 'cab', 'cba']],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: numSimilarGroups((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numSimilarGroups([['abc']],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: numSimilarGroups([['aaa', 'aaa', 'aaa']],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: numSimilarGroups([['a', 'a', 'a']],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: numSimilarGroups([['abcd', 'abdc', 'acbd', 'acdb', 'adbc', 'adcb', 'bacd', 'badc']],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#8] ❌ 失敗\n  標準輸入: numSimilarGroups([['abcd', 'badc']],)\n  標準輸出: 2\n  你的輸出: 1\n\n=== 測試完成 (6/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 6,
+    "accuracy_rate": 0.75
+  }
+}

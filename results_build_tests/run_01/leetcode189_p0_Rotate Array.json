@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode189.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Rotate Array",
+    "description": "Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4,5,6,7], k = 3",
+        "output": "[5,6,7,1,2,3,4]",
+        "explanation": "rotate 1 steps to the right: [7,1,2,3,4,5,6]; rotate 2 steps to the right: [6,7,1,2,3,4,5]; rotate 3 steps to the right: [5,6,7,1,2,3,4]"
+      },
+      {
+        "input": "nums = [-1,-100,3,99], k = 2",
+        "output": "[3,99,-1,-100]",
+        "explanation": "rotate 1 steps to the right: [99,-1,-100,3]; rotate 2 steps to the right: [3,99,-1,-100]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 2, 3, 4, 5, 6, 7]\n3\n",
+        "output": "[5, 6, 7, 1, 2, 3, 4]\n"
+      },
+      {
+        "input": "[0, 1, 2]\n4\n",
+        "output": "[2, 0, 1]\n"
+      },
+      {
+        "input": "[]\n5\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[42]\n10\n",
+        "output": "[42]\n"
+      },
+      {
+        "input": "[1, 2, 3]\n0\n",
+        "output": "[1, 2, 3]\n"
+      },
+      {
+        "input": "[-1, -2, -3, -4]\n2\n",
+        "output": "[-3, -4, -1, -2]\n"
+      },
+      {
+        "input": "[1, 2]\n1000000000\n",
+        "output": "[1, 2]\n"
+      },
+      {
+        "input": "[1, 2, 3]\n3\n",
+        "output": "[1, 2, 3]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('rotate', ([5, 6, 7, 1, 2, 3, 4], 3), [5, 6, 7, 1, 2, 3, 4])",
+      "('rotate', ([2, 0, 1], 4), [2, 0, 1])",
+      "('rotate', ([], 5), [])",
+      "('rotate', ([42], 10), [42])",
+      "('rotate', ([1, 2, 3], 0), [1, 2, 3])",
+      "('rotate', ([-3, -4, -1, -2], 2), [-3, -4, -1, -2])",
+      "('rotate', ([1, 2], 1000000000), [1, 2])",
+      "('rotate', ([1, 2, 3], 3), [1, 2, 3])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: rotate([5, 6, 7, 1, 2, 3, 4], 3)\n  標準輸出: [5, 6, 7, 1, 2, 3, 4]\n  你的輸出: None\n\n[測試#2] ❌ 失敗\n  標準輸入: rotate([2, 0, 1], 4)\n  標準輸出: [2, 0, 1]\n  你的輸出: None\n\n[測試#3] ❌ 執行例外: integer modulo by zero\n[測試#4] ❌ 失敗\n  標準輸入: rotate([42], 10)\n  標準輸出: [42]\n  你的輸出: None\n\n[測試#5] ❌ 失敗\n  標準輸入: rotate([1, 2, 3], 0)\n  標準輸出: [1, 2, 3]\n  你的輸出: None\n\n[測試#6] ❌ 失敗\n  標準輸入: rotate([-3, -4, -1, -2], 2)\n  標準輸出: [-3, -4, -1, -2]\n  你的輸出: None\n\n[測試#7] ❌ 失敗\n  標準輸入: rotate([1, 2], 1000000000)\n  標準輸出: [1, 2]\n  你的輸出: None\n\n[測試#8] ❌ 失敗\n  標準輸入: rotate([1, 2, 3], 3)\n  標準輸出: [1, 2, 3]\n  你的輸出: None\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

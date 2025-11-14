@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode56.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Merge Intervals",
+    "description": "Given an array of intervals where intervals[i] = [start_i, end_i], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.",
+    "examples": [
+      {
+        "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+        "output": "[[1,6],[8,10],[15,18]]",
+        "explanation": "Since intervals [1,3] and [2,6] overlap, merge them into [1,6]."
+      },
+      {
+        "input": "intervals = [[1,4],[4,5]]",
+        "output": "[[1,5]]",
+        "explanation": "Intervals [1,4] and [4,5] are considered overlapping."
+      },
+      {
+        "input": "intervals = [[4,7],[1,4]]",
+        "output": "[[1,7]]",
+        "explanation": "Intervals [1,4] and [4,7] are considered overlapping."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 3] [2, 4]\n",
+        "output": "[[1, 4]]\n"
+      },
+      {
+        "input": "[1, 4] [5, 6] [7, 8]\n",
+        "output": "[[1, 4], [5, 6], [7, 8]]\n"
+      },
+      {
+        "input": "[-5, -1] [-3, 2] [3, 5]\n",
+        "output": "[[-5, 2], [3, 5]]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[1, 3]\n",
+        "output": "[[1, 3]]\n"
+      },
+      {
+        "input": "[1, 2] [3, 4]\n",
+        "output": "[[1, 2], [3, 4]]\n"
+      },
+      {
+        "input": "[1, 2] [2, 3]\n",
+        "output": "[[1, 3]]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('merge', ('[1, 3] [2, 4]\\n',), [[1, 4]])",
+      "('merge', ('[1, 4] [5, 6] [7, 8]\\n',), [[1, 4], [5, 6], [7, 8]])",
+      "('merge', ('[-5, -1] [-3, 2] [3, 5]\\n',), [[-5, 2], [3, 5]])",
+      "('merge', ((),), [])",
+      "('merge', ([1, 3],), [[1, 3]])",
+      "('merge', ('[1, 2] [3, 4]\\n',), [[1, 2], [3, 4]])",
+      "('merge', ('[1, 2] [2, 3]\\n',), [[1, 3]])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ✅ 通過\n  標準輸入: merge((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ❌ 執行例外: 'int' object is not subscriptable\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (1/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 1,
+    "accuracy_rate": 0.14285714285714285
+  }
+}

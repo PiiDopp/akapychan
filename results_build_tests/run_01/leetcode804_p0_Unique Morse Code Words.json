@@ -1,0 +1,68 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode804.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Unique Morse Code Words",
+    "description": "International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows:\n'a' maps to \".-\",\n'b' maps to \"-...\",\n'c' maps to \"-.-.\", and so on.\nGiven an array of strings words where each word can be written as a concatenation of the Morse code of each letter.\n\nFor example, \"cab\" can be written as \"-.-..--...\", which is the concatenation of \"-.-.\", \".-\", and \"-...\". We will call such a concatenation the transformation of a word.\nReturn the number of different transformations among all words we have.",
+    "examples": [
+      {
+        "input": "words = [\"gin\",\"zen\",\"gig\",\"msg\"]",
+        "output": "2",
+        "explanation": "The transformation of each word is:\n\"gin\" -> \"--...-.\"\n\"zen\" -> \"--...-.\"\n\"gig\" -> \"--...--.\"\n\"msg\" -> \"--...--.\"\nThere are 2 different transformations: \"--...-.\" and \"--...--.\"."
+      },
+      {
+        "input": "words = [\"a\"]",
+        "output": "1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['gin', 'zen', 'gig', 'msg']]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[['a', 'b', 'c']]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[['a', 'a', 'a']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[['abcdefghijklmnopqrstuvwxyz']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[['gin', 'zen']]\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('uniqueMorseRepresentations', ([['gin', 'zen', 'gig', 'msg']],), 2)",
+      "('uniqueMorseRepresentations', ([['a', 'b', 'c']],), 3)",
+      "('uniqueMorseRepresentations', ([['a', 'a', 'a']],), 1)",
+      "('uniqueMorseRepresentations', ((),), 0)",
+      "('uniqueMorseRepresentations', ([['abcdefghijklmnopqrstuvwxyz']],), 1)",
+      "('uniqueMorseRepresentations', ([['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']],), 1)",
+      "('uniqueMorseRepresentations', ([['gin', 'zen']],), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: ord() expected a character, but string of length 3 found\n[測試#2] ❌ 失敗\n  標準輸入: uniqueMorseRepresentations([['a', 'b', 'c']],)\n  標準輸出: 3\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: uniqueMorseRepresentations([['a', 'a', 'a']],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ✅ 通過\n  標準輸入: uniqueMorseRepresentations((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ❌ 執行例外: ord() expected a character, but string of length 26 found\n[測試#6] ❌ 執行例外: ord() expected a character, but string of length 100 found\n[測試#7] ❌ 執行例外: ord() expected a character, but string of length 3 found\n=== 測試完成 (2/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 2,
+    "accuracy_rate": 0.2857142857142857
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode13.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Roman to Integer",
+    "description": "Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.\n\nSymbol       Value\nI                     1\nV                   5\nX                   10\nL                    50\nC                   100\nD                   500\nM                  1000\n\nFor example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.\n\nRoman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:\n\n1. I can be placed before V (5) and X (10) to make 4 and 9.\n2. X can be placed before L (50) and C (100) to make 40 and 90.\n3. C can be placed before D (500) and M (1000) to make 400 and 900.\n\nGiven a roman numeral, convert it to an integer.",
+    "examples": [
+      {
+        "input": "s = \"III\"",
+        "output": "3",
+        "explanation": "III = 3."
+      },
+      {
+        "input": "s = \"LVIII\"",
+        "output": "58",
+        "explanation": "L = 50, V= 5, III = 3."
+      },
+      {
+        "input": "s = \"MCMXCIV\"",
+        "output": "1994",
+        "explanation": "M = 1000, CM = 900, XC = 90 and IV = 4."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['III']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['IV']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['LVIII']\n",
+        "output": "58\n"
+      },
+      {
+        "input": "['MCMXCIV']\n",
+        "output": "1994\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['MMMM']\n",
+        "output": "4000\n"
+      },
+      {
+        "input": "['IIII']\n",
+        "output": "4\n"
+      }
+    ],
+    "parsed_tests": [
+      "('romanToInt', (['III'],), 3)",
+      "('romanToInt', (['IV'],), 4)",
+      "('romanToInt', (['LVIII'],), 58)",
+      "('romanToInt', (['MCMXCIV'],), 1994)",
+      "('romanToInt', ([''],), 0)",
+      "('romanToInt', (['MMMM'],), 4000)",
+      "('romanToInt', (['IIII'],), 4)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'III'\n[測試#2] ❌ 執行例外: 'IV'\n[測試#3] ❌ 執行例外: 'LVIII'\n[測試#4] ❌ 執行例外: 'MCMXCIV'\n[測試#5] ❌ 執行例外: ''\n[測試#6] ❌ 執行例外: 'MMMM'\n[測試#7] ❌ 執行例外: 'IIII'\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

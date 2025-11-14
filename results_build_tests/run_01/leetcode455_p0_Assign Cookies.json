@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode455.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Assign Cookies",
+    "description": "Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.\n\nEach child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.",
+    "examples": [
+      {
+        "input": "g = [1,2,3], s = [1,1]",
+        "output": "1",
+        "explanation": "You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3. And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.\nYou need to output 1."
+      },
+      {
+        "input": "g = [1,2], s = [1,2,3]",
+        "output": "2",
+        "explanation": "You have 2 children and 3 cookies. The greed factors of 2 children are 1, 2. \nYou have 3 cookies and their sizes are big enough to gratify all of the children, You need to output 2."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3\n1 1 2 3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "10 20\n5 15\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 2\n1 2 3 4\n",
+        "output": "2\n"
+      },
+      {
+        "input": "-1 0\n0 1\n",
+        "output": "2\n"
+      },
+      {
+        "input": "1000000000\n1000000000\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findContentChildren', ('1 2 3\\n1 1 2 3\\n',), 3)",
+      "('findContentChildren', ('\\n',), 0)",
+      "('findContentChildren', (5, 5), 1)",
+      "('findContentChildren', ('10 20\\n5 15\\n',), 1)",
+      "('findContentChildren', ('1 2\\n1 2 3 4\\n',), 2)",
+      "('findContentChildren', ('-1 0\\n0 1\\n',), 2)",
+      "('findContentChildren', (1000000000, 1000000000), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: Solution.findContentChildren() missing 1 required positional argument: 's'\n[測試#2] ❌ 執行例外: Solution.findContentChildren() missing 1 required positional argument: 's'\n[測試#3] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#4] ❌ 執行例外: Solution.findContentChildren() missing 1 required positional argument: 's'\n[測試#5] ❌ 執行例外: Solution.findContentChildren() missing 1 required positional argument: 's'\n[測試#6] ❌ 執行例外: Solution.findContentChildren() missing 1 required positional argument: 's'\n[測試#7] ❌ 執行例外: 'int' object has no attribute 'sort'\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

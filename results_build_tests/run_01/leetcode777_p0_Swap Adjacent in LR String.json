@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode777.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Swap Adjacent in LR String",
+    "description": "In a string composed of 'L', 'R', and 'X' characters, like \"RXXLRXRXL\", a move consists of either replacing one occurrence of \"XL\" with \"LX\", or replacing one occurrence of \"RX\" with \"XR\". Given the starting string start and the ending string result, return True if and only if there exists a sequence of moves to transform start to result.",
+    "examples": [
+      {
+        "input": "start = \"RXXLRXRXL\", result = \"XRLXXRRLX\"",
+        "output": "true",
+        "explanation": "We can transform start to result following these steps:\nRXXLRXRXL ->\nXRXLRXRXL ->\nXRLXRXRXL ->\nXRLXXRRXL ->\nXRLXXRRLX"
+      },
+      {
+        "input": "start = \"X\", result = \"L\"",
+        "output": "false"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['RXXLRXRXL', 'XRLXXRRLX']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['RXL', 'XRL']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['LLR', 'LLR']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['LR', 'RL']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['XXX', 'XXX']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['LXR', 'LXRX']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['RXL', 'LRX']\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('canTransform', ('RXXLRXRXL', 'XRLXXRRLX'), True)",
+      "('canTransform', ('RXL', 'XRL'), True)",
+      "('canTransform', ('LLR', 'LLR'), True)",
+      "('canTransform', ('LR', 'RL'), False)",
+      "('canTransform', ('', ''), True)",
+      "('canTransform', ('XXX', 'XXX'), True)",
+      "('canTransform', ('LXR', 'LXRX'), False)",
+      "('canTransform', ('RXL', 'LRX'), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: canTransform('RXXLRXRXL', 'XRLXXRRLX')\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: canTransform('RXL', 'XRL')\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: canTransform('LLR', 'LLR')\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: canTransform('LR', 'RL')\n  標準輸出: False\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: canTransform('', '')\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: canTransform('XXX', 'XXX')\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ❌ 失敗\n  標準輸入: canTransform('LXR', 'LXRX')\n  標準輸出: False\n  你的輸出: True\n\n[測試#8] ✅ 通過\n  標準輸入: canTransform('RXL', 'LRX')\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 7,
+    "accuracy_rate": 0.875
+  }
+}

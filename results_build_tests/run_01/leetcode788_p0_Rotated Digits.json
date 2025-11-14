@@ -1,0 +1,77 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode788.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Rotated Digits",
+    "description": "An integer x is a good if after rotating each digit individually by 180 degrees, we get a valid number that is different from x. Each digit must be rotated - we cannot choose to leave it alone.\n\nA number is valid if each digit remains a digit after rotation. For example:\n\n0, 1, and 8 rotate to themselves,\n2 and 5 rotate to each other,\n6 and 9 rotate to each other, and\nthe rest of the numbers do not rotate to any other number and become invalid.\nGiven an integer n, return the number of good integers in the range [1, n].",
+    "examples": [
+      {
+        "input": "n = 10",
+        "output": "4",
+        "explanation": "There are four good numbers in the range [1, 10] : 2, 5, 6, 9. Note that 1 and 10 are not good numbers, since they remain unchanged after rotating."
+      },
+      {
+        "input": "n = 1",
+        "output": "0"
+      },
+      {
+        "input": "n = 2",
+        "output": "1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "10\n",
+        "output": "4\n"
+      },
+      {
+        "input": "99\n",
+        "output": "40\n"
+      },
+      {
+        "input": "1000\n",
+        "output": "316\n"
+      },
+      {
+        "input": "1000000\n",
+        "output": "116920\n"
+      },
+      {
+        "input": "0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "-5\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('rotatedDigits', (1,), 0)",
+      "('rotatedDigits', (2,), 1)",
+      "('rotatedDigits', (10,), 4)",
+      "('rotatedDigits', (99,), 40)",
+      "('rotatedDigits', (1000,), 316)",
+      "('rotatedDigits', (1000000,), 116920)",
+      "('rotatedDigits', (0,), 0)",
+      "('rotatedDigits', (-5,), 0)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: rotatedDigits(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ✅ 通過\n  標準輸入: rotatedDigits(2,)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: rotatedDigits(10,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#4] ✅ 通過\n  標準輸入: rotatedDigits(99,)\n  標準輸出: 40\n  你的輸出: 40\n\n[測試#5] ✅ 通過\n  標準輸入: rotatedDigits(1000,)\n  標準輸出: 316\n  你的輸出: 316\n\n[測試#6] ✅ 通過\n  標準輸入: rotatedDigits(1000000,)\n  標準輸出: 116920\n  你的輸出: 116920\n\n[測試#7] ✅ 通過\n  標準輸入: rotatedDigits(0,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#8] ✅ 通過\n  標準輸入: rotatedDigits(-5,)\n  標準輸出: 0\n  你的輸出: 0\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.2734s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

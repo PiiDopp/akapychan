@@ -1,0 +1,27 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode398.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Random Pick Index",
+    "description": "Given an integer array nums with possible duplicates, randomly output the index of a given target number. You can assume that the given target number must exist in the array.\n\nImplement the Solution class:\n\nSolution(int[] nums) Initializes the object with the array nums.\nint pick(int target) Picks a random index i from nums where nums[i] == target. If there are multiple valid i's, then each index should have an equal probability of returning.",
+    "examples": [
+      {
+        "input": "[\"Solution\", \"pick\", \"pick\", \"pick\"], [[[1, 2, 3, 3, 3]], [3], [1], [3]]",
+        "output": "[null, 4, 0, 2]",
+        "explanation": "Solution solution = new Solution([1, 2, 3, 3, 3]);\nsolution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.\nsolution.pick(1); // It should return 0. Since in the array only nums[0] is equal to 1.\nsolution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "Agent 未能生成有效測資 (normalize_tests returned empty)",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

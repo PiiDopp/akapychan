@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode920.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Number of Music Playlists",
+    "description": "Your music player contains n different songs. You want to listen to goal songs (not necessarily different) during your trip.\nTo avoid boredom, you will create a playlist so that:\nEvery song is played at least once.\nA song can only be played again only if k other songs have been played.\n\nGiven n, goal, and k, return the number of possible playlists that you can create. Since the answer can be very large, return it modulo 10^9 + 7.",
+    "examples": [
+      {
+        "input": "n = 3, goal = 3, k = 1",
+        "output": "6",
+        "explanation": "There are 6 possible playlists: [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], and [3, 2, 1]."
+      },
+      {
+        "input": "n = 2, goal = 3, k = 0",
+        "output": "6",
+        "explanation": "There are 6 possible playlists: [1, 1, 2], [1, 2, 1], [2, 1, 1], [2, 2, 1], [2, 1, 2], and [1, 2, 2]."
+      },
+      {
+        "input": "n = 2, goal = 3, k = 1",
+        "output": "2",
+        "explanation": "There are 2 possible playlists: [1, 2, 1] and [2, 1, 2]."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "2\n3\n0\n",
+        "output": "6\n"
+      },
+      {
+        "input": "3\n4\n1\n",
+        "output": "18\n"
+      },
+      {
+        "input": "4\n5\n0\n",
+        "output": "240\n"
+      },
+      {
+        "input": "4\n5\n1\n",
+        "output": "144\n"
+      },
+      {
+        "input": "1\n1\n0\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n5\n3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "4\n4\n2\n",
+        "output": "24\n"
+      },
+      {
+        "input": "5\n3\n1\n",
+        "output": "0\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numMusicPlaylists', (2, 3, 0), 6)",
+      "('numMusicPlaylists', (3, 4, 1), 18)",
+      "('numMusicPlaylists', (4, 5, 0), 240)",
+      "('numMusicPlaylists', (4, 5, 1), 144)",
+      "('numMusicPlaylists', (1, 1, 0), 1)",
+      "('numMusicPlaylists', (3, 5, 3), 0)",
+      "('numMusicPlaylists', (4, 4, 2), 24)",
+      "('numMusicPlaylists', (5, 3, 1), 0)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numMusicPlaylists(2, 3, 0)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#2] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 4, 1)\n  標準輸出: 18\n  你的輸出: 18\n\n[測試#3] ✅ 通過\n  標準輸入: numMusicPlaylists(4, 5, 0)\n  標準輸出: 240\n  你的輸出: 240\n\n[測試#4] ✅ 通過\n  標準輸入: numMusicPlaylists(4, 5, 1)\n  標準輸出: 144\n  你的輸出: 144\n\n[測試#5] ✅ 通過\n  標準輸入: numMusicPlaylists(1, 1, 0)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#6] ✅ 通過\n  標準輸入: numMusicPlaylists(3, 5, 3)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ✅ 通過\n  標準輸入: numMusicPlaylists(4, 4, 2)\n  標準輸出: 24\n  你的輸出: 24\n\n[測試#8] ✅ 通過\n  標準輸入: numMusicPlaylists(5, 3, 1)\n  標準輸出: 0\n  你的輸出: 0\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

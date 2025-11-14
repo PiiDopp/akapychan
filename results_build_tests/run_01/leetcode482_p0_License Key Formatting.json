@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode482.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "License Key Formatting",
+    "description": "You are given a license key represented as a string s that consists of only alphanumeric characters and dashes. The string is separated into n + 1 groups by n dashes. You are also given an integer k.\n\nWe want to reformat the string s such that each group contains exactly k characters, except for the first group, which could be shorter than k but still must contain at least one character. Furthermore, there must be a dash inserted between two groups, and you should convert all lowercase letters to uppercase.\n\nReturn the reformatted license key.",
+    "examples": [
+      {
+        "input": "s = \"5F3Z-2e-9-w\", k = 4",
+        "output": " \"5F3Z-2E9W\"",
+        "explanation": "The string s has been split into two parts, each part has 4 characters.\nNote that the two extra dashes are not needed and can be removed."
+      },
+      {
+        "input": "s = \"2-5g-3-J\", k = 2",
+        "output": "\"2-5G-3J\"",
+        "explanation": "The string s has been split into three parts, each part has 2 characters except the first part as it could be shorter as mentioned above."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['2-5g-3-J', 2]\n",
+        "output": "2-5G-3J\n"
+      },
+      {
+        "input": "['abc-def-ghi', 3]\n",
+        "output": "ABC-DEF-GHI\n"
+      },
+      {
+        "input": "['', 3]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['abc-123', 10]\n",
+        "output": "ABC123\n"
+      },
+      {
+        "input": "['a-b-c', 1]\n",
+        "output": "A-B-C\n"
+      },
+      {
+        "input": "['---', 3]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['a1-2b-3c', 2]\n",
+        "output": "A1-2B-3C\n"
+      },
+      {
+        "input": "['abcd', 2]\n",
+        "output": "AB-CD\n"
+      }
+    ],
+    "parsed_tests": [
+      "('licenseKeyFormatting', ('2-5g-3-J', 2), '2-5G-3J\\n')",
+      "('licenseKeyFormatting', ('abc-def-ghi', 3), 'ABC-DEF-GHI\\n')",
+      "('licenseKeyFormatting', ('', 3), '\\n')",
+      "('licenseKeyFormatting', ('abc-123', 10), 'ABC123\\n')",
+      "('licenseKeyFormatting', ('a-b-c', 1), 'A-B-C\\n')",
+      "('licenseKeyFormatting', ('---', 3), '\\n')",
+      "('licenseKeyFormatting', ('a1-2b-3c', 2), 'A1-2B-3C\\n')",
+      "('licenseKeyFormatting', ('abcd', 2), 'AB-CD\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: licenseKeyFormatting('2-5g-3-J', 2)\n  標準輸出: '2-5G-3J\\n'\n  你的輸出: '2-5G-3J'\n\n[測試#2] ❌ 失敗\n  標準輸入: licenseKeyFormatting('abc-def-ghi', 3)\n  標準輸出: 'ABC-DEF-GHI\\n'\n  你的輸出: 'ABC-DEF-GHI'\n\n[測試#3] ❌ 失敗\n  標準輸入: licenseKeyFormatting('', 3)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#4] ❌ 失敗\n  標準輸入: licenseKeyFormatting('abc-123', 10)\n  標準輸出: 'ABC123\\n'\n  你的輸出: 'ABC123'\n\n[測試#5] ❌ 失敗\n  標準輸入: licenseKeyFormatting('a-b-c', 1)\n  標準輸出: 'A-B-C\\n'\n  你的輸出: 'A-B-C'\n\n[測試#6] ❌ 失敗\n  標準輸入: licenseKeyFormatting('---', 3)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#7] ❌ 失敗\n  標準輸入: licenseKeyFormatting('a1-2b-3c', 2)\n  標準輸出: 'A1-2B-3C\\n'\n  你的輸出: 'A1-2B-3C'\n\n[測試#8] ❌ 失敗\n  標準輸入: licenseKeyFormatting('abcd', 2)\n  標準輸出: 'AB-CD\\n'\n  你的輸出: 'AB-CD'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

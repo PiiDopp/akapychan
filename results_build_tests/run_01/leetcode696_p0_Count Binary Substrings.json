@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode696.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Count Binary Substrings",
+    "description": "Given a binary string s, return the number of non-empty substrings that have the same number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped consecutively.\n\nSubstrings that occur multiple times are counted the number of times they occur.",
+    "examples": [
+      {
+        "input": "s = \"00110011\"",
+        "output": "6",
+        "explanation": "There are 6 substrings that have equal number of consecutive 1's and 0's: \"0011\", \"01\", \"1100\", \"10\", \"0011\", and \"01\".\\nNotice that some of these substrings repeat and are counted the number of times they occur.\\nAlso, \"00110011\" is not a valid substring because all the 0's (and 1's) are not grouped together."
+      },
+      {
+        "input": "s = \"10101\"",
+        "output": "4",
+        "explanation": "There are 4 substrings: \"10\", \"01\", \"10\", \"01\" that have equal number of consecutive 1's and 0's."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['0011']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['0101']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['000111']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['000111000111']\n",
+        "output": "9\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['0']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['111000111000']\n",
+        "output": "9\n"
+      },
+      {
+        "input": "['0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111']\n",
+        "output": "50\n"
+      }
+    ],
+    "parsed_tests": [
+      "('countBinarySubstrings', (['0011'],), 2)",
+      "('countBinarySubstrings', (['0101'],), 3)",
+      "('countBinarySubstrings', (['000111'],), 3)",
+      "('countBinarySubstrings', (['000111000111'],), 9)",
+      "('countBinarySubstrings', ([''],), 0)",
+      "('countBinarySubstrings', (['0'],), 0)",
+      "('countBinarySubstrings', (['111000111000'],), 9)",
+      "('countBinarySubstrings', (['0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111'],), 50)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: countBinarySubstrings(['0011'],)\n  標準輸出: 2\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: countBinarySubstrings(['0101'],)\n  標準輸出: 3\n  你的輸出: 0\n\n[測試#3] ❌ 失敗\n  標準輸入: countBinarySubstrings(['000111'],)\n  標準輸出: 3\n  你的輸出: 0\n\n[測試#4] ❌ 失敗\n  標準輸入: countBinarySubstrings(['000111000111'],)\n  標準輸出: 9\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: countBinarySubstrings([''],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: countBinarySubstrings(['0'],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ❌ 失敗\n  標準輸入: countBinarySubstrings(['111000111000'],)\n  標準輸出: 9\n  你的輸出: 0\n\n[測試#8] ❌ 失敗\n  標準輸入: countBinarySubstrings(['0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111'],)\n  標準輸出: 50\n  你的輸出: 0\n\n=== 測試完成 (2/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 2,
+    "accuracy_rate": 0.25
+  }
+}

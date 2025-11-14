@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode387.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "First Unique Character in a String",
+    "description": "Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.",
+    "examples": [
+      {
+        "input": "s = \"leetcode\"",
+        "output": "0",
+        "explanation": "The character 'l' at index 0 is the first character that does not occur at any other index."
+      },
+      {
+        "input": "s = \"loveleetcode\"",
+        "output": "2"
+      },
+      {
+        "input": "s = \"aabb\"",
+        "output": "-1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['leetcode']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['loveleetcode']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['aabbcc']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['z']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['abccbaD']\n",
+        "output": "6\n"
+      },
+      {
+        "input": "['😀😃😄😁😃😀']\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('firstUniqChar', (['leetcode'],), 0)",
+      "('firstUniqChar', (['loveleetcode'],), 2)",
+      "('firstUniqChar', (['aabbcc'],), -1)",
+      "('firstUniqChar', ([''],), -1)",
+      "('firstUniqChar', (['z'],), 0)",
+      "('firstUniqChar', (['abccbaD'],), 6)",
+      "('firstUniqChar', (['😀😃😄😁😃😀'],), 2)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: firstUniqChar(['leetcode'],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#2] ❌ 失敗\n  標準輸入: firstUniqChar(['loveleetcode'],)\n  標準輸出: 2\n  你的輸出: 0\n\n[測試#3] ❌ 失敗\n  標準輸入: firstUniqChar(['aabbcc'],)\n  標準輸出: -1\n  你的輸出: 0\n\n[測試#4] ❌ 失敗\n  標準輸入: firstUniqChar([''],)\n  標準輸出: -1\n  你的輸出: 0\n\n[測試#5] ✅ 通過\n  標準輸入: firstUniqChar(['z'],)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ❌ 失敗\n  標準輸入: firstUniqChar(['abccbaD'],)\n  標準輸出: 6\n  你的輸出: 0\n\n[測試#7] ❌ 失敗\n  標準輸入: firstUniqChar(['😀😃😄😁😃😀'],)\n  標準輸出: 2\n  你的輸出: 0\n\n=== 測試完成 (2/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 2,
+    "accuracy_rate": 0.2857142857142857
+  }
+}

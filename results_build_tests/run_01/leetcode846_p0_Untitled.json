@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode846.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Untitled",
+    "description": "Alice has some number of cards and she wants to rearrange the cards into groups so that each group is of size groupSize, and consists of groupSize consecutive cards.\n\nGiven an integer array hand where hand[i] is the value written on the ith card and an integer groupSize, return true if she can rearrange the cards, or false otherwise.",
+    "examples": [
+      {
+        "input": "hand = [1,2,3,6,2,3,4,7,8], groupSize = 3",
+        "output": true,
+        "explanation": "Alice's hand can be rearranged as [1,2,3],[2,3,4],[6,7,8]"
+      },
+      {
+        "input": "hand = [1,2,3,4,5], groupSize = 4",
+        "output": false,
+        "explanation": "Alice's hand can not be rearranged into groups of 4."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 2, 3, 4, 5, 6]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 4, 5]\n2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 4, 6]\n2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[]\n5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[-3, -2, -1, 0, 1, 2]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1000000000, 1000000001, 1000000002]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 1, 1, 2, 2, 3]\n2\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isNStraightHand', ([1, 2, 3, 4, 5, 6], 3), True)",
+      "('isNStraightHand', ([1, 2, 4, 5], 2), True)",
+      "('isNStraightHand', ([1, 2, 4, 6], 2), False)",
+      "('isNStraightHand', ([], 5), True)",
+      "('isNStraightHand', ([-3, -2, -1, 0, 1, 2], 3), True)",
+      "('isNStraightHand', ([1000000000, 1000000001, 1000000002], 3), True)",
+      "('isNStraightHand', ([1, 1, 1, 2, 2, 3], 2), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 3, 4, 5, 6], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 4, 5], 2)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isNStraightHand([1, 2, 4, 6], 2)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ✅ 通過\n  標準輸入: isNStraightHand([], 5)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isNStraightHand([-3, -2, -1, 0, 1, 2], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isNStraightHand([1000000000, 1000000001, 1000000002], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isNStraightHand([1, 1, 1, 2, 2, 3], 2)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

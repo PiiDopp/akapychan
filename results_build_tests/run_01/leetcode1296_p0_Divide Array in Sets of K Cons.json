@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode1296.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Divide Array in Sets of K Consecutive Numbers",
+    "description": "Given an array of integers nums and a positive integer k, check whether it is possible to divide this array into sets of k consecutive numbers.\n\nReturn true if it is possible. Otherwise, return false.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,3,4,4,5,6], k = 4",
+        "output": "true",
+        "explanation": "Array can be divided into [1,2,3,4] and [3,4,5,6]."
+      },
+      {
+        "input": "nums = [3,2,1,2,3,4,3,4,5,9,10,11], k = 3",
+        "output": "true",
+        "explanation": "Array can be divided into [1,2,3] , [2,3,4] , [3,4,5] and [9,10,11]."
+      },
+      {
+        "input": "nums = [1,2,3,4], k = 3",
+        "output": "false",
+        "explanation": "Each array should be divided in subarrays of size 3."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 2, 3, 3, 4, 4, 5, 6]\n4\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5, 6]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5, 6, 7, 8, 9]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[]\n5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[-1, 0, 1, 2]\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[-3, -2, -1, 0, 1, 2]\n3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "[1, 2, 2, 3, 4, 5]\n3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[1, 2, 4, 5, 6, 7]\n3\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isPossibleDivide', ([1, 2, 3, 3, 4, 4, 5, 6], 4), True)",
+      "('isPossibleDivide', ([1, 2, 3, 4, 5, 6], 3), True)",
+      "('isPossibleDivide', ([1, 2, 3, 4, 5, 6, 7, 8, 9], 3), True)",
+      "('isPossibleDivide', ([], 5), True)",
+      "('isPossibleDivide', ([-1, 0, 1, 2], 1), True)",
+      "('isPossibleDivide', ([-3, -2, -1, 0, 1, 2], 3), True)",
+      "('isPossibleDivide', ([1, 2, 2, 3, 4, 5], 3), False)",
+      "('isPossibleDivide', ([1, 2, 4, 5, 6, 7], 3), False)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: isPossibleDivide([1, 2, 3, 3, 4, 4, 5, 6], 4)\n  標準輸出: True\n  你的輸出: True\n\n[測試#2] ✅ 通過\n  標準輸入: isPossibleDivide([1, 2, 3, 4, 5, 6], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: isPossibleDivide([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: isPossibleDivide([], 5)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: isPossibleDivide([-1, 0, 1, 2], 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#6] ✅ 通過\n  標準輸入: isPossibleDivide([-3, -2, -1, 0, 1, 2], 3)\n  標準輸出: True\n  你的輸出: True\n\n[測試#7] ✅ 通過\n  標準輸入: isPossibleDivide([1, 2, 2, 3, 4, 5], 3)\n  標準輸出: False\n  你的輸出: False\n\n[測試#8] ✅ 通過\n  標準輸入: isPossibleDivide([1, 2, 4, 5, 6, 7], 3)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0001s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

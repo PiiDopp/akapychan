@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode890.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Find and Replace Pattern",
+    "description": "Given a list of strings words and a string pattern, return a list of words[i] that match pattern. You may return the answer in any order.\n\nA word matches the pattern if there exists a permutation of letters p so that after replacing every letter x in the pattern with p(x), we get the desired word.\n\nRecall that a permutation of letters is a bijection from letters to letters: every letter maps to another letter, and no two letters map to the same letter.",
+    "examples": [
+      {
+        "input": "words = [\"abc\",\"deq\",\"mee\",\"aqq\",\"dkd\",\"ccc\"], pattern = \"abb\"",
+        "output": "[\"mee\",\"aqq\"]",
+        "explanation": "\"mee\" matches the pattern because there is a permutation {a -> m, b -> e, ...}. \n\"ccc\" does not match the pattern because {a -> c, b -> c, ...} is not a permutation, since a and b map to the same letter."
+      },
+      {
+        "input": "words = [\"a\",\"b\",\"c\"], pattern = \"a\"",
+        "output": "[\"a\",\"b\",\"c\"]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "Agent 未能生成有效測資 (normalize_tests returned empty)",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

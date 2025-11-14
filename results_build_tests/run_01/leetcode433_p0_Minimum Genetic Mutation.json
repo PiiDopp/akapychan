@@ -1,0 +1,67 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode433.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Genetic Mutation",
+    "description": "A gene string can be represented by an 8-character long string, with choices from 'A', 'C', 'G', and 'T'.\n\nSuppose we need to investigate a mutation from a gene string startGene to a gene string endGene where one mutation is defined as one single character changed in the gene string.\n\nThere is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.\n\nGiven the two gene strings startGene and endGene and the gene bank bank, return the minimum number of mutations needed to mutate from startGene to endGene. If there is no such a mutation, return -1.\n\nNote that the starting point is assumed to be valid, so it might not be included in the bank.",
+    "examples": [
+      {
+        "input": "startGene = \"AACCGGTT\", endGene = \"AACCGGTA\", bank = [\"AACCGGTA\"]",
+        "output": "1"
+      },
+      {
+        "input": "startGene = \"AACCGGTT\", endGene = \"AAACGGTA\", bank = [\"AACCGGTA\",\"AACCGCTA\",\"AAACGGTA\"]",
+        "output": "2"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['AACCGGTT', 'AACCGGTA', ['AACCGGTA']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AACCGCTA', 'AAACGGTA']]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AACCGCTA']]\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['AACCGGTT', 'AACCGGTT', []]\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['AACCGGTT', 'AACCGGTA', []]\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['AACCGGTT', 'AACCGGTA', ['AACCGGTA', 'AACCGGTA']]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['AACCGGTT', 'AACCGGTA', ['AACCGGTT', 'AACCGGTA']]\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('minMutation', ('AACCGGTT', 'AACCGGTA', ['AACCGGTA']), 1)",
+      "('minMutation', ('AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AACCGCTA', 'AAACGGTA']), 2)",
+      "('minMutation', ('AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AACCGCTA']), -1)",
+      "('minMutation', ('AACCGGTT', 'AACCGGTT', []), 0)",
+      "('minMutation', ('AACCGGTT', 'AACCGGTA', []), -1)",
+      "('minMutation', ('AACCGGTT', 'AACCGGTA', ['AACCGGTA', 'AACCGGTA']), 1)",
+      "('minMutation', ('AACCGGTT', 'AACCGGTA', ['AACCGGTT', 'AACCGGTA']), 1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTA'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#2] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AACCGCTA', 'AAACGGTA'])\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AAACGGTA', ['AACCGGTA', 'AACCGCTA'])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#4] ❌ 失敗\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTT', [])\n  標準輸出: 0\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', [])\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#6] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTA', 'AACCGGTA'])\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTT', 'AACCGGTA'])\n  標準輸出: 1\n  你的輸出: 1\n\n=== 測試完成 (6/7) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 6,
+    "accuracy_rate": 0.8571428571428571
+  }
+}

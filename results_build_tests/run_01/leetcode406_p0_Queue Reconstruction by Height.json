@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode406.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Queue Reconstruction by Height",
+    "description": "You are given an array of people, people, which are the attributes of some people in a queue (not necessarily in order). Each people[i] = [h_i, k_i] represents the i^th person of height h_i with exactly k_i other people in front who have a height greater than or equal to hi.\n\nReconstruct and return the queue that is represented by the input array people. The returned queue should be formatted as an array queue, where queue[j] = [h_j, k_j] is the attributes of the jth person in the queue (queue[0] is the person at the front of the queue).",
+    "examples": [
+      {
+        "input": "people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]",
+        "output": "[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]",
+        "explanation": "Person 0 has height 5 with no other people taller or the same height in front.\nPerson 1 has height 7 with no other people taller or the same height in front.\nPerson 2 has height 5 with two persons taller or the same height in front, which is person 0 and \nPerson 3 has height 6 with one person taller or the same height in front, which is person 1.\nPerson 4 has height 4 with four people taller or the same height in front, which are people 0, 1, 2, and 3.\nPerson 5 has height 7 with one person taller or the same height in front, which is person 1.\nHence [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] is the reconstructed queue."
+      },
+      {
+        "input": "people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]",
+        "output": "[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[7, 0] [4, 4] [7, 1] [5, 0] [6, 1] [5, 2]\n",
+        "output": "[[5, 0], [7, 0], [5, 2], [6, 1], [4, 4], [7, 1]]\n"
+      },
+      {
+        "input": "[5, 0] [5, 1] [5, 2]\n",
+        "output": "[[5, 0], [5, 1], [5, 2]]\n"
+      },
+      {
+        "input": "[5, 0]\n",
+        "output": "[[5, 0]]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[5, 3] [5, 0]\n",
+        "output": "[[5, 0], [5, 3]]\n"
+      },
+      {
+        "input": "[6, 0] [5, 0] [4, 0]\n",
+        "output": "[[4, 0], [5, 0], [6, 0]]\n"
+      },
+      {
+        "input": "[10, 0] [9, 1] [8, 2] [7, 3]\n",
+        "output": "[[10, 0], [9, 1], [8, 2], [7, 3]]\n"
+      },
+      {
+        "input": "[-1, 0] [5, 1]\n",
+        "output": "[[-1, 0], [5, 1]]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reconstructQueue', ('[7, 0] [4, 4] [7, 1] [5, 0] [6, 1] [5, 2]\\n',), [[5, 0], [7, 0], [5, 2], [6, 1], [4, 4], [7, 1]])",
+      "('reconstructQueue', ('[5, 0] [5, 1] [5, 2]\\n',), [[5, 0], [5, 1], [5, 2]])",
+      "('reconstructQueue', ([5, 0],), [[5, 0]])",
+      "('reconstructQueue', ((),), [])",
+      "('reconstructQueue', ('[5, 3] [5, 0]\\n',), [[5, 0], [5, 3]])",
+      "('reconstructQueue', ('[6, 0] [5, 0] [4, 0]\\n',), [[4, 0], [5, 0], [6, 0]])",
+      "('reconstructQueue', ('[10, 0] [9, 1] [8, 2] [7, 3]\\n',), [[10, 0], [9, 1], [8, 2], [7, 3]])",
+      "('reconstructQueue', ('[-1, 0] [5, 1]\\n',), [[-1, 0], [5, 1]])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'int' object is not subscriptable\n[測試#4] ❌ 執行例外: 'tuple' object has no attribute 'sort'\n[測試#5] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

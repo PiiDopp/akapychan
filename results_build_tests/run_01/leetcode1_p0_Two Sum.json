@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode1.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Two Sum",
+    "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.",
+    "examples": [
+      {
+        "input": "nums = [2,7,11,15], target = 9",
+        "output": "[0,1]",
+        "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1]."
+      },
+      {
+        "input": "nums = [3,2,4], target = 6",
+        "output": "[1,2]"
+      },
+      {
+        "input": "nums = [3,3], target = 6",
+        "output": "[0,1]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[2, 7, 11, 15]\n9\n",
+        "output": "[0, 1]\n"
+      },
+      {
+        "input": "[3, 2, 4]\n6\n",
+        "output": "[1, 2]\n"
+      },
+      {
+        "input": "[3, 3, 4]\n6\n",
+        "output": "[0, 1]\n"
+      },
+      {
+        "input": "[5, 5]\n10\n",
+        "output": "[0, 1]\n"
+      },
+      {
+        "input": "[-3, 4, 3, 90]\n0\n",
+        "output": "[0, 2]\n"
+      },
+      {
+        "input": "[1000000000, -1000000000]\n0\n",
+        "output": "[0, 1]\n"
+      },
+      {
+        "input": "[1, 1, 1]\n2\n",
+        "output": "[0, 1]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('twoSum', ([2, 7, 11, 15], 9), [0, 1])",
+      "('twoSum', ([3, 2, 4], 6), [1, 2])",
+      "('twoSum', ([3, 3, 4], 6), [0, 1])",
+      "('twoSum', ([5, 5], 10), [0, 1])",
+      "('twoSum', ([-3, 4, 3, 90], 0), [0, 2])",
+      "('twoSum', ([1000000000, -1000000000], 0), [0, 1])",
+      "('twoSum', ([1, 1, 1], 2), [0, 1])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: twoSum([2, 7, 11, 15], 9)\n  標準輸出: [0, 1]\n  你的輸出: [0, 1]\n\n[測試#2] ✅ 通過\n  標準輸入: twoSum([3, 2, 4], 6)\n  標準輸出: [1, 2]\n  你的輸出: [1, 2]\n\n[測試#3] ✅ 通過\n  標準輸入: twoSum([3, 3, 4], 6)\n  標準輸出: [0, 1]\n  你的輸出: [0, 1]\n\n[測試#4] ✅ 通過\n  標準輸入: twoSum([5, 5], 10)\n  標準輸出: [0, 1]\n  你的輸出: [0, 1]\n\n[測試#5] ✅ 通過\n  標準輸入: twoSum([-3, 4, 3, 90], 0)\n  標準輸出: [0, 2]\n  你的輸出: [0, 2]\n\n[測試#6] ✅ 通過\n  標準輸入: twoSum([1000000000, -1000000000], 0)\n  標準輸出: [0, 1]\n  你的輸出: [0, 1]\n\n[測試#7] ✅ 通過\n  標準輸入: twoSum([1, 1, 1], 2)\n  標準輸出: [0, 1]\n  你的輸出: [0, 1]\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

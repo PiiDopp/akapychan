@@ -1,0 +1,77 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode810.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Chalkboard XOR Game",
+    "description": "You are given an array of integers nums represents the numbers written on a chalkboard.\n\nAlice and Bob take turns erasing exactly one number from the chalkboard, with Alice starting first. If erasing a number causes the bitwise XOR of all the elements of the chalkboard to become 0, then that player loses. The bitwise XOR of one element is that element itself, and the bitwise XOR of no elements is 0.\n\nAlso, if any player starts their turn with the bitwise XOR of all the elements of the chalkboard equal to 0, then that player wins.\n\nReturn true if and only if Alice wins the game, assuming both players play optimally.",
+    "examples": [
+      {
+        "input": "nums = [1,1,2]",
+        "output": "false",
+        "explanation": "Alice has two choices: erase 1 or erase 2. If she erases 1, the nums array becomes [1, 2]. The bitwise XOR of all the elements of the chalkboard is 1 XOR 2 = 3. Now Bob can remove any element he wants, because Alice will be the one to erase the last element and she will lose. If Alice erases 2 first, now nums become [1, 1]. The bitwise XOR of all the elements of the chalkboard is 1 XOR 1 = 0. Alice will lose."
+      },
+      {
+        "input": "nums = [0,1]",
+        "output": "true"
+      },
+      {
+        "input": "nums = [1,2,3]",
+        "output": "true"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5 1 2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n",
+        "output": "False\n"
+      },
+      {
+        "input": "-1 -2 -3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1152921504606846976 1152921504606846975\n",
+        "output": "True\n"
+      },
+      {
+        "input": "-1152921504606846976 -1152921504606846976\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('xorGame', ('1 2 3\\n',), True)",
+      "('xorGame', ('5 1 2\\n',), False)",
+      "('xorGame', ((),), True)",
+      "('xorGame', (0,), True)",
+      "('xorGame', (5,), False)",
+      "('xorGame', ('-1 -2 -3\\n',), False)",
+      "('xorGame', ('1152921504606846976 1152921504606846975\\n',), True)",
+      "('xorGame', ('-1152921504606846976 -1152921504606846976\\n',), True)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for ^: 'str' and 'str'\n[測試#2] ❌ 執行例外: unsupported operand type(s) for ^: 'str' and 'str'\n[測試#3] ❌ 執行例外: reduce() of empty iterable with no initial value\n[測試#4] ❌ 執行例外: reduce() arg 2 must support iteration\n[測試#5] ❌ 執行例外: reduce() arg 2 must support iteration\n[測試#6] ❌ 執行例外: unsupported operand type(s) for ^: 'str' and 'str'\n[測試#7] ❌ 執行例外: unsupported operand type(s) for ^: 'str' and 'str'\n[測試#8] ❌ 執行例外: unsupported operand type(s) for ^: 'str' and 'str'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

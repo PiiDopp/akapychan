@@ -1,0 +1,82 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode645.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Set Mismatch",
+    "description": "You have a set of integers s, which originally contains all the numbers from 1 to n. Unfortunately, due to some error, one of the numbers in s got duplicated to another number in the set, which results in repetition of one number and loss of another number.\n\nYou are given an integer array nums representing the data status of this set after the error.\n\nFind the number that occurs twice and the number that is missing and return them in the form of an array.",
+    "examples": [
+      {
+        "input": "nums = [1,2,2,4]",
+        "output": "[2,3]"
+      },
+      {
+        "input": "nums = [1,1]",
+        "output": "[1,2]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 2 4\n",
+        "output": "[2, 3]\n"
+      },
+      {
+        "input": "3 1 2 5 3\n",
+        "output": "[3, 4]\n"
+      },
+      {
+        "input": "2 3 1 5 5\n",
+        "output": "[5, 4]\n"
+      },
+      {
+        "input": "4 3 2 7 8 2 6 1\n",
+        "output": "[2, 5]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[0, 0]\n"
+      },
+      {
+        "input": "1\n",
+        "output": "[0, 0]\n"
+      },
+      {
+        "input": "1 2 3 4 4\n",
+        "output": "[4, 5]\n"
+      },
+      {
+        "input": "2 2 3\n",
+        "output": "[2, 1]\n"
+      },
+      {
+        "input": "1 1 3\n",
+        "output": "[1, 2]\n"
+      },
+      {
+        "input": "1 3 3 4\n",
+        "output": "[3, 2]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findErrorNums', ('1 2 2 4\\n',), [2, 3])",
+      "('findErrorNums', ('3 1 2 5 3\\n',), [3, 4])",
+      "('findErrorNums', ('2 3 1 5 5\\n',), [5, 4])",
+      "('findErrorNums', ('4 3 2 7 8 2 6 1\\n',), [2, 5])",
+      "('findErrorNums', ((),), [0, 0])",
+      "('findErrorNums', (1,), [0, 0])",
+      "('findErrorNums', ('1 2 3 4 4\\n',), [4, 5])",
+      "('findErrorNums', ('2 2 3\\n',), [2, 1])",
+      "('findErrorNums', ('1 1 3\\n',), [1, 2])",
+      "('findErrorNums', ('1 3 3 4\\n',), [3, 2])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#2] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#3] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#4] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#5] ✅ 通過\n  標準輸入: findErrorNums((),)\n  標準輸出: [0, 0]\n  你的輸出: [0, 0]\n\n[測試#6] ❌ 執行例外: object of type 'int' has no len()\n[測試#7] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#8] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#9] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#10] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n=== 測試完成 (1/10) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 10,
+    "passed_count": 1,
+    "accuracy_rate": 0.1
+  }
+}

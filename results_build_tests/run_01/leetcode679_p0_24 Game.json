@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode679.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "24 Game",
+    "description": "You are given an integer array cards of length 4. You have four cards, each containing a number in the range [1, 9]. You should arrange the numbers on these cards in a mathematical expression using the operators ['+', '-', '*', '/'] and the parentheses '(' and ')' to get the value 24. \n\nYou are restricted with the following rules: \n\nThe division operator '/' represents real division, not integer division. \n\nFor example, 4 / (1 - 2 / 3) = 4 / (1 / 3) = 12. \n\nEvery operation done is between two numbers. In particular, we cannot use '-' as a unary operator. \n\nFor example, if cards = [1, 1, 1, 1], the expression \"-1 - 1 - 1 - 1\" is not allowed. \n\nYou cannot concatenate numbers together \n\nFor example, if cards = [1, 2, 1, 2], the expression \"12 + 12\" is not valid. \n\nReturn true if you can get such expression that evaluates to 24, and false otherwise.",
+    "examples": [
+      {
+        "input": "cards = [4,1,8,7]",
+        "output": "true",
+        "explanation": "(8-4) * (7-1) = 24"
+      },
+      {
+        "input": "cards = [1,2,1,2]",
+        "output": "false",
+        "explanation": ""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 3 4 6\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3 3 8 8\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2 2 2 2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1 1 1 1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "9 9 9 9\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1 2 3 4\n",
+        "output": "False\n"
+      },
+      {
+        "input": "4 4 4 4\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('judgePoint24', ('1 3 4 6\\n',), True)",
+      "('judgePoint24', ('3 3 8 8\\n',), True)",
+      "('judgePoint24', ('2 2 2 2\\n',), False)",
+      "('judgePoint24', ('1 1 1 1\\n',), False)",
+      "('judgePoint24', ('9 9 9 9\\n',), False)",
+      "('judgePoint24', ('1 2 3 4\\n',), False)",
+      "('judgePoint24', ('4 4 4 4\\n',), False)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'int'\n[測試#2] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'int'\n[測試#3] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'int'\n[測試#4] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'int'\n[測試#5] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'int'\n[測試#6] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'int'\n[測試#7] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'int'\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode881.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Boats to Save People",
+    "description": "You are given an array people where people[i] is the weight of the ith person, and an infinite number of boats where each boat can carry a maximum weight of limit. Each boat carries at most two people at the same time, provided the sum of the weight of those people is at most limit.\nReturn the minimum number of boats to carry every given person.",
+    "examples": [
+      {
+        "input": "people = [1,2], limit = 3",
+        "output": "1",
+        "explanation": "1 boat (1, 2)"
+      },
+      {
+        "input": "people = [3,2,2,1], limit = 3",
+        "output": "3",
+        "explanation": "3 boats (1, 2), (2) and (3)"
+      },
+      {
+        "input": "people = [3,5,3,4], limit = 5",
+        "output": "4",
+        "explanation": "4 boats (3), (3), (4), (5)"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 2, 2, 3]\n3\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[3, 5, 3, 4]\n5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "[]\n5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[4]\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[10, 12, 15]\n9\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[-1, 5]\n5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1, 2]\n0\n",
+        "output": "2\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numRescueBoats', ([1, 2, 2, 3], 3), 3)",
+      "('numRescueBoats', ([3, 3, 4, 5], 5), 4)",
+      "('numRescueBoats', ([], 5), 0)",
+      "('numRescueBoats', ([4], 5), 1)",
+      "('numRescueBoats', ([10, 12, 15], 9), 3)",
+      "('numRescueBoats', ([-1, 5], 5), 1)",
+      "('numRescueBoats', ([1, 2], 0), 2)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: numRescueBoats([1, 2, 2, 3], 3)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: numRescueBoats([3, 3, 4, 5], 5)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: numRescueBoats([], 5)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#4] ✅ 通過\n  標準輸入: numRescueBoats([4], 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#5] ✅ 通過\n  標準輸入: numRescueBoats([10, 12, 15], 9)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: numRescueBoats([-1, 5], 5)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#7] ✅ 通過\n  標準輸入: numRescueBoats([1, 2], 0)\n  標準輸出: 2\n  你的輸出: 2\n\n=== 測試完成 (7/7) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 7,
+    "passed_count": 7,
+    "accuracy_rate": 1.0
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode179.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Largest Number",
+    "description": "Given a list of non-negative integers nums, arrange them such that they form the largest number and return it. \n\nSince the result may be very large, so you need to return a string instead of an integer.",
+    "examples": [
+      {
+        "input": "nums = [10,2]",
+        "output": "\"210\""
+      },
+      {
+        "input": "nums = [3,30,34,5,9]",
+        "output": "\"9534330\""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "3 30 34 5 9\n",
+        "output": "9534330\n"
+      },
+      {
+        "input": "10 2\n",
+        "output": "210\n"
+      },
+      {
+        "input": "0 0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "\n",
+        "output": "\n"
+      },
+      {
+        "input": "0 0 0\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "12 121\n",
+        "output": "12121\n"
+      },
+      {
+        "input": "0 1\n",
+        "output": "10\n"
+      }
+    ],
+    "parsed_tests": [
+      "('largestNumber', ('3 30 34 5 9\\n',), 9534330)",
+      "('largestNumber', ('10 2\\n',), 210)",
+      "('largestNumber', ('0 0\\n',), 0)",
+      "('largestNumber', ((),), '\\n')",
+      "('largestNumber', ('0 0 0\\n',), 0)",
+      "('largestNumber', (5,), 5)",
+      "('largestNumber', ('12 121\\n',), 12121)",
+      "('largestNumber', ('0 1\\n',), 10)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: largestNumber('3 30 34 5 9\\n',)\n  標準輸出: 9534330\n  你的輸出: '9543330    \\n'\n\n[測試#2] ❌ 失敗\n  標準輸入: largestNumber('10 2\\n',)\n  標準輸出: 210\n  你的輸出: '210 \\n'\n\n[測試#3] ❌ 失敗\n  標準輸入: largestNumber('0 0\\n',)\n  標準輸出: 0\n  你的輸出: '0'\n\n[測試#4] ❌ 執行例外: string index out of range\n[測試#5] ❌ 失敗\n  標準輸入: largestNumber('0 0 0\\n',)\n  標準輸出: 0\n  你的輸出: '0'\n\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ❌ 失敗\n  標準輸入: largestNumber('12 121\\n',)\n  標準輸出: 12121\n  你的輸出: '22111 \\n'\n\n[測試#8] ❌ 失敗\n  標準輸入: largestNumber('0 1\\n',)\n  標準輸出: 10\n  你的輸出: '10 \\n'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

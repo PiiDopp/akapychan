@@ -1,0 +1,76 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode917.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reverse Only Letters",
+    "description": "Given a string s, reverse the string according to the following rules:\nAll the characters that are not English letters remain in the same position.\nAll the English letters (lowercase or uppercase) should be reversed.\nReturn s after reversing it.",
+    "examples": [
+      {
+        "input": "s = \"ab-cd\"",
+        "output": "\"dc-ba\""
+      },
+      {
+        "input": "s = \"a-bC-dEf-ghIj\"",
+        "output": "\"j-Ih-gfE-dCba\""
+      },
+      {
+        "input": "s = \"Test1ng-Leet=code-Q!\"",
+        "output": "\"Qedo1ct-eeLg=ntse-T!\""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['AbcDe']\n",
+        "output": "eDcBa\n"
+      },
+      {
+        "input": "['a😊b']\n",
+        "output": "b😊a\n"
+      },
+      {
+        "input": "['1234!@#$']\n",
+        "output": "1234!@#$\n"
+      },
+      {
+        "input": "['aaAA']\n",
+        "output": "AAaa\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "\n"
+      },
+      {
+        "input": "['HelloWorld']\n",
+        "output": "dlroWolleH\n"
+      },
+      {
+        "input": "['éa']\n",
+        "output": "aé\n"
+      },
+      {
+        "input": "['a b c']\n",
+        "output": "c b a\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reverseOnlyLetters', (['AbcDe'],), 'eDcBa\\n')",
+      "('reverseOnlyLetters', (['a😊b'],), 'b😊a\\n')",
+      "('reverseOnlyLetters', (['1234!@#$'],), '1234!@#$\\n')",
+      "('reverseOnlyLetters', (['aaAA'],), 'AAaa\\n')",
+      "('reverseOnlyLetters', ([''],), '\\n')",
+      "('reverseOnlyLetters', (['HelloWorld'],), 'dlroWolleH\\n')",
+      "('reverseOnlyLetters', (['éa'],), 'aé\\n')",
+      "('reverseOnlyLetters', (['a b c'],), 'c b a\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reverseOnlyLetters(['AbcDe'],)\n  標準輸出: 'eDcBa\\n'\n  你的輸出: 'AbcDe'\n\n[測試#2] ❌ 失敗\n  標準輸入: reverseOnlyLetters(['a😊b'],)\n  標準輸出: 'b😊a\\n'\n  你的輸出: 'a😊b'\n\n[測試#3] ❌ 失敗\n  標準輸入: reverseOnlyLetters(['1234!@#$'],)\n  標準輸出: '1234!@#$\\n'\n  你的輸出: '1234!@#$'\n\n[測試#4] ❌ 失敗\n  標準輸入: reverseOnlyLetters(['aaAA'],)\n  標準輸出: 'AAaa\\n'\n  你的輸出: 'aaAA'\n\n[測試#5] ❌ 失敗\n  標準輸入: reverseOnlyLetters([''],)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#6] ❌ 失敗\n  標準輸入: reverseOnlyLetters(['HelloWorld'],)\n  標準輸出: 'dlroWolleH\\n'\n  你的輸出: 'HelloWorld'\n\n[測試#7] ❌ 失敗\n  標準輸入: reverseOnlyLetters(['éa'],)\n  標準輸出: 'aé\\n'\n  你的輸出: 'éa'\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseOnlyLetters(['a b c'],)\n  標準輸出: 'c b a\\n'\n  你的輸出: 'a b c'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode368.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Largest Divisible Subset",
+    "description": "Given a set of distinct positive integers nums, return the largest subset answer such that every pair (answer[i], answer[j]) of elements in this subset satisfies:\nanswer[i] % answer[j] == 0, or\nanswer[j] % answer[i] == 0\nIf there are multiple solutions, return any of them.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "[1,2]",
+        "explanation": "[1,3] is also accepted."
+      },
+      {
+        "input": "nums = [1,2,4,8]",
+        "output": "[1,2,4,8]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3 4 6\n",
+        "output": "[1, 2, 4]\n"
+      },
+      {
+        "input": "2 3 5 7\n",
+        "output": "[2]\n"
+      },
+      {
+        "input": "2 2 4\n",
+        "output": "[2, 2, 4]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "7\n",
+        "output": "[7]\n"
+      },
+      {
+        "input": "1 2 4 8 16\n",
+        "output": "[1, 2, 4, 8, 16]\n"
+      },
+      {
+        "input": "1000000000 999999999 999999998\n",
+        "output": "[999999998]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('largestDivisibleSubset', ('1 2 3 4 6\\n',), [1, 2, 4])",
+      "('largestDivisibleSubset', ('2 3 5 7\\n',), [2])",
+      "('largestDivisibleSubset', ('2 2 4\\n',), [2, 2, 4])",
+      "('largestDivisibleSubset', ((),), [])",
+      "('largestDivisibleSubset', (7,), [7])",
+      "('largestDivisibleSubset', ('1 2 4 8 16\\n',), [1, 2, 4, 8, 16])",
+      "('largestDivisibleSubset', ('1000000000 999999999 999999998\\n',), [999999998])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ✅ 通過\n  標準輸入: largestDivisibleSubset((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#5] ❌ 執行例外: 'int' object has no attribute 'sort'\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (1/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 1,
+    "accuracy_rate": 0.14285714285714285
+  }
+}

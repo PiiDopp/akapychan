@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode452.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Minimum Number of Arrows to Burst Balloons",
+    "description": "There are some spherical balloons taped onto a flat wall that represents the XY-plane. The balloons are represented as a 2D integer array points where points[i] = [x_start, x_end] denotes a balloon whose horizontal diameter stretches between xstart and xend. You do not know the exact y-coordinates of the balloons.\n\nArrows can be shot up directly vertically (in the positive y-direction) from different points along the x-axis. A balloon with x_start and x_end is burst by an arrow shot at x if x_start <= x <= x_end. There is no limit to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely, bursting any balloons in its path.\n\nGiven the array points, return the minimum number of arrows that must be shot to burst all balloons.",
+    "examples": [
+      {
+        "input": "points = [[10,16],[2,8],[1,6],[7,12]]",
+        "output": "2",
+        "explanation": "The balloons can be burst by 2 arrows: Shoot an arrow at x = 6, bursting the balloons [2,8] and [1,6]. Shoot an arrow at x = 11, bursting the balloons [10,16] and [7,12]."
+      },
+      {
+        "input": "points = [[1,2],[3,4],[5,6],[7,8]]",
+        "output": "4",
+        "explanation": "One arrow needs to be shot for each balloon for a total of 4 arrows."
+      },
+      {
+        "input": "points = [[1,2],[2,3],[3,4],[4,5]]",
+        "output": "2",
+        "explanation": "Shoot an arrow at x = 2, bursting the balloons [1,2] and [2,3]. Shoot an arrow at x = 4, bursting the balloons [3,4] and [4,5]."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[1, 6] [2, 8] [3, 5]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1, 2] [3, 4] [5, 6]\n",
+        "output": "3\n"
+      },
+      {
+        "input": "[1, 2] [2, 3] [3, 4]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "[-5, 10]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[-10, -5] [-8, -3] [0, 2]\n",
+        "output": "2\n"
+      },
+      {
+        "input": "[-1000000000, 1000000000]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "[1, 5] [2, 5] [3, 5]\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findMinArrowShots', ('[1, 6] [2, 8] [3, 5]\\n',), 1)",
+      "('findMinArrowShots', ('[1, 2] [3, 4] [5, 6]\\n',), 3)",
+      "('findMinArrowShots', ('[1, 2] [2, 3] [3, 4]\\n',), 2)",
+      "('findMinArrowShots', ((),), 0)",
+      "('findMinArrowShots', ([-5, 10],), 1)",
+      "('findMinArrowShots', ('[-10, -5] [-8, -3] [0, 2]\\n',), 2)",
+      "('findMinArrowShots', ([-1000000000, 1000000000],), 1)",
+      "('findMinArrowShots', ('[1, 5] [2, 5] [3, 5]\\n',), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#2] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#3] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#4] ✅ 通過\n  標準輸入: findMinArrowShots((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ❌ 執行例外: 'int' object is not subscriptable\n[測試#6] ❌ 執行例外: 'str' object has no attribute 'sort'\n[測試#7] ❌ 執行例外: 'int' object is not subscriptable\n[測試#8] ❌ 執行例外: 'str' object has no attribute 'sort'\n=== 測試完成 (1/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 1,
+    "accuracy_rate": 0.125
+  }
+}

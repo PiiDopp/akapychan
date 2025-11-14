@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode386.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Lexicographical Numbers",
+    "description": "Given an integer n, return all the numbers in the range [1, n] sorted in lexicographical order.\n\nYou must write an algorithm that runs in O(n) time and uses O(1) extra space.",
+    "examples": [
+      {
+        "input": "n = 13",
+        "output": "[1,10,11,12,13,2,3,4,5,6,7,8,9]"
+      },
+      {
+        "input": "n = 2",
+        "output": "[1,2]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "[1]\n"
+      },
+      {
+        "input": "13\n",
+        "output": "[1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]\n"
+      },
+      {
+        "input": "20\n",
+        "output": "[1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 3, 4, 5, 6, 7, 8, 9, 20]\n"
+      },
+      {
+        "input": "10\n",
+        "output": "[1, 10, 2, 3, 4, 5, 6, 7, 8, 9]\n"
+      },
+      {
+        "input": "9\n",
+        "output": "[1, 2, 3, 4, 5, 6, 7, 8, 9]\n"
+      },
+      {
+        "input": "11\n",
+        "output": "[1, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9]\n"
+      },
+      {
+        "input": "0\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "-5\n",
+        "output": "[]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('lexicalOrder', (1,), [1])",
+      "('lexicalOrder', (13,), [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9])",
+      "('lexicalOrder', (20,), [1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 3, 4, 5, 6, 7, 8, 9, 20])",
+      "('lexicalOrder', (10,), [1, 10, 2, 3, 4, 5, 6, 7, 8, 9])",
+      "('lexicalOrder', (9,), [1, 2, 3, 4, 5, 6, 7, 8, 9])",
+      "('lexicalOrder', (11,), [1, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9])",
+      "('lexicalOrder', (0,), [])",
+      "('lexicalOrder', (-5,), [])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: lexicalOrder(1,)\n  標準輸出: [1]\n  你的輸出: [1]\n\n[測試#2] ✅ 通過\n  標準輸入: lexicalOrder(13,)\n  標準輸出: [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]\n  你的輸出: [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]\n\n[測試#3] ❌ 失敗\n  標準輸入: lexicalOrder(20,)\n  標準輸出: [1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 3, 4, 5, 6, 7, 8, 9, 20]\n  你的輸出: [1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 20, 3, 4, 5, 6, 7, 8, 9]\n\n[測試#4] ✅ 通過\n  標準輸入: lexicalOrder(10,)\n  標準輸出: [1, 10, 2, 3, 4, 5, 6, 7, 8, 9]\n  你的輸出: [1, 10, 2, 3, 4, 5, 6, 7, 8, 9]\n\n[測試#5] ✅ 通過\n  標準輸入: lexicalOrder(9,)\n  標準輸出: [1, 2, 3, 4, 5, 6, 7, 8, 9]\n  你的輸出: [1, 2, 3, 4, 5, 6, 7, 8, 9]\n\n[測試#6] ✅ 通過\n  標準輸入: lexicalOrder(11,)\n  標準輸出: [1, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9]\n  你的輸出: [1, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9]\n\n[測試#7] ✅ 通過\n  標準輸入: lexicalOrder(0,)\n  標準輸出: []\n  你的輸出: []\n\n[測試#8] ✅ 通過\n  標準輸入: lexicalOrder(-5,)\n  標準輸出: []\n  你的輸出: []\n\n=== 測試完成 (7/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 7,
+    "accuracy_rate": 0.875
+  }
+}

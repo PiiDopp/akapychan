@@ -1,0 +1,31 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode792.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Number of Matching Subsequences",
+    "description": "\"Given a string s and an array of strings words, return the number of words[i] that is a subsequence of s.\\n\\nA subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.\n\nFor example, \"ace\" is a subsequence of \"abcde\".",
+    "examples": [
+      {
+        "input": "s = \"abcde\", words = [\"a\",\"bb\",\"acd\",\"ace\"]",
+        "output": "3",
+        "explanation": "There are three strings in words that are a subsequence of s: \"a\", \"acd\", \"ace\"."
+      },
+      {
+        "input": "s = \"dsahjpjauf\", words = [\"ahjpjau\",\"ja\",\"ahbwzgqnuk\",\"tnmlanowax\"]",
+        "output": "2"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": false,
+    "error": "Agent 未能生成有效測資 (normalize_tests returned empty)",
+    "generated_tests": [],
+    "parsed_tests": [],
+    "runlog": "",
+    "all_passed": false,
+    "total_tests": 0,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

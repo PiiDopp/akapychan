@@ -1,0 +1,66 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode412.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Fizz Buzz",
+    "description": "Given an integer n, return a string array answer (1-indexed) where:\n\nanswer[i] == \"FizzBuzz\" if i is divisible by 3 and 5.\nanswer[i] == \"Fizz\" if i is divisible by 3.\nanswer[i] == \"Buzz\" if i is divisible by 5.\nanswer[i] == i (as a string) if none of the above conditions are true.",
+    "examples": [
+      {
+        "input": "n = 3",
+        "output": "[\"1\",\"2\",\"Fizz\"]"
+      },
+      {
+        "input": "n = 5",
+        "output": "[\"1\",\"2\",\"Fizz\",\"4\",\"Buzz\"]"
+      },
+      {
+        "input": "n = 15",
+        "output": "[\"1\",\"2\",\"Fizz\",\"4\",\"Buzz\",\"Fizz\",\"7\",\"8\",\"Fizz\",\"Buzz\",\"11\",\"Fizz\",\"13\",\"14\",\"FizzBuzz\"]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "5\n",
+        "output": "['1', '2', 'Fizz', '4', 'Buzz']\n"
+      },
+      {
+        "input": "15\n",
+        "output": "['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', '10', '11', 'Fizz', '13', '14', 'FizzBuzz']\n"
+      },
+      {
+        "input": "0\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "1\n",
+        "output": "['1']\n"
+      },
+      {
+        "input": "3\n",
+        "output": "['1', '2', 'Fizz']\n"
+      },
+      {
+        "input": "20\n",
+        "output": "['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz']\n"
+      }
+    ],
+    "parsed_tests": [
+      "('fizzBuzz', (5,), ['1', '2', 'Fizz', '4', 'Buzz'])",
+      "('fizzBuzz', (15,), ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', '10', '11', 'Fizz', '13', '14', 'FizzBuzz'])",
+      "('fizzBuzz', (0,), [])",
+      "('fizzBuzz', (1,), ['1'])",
+      "('fizzBuzz', (3,), ['1', '2', 'Fizz'])",
+      "('fizzBuzz', (20,), ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz'])"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: fizzBuzz(5,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz']\n\n[測試#2] ❌ 失敗\n  標準輸入: fizzBuzz(15,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', '10', '11', 'Fizz', '13', '14', 'FizzBuzz']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']\n\n[測試#3] ✅ 通過\n  標準輸入: fizzBuzz(0,)\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ✅ 通過\n  標準輸入: fizzBuzz(1,)\n  標準輸出: ['1']\n  你的輸出: ['1']\n\n[測試#5] ✅ 通過\n  標準輸入: fizzBuzz(3,)\n  標準輸出: ['1', '2', 'Fizz']\n  你的輸出: ['1', '2', 'Fizz']\n\n[測試#6] ✅ 通過\n  標準輸入: fizzBuzz(20,)\n  標準輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz']\n  你的輸出: ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz', '16', '17', 'Fizz', '19', 'Buzz']\n\n=== 測試完成 (5/6) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 6,
+    "passed_count": 5,
+    "accuracy_rate": 0.8333333333333334
+  }
+}

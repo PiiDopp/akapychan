@@ -1,0 +1,69 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode775.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Global and Local Inversions",
+    "description": "You are given an integer array nums of length n which represents a permutation of all the integers in the range [0, n - 1].\n\nThe number of global inversions is the number of the different pairs (i, j) where:\n\n0 <= i < j < n\nnums[i] > nums[j]\n\nThe number of local inversions is the number of indices i where:\n\n0 <= i < n - 1\nnums[i] > nums[i + 1]\n\nReturn true if the number of global inversions is equal to the number of local inversions.",
+    "examples": [
+      {
+        "input": "[1,0,2]",
+        "output": "true",
+        "explanation": "There is 1 global inversion and 1 local inversion."
+      },
+      {
+        "input": "[1,2,0]",
+        "output": "false",
+        "explanation": "There are 2 global inversions and 1 local inversion."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "0 1 2 3\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1 0 2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "2 0 1\n",
+        "output": "False\n"
+      },
+      {
+        "input": "\n",
+        "output": "True\n"
+      },
+      {
+        "input": "0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "3 2 1 0\n",
+        "output": "False\n"
+      },
+      {
+        "input": "1 2 0 3\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isIdealPermutation', ('0 1 2 3\\n',), True)",
+      "('isIdealPermutation', ('1 0 2\\n',), True)",
+      "('isIdealPermutation', ('2 0 1\\n',), False)",
+      "('isIdealPermutation', ((),), True)",
+      "('isIdealPermutation', (0,), True)",
+      "('isIdealPermutation', ('3 2 1 0\\n',), False)",
+      "('isIdealPermutation', ('1 2 0 3\\n',), False)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: isIdealPermutation('0 1 2 3\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#2] ❌ 失敗\n  標準輸入: isIdealPermutation('1 0 2\\n',)\n  標準輸出: True\n  你的輸出: False\n\n[測試#3] ✅ 通過\n  標準輸入: isIdealPermutation('2 0 1\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#4] ❌ 執行例外: tuple index out of range\n[測試#5] ❌ 執行例外: 'int' object is not subscriptable\n[測試#6] ✅ 通過\n  標準輸入: isIdealPermutation('3 2 1 0\\n',)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isIdealPermutation('1 2 0 3\\n',)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (3/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 3,
+    "accuracy_rate": 0.42857142857142855
+  }
+}

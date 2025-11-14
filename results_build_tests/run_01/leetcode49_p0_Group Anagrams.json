@@ -1,0 +1,77 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode49.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Group Anagrams",
+    "description": "Given an array of strings strs, group the anagrams together. You can return the answer in any order.",
+    "examples": [
+      {
+        "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+        "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
+        "explanation": "There is no string in strs that can be rearranged to form \"bat\".\nThe strings \"nat\" and \"tan\" are anagrams as they can be rearranged to form each other.\nThe strings \"ate\", \"eat\", and \"tea\" are anagrams as they can be rearranged to form each other."
+      },
+      {
+        "input": "strs = [\"\"]",
+        "output": "[[\"\"]]"
+      },
+      {
+        "input": "strs = [\"a\"]",
+        "output": "[[\"a\"]]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "[['eat', 'tea', 'tan', 'ate', 'nat', 'bat']]\n",
+        "output": "[['ate', 'eat', 'tea'], ['bat'], ['nat', 'tan']]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "[['', '', '']]\n",
+        "output": "[['', '', '']]\n"
+      },
+      {
+        "input": "[['abc']]\n",
+        "output": "[['abc']]\n"
+      },
+      {
+        "input": "[['你好', '好你', '世界', '界世']]\n",
+        "output": "[['你好', '好你'], ['世界', '界世']]\n"
+      },
+      {
+        "input": "[['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']]\n",
+        "output": "[['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']]\n"
+      },
+      {
+        "input": "[['abc', 'bca', 'abc', 'cab']]\n",
+        "output": "[['abc', 'abc', 'bca', 'cab']]\n"
+      },
+      {
+        "input": "[['ab c', 'c ba', 'abc']]\n",
+        "output": "[['ab c', 'c ba'], ['abc']]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('groupAnagrams', ([['eat', 'tea', 'tan', 'ate', 'nat', 'bat']],), [['ate', 'eat', 'tea'], ['bat'], ['nat', 'tan']])",
+      "('groupAnagrams', ((),), [])",
+      "('groupAnagrams', ([['', '', '']],), [['', '', '']])",
+      "('groupAnagrams', ([['abc']],), [['abc']])",
+      "('groupAnagrams', ([['你好', '好你', '世界', '界世']],), [['你好', '好你'], ['世界', '界世']])",
+      "('groupAnagrams', ([['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']],), [['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']])",
+      "('groupAnagrams', ([['abc', 'bca', 'abc', 'cab']],), [['abc', 'abc', 'bca', 'cab']])",
+      "('groupAnagrams', ([['ab c', 'c ba', 'abc']],), [['ab c', 'c ba'], ['abc']])"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: groupAnagrams([['eat', 'tea', 'tan', 'ate', 'nat', 'bat']],)\n  標準輸出: [['ate', 'eat', 'tea'], ['bat'], ['nat', 'tan']]\n  你的輸出: [[['eat', 'tea', 'tan', 'ate', 'nat', 'bat']]]\n\n[測試#2] ✅ 通過\n  標準輸入: groupAnagrams((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#3] ❌ 失敗\n  標準輸入: groupAnagrams([['', '', '']],)\n  標準輸出: [['', '', '']]\n  你的輸出: [[['', '', '']]]\n\n[測試#4] ❌ 失敗\n  標準輸入: groupAnagrams([['abc']],)\n  標準輸出: [['abc']]\n  你的輸出: [[['abc']]]\n\n[測試#5] ❌ 失敗\n  標準輸入: groupAnagrams([['你好', '好你', '世界', '界世']],)\n  標準輸出: [['你好', '好你'], ['世界', '界世']]\n  你的輸出: [[['你好', '好你', '世界', '界世']]]\n\n[測試#6] ❌ 失敗\n  標準輸入: groupAnagrams([['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']],)\n  標準輸出: [['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']]\n  你的輸出: [[['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']]]\n\n[測試#7] ❌ 失敗\n  標準輸入: groupAnagrams([['abc', 'bca', 'abc', 'cab']],)\n  標準輸出: [['abc', 'abc', 'bca', 'cab']]\n  你的輸出: [[['abc', 'bca', 'abc', 'cab']]]\n\n[測試#8] ❌ 失敗\n  標準輸入: groupAnagrams([['ab c', 'c ba', 'abc']],)\n  標準輸出: [['ab c', 'c ba'], ['abc']]\n  你的輸出: [[['ab c', 'c ba', 'abc']]]\n\n=== 測試完成 (1/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 1,
+    "accuracy_rate": 0.125
+  }
+}

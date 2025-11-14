@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode397.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Integer Replacement",
+    "description": "Given a positive integer n, you can apply one of the following operations:\n\n1. If n is even, replace n with n / 2.\n2. If n is odd, replace n with either n + 1 or n - 1.\nReturn the minimum number of operations needed for n to become 1.",
+    "examples": [
+      {
+        "input": "n = 8",
+        "output": "3",
+        "explanation": "8 -> 4 -> 2 -> 1"
+      },
+      {
+        "input": "n = 7",
+        "output": "4",
+        "explanation": "7 -> 8 -> 4 -> 2 -> 1\nor 7 -> 6 -> 3 -> 2 -> 1"
+      },
+      {
+        "input": "n = 4",
+        "output": "2"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "8\n",
+        "output": "3\n"
+      },
+      {
+        "input": "7\n",
+        "output": "4\n"
+      },
+      {
+        "input": "15\n",
+        "output": "5\n"
+      },
+      {
+        "input": "23\n",
+        "output": "6\n"
+      },
+      {
+        "input": "1\n",
+        "output": "0\n"
+      },
+      {
+        "input": "3\n",
+        "output": "2\n"
+      },
+      {
+        "input": "2147483647\n",
+        "output": "31\n"
+      }
+    ],
+    "parsed_tests": [
+      "('integerReplacement', (8,), 3)",
+      "('integerReplacement', (7,), 4)",
+      "('integerReplacement', (15,), 5)",
+      "('integerReplacement', (23,), 6)",
+      "('integerReplacement', (1,), 0)",
+      "('integerReplacement', (3,), 2)",
+      "('integerReplacement', (2147483647,), 31)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: integerReplacement(8,)\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: integerReplacement(7,)\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#3] ✅ 通過\n  標準輸入: integerReplacement(15,)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#4] ✅ 通過\n  標準輸入: integerReplacement(23,)\n  標準輸出: 6\n  你的輸出: 6\n\n[測試#5] ✅ 通過\n  標準輸入: integerReplacement(1,)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#6] ✅ 通過\n  標準輸入: integerReplacement(3,)\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ❌ 失敗\n  標準輸入: integerReplacement(2147483647,)\n  標準輸出: 31\n  你的輸出: 32\n\n=== 測試完成 (6/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 6,
+    "accuracy_rate": 0.8571428571428571
+  }
+}

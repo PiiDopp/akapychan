@@ -1,0 +1,77 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode464.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Can I Win",
+    "description": "In the \"100 game\" two players take turns adding, to a running total, any integer from 1 to 10. The player who first causes the running total to reach or exceed 100 wins.\n\nWhat if we change the game so that players cannot re-use integers?\n\nFor example, two players might take turns drawing from a common pool of numbers from 1 to maxChoosableInteger without replacement until they reach a total >= desiredTotal.\n\nGiven two integers maxChoosableInteger and desiredTotal, return true if the first player to move can force a win, otherwise, return false. Assume both players play optimally.",
+    "examples": [
+      {
+        "input": "maxChoosableInteger = 10, desiredTotal = 11",
+        "output": "false",
+        "explanation": "No matter which integer the first player choose, the first player will lose. \nThe first player can choose an integer from 1 up to 10. \nIf the first player choose 1, the second player can only choose integers from 2 up to 10. \nThe second player will win by choosing 10 and get a total = 11, which is >= desiredTotal. \nSame with other integers chosen by the first player, the second player will always win."
+      },
+      {
+        "input": "maxChoosableInteger = 10, desiredTotal = 0",
+        "output": "true"
+      },
+      {
+        "input": "maxChoosableInteger = 10, desiredTotal = 1",
+        "output": "true"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "10\n50\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n7\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "True\n"
+      },
+      {
+        "input": "10\n0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n20\n",
+        "output": "False\n"
+      },
+      {
+        "input": "20\n300\n",
+        "output": "False\n"
+      },
+      {
+        "input": "10\n-5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "20\n210\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('canIWin', (10, 50), True)",
+      "('canIWin', (5, 7), True)",
+      "('canIWin', (1, 1), True)",
+      "('canIWin', (10, 0), True)",
+      "('canIWin', (5, 20), False)",
+      "('canIWin', (20, 300), False)",
+      "('canIWin', (10, -5), True)",
+      "('canIWin', (20, 210), True)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: canIWin(10, 50)\n  標準輸出: True\n  你的輸出: False\n\n[測試#2] ✅ 通過\n  標準輸入: canIWin(5, 7)\n  標準輸出: True\n  你的輸出: True\n\n[測試#3] ✅ 通過\n  標準輸入: canIWin(1, 1)\n  標準輸出: True\n  你的輸出: True\n\n[測試#4] ✅ 通過\n  標準輸入: canIWin(10, 0)\n  標準輸出: True\n  你的輸出: True\n\n[測試#5] ✅ 通過\n  標準輸入: canIWin(5, 20)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: canIWin(20, 300)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: canIWin(10, -5)\n  標準輸出: True\n  你的輸出: True\n\n[測試#8] ❌ 失敗\n  標準輸入: canIWin(20, 210)\n  標準輸出: True\n  你的輸出: False\n\n=== 測試完成 (6/8) ===\n[警告] 部分測資未通過 ❌（0.0255s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 6,
+    "accuracy_rate": 0.75
+  }
+}

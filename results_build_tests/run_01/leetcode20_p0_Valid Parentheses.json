@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode20.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Valid Parentheses",
+    "description": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.\n\nAn input string is valid if:\n\nOpen brackets must be closed by the same type of brackets.\nOpen brackets must be closed in the correct order.\nEvery close bracket has a corresponding open bracket of the same type.",
+    "examples": [
+      {
+        "input": "s = \"()\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"()[]{}\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"(]\"",
+        "output": "false"
+      },
+      {
+        "input": "s = \"([])\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"([)]\"",
+        "output": "false"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['()']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['({[]})']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['((()))']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "True\n"
+      },
+      {
+        "input": "['(']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "[')']\n",
+        "output": "False\n"
+      },
+      {
+        "input": "['([)]']\n",
+        "output": "False\n"
+      }
+    ],
+    "parsed_tests": [
+      "('isValid', (['()'],), True)",
+      "('isValid', (['({[]})'],), True)",
+      "('isValid', (['((()))'],), True)",
+      "('isValid', ([''],), True)",
+      "('isValid', (['('],), False)",
+      "('isValid', ([')'],), False)",
+      "('isValid', (['([)]'],), False)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: isValid(['()'],)\n  標準輸出: True\n  你的輸出: False\n\n[測試#2] ❌ 失敗\n  標準輸入: isValid(['({[]})'],)\n  標準輸出: True\n  你的輸出: False\n\n[測試#3] ❌ 失敗\n  標準輸入: isValid(['((()))'],)\n  標準輸出: True\n  你的輸出: False\n\n[測試#4] ❌ 失敗\n  標準輸入: isValid([''],)\n  標準輸出: True\n  你的輸出: False\n\n[測試#5] ✅ 通過\n  標準輸入: isValid(['('],)\n  標準輸出: False\n  你的輸出: False\n\n[測試#6] ✅ 通過\n  標準輸入: isValid([')'],)\n  標準輸出: False\n  你的輸出: False\n\n[測試#7] ✅ 通過\n  標準輸入: isValid(['([)]'],)\n  標準輸出: False\n  你的輸出: False\n\n=== 測試完成 (3/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 3,
+    "accuracy_rate": 0.42857142857142855
+  }
+}

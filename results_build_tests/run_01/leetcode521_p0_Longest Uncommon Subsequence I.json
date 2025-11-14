@@ -1,0 +1,79 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode521.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Uncommon Subsequence I",
+    "description": "Given two strings a and b, return the length of the longest uncommon subsequence between a and b. If no such uncommon subsequence exists, return -1.\n\nAn uncommon subsequence between two strings is a string that is a subsequence of exactly one of them.",
+    "examples": [
+      {
+        "input": "\"aba\", \"cdc\"",
+        "output": "3",
+        "explanation": "One longest uncommon subsequence is \"aba\" because \"aba\" is a subsequence of \"aba\" but not \"cdc\". Note that \"cdc\" is also a longest uncommon subsequence."
+      },
+      {
+        "input": "\"aaa\", \"bbb\"",
+        "output": "3",
+        "explanation": "The longest uncommon subsequences are \"aaa\" and \"bbb\"."
+      },
+      {
+        "input": "\"aaa\", \"aaa\"",
+        "output": "-1",
+        "explanation": "Every subsequence of string a is also a subsequence of string b. Similarly, every subsequence of string b is also a subsequence of string a. So the answer would be -1."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abc', 'def']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['a', 'ab']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['xyz', 'xy']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['', '']\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "['', 'abc']\n",
+        "output": "3\n"
+      },
+      {
+        "input": "['你好', '世界']\n",
+        "output": "2\n"
+      },
+      {
+        "input": "['aaaa', 'aa']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['same', 'same']\n",
+        "output": "-1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('findLUSlength', ('abc', 'def'), 3)",
+      "('findLUSlength', ('a', 'ab'), 2)",
+      "('findLUSlength', ('xyz', 'xy'), 3)",
+      "('findLUSlength', ('', ''), -1)",
+      "('findLUSlength', ('', 'abc'), 3)",
+      "('findLUSlength', ('你好', '世界'), 2)",
+      "('findLUSlength', ('aaaa', 'aa'), 4)",
+      "('findLUSlength', ('same', 'same'), -1)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: findLUSlength('abc', 'def')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#2] ✅ 通過\n  標準輸入: findLUSlength('a', 'ab')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#3] ✅ 通過\n  標準輸入: findLUSlength('xyz', 'xy')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#4] ✅ 通過\n  標準輸入: findLUSlength('', '')\n  標準輸出: -1\n  你的輸出: -1\n\n[測試#5] ✅ 通過\n  標準輸入: findLUSlength('', 'abc')\n  標準輸出: 3\n  你的輸出: 3\n\n[測試#6] ✅ 通過\n  標準輸入: findLUSlength('你好', '世界')\n  標準輸出: 2\n  你的輸出: 2\n\n[測試#7] ✅ 通過\n  標準輸入: findLUSlength('aaaa', 'aa')\n  標準輸出: 4\n  你的輸出: 4\n\n[測試#8] ✅ 通過\n  標準輸入: findLUSlength('same', 'same')\n  標準輸出: -1\n  你的輸出: -1\n\n=== 測試完成 (8/8) ===\n[成功] 所有測資通過 ✅（0.0000s）\n",
+    "all_passed": true,
+    "total_tests": 8,
+    "passed_count": 8,
+    "accuracy_rate": 1.0
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode238.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Product of Array Except Self",
+    "description": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].\nThe product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.\nYou must write an algorithm that runs in O(n) time and without using the division operation.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "[24,12,8,6]"
+      },
+      {
+        "input": "nums = [-1,1,0,-3,3]",
+        "output": "[0,0,9,0,0]"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3 4\n",
+        "output": "[24, 12, 8, 6]\n"
+      },
+      {
+        "input": "2 3 4\n",
+        "output": "[12, 8, 6]\n"
+      },
+      {
+        "input": "\n",
+        "output": "[]\n"
+      },
+      {
+        "input": "5\n",
+        "output": "[1]\n"
+      },
+      {
+        "input": "1 2 0 4\n",
+        "output": "[0, 0, 8, 0]\n"
+      },
+      {
+        "input": "-1 -2 -3\n",
+        "output": "[6, 3, 2]\n"
+      },
+      {
+        "input": "1 1 1 1\n",
+        "output": "[1, 1, 1, 1]\n"
+      },
+      {
+        "input": "0 0 1\n",
+        "output": "[0, 0, 0]\n"
+      }
+    ],
+    "parsed_tests": [
+      "('productExceptSelf', ('1 2 3 4\\n',), [24, 12, 8, 6])",
+      "('productExceptSelf', ('2 3 4\\n',), [12, 8, 6])",
+      "('productExceptSelf', ((),), [])",
+      "('productExceptSelf', (5,), [1])",
+      "('productExceptSelf', ('1 2 0 4\\n',), [0, 0, 8, 0])",
+      "('productExceptSelf', ('-1 -2 -3\\n',), [6, 3, 2])",
+      "('productExceptSelf', ('1 1 1 1\\n',), [1, 1, 1, 1])",
+      "('productExceptSelf', ('0 0 1\\n',), [0, 0, 0])"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: can't multiply sequence by non-int of type 'str'\n[測試#2] ❌ 執行例外: can't multiply sequence by non-int of type 'str'\n[測試#3] ✅ 通過\n  標準輸入: productExceptSelf((),)\n  標準輸出: []\n  你的輸出: []\n\n[測試#4] ❌ 執行例外: object of type 'int' has no len()\n[測試#5] ❌ 執行例外: can't multiply sequence by non-int of type 'str'\n[測試#6] ❌ 執行例外: can't multiply sequence by non-int of type 'str'\n[測試#7] ❌ 執行例外: can't multiply sequence by non-int of type 'str'\n[測試#8] ❌ 執行例外: can't multiply sequence by non-int of type 'str'\n=== 測試完成 (1/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 1,
+    "accuracy_rate": 0.125
+  }
+}

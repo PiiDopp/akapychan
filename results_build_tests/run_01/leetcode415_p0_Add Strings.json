@@ -1,0 +1,76 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode415.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Add Strings",
+    "description": "Given two non-negative integers, num1 and num2 represented as string, return the sum of num1 and num2 as a string.\n\nYou must solve the problem without using any built-in library for handling large integers (such as BigInteger). You must also not convert the inputs to integers directly.",
+    "examples": [
+      {
+        "input": "num1 = \"11\", num2 = \"123\"",
+        "output": "\"134\""
+      },
+      {
+        "input": "num1 = \"456\", num2 = \"77\"",
+        "output": "\"533\""
+      },
+      {
+        "input": "num1 = \"0\", num2 = \"0\"",
+        "output": "\"0\""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['123', '456']\n",
+        "output": "579\n"
+      },
+      {
+        "input": "['0', '0']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['999', '1']\n",
+        "output": "1000\n"
+      },
+      {
+        "input": "['123456789', '987654321']\n",
+        "output": "1111111110\n"
+      },
+      {
+        "input": "['000123', '000456']\n",
+        "output": "579\n"
+      },
+      {
+        "input": "['1', '999999999999999999999999999999']\n",
+        "output": "1000000000000000000000000000000\n"
+      },
+      {
+        "input": "['000', '000']\n",
+        "output": "000\n"
+      },
+      {
+        "input": "['', '123']\n",
+        "output": "123\n"
+      }
+    ],
+    "parsed_tests": [
+      "('addStrings', ('123', '456'), 579)",
+      "('addStrings', ('0', '0'), 0)",
+      "('addStrings', ('999', '1'), 1000)",
+      "('addStrings', ('123456789', '987654321'), 1111111110)",
+      "('addStrings', ('000123', '000456'), 579)",
+      "('addStrings', ('1', '999999999999999999999999999999'), 1000000000000000000000000000000)",
+      "('addStrings', ('000', '000'), 0)",
+      "('addStrings', ('', '123'), 123)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: addStrings('123', '456')\n  標準輸出: 579\n  你的輸出: '579'\n\n[測試#2] ❌ 失敗\n  標準輸入: addStrings('0', '0')\n  標準輸出: 0\n  你的輸出: '0'\n\n[測試#3] ❌ 失敗\n  標準輸入: addStrings('999', '1')\n  標準輸出: 1000\n  你的輸出: '1000'\n\n[測試#4] ❌ 失敗\n  標準輸入: addStrings('123456789', '987654321')\n  標準輸出: 1111111110\n  你的輸出: '1111111110'\n\n[測試#5] ❌ 失敗\n  標準輸入: addStrings('000123', '000456')\n  標準輸出: 579\n  你的輸出: '000579'\n\n[測試#6] ❌ 失敗\n  標準輸入: addStrings('1', '999999999999999999999999999999')\n  標準輸出: 1000000000000000000000000000000\n  你的輸出: '1000000000000000000000000000000'\n\n[測試#7] ❌ 失敗\n  標準輸入: addStrings('000', '000')\n  標準輸出: 0\n  你的輸出: '000'\n\n[測試#8] ❌ 失敗\n  標準輸入: addStrings('', '123')\n  標準輸出: 123\n  你的輸出: '123'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0001s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

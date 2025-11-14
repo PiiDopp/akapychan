@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode486.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Predict the Winner",
+    "description": "You are given an integer array nums. Two players are playing a game with this array: player 1 and player 2.\n\nPlayer 1 and player 2 take turns, with player 1 starting first. Both players start the game with a score of 0. At each turn, the player takes one of the numbers from either end of the array (i.e., nums[0] or nums[nums.length - 1]) which reduces the size of the array by 1. The player adds the chosen number to their score. The game ends when there are no more elements in the array.\n\nReturn true if Player 1 can win the game. If the scores of both players are equal, then player 1 is still the winner, and you should also return true. You may assume that both players are playing optimally.",
+    "examples": [
+      {
+        "input": "nums = [1,5,2]",
+        "output": "false",
+        "explanation": "Initially, player 1 can choose between 1 and 2. If he chooses 2 (or 1), then player 2 can choose from 1 (or 2) and 5. If player 2 chooses 5, then player 1 will be left with 1 (or 2). So, final score of player 1 is 1 + 2 = 3, and player 2 is 5. Hence, player 1 will never be the winner and you need to return false."
+      },
+      {
+        "input": "nums = [1,5,233,7]",
+        "output": "true",
+        "explanation": "Player 1 first chooses 1. Then player 2 has to choose between 5 and 7. No matter which number player 2 choose, player 1 can choose 233. Finally, player 1 has more score (234) than player 2 (12), so you need to return True representing player1 can win."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 5 2 2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1 100 2\n",
+        "output": "False\n"
+      },
+      {
+        "input": "0 0 0\n",
+        "output": "True\n"
+      },
+      {
+        "input": "\n",
+        "output": "True\n"
+      },
+      {
+        "input": "5\n",
+        "output": "True\n"
+      },
+      {
+        "input": "-1 -2 -3\n",
+        "output": "False\n"
+      },
+      {
+        "input": "3 9 1 2\n",
+        "output": "True\n"
+      },
+      {
+        "input": "1 2 3 4 5\n",
+        "output": "True\n"
+      }
+    ],
+    "parsed_tests": [
+      "('predictTheWinner', ('1 5 2 2\\n',), True)",
+      "('predictTheWinner', ('1 100 2\\n',), False)",
+      "('predictTheWinner', ('0 0 0\\n',), True)",
+      "('predictTheWinner', ((),), True)",
+      "('predictTheWinner', (5,), True)",
+      "('predictTheWinner', ('-1 -2 -3\\n',), False)",
+      "('predictTheWinner', ('3 9 1 2\\n',), True)",
+      "('predictTheWinner', ('1 2 3 4 5\\n',), True)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#2] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#3] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#4] ❌ 執行例外: list index out of range\n[測試#5] ❌ 執行例外: object of type 'int' has no len()\n[測試#6] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#7] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#8] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode300.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Longest Increasing Subsequence",
+    "description": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+    "examples": [
+      {
+        "input": "nums = [10,9,2,5,3,7,101,18]",
+        "output": "4",
+        "explanation": "The longest increasing subsequence is [2,3,7,101], therefore the length is 4."
+      },
+      {
+        "input": "nums = [0,1,0,3,2,3]",
+        "output": "4"
+      },
+      {
+        "input": "nums = [7,7,7,7,7,7,7]",
+        "output": "1"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 2 3 4 5\n",
+        "output": "5\n"
+      },
+      {
+        "input": "10 9 2 5 3 7 101 18\n",
+        "output": "4\n"
+      },
+      {
+        "input": "4 4 4 4\n",
+        "output": "1\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "7\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5 4 3 2 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "-3 -2 -1 0 1\n",
+        "output": "5\n"
+      }
+    ],
+    "parsed_tests": [
+      "('lengthOfLIS', ('1 2 3 4 5\\n',), 5)",
+      "('lengthOfLIS', ('10 9 2 5 3 7 101 18\\n',), 4)",
+      "('lengthOfLIS', ('4 4 4 4\\n',), 1)",
+      "('lengthOfLIS', ((),), 0)",
+      "('lengthOfLIS', (7,), 1)",
+      "('lengthOfLIS', ('5 4 3 2 1\\n',), 1)",
+      "('lengthOfLIS', ('-3 -2 -1 0 1\\n',), 5)"
+    ],
+    "runlog": "[測試#1] ✅ 通過\n  標準輸入: lengthOfLIS('1 2 3 4 5\\n',)\n  標準輸出: 5\n  你的輸出: 5\n\n[測試#2] ❌ 失敗\n  標準輸入: lengthOfLIS('10 9 2 5 3 7 101 18\\n',)\n  標準輸出: 4\n  你的輸出: 5\n\n[測試#3] ❌ 失敗\n  標準輸入: lengthOfLIS('4 4 4 4\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#4] ✅ 通過\n  標準輸入: lengthOfLIS((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#5] ❌ 執行例外: 'int' object is not iterable\n[測試#6] ❌ 失敗\n  標準輸入: lengthOfLIS('5 4 3 2 1\\n',)\n  標準輸出: 1\n  你的輸出: 2\n\n[測試#7] ❌ 失敗\n  標準輸入: lengthOfLIS('-3 -2 -1 0 1\\n',)\n  標準輸出: 5\n  你的輸出: 4\n\n=== 測試完成 (2/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 2,
+    "accuracy_rate": 0.2857142857142857
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode564.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Find the Closest Palindrome",
+    "description": "Given a string n representing an integer, return the closest integer (not including itself), which is a palindrome. If there is a tie, return the smaller one.\n\nThe closest is defined as the absolute difference minimized between two integers.",
+    "examples": [
+      {
+        "input": "n = \"123\"",
+        "output": "\"121\""
+      },
+      {
+        "input": "n = \"1\"",
+        "output": "\"0\"",
+        "explanation": "0 and 2 are the closest palindromes but we return the smallest which is 0."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['12345']\n",
+        "output": "12321\n"
+      },
+      {
+        "input": "['8']\n",
+        "output": "7\n"
+      },
+      {
+        "input": "['11']\n",
+        "output": "9\n"
+      },
+      {
+        "input": "['1']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['10']\n",
+        "output": "9\n"
+      },
+      {
+        "input": "['999']\n",
+        "output": "1001\n"
+      },
+      {
+        "input": "['1000']\n",
+        "output": "999\n"
+      },
+      {
+        "input": "['1000000000000000000']\n",
+        "output": "999999999999999999\n"
+      }
+    ],
+    "parsed_tests": [
+      "('nearestPalindromic', (['12345'],), 12321)",
+      "('nearestPalindromic', (['8'],), 7)",
+      "('nearestPalindromic', (['11'],), 9)",
+      "('nearestPalindromic', (['1'],), 0)",
+      "('nearestPalindromic', (['10'],), 9)",
+      "('nearestPalindromic', (['999'],), 1001)",
+      "('nearestPalindromic', (['1000'],), 999)",
+      "('nearestPalindromic', (['1000000000000000000'],), 999999999999999999)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: int() argument must be a string, a bytes-like object or a real number, not 'list'\n[測試#2] ❌ 執行例外: int() argument must be a string, a bytes-like object or a real number, not 'list'\n[測試#3] ❌ 執行例外: int() argument must be a string, a bytes-like object or a real number, not 'list'\n[測試#4] ❌ 執行例外: int() argument must be a string, a bytes-like object or a real number, not 'list'\n[測試#5] ❌ 執行例外: int() argument must be a string, a bytes-like object or a real number, not 'list'\n[測試#6] ❌ 執行例外: int() argument must be a string, a bytes-like object or a real number, not 'list'\n[測試#7] ❌ 執行例外: int() argument must be a string, a bytes-like object or a real number, not 'list'\n[測試#8] ❌ 執行例外: int() argument must be a string, a bytes-like object or a real number, not 'list'\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

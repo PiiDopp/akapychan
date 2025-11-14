@@ -1,0 +1,68 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode781.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Rabbits in Forest",
+    "description": "There is a forest with an unknown number of rabbits. We asked n rabbits \"How many rabbits have the same color as you?\" and collected the answers in an integer array answers where answers[i] is the answer of the ith rabbit.\n\nGiven the array answers, return the minimum number of rabbits that could be in the forest.",
+    "examples": [
+      {
+        "input": "answers = [1,1,2]",
+        "output": "5",
+        "explanation": "The two rabbits that answered \"1\" could both be the same color, say red. The rabbit that answered \"2\" can't be red. Say the rabbit that answered \"2\" was blue. Then there should be 2 other blue rabbits in the forest that didn't answer. The smallest possible number of rabbits in the forest is therefore 5: 3 that answered plus 2 that didn't."
+      },
+      {
+        "input": "answers = [10,10,10]",
+        "output": "11"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 1 2 2 2\n",
+        "output": "5\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "0 0 0\n",
+        "output": "3\n"
+      },
+      {
+        "input": "2 2\n",
+        "output": "3\n"
+      },
+      {
+        "input": "3 3 3 3\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1000000\n",
+        "output": "1000001\n"
+      },
+      {
+        "input": "1 1 1 1 1\n",
+        "output": "6\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numRabbits', ('1 1 2 2 2\\n',), 5)",
+      "('numRabbits', ((),), 0)",
+      "('numRabbits', ('0 0 0\\n',), 3)",
+      "('numRabbits', ('2 2\\n',), 3)",
+      "('numRabbits', ('3 3 3 3\\n',), 4)",
+      "('numRabbits', (1000000,), 1000001)",
+      "('numRabbits', ('1 1 1 1 1\\n',), 6)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#2] ✅ 通過\n  標準輸入: numRabbits((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#3] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#4] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#5] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n[測試#6] ❌ 執行例外: 'int' object is not iterable\n[測試#7] ❌ 執行例外: unsupported operand type(s) for +: 'int' and 'str'\n=== 測試完成 (1/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 1,
+    "accuracy_rate": 0.14285714285714285
+  }
+}

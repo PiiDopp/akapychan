@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode837.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "New 21 Game",
+    "description": "Alice plays the following game, loosely based on the card game \"21\".\n\nAlice starts with 0 points and draws numbers while she has less than k points. During each draw, she gains an integer number of points randomly from the range [1, maxPts], where maxPts is an integer. Each draw is independent and the outcomes have equal probabilities.\n\nAlice stops drawing numbers when she gets k or more points.\n\nReturn the probability that Alice has n or fewer points.\n\nAnswers within 10^-5 of the actual answer are considered accepted.",
+    "examples": [
+      {
+        "input": "n = 10, k = 1, maxPts = 10",
+        "output": "1.00000",
+        "explanation": "Alice gets a single card, then stops."
+      },
+      {
+        "input": "n = 6, k = 1, maxPts = 10",
+        "output": "0.60000",
+        "explanation": "Alice gets a single card, then stops. \nIn 6 out of 10 possibilities, she is at or below 6 points."
+      },
+      {
+        "input": "n = 21, k = 17, maxPts = 10",
+        "output": "0.73278"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "21\n17\n10\n",
+        "output": "0.73278\n"
+      },
+      {
+        "input": "6\n1\n10\n",
+        "output": "0.6\n"
+      },
+      {
+        "input": "10\n0\n5\n",
+        "output": "1.0\n"
+      },
+      {
+        "input": "0\n0\n1\n",
+        "output": "1.0\n"
+      },
+      {
+        "input": "5\n10\n5\n",
+        "output": "0.0\n"
+      },
+      {
+        "input": "10\n5\n1\n",
+        "output": "1.0\n"
+      },
+      {
+        "input": "5\n5\n3\n",
+        "output": "0.497942\n"
+      }
+    ],
+    "parsed_tests": [
+      "('new21Game', (21, 17, 10), 0.73278)",
+      "('new21Game', (6, 1, 10), 0.6)",
+      "('new21Game', (10, 0, 5), 1.0)",
+      "('new21Game', (0, 0, 1), 1.0)",
+      "('new21Game', (5, 10, 5), 0.0)",
+      "('new21Game', (10, 5, 1), 1.0)",
+      "('new21Game', (5, 5, 3), 0.497942)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: new21Game(21, 17, 10)\n  標準輸出: 0.73278\n  你的輸出: 0.7327777870686074\n\n[測試#2] ✅ 通過\n  標準輸入: new21Game(6, 1, 10)\n  標準輸出: 0.6\n  你的輸出: 0.6\n\n[測試#3] ✅ 通過\n  標準輸入: new21Game(10, 0, 5)\n  標準輸出: 1.0\n  你的輸出: 1.0\n\n[測試#4] ✅ 通過\n  標準輸入: new21Game(0, 0, 1)\n  標準輸出: 1.0\n  你的輸出: 1.0\n\n[測試#5] ❌ 執行例外: list assignment index out of range\n[測試#6] ✅ 通過\n  標準輸入: new21Game(10, 5, 1)\n  標準輸出: 1.0\n  你的輸出: 1.0\n\n[測試#7] ✅ 通過\n  標準輸入: new21Game(5, 5, 3)\n  標準輸出: 0.497942\n  你的輸出: 0.49794238683127573\n\n=== 測試完成 (5/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 5,
+    "accuracy_rate": 0.7142857142857143
+  }
+}

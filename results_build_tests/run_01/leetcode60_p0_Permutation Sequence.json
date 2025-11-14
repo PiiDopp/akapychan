@@ -1,0 +1,71 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode60.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Permutation Sequence",
+    "description": "The set [1, 2, 3, ..., n] contains a total of n! unique permutations.\n\nBy listing and labeling all of the permutations in order, we get the following sequence for n = 3:\n\n\"123\"\n\"132\"\n\"213\"\n\"231\"\n\"312\"\n\"321\"\nGiven n and k, return the kth permutation sequence.",
+    "examples": [
+      {
+        "input": "n = 3, k = 3",
+        "output": "\"213\""
+      },
+      {
+        "input": "n = 4, k = 9",
+        "output": "\"2314\""
+      },
+      {
+        "input": "n = 3, k = 1",
+        "output": "\"123\""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "3\n4\n",
+        "output": "231\n"
+      },
+      {
+        "input": "4\n9\n",
+        "output": "2314\n"
+      },
+      {
+        "input": "5\n1\n",
+        "output": "12345\n"
+      },
+      {
+        "input": "1\n1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "3\n6\n",
+        "output": "321\n"
+      },
+      {
+        "input": "9\n362880\n",
+        "output": "987654321\n"
+      },
+      {
+        "input": "10\n3628800\n",
+        "output": "10987654321\n"
+      }
+    ],
+    "parsed_tests": [
+      "('getPermutation', (3, 4), 231)",
+      "('getPermutation', (4, 9), 2314)",
+      "('getPermutation', (5, 1), 12345)",
+      "('getPermutation', (1, 1), 1)",
+      "('getPermutation', (3, 6), 321)",
+      "('getPermutation', (9, 362880), 987654321)",
+      "('getPermutation', (10, 3628800), 10987654321)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: getPermutation(3, 4)\n  標準輸出: 231\n  你的輸出: '231'\n\n[測試#2] ❌ 失敗\n  標準輸入: getPermutation(4, 9)\n  標準輸出: 2314\n  你的輸出: '2314'\n\n[測試#3] ❌ 失敗\n  標準輸入: getPermutation(5, 1)\n  標準輸出: 12345\n  你的輸出: '12345'\n\n[測試#4] ❌ 失敗\n  標準輸入: getPermutation(1, 1)\n  標準輸出: 1\n  你的輸出: '1'\n\n[測試#5] ❌ 失敗\n  標準輸入: getPermutation(3, 6)\n  標準輸出: 321\n  你的輸出: '321'\n\n[測試#6] ❌ 失敗\n  標準輸入: getPermutation(9, 362880)\n  標準輸出: 987654321\n  你的輸出: '987654321'\n\n[測試#7] ❌ 失敗\n  標準輸入: getPermutation(10, 3628800)\n  標準輸出: 10987654321\n  你的輸出: '10987654321'\n\n=== 測試完成 (0/7) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 7,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode413.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Arithmetic Slices",
+    "description": "An integer array is called arithmetic if it consists of at least three elements and if the difference between any two consecutive elements is the same.\n\nFor example, [1,3,5,7,9], [7,7,7,7], and [3,-1,-5,-9] are arithmetic sequences.\nGiven an integer array nums, return the number of arithmetic subarrays of nums.\n\nA subarray is a contiguous subsequence of the array.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "3",
+        "explanation": "We have 3 arithmetic slices in nums: [1, 2, 3], [2, 3, 4] and [1,2,3,4] itself."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "0"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1 3 5 7 9\n",
+        "output": "6\n"
+      },
+      {
+        "input": "7 7 7 7\n",
+        "output": "3\n"
+      },
+      {
+        "input": "3 -1 -5 -9\n",
+        "output": "1\n"
+      },
+      {
+        "input": "1 2 4 7 11\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1 3 5 7 9 11\n",
+        "output": "10\n"
+      },
+      {
+        "input": "\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5 5\n",
+        "output": "0\n"
+      },
+      {
+        "input": "1000000000000000000 1000000000000000001 1000000000000000002\n",
+        "output": "1\n"
+      }
+    ],
+    "parsed_tests": [
+      "('numberOfArithmeticSlices', ('1 3 5 7 9\\n',), 6)",
+      "('numberOfArithmeticSlices', ('7 7 7 7\\n',), 3)",
+      "('numberOfArithmeticSlices', ('3 -1 -5 -9\\n',), 1)",
+      "('numberOfArithmeticSlices', ('1 2 4 7 11\\n',), 0)",
+      "('numberOfArithmeticSlices', ('1 3 5 7 9 11\\n',), 10)",
+      "('numberOfArithmeticSlices', ((),), 0)",
+      "('numberOfArithmeticSlices', ('5 5\\n',), 0)",
+      "('numberOfArithmeticSlices', ('1000000000000000000 1000000000000000001 1000000000000000002\\n',), 1)"
+    ],
+    "runlog": "[測試#1] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#2] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#3] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#4] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#5] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#6] ✅ 通過\n  標準輸入: numberOfArithmeticSlices((),)\n  標準輸出: 0\n  你的輸出: 0\n\n[測試#7] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n[測試#8] ❌ 執行例外: unsupported operand type(s) for -: 'str' and 'str'\n=== 測試完成 (1/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 1,
+    "accuracy_rate": 0.125
+  }
+}

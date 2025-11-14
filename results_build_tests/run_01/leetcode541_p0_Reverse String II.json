@@ -1,0 +1,72 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode541.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Reverse String II",
+    "description": "Given a string s and an integer k, reverse the first k characters for every 2k characters counting from the start of the string.\n\nIf there are fewer than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and leave the other as original.",
+    "examples": [
+      {
+        "input": "\"abcdefg\", 2",
+        "output": "\"bacdfeg\""
+      },
+      {
+        "input": "\"abcd\", 2",
+        "output": "\"bacd\""
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['abcdefg', 2]\n",
+        "output": "bacdfeg\n"
+      },
+      {
+        "input": "['abcd', 2]\n",
+        "output": "bacd\n"
+      },
+      {
+        "input": "['abc', 2]\n",
+        "output": "bac\n"
+      },
+      {
+        "input": "['', 5]\n",
+        "output": "\n"
+      },
+      {
+        "input": "['abcdef', 0]\n",
+        "output": "abcdef\n"
+      },
+      {
+        "input": "['abc', -3]\n",
+        "output": "abc\n"
+      },
+      {
+        "input": "['abc', 10]\n",
+        "output": "cba\n"
+      },
+      {
+        "input": "['你好世界', 2]\n",
+        "output": "好你世界\n"
+      }
+    ],
+    "parsed_tests": [
+      "('reverseStr', ('abcdefg', 2), 'bacdfeg\\n')",
+      "('reverseStr', ('abcd', 2), 'bacd\\n')",
+      "('reverseStr', ('abc', 2), 'bac\\n')",
+      "('reverseStr', ('', 5), '\\n')",
+      "('reverseStr', ('abcdef', 0), 'abcdef\\n')",
+      "('reverseStr', ('abc', -3), 'abc\\n')",
+      "('reverseStr', ('abc', 10), 'cba\\n')",
+      "('reverseStr', ('你好世界', 2), '好你世界\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: reverseStr('abcdefg', 2)\n  標準輸出: 'bacdfeg\\n'\n  你的輸出: 'bacdfeg'\n\n[測試#2] ❌ 失敗\n  標準輸入: reverseStr('abcd', 2)\n  標準輸出: 'bacd\\n'\n  你的輸出: 'bacd'\n\n[測試#3] ❌ 失敗\n  標準輸入: reverseStr('abc', 2)\n  標準輸出: 'bac\\n'\n  你的輸出: 'bac'\n\n[測試#4] ❌ 失敗\n  標準輸入: reverseStr('', 5)\n  標準輸出: '\\n'\n  你的輸出: ''\n\n[測試#5] ❌ 執行例外: range() arg 3 must not be zero\n[測試#6] ❌ 失敗\n  標準輸入: reverseStr('abc', -3)\n  標準輸出: 'abc\\n'\n  你的輸出: 'abc'\n\n[測試#7] ❌ 失敗\n  標準輸入: reverseStr('abc', 10)\n  標準輸出: 'cba\\n'\n  你的輸出: 'cba'\n\n[測試#8] ❌ 失敗\n  標準輸入: reverseStr('你好世界', 2)\n  標準輸出: '好你世界\\n'\n  你的輸出: '好你世界'\n\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

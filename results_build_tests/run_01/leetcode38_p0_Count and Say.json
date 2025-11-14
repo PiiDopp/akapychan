@@ -1,0 +1,74 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode38.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Count and Say",
+    "description": "The count-and-say sequence is a sequence of digit strings defined by the recursive formula:\n\ncountAndSay(1) = \"1\"\ncountAndSay(n) is the run-length encoding of countAndSay(n - 1).\nRun-length encoding (RLE) is a string compression method that works by replacing consecutive identical characters (repeated 2 or more times) with the concatenation of the character and the number marking the count of the characters (length of the run). For example, to compress the string \"3322251\" we replace \"33\" with \"23\", replace \"222\" with \"32\", replace \"5\" with \"15\" and replace \"1\" with \"11\". Thus the compressed string becomes \"23321511\".\n\nGiven a positive integer n, return the nth element of the count-and-say sequence.",
+    "examples": [
+      {
+        "input": "n = 4",
+        "output": "\"1211\"",
+        "explanation": "countAndSay(1) = \"1\"\ncountAndSay(2) = RLE of \"1\" = \"11\"\ncountAndSay(3) = RLE of \"11\" = \"21\"\ncountAndSay(4) = RLE of \"21\" = \"1211\""
+      },
+      {
+        "input": "n = 1",
+        "output": "\"1\"",
+        "explanation": "This is the base case."
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n",
+        "output": "11\n"
+      },
+      {
+        "input": "3\n",
+        "output": "21\n"
+      },
+      {
+        "input": "4\n",
+        "output": "1211\n"
+      },
+      {
+        "input": "5\n",
+        "output": "111221\n"
+      },
+      {
+        "input": "6\n",
+        "output": "312211\n"
+      },
+      {
+        "input": "0\n",
+        "output": "Exception\n"
+      },
+      {
+        "input": "-5\n",
+        "output": "Exception\n"
+      }
+    ],
+    "parsed_tests": [
+      "('countAndSay', (1,), 1)",
+      "('countAndSay', (2,), 11)",
+      "('countAndSay', (3,), 21)",
+      "('countAndSay', (4,), 1211)",
+      "('countAndSay', (5,), 111221)",
+      "('countAndSay', (6,), 312211)",
+      "('countAndSay', (0,), 'Exception\\n')",
+      "('countAndSay', (-5,), 'Exception\\n')"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: countAndSay(1,)\n  標準輸出: 1\n  你的輸出: '1'\n\n[測試#2] ❌ 失敗\n  標準輸入: countAndSay(2,)\n  標準輸出: 11\n  你的輸出: '11'\n\n[測試#3] ❌ 失敗\n  標準輸入: countAndSay(3,)\n  標準輸出: 21\n  你的輸出: '21'\n\n[測試#4] ❌ 失敗\n  標準輸入: countAndSay(4,)\n  標準輸出: 1211\n  你的輸出: '1211'\n\n[測試#5] ❌ 失敗\n  標準輸入: countAndSay(5,)\n  標準輸出: 111221\n  你的輸出: '111221'\n\n[測試#6] ❌ 失敗\n  標準輸入: countAndSay(6,)\n  標準輸出: 312211\n  你的輸出: '312211'\n\n[測試#7] ❌ 執行例外: maximum recursion depth exceeded\n[測試#8] ❌ 執行例外: maximum recursion depth exceeded\n=== 測試完成 (0/8) ===\n[警告] 部分測資未通過 ❌（0.0007s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 0,
+    "accuracy_rate": 0.0
+  }
+}

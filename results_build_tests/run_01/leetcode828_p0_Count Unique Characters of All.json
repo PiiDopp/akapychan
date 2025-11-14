@@ -1,0 +1,78 @@
+{
+  "run_index": 1,
+  "source_file": "/home/hcilab/akapygit/data/Leetcode/leetcode828.json",
+  "problem_index_in_file": 0,
+  "problem_data": {
+    "title": "Count Unique Characters of All Substrings of a Given String",
+    "description": "Let's define a function countUniqueChars(s) that returns the number of unique characters in s.\n\nFor example, calling countUniqueChars(s) if s = \"LEETCODE\" then \"L\", \"T\", \"C\", \"O\", \"D\" are the unique characters since they appear only once in s, therefore countUniqueChars(s) = 5.\nGiven a string s, return the sum of countUniqueChars(t) where t is a substring of s. The test cases are generated such that the answer fits in a 32-bit integer.\n\nNotice that some substrings can be repeated so in this case you have to count the repeated ones too.",
+    "examples": [
+      {
+        "input": "s = \"ABC\"",
+        "output": "10",
+        "explanation": "All possible substrings are: \"A\",\"B\",\"C\",\"AB\",\"BC\" and \"ABC\". Every substring is composed with only unique letters. Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10"
+      },
+      {
+        "input": "s = \"ABA\"",
+        "output": "8",
+        "explanation": "The same as example 1, except countUniqueChars(\"ABA\") = 1."
+      },
+      {
+        "input": "s = \"LEETCODE\"",
+        "output": "92"
+      }
+    ]
+  },
+  "experiment_result": {
+    "success": true,
+    "error": null,
+    "generated_tests": [
+      {
+        "input": "['LEETCODE']\n",
+        "output": "92\n"
+      },
+      {
+        "input": "['']\n",
+        "output": "0\n"
+      },
+      {
+        "input": "['A']\n",
+        "output": "1\n"
+      },
+      {
+        "input": "['AAAA']\n",
+        "output": "4\n"
+      },
+      {
+        "input": "['ABCD']\n",
+        "output": "20\n"
+      },
+      {
+        "input": "['ABA']\n",
+        "output": "8\n"
+      },
+      {
+        "input": "['ABCABC']\n",
+        "output": "36\n"
+      },
+      {
+        "input": "['ABAB']\n",
+        "output": "12\n"
+      }
+    ],
+    "parsed_tests": [
+      "('uniqueLetterString', (['LEETCODE'],), 92)",
+      "('uniqueLetterString', ([''],), 0)",
+      "('uniqueLetterString', (['A'],), 1)",
+      "('uniqueLetterString', (['AAAA'],), 4)",
+      "('uniqueLetterString', (['ABCD'],), 20)",
+      "('uniqueLetterString', (['ABA'],), 8)",
+      "('uniqueLetterString', (['ABCABC'],), 36)",
+      "('uniqueLetterString', (['ABAB'],), 12)"
+    ],
+    "runlog": "[測試#1] ❌ 失敗\n  標準輸入: uniqueLetterString(['LEETCODE'],)\n  標準輸出: 92\n  你的輸出: 1\n\n[測試#2] ❌ 失敗\n  標準輸入: uniqueLetterString([''],)\n  標準輸出: 0\n  你的輸出: 1\n\n[測試#3] ✅ 通過\n  標準輸入: uniqueLetterString(['A'],)\n  標準輸出: 1\n  你的輸出: 1\n\n[測試#4] ❌ 失敗\n  標準輸入: uniqueLetterString(['AAAA'],)\n  標準輸出: 4\n  你的輸出: 1\n\n[測試#5] ❌ 失敗\n  標準輸入: uniqueLetterString(['ABCD'],)\n  標準輸出: 20\n  你的輸出: 1\n\n[測試#6] ❌ 失敗\n  標準輸入: uniqueLetterString(['ABA'],)\n  標準輸出: 8\n  你的輸出: 1\n\n[測試#7] ❌ 失敗\n  標準輸入: uniqueLetterString(['ABCABC'],)\n  標準輸出: 36\n  你的輸出: 1\n\n[測試#8] ❌ 失敗\n  標準輸入: uniqueLetterString(['ABAB'],)\n  標準輸出: 12\n  你的輸出: 1\n\n=== 測試完成 (1/8) ===\n[警告] 部分測資未通過 ❌（0.0000s）\n",
+    "all_passed": false,
+    "total_tests": 8,
+    "passed_count": 1,
+    "accuracy_rate": 0.125
+  }
+}
